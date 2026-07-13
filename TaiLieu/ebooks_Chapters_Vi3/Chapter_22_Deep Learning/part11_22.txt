@@ -1,0 +1,133 @@
+Section 22.7 Unsupervised Learning and Transfer Learning 831
+Generative adversarial networks
+Agenerative adversarial network (GAN) is actually a pair of networks that combine toGenerative
+adversarial network
+(GAN)form a generative system. One of the networks, the generator , maps values from ztoxin Generator
+order to produce samples from the distribution Pw(x). A typical scheme samples zfrom a unit
+Gaussian of moderate dimension and then passes it through a deep network hwto obtain x.
+The other network, the discriminator , is a classiﬁer trained to classify inputs xas real (drawn Discriminator
+from the training set) or fake (created by the generator). GANs are a kind of implicit model Implicit model
+in the sense that samples can be generated but their probabilities are not readily available; in a
+Bayes net, on the other hand, the probability of a sample is just the product of the conditional
+probabilities along the sample generation path.
+The generator is closely related to the decoder from the variational autoencoder frame-
+work. The challenge in implicit modeling is to design a loss function that makes it possible
+to train the model using samples from the distribution, rather than maximizing the likelihood
+assigned to training examples from the data set.
+Both the generator and the discriminator are trained simultaneously, with the generator
+learning to fool the discriminator and the discriminator learning to accurately separate real
+from fake data. The competition between generator and discriminator can be described in
+the language of game theory (see Chapter 17). The idea is that in the equilibrium state of the
+game, the generator should reproduce the training distribution perfectly, such that the discrim-
+inator cannot perform better than random guessing. GANs have worked particularly well for
+image generation tasks. For example, GANs can create photorealistic, high-resolution images
+of people who have never existed (Karras et al. , 2017).
+Unsupervised translation
+Translation tasks, broadly construed, consist of transforming an input xthat has rich structure
+into an output ythat also has rich structure. In this context, “rich structure” means that the
+data are multidimensional and have interesting statistical dependencies among the various
+dimensions. Images and natural language sentences have a rich structure, but a single number,
+such as a class ID, does not. Transforming a sentence from English to French or converting
+a photo of a night scene into an equivalent photo taken during the daytime are both examples
+of translation tasks.
+Supervised translation consists of gathering many (x;y)pairs and training the model to
+map each xto the corresponding y. For example, machine translation systems are often
+trained on pairs of sentences that have been translated by professional human translators. For
+other kinds of translation, supervised training data may not be available. For example, con-
+sider a photo of a night scene containing many moving cars and pedestrians. It is presumably
+not feasible to ﬁnd all of the cars and pedestrians and return them to their original positions in
+the night-time photo in order to retake the same photo in the daytime. To overcome this dif-
+ﬁculty, it is possible to use unsupervised translation techniques that are capable of trainingUnsupervised
+translation
+on many examples of xand many separate examples of ybut no corresponding (x;y)pairs.
+These approaches are generally based on GANs; for example, one can train a GAN gen-
+erator to produce a realistic example of ywhen conditioned on x, and another GAN generator
+to perform the reverse mapping. The GAN training framework makes it possible to train a
+generator to generate any one of many possible samples that the discriminator accepts as a
+832 Chapter 22 Deep Learning
+realistic example of ygiven x, without any need for a speciﬁc paired yas is traditionally
+needed in supervised learning. More detail on unsupervised translation for images is given in
+Section 27.7.5.
+22.7.2 Transfer learning and multitask learning
+Intransfer learning , experience with one learning task helps an agent learn better on another Transfer learning
+task. For example, a person who has already learned to play tennis will typically ﬁnd it easier
+to learn related sports such as racquetball and squash; a pilot who has learned to ﬂy one type
+of commercial passenger airplane will very quickly learn to ﬂy another type; a student who
+has already learned algebra ﬁnds it easier to learn calculus.
+We do not yet know the mechanisms of human transfer learning. For neural networks,
+learning consists of adjusting weights, so the most plausible approach for transfer learning is
+to copy over the weights learned for task A to a network that will be trained for task B. The
+weights are then updated by gradient descent in the usual way using data for task B. It may
+be a good idea to use a smaller learning rate in task B, depending on how similar the tasks are
+and how much data was used in task A.
+Notice that this approach requires human expertise in selecting the tasks: for example,
+weights learned during algebra training may not be very useful in a network intended for
+racquetball. Also, the notion of copying weights requires a simple mapping between the
+input spaces for the two tasks and essentially identical network architectures.
+One reason for the popularity of transfer learning is the availability of high-quality pre-
+trained models. For example, you could download a pretrained visual object recognition
+model such as the ResNet-50 model trained on the COCO data set, thereby saving yourself
+weeks of work. From there you can modify the model parameters by supplying additional
+images and object labels for your speciﬁc task.
+Suppose you want to classify types of unicycles. You have only a few hundred pictures
+of different unicycles, but the COCO data set has over 3,000 images in each of the categories
+of bicycles, motorcycles, and skateboards. This means that a model pretrained on COCO
+already has experience with wheels and roads and other relevant features that will be helpful
+in interpreting the unicycle images.
+Often you will want to freeze the ﬁrst few layers of the pretrained model—these layers
+serve as feature detectors that will be useful for your new model. Your new data set will be
+allowed to modify the parameters of the higher levels only; these are the layers that identify
+problem-speciﬁc features and do classiﬁcation. However, sometimes the difference between
+sensors means that even the lowest-level layers need to be retrained.
+As another example, for those building a natural language system, it is now common
+to start with a pretrained model such as the R OBERT Amodel (see Section 25.6), which
+already “knows” a great deal about the vocabulary and syntax of everyday language. The
+next step is to ﬁne-tune the model in two ways. First, by giving it examples of the specialized
+vocabulary used in the desired domain; perhaps a medical domain (where it will learn about
+“myocardial infarction”) or perhaps a ﬁnancial domain (where it will learn about “ﬁduciary
+responsibility”). Second, by training the model on the task it is to perform. If it is to do
+question answering, train it on question/answer pairs.
+One very important kind of transfer learning involves transfer between simulations and
+the real world. For example, the controller for a self-driving car can be trained on billions
+Section 22.8 Applications 833
+of miles of simulated driving, which would be impossible in the real world. Then, when the
+controller is transitioned to the real vehicle, it adapts quickly to the new environment.
+Multitask learning is a form of transfer learning in which we simultaneously train a Multitask learning
+model on multiple objectives. For example, rather than training a natural language system on
+part-of-speech tagging and then transferring the learned weights to a new task such as docu-
+ment classiﬁcation, we train one system simultaneously on part-of-speech tagging, document
+classiﬁcation, language detection, word prediction, sentence difﬁculty modeling, plagiarism
+detection, sentence entailment, and question answering. The idea is that to solve any one of
+these tasks, a model might be able to take advantage of superﬁcial features of the data. But to
+solve all eight at once with a common representation layer, the model is more likely to create
+a common representation that reﬂects real natural language usage and content.
+22.8 Applications
+Deep learning has been applied successfully to many important problem areas in AI. For in-
+depth explanations, we refer the reader to the relevant chapters: Chapter 23 for the use of
+deep learning in reinforcement learning systems, Chapter 25 for natural language processing,
+Chapter 27 (particularly Section 27.4) for computer vision, and Chapter 26 for robotics.
+22.8.1 Vision
+We begin with computer vision, which is the application area that has arguably had the biggest
+impact on deep learning, and vice versa. Although deep convolutional networks had been in
+use since the 1990s for tasks such as handwriting recognition, and neural networks had begun
+to surpass generative probability models for speech recognition by around 2010, it was the
+success of the AlexNet deep learning system in the 2012 ImageNet competition that propelled
+deep learning into the limelight.
+The ImageNet competition was a supervised learning task with 1,200,000 images in 1,000
+different categories, and systems were evaluated on the “top-5” score—how often the correct
+category appears in the top ﬁve predictions. AlexNet achieved an error rate of 15.3%, whereas
+the next best system had an error rate of more than 25%. AlexNet had ﬁve convolutional
+layers interspersed with max-pooling layers, followed by three fully connected layers. It used
+ReLU activation functions and took advantage of GPUs to speed up the process of training
+60 million weights.
+Since 2012, with improvements in network design, training methods, and computing
+resources, the top-5 error rate has been reduced to less than 2%—well below the error rate of
+a trained human (around 5%). CNNs have been applied to a wide range of vision tasks, from
+self-driving cars to grading cucumbers.8Driving, which is covered in Section 27.7.6 and in
+several sections of Chapter 26, is among the most demanding of vision tasks: not only must
+the algorithm detect, localize, track, and recognize pigeons, paper bags, and pedestrians, but
+it has to do it in real time with near-perfect accuracy.
+8The widely known tale of the Japanese cucumber farmer who built his own cucumber-sorting robot using
+TensorFlow is, it turns out, mostly mythical. The algorithm was developed by the farmer’s son, who worked
+previously as a software engineer at Toyota, and its low accuracy—about 70%—meant that the cucumbers still
+had to be sorted by hand (Zeeberg, 2017).

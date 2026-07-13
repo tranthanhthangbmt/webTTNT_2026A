@@ -1,0 +1,59 @@
+<h1>CHƯƠNG 22</h1>
+<h1>HỌC SÂU (DEEP LEARNING)</h1>
+
+<p><em>Trong đó phương pháp giảm gradient học các chương trình nhiều bước, mang lại những hàm ý quan trọng cho các phân ngành chính của trí tuệ nhân tạo.</em></p>
+
+<p><strong>Học sâu (Deep learning)</strong> là một họ rộng lớn các kỹ thuật dành cho học máy, trong đó các giả thuyết có dạng những mạch đại số phức tạp với các cường độ kết nối có thể điều chỉnh được. Từ "sâu" (deep) dùng để chỉ thực tế là các mạch này thường được tổ chức thành nhiều <strong>tầng (layer)</strong>, điều đó có nghĩa là các đường dẫn tính toán (computation paths) từ đầu vào đến đầu ra bao gồm nhiều bước. Học sâu hiện là cách tiếp cận được sử dụng rộng rãi nhất cho các ứng dụng như nhận dạng đối tượng trực quan, dịch máy, nhận dạng giọng nói, tổng hợp giọng nói và tổng hợp hình ảnh; nó cũng đóng một vai trò quan trọng trong các ứng dụng học tăng cường (reinforcement learning) (xem Chương 23).</p>
+
+<p>Học sâu có nguồn gốc từ những công trình ban đầu cố gắng mô hình hóa mạng lưới các nơ-ron trong não (McCulloch và Pitts, 1943) bằng các mạch tính toán. Vì lý do này, các mạng được huấn luyện bởi các phương pháp học sâu thường được gọi là <strong>mạng nơ-ron (neural networks)</strong>, mặc dù sự giống nhau với các tế bào và cấu trúc thần kinh thực tế là rất nông cạn (superficial).</p>
+
+<p>Mặc dù những lý do thực sự đằng sau sự thành công của học sâu vẫn chưa được làm sáng tỏ hoàn toàn, nhưng nó có những lợi thế hiển nhiên so với một số phương pháp đã trình bày trong Chương 19—đặc biệt đối với dữ liệu có số chiều cao (high-dimensional data) chẳng hạn như hình ảnh. Ví dụ, mặc dù các phương pháp như hồi quy tuyến tính (linear regression) và hồi quy logistic (logistic regression) có thể xử lý một số lượng lớn các biến đầu vào, nhưng đường dẫn tính toán từ mỗi đầu vào đến đầu ra là rất ngắn: chỉ cần nhân với một trọng số duy nhất, sau đó cộng dồn vào đầu ra tổng. Hơn nữa, các biến đầu vào khác nhau đóng góp một cách độc lập vào đầu ra mà không có sự tương tác với nhau (<strong>Hình 22.1(a)</strong>). Điều này giới hạn đáng kể khả năng biểu đạt của các mô hình như vậy. Chúng chỉ có thể biểu diễn các hàm và các ranh giới tuyến tính trong không gian đầu vào, trong khi hầu hết các khái niệm trong thế giới thực đều phức tạp hơn rất nhiều.</p>
+
+<p>Mặt khác, danh sách quyết định (decision lists) và cây quyết định (decision trees) lại cho phép các đường dẫn tính toán dài có thể phụ thuộc vào nhiều biến đầu vào—nhưng chỉ đối với một tỷ lệ tương đối nhỏ các véc-tơ đầu vào có thể có (<strong>Hình 22.1(b)</strong>). Nếu một cây quyết định có các đường dẫn tính toán dài cho một tỷ lệ đáng kể các đầu vào có thể có, thì kích thước của nó phải lớn theo cấp số nhân so với số lượng các biến đầu vào.</p>
+
+<p>Ý tưởng cơ bản của học sâu là huấn luyện các mạch sao cho các đường dẫn tính toán dài, cho phép tất cả các biến đầu vào tương tác với nhau theo những cách phức tạp (<strong>Hình 22.1(c)</strong>). Các mô hình mạch này hóa ra lại có khả năng biểu đạt đủ lớn để nắm bắt độ phức tạp của dữ liệu trong thế giới thực đối với nhiều loại bài toán học tập quan trọng.</p>
+
+<p>Mục 22.1 mô tả các mạng truyền thẳng (feedforward networks) đơn giản, các thành phần của chúng, và các nguyên tắc thiết yếu của việc học trong các mạng như vậy. Mục 22.2 đi sâu hơn vào chi tiết về cách thức các mạng sâu (deep networks) được cấu thành, và Mục 22.3 đề cập đến một lớp các mạng được gọi là mạng nơ-ron tích chập (convolutional neural networks) vốn đặc biệt quan trọng trong các ứng dụng thị giác máy tính. Mục 22.4 và 22.5 đi vào chi tiết hơn về các thuật toán dùng để huấn luyện mạng từ dữ liệu và các phương pháp giúp cải thiện tính tổng quát hóa. Mục 22.6 đề cập đến các mạng có cấu trúc hồi quy (recurrent structure), vốn rất phù hợp cho dữ liệu dạng chuỗi (sequential data). Mục 22.7 mô tả các cách sử dụng học sâu cho các tác vụ khác ngoài học có giám sát (supervised learning). Cuối cùng, Mục 22.8 khảo sát một loạt các ứng dụng của học sâu.</p>
+
+<div class="figure">
+    <p><strong>Hình 22.1</strong> (a) Một mô hình nông (shallow model), chẳng hạn như hồi quy tuyến tính, có các đường dẫn tính toán ngắn giữa các đầu vào và đầu ra. (b) Một mạng danh sách quyết định (trang 692) có một vài đường dẫn dài cho một số giá trị đầu vào có thể, nhưng hầu hết các đường dẫn đều ngắn. (c) Một mạng học sâu có các đường dẫn tính toán dài hơn, cho phép mỗi biến tương tác với tất cả các biến khác.</p>
+</div>
+
+<h2 id="221-simple-feedforward-networks">22.1 Các Mạng Truyền Thẳng Đơn Giản (Simple Feedforward Networks)</h2>
+
+<p>Một <strong>mạng truyền thẳng (feedforward network)</strong>, đúng như tên gọi của nó, có các kết nối chỉ đi theo một hướng duy nhất—nghĩa là, nó tạo thành một đồ thị có hướng không chu trình (directed acyclic graph) với các nút đầu vào và nút đầu ra được chỉ định. Mỗi nút tính toán một hàm của các đầu vào của nó và truyền kết quả đến các nút kế nhiệm trong mạng. Thông tin chảy qua mạng từ các nút đầu vào đến các nút đầu ra, và không có vòng lặp (loops).</p>
+
+<p>Mặt khác, một <strong>mạng hồi quy (recurrent network)</strong> phản hồi (feeds back) các đầu ra trung gian hoặc đầu ra cuối cùng của nó trở lại chính các đầu vào của nó. Điều này có nghĩa là các giá trị tín hiệu bên trong mạng tạo thành một hệ thống động lực học (dynamical system) có trạng thái bên trong hoặc bộ nhớ. Chúng ta sẽ xem xét các mạng hồi quy trong Mục 22.6.</p>
+
+<p>Các mạch Boolean (Boolean circuits), dùng để hiện thực hóa các hàm Boolean, là một ví dụ về các mạng truyền thẳng. Trong một mạch Boolean, các đầu vào bị giới hạn ở hai giá trị 0 và 1, và mỗi nút thực hiện một hàm Boolean đơn giản dựa trên các đầu vào của nó, tạo ra kết quả là 0 hoặc 1. Trong các mạng nơ-ron, các giá trị đầu vào thường là liên tục (continuous), và các nút nhận các đầu vào liên tục và tạo ra các đầu ra liên tục. Một số đầu vào của các nút chính là các tham số của mạng; mạng học bằng cách điều chỉnh các giá trị của các tham số này sao cho mạng nói chung khớp (fit) với dữ liệu huấn luyện.</p>
+
+<h3 id="2211-networks-as-complex-functions">22.1.1 Các mạng như những hàm phức tạp (Networks as complex functions)</h3>
+
+<p>Mỗi nút bên trong mạng được gọi là một <strong>đơn vị (unit)</strong>. Theo truyền thống, dựa trên thiết kế do McCulloch và Pitts đề xuất, một đơn vị sẽ tính toán tổng có trọng số (weighted sum) của các đầu vào từ những nút đứng trước nó và sau đó áp dụng một hàm phi tuyến tính để tạo ra đầu ra của nó. Gọi $a_j$ là đầu ra của đơn vị $j$ và gọi $w_{i,j}$ là trọng số (weight) gắn trên liên kết từ đơn vị $i$ đến đơn vị $j$; khi đó chúng ta có:</p>
+
+<p>$$a_j = g_j \left( \sum_i w_{i,j} a_i \right) = g_j (in_j)$$</p>
+
+<p>trong đó $g_j$ là một <strong>hàm kích hoạt (activation function)</strong> phi tuyến liên kết với đơn vị $j$ và $in_j$ là tổng có trọng số của các đầu vào đối với đơn vị $j$.</p>
+
+<p>Cũng như trong Mục 19.6.3 (trang 697), chúng ta quy định rằng mỗi đơn vị có một đầu vào bổ sung từ một <em>đơn vị giả (dummy unit)</em> $0$ luôn được cố định ở giá trị $+1$ và một trọng số $w_{0,j}$ dành cho đầu vào đó. Điều này cho phép tổng đầu vào có trọng số $in_j$ đi vào đơn vị $j$ khác không ngay cả khi tất cả các đầu ra của tầng trước đó đều bằng không. Với quy ước này, chúng ta có thể viết phương trình trên dưới dạng véc-tơ:</p>
+
+<p>$$a_j = g_j(\mathbf{w}^T \mathbf{x}) \quad (22.1)$$</p>
+
+<p>trong đó $\mathbf{w}$ là véc-tơ các trọng số đi vào đơn vị $j$ (bao gồm cả $w_{0,j}$) và $\mathbf{x}$ là véc-tơ của các đầu vào đi vào đơn vị $j$ (bao gồm cả giá trị $+1$).</p>
+
+<p>Thực tế rằng hàm kích hoạt là phi tuyến đóng vai trò quan trọng, bởi vì nếu không như vậy, bất kỳ sự kết hợp nào của các đơn vị cũng sẽ chỉ biểu diễn một hàm tuyến tính. Tính phi tuyến (nonlinearity) là thứ cho phép các mạng lưới đủ lớn gồm các đơn vị có thể biểu diễn được những hàm tùy ý. Định lý xấp xỉ vạn năng (universal approximation theorem) phát biểu rằng một mạng lưới chỉ với hai tầng các đơn vị tính toán, trong đó tầng thứ nhất là phi tuyến tính và tầng thứ hai là tuyến tính, có thể xấp xỉ bất kỳ hàm liên tục nào đến một mức độ chính xác tùy ý. Quá trình chứng minh định lý này hoạt động bằng cách chỉ ra rằng một mạng lưới lớn theo hàm mũ có thể biểu diễn số lượng lớn theo cấp số nhân các "điểm nhô lên" (bumps) có độ cao khác nhau ở những vị trí khác nhau trong không gian đầu vào, qua đó xấp xỉ hàm mục tiêu mong muốn. Nói cách khác, những mạng lưới đủ lớn có thể hoạt động như một bảng tra cứu (lookup table) cho các hàm liên tục, giống như cách các cây quyết định đủ lớn hoạt động như một bảng tra cứu cho các hàm Boolean.</p>
+
+<p>Nhiều hàm kích hoạt khác nhau được sử dụng. Phổ biến nhất là những hàm sau:</p>
+
+<ul>
+<li>Hàm <strong>logistic</strong> hoặc <strong>sigmoid (Sigmoid)</strong>, vốn cũng được sử dụng trong hồi quy logistic (xem trang 703):
+$$\sigma(x) = \frac{1}{1 + e^{-x}}$$</li>
+<li>Hàm <strong>ReLU</strong>, tên gọi của nó là chữ viết tắt cho đơn vị tuyến tính được chỉnh lưu (rectified linear unit):
+$$\text{ReLU}(x) = \max(0, x)$$</li>
+<li>Hàm <strong>softplus</strong>, một phiên bản trơn tru (smooth version) của hàm ReLU:
+$$\text{softplus}(x) = \log(1 + e^x)$$</li>
+</ul>
+
+<div class="figure">
+    <p><strong>Hình 22.2</strong> Các hàm kích hoạt thường được sử dụng trong các hệ thống học sâu: (a) hàm logistic hay sigmoid; (b) hàm ReLU và hàm softplus; (c) hàm tanh.</p>
+</div>

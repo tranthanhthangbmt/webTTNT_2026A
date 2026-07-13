@@ -1,0 +1,62 @@
+<p>của các lượt thử nghiệm (trials) trong môi trường sử dụng chính sách $\pi$ của nó. Trong mỗi lượt thử nghiệm, tác tử bắt đầu ở trạng thái $(1,1)$ và trải qua một chuỗi các chuyển đổi trạng thái cho đến khi nó đạt đến một trong các trạng thái kết thúc, $(4,2)$ hoặc $(4,3)$. Các nhận thức (percepts) của nó cung cấp cả trạng thái hiện tại và phần thưởng nhận được cho sự chuyển đổi vừa xảy ra để đạt tới trạng thái đó. Các lượt thử nghiệm điển hình có thể trông như thế này:</p>
+
+<p>$(1,1) \xrightarrow{-.04}_{Up} (1,2) \xrightarrow{-.04}_{Up} (1,3) \xrightarrow{-.04}_{Right} (1,2) \xrightarrow{-.04}_{Up} (1,3) \xrightarrow{-.04}_{Right} (2,3) \xrightarrow{-.04}_{Right} (3,3) \xrightarrow{+1}_{Right} (4,3)$</p>
+<p>$(1,1) \xrightarrow{-.04}_{Up} (1,2) \xrightarrow{-.04}_{Up} (1,3) \xrightarrow{-.04}_{Right} (2,3) \xrightarrow{-.04}_{Right} (3,3) \xrightarrow{-.04}_{Right} (3,2) \xrightarrow{+1}_{Up} (3,3) \xrightarrow{+1}_{Right} (4,3)$</p>
+<p>$(1,1) \xrightarrow{-.04}_{Up} (1,2) \xrightarrow{-.04}_{Up} (1,3) \xrightarrow{-.04}_{Right} (2,3) \xrightarrow{-.04}_{Right} (3,3) \xrightarrow{-.04}_{Right} (3,2) \xrightarrow{-1}_{Up} (4,2)$</p>
+
+<p>Lưu ý rằng mỗi sự chuyển đổi đều được chú thích với cả hành động được thực hiện và phần thưởng nhận được ở trạng thái tiếp theo. Mục tiêu là sử dụng thông tin về các phần thưởng để học độ thỏa dụng kỳ vọng $U^{\pi}(s)$ liên quan đến mỗi trạng thái không kết thúc $s$. Độ thỏa dụng được định nghĩa là tổng kỳ vọng của các phần thưởng (bị chiết khấu) thu được nếu chính sách $\pi$ được tuân theo. Giống như trong Phương trình (16.2) ở trang 557, chúng ta viết</p>
+
+<p>$$U^{\pi}(s) = E \left[ \sum_{t=0}^{\infty} \gamma^t R(S_t, \pi(S_t), S_{t+1}) \right], \quad (23.1)$$</p>
+
+<p>trong đó $R(S_t, \pi(S_t), S_{t+1})$ là phần thưởng nhận được khi hành động $\pi(S_t)$ được thực hiện ở trạng thái $S_t$ và đạt tới trạng thái $S_{t+1}$. Lưu ý rằng $S_t$ là một biến ngẫu nhiên biểu thị trạng thái đạt tới ở thời điểm $t$ khi thực thi chính sách $\pi$, bắt đầu từ trạng thái $S_0 = s$. Chúng ta sẽ đưa vào một hệ số chiết khấu $\gamma$ trong tất cả các phương trình của mình, nhưng đối với thế giới $4 \times 3$, chúng ta sẽ đặt $\gamma = 1$, có nghĩa là không có sự chiết khấu.</p>
+
+<h3>23.2.1 Ước lượng độ thỏa dụng trực tiếp (Direct utility estimation)</h3>
+
+<p>Ý tưởng của việc <strong>ước lượng độ thỏa dụng trực tiếp</strong> là độ thỏa dụng của một trạng thái được định nghĩa là tổng phần thưởng kỳ vọng từ trạng thái đó trở đi (được gọi là <strong>phần thưởng mong đợi - expected reward-to-go</strong>), và mỗi lượt thử nghiệm cung cấp một mẫu của đại lượng này cho mỗi trạng thái được ghé thăm. Ví dụ, lượt thử nghiệm đầu tiên trong ba lượt thử nghiệm được hiển thị trước đó cung cấp một mẫu tổng phần thưởng là $0.76$ cho trạng thái $(1,1)$, hai mẫu là $0.80$ và $0.88$ cho $(1,2)$, hai mẫu là $0.84$ và $0.92$ cho $(1,3)$, và cứ tiếp tục như vậy. Như vậy, ở cuối mỗi chuỗi, thuật toán tính toán phần thưởng mong đợi được quan sát cho mỗi trạng thái và cập nhật độ thỏa dụng ước lượng cho trạng thái đó một cách tương ứng, chỉ bằng cách duy trì một số trung bình động (running average) cho mỗi trạng thái trong một bảng. Trong giới hạn của vô số các lượt thử nghiệm, trung bình mẫu (sample average) sẽ hội tụ về giá trị kỳ vọng thực sự trong Phương trình (23.1).</p>
+
+<p>Điều này có nghĩa là chúng ta đã rút gọn học tăng cường thành một bài toán học có giám sát tiêu chuẩn trong đó mỗi ví dụ là một cặp (trạng thái, phần thưởng mong đợi). Chúng ta có rất nhiều thuật toán mạnh mẽ cho học có giám sát, do đó phương pháp tiếp cận này có vẻ đầy hứa hẹn, nhưng nó lại phớt lờ một ràng buộc quan trọng: <em>Độ thỏa dụng của một trạng thái được xác định bởi phần thưởng và độ thỏa dụng kỳ vọng của các trạng thái kế tiếp.</em> Cụ thể hơn, các giá trị độ thỏa dụng tuân theo các phương trình Bellman đối với một chính sách cố định (xem thêm Phương trình (16.14)):</p>
+
+<p>$$U^{\pi}(s) = \sum_{s'} P(s' | s, \pi(s)) [R(s, \pi(s), s') + \gamma U^{\pi}(s')]. \quad (23.2)$$</p>
+
+<p>Bằng cách bỏ qua các kết nối giữa các trạng thái, ước lượng độ thỏa dụng trực tiếp đã bỏ lỡ những cơ hội để học hỏi. Ví dụ, lượt thử nghiệm thứ hai trong số ba lượt thử nghiệm được đưa ra trước đó đã đạt tới trạng thái $(3,2)$, vốn chưa từng được ghé thăm trước đây. Quá trình chuyển đổi tiếp theo đạt tới $(3,3)$, vốn được biết từ lượt thử nghiệm đầu tiên là có độ thỏa dụng cao. Phương trình Bellman gợi ý ngay lập tức rằng $(3,2)$ cũng có khả năng có độ thỏa dụng cao, bởi vì nó dẫn đến $(3,3)$, nhưng việc ước lượng độ thỏa dụng trực tiếp lại không học được điều gì cho đến khi kết thúc lượt thử nghiệm. Nói rộng hơn, chúng ta có thể coi việc ước lượng độ thỏa dụng trực tiếp như quá trình tìm kiếm $U$ trong một không gian giả thuyết lớn hơn nhiều so với mức cần thiết, ở chỗ nó bao gồm nhiều hàm vi phạm các phương trình Bellman. Vì lý do này, thuật toán thường hội tụ rất chậm.</p>
+
+<h3>23.2.2 Quy hoạch động thích ứng (Adaptive dynamic programming)</h3>
+
+<p>Một tác tử <strong>quy hoạch động thích ứng (adaptive dynamic programming - ADP)</strong> tận dụng các ràng buộc giữa các độ thỏa dụng của các trạng thái bằng cách học mô hình chuyển đổi kết nối chúng và giải quyết quá trình quyết định Markov tương ứng bằng cách sử dụng quy hoạch động. Đối với một tác tử học thụ động, điều này có nghĩa là cắm mô hình chuyển đổi đã học được $P(s' | s, \pi(s))$ và các phần thưởng đã quan sát được $R(s, \pi(s), s')$ vào Phương trình (23.2) để tính toán độ thỏa dụng của các trạng thái. Như chúng tôi đã nhận xét trong phần thảo luận về quá trình lặp chính sách trong Chương 16, các phương trình Bellman này có dạng tuyến tính khi chính sách $\pi$ là cố định, do đó chúng có thể được giải bằng bất kỳ gói đại số tuyến tính nào.</p>
+
+<p>Ngoài ra, chúng ta có thể áp dụng phương pháp lặp chính sách được sửa đổi (xem trang 568), sử dụng một quá trình lặp giá trị đơn giản hóa để cập nhật các ước lượng độ thỏa dụng sau mỗi thay đổi đối với mô hình đã học. Bởi vì mô hình thường chỉ thay đổi đôi chút theo mỗi lần quan sát, quá trình lặp giá trị có thể sử dụng các ước lượng độ thỏa dụng trước đó làm các giá trị ban đầu và điển hình là sẽ hội tụ rất nhanh.</p>
+
+<p>Việc học mô hình chuyển đổi là rất dễ dàng, bởi vì môi trường có thể quan sát hoàn toàn. Điều này có nghĩa là chúng ta có một tác vụ học có giám sát trong đó đầu vào cho mỗi ví dụ huấn luyện là một cặp trạng thái–hành động, $(s, a)$, và đầu ra là trạng thái kết quả, $s'$. Mô hình chuyển đổi $P(s' | s, a)$ được biểu diễn dưới dạng một bảng và nó được ước lượng trực tiếp từ các số đếm được tích lũy trong $N_{s' | s, a}$. Các số đếm ghi lại tần suất đạt đến trạng thái $s'$ khi thực thi hành động $a$ ở trạng thái $s$. Ví dụ, trong ba lượt thử nghiệm được đưa ra ở trang 843, <em>Right</em> được thực thi bốn lần ở trạng thái $(3,3)$ và trạng thái kết quả là $(3,2)$ hai lần và $(4,3)$ hai lần, vì vậy cả $P((3,2) | (3,3), Right)$ và $P((4,3) | (3,3), Right)$ đều được ước lượng là $1/2$.</p>
+
+<p>Chương trình tác tử đầy đủ cho một tác tử ADP thụ động được hiển thị trong Hình 23.2. Hiệu suất của nó trên thế giới $4 \times 3$ được hiển thị trong Hình 23.3. Xét về khía cạnh các ước lượng giá trị của nó cải thiện nhanh như thế nào, tác tử ADP chỉ bị giới hạn bởi khả năng học mô hình chuyển đổi của nó. Theo nghĩa này, nó cung cấp một tiêu chuẩn (standard) để dựa vào đó chúng ta có thể đo lường bất kỳ thuật toán học tăng cường nào khác. Tuy nhiên, nó là bất khả thi đối với các không gian trạng thái khổng lồ. Ví dụ, trong trò cờ súc sắc (backgammon), nó sẽ liên quan đến việc giải quyết khoảng $10^{20}$ phương trình với $10^{20}$ ẩn số.</p>
+
+<h3>23.2.3 Học theo chênh lệch thời gian (Temporal-difference learning)</h3>
+
+<p>Việc giải quyết MDP cơ sở (underlying MDP) như trong mục trước không phải là cách duy nhất để đưa các phương trình Bellman vào ứng dụng cho bài toán học. Một cách khác là sử dụng các quá trình chuyển đổi quan sát được để điều chỉnh độ thỏa dụng của các trạng thái được quan sát sao cho chúng thống nhất với các phương trình ràng buộc. Ví dụ, hãy xem xét sự chuyển đổi từ $(1,3)$ sang $(2,3)$ trong lượt thử nghiệm thứ hai ở trang 843. Giả sử rằng do kết quả của lượt thử nghiệm đầu tiên, các ước lượng độ thỏa dụng là $U^{\pi}(1,3) = 0.88$ và $U^{\pi}(2,3) = 0.96$. Giờ đây, nếu sự chuyển đổi từ $(1,3)$ sang $(2,3)$ này luôn luôn xảy ra, chúng ta sẽ kỳ vọng độ thỏa dụng tuân theo phương trình</p>
+
+<p>$$U^{\pi}(1,3) = -0.04 + U^{\pi}(2,3),$$</p>
+
+<p>nên $U^{\pi}(1,3)$ sẽ là $0.92$. Do đó, ước lượng hiện tại của nó là $0.88$ có thể là hơi thấp và cần được tăng lên. Về mặt tổng quát hơn, khi một quá trình chuyển đổi xảy ra từ trạng thái $s$ sang trạng thái $s'$ thông qua hành động $\pi(s)$,</p>
+
+<pre><code>function PASSIVE-ADP-LEARNER(percept) returns an action
+  inputs: percept, a percept indicating the current state s' and reward signal r'
+  persistent: $\pi$, a fixed policy
+              mdp, an MDP with model P, rewards R, actions A, discount $\gamma$
+              U, a table of utilities for states, initially empty
+              $N_{s' | s, a}$, a table of outcome count vectors indexed by state and action, initially zero
+              s, a, the previous state and action, initially null
+  
+  if s' is new then U[s'] $\leftarrow$ 0
+  if s is not null then
+      increment $N_{s' | s, a}[s, a][s']$
+      R[s, a, s'] $\leftarrow$ r'
+      add a to A[s]
+      P(. | s, a) $\leftarrow$ NORMALIZE($N_{s' | s, a}[s, a]$)
+      U $\leftarrow$ POLICY-EVALUATION($\pi$, U, mdp)
+  s, a $\leftarrow$ s', $\pi$[s']
+  return a
+</code></pre>
+
+<p><strong>Hình 23.2</strong> Một tác tử học tăng cường thụ động dựa trên quy hoạch động thích ứng. Tác tử chọn một giá trị cho $\gamma$ và sau đó tính toán tuần tự các giá trị $P$ và $R$ của MDP. Hàm <code>POLICY-EVALUATION</code> giải quyết các phương trình Bellman có chính sách cố định, như được mô tả ở trang 567.</p>
+
+<p><strong>Hình 23.3</strong> Các đường cong học thuật (learning curves) ADP thụ động cho thế giới $4 \times 3$, cho trước chính sách tối ưu được thể hiện trong Hình 23.1. (a) Các ước lượng độ thỏa dụng cho một tập con các trạng thái được chọn, dưới dạng một hàm số theo số lượng các lượt thử nghiệm. Lưu ý rằng phải mất tương ứng 14 và 23 lượt thử nghiệm trước khi các trạng thái hiếm khi được ghé thăm là $(2,1)$ và $(3,2)$ "phát hiện ra" rằng chúng kết nối với trạng thái thoát hiểm $+1$ tại $(4,3)$. (b) Sai số bình phương trung bình gốc (root-mean-square error) (xem Phụ lục A) trong ước lượng cho $U(1,1)$, được lấy trung bình qua 50 lần chạy của 100 lượt thử nghiệm mỗi lần.</p>

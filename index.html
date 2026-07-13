@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Trí tuệ nhân tạo - Đại học Đông Á</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Tài liệu môn học Trí tuệ nhân tạo - Artificial Intelligence: A Modern Approach">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Theme: Modern UI using Docsify Themeable -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
+
+  <style>
+    :root {
+      --theme-color: #1a73e8;
+      --base-font-size: 16px;
+      --sidebar-width: 300px;
+      /* Custom docsify-tabs colors */
+      --docsifytabs-border-color: #eaeaea;
+      --docsifytabs-tab-highlight-color: var(--theme-color);
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    }
+
+    .markdown-section {
+      max-width: 1000px;
+      padding: 2rem 15px;
+      /* Better padding on mobile */
+    }
+
+    /* ===== DOCSIFY TABS: MOBILE OPTIMIZATION ===== */
+    /* Docsify-tabs grid layout to allow horizontal swipe without breaking DOM */
+    .docsify-tabs {
+      display: grid !important;
+      grid-auto-columns: max-content;
+      grid-auto-flow: column;
+      overflow-x: auto !important;
+      -webkit-overflow-scrolling: touch;
+      margin-top: 0 !important; /* Reduce space above tabs */
+      margin-bottom: 5px !important; /* Reduce space below tabs */
+      border-bottom: none !important;
+      scrollbar-width: none;
+      /* Hide scrollbar Firefox */
+      container-type: inline-size;
+      justify-content: start;
+    }
+
+    .docsify-tabs::-webkit-scrollbar {
+      display: none;
+      /* Hide scrollbar Chrome/Safari/Edge */
+    }
+
+    /* Style tabs as modern "pills" */
+    .docsify-tabs__tab {
+      grid-row: 1 !important;
+      order: 1 !important;
+      /* Ensure tabs are placed before content in auto-flow */
+      text-align: center;
+      padding: 10px 16px !important;
+      font-size: 14px !important;
+      font-weight: 500 !important;
+      transition: all 0.2s ease-in-out !important;
+      border: 1px solid var(--docsifytabs-border-color) !important;
+      border-radius: 20px !important;
+      /* Pill shape */
+      color: #555 !important;
+      background: #fff !important;
+      cursor: pointer;
+      margin: 0 8px 5px 0 !important; /* Reduce bottom margin on tabs */
+    }
+
+    .docsify-tabs__tab:hover {
+      background-color: #f8faff !important;
+      border-color: var(--theme-color) !important;
+      color: var(--theme-color) !important;
+    }
+
+    .docsify-tabs__tab--active {
+      color: #fff !important;
+      background-color: var(--theme-color) !important;
+      border-color: var(--theme-color) !important;
+      box-shadow: 0 4px 6px rgba(26, 115, 232, 0.2);
+    }
+
+    .docsify-tabs__content {
+      grid-row: 2 !important;
+      grid-column: 1 / 999 !important;
+      /* Span across tab columns */
+      width: 100cqw !important;
+      /* Exact visible width of container */
+      position: sticky !important;
+      left: 0 !important;
+      order: 99 !important;
+      /* Keep content below tabs */
+      padding-top: 5px; /* Reduce space between tabs and content */
+    }
+
+    /* ============================================= */
+
+    /* Style for iframe PDF to ensure it scales correctly */
+    .pdf-container {
+      width: 100%;
+      height: 80vh;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      background: #fafafa;
+    }
+
+    /* Remove scrollbars from inline MathJax equations and inline code */
+    .markdown-section p *,
+    .markdown-section li * {
+      overflow: visible !important;
+    }
+
+    .math,
+    .math *,
+    mjx-container,
+    mjx-container * {
+      overflow: visible !important;
+    }
+
+    mjx-container[display="true"] {
+      overflow-x: auto !important;
+      overflow-y: hidden !important;
+    }
+
+    /* Mobile specific text scaling and iframe optimization */
+    @media (max-width: 600px) {
+      .markdown-section {
+        padding: 10px 5px !important;
+      }
+
+      .markdown-section h1 {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem; /* Reduce space under H1 */
+      }
+
+      .markdown-section h2 {
+        font-size: 1.4rem;
+      }
+
+      .docsify-tabs {
+        margin-top: 0 !important;
+      }
+
+      .docsify-tabs__content {
+        padding: 0 !important; /* Remove all top padding on mobile */
+      }
+
+      .pdf-container {
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        height: 85vh !important;
+      }
+      }
+    }
+
+    /* Customize APlayer to blend with the premium theme */
+    .aplayer {
+      border-radius: 10px !important;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+      margin-bottom: 0 !important;
+      font-family: 'Inter', sans-serif !important;
+    }
+    .aplayer .aplayer-info .aplayer-music .aplayer-title {
+      font-weight: 600 !important;
+    }
+    .aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-played {
+      background: var(--theme-color) !important;
+    }
+    .aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-played .aplayer-thumb {
+      background: var(--theme-color) !important;
+    }
+  </style>
+
+  <!-- APlayer CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+</head>
+
+<body>
+  <div id="app">Đang tải nội dung môn học...</div>
+
+  <script>
+    window.$docsify = {
+      name: 'Trí Tuệ Nhân Tạo',
+      repo: '',
+      loadSidebar: true,
+      subMaxLevel: 2,
+      auto2top: true,
+      search: {
+        paths: 'auto',
+        placeholder: 'Tìm kiếm',
+        noData: 'Không tìm thấy kết quả!',
+        depth: 3
+      },
+      tabs: {
+        persist: true,
+        sync: false,
+        theme: 'classic',
+        tabComments: true,
+        tabHeadings: true
+      }
+    }
+  </script>
+
+  <!-- Docsify v4 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
+
+  <!-- Plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+
+  <!-- Code Highlighting -->
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-markdown.min.js"></script>
+
+  <!-- Tabs Plugin -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
+
+  <!-- Math Equation Support (MathJax + docsify-latex) -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        tags: 'all'
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-latex@0"></script>
+
+  <!-- APlayer JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+  
+  <!-- APlayer Container -->
+  <div id="aplayer"></div>
+
+  <!-- APlayer Initialization & Docsify Sync Plugin -->
+  <script>
+    const audioFiles = [
+      "Ai_Ch_01_Lỗ_hổng_chí_mạng_của_AI.m4a",
+      "Ai_Ch_02_Cách_AI_quan_sát_và_hành_động.m4a",
+      "Ai_Ch_03_AI_tìm_đường_bằng_thuật_toán_A_.m4a",
+      "Ai_Ch_04_AI_tìm_tối_ưu_giữa_hỗn_loạn.m4a",
+      "Ai_Ch_05_Tư_duy_logic_của_AI_qua_CSP.m4a",
+      "Ai_Ch_06_Sức_mạnh_thuật_toán_đối_kháng_AI.m4a",
+      "Ai_Ch_07_Tư_duy_logic_trong_Thế_giới_Wumpus.m4a",
+      "Ai_Ch_08_Logic_bậc_nhất_và_tri_thức_AI.m4a",
+      "Ai_Ch_09_Suy_luận_logic_bậc_nhất_trong_AI.m4a",
+      "Ai_Ch_10_Cách_AI_hiểu_thế_giới_thực.m4a",
+      "Ai_Ch_11_AI_biến_mục_tiêu_thành_hành_động.m4a",
+      "Ai_Ch_12_AI_học_cách_đoán_bằng_xác_suất.m4a",
+      "Ai_Ch_13_Mạng_Bayes_và_luật_nhân_quả.m4a",
+      "Ai_Ch_14_AI_nhìn_thấu_thế_giới_mờ_mịt.m4a",
+      "Ai_Ch_15_AI_dùng_toán_học_ra_quyết_định.m4a",
+      "Ai_Ch_16_Toán_học_đằng_sau_quyết_định_AI.m4a",
+      "Ai_Ch_17_Cách_AI_hợp_tác_và_cạnh_tranh.m4a",
+      "Ai_Ch_18_Lập_trình_xác_suất_và_bất_định.m4a",
+      "Ai_Ch_19_Máy_học_hay_nhà_thuyết_âm_mưu.m4a",
+      "Ai_Ch_20_AI_bứt_phá_nhờ_kiến_thức_nền.m4a",
+      "Ai_Ch_21_Cách_AI_học_từ_biến_ẩn.m4a",
+      "Ai_Ch_22_Bản_chất_ba_mạng_nơ-ron_học_sâu.m4a",
+      "Ai_Ch_23_Cách_AI_tự_học_từ_thử_sai.m4a",
+      "Ai_Ch_24_Dạy_AI_hiểu_tiếng_người_bằng_toán.m4a",
+      "Ai_Ch_25_AI_học_nói_không_cần_ngữ_pháp.m4a",
+      "Ai_Ch_26_Đưa_AI_vào_thế_giới_thực.m4a",
+      "Ai_Ch_27_Cách_AI_nhìn_và_hiểu_thế_giới.m4a",
+      "Ai_Ch_28_Tại_sao_siêu_AI_gây_thảm_họa.m4a",
+      "Ai_Ch_29_Tại_sao_AI_cần_sự_bất_định.m4a"
+    ];
+
+    const playlist = audioFiles.map((file, index) => {
+      // Clean up the name for display
+      let name = file.replace('.m4a', '').replace(/_/g, ' ');
+      return {
+        name: name,
+        artist: 'AI Audiobook',
+        url: encodeURI('TaiLieu/audioChapters/' + file),
+        cover: 'https://cdn-icons-png.flaticon.com/512/860/860142.png' // Default AI icon cover
+      };
+    });
+
+    const ap = new APlayer({
+      container: document.getElementById('aplayer'),
+      fixed: true,
+      lrcType: 0,
+      theme: '#1a73e8', // Matches --theme-color
+      preload: 'none', // Prevent mass loading errors on mobile
+      audio: playlist
+    });
+
+    // Docsify plugin to sync player with current chapter
+    window.$docsify.plugins = [].concat(
+      function (hook, vm) {
+        hook.doneEach(function () {
+          // Check URL hash to find current chapter
+          let hash = window.location.hash;
+          if (hash.includes('chapter_')) {
+            // Extract chapter number, e.g. "chapter_05" -> 5
+            let match = hash.match(/chapter_(\d+)/);
+            if (match && match[1]) {
+              let chapterIndex = parseInt(match[1]) - 1; // 0-indexed
+              if (chapterIndex >= 0 && chapterIndex < playlist.length) {
+                // If player is not already playing this chapter, switch to it
+                if (ap.list.index !== chapterIndex) {
+                  ap.list.switch(chapterIndex);
+                  // Optional: ap.play(); // Auto-play when switching pages can be annoying, so we just switch the track but wait for user to click play.
+                }
+              }
+            }
+          }
+        });
+      },
+      window.$docsify.plugins || []
+    );
+  </script>
+</body>
+
+</html>

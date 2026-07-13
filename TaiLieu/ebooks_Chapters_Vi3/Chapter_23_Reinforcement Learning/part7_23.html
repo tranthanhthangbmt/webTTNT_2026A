@@ -1,0 +1,68 @@
+<p>Như chúng ta giải thích trong Mục 23.7, RL sâu đã đạt được những kết quả rất đáng kể, bao gồm việc học cách chơi nhiều loại trò chơi điện tử ở cấp độ chuyên gia, đánh bại nhà vô địch thế giới con người trong môn cờ vây (Go), và huấn luyện robot thực hiện các nhiệm vụ phức tạp.</p>
+
+<p>Bất chấp những thành công ấn tượng của nó, RL sâu vẫn phải đối mặt với những trở ngại đáng kể: thường rất khó để có được hiệu suất tốt và hệ thống đã được huấn luyện có thể hoạt động một cách rất khó lường nếu môi trường khác biệt dù chỉ một chút so với dữ liệu huấn luyện. So với các ứng dụng khác của học sâu, RL sâu hiếm khi được áp dụng trong các môi trường thương mại. Tuy nhiên, nó vẫn là một lĩnh vực nghiên cứu rất tích cực.</p>
+
+<h3>23.4.4 Định hình phần thưởng (Reward shaping)</h3>
+
+<p>Như đã lưu ý trong phần giới thiệu của chương này, các môi trường thế giới thực có thể có các phần thưởng rất thưa thớt: cần có rất nhiều hành động cơ bản để đạt được bất kỳ phần thưởng khác không nào. Ví dụ, một robot chơi bóng đá có thể gửi hàng trăm ngàn lệnh điều khiển động cơ đến các khớp khác nhau của nó trước khi để thủng lưới một bàn. Bây giờ nó phải tìm ra xem nó đã làm sai điều gì. Thuật ngữ kỹ thuật cho điều này là <strong>bài toán phân công tín dụng (credit assignment problem)</strong>. Ngoài việc chơi hàng nghìn tỷ trận bóng đá để phần thưởng âm cuối cùng cũng lan truyền ngược lại những hành động gây ra nó, liệu có một giải pháp tốt nào không?</p>
+
+<p>Một phương pháp phổ biến, ban đầu được sử dụng trong việc huấn luyện động vật, được gọi là <strong>định hình phần thưởng (reward shaping)</strong>. Phương pháp này liên quan đến việc cung cấp cho tác tử các phần thưởng bổ sung, được gọi là <strong>phần thưởng giả (pseudorewards)</strong>, cho việc "tạo ra tiến bộ". Ví dụ, chúng ta có thể trao phần thưởng giả cho robot vì đã chạm được vào bóng hoặc vì đã dẫn bóng tiến về phía khung thành. Những phần thưởng như vậy có thể đẩy nhanh quá trình học lên rất nhiều và rất dễ dàng để cung cấp, nhưng có một rủi ro là tác tử sẽ học cách tối đa hóa phần thưởng giả thay vì phần thưởng thực; ví dụ, đứng cạnh quả bóng và "rung lên" tạo ra nhiều lần chạm bóng.</p>
+
+<p>Trong Chương 16 (trang 559), chúng ta đã thấy một cách để sửa đổi hàm phần thưởng mà không làm thay đổi chính sách tối ưu. Đối với bất kỳ hàm thế năng (potential function) $F(s)$ nào và bất kỳ hàm phần thưởng $R$ nào, chúng ta có thể tạo ra một hàm phần thưởng mới $R'$ như sau:</p>
+
+<p>$$R'(s, a, s') = R(s, a, s') + \gamma F(s') - F(s).$$</p>
+
+<p>Hàm thế năng $F$ có thể được xây dựng để phản ánh bất kỳ khía cạnh mong muốn nào của trạng thái, chẳng hạn như việc đạt được các mục tiêu phụ (subgoals) hoặc khoảng cách đến một trạng thái kết thúc mong muốn. Ví dụ, $F$ đối với robot chơi bóng đá có thể cộng thêm một phần thưởng không đổi cho các trạng thái mà trong đó đội của robot đang giành quyền kiểm soát bóng và một phần thưởng khác cho việc làm giảm khoảng cách của quả bóng đến khung thành của đối phương. Điều này về tổng thể sẽ dẫn đến việc học nhanh hơn, nhưng sẽ không ngăn cản robot học cách chuyền bóng về cho thủ môn khi có nguy hiểm đe dọa.</p>
+
+<h3>23.4.5 Học tăng cường phân cấp (Hierarchical reinforcement learning)</h3>
+
+<p>Một cách khác để đối phó với các chuỗi hành động rất dài là chia nhỏ chúng thành một số đoạn nhỏ hơn, và sau đó lại chia nhỏ những đoạn đó thành những đoạn nhỏ hơn nữa, và cứ tiếp tục như vậy cho đến khi các chuỗi hành động đủ ngắn để làm cho việc học trở nên dễ dàng. Phương pháp tiếp cận này được gọi là <strong>học tăng cường phân cấp (hierarchical reinforcement learning - HRL)</strong>, và nó có nhiều điểm chung với các phương pháp lập kế hoạch HTN được mô tả trong Chương 11. Ví dụ, việc ghi một bàn thắng trong bóng đá có thể được chia nhỏ thành việc giành quyền kiểm soát bóng, chuyền bóng cho đồng đội, nhận bóng từ đồng đội, dẫn bóng về phía khung thành, và sút bóng; mỗi bước này có thể được chia nhỏ hơn nữa thành các hành vi vận động ở cấp độ thấp hơn. Rõ ràng, có nhiều cách để giành quyền kiểm soát bóng và sút bóng, có nhiều đồng đội mà người ta có thể chuyền bóng cho, và vân vân, do đó mỗi hành động ở cấp độ cao hơn có thể có nhiều cách triển khai ở cấp độ thấp hơn khác nhau.</p>
+
+<p>Để minh họa cho những ý tưởng này, chúng ta sẽ sử dụng một trò chơi bóng đá đơn giản hóa có tên là <strong>keepaway (giữ bóng)</strong>, trong đó một đội gồm ba người chơi cố gắng giữ quyền kiểm soát bóng càng lâu càng tốt bằng cách dẫn bóng và chuyền bóng cho nhau trong khi đội kia gồm hai người chơi cố gắng giành lại quyền kiểm soát bằng cách đánh chặn một đường chuyền hoặc xoạc (tackle) người đang giữ bóng.<sup>5</sup> Trò chơi được triển khai bên trong trình mô phỏng RoboCup 2D, trình mô phỏng này cung cấp các mô hình chuyển động trạng thái liên tục chi tiết với các bước thời gian $100\text{ms}$ và đã được chứng minh là một môi trường thử nghiệm tốt cho các hệ thống RL.</p>
+
+<p>Một tác tử học tăng cường phân cấp bắt đầu với một <strong>chương trình một phần (partial program)</strong> phác thảo cấu trúc phân cấp cho hành vi của tác tử. Ngôn ngữ lập trình một phần dành cho các chương trình tác tử mở rộng bất kỳ ngôn ngữ lập trình thông thường nào bằng cách bổ sung thêm các lệnh cơ bản (primitives) cho các lựa chọn chưa được chỉ định vốn phải được điền vào thông qua việc học. (Ở đây, chúng ta sử dụng mã giả cho ngôn ngữ lập trình.) Chương trình một phần có thể phức tạp một cách tùy ý, miễn là nó phải kết thúc.</p>
+
+<p>Rất dễ để thấy rằng HRL bao gồm RL thông thường như một trường hợp đặc biệt. Chúng ta chỉ cần cung cấp chương trình một phần hiển nhiên cho phép tác tử liên tục lựa chọn bất kỳ hành động nào từ $A(s)$, tập hợp các hành động có thể được thực thi ở trạng thái hiện tại $s$:</p>
+
+<pre><code>while true do
+    choose(A(s));
+</code></pre>
+
+<p>Toán tử <code>choose</code> cho phép tác tử lựa chọn bất kỳ phần tử nào của tập hợp được chỉ định. Quá trình học chuyển đổi chương trình tác tử một phần thành một chương trình hoàn chỉnh bằng cách học cách thức mà mỗi lựa chọn nên được thực hiện. Ví dụ, quá trình học có thể liên kết một hàm Q với mỗi lựa chọn; một khi các hàm Q đã được học, chương trình sẽ tạo ra hành vi bằng cách chọn tùy chọn có giá trị Q cao nhất mỗi khi nó bắt gặp một lựa chọn.</p>
+
+<p>Các chương trình tác tử dành cho trò chơi keepaway thú vị hơn. Chúng ta sẽ xem xét chương trình một phần dành cho một người chơi duy nhất thuộc đội "người giữ bóng". Việc lựa chọn phải làm gì ở cấp độ cao nhất chủ yếu phụ thuộc vào việc người chơi đó có bóng hay không:</p>
+
+<pre><code>while not IS-TERMINAL(s) do
+    if BALL-IN-MY-POSSESSION(s) then choose({PASS, HOLD, DRIBBLE})
+    else choose({STAY, MOVE, INTERCEPT-BALL});
+</code></pre>
+
+<p>Mỗi lựa chọn này sẽ gọi một chương trình con (subroutine) mà bản thân nó có thể đưa ra các lựa chọn sâu hơn, trải dài cho đến tận các hành động cơ bản có thể được thực thi trực tiếp. Ví dụ, hành động cấp cao <code>PASS</code> (CHUYỀN) chọn một đồng đội để chuyền bóng cho, nhưng cũng có lựa chọn không làm gì cả và trả lại quyền kiểm soát cho cấp độ cao hơn nếu phù hợp (ví dụ, nếu không có ai để chuyền bóng):</p>
+
+<pre><code>choose({PASS-TO(choose(TEAMMATES(s))), return});
+</code></pre>
+
+<p>Chương trình con <code>PASS-TO</code> sau đó phải chọn một tốc độ và một hướng cho đường chuyền. Mặc dù đối với một con người—thậm chí là một người có ít chuyên môn về bóng đá—việc cung cấp loại lời khuyên cấp cao này cho tác tử học là tương đối dễ dàng, nhưng sẽ rất khó khăn, nếu không muốn nói là không thể, để có thể viết ra các quy tắc xác định tốc độ và hướng của cú đá nhằm tối đa hóa xác suất duy trì được quyền kiểm soát bóng. Tương tự như vậy, hoàn toàn không rõ ràng làm thế nào để chọn đúng đồng đội để nhận bóng hoặc di chuyển đến vị trí nào để bản thân có thể sẵn sàng nhận bóng. Chương trình một phần cung cấp bí quyết chung—giàn giáo tổng thể và sự tổ chức cấu trúc cho các hành vi phức tạp—và quá trình học sẽ giải quyết tất cả các chi tiết.</p>
+
+<hr/>
+<p><sup>5</sup> Những tin đồn cho rằng trò chơi keepaway được lấy cảm hứng từ các chiến thuật trong thế giới thực của Câu lạc bộ Barcelona có lẽ là vô căn cứ.</p>
+<hr/>
+
+<p>Cơ sở lý thuyết của HRL dựa trên khái niệm về <strong>không gian trạng thái kết hợp (joint state space)</strong>, trong đó mỗi trạng thái $(s, m)$ được tạo thành từ một trạng thái vật lý $s$ và một trạng thái máy $m$. Trạng thái máy được định nghĩa bởi trạng thái nội bộ hiện tại của chương trình tác tử: bộ đếm chương trình (program counter) cho từng chương trình con trên ngăn xếp lệnh gọi (call stack) hiện tại, các giá trị của các đối số, và các giá trị của tất cả các biến cục bộ và biến toàn cục. Ví dụ, nếu chương trình tác tử đã chọn chuyền bóng cho đồng đội tên Ali và đang ở giữa quá trình tính toán tốc độ của đường chuyền, thì thực tế là Ali là đối số của <code>PASS-TO</code> là một phần của trạng thái máy hiện tại. Một <strong>trạng thái lựa chọn (choice state)</strong> $\sigma = (s, m)$ là một trạng thái mà trong đó bộ đếm chương trình đối với $m$ nằm ở một điểm lựa chọn trong chương trình tác tử. Giữa hai trạng thái lựa chọn, có thể xảy ra bất kỳ số lượng các quá trình chuyển đổi tính toán và các hành động vật lý nào, nhưng tất cả chúng đều đã được định trước, có thể nói như vậy: theo định nghĩa, tác tử không đưa ra bất kỳ lựa chọn nào ở giữa các trạng thái lựa chọn. Về cơ bản, tác tử RL phân cấp đang giải quyết một bài toán quyết định Markov với các yếu tố sau:</p>
+
+<ul>
+<li>Các trạng thái là các trạng thái lựa chọn $\sigma$ của không gian trạng thái kết hợp.</li>
+<li>Các hành động tại $\sigma$ là các lựa chọn $c$ có sẵn trong $\sigma$ theo chương trình một phần.</li>
+<li>Hàm phần thưởng $R(\sigma, c, \sigma')$ là tổng phần thưởng kỳ vọng đối với tất cả các quá trình chuyển đổi vật lý xảy ra giữa các trạng thái lựa chọn $\sigma$ và $\sigma'$.</li>
+<li>Mô hình chuyển đổi $P(\sigma' | \sigma, c)$ được định nghĩa theo một cách hiển nhiên: nếu $c$ gọi một hành động vật lý $a$, thì mượn từ mô hình vật lý $P(s' | s, a)$; nếu $c$ gọi một quá trình chuyển đổi tính toán, chẳng hạn như gọi một chương trình con, thì quá trình chuyển đổi đó sửa đổi trạng thái tính toán $m$ một cách tất định (deterministically) theo các quy tắc của ngôn ngữ lập trình.<sup>6</sup></li>
+</ul>
+
+<p>Bằng cách giải quyết bài toán quyết định này, tác tử tìm thấy chính sách tối ưu nhất quán với chương trình một phần ban đầu.</p>
+
+<p>RL phân cấp có thể là một phương pháp rất hiệu quả cho việc học các hành vi phức tạp. Trong keepaway, một tác tử HRL dựa trên chương trình một phần được phác thảo ở trên học được một chính sách giữ bóng vĩnh viễn trước chính sách người lấy bóng (taker) tiêu chuẩn—một sự cải thiện đáng kể so với kỷ lục trước đó là khoảng $10$ giây. Một đặc điểm quan trọng là các kỹ năng cấp độ thấp hơn không phải là các chương trình con cố định theo nghĩa thông thường; các lựa chọn của chúng nhạy cảm với toàn bộ trạng thái nội bộ của chương trình tác tử, do đó chúng hành xử theo các cách khác nhau tùy thuộc vào vị trí chúng được gọi bên trong chương trình đó và những gì đang diễn ra vào thời điểm đó. Nếu cần, các hàm Q cho các lựa chọn cấp độ thấp hơn có thể được khởi tạo bởi một quá trình huấn luyện riêng biệt với hàm phần thưởng của riêng nó, và sau đó được tích hợp vào toàn bộ hệ thống để chúng có thể được điều chỉnh nhằm hoạt động tốt trong bối cảnh của toàn bộ tác tử.</p>
+
+<p>Trong mục trước, chúng ta đã thấy rằng việc định hình phần thưởng có thể hữu ích cho việc học các hành vi phức tạp. Trong HRL, thực tế là quá trình học diễn ra trong không gian trạng thái kết hợp đã cung cấp các cơ hội bổ sung cho việc định hình. Ví dụ, để hỗ trợ cho việc học hàm Q cho những đường chuyền chính xác bên trong chương trình con <code>PASS-TO</code>, chúng ta có thể cung cấp một phần thưởng định hình phụ thuộc vào vị trí của người nhận dự định và khoảng cách từ những người chơi đối phương đến người chơi đó: quả bóng nên ở gần người nhận và ở xa đối phương. Điều đó dường như hoàn toàn hiển nhiên; nhưng <em>danh tính</em> của người nhận dự định cho một đường chuyền không phải là một phần của trạng thái vật lý của</p>
+
+<hr/>
+<p><sup>6</sup> Bởi vì có thể có nhiều hơn một hành động vật lý được thực thi trước khi đạt đến trạng thái lựa chọn tiếp theo, nên về mặt kỹ thuật, bài toán này là một quá trình quyết định bán Markov (semi-Markov decision process), trong đó cho phép các hành động có những khoảng thời gian (durations) khác nhau, bao gồm cả những khoảng thời gian ngẫu nhiên. Nếu hệ số chiết khấu $\gamma < 1$, thì khoảng thời gian của hành động sẽ ảnh hưởng đến việc chiết khấu được áp dụng cho phần thưởng thu được trong thời gian thực hiện hành động, điều này có nghĩa là phải thực hiện thêm một số công việc ghi chép chiết khấu và mô hình chuyển đổi phải bao gồm sự phân phối của khoảng thời gian.</p>
+<hr/>

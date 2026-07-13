@@ -1,0 +1,87 @@
+<p>Tiếp theo, chúng ta cần hiểu loại phân phối xác suất nào có thể đã tạo ra dữ liệu. Việc gom cụm giả định rằng dữ liệu được tạo ra từ một <strong>phân phối hỗn hợp (mixture distribution)</strong>, $P$. Một phân phối như vậy có $k$ <strong>thành phần (components)</strong>, mỗi thành phần tự nó là một phân phối. Một điểm dữ liệu được tạo ra bằng cách trước tiên chọn một thành phần và sau đó tạo ra một mẫu từ thành phần đó. Gọi biến ngẫu nhiên $C$ biểu thị cho thành phần, với các giá trị $1, \ldots, k$; khi đó phân phối hỗn hợp được cho bởi:</p>
+
+<p>$$P(\mathbf{x}) = \sum_{i=1}^k P(C=i)P(\mathbf{x}|C=i)$$</p>
+
+<p>trong đó $\mathbf{x}$ đề cập đến các giá trị của các thuộc tính cho một điểm dữ liệu. Đối với dữ liệu liên tục, một lựa chọn tự nhiên cho các phân phối thành phần là phân phối Gaussian đa biến (multivariate Gaussian), tạo ra họ phân phối được gọi là <strong>hỗn hợp của các Gaussian (mixture of Gaussians)</strong>. Các tham số của một hỗn hợp Gaussian là $w_i = P(C=i)$ (trọng số của mỗi thành phần), $\boldsymbol{\mu}_i$ (trung bình của mỗi thành phần), và $\boldsymbol{\Sigma}_i$ (ma trận hiệp phương sai của mỗi thành phần). <strong>Hình 21.12(a)</strong> cho thấy một hỗn hợp gồm ba Gaussian; trên thực tế, hỗn hợp này là nguồn dữ liệu trong phần (b) cũng như là mô hình được hiển thị trong <strong>Hình 21.8(a)</strong> ở trang 787.</p>
+
+<p>Do đó, bài toán gom cụm không giám sát là phải khôi phục lại một mô hình hỗn hợp Gaussian giống như mô hình trong <strong>Hình 21.12(a)</strong> từ dữ liệu thô như trong <strong>Hình 21.12(b)</strong>. Rõ ràng, nếu chúng ta biết thành phần nào đã tạo ra mỗi điểm dữ liệu, thì việc khôi phục các thành phần Gaussian sẽ rất dễ dàng: chúng ta có thể chỉ cần chọn tất cả các điểm dữ liệu từ một thành phần nhất định và sau đó áp dụng (một phiên bản đa biến của) Phương trình (21.4) (trang 780) để khớp các tham số của một Gaussian với một tập dữ liệu. Mặt khác, nếu chúng ta biết các tham số của từng thành phần, thì chúng ta có thể, ít nhất là theo nghĩa xác suất, gán mỗi điểm dữ liệu vào một thành phần.</p>
+
+<p>Vấn đề là chúng ta không biết cả các phép gán lẫn các tham số. Ý tưởng cơ bản của thuật toán EM trong ngữ cảnh này là giả vờ rằng chúng ta biết các tham số của mô hình và sau đó suy diễn xác suất để mỗi điểm dữ liệu thuộc về từng thành phần. Sau đó, chúng ta khớp lại các thành phần với dữ liệu, trong đó mỗi thành phần được khớp với <em>toàn bộ</em> tập dữ liệu với mỗi điểm được tính trọng số bởi xác suất mà nó thuộc về thành phần đó. Quá trình lặp lại cho đến khi hội tụ. Về cơ bản, chúng ta đang "hoàn thiện" dữ liệu bằng cách suy diễn các phân phối xác suất trên các biến ẩn—mỗi điểm dữ liệu thuộc về thành phần nào—dựa trên mô hình hiện tại. Đối với hỗn hợp Gaussian, chúng ta khởi tạo các tham số của mô hình hỗn hợp một cách tùy ý và sau đó lặp lại hai bước sau:</p>
+
+<ol>
+<li><p><strong>Bước E (E-step)</strong>: Tính các xác suất $p_{ij} = P(C=i|\mathbf{x}_j)$, là xác suất mà dữ liệu $\mathbf{x}_j$ được tạo ra bởi thành phần $i$. Theo định lý Bayes, chúng ta có $p_{ij} = \alpha P(\mathbf{x}_j|C=i)P(C=i)$. Số hạng $P(\mathbf{x}_j|C=i)$ chỉ là xác suất tại $\mathbf{x}_j$ của Gaussian thứ $i$, và số hạng $P(C=i)$ chỉ là tham số trọng số cho Gaussian thứ $i$. Định nghĩa $n_i = \sum_j p_{ij}$, là số điểm dữ liệu hiệu dụng hiện được gán cho thành phần $i$.</p></li>
+<li><p><strong>Bước M (M-step)</strong>: Tính trung bình, hiệp phương sai và trọng số thành phần mới bằng cách sử dụng tuần tự các bước sau:</p>
+<p>$$\boldsymbol{\mu}_i \leftarrow \sum_j p_{ij} \mathbf{x}_j / n_i$$
+$$\boldsymbol{\Sigma}_i \leftarrow \sum_j p_{ij} (\mathbf{x}_j - \boldsymbol{\mu}_i)(\mathbf{x}_j - \boldsymbol{\mu}_i)^T / n_i$$
+$$w_i \leftarrow n_i / N$$</p></li>
+</ol>
+
+<p>trong đó $N$ là tổng số điểm dữ liệu. Bước E, hay bước kỳ vọng (expectation step), có thể được coi là việc tính toán các giá trị kỳ vọng $p_{ij}$ của các <strong>biến chỉ thị (indicator variables)</strong> ẩn $Z_{ij}$, trong đó $Z_{ij}$ là 1 nếu dữ liệu $\mathbf{x}_j$ được tạo ra bởi thành phần thứ $i$ và là 0 nếu ngược lại. Bước M, hay bước cực đại hóa (maximization step), tìm các giá trị mới của các tham số làm cực đại hóa log khả năng (log likelihood) của dữ liệu, cho trước các giá trị kỳ vọng của các biến chỉ thị ẩn.</p>
+
+<p>Mô hình cuối cùng mà EM học được khi nó được áp dụng vào dữ liệu trong <strong>Hình 21.12(a)</strong> được hiển thị trong <strong>Hình 21.12(c)</strong>; thực tế thì không thể phân biệt được nó với mô hình gốc đã tạo ra dữ liệu (đường ngang). <strong>Hình 21.13(a)</strong> vẽ biểu đồ log khả năng của dữ liệu theo mô hình hiện tại khi EM tiến triển.</p>
+
+<p>Có hai điểm cần chú ý. Đầu tiên, log khả năng cho mô hình cuối cùng học được vượt quá một chút so với mô hình gốc, từ đó dữ liệu được tạo ra. Điều này có vẻ đáng ngạc nhiên, nhưng nó chỉ đơn giản phản ánh thực tế là dữ liệu được tạo ra một cách ngẫu nhiên và có thể không cung cấp sự phản ánh chính xác mô hình cơ bản. Điểm thứ hai là EM <em>làm tăng</em> log khả năng của dữ liệu ở mọi lần lặp. Thực tế này có thể được chứng minh một cách tổng quát. Hơn nữa, trong một số điều kiện nhất định (đúng trong hầu hết các trường hợp), EM có thể được chứng minh là đạt đến <strong>cực đại cục bộ</strong> về khả năng (likelihood). (Trong một số trường hợp hiếm hoi, nó có thể chạm tới một điểm yên ngựa - saddle point - hoặc thậm chí là cực tiểu cục bộ). Theo nghĩa này, EM giống với thuật toán leo đồi dựa trên gradient, nhưng lưu ý rằng nó không có tham số "kích thước bước" (step size).</p>
+
+<p>Mọi thứ không phải lúc nào cũng diễn ra tốt đẹp như <strong>Hình 21.13(a)</strong> gợi ý. Chẳng hạn, có thể xảy ra trường hợp một thành phần Gaussian co lại đến mức nó chỉ bao phủ một điểm dữ liệu duy nhất. Khi đó phương sai của nó sẽ về 0 và khả năng (likelihood) của nó sẽ tiến tới vô cùng! Nếu chúng ta không biết có bao nhiêu thành phần trong hỗn hợp, chúng ta phải thử các giá trị khác nhau của $k$ và xem giá trị nào là tốt nhất; đó có thể là một nguồn gây ra sai số. Một vấn đề khác là hai thành phần có thể "hợp nhất", thu được các trung bình và phương sai giống hệt nhau và chia sẻ các điểm dữ liệu của chúng. Các loại cực đại cục bộ thoái hóa (degenerate local maxima) này là những vấn đề nghiêm trọng, đặc biệt là trong các chiều không gian cao. Một giải pháp là đặt các phân phối tiên nghiệm lên các tham số mô hình và áp dụng phiên bản MAP của thuật toán EM. Một giải pháp khác là khởi động lại một thành phần với các tham số ngẫu nhiên mới nếu nó trở nên quá nhỏ hoặc quá gần với một thành phần khác. Việc khởi tạo hợp lý cũng giúp ích.</p>
+
+<h3 id="2132-learning-bayes-net-parameter-values-for-hidden-variables">21.3.2 Học giá trị tham số mạng Bayes cho các biến ẩn</h3>
+<p>Để học một mạng Bayes với các biến ẩn, chúng ta áp dụng cùng những hiểu biết chuyên sâu đã hoạt động cho hỗn hợp các Gaussian. <strong>Hình 21.14(a)</strong> biểu diễn một tình huống trong đó có hai túi kẹo đã được trộn lẫn với nhau. Kẹo được mô tả bằng ba đặc điểm: ngoài Hương vị ($Flavor$) và Vỏ bọc ($Wrapper$), một số viên kẹo có một Lỗ ($Hole$) ở giữa và một số thì không. Phân phối của kẹo trong mỗi túi được mô tả bằng một mô hình Naive Bayes: các đặc điểm là độc lập, với điều kiện là cho trước cái túi, nhưng phân phối xác suất có điều kiện cho mỗi đặc điểm phụ thuộc vào chiếc túi. Các tham số như sau: $\theta$ là xác suất tiên nghiệm để một viên kẹo đến từ Túi 1; $\theta_{F1}$ và $\theta_{F2}$ là xác suất hương vị là anh đào, cho trước việc kẹo lần lượt đến từ Túi 1 hoặc Túi 2; $\theta_{W1}$ và $\theta_{W2}$ cho xác suất vỏ bọc là màu đỏ; và $\theta_{H1}$ và $\theta_{H2}$ cho xác suất kẹo có lỗ.</p>
+
+<p>Mô hình tổng thể là một mô hình hỗn hợp: một tổng có trọng số của hai phân phối khác nhau, mỗi phân phối là tích của các phân phối đơn biến, độc lập. (Trên thực tế, chúng ta cũng có thể mô hình hóa hỗn hợp các Gaussian như một mạng Bayes, như được hiển thị trong <strong>Hình 21.14(b)</strong>). Trong hình, túi kẹo là một biến ẩn vì một khi kẹo đã được trộn lẫn với nhau, chúng ta không còn biết mỗi viên kẹo đến từ túi nào. Trong trường hợp như vậy, liệu chúng ta có thể khôi phục lại các mô tả của hai chiếc túi bằng cách quan sát những viên kẹo từ hỗn hợp không? Chúng ta hãy thực hiện một bước lặp EM cho bài toán này. Đầu tiên, hãy xem xét dữ liệu. Chúng ta đã tạo ra 1000 mẫu từ một mô hình có các tham số thực (true parameters) như sau:</p>
+
+<p>$$\theta=0.5; \theta_{F1}=\theta_{W1}=\theta_{H1}=0.8; \theta_{F2}=\theta_{W2}=\theta_{H2}=0.3 \quad (21.9)$$</p>
+
+<p>Tức là, các viên kẹo có khả năng đến từ bất kỳ túi nào như nhau; phần lớn kẹo ở túi thứ nhất có vị anh đào với vỏ màu đỏ và có lỗ; phần lớn ở túi thứ hai là chanh với vỏ xanh và không có lỗ. Số lượng cho tám loại kẹo có thể có như sau:</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>$W=red$</th>
+<th></th>
+<th>$W=green$</th>
+<th></th>
+</tr>
+<tr>
+<th></th>
+<th>$H=1$</th>
+<th>$H=0$</th>
+<th>$H=1$</th>
+<th>$H=0$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$F=cherry$</td>
+<td>273</td>
+<td>93</td>
+<td>104</td>
+<td>90</td>
+</tr>
+<tr>
+<td>$F=lime$</td>
+<td>79</td>
+<td>100</td>
+<td>94</td>
+<td>167</td>
+</tr>
+</tbody>
+</table>
+
+<p>Chúng ta bắt đầu bằng cách khởi tạo các tham số. Để đơn giản về mặt số học, chúng ta tùy ý chọn:</p>
+
+<p>$$\theta^{(0)}=0.6; \theta_{F1}^{(0)}=\theta_{W1}^{(0)}=\theta_{H1}^{(0)}=0.6; \theta_{F2}^{(0)}=\theta_{W2}^{(0)}=\theta_{H2}^{(0)}=0.4 \quad (21.10)$$</p>
+
+<p>Đầu tiên, chúng ta hãy làm việc trên tham số $\theta$. Trong trường hợp có thể quan sát đầy đủ, chúng ta sẽ ước lượng điều này trực tiếp từ số lượng kẹo quan sát được từ túi 1 và túi 2. Vì túi là một biến ẩn, thay vào đó chúng ta tính toán số đếm kỳ vọng (expected counts). Số đếm kỳ vọng $\hat{N}(Bag=1)$ là tổng, trên tất cả các viên kẹo, của xác suất viên kẹo đó đến từ túi 1:</p>
+
+<p>$$\theta^{(1)} = \frac{\hat{N}(Bag=1)}{N} = \frac{1}{N} \sum_{j=1}^N P(Bag=1 | flavor_j, wrapper_j, holes_j)$$</p>
+
+<p>Các xác suất này có thể được tính toán bằng bất kỳ thuật toán suy diễn nào cho các mạng Bayes. Đối với mô hình Naive Bayes như trong ví dụ của chúng ta, chúng ta có thể thực hiện suy diễn "bằng tay", sử dụng quy tắc Bayes và áp dụng sự độc lập có điều kiện:</p>
+
+<p>$$\theta^{(1)} = \frac{1}{N} \sum_{j=1}^N \frac{P(flavor_j | Bag=1) P(wrapper_j | Bag=1) P(holes_j | Bag=1) P(Bag=1)}{\sum_i P(flavor_j | Bag=i) P(wrapper_j | Bag=i) P(holes_j | Bag=i) P(Bag=i)}$$</p>
+
+<p>Áp dụng công thức này, chẳng hạn đối với 273 viên kẹo anh đào bọc đỏ có lỗ, chúng ta nhận được một phần đóng góp là:</p>
+
+<p>$$\frac{273}{1000} \frac{\theta_{F1}^{(0)} \theta_{W1}^{(0)} \theta_{H1}^{(0)} \theta^{(0)}}{\theta_{F1}^{(0)} \theta_{W1}^{(0)} \theta_{H1}^{(0)} \theta^{(0)} + \theta_{F2}^{(0)} \theta_{W2}^{(0)} \theta_{H2}^{(0)} (1 - \theta^{(0)})} \approx 0.22797$$</p>
+
+<p><em>Chú thích: 5. Trong thực tế, tốt hơn là chọn chúng một cách ngẫu nhiên, để tránh các cực đại cục bộ do sự đối xứng.</em></p>

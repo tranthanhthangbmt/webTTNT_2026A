@@ -1,0 +1,123 @@
+Bibliographical and Historical Notes 837
+In the late 1990s and early 2000s, interest in neural networks waned as other techniques
+such as Bayes nets, ensemble methods, and kernel machines came to the fore. Interest in deep
+models was sparked when Geoff Hinton’s research on deep Bayesian networks—generative
+models with category variables at the root and evidence variables at the leaves—began to bear
+fruit, outperforming kernel machines on small benchmark data sets (Hinton et al. , 2006).
+Interest in deep learning exploded when Krizhevsky et al. (2013) used deep convolutional
+networks to win the ImageNet competition (Russakovsky et al. , 2015).
+Commentators often cite the availability of “big data” and the processing power of GPUs
+as the main contributing factors in the emergence of deep learning. Architectural improve-
+ments were also important, including the adoption of the ReLU activation function instead of
+the logistic sigmoid (Jarrett et al. , 2009; Nair and Hinton, 2010; Glorot et al. , 2011) and later
+the development of residual networks (He et al. , 2016).
+On the algorithmic side, the use of stochastic gradient descent (SGD) with small batches
+was essential in allowing neural networks to scale to large data sets (Bottou and Bousquet,
+2008). Batch normalization (Ioffe and Szegedy, 2015) also helped in making the training pro-
+cess faster and more reliable and has spawned several additional normalization techniques (Ba
+et al. , 2016; Wu and He, 2018; Miyato et al. , 2018). Several papers have studied the empirical
+behavior of SGD on large networks and large data sets (Dauphin et al. , 2015; Choromanska
+et al. , 2014; Goodfellow et al. , 2015b). On the theoretical side, some progress has been made
+on explaining the observation that SGD applied to overparameterized networks often reaches
+a global minimum with a training error of zero, although so far the theorems to this effect
+assume a network with layers far wider than would ever occur in practice (Allen-Zhu et al. ,
+2018; Du et al. , 2018). Such networks have more than enough capacity to function as lookup
+tables for the training data.
+The last piece of the puzzle, at least for vision applications, was the use of convolutional
+networks. These had their origins in the descriptions of the mammalian visual system by
+neurophysiologists David Hubel and Torsten Wiesel (Hubel and Wiesel, 1959, 1962, 1968).
+They described “simple cells” in the visual system of a cat that resemble edge detectors,
+as well as “complex cells” that are invariant to some transformations such as small spatial
+translations. In modern convolutional networks, the output of a convolution is analogous to a
+simple cell while the output of a pooling layer is analogous to a complex cell.
+The work of Hubel and Wiesel inspired many of the early connectionist models of vision
+(Marr and Poggio, 1976). The neocognitron (Fukushima, 1980; Fukushima and Miyake,
+1982), designed as a model of the visual cortex, was essentially a convolutional network in
+terms of model architecture, although an effective training algorithm for such networks had
+to wait until Yann LeCun and collaborators showed how to apply back-propagation (LeCun
+et al. , 1995). One of the early commercial successes of neural networks was handwritten digit
+recognition using convolutional networks (LeCun et al. , 1995).
+Recurrent neural networks (RNNs) were commonly proposed as models of brain function
+in the 1970s, but no effective learning algorithms were associated with these proposals. The
+method of back-propagation through time appears in the PhD thesis of Paul Werbos (1974),
+and his later review paper (Werbos, 1990) gives several additional references to rediscoveries
+of the method in the 1980s. One of the most inﬂuential early works on RNNs was due to
+Jeff Elman (1990), building on an RNN architecture suggested by Michael Jordan (1986).
+Williams and Zipser (1989) present an algorithm for online learning in RNNs. Bengio et al.
+838 Chapter 22 Deep Learning
+(1994) analyzed the problem of vanishing gradients in recurrent networks. The long short-
+term memory (LSTM) architecture (Hochreiter, 1991; Hochreiter and Schmidhuber, 1997;
+Gers et al. , 2000) was proposed as a way of avoiding this problem. More recently, effective
+RNN designs have been derived automatically (Jozefowicz et al. , 2015; Zoph and Le, 2016).
+Many methods have been tried for improving generalization in neural networks. Weight
+decay was suggested by Hinton (1987) and analyzed mathematically by Krogh and Hertz
+(1992). The dropout method is due to Srivastava et al. (2014a). Szegedy et al. (2013) intro-
+duced the idea of adversarial examples, spawning a huge literature.
+Poole et al. (2017) showed that deep networks (but not shallow ones) can disentangle
+complex functions into ﬂat manifolds in the space of hidden units. Rolnick and Tegmark
+(2018) showed that the number of units required to approximate a certain class of polynomials
+ofnvariables grows exponentially for shallow networks but only linearly for deep networks.
+White et al. (2019) showed that their B ANANAS system could do neural architecture
+search (NAS) by predicting the accuracy of a network to within 1% after training on just
+200 random sample architectures. Zoph and Le (2016) use reinforcement learning to search
+the space of neural network architectures. Real et al. (2018) use an evolutionary algorithm
+to do model selection, Liu et al. (2017) use evolutionary algorithms on hierarchical repre-
+sentations, and Jaderberg et al. (2017) describe population-based training. Liu et al. (2019)
+relax the space of architectures to a continuous differentiable space and use gradient descent
+to ﬁnd a locally optimal solution. Pham et al. (2018) describe the ENAS (Efﬁcient Neural
+Architecture Search) system, which searches for optimal subgraphs of a larger graph. It is
+fast because it does not need to retrain parameters. The idea of searching for a subgraph goes
+back to the “optimal brain damage” algorithm of LeCun et al. (1990).
+Despite this impressive array of approaches, there are critics who feel the ﬁeld has not yet
+matured. Yu et al. (2019) show that in some cases these NAS algorithms are no more efﬁcient
+than random architecture selection. For a survey of recent results in neural architecture search,
+see Elsken et al. (2018).
+Unsupervised learning constitutes a large subﬁeld within statistics, mostly under the
+heading of density estimation. Silverman (1986) and Murphy (2012) are good sources for
+classical and modern techniques in this area. Principal components analysis (PCA) dates
+back to Pearson (1901); the name comes from independent work by Hotelling (1933). The
+probabilistic PCA model (Tipping and Bishop, 1999) adds a generative model for the prin-
+cipal components themselves. The variational autoencoder is due to Kingma and Welling
+(2013) and Rezende et al. (2014); Jordan et al. (1999) provide an introduction to variational
+methods for inference in graphical models.
+For autoregressive models, the classic text is by Box et al. (2016). The Yule–Walker equa-
+tions for ﬁtting AR models were developed independently by Yule (1927) and Walker (1931).
+Autoregressive models with nonlinear dependencies were developed by several authors (Frey,
+1998; Bengio and Bengio, 2001; Larochelle and Murray, 2011). The autoregressive WaveNet
+model (van den Oord et al. , 2016a) was based on earlier work on autoregressive image gen-
+eration (van den Oord et al. , 2016b). Generative adversarial networks, or GANs, were ﬁrst
+proposed by Goodfellow et al. (2015a), and have found many applications in AI. Some the-
+oretical understanding of their properties is emerging, leading to improved GAN models and
+algorithms (Li and Malik, 2018b, 2018a; Zhu et al. , 2019). Part of that understanding involves
+protecting against adversarial attacks (Carlini et al. , 2019).
+Bibliographical and Historical Notes 839
+Several branches of research into neural networks have been popular in the past but are
+not actively explored today. Hopﬁeld networks (Hopﬁeld, 1982) have symmetric connec- Hopeld network
+tions between each pair of nodes and can learn to store patterns in an associative memory,
+so that an entire pattern can be retrieved by indexing into the memory using a fragment of
+the pattern. Hopﬁeld networks are deterministic; they were later generalized to stochastic
+Boltzmann machines (Hinton and Sejnowski, 1983, 1986). Boltzmann machines are possi- Boltzmann machine
+bly the earliest example of a deep generative model. The difﬁculty of inference in Boltzmann
+machines led to advances in both Monte Carlo techniques and variational techniques (see
+Section 13.4).
+Research on neural networks for AI has also been intertwined to some extent with re-
+search into biological neural networks. The two topics coincided in the 1940s, and ideas for
+convolutional networks and reinforcement learning can be traced to studies of biological sys-
+tems; but at present, new ideas in deep learning tend to be based on purely computational or
+statistical concerns. The ﬁeld of computational neuroscience aims to build computationalComputational
+neuroscience
+models that capture important and speciﬁc properties of actual biological systems. Overviews
+are given by Dayan and Abbott (2001) and Trappenberg (2010).
+For modern neural nets and deep learning, the leading textbooks are those by Goodfellow
+et al. (2016) and Charniak (2018). There are also many hands-on guides associated with
+the various open-source software packages for deep learning. Three of the leaders of the
+ﬁeld—Yann LeCun, Yoshua Bengio, and Geoff Hinton—introduced the key ideas to non-AI
+researchers in an inﬂuential Nature article (2015). The three were recipients of the 2018
+Turing Award. Schmidhuber (2015) provides a general overview, and Deng et al. (2014)
+focus on signal processing tasks.
+The primary publication venues for deep learning research are the conference on Neural
+Information Processing Systems (NeurIPS), the International Conference on Machine Learn-
+ing (ICML), and the International Conference on Learning Representations (ICLR). The main
+journals are Machine Learning , the Journal of Machine Learning Research , and Neural Com-
+putation . Increasingly, because of the fast pace of research, papers appear ﬁrst on arXiv.org
+and are often described in the research blogs of the major research centers.

@@ -1,0 +1,36 @@
+<p>Tiếp tục với bảy loại kẹo còn lại trong bảng số đếm, chúng ta thu được $\theta^{(1)} = 0.6124$.</p>
+
+<p>Bây giờ chúng ta hãy xem xét các tham số khác, chẳng hạn như $\theta_{F1}$. Trong trường hợp có thể quan sát đầy đủ, chúng ta sẽ ước lượng điều này trực tiếp từ số lượng kẹo anh đào và kẹo chanh quan sát được từ túi 1. Số lượng <em>kỳ vọng</em> của kẹo anh đào từ túi 1 được cho bởi:</p>
+
+<p>$$\sum_{j: Flavor_j = cherry} P(Bag=1 | Flavor_j=cherry, wrapper_j, holes_j)$$</p>
+
+<p>Một lần nữa, các xác suất này có thể được tính toán bằng bất kỳ thuật toán mạng Bayes nào. Hoàn tất quá trình này, chúng ta thu được các giá trị mới của tất cả các tham số:</p>
+
+<p>$$\theta^{(1)} = 0.6124; \quad \theta_{F1}^{(1)} = 0.6684; \quad \theta_{W1}^{(1)} = 0.6483; \quad \theta_{H1}^{(1)} = 0.6558;$$
+$$\theta_{F2}^{(1)} = 0.3887; \quad \theta_{W2}^{(1)} = 0.3817; \quad \theta_{H2}^{(1)} = 0.3827; \quad (21.11)$$</p>
+
+<p>Log khả năng (log likelihood) của dữ liệu tăng từ khoảng -2044 ban đầu lên khoảng -2021 sau vòng lặp đầu tiên, như được hiển thị trong <strong>Hình 21.13(b)</strong>. Tức là, việc cập nhật tự nó cải thiện khả năng (likelihood) lên một hệ số khoảng $e^{23} \approx 10^{10}$. Đến vòng lặp thứ mười, mô hình học được khớp với dữ liệu tốt hơn mô hình ban đầu ($L = -1982.214$). Sau đó, tiến trình trở nên rất chậm. Điều này không phải là hiếm với EM, và nhiều hệ thống thực tế kết hợp EM với một thuật toán dựa trên gradient chẳng hạn như Newton-Raphson (xem Chương 4) cho giai đoạn học cuối cùng.</p>
+
+<p>Bài học chung từ ví dụ này là các bản cập nhật tham số cho việc học mạng Bayes với các biến ẩn có thể có được <strong>trực tiếp</strong> từ các kết quả suy diễn trên mỗi ví dụ. Hơn nữa, chỉ các xác suất hậu nghiệm <em>cục bộ (local)</em> là cần thiết cho mỗi tham số. Ở đây, "cục bộ" có nghĩa là bảng xác suất có điều kiện (CPT) cho mỗi biến $X_i$ có thể được học từ các xác suất hậu nghiệm chỉ liên quan đến $X_i$ và các nút cha của nó là $\mathbf{U}_i$. Định nghĩa $\theta_{ijk}$ là tham số CPT $P(X_i = x_{ij} | \mathbf{U}_i = \mathbf{u}_{ik})$, việc cập nhật được cho bởi các số đếm kỳ vọng đã chuẩn hóa như sau:</p>
+
+<p>$$\theta_{ijk} \leftarrow \frac{\hat{N}(X_i=x_{ij}, \mathbf{U}_i=\mathbf{u}_{ik})}{\hat{N}(\mathbf{U}_i=\mathbf{u}_{ik})}$$</p>
+
+<p>Các số đếm kỳ vọng có được bằng cách tính tổng trên tất cả các ví dụ, tính toán các xác suất $P(X_i = x_{ij}, \mathbf{U}_i = \mathbf{u}_{ik})$ cho mỗi ví dụ bằng cách sử dụng bất kỳ thuật toán suy diễn mạng Bayes nào. Đối với các thuật toán <em>chính xác</em>—bao gồm cả khử biến (variable elimination)—tất cả các xác suất này có thể thu được trực tiếp như một sản phẩm phụ của suy diễn tiêu chuẩn, không cần các tính toán bổ sung dành riêng cho việc học. Hơn nữa, thông tin cần thiết cho việc học có sẵn một cách cục bộ cho mỗi tham số.</p>
+
+<p>Lùi lại một chút, chúng ta có thể nghĩ về những gì thuật toán EM đang làm trong ví dụ này giống như việc khôi phục bảy tham số ($\theta, \theta_{F1}, \theta_{W1}, \theta_{H1}, \theta_{F2}, \theta_{W2}, \theta_{H2}$) từ bảy ($2^3 - 1$) số đếm được quan sát trong dữ liệu. (Số đếm thứ tám được cố định bởi thực tế là tổng các số đếm bằng 1000). Nếu mỗi viên kẹo được mô tả bằng hai thuộc tính thay vì ba (giả sử bỏ qua lỗ hổng), chúng ta sẽ có năm tham số ($\theta, \theta_{F1}, \theta_{W1}, \theta_{F2}, \theta_{W2}$) nhưng chỉ có ba ($2^2 - 1$) số đếm được quan sát. Trong trường hợp như vậy, không thể khôi phục trọng số hỗn hợp $\theta$ hoặc các đặc tính của hai túi kẹo đã được trộn lẫn với nhau. Chúng ta nói rằng mô hình hai thuộc tính <strong>không thể xác định (not identifiable)</strong>.</p>
+
+<p>Tính xác định được (identifiability) trong các mạng Bayes là một vấn đề phức tạp. Lưu ý rằng ngay cả với ba thuộc tính và bảy số đếm, chúng ta cũng không thể khôi phục mô hình một cách duy nhất, bởi vì có <em>hai</em> mô hình tương đương về mặt quan sát với biến $Bag$ bị đảo ngược. Tùy thuộc vào cách các tham số được khởi tạo, thuật toán EM sẽ hội tụ đến một mô hình nơi túi 1 có phần lớn là anh đào và túi 2 phần lớn là chanh, hoặc ngược lại. Loại thiếu khả năng xác định (non-identifiability) này là không thể tránh khỏi đối với các biến <em>không bao giờ</em> được quan sát.</p>
+
+<h3 id="2133-learning-hidden-markov-models">21.3.3 Học các mô hình Markov ẩn (Learning hidden Markov models)</h3>
+<p>Ứng dụng cuối cùng của chúng ta về EM liên quan đến việc học các xác suất chuyển trạng thái (transition probabilities) trong các mô hình Markov ẩn (HMMs). Nhắc lại từ Mục 14.3 rằng một mô hình Markov ẩn có thể được biểu diễn bằng một mạng Bayes động với một biến trạng thái rời rạc duy nhất, như được minh họa trong <strong>Hình 21.15</strong>. Mỗi điểm dữ liệu bao gồm một <em>chuỗi</em> quan sát có độ dài hữu hạn, vì vậy bài toán là phải học các xác suất chuyển trạng thái từ một tập hợp các chuỗi quan sát (hoặc từ chỉ một chuỗi dài).</p>
+
+<p>Chúng ta đã thấy cách học các mạng Bayes, nhưng có một sự phức tạp: trong các mạng Bayes, mỗi tham số là khác biệt; mặt khác, trong một mô hình Markov ẩn, các xác suất chuyển trạng thái riêng lẻ từ trạng thái $i$ sang trạng thái $j$ tại thời điểm $t$, $\theta_{ijt} = P(X_{t+1}=j | X_t=i)$, được <em>lặp lại</em> qua các thời điểm—tức là, $\theta_{ijt} = \theta_{ij}$ cho mọi $t$. Để ước lượng xác suất chuyển từ trạng thái $i$ sang trạng thái $j$, chúng ta chỉ cần tính toán <em>tỷ lệ kỳ vọng</em> của số lần hệ thống trải qua quá trình chuyển đổi sang trạng thái $j$ khi đang ở trạng thái $i$:</p>
+
+<p>$$\theta_{ij} \leftarrow \frac{\sum_t \hat{N}(X_{t+1}=j, X_t=i)}{\sum_t \hat{N}(X_t=i)}$$</p>
+
+<p>Các số đếm kỳ vọng được tính toán bởi một thuật toán suy diễn HMM. Thuật toán tới-lui (forward-backward) được hiển thị trong Hình 14.4 có thể được sửa đổi rất dễ dàng để tính toán các xác suất cần thiết. Một điểm quan trọng là các xác suất được yêu cầu có được thông qua việc <strong>làm trơn (smoothing)</strong> chứ không phải là <em>lọc (filtering)</em>. Việc lọc cung cấp phân phối xác suất của trạng thái hiện tại cho trước quá khứ, nhưng việc làm trơn cung cấp phân phối cho trước <em>tất cả</em> bằng chứng, bao gồm cả những gì xảy ra <em>sau</em> khi một quá trình chuyển đổi cụ thể đã xảy ra. Bằng chứng trong một vụ án mạng thường thu được <em>sau khi</em> tội ác (tức là sự chuyển đổi từ trạng thái $i$ sang trạng thái $j$) đã diễn ra.</p>
+
+<h3 id="2134-the-general-form-of-the-em-algorithm">21.3.4 Dạng tổng quát của thuật toán EM</h3>
+<p>Chúng ta đã thấy một số ví dụ của thuật toán EM. Mỗi ví dụ liên quan đến việc tính toán các giá trị kỳ vọng của các biến ẩn cho mỗi mẫu dữ liệu và sau đó tính toán lại các tham số, sử dụng các giá trị kỳ vọng như thể chúng là các giá trị quan sát được. Gọi $\mathbf{x}$ là tất cả các giá trị quan sát được trong tất cả các ví dụ, gọi $\mathbf{Z}$ biểu thị cho tất cả các biến ẩn của tất cả các ví dụ, và gọi $\boldsymbol{\theta}$ là tất cả các tham số cho mô hình xác suất. Khi đó thuật toán EM là:</p>
+
+<p>$$\boldsymbol{\theta}^{(i+1)} = \arg\max_{\boldsymbol{\theta}} \sum_{\mathbf{z}} P(\mathbf{Z}=\mathbf{z} | \mathbf{x}, \boldsymbol{\theta}^{(i)}) L(\mathbf{x}, \mathbf{Z}=\mathbf{z} | \boldsymbol{\theta})$$</p>

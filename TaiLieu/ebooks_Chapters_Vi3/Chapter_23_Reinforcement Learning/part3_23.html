@@ -1,0 +1,60 @@
+<pre><code>function PASSIVE-TD-LEARNER(percept) returns an action
+  inputs: percept, a percept indicating the current state s' and reward signal r'
+  persistent: $\pi$, a fixed policy
+              s, the previous state, initially null
+              U, a table of utilities for states, initially empty
+              $N_s$, a table of frequencies for states, initially zero
+  
+  if s' is new then U[s'] $\leftarrow$ 0
+  if s is not null then
+      increment $N_s$[s]
+      U[s] $\leftarrow$ U[s] + $\alpha(N_s[s])(r + \gamma U[s'] - U[s])$
+  s $\leftarrow$ s'
+  return $\pi$[s']
+</code></pre>
+
+<p><strong>Hình 23.4</strong> Một tác tử học tăng cường thụ động thực hiện học các ước lượng độ thỏa dụng sử dụng chênh lệch thời gian. Hàm kích thước bước (step-size function) $\alpha(n)$ được chọn để đảm bảo sự hội tụ.</p>
+
+<p>chúng ta áp dụng bản cập nhật sau đây cho $U^{\pi}(s)$:</p>
+
+<p>$$U^{\pi}(s) \leftarrow U^{\pi}(s) + \alpha \left[ R(s, \pi(s), s') + \gamma U^{\pi}(s') - U^{\pi}(s) \right]. \quad (23.3)$$</p>
+
+<p>Ở đây, $\alpha$ là tham số tỷ lệ học (learning rate parameter). Bởi vì quy tắc cập nhật này sử dụng sự chênh lệch về độ thỏa dụng giữa các trạng thái kế tiếp nhau (và do đó là các khoảng thời gian kế tiếp nhau), nên nó thường được gọi là phương trình <strong>chênh lệch thời gian (temporal-difference - TD)</strong>. Giống như trong các quy tắc cập nhật trọng số từ Chương 19 (ví dụ, Phương trình (19.6) ở trang 698), số hạng TD $R(s, \pi(s), s') + \gamma U^{\pi}(s') - U^{\pi}(s)$ thực chất là một tín hiệu lỗi (error signal), và việc cập nhật là nhằm mục đích giảm thiểu lỗi này.</p>
+
+<p>Tất cả các phương pháp chênh lệch thời gian đều hoạt động bằng cách điều chỉnh các ước lượng độ thỏa dụng hướng tới trạng thái cân bằng lý tưởng vốn được duy trì một cách cục bộ khi các ước lượng độ thỏa dụng là chính xác. Trong trường hợp học thụ động, trạng thái cân bằng được cho bởi Phương trình (23.2). Giờ đây, Phương trình (23.3) trên thực tế có khiến tác tử đạt được trạng thái cân bằng được cho bởi Phương trình (23.2), nhưng có một chút tế nhị ở đây. Đầu tiên, hãy lưu ý rằng bản cập nhật chỉ liên quan đến trạng thái kế tiếp quan sát được $s'$, trong khi các điều kiện cân bằng thực tế liên quan đến <em>tất cả</em> các trạng thái tiếp theo có thể có. Người ta có thể nghĩ rằng điều này gây ra một sự thay đổi lớn một cách không phù hợp trong $U^{\pi}(s)$ khi một sự chuyển đổi rất hiếm xảy ra; nhưng, trên thực tế, bởi vì các chuyển đổi hiếm chỉ hiếm khi xảy ra, giá trị trung bình của $U^{\pi}(s)$ sẽ hội tụ về đại lượng chính xác trong giới hạn, ngay cả khi bản thân giá trị đó tiếp tục dao động.</p>
+
+<p>Hơn thế nữa, nếu chúng ta biến tham số $\alpha$ thành một hàm giảm dần khi số lần một trạng thái được ghé thăm tăng lên, như được hiển thị trong Hình 23.4, thì bản thân $U^{\pi}(s)$ sẽ hội tụ về giá trị chính xác.<sup>3</sup> Hình 23.5 minh họa hiệu suất của tác tử TD thụ động trên thế giới $4 \times 3$. Nó học không nhanh bằng tác tử ADP và cho thấy mức độ biến động (variability) cao hơn nhiều, nhưng nó đơn giản hơn rất nhiều và đòi hỏi ít phép tính hơn trên mỗi lần quan sát. Lưu ý rằng TD không cần một mô hình chuyển đổi để thực hiện các bản cập nhật của mình. Chính bản thân môi trường đã cung cấp sự kết nối giữa các trạng thái lân cận dưới dạng các sự chuyển đổi quan sát được.</p>
+
+<p>Các phương pháp tiếp cận ADP và TD có quan hệ chặt chẽ với nhau. Cả hai đều cố gắng thực hiện các điều chỉnh cục bộ đối với các ước lượng độ thỏa dụng nhằm làm cho mỗi trạng thái "đồng thuận" với các trạng thái kế tiếp của nó. Một điểm khác biệt là</p>
+
+<hr/>
+<p><sup>3</sup> Các điều kiện kỹ thuật được đưa ra ở trang 702. Trong Hình 23.5, chúng ta đã sử dụng $\alpha(n) = 60/(59+n)$, vốn thỏa mãn các điều kiện.</p>
+<hr/>
+
+<p><strong>Hình 23.5</strong> Các đường cong học thuật TD cho thế giới $4 \times 3$. (a) Các ước lượng độ thỏa dụng cho một tập con các trạng thái được chọn, dưới dạng một hàm số theo số lượng các lượt thử nghiệm, cho một lần chạy duy nhất gồm 500 lượt thử nghiệm. Hãy so sánh với lần chạy 100 lượt thử nghiệm trong Hình 23.3(a). (b) Sai số bình phương trung bình gốc trong ước lượng cho $U(1,1)$, được lấy trung bình qua 50 lần chạy của 100 lượt thử nghiệm mỗi lần.</p>
+
+<p>TD điều chỉnh một trạng thái để đồng thuận với trạng thái kế tiếp <em>được quan sát</em> của nó (Phương trình (23.3)), trong khi ADP điều chỉnh trạng thái để đồng thuận với <em>tất cả</em> các trạng thái kế tiếp có thể xảy ra, được tính trọng số bởi các xác suất của chúng (Phương trình (23.2)). Điểm khác biệt này biến mất khi các tác động của các điều chỉnh TD được lấy trung bình qua một số lượng lớn các sự chuyển đổi, bởi vì tần suất của mỗi trạng thái kế tiếp trong tập hợp các sự chuyển đổi xấp xỉ tỷ lệ thuận với xác suất của nó. Một điểm khác biệt quan trọng hơn là trong khi TD thực hiện một điều chỉnh duy nhất cho mỗi quá trình chuyển đổi quan sát được, thì ADP thực hiện bao nhiêu điều chỉnh tùy thích để khôi phục sự nhất quán giữa các ước lượng độ thỏa dụng $U$ và mô hình chuyển đổi $P$. Mặc dù quá trình chuyển đổi quan sát được chỉ tạo ra một sự thay đổi cục bộ trong $P$, tác động của nó có thể cần phải được lan truyền trong toàn bộ $U$. Do đó, TD có thể được xem như một sự xấp xỉ ban đầu tuy thô sơ nhưng hiệu quả đối với ADP.</p>
+
+<p>Mỗi điều chỉnh do ADP thực hiện có thể được xem, từ quan điểm của TD, như là kết quả của một <strong>trải nghiệm giả (pseudoexperience)</strong> được tạo ra bằng cách mô phỏng mô hình chuyển đổi hiện tại. Có thể mở rộng phương pháp tiếp cận TD để sử dụng một mô hình chuyển đổi nhằm tạo ra một vài trải nghiệm giả—những sự chuyển đổi mà tác tử TD có thể tưởng tượng là có thể xảy ra, dựa trên mô hình hiện tại của nó. Đối với mỗi sự chuyển đổi quan sát được, tác tử TD có thể tạo ra một số lượng lớn các sự chuyển đổi tưởng tượng. Theo cách này, các ước lượng độ thỏa dụng thu được sẽ xấp xỉ ngày càng gần hơn so với các ước lượng của ADP—tất nhiên là với cái giá phải trả là thời gian tính toán gia tăng.</p>
+
+<p>Theo một hướng tương tự, chúng ta có thể tạo ra các phiên bản hiệu quả hơn của ADP bằng cách xấp xỉ trực tiếp các thuật toán cho quá trình lặp giá trị (value iteration) hoặc lặp chính sách (policy iteration). Mặc dù thuật toán lặp giá trị rất hiệu quả, nó vẫn là bất khả thi nếu chúng ta có, giả sử, $10^{100}$ trạng thái. Tuy nhiên, nhiều điều chỉnh cần thiết đối với các giá trị trạng thái trên mỗi vòng lặp sẽ vô cùng nhỏ. Một phương pháp tiếp cận khả thi để tạo ra các câu trả lời khá tốt một cách nhanh chóng là giới hạn số lượng các điều chỉnh được thực hiện sau mỗi sự chuyển đổi quan sát được. Người ta cũng có thể sử dụng một phương pháp heuristic để xếp hạng các điều chỉnh có thể có nhằm chỉ thực hiện những điều chỉnh có ý nghĩa nhất. Phương pháp heuristic <strong>quét ưu tiên (prioritized sweeping)</strong> ưu tiên thực hiện các điều chỉnh đối với những trạng thái mà các trạng thái kế tiếp có khả năng xảy ra của chúng vừa trải qua một sự điều chỉnh lớn trong các ước lượng độ thỏa dụng của riêng chúng.</p>
+
+<p>Sử dụng các phương pháp heuristic như thế này, các thuật toán ADP xấp xỉ có thể học với tốc độ gần bằng ADP đầy đủ, tính theo số lượng các chuỗi huấn luyện, nhưng có thể hiệu quả hơn nhiều bậc độ lớn tính theo tổng lượng tính toán (xem Bài tập 23.PRSW). Điều này cho phép chúng xử lý các không gian trạng thái quá lớn so với ADP đầy đủ. Các thuật toán ADP xấp xỉ có thêm một lợi thế nữa: trong những giai đoạn đầu khi học về một môi trường mới, mô hình chuyển đổi $P$ thường sẽ khác xa so với thực tế, nên việc tính toán một hàm độ thỏa dụng chính xác để khớp với nó là không có nhiều ý nghĩa. Một thuật toán xấp xỉ có thể sử dụng kích thước điều chỉnh tối thiểu sẽ giảm dần khi mô hình chuyển đổi trở nên chính xác hơn. Điều này loại bỏ các chuỗi lặp giá trị rất dài có thể xảy ra ở giai đoạn đầu của quá trình học do những thay đổi lớn trong mô hình.</p>
+
+<h2>23.3 Học tăng cường chủ động (Active Reinforcement Learning)</h2>
+
+<p>Một tác tử học thụ động có một chính sách cố định quyết định hành vi của nó. Một tác tử học chủ động phải tự quyết định những hành động cần thực hiện. Hãy bắt đầu với tác tử quy hoạch động thích ứng (ADP) và xem xét cách nó có thể được sửa đổi để tận dụng quyền tự do mới này.</p>
+
+<p>Trước tiên, tác tử sẽ cần phải học một mô hình chuyển đổi hoàn chỉnh với các xác suất kết quả cho <em>tất cả</em> các hành động, thay vì chỉ là mô hình cho chính sách cố định. Cơ chế học được sử dụng bởi <code>PASSIVE-ADP-AGENT</code> sẽ hoàn thành tốt việc này. Tiếp theo, chúng ta cần tính đến việc tác tử có sự lựa chọn về các hành động. Những độ thỏa dụng mà nó cần phải học là những độ thỏa dụng được định nghĩa bởi chính sách <em>tối ưu</em>; chúng tuân theo các phương trình Bellman (mà chúng ta lặp lại ở đây):</p>
+
+<p>$$U(s) = \max_{a \in A(s)} \sum_{s'} P(s' | s, a) [R(s, a, s') + \gamma U(s')]. \quad (23.4)$$</p>
+
+<p>Những phương trình này có thể được giải để thu được hàm độ thỏa dụng $U$ bằng cách sử dụng các thuật toán lặp giá trị hoặc lặp chính sách từ Chương 16.</p>
+
+<p>Vấn đề cuối cùng là phải làm gì ở mỗi bước. Sau khi thu được một hàm độ thỏa dụng $U$ tối ưu cho mô hình đã học được, tác tử có thể trích xuất một hành động tối ưu bằng cách nhìn trước một bước (one-step look-ahead) để tối đa hóa độ thỏa dụng kỳ vọng; thay vào đó, nếu nó sử dụng lặp chính sách, chính sách tối ưu đã có sẵn, vì vậy nó có thể chỉ cần thực thi hành động mà chính sách tối ưu khuyến nghị. Nhưng nó có nên làm như vậy không?</p>
+
+<h3>23.3.1 Sự khám phá (Exploration)</h3>
+
+<p>Hình 23.6 cho thấy kết quả của một chuỗi các lượt thử nghiệm dành cho một tác tử ADP luôn tuân theo khuyến nghị của chính sách tối ưu cho mô hình đã học được ở mỗi bước. Tác tử này <em>không</em> học được các độ thỏa dụng thực sự hay chính sách tối ưu thực sự! Thay vào đó, điều xảy ra là ở lượt thử nghiệm thứ ba, nó tìm thấy một chính sách để đạt tới phần thưởng $+1$ dọc theo tuyến đường bên dưới thông qua $(2,1)$, $(3,1)$, $(3,2)$, và $(3,3)$. (Xem Hình 23.6(b).) Sau khi thử nghiệm với các biến thể nhỏ, từ lượt thử nghiệm thứ tám trở đi, nó tuân thủ nghiêm ngặt chính sách đó, không bao giờ tìm hiểu độ thỏa dụng của các trạng thái khác và không bao giờ tìm ra tuyến đường tối ưu thông qua $(1,2)$, $(1,3)$, và $(2,3)$. Chúng ta sẽ gọi tác tử này là một <strong>tác tử tham lam (greedy agent)</strong>, bởi vì ở mỗi bước nó tham lam thực hiện hành động mà nó hiện đang tin là tối ưu. Đôi khi sự tham lam được đền đáp và tác tử hội tụ về chính sách tối ưu, nhưng thông thường thì không.</p>
+
+<p>Làm sao việc lựa chọn hành động tối ưu lại có thể dẫn đến những kết quả dưới mức tối ưu (suboptimal results)? Câu trả lời là mô hình đã học được không giống với môi trường thực sự; do đó, những gì tối ưu trong mô hình đã học có thể là dưới mức tối ưu trong môi trường thực sự. Thật không may, tác tử không biết môi trường thực sự là gì, vì vậy nó không thể tính toán hành động tối ưu cho môi trường thực sự. Vậy thì, nó nên làm gì?</p>

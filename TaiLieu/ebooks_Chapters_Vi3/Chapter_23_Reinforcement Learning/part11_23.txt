@@ -1,0 +1,90 @@
+870 Chapter 23 Reinforcement Learning
+•Apprenticeship learning through observation of expert behavior can be an effective
+solution when a correct reward function is hard to specify. Imitation learning formu-
+lates the problem as supervised learning of a policy from the expert’s state–action pairs.
+Inverse reinforcement learning infers reward information from the expert’s behavior.
+Reinforcement learning continues to be one of the most active areas of machine learning re-
+search. It frees us from manual construction of behaviors and from labeling the vast data sets
+required for supervised learning, or having to hand-code control strategies. Applications in
+robotics promise to be particularly valuable; these will require methods for handling continu-
+ous, high-dimensional, partially observable environments in which successful behaviors may
+consist of thousands or even millions of primitive actions.
+We have presented a variety of approaches to reinforcement learning because there is
+(at least so far) no single best approach. The question of model-based versus model-free
+methods is, at its heart, a question about the best way to represent the agent function. This
+is an issue at the foundations of artiﬁcial intelligence. As we stated in Chapter 1, one of
+the key historical characteristics of much AI research is its (often unstated) adherence to the
+knowledge-based approach. This amounts to an assumption that the best way to represent
+the agent function is to build a representation of some aspects of the environment in which
+the agent is situated. Some argue that with access to sufﬁcient data, model-free methods
+can succeed in any domain. Perhaps this is true in theory, but of course, the universe may
+not contain enough data to make it true in practice. (For example, it is not easy to imagine
+how a model-free approach would enable one to design and build, say, the LIGO gravity-
+wave detector.) Our intuition, for what it’s worth, is that as the environment becomes more
+complex, the advantages of a model-based approach become more apparent.
+Bibliographical and Historical Notes
+It seems likely that the key idea of reinforcement learning—that animals do more of what
+they are rewarded for and less of what they are punished for—played a signiﬁcant role in
+the domestication of dogs at least 15,000 years ago. The early foundations of our scientiﬁc
+understanding of reinforcement learning include the work of the Russian physiologist Ivan
+Pavlov, who won the Nobel Prize in 1904, and that of the American psychologist Edward
+Thorndike—particularly his book Animal Intelligence (1911). Hilgard and Bower (1975)
+provide a good survey.
+Alan Turing (1948, 1950) proposed reinforcement learning as an approach for teaching
+computers; he considered it a partial solution, writing, “The use of punishments and rewards
+can at best be a part of the teaching process.” Arthur Samuel’s checkers program (1959,
+1967) was the ﬁrst successful use of machine learning of any kind. Samuel suggested most
+of the modern ideas in reinforcement learning, including temporal-difference learning and
+function approximation. He experimented with multilayer representations of value functions,
+similar to today’s deep RL. In the end, he found that a simple linear evaluation function over
+handcrafted features worked best. This may have been a consequence of working with a
+computer roughly 100 billion times less powerful than a modern tensor processing unit.
+Around the same time, researchers in adaptive control theory (Widrow and Hoff, 1960),
+building on work by Hebb (1949), were training simple networks using the delta rule. Thus,
+
+Bibliographical and Historical Notes 871
+reinforcement learning combines inﬂuences from animal psychology, neuroscience, opera-
+tions research, and optimal control theory.
+The connection between reinforcement learning and Markov decision processes was ﬁrst
+made by Werbos (1977). (Work by Ian Witten (1977) described a TD-like process in the
+language of control theory.) The development of reinforcement learning in AI stems primarily
+from work at the University of Massachusetts in the early 1980s (Barto et al. , 1981). An
+inﬂuential paper by Rich Sutton (1988) provided a mathematical understanding of temporal-
+difference methods. The combination of temporal-difference learning with the model-based
+generation of simulated experiences was proposed in Sutton’s D YNA architecture (Sutton,
+1990). Q-learning was developed in Chris Watkins’s Ph.D. thesis (1989), while SARSA
+appeared in a technical report by Rummery and Niranjan (1994). Prioritized sweeping was
+introduced independently by Moore and Atkeson (1993) and Peng and Williams (1993).
+Function approximation in reinforcement learning goes back to Arthur Samuel’s checkers
+program (1959). The use of neural networks to represent value functions was common in the
+1980s and came to the fore in Gerry Tesauro’s TD-Gammon program (Tesauro, 1992, 1995).
+Deep neural networks are currently the most popular choice for function approximators in
+reinforcement learning. Arulkumaran et al. (2017) and Francois-Lavet et al. (2018) give
+overviews of deep RL. The DQN system (Mnih et al. , 2015) uses a deep network to learn
+a Q-function, while A LPHA ZERO (Silver et al. , 2018) learns both a value function for use
+with a known model and a Q-function for use in metalevel decisions that guide search. Irpan
+(2018) warns that deep RL systems can perform poorly if the actual environment is even
+slightly different from the training environment.
+Weighted linear combinations of features and neural networks are factored represen-
+tations for function approximation. It is also possible to apply reinforcement learning to
+structured representations; this is called relational reinforcement learning (Tadepalli et al. ,
+2004). The use of relational descriptions allows for generalization across complex behaviors
+involving different objects.
+Analysis of the convergence properties of reinforcement learning algorithms using func-
+tion approximation is an extremely technical subject. Results for TD learning have been pro-
+gressively strengthened for the case of linear function approximators (Sutton, 1988; Dayan,
+1992; Tsitsiklis and Van Roy, 1997), but several examples of divergence have been presented
+for nonlinear functions (see Tsitsiklis and Van Roy, 1997, for a discussion). Papavassiliou
+and Russell (1999) describe a type of reinforcement learning that converges with any form of
+function approximator, provided that the problem of ﬁtting the hypothesis to the data is solv-
+able. Liu et al. (2018) describe the family of gradient TD algorithms and provide extensive
+theoretical analysis of convergence and sample complexity.
+A variety of exploration methods for sequential decision problems are discussed by Barto
+et al. (1995). Kearns and Singh (1998) and Brafman and Tennenholtz (2000) describe algo-
+rithms that explore unknown environments and are guaranteed to converge on near-optimal
+policies with a sample complexity that is polynomial in the number of states. Bayesian re-
+inforcement learning (Dearden et al. , 1998, 1999) provides another angle on both model
+uncertainty and exploration.
+The basic idea underlying imitation learning is to apply supervised learning to a training
+set of expert actions. This is an old idea in adaptive control, but ﬁrst came to prominence
+in AI with the work of Sammut et al. (1992) on “Learning to Fly” in a ﬂight simulator.

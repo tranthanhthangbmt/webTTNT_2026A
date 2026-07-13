@@ -1,0 +1,129 @@
+834 Chapter 22 Deep Learning
+22.8.2 Natural language processing
+Deep learning has also had a huge impact on natural language processing (NLP) applications
+such as machine translation and speech recognition. Some advantages of deep learning for
+these applications include the possibility of end-to-end learning, the automatic generation
+of internal representations for the meanings of words, and the interchangeability of learned
+encoders and decoders.
+End-to-end learning refers to the construction of entire systems as a single, learned func-
+tion f. For example, an ffor machine translation might take as input an English sentence
+SEand produce an equivalent Japanese sentence SJ=f(SE). Such an fcan be learned from
+training data in the form of human-translated pairs of sentences (or even pairs of texts, where
+the alignment of corresponding sentences or phrases is part of the problem to be solved). A
+more classical pipeline approach might ﬁrst parse SE, then extract its meaning, then re-express
+the meaning in Japanese as SJ, then post-edit SJusing a language model for Japanese. This
+pipeline approach has two major drawbacks: ﬁrst, errors are compounded at each stage; and
+second, humans have to determine what constitutes a “parse tree” and a “meaning represen-
+tation,” but there is no easily accessible ground truth for these notions, and our theoretical
+ideas about them are almost certainly incomplete.
+At our present stage of understanding, then, the classical pipeline approach—which, at
+least naively, seems to correspond to how a human translator works—is outperformed by the
+end-to-end method made possible by deep learning. For example, Wu et al. (2016b) showed
+that end-to-end translation using deep learning reduced translation errors by 60% relative to
+a previous pipeline-based system. As of 2020, machine translation systems are approaching
+human performance for language pairs such as French and English for which very large paired
+data sets are available, and they are usable for other language pairs covering the majority of
+Earth’s population. There is even some evidence that networks trained on multiple languages
+do in fact learn an internal meaning representation: for example, after learning to translate
+Portuguese to English and English to Spanish, it is possible to translate Portuguese directly
+into Spanish without any Portuguese/Spanish sentence pairs in the training set.
+One of the most signiﬁcant ﬁndings to emerge from the application of deep learning
+to language tasks is that a great deal deal of mileage comes from re-representing individ-
+ual words as vectors in a high-dimensional space—so-called word embeddings (see Sec-
+tion 25.1). The vectors are usually extracted from the weights of the ﬁrst hidden layer of
+a network trained on large quantities of text, and they capture the statistics of the lexical
+contexts in which words are used. Because words with similar meanings are used in similar
+contexts, they end up close to each other in the vector space. This allows the network to gen-
+eralize effectively across categories of words, without the need for humans to predeﬁne those
+categories. For example, a sentence beginning “John bought a watermelon and two pounds
+of . . . ” is likely to continue with “apples” or “bananas” but not with “thorium” or “geog-
+raphy.” Such a prediction is much easier to make if “apples” and “bananas” have similar
+representations in the internal layer.
+22.8.3 Reinforcement learning
+In reinforcement learning (RL), a decision-making agent learns from a sequence of reward
+signals that provide some indication of the quality of its behavior. The goal is to optimize the
+sum of future rewards. This can be done in several ways: in the terminology of Chapter 16,
+Summary 835
+the agent can learn a value function, a Q-function, a policy, and so on. From the point of
+view of deep learning, all these are functions that can be represented by computation graphs.
+For example, a value function in Go takes a board position as input and returns an estimate
+of how advantageous the position is for the agent. While the methods of training in RL differ
+from those of supervised learning, the ability of multilayer computation graphs to represent
+complex functions over large input spaces has proved to be very useful. The resulting ﬁeld of
+research is called deep reinforcement learning .Deep reinforcement
+learning
+In the 1950s, Arthur Samuel experimented with multilayer representations of value func-
+tions in his work on reinforcement learning for checkers, but he found that in practice a linear
+function approximator worked best. (This may have been a consequence of working with a
+computer roughly 100 billion times less powerful than a modern tensor processing unit.) The
+ﬁrst major successful demonstration of deep RL was DeepMind’s Atari-playing agent, DQN
+(Mnih et al. , 2013). Different copies of this agent were trained to play each of several differ-
+ent Atari video games, and demonstrated skills such as shooting alien spaceships, bouncing
+balls with paddles, and driving simulated racing cars. In each case, the agent learned a Q-
+function from raw image data with the reward signal being the game score. Subsequent work
+has produced deep RL systems that play at a superhuman level on the majority of the 57
+different Atari games. DeepMind’s A LPHA GOsystem also used deep RL to defeat the best
+human players at the game of Go (see Chapter 6).
+Despite its impressive successes, deep RL still faces signiﬁcant obstacles: it is often
+difﬁcult to get good performance, and the trained system may behave very unpredictably
+if the environment differs even a little from the training data (Irpan, 2018). Compared to
+other applications of deep learning, deep RL is rarely applied in commercial settings. It is,
+nonetheless, a very active area of research.
+Summary
+This chapter described methods for learning functions represented by deep computational
+graphs. The main points were:
+•Neural networks represent complex nonlinear functions with a network of parameter-
+ized linear-threshold units.
+• The back-propagation algorithm implements a gradient descent in parameter space to
+minimize the loss function.
+• Deep learning works well for visual object recognition, speech recognition, natural lan-
+guage processing, and reinforcement learning in complex environments.
+• Convolutional networks are particularly well suited for image processing and other tasks
+where the data have a grid topology.
+• Recurrent networks are effective for sequence-processing tasks including language mod-
+eling and machine translation.
+836 Chapter 22 Deep Learning
+Bibliographical and Historical Notes
+The literature on neural networks is vast. Cowan and Sharp (1988b, 1988a) survey the early
+history, beginning with the work of McCulloch and Pitts (1943). (As mentioned in Chap-
+ter 1, John McCarthy has pointed to the work of Nicolas Rashevsky (1936, 1938) as the
+earliest mathematical model of neural learning.) Norbert Wiener, a pioneer of cybernetics
+and control theory (Wiener, 1948), worked with McCulloch and Pitts and inﬂuenced a num-
+ber of young researchers, including Marvin Minsky, who may have been the ﬁrst to develop
+a working neural network in hardware, in 1951 (see Minsky and Papert, 1988, pp. ix–x).
+Alan Turing (1948) wrote a research report titled Intelligent Machinery that begins with the
+sentence “I propose to investigate the question as to whether it is possible for machinery to
+show intelligent behaviour” and goes on to describe a recurrent neural network architecture
+he called “B-type unorganized machines” and an approach to training them. Unfortunately,
+the report went unpublished until 1969, and was all but ignored until recently.
+The perceptron, a one-layer neural network with a hard-threshold activation function, was
+popularized by Frank Rosenblatt (1957). After a demonstration in July 1958, the New York
+Times described it as “the embryo of an electronic computer that [the Navy] expects will be
+able to walk, talk, see, write, reproduce itself and be conscious of its existence.” Rosenblatt
+(1960) later proved the perceptron convergence theorem, although it had been foreshadowed
+by purely mathematical work outside the context of neural networks (Agmon, 1954; Motzkin
+and Schoenberg, 1954). Some early work was also done on multilayer networks, including
+Gamba perceptrons (Gamba et al. , 1961) and madalines (Widrow, 1962). Learning Ma-
+chines (Nilsson, 1965) covers much of this early work and more. The subsequent demise
+of early perceptron research efforts was hastened (or, the authors later claimed, merely ex-
+plained) by the book Perceptrons (Minsky and Papert, 1969), which lamented the ﬁeld’s lack
+of mathematical rigor. The book pointed out that single-layer perceptrons could represent
+only linearly separable concepts and noted the lack of effective learning algorithms for mul-
+tilayer networks. These limitations were already well known (Hawkins, 1961) and had been
+acknowledged by Rosenblatt himself (Rosenblatt, 1962).
+The papers collected by Hinton and Anderson (1981), based on a conference in San
+Diego in 1979, can be regarded as marking a renaissance of connectionism. The two-volume
+“PDP” (Parallel Distributed Processing) anthology (Rumelhart and McClelland, 1986) helped
+to spread the gospel, so to speak, particularly in the psychology and cognitive science com-
+munities. The most important development of this period was the back-propagation algorithm
+for training multilayer networks.
+The back-propagation algorithm was discovered independently several times in different
+contexts (Kelley, 1960; Bryson, 1962; Dreyfus, 1962; Bryson and Ho, 1969; Werbos, 1974;
+Parker, 1985) and Stuart Dreyfus (1990) calls it the “Kelley–Bryson gradient procedure.”
+Although Werbos had applied it to neural networks, this idea did not become widely known
+until a paper by David Rumelhart, Geoff Hinton, and Ron Williams (1986) appeared in Nature
+giving a nonmathematical presentation of the algorithm. Mathematical respectability was
+enhanced by papers showing that multilayer feedforward networks are (subject to technical
+conditions) universal function approximators (Cybenko, 1988, 1989). The late 1980s and
+early 1990s saw a huge growth in neural network research: the number of papers mushroomed
+by a factor of 200 between 1980–84 and 1990–94.

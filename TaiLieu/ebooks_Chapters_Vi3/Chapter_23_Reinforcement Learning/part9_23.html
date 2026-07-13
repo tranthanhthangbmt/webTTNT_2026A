@@ -1,0 +1,66 @@
+<p>là hành vi của các tác tử đang tối ưu hóa (hoặc, có thể nói là, gần như tối ưu hóa) hàm phần thưởng đó—trong trường hợp này, đó là những người lái xe chuyên gia.</p>
+
+<p>Lĩnh vực chung của <strong>học việc (apprenticeship learning)</strong> nghiên cứu quá trình học cách hành xử tốt cho trước các quan sát về hành vi của chuyên gia. Chúng ta cho thuật toán xem các ví dụ về cách lái xe của chuyên gia và bảo nó "hãy làm như thế". Có (ít nhất) hai cách để tiếp cận bài toán học việc. Cách thứ nhất là cách mà chúng ta đã thảo luận ngắn gọn ở đầu chương: giả sử môi trường có thể quan sát được, chúng ta áp dụng học có giám sát vào các cặp trạng thái–hành động quan sát được để học một chính sách $\pi(s)$. Đây được gọi là <strong>học bắt chước (imitation learning)</strong>. Nó đã đạt được một số thành công trong lĩnh vực robot (xem trang 973) nhưng lại gặp phải vấn đề về tính dễ đổ vỡ (brittleness): ngay cả những sai lệch nhỏ so với tập huấn luyện cũng dẫn đến các lỗi tích tụ theo thời gian và cuối cùng dẫn đến sự thất bại. Hơn nữa, học bắt chước tốt nhất cũng chỉ sao chép được hiệu suất của người thầy chứ không thể vượt qua nó. Khi con người học bằng cách bắt chước, đôi khi chúng ta sử dụng thuật ngữ mang tính miệt thị "aping" (bắt chước như vượn) để mô tả những gì họ đang làm. (Rất có thể loài vượn cũng sử dụng thuật ngữ "humaning" (bắt chước như người) giữa chúng với nhau, có lẽ với ý nghĩa miệt thị thậm chí còn nặng nề hơn.) Hàm ý ở đây là người học bắt chước <em>không hiểu tại sao</em> họ nên thực hiện bất kỳ hành động cụ thể nào.</p>
+
+<p>Phương pháp tiếp cận thứ hai đối với học việc là phải <em>hiểu được tại sao</em>: quan sát các hành động của chuyên gia (và các trạng thái kết quả) và cố gắng tìm ra hàm phần thưởng mà chuyên gia đang tối đa hóa. Sau đó, chúng ta có thể suy ra một chính sách tối ưu đối với hàm phần thưởng đó. Người ta kỳ vọng rằng phương pháp tiếp cận này sẽ tạo ra các chính sách mạnh mẽ (robust policies) từ một số lượng tương đối ít các ví dụ về hành vi của chuyên gia; rốt cuộc, lĩnh vực học tăng cường được xây dựng dựa trên ý tưởng rằng hàm phần thưởng, thay vì chính sách hay hàm giá trị, mới là định nghĩa súc tích nhất, mạnh mẽ nhất, và có khả năng chuyển giao cao nhất của tác vụ. Hơn nữa, nếu người học có những sự châm chước (allowances) thích hợp cho khả năng dưới mức tối ưu từ phía chuyên gia, thì người học có thể làm tốt hơn chuyên gia bằng cách tối ưu hóa một giá trị xấp xỉ chính xác của hàm phần thưởng thực sự. Chúng ta gọi phương pháp tiếp cận này là <strong>học tăng cường ngược (inverse reinforcement learning - IRL)</strong>: học các phần thưởng bằng cách quan sát một chính sách, thay vì học một chính sách bằng cách quan sát các phần thưởng.</p>
+
+<p>Làm thế nào để chúng ta tìm thấy hàm phần thưởng của chuyên gia, khi được cho trước các hành động của chuyên gia? Hãy bắt đầu bằng cách giả định rằng chuyên gia đã hành động một cách hợp lý. Trong trường hợp đó, có vẻ như chúng ta nên tìm kiếm một hàm phần thưởng $R$ sao cho tổng phần thưởng bị chiết khấu theo kỳ vọng dưới chính sách của chuyên gia cao hơn (hoặc ít nhất là bằng) so với dưới bất kỳ chính sách nào khác có thể có.</p>
+
+<p>Đáng buồn thay, sẽ có rất nhiều hàm phần thưởng thỏa mãn ràng buộc này; một trong số đó là $R(s, a, s') = 0$, bởi vì mọi chính sách đều hợp lý khi hoàn toàn không có phần thưởng nào cả.<sup>7</sup> Một vấn đề khác với phương pháp tiếp cận này là giả định về một chuyên gia hợp lý là không thực tế. Ví dụ, điều đó có nghĩa là một robot đang quan sát Lee Sedol thực hiện một nước đi mà cuối cùng hóa ra lại là một nước đi thua cuộc trước AlphaGo sẽ phải giả định rằng Lee Sedol đã cố tình muốn thua ván cờ đó.</p>
+
+<p>Để tránh việc vấn đề $R(s, a, s') = 0$ giải thích cho bất kỳ hành vi quan sát được nào, việc suy nghĩ theo hướng Bayes sẽ rất hữu ích. (Xem Mục 21.1 để nhắc lại xem điều này có nghĩa là gì.) Giả sử chúng ta quan sát dữ liệu $d$ và gọi $h_R$ là giả thuyết rằng $R$ là hàm phần thưởng thực sự. Theo định lý Bayes, chúng ta có</p>
+
+<p>$$P(h_R | d) = P(d | h_R) P(h_R).$$</p>
+
+<hr/>
+<p><sup>7</sup> Theo Phương trình (16.9) ở trang 559, một hàm phần thưởng $R'(s, a, s') = R(s, a, s') + \gamma F(s') - F(s)$ có chính xác các chính sách tối ưu giống như $R(s, a, s')$, vì vậy chúng ta chỉ có thể khôi phục hàm phần thưởng lên đến sự bổ sung có thể có của bất kỳ hàm định hình $F(s)$ nào. Đây không phải là một vấn đề quá nghiêm trọng, bởi vì một robot sử dụng $R'$ sẽ hành xử giống hệt như một robot sử dụng $R$ "chính xác".</p>
+<hr/>
+
+<p>Bây giờ, nếu tiên nghiệm $P(h_R)$ dựa trên sự đơn giản, thì giả thuyết rằng $R=0$ đạt điểm khá cao, bởi vì $0$ chắc chắn là rất đơn giản. Mặt khác, số hạng $P(d | h_R)$ lại là cực kỳ nhỏ (infinitesimal) đối với giả thuyết rằng $R=0$, bởi vì nó không giải thích được tại sao chuyên gia lại chọn hành vi cụ thể đó trong vô số các hành vi sẽ là tối ưu nếu giả thuyết đó đúng. Ngược lại, đối với một hàm phần thưởng $R$ có một chính sách tối ưu duy nhất hoặc một lớp tương đương tương đối nhỏ gồm các chính sách tối ưu, $P(d | h_R)$ sẽ cao hơn rất nhiều.</p>
+
+<p>Để cho phép những sai sót đôi khi xảy ra của chuyên gia, chúng ta chỉ cần cho phép $P(d | h_R)$ khác không ngay cả khi $d$ đến từ hành vi hơi dưới mức tối ưu theo $R$. Một giả định điển hình—được đưa ra, phải nói là, chủ yếu vì sự thuận tiện toán học hơn là sự trung thành với dữ liệu con người thực tế—đó là một tác tử có hàm Q thực sự là $Q(s, a)$ sẽ không chọn theo chính sách tất định $\pi(s) = \arg\max_a Q(s, a)$ mà thay vào đó sẽ chọn theo một chính sách ngẫu nhiên được định nghĩa bởi phân phối softmax từ Phương trình (23.14). Điều này đôi khi được gọi là <strong>tính hợp lý Boltzmann (Boltzmann rationality)</strong> bởi vì, trong cơ học thống kê, xác suất chiếm giữ trạng thái trong một phân phối Boltzmann phụ thuộc theo cấp số nhân vào các mức năng lượng của chúng.</p>
+
+<p>Có hàng tá các thuật toán RL ngược trong các tài liệu nghiên cứu. Một trong những thuật toán đơn giản nhất được gọi là <strong>khớp đặc trưng (feature matching)</strong>. Thuật toán này giả định rằng hàm phần thưởng có thể được viết thành sự kết hợp tuyến tính có trọng số của các đặc trưng:</p>
+
+<p>$$R_\theta(s, a, s') = \sum_{i=1}^n \theta_i f_i(s, a, s') = \theta \cdot f.$$</p>
+
+<p>Ví dụ, các đặc trưng trong lĩnh vực lái xe có thể bao gồm tốc độ, tốc độ vượt quá giới hạn cho phép, gia tốc, mức độ gần với chướng ngại vật gần nhất, v.v.</p>
+
+<p>Nhắc lại từ Phương trình (16.2) ở trang 557 rằng độ thỏa dụng của việc thực thi một chính sách $\pi$, bắt đầu ở trạng thái $s_0$, được định nghĩa là</p>
+
+<p>$$U^\pi(s_0) = E \left[ \sum_{t=0}^{\infty} \gamma^t R(S_t, \pi(S_t), S_{t+1}) \right],$$</p>
+
+<p>trong đó giá trị kỳ vọng $E$ tương ứng với phân phối xác suất trên các chuỗi trạng thái được xác định bởi $s_0$ và $\pi$. Bởi vì $R$ được giả định là sự kết hợp tuyến tính của các giá trị đặc trưng, chúng ta có thể viết lại phương trình này như sau:</p>
+
+<p>$$U^\pi(s_0) = E \left[ \sum_{t=0}^{\infty} \gamma^t \sum_{i=1}^n \theta_i f_i(S_t, \pi(S_t), S_{t+1}) \right]$$</p>
+
+<p>$$= \sum_{i=1}^n \theta_i E \left[ \sum_{t=0}^{\infty} \gamma^t f_i(S_t, \pi(S_t), S_{t+1}) \right]$$</p>
+
+<p>$$= \sum_{i=1}^n \theta_i \mu_i(\pi) = \theta \cdot \mu(\pi)$$</p>
+
+<p>trong đó chúng ta đã định nghĩa <strong>kỳ vọng đặc trưng (feature expectation)</strong> $\mu_i(\pi)$ là giá trị bị chiết khấu kỳ vọng của đặc trưng $f_i$ khi chính sách $\pi$ được thực thi. Ví dụ, nếu $f_i$ là tốc độ vượt mức của phương tiện (vượt quá giới hạn tốc độ), thì $\mu_i(\pi)$ là tốc độ vượt mức trung bình (bị chiết khấu theo thời gian) trên toàn bộ quỹ đạo. Điểm mấu chốt về các kỳ vọng đặc trưng là như sau: <em>nếu một chính sách $\pi$ tạo ra các kỳ vọng đặc trưng $\mu_i(\pi)$ khớp với các kỳ vọng đặc trưng của chính sách chuyên gia $\pi_E$, thì $\pi$ cũng tốt như chính sách của chuyên gia theo chính hàm phần thưởng của chuyên gia.</em> Giờ đây, chúng ta không thể đo lường các giá trị chính xác cho các kỳ vọng đặc trưng của chính sách chuyên gia, nhưng chúng ta có thể xấp xỉ chúng bằng cách sử dụng các giá trị trung bình trên các quỹ đạo quan sát được. Như vậy, chúng ta cần</p>
+
+<p>tìm các giá trị cho các tham số $\theta_i$ sao cho các kỳ vọng đặc trưng của chính sách được tạo ra bởi các giá trị tham số đó khớp với các kỳ vọng đặc trưng của chính sách chuyên gia trên các quỹ đạo quan sát được. Thuật toán sau đây đạt được điều này với bất kỳ giới hạn sai số (error bound) mong muốn nào.</p>
+
+<ul>
+<li>Chọn một chính sách mặc định ban đầu $\pi^{(0)}$.</li>
+<li>Đối với $j = 1, 2, \ldots$ cho đến khi hội tụ:
+<ul>
+<li>Tìm các tham số $\theta^{(j)}$ sao cho chính sách của chuyên gia vượt trội tối đa (maximally outperforms) so với các chính sách $\pi^{(0)}, \ldots, \pi^{(j-1)}$ theo độ thỏa dụng kỳ vọng $\theta^{(j)} \cdot \mu(\pi)$.</li>
+<li>Gọi $\pi^{(j)}$ là chính sách tối ưu cho hàm phần thưởng $R^{(j)} = \theta^{(j)} \cdot f$.</li>
+</ul></li>
+</ul>
+
+<p>Thuật toán này hội tụ về một chính sách có giá trị gần với giá trị chính sách của chuyên gia, theo chính hàm phần thưởng của chuyên gia. Nó chỉ yêu cầu $O(n \log n)$ vòng lặp và $O(n \log n)$ mô phỏng của chuyên gia, trong đó $n$ là số lượng các đặc trưng.</p>
+
+<p>Một robot có thể sử dụng học tăng cường ngược để tự học một chính sách tốt cho chính nó, bằng cách hiểu các hành động của một chuyên gia. Ngoài ra, robot có thể học các chính sách được sử dụng bởi các tác tử khác trong một môi trường đa tác tử, bất kể chúng là đối kháng hay hợp tác. Và cuối cùng, học tăng cường ngược có thể được sử dụng cho việc nghiên cứu khoa học (mà không cần nghĩ đến việc thiết kế tác tử), để hiểu rõ hơn về hành vi của con người và các động vật khác.</p>
+
+<p>Một giả định chính trong RL ngược là "chuyên gia" đang hành xử một cách tối ưu, hoặc gần như tối ưu, đối với một hàm phần thưởng nào đó trong một MDP đơn tác tử. Đây là một giả định hợp lý nếu người học đang theo dõi chuyên gia qua một tấm gương một chiều (one-way mirror) trong khi chuyên gia vẫn tiếp tục công việc của họ một cách không hay biết. Đó <em>không phải</em> là một giả định hợp lý nếu chuyên gia nhận thức được sự có mặt của người học. Ví dụ, giả sử một robot đang ở trường y, học cách trở thành bác sĩ phẫu thuật bằng cách quan sát một chuyên gia con người. Một thuật toán RL ngược sẽ giả định rằng con người thực hiện phẫu thuật theo cách tối ưu thông thường, giống như thể robot không có ở đó. Nhưng điều đó sẽ không xảy ra: bác sĩ phẫu thuật con người có động lực để giúp robot (giống như bất kỳ sinh viên y khoa nào khác) học hỏi nhanh chóng và hiệu quả, và vì vậy cô ấy sẽ sửa đổi đáng kể hành vi của mình. Cô ấy có thể giải thích những gì mình đang làm trong quá trình thực hiện; cô ấy có thể chỉ ra những sai lầm cần tránh, chẳng hạn như rạch vết cắt quá sâu hoặc khâu quá chặt; cô ấy có thể mô tả các kế hoạch dự phòng (contingency plans) trong trường hợp có điều gì đó không ổn xảy ra trong quá trình phẫu thuật. Không có hành vi nào trong số này là hợp lý khi thực hiện phẫu thuật một cách biệt lập, vì vậy các thuật toán RL ngược sẽ không thể diễn giải được hàm phần thưởng ẩn bên dưới. Thay vào đó, chúng ta cần hiểu loại tình huống này như một trò chơi hỗ trợ hai người (two-person assistance game), như đã được mô tả trong Mục 17.2.5.</p>
+
+<h2>23.7 Các Ứng dụng của Học tăng cường (Applications of Reinforcement Learning)</h2>
+
+<p>Bây giờ chúng ta chuyển sang các ứng dụng của học tăng cường. Chúng bao gồm việc chơi trò chơi, nơi mô hình chuyển đổi đã được biết đến và mục tiêu là học hàm độ thỏa dụng, và lĩnh vực robot, nơi mô hình ban đầu chưa được biết đến.</p>
+
+<h3>23.7.1 Các ứng dụng trong trò chơi (Applications in game playing)</h3>
+
+<p>Trong Chương 1, chúng ta đã mô tả công trình ban đầu của Arthur Samuel về học tăng cường cho trò chơi cờ đam (checkers), bắt đầu vào năm 1952. Vài thập kỷ đã trôi qua trước khi thách thức này được đảm nhận lại, lần này là bởi Gerry Tesauro trong công trình của ông về trò chơi cờ súc sắc (backgammon). Nỗ lực đầu tiên của Tesauro (1990) là một hệ thống có tên NEUROGAMMON. Phương pháp tiếp cận này là một biến thể thú vị của học bắt chước. Đầu vào là một tập hợp 400 ván cờ do Tesauro tự chơi với chính mình. Thay vì học một</p>

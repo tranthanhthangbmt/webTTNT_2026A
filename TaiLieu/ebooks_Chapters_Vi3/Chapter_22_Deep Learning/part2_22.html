@@ -1,0 +1,66 @@
+<p>Đạo hàm của hàm softplus chính là hàm sigmoid.</p>
+
+<ul>
+<li>Hàm <strong>tanh (Tanh)</strong>:
+$$\tanh(x) = \frac{e^{2x} - 1}{e^{2x} + 1}$$</li>
+</ul>
+
+<p>Lưu ý rằng miền giá trị của $\tanh$ là $(-1, +1)$. Tanh là một phiên bản được thay đổi tỷ lệ và tịnh tiến của hàm sigmoid, vì $\tanh(x) = 2\sigma(2x) - 1$.</p>
+
+<p>Các hàm này được hiển thị trong Hình 22.2. Nhận thấy rằng tất cả chúng đều là các hàm không giảm đơn điệu (monotonically nondecreasing), có nghĩa là đạo hàm của chúng, $g'$, là không âm. Chúng ta sẽ có nhiều điều để nói hơn về việc lựa chọn hàm kích hoạt trong các phần sau.</p>
+
+<p>Việc ghép nối nhiều đơn vị lại với nhau thành một mạng tạo ra một hàm phức tạp, vốn là một sự cấu thành (composition) của các biểu thức đại số được biểu diễn bởi từng đơn vị riêng lẻ. Ví dụ, mạng được hiển thị trong <strong>Hình 22.3(a)</strong> biểu diễn một hàm $h_{\mathbf{w}}(\mathbf{x})$, được tham số hóa bởi các trọng số $\mathbf{w}$, ánh xạ một véc-tơ đầu vào gồm hai phần tử $\mathbf{x}$ thành một giá trị đầu ra vô hướng $\hat{y}$. Cấu trúc bên trong của hàm phản chiếu cấu trúc của mạng. Ví dụ, chúng ta có thể viết một biểu thức cho đầu ra $\hat{y}$ như sau:</p>
+
+<p>$$\hat{y} = g_5(in_5) = g_5(w_{0,5} + w_{3,5}a_3 + w_{4,5}a_4)$$
+$$= g_5(w_{0,5} + w_{3,5}g_3(in_3) + w_{4,5}g_4(in_4))$$
+$$= g_5(w_{0,5} + w_{3,5}g_3(w_{0,3} + w_{1,3}x_1 + w_{2,3}x_2) + w_{4,5}g_4(w_{0,4} + w_{1,4}x_1 + w_{2,4}x_2)) \quad (22.2)$$</p>
+
+<p>Vì vậy, chúng ta có đầu ra $\hat{y}$ được biểu diễn như một hàm $h_{\mathbf{w}}(\mathbf{x})$ của các đầu vào và các trọng số.</p>
+
+<div class="figure">
+    <p><strong>Hình 22.3</strong> (a) Một mạng nơ-ron với hai đầu vào, một tầng ẩn (hidden layer) gồm hai đơn vị, và một đơn vị đầu ra. Không được hiển thị là các đầu vào giả (dummy inputs) và các trọng số liên kết của chúng. (b) Mạng trong (a) được bung ra thành đồ thị tính toán đầy đủ của nó.</p>
+</div>
+
+<p>Hình 22.3(a) cho thấy cách truyền thống mà một mạng có thể được mô tả trong một cuốn sách về mạng nơ-ron. Một cách tổng quát hơn để nghĩ về mạng là dưới dạng một <strong>đồ thị tính toán (computation graph)</strong> hay <strong>đồ thị luồng dữ liệu (dataflow graph)</strong>—về cơ bản là một mạch trong đó mỗi nút biểu diễn một tính toán cơ bản. <strong>Hình 22.3(b)</strong> cho thấy đồ thị tính toán tương ứng với mạng trong Hình 22.3(a); đồ thị làm cho từng yếu tố của quá trình tính toán tổng thể trở nên rõ ràng. Nó cũng phân biệt giữa các đầu vào (màu xanh dương) và các trọng số (màu hoa cà nhạt): các trọng số có thể được điều chỉnh để làm cho đầu ra $\hat{y}$ khớp sát hơn với giá trị thực tế $y$ trong dữ liệu huấn luyện. Mỗi trọng số giống như một núm điều khiển âm lượng xác định xem nút tiếp theo trong đồ thị sẽ "nghe" được bao nhiêu từ nút tiền nhiệm cụ thể đó trong đồ thị.</p>
+
+<p>Giống như Phương trình (22.1) mô tả hoạt động của một đơn vị ở dạng véc-tơ, chúng ta có thể làm điều tương tự cho toàn bộ mạng. Chúng ta thường sẽ sử dụng $\mathbf{W}$ để biểu thị một ma trận trọng số; đối với mạng này, $\mathbf{W}^{(1)}$ biểu thị các trọng số trong tầng thứ nhất ($w_{1,3}, w_{1,4}$, v.v.) và $\mathbf{W}^{(2)}$ biểu thị các trọng số trong tầng thứ hai ($w_{3,5}$, v.v.). Cuối cùng, gọi $g^{(1)}$ và $g^{(2)}$ biểu thị các hàm kích hoạt ở tầng thứ nhất và tầng thứ hai. Khi đó toàn bộ mạng có thể được viết như sau:</p>
+
+<p>$$h_{\mathbf{w}}(\mathbf{x}) = g^{(2)}(\mathbf{W}^{(2)} g^{(1)}(\mathbf{W}^{(1)} \mathbf{x})) \quad (22.3)$$</p>
+
+<p>Giống như Phương trình (22.2), biểu thức này tương ứng với một đồ thị tính toán, mặc dù đơn giản hơn nhiều so với đồ thị trong Hình 22.3(b): ở đây, đồ thị chỉ đơn giản là một chuỗi với các ma trận trọng số được đưa vào từng tầng.</p>
+
+<p>Đồ thị tính toán trong Hình 22.3(b) tương đối nhỏ và nông, nhưng cùng một ý tưởng áp dụng cho mọi dạng học sâu: chúng ta xây dựng các đồ thị tính toán và điều chỉnh các trọng số của chúng để khớp với dữ liệu. Đồ thị trong Hình 22.3(b) cũng được <strong>kết nối hoàn toàn (fully connected)</strong>, nghĩa là mỗi nút trong mỗi tầng được kết nối với mọi nút trong tầng tiếp theo. Đây ở một khía cạnh nào đó là mặc định, nhưng chúng ta sẽ thấy trong Mục 22.3 rằng việc lựa chọn tính kết nối (connectivity) của mạng cũng đóng vai trò quan trọng trong việc đạt được kết quả học hiệu quả.</p>
+
+<h3 id="2212-gradients-and-learning">22.1.2 Các gradient và quá trình học (Gradients and learning)</h3>
+
+<p>Trong Mục 19.6, chúng ta đã giới thiệu một cách tiếp cận học có giám sát dựa trên <strong>giảm gradient (gradient descent)</strong>: tính toán gradient (đạo hàm bậc hướng) của hàm mất mát đối với các trọng số, và điều chỉnh các trọng số dọc theo hướng của gradient để giảm mất mát. (Nếu bạn chưa đọc Mục 19.6, chúng tôi đặc biệt khuyên bạn nên làm điều đó trước khi tiếp tục). Chúng ta có thể áp dụng chính xác phương pháp tương tự vào việc học các trọng số trong các đồ thị tính toán. Đối với các trọng số dẫn vào các đơn vị trong <strong>tầng đầu ra (output layer)</strong>—những tầng tạo ra kết quả của mạng, phép tính gradient về cơ bản giống hệt quá trình trong Mục 19.6. Đối với các trọng số dẫn vào các đơn vị trong các <strong>tầng ẩn (hidden layers)</strong>, vốn không được kết nối trực tiếp với các đầu ra, quá trình này chỉ phức tạp hơn một chút.</p>
+
+<p>Hiện tại, chúng ta sẽ sử dụng hàm mất mát bình phương (squared loss function), $L_2$, và chúng ta sẽ tính gradient cho mạng trong Hình 22.3 đối với một ví dụ huấn luyện duy nhất $(\mathbf{x}, y)$. (Đối với nhiều ví dụ, gradient chỉ là tổng của các gradient cho từng ví dụ riêng lẻ). Mạng đưa ra một dự đoán $\hat{y} = h_{\mathbf{w}}(\mathbf{x})$ và giá trị thực sự là $y$, do đó chúng ta có:</p>
+
+<p>$$\text{Loss}(h_{\mathbf{w}}) = L_2(y, h_{\mathbf{w}}(\mathbf{x})) = ||y - h_{\mathbf{w}}(\mathbf{x})||^2 = (y - \hat{y})^2$$</p>
+
+<p>Để tính toán gradient của mất mát đối với các trọng số, chúng ta cần các công cụ giải tích giống như đã dùng trong Chương 19—chủ yếu là <strong>quy tắc dây chuyền (chain rule)</strong>, $\frac{\partial g(f(x))}{\partial x} = g'(f(x)) \frac{\partial f(x)}{\partial x}$. Chúng ta sẽ bắt đầu với trường hợp dễ dàng: một trọng số chẳng hạn như $w_{3,5}$ vốn được kết nối trực tiếp với đơn vị đầu ra. Chúng ta thao tác trực tiếp trên các biểu thức xác định mạng từ Phương trình (22.2):</p>
+
+<p>$$\frac{\partial}{\partial w_{3,5}} \text{Loss}(h_{\mathbf{w}}) = \frac{\partial}{\partial w_{3,5}} (y - \hat{y})^2 = 2(y - \hat{y}) \left( -\frac{\partial \hat{y}}{\partial w_{3,5}} \right)$$
+$$= -2(y - \hat{y}) \frac{\partial}{\partial w_{3,5}} g_5(in_5) = -2(y - \hat{y}) g'_5(in_5) \frac{\partial}{\partial w_{3,5}} in_5$$
+$$= -2(y - \hat{y}) g'_5(in_5) \frac{\partial}{\partial w_{3,5}} (w_{0,5} + w_{3,5}a_3 + w_{4,5}a_4)$$
+$$= -2(y - \hat{y}) g'_5(in_5) a_3 \quad (22.4)$$</p>
+
+<p>Sự đơn giản hóa ở dòng cuối cùng có được là bởi vì $w_{0,5}$ và $w_{4,5}a_4$ không phụ thuộc vào $w_{3,5}$, hệ số của $w_{3,5}$, $a_3$, cũng không.</p>
+
+<p>Trường hợp khó hơn một chút liên quan đến một trọng số chẳng hạn như $w_{1,3}$ vốn không được kết nối trực tiếp với đơn vị đầu ra. Ở đây, chúng ta phải áp dụng quy tắc dây chuyền thêm một lần nữa. Một vài bước đầu tiên là giống hệt nhau, vì vậy chúng ta có thể bỏ qua chúng:</p>
+
+<p>$$\frac{\partial}{\partial w_{1,3}} \text{Loss}(h_{\mathbf{w}}) = -2(y - \hat{y}) g'_5(in_5) \frac{\partial}{\partial w_{1,3}} (w_{0,5} + w_{3,5}a_3 + w_{4,5}a_4)$$
+$$= -2(y - \hat{y}) g'_5(in_5) w_{3,5} \frac{\partial}{\partial w_{1,3}} a_3$$
+$$= -2(y - \hat{y}) g'_5(in_5) w_{3,5} \frac{\partial}{\partial w_{1,3}} g_3(in_3)$$
+$$= -2(y - \hat{y}) g'_5(in_5) w_{3,5} g'_3(in_3) \frac{\partial}{\partial w_{1,3}} in_3$$
+$$= -2(y - \hat{y}) g'_5(in_5) w_{3,5} g'_3(in_3) \frac{\partial}{\partial w_{1,3}} (w_{0,3} + w_{1,3}x_1 + w_{2,3}x_2)$$
+$$= -2(y - \hat{y}) g'_5(in_5) w_{3,5} g'_3(in_3) x_1 \quad (22.5)$$</p>
+
+<p>Như vậy, chúng ta có những biểu thức khá đơn giản cho gradient của mất mát đối với các trọng số $w_{3,5}$ và $w_{1,3}$.</p>
+
+<p>Nếu chúng ta định nghĩa $\Delta_5 = -2(y - \hat{y}) g'_5(in_5)$ giống như một kiểu "sai số được nhận thức" (perceived error) tại điểm mà đơn vị 5 nhận đầu vào của nó, thì gradient đối với $w_{3,5}$ chỉ đơn giản là $\Delta_5 a_3$. Điều này hoàn toàn có ý nghĩa: nếu $\Delta_5$ là dương, điều đó có nghĩa là $\hat{y}$ quá lớn (nhắc lại rằng $g'$ luôn không âm); nếu $a_3$ cũng dương, thì việc tăng $w_{3,5}$ sẽ chỉ làm mọi thứ tệ hơn, trong khi đó nếu $a_3$ âm, thì việc tăng $w_{3,5}$ sẽ làm giảm sai số. Độ lớn của $a_3$ cũng quan trọng: nếu $a_3$ nhỏ đối với ví dụ huấn luyện này, thì $w_{3,5}$ đã không đóng vai trò chính trong việc tạo ra sai số và do đó không cần phải thay đổi nhiều.</p>
+
+<p>Nếu chúng ta cũng định nghĩa $\Delta_3 = \Delta_5 w_{3,5} g'_3(in_3)$, thì gradient đối với $w_{1,3}$ trở thành chỉ là $\Delta_3 x_1$. Do đó, sai số được nhận thức tại đầu vào của đơn vị 3 chính là sai số được nhận thức tại đầu vào của đơn vị 5, nhân với thông tin truyền dọc theo đường dẫn từ đơn vị 5 ngược trở lại đơn vị 3. Hiện tượng này hoàn toàn mang tính tổng quát, và làm phát sinh thuật ngữ <strong>lan truyền ngược (back-propagation)</strong> để chỉ cách thức mà sai số tại đầu ra được truyền ngược trở lại qua mạng.</p>
+
+<p>Một đặc điểm quan trọng khác của các biểu thức gradient này là chúng có các đạo hàm cục bộ $g'_j(in_j)$ đóng vai trò là các nhân tử (factors). Như đã lưu ý ở trên, các đạo hàm này luôn luôn không âm, nhưng chúng có thể rất gần bằng không (trong trường hợp của các hàm sigmoid, softplus, và tanh) hoặc chính xác bằng không (trong trường hợp của ReLU), nếu như các đầu vào từ ví dụ huấn luyện đang được xét đến nằm trong vùng đó của hàm kích hoạt.</p>

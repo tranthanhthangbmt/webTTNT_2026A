@@ -1,0 +1,136 @@
+810 Chapter 22 Deep Learning
+way does classical linear regression. The input features to this linear regression are the out-
+puts from the preceding layer, which typically result from multiple nonlinear transformations
+of the original inputs to the network.
+Many other output layers are possible. For example, a mixture density layer represents Mixture density
+the outputs using a mixture of Gaussian distributions. (See Section 21.3.1 for more details on
+Gaussian mixtures.) Such layers predict the relative frequency of each mixture component,
+the mean of each component, and the variance of each component. As long as these output
+values are interpreted appropriately by the loss function as deﬁning the probability for the
+true output value y, the network will, after training, ﬁt a Gaussian mixture model in the space
+of features deﬁned by the preceding layers.
+22.2.3 Hidden layers
+During the training process, a neural network is shown many input values xand many corre-
+sponding output values y. While processing an input vector x, the neural network performs
+several intermediate computations before producing the output y. We can think of the values
+computed at each layer of the network as a different representation for the input x. Each
+layer transforms the representation produced by the preceding layer to produce a new rep-
+resentation. The composition of all these transformations succeeds—if all goes well—in
+transforming the input into the desired output. Indeed, one hypothesis for why deep learning
+works well is that the complex end-to-end transformation that maps from input to output—
+say, from an input image to the output category “giraffe”—is decomposed by the many layers
+into the composition of many relatively simple transformations, each of which is fairly easy
+to learn by a local updating process.
+In the process of forming all these internal transformations, deep networks often discover
+meaningful intermediate representations of the data. For example, a network learning to
+recognize complex objects in images may form internal layers that detect useful subunits:
+edges, corners, ellipses, eyes, faces—cats. Or it may not—deep networks may form internal
+layers whose meaning is opaque to humans, even though the output is still correct.
+The hidden layers of neural networks are typically less diverse than the output layers.
+For the ﬁrst 25 years of research with multilayer networks (roughly 1985–2010), internal
+nodes used sigmoid and tanh activation functions almost exclusively. From around 2010
+onwards, the ReLU and softplus become more popular, partly because they are believed to
+avoid the problem of vanishing gradients mentioned in Section 22.1.2. Experimentation with
+increasingly deep networks suggested that, in many cases, better learning was obtained with
+deep and relatively narrow networks rather than shallow, wide networks, given a ﬁxed total
+number of weights. A typical example of this is shown in Figure 22.7 on page 820.
+There are, of course, many other structures to consider for computation graphs, besides
+just playing with width and depth. At the time of writing, there is little understanding as
+to why some structures seem to work better than others for some particular problem. With
+experience, practitioners gain some intuition as to how to design networks and how to ﬁx
+them when they don’t work, just as chefs gain intuition for how to design recipes and how
+to ﬁx them when they taste unpleasant. For this reason, tools that facilitate rapid exploration
+and evaluation of different structures are essential for success in real-world problems.
+Section 22.3 Convolutional Networks 811
+22.3 Convolutional Networks
+We mentioned in Section 22.2.1 that an image cannot be thought of as a simple vector of in-
+put pixel values, primarily because adjacency of pixels really matters. If we were to construct
+a network with fully connected layers and an image as input, we would get the same result
+whether we trained with unperturbed images or with images all of whose pixels had been ran-
+domly permuted. Furthermore, suppose there are npixels and nunits in the ﬁrst hidden layer,
+to which the pixels provide input. If the input and the ﬁrst hidden layer are fully connected,
+that means n2weights; for a typical megapixel RGB image, that’s 9 trillion weights. Such a
+vast parameter space would require correspondingly vast numbers of training images and a
+huge computational budget to run the training algorithm.
+These considerations suggest that we should construct the ﬁrst hidden layer so that eachJ
+hidden unit receives input from only a small, local region of the image . This kills two birds
+with one stone. First, it respects adjacency, at least locally. (And we will see later that if
+subsequent layers have the same locality property, then the network will respect adjacency in
+a global sense.) Second, it cuts down the number of weights: if each local region has ln
+pixels, then there will be lnn2weights in all.
+So far, so good. But we are missing another important property of images: roughly
+speaking, anything that is detectable in one small, local region of the image—perhaps an eye
+or a blade of grass—would look the same if it appeared in another small, local region of the
+image. In other words, we expect image data to exhibit approximate spatial invariance , at Spatial invariance
+least at small to moderate scales.3We don’t necessarily expect the top halves of photos to
+look like bottom halves, so there is a scale beyond which spatial invariance no longer holds.
+Local spatial invariance can be achieved by constraining the lweights connecting a local
+region to a unit in the hidden layer to be the same for each hidden unit. (That is, for hidden
+units iandj, the weights w1;i;:::; wl;iare the same as w1;j;:::; wl;j.) This makes the hidden
+units into feature detectors that detect the same feature wherever it appear in the image.
+Typically, we want the ﬁrst hidden layer to detect many kinds of features, not just one; so
+for each local image region we might have dhidden units with ddistinct sets of weights.
+This means that there are dlweights in all—a number that is not only far smaller than n2,
+but is actually independent of n, the image size. Thus, by injecting some prior knowledge—
+namely, knowledge of adjacency and spatial invariance—we can develop models that have
+far fewer parameters and can learn much more quickly.
+Aconvolutional neural network (CNN) is one that contains spatially local connections,Convolutional neural
+network (CNN)
+at least in the early layers, and has patterns of weights that are replicated across the units
+in each layer. A pattern of weights that is replicated across multiple local regions is called
+akernel and the process of applying the kernel to the pixels of the image (or to spatially Kernel
+organized units in a subsequent layer) is called convolution .4Convolution
+Kernels and convolutions are easiest to illustrate in one dimension rather than two or
+more, so we will assume an input vector xof size n, corresponding to npixels in a one-
+3Similar ideas can be applied to process time-series data sources such as audio waveforms. These typically
+exhibit temporal invariance —a word sounds the same no matter what time of day it is uttered. Recurrent neural
+networks (Section 22.6) automatically exhibit temporal invariance.
+4In the terminology of signal processing, we would call this operation a cross-correlation, not a convolution.
+But “convolution” is used within the ﬁeld of neural networks.
+812 Chapter 22 Deep Learning
+5 6 6 2 5 6 55 9 4
++1–1+1 +1–1+1 +1–1+1
+Figure 22.4 An example of a one-dimensional convolution operation with a kernel of size
+l=3 and a stride s=2. The peak response is centered on the darker (lower intensity) input
+pixel. The results would usually be fed through a nonlinear activation function (not shown)
+before going to the next hidden layer.
+dimensional image, and a vector kernel kof size l. (For simplicity we will assume that lis an
+odd number.) All the ideas carry over straightforwardly to higher-dimensional cases.
+We write the convolution operation using the symbol, for example: z=xk. The
+operation is deﬁned as follows:
+zi=l
+å
+j=1kjxj+i (l+1)=2: (22.8)
+In other words, for each output position i, we take the dot product between the kernel kand a
+snippet of xcentered on xiwith width l.
+The process is illustrated in Figure 22.4 for a kernel vector [+1; 1;+1], which detects
+a darker point in the 1D image. (The 2D version might detect a darker line.) Notice that in
+this example the pixels on which the kernels are centered are separated by a distance of 2
+pixels; we say the kernel is applied with a stride s=2. Notice that the output layer has fewer Stride
+pixels: because of the stride, the number of pixels is reduced from nto roughly n=s. (In two
+dimensions, the number of pixels would be roughly n=sxsy, where sxandsyare the strides in
+thexandydirections in the image.) We say “roughly” because of what happens at the edge
+of the image: in Figure 22.4 the convolution stops at the edges of the image, but one can also
+pad the input with extra pixels (either zeroes or copies of the outer pixels) so that the kernel
+can be applied exactly bn=sctimes. For small kernels, we typically use s=1, so the output
+has the same dimensions as the image (see Figure 22.5).
+The operation of applying a kernel across an image can be implemented in the obvious
+way by a program with suitable nested loops; but it can also be formulated as a single matrix
+operation, just like the application of the weight matrix in Equation (22.1). For example, the
+convolution illustrated in Figure 22.4 can be viewed as the following matrix multiplication:
+ +1 1+1 0 0 0 0
+0 0 +1 1+1 0 0
+0 0 0 0 +1 1+1!0
+BBBBBBBB@5
+6
+6
+2
+5
+6
+51
+CCCCCCCCA= 5
+9
+4!
+: (22.9)
+In this weight matrix, the kernel appears in each row, shifted according to the stride relative
+to the previous row, One wouldn’t necessarily construct the weight matrix explicitly—it is

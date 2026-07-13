@@ -1,0 +1,54 @@
+<p>Một <strong>mô hình phân biệt (discriminative model)</strong> trực tiếp học đường ranh giới quyết định (decision boundary) giữa các lớp. Tức là, nó học $P(Category|Inputs)$. Cho trước các đầu vào ví dụ, một mô hình phân biệt sẽ đưa ra một danh mục đầu ra, nhưng bạn không thể sử dụng một mô hình phân biệt để, chẳng hạn, sinh ra các từ ngẫu nhiên mang tính đại diện cho một danh mục. Hồi quy logistic (Logistic regression), cây quyết định (decision trees), và máy vectơ hỗ trợ (support vector machines) đều là các mô hình phân biệt.</p>
+
+<p>Vì các mô hình phân biệt đặt toàn bộ sự tập trung vào việc xác định ranh giới quyết định—tức là, thực sự thực hiện nhiệm vụ phân loại mà chúng được yêu cầu làm—chúng có xu hướng hoạt động tốt hơn ở giới hạn (in the limit), với lượng dữ liệu huấn luyện tùy ý. Tuy nhiên, với dữ liệu hạn chế, trong một số trường hợp, một mô hình sinh lại hoạt động tốt hơn. Ng và Jordan (2002) so sánh bộ phân loại sinh Naive Bayes với bộ phân loại phân biệt hồi quy logistic trên 15 tập dữ liệu (nhỏ), và nhận thấy rằng với lượng dữ liệu tối đa, mô hình phân biệt hoạt động tốt hơn trên 9 trong số 15 tập dữ liệu, nhưng chỉ với một lượng dữ liệu nhỏ, mô hình sinh hoạt động tốt hơn trên 14 trong số 15 tập dữ liệu.</p>
+
+<h3 id="2124-maximum-likelihood-parameter-learning-continuous-models">21.2.4 Học tham số hợp lý cực đại: Các mô hình liên tục</h3>
+<p>Các mô hình xác suất liên tục như mô hình tuyến tính-Gaussian (linear-Gaussian model) đã được trình bày ở trang 440. Vì các biến liên tục có mặt ở khắp mọi nơi trong các ứng dụng thế giới thực, nên điều quan trọng là phải biết cách học các tham số của các mô hình liên tục từ dữ liệu. Các nguyên tắc cho học hợp lý cực đại là hoàn toàn giống nhau trong cả hai trường hợp liên tục và rời rạc.</p>
+
+<p>Hãy bắt đầu với một trường hợp rất đơn giản: học các tham số của một hàm mật độ Gaussian trên một biến duy nhất. Tức là, chúng ta giả định dữ liệu được tạo ra như sau:</p>
+
+<p>$$P(x) = \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x - \mu)^2}{2\sigma^2}}$$</p>
+
+<p>Các tham số của mô hình này là giá trị trung bình (mean) $\mu$ và độ lệch chuẩn (standard deviation) $\sigma$. (Lưu ý rằng "hằng số" chuẩn hóa phụ thuộc vào $\sigma$, do đó chúng ta không thể bỏ qua nó). Gọi các giá trị quan sát được là $x_1, \ldots, x_N$. Khi đó, log của khả năng (log likelihood) là:</p>
+
+<p>$$L = \sum_{j=1}^N \log \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x_j - \mu)^2}{2\sigma^2}} = N(-\log\sqrt{2\pi} - \log\sigma) - \sum_{j=1}^N \frac{(x_j - \mu)^2}{2\sigma^2}$$</p>
+
+<p>Đặt các đạo hàm bằng không như thường lệ, chúng ta thu được:</p>
+
+<p>$$\frac{\partial L}{\partial \mu} = \frac{1}{\sigma^2} \sum_{j=1}^N (x_j - \mu) = 0 \implies \mu = \frac{\sum_j x_j}{N}$$</p>
+<p>$$\frac{\partial L}{\partial \sigma} = -\frac{N}{\sigma} + \frac{1}{\sigma^3} \sum_{j=1}^N (x_j - \mu)^2 = 0 \implies \sigma = \sqrt{\frac{\sum_j (x_j - \mu)^2}{N}}$$ <span>(21.4)</span></p>
+
+<p>Tức là, giá trị hợp lý cực đại của trung bình chính là <em>trung bình mẫu (sample average)</em> và giá trị hợp lý cực đại của độ lệch chuẩn chính là <em>căn bậc hai của phương sai mẫu (sample variance)</em>. Một lần nữa, đây là những kết quả đáng an tâm xác nhận thực tiễn của "ý thức thông thường".</p>
+
+<p>Bây giờ hãy xem xét một mô hình tuyến tính-Gaussian với một biến cha liên tục $X$ và một biến con liên tục $Y$. Như đã giải thích ở trang 440, $Y$ có phân phối Gaussian có trung bình phụ thuộc tuyến tính vào giá trị của $X$ và có độ lệch chuẩn cố định. Để học phân phối có điều kiện $P(Y|X)$, chúng ta có thể cực đại hóa khả năng có điều kiện (conditional likelihood):</p>
+
+<p>$$P(y|x) = \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(y - (\theta_1 x + \theta_2))^2}{2\sigma^2}}$$ <span>(21.5)</span></p>
+
+<p>Ở đây, các tham số là $\theta_1, \theta_2$, và $\sigma$. Dữ liệu là một tập hợp các cặp $(x_j, y_j)$, như được minh họa trong <strong>Hình 21.4</strong>. Sử dụng các phương pháp thông thường (Bài tập 21.LINR), chúng ta có thể tìm ra các giá trị hợp lý cực đại của các tham số. Điểm đáng chú ý ở đây là khác biệt. Nếu chúng ta chỉ xét các tham số $\theta_1$ và $\theta_2$ định nghĩa mối quan hệ tuyến tính giữa $x$ và $y$, điều trở nên rõ ràng là việc cực đại hóa log khả năng đối với các tham số này cũng chính là việc <strong>tối thiểu hóa</strong> tử số $(y - (\theta_1 x + \theta_2))^2$ trong số mũ của Phương trình (21.5). Đây chính là <strong>tổn thất $L_2$ (L2 loss)</strong>, phần bình phương sai số (squared error) giữa giá trị thực tế $y$ và dự đoán $\theta_1 x + \theta_2$.</p>
+
+<p>Đây chính là đại lượng được tối thiểu hóa bởi thủ tục hồi quy tuyến tính (linear regression) tiêu chuẩn được mô tả trong Mục 19.6. Bây giờ chúng ta có thể hiểu tại sao: việc tối thiểu hóa tổng các bình phương sai số sẽ mang lại mô hình đường thẳng hợp lý cực đại, với điều kiện là dữ liệu được tạo ra với nhiễu Gaussian có phương sai cố định $\sigma$.</p>
+
+<h3 id="2125-bayesian-parameter-learning">21.2.5 Học tham số Bayes</h3>
+<p>Học hợp lý cực đại dẫn đến các thủ tục đơn giản, nhưng nó có những khiếm khuyết nghiêm trọng với các tập dữ liệu nhỏ. Ví dụ, sau khi nhìn thấy một viên kẹo anh đào, giả thuyết hợp lý cực đại là túi kẹo 100% anh đào (tức là, $\theta = 1.0$). Trừ khi phân phối tiên nghiệm của một người là các túi kẹo phải toàn là anh đào hoặc toàn là chanh, thì đây không phải là một kết luận hợp lý. Khả năng cao hơn là cái túi là sự pha trộn giữa chanh và anh đào. Cách tiếp cận Bayes đối với việc học tham số bắt đầu bằng một xác suất tiên nghiệm giả thuyết (hypothesis prior) và cập nhật phân phối khi có dữ liệu đến.</p>
+
+<p>Ví dụ về kẹo trong <strong>Hình 21.2(a)</strong> có một tham số, $\theta$: xác suất một viên kẹo được chọn ngẫu nhiên có vị anh đào. Theo quan điểm Bayes, $\theta$ là giá trị (chưa biết) của một biến ngẫu nhiên $\Theta$ định nghĩa không gian giả thuyết; tiên nghiệm giả thuyết là phân phối tiên nghiệm trên $P(\Theta)$. Do đó, $P(\Theta = \theta)$ là xác suất tiên nghiệm rằng cái túi có $\theta$ phần kẹo anh đào.</p>
+
+<p>Nếu tham số $\theta$ có thể là bất kỳ giá trị nào từ 0 đến 1, thì $P(\Theta)$ là một <strong>hàm mật độ xác suất liên tục</strong> (xem Mục A.3). Nếu chúng ta không biết gì về các giá trị có thể có của $\theta$, chúng ta có thể sử dụng hàm mật độ đều (uniform density function) $P(\theta) = Uniform(\theta; 0, 1)$, cho biết tất cả các giá trị đều có khả năng bằng nhau.</p>
+
+<p>Một họ các hàm mật độ xác suất linh hoạt hơn được gọi là <strong>phân phối beta (beta distributions)</strong>. Mỗi phân phối beta được xác định bởi hai <strong>siêu tham số (hyperparameters)</strong> $a$ và $b$ sao cho:</p>
+
+<p>$$Beta(\theta; a, b) = \alpha \theta^{a-1} (1 - \theta)^{b-1}$$ <span>(21.6)</span></p>
+
+<p>cho $\theta$ trong khoảng $[0, 1]$. Hằng số chuẩn hóa $\alpha$, giúp cho phân phối tích phân bằng 1, phụ thuộc vào $a$ và $b$. <strong>Hình 21.5</strong> cho thấy phân phối trông như thế nào đối với các giá trị khác nhau của $a$ và $b$. Giá trị trung bình của phân phối beta là $a/(a+b)$, do đó các giá trị $a$ lớn hơn cho thấy niềm tin rằng $\Theta$ gần với 1 hơn là 0. Các giá trị $a+b$ lớn hơn làm cho phân phối nhọn hơn, cho thấy độ chắc chắn cao hơn về giá trị của $\Theta$. Hóa ra hàm mật độ đều cũng chính là $Beta(1, 1)$: có trung bình là 1/2 và phân phối phẳng.</p>
+
+<p>Bên cạnh sự linh hoạt của nó, họ phân phối beta còn có một thuộc tính tuyệt vời khác: nếu $\Theta$ có phân phối tiên nghiệm là $Beta(a, b)$, thì sau khi quan sát thấy một điểm dữ liệu, phân phối hậu nghiệm cho $\Theta$ <strong>cũng</strong> là một phân phối beta. Nói cách khác, phân phối Beta đóng (closed) dưới phép cập nhật. Họ beta được gọi là <strong>tiên nghiệm liên hợp (conjugate prior)</strong> cho họ phân phối của một biến Boolean. Hãy xem cách điều này hoạt động. Giả sử chúng ta quan sát thấy một viên kẹo anh đào; khi đó chúng ta có:</p>
+
+<p>$$P(\theta | D_1=cherry) = \alpha P(D_1=cherry | \theta) P(\theta)$$
+$$= \alpha \theta Beta(\theta; a, b) = \alpha \theta \alpha' \theta^{a-1} (1 - \theta)^{b-1}$$
+$$= \alpha'' \theta^a (1 - \theta)^{b-1} = Beta(\theta; a+1, b)$$</p>
+
+<p>Do đó, sau khi thấy một viên kẹo anh đào, chúng ta chỉ cần tăng tham số $a$ lên để lấy hậu nghiệm; tương tự, sau khi thấy kẹo chanh, chúng ta tăng tham số $b$. Do đó, chúng ta có thể coi các siêu tham số $a$ và $b$ như <strong>các số đếm ảo (virtual counts)</strong>, theo nghĩa là một phân phối tiên nghiệm $Beta(a, b)$ hoạt động hoàn toàn giống như thể chúng ta đã bắt đầu với một tiên nghiệm đều $Beta(1, 1)$ và đã nhìn thấy $a-1$ viên kẹo anh đào thực sự và $b-1$ viên kẹo chanh thực sự.</p>
+
+<p>Bằng cách kiểm tra một chuỗi các phân phối beta với các giá trị $a$ và $b$ tăng dần, nhưng vẫn giữ nguyên tỷ lệ, chúng ta có thể thấy một cách sống động cách phân phối hậu nghiệm trên tham số $\Theta$ thay đổi khi dữ liệu đến. Ví dụ, giả sử túi kẹo thực tế có 75% anh đào. <strong>Hình 21.5(b)</strong> cho thấy chuỗi $Beta(3, 1), Beta(6, 2), Beta(30, 10)$. Rõ ràng, phân phối đang hội tụ thành một đỉnh hẹp quanh giá trị thực của $\Theta$. Do đó, đối với các tập dữ liệu lớn, học Bayes (ít nhất là trong trường hợp này) hội tụ về cùng một câu trả lời như học hợp lý cực đại.</p>
+
+<p>Bây giờ chúng ta hãy xem xét một trường hợp phức tạp hơn. Mạng trong <strong>Hình 21.2(b)</strong> có ba tham số, $\theta$, $\theta_1$, và $\theta_2$, trong đó $\theta_1$ là xác suất có giấy gói màu đỏ trên một viên kẹo anh đào và ...</p>

@@ -1,0 +1,124 @@
+Section 23.7 Applications of Reinforcement Learning 867
+icy, N EUROGAMMON converted each move (s;a;s0)into a set of training examples, each of
+which labeled s0as a better position than some other position s00reachable from sby a differ-
+ent move. The network had two separate halves, one for s0and one for s00, and was constrained
+to choose which was better by comparing the outputs of the two halves. In this way, each half
+was forced to learn an evaluation function ˆU. N EUROGAMMON won the 1989 Computer
+Olympiad—the ﬁrst learning program ever to win a computer game tournament—but never
+progressed past Tesauro’s own intermediate level of play.
+Tesauro’s next system, TD-G AMMON (1992), adopted Sutton’s recently published TD
+learning method—essentially returning to the approach explored by Samuel, but with much
+greater technical understanding of how to do it right. The evaluation function ˆUwas repre-
+sented by a fully connected neural network with a single hidden layer containing 80 nodes.
+(It also used some manually designed input features borrowed from N EUROGAMMON .) Af-
+ter 300,000 training games, it reached a standard of play comparable to the top three human
+players in the world. Kit Woolsey, a top-ten player, said, “There is no question in my mind
+that its positional judgment is far better than mine.”
+The next challenge was to learn from raw perceptual inputs—something closer to the real
+world—rather than discrete game board representations. Beginning in 2012, a team at Deep-
+Mind developed the deep Q-network (DQN) system, the ﬁrst modern deep RL system. DQNDeep Q-network
+(DQN)
+uses a deep neural network to represent the Q-function; otherwise it is a typical reinforcement
+learning system. DQN was trained separately on each of 49 different Atari video games. It
+learned to drive simulated race cars, shoot alien spaceships, and bounce balls with paddles.
+In each case, the agent learned a Q-function from raw image data with the reward signal be-
+ing the game score. Overall, the system performed at roughly human expert level, although
+a few games gave it trouble. One game in particular, Montezuma’s Revenge , proved far too
+difﬁcult, because it required extended planning strategies, and the rewards were too sparse.
+Subsequent work produced deep RL systems that generated more extensive exploratory be-
+haviors and were able to conquer Montezuma’s Revenge and other difﬁcult games.
+DeepMind’s A LPHA GOsystem also used deep reinforcement learning to beat the best
+human players at the game of Go (see Chapter 6). Whereas a Q-function with no look-ahead
+sufﬁces for Atari games, which are primarily reactive in nature, Go requires substantial look-
+ahead. For this reason, A LPHA GOlearned both a value function and a Q-function that guided
+its search by predicting which moves are worth exploring. The Q-function, implemented as
+a convolutional neural network, is accurate enough by itself to beat most amateur human
+players without any search at all.
+23.7.2 Application to robot control
+The setup for the famous cart–pole balancing problem, also known as the inverted pendu- Cart{pole
+lum, is shown in Figure 23.9(a). The problem is to keep the pole roughly upright ( 90)Inverted pendulum
+by applying forces to move the cart right or left, while keeping the position xwithin the limits
+of the track. Several thousand papers in reinforcement learning and control theory have been
+published on this seemingly simple problem. One difﬁculty is that the state variables x,, ˙x,
+and˙are continuous. The actions, however, are deﬁned to be discrete: jerk left or jerk right,
+the so-called bang-bang control regime. Bang-bang control
+The earliest work on learning for this problem was carried out by Michie and Cham-
+bers (1968), using a real cart and pole, not a simulation. Their B OXES algorithm was able
+
+868 Chapter 23 Reinforcement Learning
+xθ
+(a) (b)
+Figure 23.9 (a) Setup for the problem of balancing a long pole on top of a moving cart.
+The cart can be jerked left or right by a controller that observes the cart’s position xand
+velocity ˙ x, as well as the pole’s angle and rate of change of angle ˙. (b) Six superimposed
+time-lapse images of a single autonomous helicopter performing a very difﬁcult “nose-in
+circle” maneuver. The helicopter is under the control of a policy developed by the P EGASUS
+policy-search algorithm (Ng et al. , 2003). A simulator model was developed by observing
+the effects of various control manipulations on the real helicopter; then the algorithm was
+run on the simulator model overnight. A variety of controllers were developed for different
+maneuvers. In all cases, performance far exceeded that of an expert human pilot using remote
+control. (Image courtesy of Andrew Ng.)
+to balance the pole for over an hour after 30 trials. The algorithm ﬁrst discretized the four-
+dimensional state space into boxes—hence the name. It then ran trials until the pole fell over.
+Negative reinforcement was associated with the ﬁnal action in the ﬁnal box and then propa-
+gated back through the sequence. Improved generalization and faster learning can be obtained
+using an algorithm that adaptively partitions the state space according to the observed varia-
+tion in the reward, or by using a continuous-state, nonlinear function approximator such as a
+neural network. Nowadays, balancing a triple inverted pendulum (three poles joined together
+end to end) is a common exercise—a feat far beyond the capabilities of most humans, but
+achievable using reinforcement learning.
+Still more impressive is the application of reinforcement learning to radio-controlled
+helicopter ﬂight (Figure 23.9(b)). This work has generally used policy search over large
+MDPs (Bagnell and Schneider, 2001; Ng et al. , 2003), often combined with imitation learn-
+ing and inverse RL given observations of a human expert pilot (Coates et al. , 2009).
+Inverse RL has also been applied successfully to interpret human behavior, including
+destination prediction and route selection by taxi drivers based on 100,000 miles of GPS
+data (Ziebart et al. , 2008) and detailed physical movements by pedestrians in complex envi-
+ronments based on hours of video observation (Kitani et al. , 2012). In the area of robotics,
+a single expert demonstration was enough for the LittleDog quadruped to learn a 25-feature
+reward function and nimbly traverse a previously unseen area of rocky terrain (Kolter et al. ,
+2008). For more on how RL and inverse RL are used in robotics, see Sections 26.7 and 26.8.
+
+Summary 869
+Summary
+This chapter has examined the reinforcement learning problem: how an agent can become
+proﬁcient in an unknown environment, given only its percepts and occasional rewards. Re-
+inforcement learning is a very broadly applicable paradigm for creating intelligent systems.
+The major points of the chapter are as follows.
+• The overall agent design dictates the kind of information that must be learned:
+–Amodel-based reinforcement learning agent acquires (or is equipped with) a
+transition model P(s0js;a)for the environment and learns a utility function U(s).
+–Amodel-free reinforcement learning agent may learn an action-utility function
+Q(s;a)or a policy(s).
+• Utilities can be learned using several different approaches:
+– Direct utility estimation uses the total observed reward-to-go for a given state as
+direct evidence for learning its utility.
+– Adaptive dynamic programming (ADP) learns a model and a reward function
+from observations and then uses value or policy iteration to obtain the utilities or
+an optimal policy. ADP makes optimal use of the local constraints on utilities of
+states imposed through the neighborhood structure of the environment.
+– Temporal-difference (TD) methods adjust utility estimates to be more consistent
+with those of successor states. They can be viewed as simple approximations of the
+ADP approach that can learn without requiring a transition model. Using a learned
+model to generate pseudoexperiences can, however, result in faster learning.
+• Action-utility functions, or Q-functions, can be learned by an ADP approach or a TD
+approach. With TD, Q-learning requires no model in either the learning or action-
+selection phase. This simpliﬁes the learning problem but potentially restricts the ability
+to learn in complex environments, because the agent cannot simulate the results of
+possible courses of action.
+• When the learning agent is responsible for selecting actions while it learns, it must
+trade off the estimated value of those actions against the potential for learning useful
+new information. An exact solution for the exploration problem is infeasible, but some
+simple heuristics do a reasonable job. An exploring agent must also take care to avoid
+premature death.
+• In large state spaces, reinforcement learning algorithms must use an approximate func-
+tional representation of U(s)orQ(s;a)in order to generalize over states. Deep re-
+inforcement learning —using deep neural networks as function approximators—has
+achieved considerable success on hard problems.
+•Reward shaping andhierarchical reinforcement learning are helpful for learning
+complex behaviors, particularly when rewards are sparse and long action sequences are
+required to obtain them.
+•Policy-search methods operate directly on a representation of the policy, attempting
+to improve it based on observed performance. The variation in the performance in a
+stochastic domain is a serious problem; for simulated domains this can be overcome by
+ﬁxing the randomness in advance.

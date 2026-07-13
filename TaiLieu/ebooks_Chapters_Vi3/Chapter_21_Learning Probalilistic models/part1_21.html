@@ -1,0 +1,50 @@
+<h1 id="chapter-21-learning-probabilistic-models">Chương 21: Học các Mô hình Xác suất (Learning Probabilistic Models)</h1>
+<p><em>Trong đó chúng ta coi việc học như một dạng suy diễn không chắc chắn từ các quan sát (observations), và xây dựng các mô hình để biểu diễn thế giới không chắc chắn.</em></p>
+
+<p>Chương 12 đã chỉ ra sự phổ biến của sự không chắc chắn (uncertainty) trong các môi trường thực tế. Các tác tử (agents) có thể xử lý sự không chắc chắn bằng cách sử dụng các phương pháp của lý thuyết xác suất và lý thuyết quyết định, nhưng trước tiên chúng phải <strong>học (learn)</strong> các lý thuyết xác suất của chúng về thế giới từ kinh nghiệm. Chương này giải thích cách chúng có thể làm điều đó, bằng cách công thức hóa bản thân tác vụ học tập như một quá trình của <strong>suy diễn xác suất (probabilistic inference)</strong> (Mục 21.1). Chúng ta sẽ thấy rằng quan điểm Bayes (Bayesian view) về học tập là cực kỳ mạnh mẽ, cung cấp các giải pháp tổng quát cho các vấn đề về nhiễu (noise), khớp quá mức (overfitting), và dự đoán tối ưu (optimal prediction). Nó cũng xem xét thực tế rằng một tác tử không toàn tri (less-than-omniscient agent) không bao giờ có thể chắc chắn hoàn toàn về việc lý thuyết nào về thế giới là đúng, nhưng vẫn phải đưa ra các quyết định bằng cách sử dụng một số lý thuyết nào đó về thế giới.</p>
+
+<p>Chúng ta sẽ mô tả các phương pháp để học các mô hình xác suất—chủ yếu là <strong>mạng Bayes (Bayesian networks)</strong>—trong Mục 21.2 và 21.3. Một số tài liệu trong chương này mang tính toán học khá cao, mặc dù các bài học tổng quát có thể được hiểu mà không cần đi sâu vào các chi tiết. Sẽ rất hữu ích nếu người đọc xem lại Chương 12 và 13 và xem lướt qua Phụ lục A.</p>
+
+<h2 id="211-statistical-learning">21.1 Học máy Thống kê (Statistical Learning)</h2>
+<p>Các khái niệm chính trong chương này, cũng giống như trong Chương 19, là <strong>dữ liệu (data)</strong> và <strong>các giả thuyết (hypotheses)</strong>. Ở đây, dữ liệu là <strong>bằng chứng (evidence)</strong>—tức là, sự cụ thể hóa của một số hoặc tất cả các biến ngẫu nhiên mô tả miền ứng dụng (domain). Các giả thuyết trong chương này là các lý thuyết xác suất về cách thức hoạt động của miền ứng dụng, bao gồm các lý thuyết logic như một trường hợp đặc biệt.</p>
+
+<p>Hãy xem xét một ví dụ đơn giản. Kẹo bất ngờ yêu thích của chúng ta có hai hương vị: anh đào (cherry - ngon tuyệt) và chanh (lime - ôi thôi). Nhà sản xuất có một khiếu hài hước kỳ lạ và bọc mỗi viên kẹo trong một vỏ bọc mờ đục giống nhau, bất kể hương vị. Kẹo được bán trong các túi rất lớn, trong đó có năm loại kẹo đã biết—lại một lần nữa, không thể phân biệt từ bên ngoài:</p>
+<ul>
+<li>$h_1$: 100% anh đào,</li>
+<li>$h_2$: 75% anh đào + 25% chanh,</li>
+<li>$h_3$: 50% anh đào + 50% chanh,</li>
+<li>$h_4$: 25% anh đào + 75% chanh,</li>
+<li>$h_5$: 100% chanh.</li>
+</ul>
+
+<p>Giả sử có một túi kẹo mới, biến ngẫu nhiên $H$ (viết tắt của hypothesis - giả thuyết) biểu thị loại túi kẹo, với các giá trị có thể có từ $h_1$ đến $h_5$. Tất nhiên, $H$ không thể quan sát được trực tiếp. Khi các viên kẹo được mở ra và kiểm tra, dữ liệu sẽ được tiết lộ—$D_1, D_2, \ldots, D_N$, trong đó mỗi $D_i$ là một biến ngẫu nhiên với các giá trị có thể có là <strong>anh đào (cherry)</strong> và <strong>chanh (lime)</strong>. Nhiệm vụ cơ bản mà tác tử phải đối mặt là dự đoán hương vị của viên kẹo tiếp theo. Mặc dù có vẻ tầm thường, kịch bản này phục vụ để giới thiệu nhiều vấn đề lớn yếu. Tác tử thực sự cần suy diễn ra một lý thuyết về thế giới của nó, dù là một lý thuyết rất đơn giản.</p>
+
+<p><strong>Học Bayes (Bayesian learning)</strong> đơn giản chỉ là tính toán xác suất của mỗi giả thuyết, dựa trên dữ liệu, và đưa ra các dự đoán dựa trên cơ sở đó. Tức là, các dự đoán được thực hiện bằng cách sử dụng <em>tất cả</em> các giả thuyết, được gia quyền (weighted) bởi xác suất của chúng, thay vì chỉ sử dụng một giả thuyết "tốt nhất" duy nhất. Theo cách này, việc học được quy về suy diễn xác suất.</p>
+
+<p>Gọi $\mathbf{D}$ đại diện cho tất cả dữ liệu, với giá trị quan sát được là $\mathbf{d}$. Các đại lượng cốt lõi trong phương pháp Bayes là <strong>xác suất tiên nghiệm của giả thuyết (hypothesis prior)</strong>, $P(h_i)$, và <strong>khả năng (likelihood)</strong> của dữ liệu dưới mỗi giả thuyết, $P(\mathbf{d}|h_i)$. Xác suất của mỗi giả thuyết được tính bằng định lý Bayes (Bayes' rule):</p>
+
+<p>$$P(h_i|\mathbf{d}) = \alpha P(\mathbf{d}|h_i)P(h_i)$$ <span>(21.1)</span></p>
+
+<p>Bây giờ, giả sử chúng ta muốn đưa ra một dự đoán về một đại lượng chưa biết $X$. Khi đó chúng ta có:</p>
+
+<p>$$P(X|\mathbf{d}) = \sum_i P(X|h_i)P(h_i|\mathbf{d})$$ <span>(21.2)</span></p>
+
+<p>trong đó mỗi giả thuyết xác định một phân phối xác suất trên $X$. Phương trình này cho thấy rằng các dự đoán là mức trung bình có trọng số (weighted averages) trên các dự đoán của các giả thuyết cá thể, trong đó trọng số $P(h_i|\mathbf{d})$ tỷ lệ thuận với xác suất tiên nghiệm của $h_i$ và mức độ khớp của nó với dữ liệu, theo Phương trình (21.1). Bản thân các giả thuyết về cơ bản đóng vai trò là "các trung gian" giữa dữ liệu thô và các dự đoán.</p>
+
+<p>Đối với ví dụ về kẹo của chúng ta, chúng ta sẽ tạm thời giả định rằng phân phối tiên nghiệm trên $h_1, \ldots, h_5$ được cho bởi $\langle 0.1, 0.2, 0.4, 0.2, 0.1 \rangle$, đúng như nhà sản xuất đã quảng cáo. Khả năng của dữ liệu được tính toán dựa trên giả định rằng các quan sát là độc lập và cùng phân phối (i.i.d.), do đó:</p>
+
+<p>$$P(\mathbf{d}|h_i) = \prod_j P(d_j|h_i)$$ <span>(21.3)</span></p>
+
+<p>Ví dụ, giả sử cái túi đó thực sự là một túi toàn vị chanh ($h_5$) và 10 viên kẹo đầu tiên đều là chanh; thì $P(\mathbf{d}|h_3)$ là $0.5^{10}$, bởi vì một nửa số kẹo trong túi $h_3$ là vị chanh. <strong>Hình 21.1(a)</strong> cho thấy cách các xác suất hậu nghiệm (posterior probabilities) của năm giả thuyết thay đổi khi chuỗi 10 viên kẹo chanh được quan sát. Lưu ý rằng các xác suất bắt đầu ở các giá trị tiên nghiệm của chúng, vì vậy $h_3$ ban đầu là lựa chọn khả dĩ nhất và vẫn giữ nguyên như vậy sau khi 1 viên kẹo chanh được bóc ra. Sau khi 2 viên kẹo chanh được bóc ra, $h_4$ là khả dĩ nhất; sau 3 viên trở lên, $h_5$ (túi toàn chanh đáng sợ) là khả dĩ nhất. Sau 10 viên liên tiếp, chúng ta khá chắc chắn về số phận của mình. <strong>Hình 21.1(b)</strong> cho thấy xác suất dự đoán rằng viên kẹo tiếp theo là vị chanh, dựa trên Phương trình (21.2). Như chúng ta có thể đoán trước, nó tăng dần một cách đơn điệu về 1.</p>
+
+<p>Ví dụ này cho thấy rằng dự đoán Bayes cuối cùng sẽ đồng thuận với giả thuyết thực sự. Đây là đặc trưng của học Bayes. Đối với bất kỳ tiên nghiệm cố định nào không loại trừ giả thuyết thực sự, xác suất hậu nghiệm của bất kỳ giả thuyết sai nào cuối cùng sẽ biến mất (tiến về 0), theo những điều kiện kỹ thuật nhất định. Điều này xảy ra đơn giản là vì xác suất của việc tạo ra dữ liệu "không mang tính đặc trưng" vô thời hạn là nhỏ đến mức biến mất. (Điểm này tương tự như một điểm đã được nêu trong cuộc thảo luận về học PAC ở Chương 19). Quan trọng hơn, <strong>dự đoán Bayes là tối ưu (optimal)</strong>, cho dù tập dữ liệu nhỏ hay lớn. Dựa trên phân phối tiên nghiệm của giả thuyết, bất kỳ dự đoán nào khác đều được kỳ vọng là sẽ có số lần chính xác thấp hơn.</p>
+
+<p>Sự tối ưu của học Bayes tất nhiên cũng có cái giá của nó. Đối với các bài toán học máy thực tế, không gian giả thuyết thường rất lớn hoặc vô hạn, như chúng ta đã thấy trong Chương 19. Trong một số trường hợp, phép tính tổng trong Phương trình (21.2) (hoặc tích phân, trong trường hợp liên tục) có thể được tính toán một cách xử lý được, nhưng trong hầu hết các trường hợp, chúng ta phải sử dụng đến các phương pháp xấp xỉ (approximate) hoặc đơn giản hóa (simplified).</p>
+
+<p>Một phương pháp xấp xỉ rất phổ biến—một phương pháp thường được áp dụng trong khoa học—là đưa ra các dự đoán dựa trên một giả thuyết khả dĩ nhất duy nhất—tức là, một giả thuyết $h_i$ làm cực đại hóa $P(h_i|\mathbf{d})$. Điều này thường được gọi là <strong>giả thuyết hậu nghiệm cực đại (maximum a posteriori)</strong> hay giả thuyết <strong>MAP</strong>.</p>
+
+<p>Các dự đoán được thực hiện theo giả thuyết MAP $h_{MAP}$ xấp xỉ với phương pháp Bayes ở mức độ $P(X|\mathbf{d}) \approx P(X|h_{MAP})$. Trong ví dụ về kẹo của chúng ta, $h_{MAP} = h_5$ sau ba viên kẹo chanh liên tiếp, do đó, bộ học MAP sau đó dự đoán rằng viên kẹo thứ tư là vị chanh với xác suất 1.0—một dự đoán nguy hiểm hơn nhiều so với dự đoán Bayes là 0.8 được hiển thị trong <strong>Hình 21.1(b)</strong>. Khi có nhiều dữ liệu hơn, các dự đoán MAP và Bayes trở nên gần nhau hơn, bởi vì các đối thủ cạnh tranh với giả thuyết MAP ngày càng trở nên kém khả dĩ hơn.</p>
+
+<p>Mặc dù ví dụ này không cho thấy điều đó, nhưng việc tìm kiếm các giả thuyết MAP thường <strong>dễ dàng hơn nhiều</strong> so với việc học Bayes, bởi vì nó đòi hỏi phải giải quyết một bài toán tối ưu hóa thay vì một bài toán tính tổng (hoặc tích phân) lớn.</p>
+
+<p>Trong cả học Bayes và học MAP, xác suất tiên nghiệm của giả thuyết $P(h_i)$ đóng một vai trò quan trọng. Chúng ta đã thấy trong Chương 19 rằng <strong>hiện tượng khớp quá mức (overfitting)</strong> có thể xảy ra khi không gian giả thuyết quá biểu cảm (expressive), tức là, khi nó chứa nhiều giả thuyết khớp tốt với tập dữ liệu. Các phương pháp học Bayes và MAP sử dụng phân phối tiên nghiệm để phạt (penalize) sự phức tạp. Thông thường, các giả thuyết phức tạp hơn có xác suất tiên nghiệm thấp hơn—một phần vì có quá nhiều giả thuyết như vậy. Mặt khác, các giả thuyết phức tạp hơn có khả năng khớp dữ liệu tốt hơn. (Trong trường hợp cực đoan, một bảng tra cứu có thể tái tạo lại dữ liệu một cách chính xác). Do đó, phân phối tiên nghiệm của giả thuyết thể hiện <strong>sự đánh đổi (tradeoff)</strong> giữa độ phức tạp của một giả thuyết và mức độ khớp của nó với dữ liệu.</p>

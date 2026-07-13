@@ -1,0 +1,51 @@
+<p>$\theta_2$ là xác suất một viên kẹo chanh có vỏ bọc màu đỏ. Tiên nghiệm giả thuyết Bayes phải bao phủ cả ba tham số—tức là, chúng ta cần xác định $P(\Theta, \Theta_1, \Theta_2)$. Thông thường, chúng ta giả định <strong>sự độc lập của tham số (parameter independence)</strong>:</p>
+
+<p>$$P(\Theta, \Theta_1, \Theta_2) = P(\Theta)P(\Theta_1)P(\Theta_2)$$</p>
+
+<p>Với giả định này, mỗi tham số có thể có phân phối beta riêng của nó được cập nhật riêng biệt khi dữ liệu đến. <strong>Hình 21.6</strong> cho thấy cách chúng ta có thể kết hợp tiên nghiệm giả thuyết và bất kỳ dữ liệu nào vào một mạng Bayes, trong đó chúng ta có một nút cho mỗi biến tham số.</p>
+
+<p>Các nút $\Theta, \Theta_1, \Theta_2$ không có các nút cha. Đối với quan sát thứ $i$ về một vỏ bọc và hương vị tương ứng của một viên kẹo, chúng ta thêm các nút $Wrapper_i$ và $Flavor_i$. $Flavor_i$ phụ thuộc vào tham số hương vị $\Theta$:</p>
+
+<p>$$P(Flavor_i=cherry | \Theta=\theta) = \theta$$</p>
+
+<p>$Wrapper_i$ phụ thuộc vào $\Theta_1$ và $\Theta_2$:</p>
+
+<p>$$P(Wrapper_i=red | Flavor_i=cherry, \Theta_1=\theta_1) = \theta_1$$
+$$P(Wrapper_i=red | Flavor_i=lime, \Theta_2=\theta_2) = \theta_2$$</p>
+
+<p>Bây giờ, toàn bộ quá trình học Bayes cho mạng Bayes gốc trong <strong>Hình 21.2(b)</strong> có thể được xây dựng như một <strong>bài toán suy diễn</strong> trong mạng Bayes dẫn xuất được hiển thị trong <strong>Hình 21.6</strong>, nơi dữ liệu và các tham số trở thành các nút. Khi chúng ta đã thêm tất cả các nút bằng chứng mới, sau đó chúng ta có thể truy vấn các biến tham số (trong trường hợp này là $\Theta, \Theta_1, \Theta_2$). Dưới công thức này, chỉ có <em>một</em> thuật toán học duy nhất—thuật toán suy diễn cho các mạng Bayes.</p>
+
+<p>Tất nhiên, bản chất của các mạng này hơi khác so với các mạng trong Chương 13 vì có số lượng biến bằng chứng khổng lồ tiềm ẩn đại diện cho tập huấn luyện và sự phổ biến của các biến tham số có giá trị liên tục. Suy diễn chính xác có thể là <strong>không thể (impossible)</strong> ngoại trừ trong các trường hợp rất đơn giản như mô hình Naive Bayes. Những người làm thực tiễn thường sử dụng các phương pháp suy diễn xấp xỉ như <strong>MCMC</strong> (Mục 13.4.2); nhiều gói phần mềm thống kê tích hợp các hiện thực hiệu quả của MCMC cho mục đích này.</p>
+
+<h3 id="2126-bayesian-linear-regression">21.2.6 Hồi quy tuyến tính Bayes (Bayesian linear regression)</h3>
+<p>Ở đây chúng ta sẽ minh họa cách áp dụng cách tiếp cận Bayes vào một bài toán thống kê tiêu chuẩn: hồi quy tuyến tính. Cách tiếp cận thông thường được mô tả trong Mục 19.6 như là việc tối thiểu hóa tổng bình phương sai số và được giải thích lại trong Mục 21.2.4 như là cực đại hóa khả năng giả định mô hình nhiễu Gaussian. Những phương pháp này tạo ra một giả thuyết tốt nhất duy nhất: một đường thẳng với các giá trị cụ thể cho độ dốc (slope) và giao điểm (intercept) và một phương sai cố định cho sai số dự đoán tại bất kỳ điểm nào. Không có thước đo nào về mức độ tin cậy của một người đối với các giá trị độ dốc và giao điểm này.</p>
+
+<p>Hơn nữa, nếu một người đang dự đoán giá trị cho một điểm dữ liệu chưa từng thấy ở xa các điểm dữ liệu đã quan sát, thì có vẻ vô lý khi giả định một sai số dự đoán tương tự như sai số dự đoán cho một điểm dữ liệu nằm ngay cạnh một điểm dữ liệu đã quan sát. Sẽ hợp lý hơn nếu sai số dự đoán lớn hơn khi điểm dữ liệu càng cách xa dữ liệu đã quan sát, vì một thay đổi nhỏ ở độ dốc sẽ gây ra thay đổi lớn ở giá trị dự đoán cho một điểm ở xa.</p>
+
+<p>Phương pháp tiếp cận Bayes giải quyết cả hai vấn đề này. Ý tưởng chung, như trong phần trước, là đặt một phân phối tiên nghiệm lên các tham số mô hình—ở đây là các hệ số của mô hình tuyến tính và phương sai nhiễu—và sau đó tính toán phân phối hậu nghiệm của tham số cho trước dữ liệu. Đối với dữ liệu đa biến (multivariate data) và mô hình nhiễu chưa biết, điều này dẫn đến khá nhiều đại số tuyến tính, vì vậy chúng ta tập trung vào một trường hợp đơn giản: dữ liệu đơn biến (univariable data), một mô hình bị ràng buộc đi qua gốc tọa độ, và nhiễu đã biết: một phân phối chuẩn với phương sai $\sigma^2$. Khi đó chúng ta chỉ có một tham số $\theta$ và mô hình là:</p>
+
+<p>$$P(y|x, \theta) = N(y; \theta x, \sigma^2) = \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(y - \theta x)^2}{2\sigma^2}}$$ <span>(21.7)</span></p>
+
+<p>Vì log của khả năng là một hàm bậc hai (quadratic) đối với $\theta$, dạng thích hợp cho một tiên nghiệm liên hợp trên $\theta$ cũng là một hàm Gaussian. Điều này đảm bảo rằng hậu nghiệm cho $\theta$ cũng sẽ là Gaussian. Chúng ta sẽ giả định một trung bình $\mu_0$ và phương sai $\sigma_0^2$ cho tiên nghiệm, sao cho:</p>
+
+<p>$$P(\theta) = N(\theta; \mu_0, \sigma_0^2) = \frac{1}{\sqrt{2\pi}\sigma_0} e^{-\frac{(\theta - \mu_0)^2}{2\sigma_0^2}}$$ <span>(21.8)</span></p>
+
+<p>Tùy thuộc vào dữ liệu đang được mô hình hóa, người ta có thể có một số ý tưởng về loại độ dốc $\theta$ nào đáng được kỳ vọng, hoặc người ta có thể hoàn toàn theo thuyết bất khả tri (agnostic). Trong trường hợp sau, thật hợp lý khi chọn $\mu_0$ bằng 0 và $\sigma_0^2$ lớn—được gọi là một <strong>tiên nghiệm không cung cấp thông tin (uninformative prior)</strong>. Cuối cùng, chúng ta có thể giả định một tiên nghiệm $P(x)$ cho giá trị $x$ của mỗi điểm dữ liệu, nhưng điều này hoàn toàn không quan trọng đối với việc phân tích vì nó không phụ thuộc vào $\theta$.</p>
+
+<p>Bây giờ việc thiết lập đã hoàn tất, vì vậy chúng ta có thể tính toán hậu nghiệm cho $\theta$ bằng Phương trình (21.1): $P(\theta|\mathbf{d}) \propto P(\mathbf{d}|\theta)P(\theta)$. Các điểm dữ liệu quan sát được là $\mathbf{d} = (x_1, y_1), \ldots, (x_N, y_N)$, do đó khả năng (likelihood) của dữ liệu thu được từ Phương trình (21.7) như sau:</p>
+
+<p>$$P(\mathbf{d}|\theta) = \left(\prod_i P(x_i)\right) \left(\prod_i P(y_i|x_i, \theta)\right) = \alpha \prod_i e^{-\frac{(y_i - \theta x_i)^2}{2\sigma^2}} = \alpha e^{-\frac{1}{2}\sum_i \frac{(y_i - \theta x_i)^2}{\sigma^2}}$$</p>
+
+<p>trong đó chúng ta đã hấp thụ các tiên nghiệm giá trị $x$ và các hằng số chuẩn hóa của $N$ hàm Gaussian vào một hằng số $\alpha$ độc lập với $\theta$. Bây giờ chúng ta kết hợp điều này và tiên nghiệm tham số từ Phương trình (21.8) để thu được hậu nghiệm:</p>
+
+<p>$$P(\theta|\mathbf{d}) = \alpha' e^{-\frac{1}{2}\frac{(\theta - \mu_0)^2}{\sigma_0^2}} e^{-\frac{1}{2}\sum_i \frac{(y_i - \theta x_i)^2}{\sigma^2}}$$</p>
+
+<p>Mặc dù điều này trông có vẻ phức tạp, mỗi số mũ là một hàm bậc hai của $\theta$, do đó tổng của hai số mũ cũng vậy. Do đó, toàn bộ biểu thức đại diện cho một phân phối Gaussian đối với $\theta$. Sử dụng các thao tác đại số rất giống với các thao tác trong Mục 14.4, chúng ta tìm thấy:</p>
+
+<p>$$P(\theta|\mathbf{d}) = \alpha'' e^{-\frac{1}{2}\frac{(\theta - \mu_N)^2}{\sigma_N^2}}$$</p>
+
+<p>với trung bình và phương sai "được cập nhật" cho bởi:</p>
+
+<p>$$\mu_N = \frac{\sigma^2 \mu_0 + \sigma_0^2 \sum_i x_i y_i}{\sigma^2 + \sigma_0^2 \sum_i x_i^2} \quad \text{và} \quad \sigma_N^2 = \frac{\sigma^2 \sigma_0^2}{\sigma^2 + \sigma_0^2 \sum_i x_i^2}$$</p>
+
+<p>Hãy xem các công thức này để biết ý nghĩa của chúng. Khi dữ liệu tập trung hẹp vào một vùng nhỏ của trục $x$ gần gốc tọa độ, $\sum_i x_i^2$ sẽ nhỏ và phương sai hậu nghiệm $\sigma_N^2$ sẽ lớn, gần bằng với phương sai tiên nghiệm $\sigma_0^2$. Điều này đúng như người ta mong đợi: dữ liệu làm rất ít để hạn chế sự xoay của đường thẳng quanh gốc tọa độ. Ngược lại, khi dữ liệu được trải rộng dọc theo trục, $\sum_i x_i^2$ sẽ lớn và phương sai hậu nghiệm $\sigma_N^2$ sẽ nhỏ, gần bằng với $\sigma^2 / (\sum_i x_i^2)$, do đó độ dốc sẽ bị ràng buộc rất chặt chẽ.</p>

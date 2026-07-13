@@ -1,0 +1,133 @@
+Section 23.3 Active Reinforcement Learning 849
+ 0 0.5 1 1.5 2
+ 0  100  200  300  400  500RMS error, policy loss
+Number of trialsRMS error
+Policy loss
+(a) (b)
+Figure 23.6 Performance of a greedy ADP agent that executes the action recommended by
+the optimal policy for the learned model. (a) The root mean square (RMS) error averaged
+across all nine nonterminal squares and the policy loss in (1,1). We see that the policy con-
+verges quickly, after just eight trials, to a suboptimal policy with a loss of 0.235. (b) The
+suboptimal policy to which the greedy agent converges in this particular sequence of trials.
+Notice the Down action in (1,2).
+The greedy agent has overlooked the fact that actions do more than provide rewards ;
+they also provide information in the form of percepts in the resulting states. As we saw with
+bandit problems in Section 16.3, an agent must make a tradeoff between exploitation of the
+current best action to maximize its short-term reward and exploration of previously unknown
+states to gain information that can lead to a change in policy (and to greater rewards in the
+future). In the real world, one constantly has to decide between continuing in a comfortable
+existence, versus striking out into the unknown in the hopes of a better life.
+Although bandit problems are difﬁcult to solve exactly to obtain an optimal exploration
+scheme, it is nonetheless possible to come up with a scheme that will eventually discover an
+optimal policy, even if it might take longer to do so than is optimal. Any such scheme should
+not be greedy in terms of the immediate next move, but should be what is called “greedy in
+the limit of inﬁnite exploration,” or GLIE . A GLIE scheme must try each action in each state GLIE
+an unbounded number of times to avoid having a ﬁnite probability that an optimal action is
+missed. An ADP agent using such a scheme will eventually learn the true transition model,
+and can then operate under exploitation.
+There are several GLIE schemes; one of the simplest is to have the agent choose a random
+action at time step twith probability 1 =tand to follow the greedy policy otherwise. While this
+does eventually converge to an optimal policy, it can be slow. A better approach would give
+some weight to actions that the agent has not tried very often, while tending to avoid actions
+that are believed to be of low utility (as we did with Monte Carlo tree search in Section 6.4).
+This can be implemented by altering the constraint equation (23.4) so that it assigns a higher
+utility estimate to relatively unexplored state–action pairs.
+This amounts to an optimistic prior over the possible environments and causes the agent
+to behave initially as if there were wonderful rewards scattered all over the place. Let us use
+U+(s)to denote the optimistic estimate of the utility (i.e., the expected reward-to-go) of the
+
+850 Chapter 23 Reinforcement Learning
+state s, and let N(s;a)be the number of times action ahas been tried in state s. Suppose
+we are using value iteration in an ADP learning agent; then we need to rewrite the update
+equation (Equation (16.10) on page 563) to incorporate the optimistic estimate:
+U+(s) max
+af
+å
+s0P(s0js;a)[R(s;a;s0)+U+(s0)];N(s;a)
+: (23.5)
+Here, fis the exploration function . The function f(u;n)determines how greed (preference Exploration function
+for high values of the utility u) is traded off against curiosity (preference for actions that have
+not been tried often and have a low count n). The function should be increasing in uand
+decreasing in n. Obviously, there are many possible functions that ﬁt these conditions. One
+particularly simple deﬁnition is
+f(u;n) =R+ifn<Ne
+uotherwise,
+where R+is an optimistic estimate of the best possible reward obtainable in any state and
+Neis a ﬁxed parameter. This will have the effect of making the agent try each state–action
+pair at least Netimes. The fact that U+rather than Uappears on the right-hand side of
+Equation (23.5) is very important. As exploration proceeds, the states and actions near the
+start state might well be tried a large number of times. If we used U, the more pessimistic
+utility estimate, then the agent would soon become disinclined to explore further aﬁeld. The
+use of U+means that the beneﬁts of exploration are propagated back from the edges of
+unexplored regions, so that actions that lead toward unexplored regions are weighted more
+highly, rather than just actions that are themselves unfamiliar.
+The effect of this exploration policy can be seen clearly in Figure 23.7(b), which shows
+a rapid convergence toward zero policy loss, unlike with the greedy approach. A very nearly
+optimal policy is found after just 18 trials. Notice that the RMS error in the utility estimates
+does not converge as quickly. This is because the agent stops exploring the unrewarding
+parts of the state space fairly soon, visiting them only “by accident” thereafter. However, it
+makes perfect sense for the agent not to care about the exact utilities of states that it knows
+are undesirable and can be avoided. There is not much point in learning about the best radio
+station to listen to while falling off a cliff.
+23.3.2 Safe exploration
+So far we have assumed that an agent is free to explore as it wishes—that any negative rewards
+serve only to improve its model of the world. That is, if we play a game of chess and lose,
+we suffer no damage (except perhaps to our pride), and whatever we learned will make us
+a better player in the next game. Similarly, in a simulation environment for a self-driving
+car, we could explore the limits of the car’s performance, and any accidents give us more
+information. If the car crashes, we just hit the reset button.
+Unfortunately, the real world is less forgiving. If you are a baby sunﬁsh, your probability
+of surviving to adulthood is about 0.00000001. Many actions are irreversible , in the sense
+deﬁned for online search agents in Section 4.5: no subsequent sequence of actions can restore
+the state to what it was before the irreversible action was taken. In the worst case, the agent
+enters an absorbing state where no actions have any effect and no rewards are received. Absorbing state
+In many practical settings, we cannot afford to have our agents taking irreversible actions
+or entering absorbing states. For example, an agent learning to drive in a real car should avoid
+
+Section 23.3 Active Reinforcement Learning 851
+ 0.6 0.8 1 1.2 1.4 1.6 1.8 2 2.2
+ 0  20  40  60  80  100Utility estimates
+Number of trials(1,1)
+(1,3)
+(2,1)
+(3,2)
+(3,3)
+ 0 0.2 0.4 0.6 0.8 1 1.2 1.4
+ 0  20  40  60  80  100RMS error, policy loss
+Number of trialsRMS error
+Policy loss
+(a) (b)
+Figure 23.7 Performance of the exploratory ADP agent using R+=2 and Ne=5. (a) Utility
+estimates for selected states over time. (b) The RMS error in utility values and the associated
+policy loss.
+taking actions that might lead to any of the following:
+•states with large negative rewards, such as serious car crashes;
+•states from which there is no escape, such as driving the car into a deep ditch;
+•states that permanently limit future rewards, such as damaging the car’s engine so that
+its maximum speed is reduced.
+We can end up in a bad state either because our model is unknown , and we actively choose
+to explore in a direction that turns out to be bad, or because our model is incorrect and
+we don’t know that a given action can have a disastrous result. Note that the algorithm in
+Figure 23.2 is using maximum-likelihood estimation (see Chapter 21) to learn the transition
+model; moreover, by choosing a policy based solely on the estimated model, it is acting as if
+the model were correct. This is not necessarily a good idea! For example, a taxi agent that
+didn’t know how trafﬁc lights work might ignore a red light once or twice with no ill effects
+and then formulate a policy to ignore all red lights from then on.
+A better idea would be to choose a policy that works reasonably well for the whole range
+of models that have a reasonable chance of being the true model, even if the policy happens to
+be suboptimal for the maximum-likelihood model. There are three mathematical approaches
+that have this ﬂavor.
+The ﬁrst approach, Bayesian reinforcement learning , assumes a prior probability P(h)Bayesian
+reinforcement
+learningover hypotheses habout what the true model is; the posterior probability P(hje)is obtained
+in the usual way by Bayes’ rule given the observations to date. Then, if the agent has decided
+to stop learning, the optimal policy is the one that gives the highest expected utility. Let U
+h
+be the expected utility, averaged over all possible start states, obtained by executing policy 
+in model h. Then we have
+=argmax
+å
+hP(hje)U
+h:
+In some special cases, this policy can even be computed! If the agent will continue learning
+in the future, however, then ﬁnding an optimal policy becomes considerably more difﬁcult,

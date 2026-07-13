@@ -1,0 +1,93 @@
+872 Chapter 23 Reinforcement Learning
+They called their method behavioral cloning . A few years later, the same research group
+reported that the method was much more fragile than had been reported initially (Camacho
+and Michie, 1995): even very small perturbations caused the learned policy to deviate from
+the desired trajectory, leading to compounding errors as the agent strayed further and further
+from the training set. (See also the discussion on page 973.) Work on apprenticeship learning
+aims to make the approach more robust, in part by including information about the desired
+outcomes rather than just the expert policy. Ng et al. (2003) and Coates et al. (2009) show
+how apprenticeship learning works for learning to ﬂy an actual helicopter, as illustrated in
+Figure 23.9(b) on page 868.
+Inverse reinforcement learning (IRL) was introduced by Russell (1998), and the ﬁrst al-
+gorithms were developed by Ng and Russell (2000). (A similar problem has been studied in
+economics for much longer, under the heading of structural estimation of MDPs (Sargent,
+1978).) The algorithm given in the chapter is due to Abbeel and Ng (2004). Baker et al.
+(2009) describe how the understanding of another agent’s actions can be seen as inverse plan-
+ning. Ho et al. (2017) show that agents can learn better from behaviors that are instructive
+rather than optimal . Hadﬁeld-Menell et al. (2017a) extend IRL into a game-theoretic formu-
+lation that encompasses both observer and demonstrator, showing how teaching and learning
+behaviors emerge as solutions of the game.
+Garc ´ıa and Fern ´andez (2015) give a comprehensive survey on safe reinforcement learn-
+ing. Munos et al. (2017) describe an algorithm for safe off-policy (e.g., Q-learning) explo-
+ration. Hans et al. (2008) break the problem of safe exploration into two parts: deﬁning a
+safety function to indicate which states to avoid, and deﬁning a backup policy to lead the
+agent back to safety when it might otherwise enter an unsafe state. You et al. (2017) show
+how to train a deep reinforcement learning model to drive a car in simulation, and then use
+transfer learning to drive safely in the real world.
+Thomas et al. (2017) offer an approach to learning that is guaranteed, with high proba-
+bility, to do no worse than the current policy. Akametalu et al. (2014) describe a reachability-
+based approach, in which the learning process operates under the guidance of a control policy
+that ensures the agent never reaches an unsafe state. Saunders et al. (2018) demonstrate that
+a system can use human intervention to stop it from wandering out of the safe region, and can
+learn over time to need less intervention.
+Policy search methods were brought to the fore by Williams (1992), who developed the
+REINFORCE family of algorithms, which stands for “REward Increment = Nonnegative Fac-
+torOffset Reinforcement Characteristic Eligibility.” Later work by Marbach and Tsitsik-
+lis (1998), Sutton et al. (2000), and Baxter and Bartlett (2000) strengthened and generalized
+the convergence results for policy search. Schulman et al. (2015b) describe trust region pol-
+icy optimization , a theoretically well-founded and also practical policy search algorithm that
+has spawned many variants. The method of correlated sampling to reduce variance in Monte
+Carlo comparisons is due to Kahn and Marshall (1953); it is also one of a number of variance
+reduction methods explored by Hammersley and Handscomb (1964).
+Early approaches to hierarchical reinforcement learning (HRL) attempted to construct
+hierarchies using state abstraction —that is, grouping states together into abstract states and
+then doing RL in the abstract state space (Dayan and Hinton, 1993). Unfortunately, the tran-
+sition model for abstract states is typically non-Markovian, leading to divergent behavior of
+standard RL algorithms. The temporal abstraction approach in this chapter was developed in
+
+Bibliographical and Historical Notes 873
+the late 1990s (Parr and Russell, 1998; Andre and Russell, 2002; Sutton et al. , 2000) and ex-
+tended to handle concurrent behaviors by Marthi et al. (2005). Dietterich (2000) introduced
+the notion of an additive decomposition of Q-functions induced by the subroutine hierarchy.
+Temporal abstraction is based on a much earlier result due to Forestier and Varaiya (1978),
+who showed that a large MDP can be decomposed into a two-layer system in which a su-
+pervisory layer chooses among low-level controllers, each of which returns control to the
+supervisor on completion. The problem of learning the abstraction hierarchy itself has been
+studied at least since the work of Peter Andreae (1985); for a recent exploration into learn-
+ing robot motion primitives, see Frans et al. (2018). The keepaway game was introduced by
+Stone et al. (2005); the HRL solution given here is due to Bai and Russell (2017).
+Neuroscience has often inspired reinforcement learning and conﬁrmed the value of the
+approach. Research using single-cell recording suggests that the dopamine system in primate
+brains implements something resembling value-function learning (Schultz et al. , 1997). The
+neuroscience text by Dayan and Abbott (2001) describes possible neural implementations of
+temporal-difference learning; related research describes other neuroscientiﬁc and behavioral
+experiments (Dayan and Niv, 2008; Niv, 2009; Lee et al. , 2012).
+Work in reinforcement learning has been accelerated by the availability of open-source
+simulation environments for developing and testing learning agents. The University of Al-
+berta’s Arcade Learning Environment (ALE) (Bellemare et al. , 2013) provided such a frame-
+work for 55 classic Atari video games. The pixels on the screen are provided to the agent as
+percepts, along with a hardwired score of the game so far. ALE was used by the DeepMind
+team to implement DQN learning and verify the generality of their system on a wide variety
+of games (Mnih et al. , 2015).
+DeepMind in turn open-sourced several agent platforms, including the DeepMind Lab
+(Beattie et al. , 2016), the AI Safety Gridworlds (Leike et al. , 2017), the Unity game platform
+(Juliani et al. , 2018), and the DM Control Suite (Tassa et al. , 2018). Blizzard released the
+StarCraft II Learning Environment (SC2LE), to which DeepMind added the PySC2 compo-
+nent for machine learning in Python (Vinyals et al. , 2017a).
+Facebook’s AI Habitat simulation (Savva et al. , 2019) provides a photo-realistic virtual
+environment for indoor robotic tasks, and their H ORIZON platform (Gauci et al. , 2018) en-
+ables reinforcement learning in large-scale production systems. The S YNTHIA system (Ros
+et al. , 2016) is a simulation environment designed for improving the computer vision ca-
+pabilities of self-driving cars. The OpenAI Gym (Brockman et al. , 2016) provides several
+environments for reinforcement learning agents, and is compatible with other simulations
+such as the Google Football simulator.
+Littman (2015) surveys reinforcement learning for a general scientiﬁc audience. The
+canonical text by Sutton and Barto (2018), two of the ﬁeld’s pioneers, shows how reinforce-
+ment learning weaves together the ideas of learning, planning, and acting. Kochenderfer
+(2015) takes a slightly less mathematical approach, with plenty of real-world examples. A
+short book by Szepesvari (2010) gives an overview of reinforcement learning algorithms.
+Bertsekas and Tsitsiklis (1996) provide a rigorous grounding in the theory of dynamic pro-
+gramming and stochastic convergence. Reinforcement learning papers are published fre-
+quently in the journals Machine Learning andJournal of Machine Learning Research , and
+in the the proceedings of the International Conference on Machine Learning (ICML) and the
+Neural Information Processing Systems (NeurIPS) conferences.

@@ -1,0 +1,61 @@
+<div class="figure">
+    <p><strong>Hình 22.9</strong> Một minh chứng về cách mà một mô hình sinh đã học được cách sử dụng các chiều (directions) khác nhau trong không gian $\mathbf{z}$ để thể hiện những khía cạnh khác nhau của các khuôn mặt. Chúng ta thực sự có thể thực hiện các phép toán số học trong không gian $\mathbf{z}$. Các hình ảnh ở đây đều được tạo ra từ mô hình đã học được và cho thấy điều gì sẽ xảy ra khi chúng ta giải mã (decode) các điểm khác nhau trong không gian $\mathbf{z}$. Chúng ta bắt đầu với các tọa độ cho khái niệm "người đàn ông đeo kính", trừ đi các tọa độ cho khái niệm "người đàn ông", cộng thêm các tọa độ cho khái niệm "người phụ nữ", và thu được các tọa độ cho khái niệm "người phụ nữ đeo kính". Hình ảnh được sao chép với sự cho phép từ (Radford và cộng sự, 2015).</p>
+</div>
+
+<p>được chọn từ một phân phối Gaussian hình cầu (spherical Gaussian) có trung bình bằng không, sau đó $\mathbf{x}$ được sinh ra từ $\mathbf{z}$ bằng cách áp dụng một ma trận trọng số $\mathbf{W}$ và cộng thêm nhiễu Gaussian hình cầu:</p>
+
+<p>$$P(\mathbf{z}) = \mathcal{N}(\mathbf{z}; \mathbf{0}, \mathbf{I})$$
+$$P_{\mathbf{W}}(\mathbf{x} | \mathbf{z}) = \mathcal{N}(\mathbf{x}; \mathbf{W}\mathbf{z}, \sigma^2 \mathbf{I})$$</p>
+
+<p>Các trọng số $\mathbf{W}$ (và tùy ý là tham số nhiễu $\sigma^2$) có thể được học bằng cách cực đại hóa hàm likelihood của dữ liệu, được cho bởi:</p>
+
+<p>$$P_{\mathbf{W}}(\mathbf{x}) = \int P_{\mathbf{W}}(\mathbf{x}, \mathbf{z}) d\mathbf{z} = \mathcal{N}(\mathbf{x}; \mathbf{0}, \mathbf{W}\mathbf{W}^T + \sigma^2 \mathbf{I}) \quad (22.16)$$</p>
+
+<p>Việc cực đại hóa đối với $\mathbf{W}$ có thể được thực hiện bằng các phương pháp gradient hoặc bằng một thuật toán EM lặp hiệu quả (xem Mục 21.3). Một khi $\mathbf{W}$ đã được học, các mẫu dữ liệu mới có thể được sinh ra trực tiếp từ $P_{\mathbf{W}}(\mathbf{x})$ sử dụng Phương trình (22.16). Hơn nữa, những quan sát mới $\mathbf{x}$ nào mà có xác suất rất thấp theo như Phương trình (22.16) có thể được gắn cờ như những điểm bất thường tiềm ẩn (potential anomalies).</p>
+
+<p>Với PPCA, chúng ta thường giả định rằng số chiều của $\mathbf{z}$ nhỏ hơn rất nhiều so với số chiều của $\mathbf{x}$, để cho mô hình học cách giải thích dữ liệu tốt nhất có thể thông qua một số lượng nhỏ các đặc trưng. Những đặc trưng này có thể được trích xuất để sử dụng trong các bộ phân loại tiêu chuẩn bằng cách tính toán $\hat{\mathbf{z}}$, là giá trị kỳ vọng của $P_{\mathbf{W}}(\mathbf{z} | \mathbf{x})$.</p>
+
+<p>Việc sinh ra dữ liệu từ một mô hình PCA xác suất là khá đơn giản: đầu tiên lấy mẫu $\mathbf{z}$ từ phân phối tiên nghiệm Gaussian cố định của nó, sau đó lấy mẫu $\mathbf{x}$ từ một phân phối Gaussian với giá trị trung bình là $\mathbf{W}\mathbf{z}$. Như chúng ta sẽ thấy ngay sau đây, nhiều mô hình sinh khác cũng tương tự như quá trình này, nhưng sử dụng các ánh xạ phức tạp được định nghĩa bởi các mô hình sâu thay vì các ánh xạ tuyến tính từ không gian $\mathbf{z}$ sang không gian $\mathbf{x}$.</p>
+
+<p><strong>Bộ tự mã hóa (Autoencoders)</strong></p>
+<p>Rất nhiều thuật toán học sâu không giám sát được dựa trên ý tưởng về một <strong>bộ tự mã hóa (autoencoder)</strong>. Bộ tự mã hóa là một mô hình chứa hai phần: một bộ mã hóa (encoder) làm nhiệm vụ ánh xạ từ $\mathbf{x}$ sang một biểu diễn $\hat{\mathbf{z}}$ và một bộ giải mã (decoder) làm nhiệm vụ ánh xạ từ biểu diễn $\hat{\mathbf{z}}$ sang dữ liệu được quan sát $\mathbf{x}$. Nhìn chung, bộ mã hóa chỉ là một hàm được tham số hóa $f$ và bộ giải mã chỉ là một hàm được tham số hóa $g$. Mô hình được huấn luyện sao cho $\mathbf{x} \approx g(f(\mathbf{x}))$, để quá trình mã hóa nói chung được đảo ngược lại bởi quá trình giải mã. Các hàm $f$ và $g$ có thể là các mô hình tuyến tính đơn giản được tham số hóa bởi một ma trận duy nhất hoặc chúng có thể được biểu diễn bằng một mạng nơ-ron sâu.</p>
+
+<p>Một bộ tự mã hóa rất đơn giản là bộ tự mã hóa tuyến tính (linear autoencoder), trong đó cả $f$ và $g$ đều là tuyến tính với chung một ma trận trọng số $\mathbf{W}$:</p>
+
+<p>$$\hat{\mathbf{z}} = f(\mathbf{x}) = \mathbf{W}\mathbf{x}$$
+$$\mathbf{x} = g(\hat{\mathbf{z}}) = \mathbf{W}^T \hat{\mathbf{z}}$$</p>
+
+<p>Một cách để huấn luyện mô hình này là làm cực tiểu hóa sai số bình phương $\sum_j ||\mathbf{x}_j - g(f(\mathbf{x}_j))||^2$ sao cho $\mathbf{x} \approx g(f(\mathbf{x}))$. Ý tưởng là huấn luyện $\mathbf{W}$ để một $\hat{\mathbf{z}}$ có số chiều thấp sẽ lưu giữ được nhiều thông tin nhất có thể để nhằm tái tạo lại dữ liệu $\mathbf{x}$ có số chiều cao. Bộ tự mã hóa tuyến tính này hóa ra lại có sự liên hệ chặt chẽ với phương pháp phân tích thành phần chính (PCA) cổ điển. Khi $\mathbf{z}$ có số chiều là $m$, ma trận $\mathbf{W}$ sẽ học cách bao quát lấy $m$ thành phần chính (principal components) của dữ liệu—nói cách khác, tập hợp $m$ hướng trực giao mà dữ liệu có phương sai cao nhất, hoặc tương đương với $m$ véc-tơ riêng (eigenvectors) của ma trận hiệp phương sai của dữ liệu mà có các giá trị riêng (eigenvalues) lớn nhất—giống hệt như trong PCA.</p>
+
+<p>Mô hình PCA là một mô hình sinh đơn giản tương ứng với một bộ tự mã hóa tuyến tính đơn giản. Sự tương ứng này gợi ý rằng có thể có một cách để nắm bắt những dạng mô hình sinh phức tạp hơn bằng cách sử dụng các loại bộ tự mã hóa phức tạp hơn. <strong>Bộ tự mã hóa biến phân (Variational autoencoder - VAE)</strong> cung cấp một cách để thực hiện điều này.</p>
+
+<p>Các phương pháp biến phân (Variational methods) đã được giới thiệu ngắn gọn trên trang 476 như một cách để xấp xỉ phân phối hậu nghiệm trong các mô hình xác suất phức tạp, nơi mà việc tính tổng hay tích phân ra một lượng lớn các biến ẩn là điều bất khả thi (intractable). Ý tưởng là sử dụng một <strong>hậu nghiệm biến phân (variational posterior)</strong> $Q(\mathbf{z})$, được lấy từ một họ các phân phối có khả năng tính toán khả thi (computationally tractable), để đóng vai trò làm ước lượng xấp xỉ cho phân phối hậu nghiệm thực sự. Ví dụ, chúng ta có thể chọn $Q$ từ họ các phân phối Gaussian với ma trận hiệp phương sai đường chéo (diagonal covariance matrix). Trong họ các phân phối khả thi đã được chọn, $Q$ được tối ưu hóa để trở nên gần nhất có thể với phân phối hậu nghiệm thực sự $P(\mathbf{z}|\mathbf{x})$.</p>
+
+<p>Đối với mục đích của chúng ta, khái niệm "gần nhất có thể" được định nghĩa bởi khoảng cách phân kỳ KL divergence, mà chúng ta đã đề cập ở trang 809. Khoảng cách này được cho bởi:</p>
+
+<p>$$D_{KL}(Q(\mathbf{z}) || P(\mathbf{z}|\mathbf{x})) = \int Q(\mathbf{z}) \log \frac{Q(\mathbf{z})}{P(\mathbf{z}|\mathbf{x})} d\mathbf{z}$$</p>
+
+<p>vốn là một giá trị trung bình (so với $Q$) của logarit tỷ số giữa $Q$ và $P$. Rất dễ để thấy rằng $D_{KL}(Q(\mathbf{z}) || P(\mathbf{z}|\mathbf{x})) \ge 0$, với dấu bằng xảy ra khi $Q$ và $P$ trùng khớp nhau. Sau đó, chúng ta có thể định nghĩa <strong>cận dưới biến phân (variational lower bound)</strong> $\mathcal{L}$ (đôi khi còn được gọi là <strong>cận dưới bằng chứng (evidence lower bound)</strong>, hay <strong>ELBO</strong>) trên hàm log likelihood của dữ liệu:</p>
+
+<p>$$\mathcal{L}(\mathbf{x}, Q) = \log P(\mathbf{x}) - D_{KL}(Q(\mathbf{z}) || P(\mathbf{z}|\mathbf{x})) \quad (22.17)$$</p>
+
+<p>Chúng ta có thể thấy rằng $\mathcal{L}$ là một cận dưới của $\log P$ bởi vì giá trị KL divergence luôn không âm. Phương pháp học biến phân (Variational learning) làm cực đại hóa $\mathcal{L}$ đối với các tham số $\mathbf{w}$ thay vì làm cực đại hóa $\log P(\mathbf{x})$, với hy vọng rằng giải pháp $\mathbf{w}^*$ tìm được cũng sẽ có giá trị gần với việc cực đại hóa $\log P(\mathbf{x})$.</p>
+
+<p>Được viết như vậy, $\mathcal{L}$ dường như vẫn không hề dễ để cực đại hóa hơn so với $\log P$. May mắn thay, chúng ta có thể viết lại Phương trình (22.17) để bộc lộ ra khả năng tính toán thực tiễn được cải thiện:</p>
+
+<p>$$\mathcal{L} = \log P(\mathbf{x}) - \int Q(\mathbf{z}) \log \frac{Q(\mathbf{z})}{P(\mathbf{z}|\mathbf{x})} d\mathbf{z}$$
+$$= -\int Q(\mathbf{z}) \log Q(\mathbf{z}) d\mathbf{z} + \int Q(\mathbf{z}) \log P(\mathbf{x}) P(\mathbf{z}|\mathbf{x}) d\mathbf{z}$$
+$$= H(Q) + E_{\mathbf{z} \sim Q} [\log P(\mathbf{z}, \mathbf{x})]$$</p>
+
+<p>trong đó $H(Q)$ là entropy của phân phối $Q$. Đối với một số họ biến phân $Q$ (chẳng hạn như các phân phối Gaussian), $H(Q)$ có thể được tính toán bằng phương pháp giải tích. Hơn nữa, kỳ vọng $E_{\mathbf{z} \sim Q} [\log P(\mathbf{z}, \mathbf{x})]$, cho phép một ước lượng không chệch hiệu quả thông qua các mẫu $\mathbf{z}$ từ $Q$. Đối với mỗi mẫu, $P(\mathbf{z}, \mathbf{x})$ thường có thể được tính toán một cách hiệu quả—ví dụ, nếu $P$ là một mạng Bayes, $P(\mathbf{z}, \mathbf{x})$ chỉ đơn giản là tích của các xác suất có điều kiện bởi vì $\mathbf{z}$ và $\mathbf{x}$ bao gồm toàn bộ tất cả các biến.</p>
+
+<p>Các bộ tự mã hóa biến phân cung cấp một phương tiện để thực hiện quá trình học biến phân trong môi trường học sâu. Việc học biến phân liên quan đến quá trình cực đại hóa $\mathcal{L}$ đối với các tham số của cả $P$ lẫn $Q$. Đối với một bộ tự mã hóa biến phân, bộ giải mã (decoder) $g(\mathbf{z})$ được diễn giải là định nghĩa cho $\log P(\mathbf{x}|\mathbf{z})$. Ví dụ, đầu ra của bộ giải mã có thể xác định giá trị trung bình của một phân phối Gaussian có điều kiện. Tương tự, đầu ra của bộ mã hóa (encoder) $f(\mathbf{x})$ được diễn giải là định nghĩa cho các tham số của $Q$—ví dụ, $Q$ có thể là một phân phối Gaussian với giá trị trung bình là $f(\mathbf{x})$. Khi đó, việc huấn luyện bộ tự mã hóa biến phân sẽ bao gồm quá trình làm cực đại hóa $\mathcal{L}$ đối với các tham số của cả bộ mã hóa $f$ lẫn bộ giải mã $g$, bản thân chúng có thể là những mạng sâu phức tạp tùy ý.</p>
+
+<p><strong>Các mô hình tự hồi quy sâu (Deep autoregressive models)</strong></p>
+<p>Một <strong>mô hình tự hồi quy (autoregressive model - hay mô hình AR)</strong> là mô hình trong đó mỗi phần tử $x_i$ của véc-tơ dữ liệu $\mathbf{x}$ được dự đoán dựa trên các phần tử khác của véc-tơ. Một mô hình như vậy không có các biến ẩn. Nếu $\mathbf{x}$ có kích thước cố định, một mô hình AR có thể được coi là một mạng Bayes hoàn toàn quan sát được và có khả năng được kết nối hoàn toàn. Điều này có nghĩa là việc tính toán xác suất likelihood của một véc-tơ dữ liệu cụ thể theo mô hình AR là một việc tầm thường; điều tương tự cũng đúng đối với việc dự đoán giá trị của một biến bị khuyết đơn lẻ dựa trên tất cả các biến còn lại, và đối với việc lấy mẫu một véc-tơ dữ liệu từ mô hình.</p>
+
+<p>Ứng dụng phổ biến nhất của các mô hình tự hồi quy là trong việc phân tích dữ liệu dạng chuỗi thời gian, nơi mà một mô hình AR bậc $k$ dự đoán giá trị $x_t$ dựa trên các giá trị $x_{t-k}, \dots, x_{t-1}$. Theo thuật ngữ của Chương 14, một mô hình AR là một mô hình Markov không ẩn (non-hidden Markov model). Theo thuật ngữ của Chương 24, một mô hình $n$-gram cho các chuỗi chữ cái hoặc từ ngữ chính là một mô hình AR bậc $n-1$.</p>
+
+<p>Trong các mô hình AR cổ điển, nơi mà các biến là giá trị thực (real-valued), phân phối có điều kiện $P(x_t | x_{t-k}, \dots, x_{t-1})$ là một mô hình linear-Gaussian (tuyến tính - Gaussian) với phương sai cố định, có giá trị trung bình là một sự kết hợp tuyến tính có trọng số của $x_{t-k}, \dots, x_{t-1}$—nói cách khác, là một mô hình hồi quy tuyến tính tiêu chuẩn. Lời giải của phương pháp hợp lý cực đại (maximum likelihood solution) được cung cấp bởi các <strong>phương trình Yule-Walker (Yule-Walker equations)</strong>, vốn có sự liên hệ chặt chẽ với các phương trình chuẩn (normal equations) ở trang 698.</p>
+
+<p>Một <strong>mô hình tự hồi quy sâu (deep autoregressive model)</strong> là mô hình mà trong đó mô hình linear-Gaussian được thay thế bằng một mạng sâu tùy ý với một tầng đầu ra thích hợp phụ thuộc vào việc $x_t$ là biến rời rạc hay liên tục. Những ứng dụng gần đây của phương pháp tiếp cận tự hồi quy này bao gồm mô hình WaveNet của DeepMind dành cho việc sinh giọng nói (van den Oord và cộng sự, 2016a). WaveNet được huấn luyện dựa trên những tín hiệu âm thanh thô, lấy mẫu với tần số 16.000 lần mỗi giây, và triển khai một mô hình AR phi tuyến tính bậc 4800 với một cấu trúc mạng tích chập nhiều tầng. Trong các cuộc kiểm tra, nó đã cho thấy khả năng hoạt động chân thực hơn đáng kể so với các hệ thống sinh giọng nói tân tiến nhất trước đó.</p>

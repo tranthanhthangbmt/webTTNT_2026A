@@ -1,0 +1,75 @@
+<p>Chúng ta có thể thấy tác động của sự đánh đổi này một cách rõ ràng nhất trong trường hợp logic, trong đó không gian giả thuyết $H$ chỉ chứa các giả thuyết tất định (chẳng hạn như $h_1$, giả thuyết nói rằng mọi viên kẹo đều là vị anh đào). Trong trường hợp đó, $P(\mathbf{d}|h_i)$ bằng 1 nếu $h_i$ nhất quán với dữ liệu và bằng 0 nếu ngược lại. Nhìn vào Phương trình (21.1), chúng ta thấy rằng $h_{MAP}$ khi đó sẽ là lý thuyết logic <em>đơn giản nhất</em> nhất quán với dữ liệu. Do đó, học hậu nghiệm cực đại (MAP learning) cung cấp một sự thể hiện tự nhiên của <strong>Nguyên lý dao cạo Ockham (Ockham's razor)</strong>.</p>
+
+<p>Một góc nhìn sâu sắc khác về sự đánh đổi giữa độ phức tạp và mức độ khớp đạt được bằng cách lấy logarit của Phương trình (21.1). Việc chọn $h_{MAP}$ để làm cực đại hóa $P(\mathbf{d}|h_i)P(h_i)$ tương đương với việc <em>tối thiểu hóa</em></p>
+
+<p>$$-\log_2 P(\mathbf{d}|h_i) - \log_2 P(h_i)$$</p>
+
+<p>Sử dụng mối liên hệ giữa mã hóa thông tin (information encoding) và xác suất mà chúng ta đã giới thiệu trong Mục 19.3.3, chúng ta thấy rằng số hạng $-\log_2 P(h_i)$ bằng số bit cần thiết để chỉ định giả thuyết $h_i$. Hơn nữa, $-\log_2 P(\mathbf{d}|h_i)$ là số bit bổ sung cần thiết để chỉ định dữ liệu, cho trước giả thuyết. (Để hiểu điều này, hãy xem xét rằng sẽ không cần bit nào nếu giả thuyết dự đoán dữ liệu một cách chính xác—giống như $h_5$ và chuỗi kẹo toàn vị chanh—và $-\log_2 1 = 0$). Do đó, học MAP là việc chọn giả thuyết cung cấp <strong>sự nén (compression) tối đa</strong> của dữ liệu. Nhiệm vụ tương tự được giải quyết trực tiếp hơn bằng phương pháp học <strong>độ dài mô tả tối thiểu (minimum description length)</strong>, hoặc <strong>MDL</strong>. Trong khi học MAP thể hiện sự đơn giản bằng cách gán xác suất cao hơn cho các giả thuyết đơn giản hơn, MDL thể hiện điều đó trực tiếp bằng cách đếm các bit trong một mã hóa nhị phân của các giả thuyết và dữ liệu.</p>
+
+<p>Một sự đơn giản hóa cuối cùng được cung cấp bằng cách giả định một phân phối tiên nghiệm đồng đều (uniform prior) trên không gian các giả thuyết. Trong trường hợp đó, học MAP thu gọn lại thành việc chọn một $h_i$ làm cực đại hóa $P(\mathbf{d}|h_i)$. Đây được gọi là một <strong>giả thuyết hợp lý cực đại (maximum-likelihood hypothesis)</strong>, $h_{ML}$. Học hợp lý cực đại (Maximum-likelihood learning) rất phổ biến trong thống kê, một kỷ luật mà trong đó nhiều nhà nghiên cứu không tin tưởng vào bản chất chủ quan của các tiên nghiệm giả thuyết (hypothesis priors). Đó là một cách tiếp cận hợp lý khi không có lý do gì để ưu tiên một giả thuyết hơn giả thuyết khác theo cách tiên nghiệm—ví dụ: khi tất cả các giả thuyết đều phức tạp như nhau.</p>
+
+<p>Khi tập dữ liệu lớn, phân phối tiên nghiệm trên các giả thuyết trở nên ít quan trọng hơn—bằng chứng từ dữ liệu đủ mạnh để lấn át phân phối tiên nghiệm trên các giả thuyết. Điều đó có nghĩa là học hợp lý cực đại là một phép xấp xỉ tốt cho học Bayes và học MAP với các tập dữ liệu lớn, nhưng nó có những vấn đề (như chúng ta sẽ thấy) với các tập dữ liệu nhỏ.</p>
+
+<h2 id="212-learning-with-complete-data">21.2 Học với Dữ liệu Đầy đủ (Learning with Complete Data)</h2>
+<p>Nhiệm vụ tổng quát của việc học một mô hình xác suất, cho trước dữ liệu được giả định là được sinh ra từ mô hình đó, được gọi là <strong>ước lượng mật độ (density estimation)</strong>. (Thuật ngữ này ban đầu áp dụng cho các hàm mật độ xác suất đối với các biến liên tục, nhưng hiện nay nó cũng được sử dụng cho các phân phối rời rạc). Ước lượng mật độ là một hình thức học không giám sát (unsupervised learning). Mục này đề cập đến trường hợp đơn giản nhất, nơi chúng ta có <strong>dữ liệu đầy đủ (complete data)</strong>. Dữ liệu là đầy đủ khi mỗi điểm dữ liệu chứa các giá trị cho <em>mọi</em> biến trong mô hình xác suất đang được học. Chúng ta tập trung vào <strong>học tham số (parameter learning)</strong>—tìm các tham số số (numerical parameters) cho một mô hình xác suất có cấu trúc cố định. Ví dụ, chúng ta có thể quan tâm đến việc học các xác suất có điều kiện trong một mạng Bayes có cấu trúc đã cho. Chúng ta cũng sẽ xem xét ngắn gọn vấn đề học cấu trúc và ước lượng mật độ phi tham số (nonparametric density estimation).</p>
+
+<h3 id="2121-maximum-likelihood-parameter-learning-discrete-models">21.2.1 Học tham số hợp lý cực đại: Các mô hình rời rạc</h3>
+<p>Giả sử chúng ta mua một túi kẹo chanh và anh đào từ một nhà sản xuất mới mà tỷ lệ các hương vị là hoàn toàn không biết; tỷ lệ của vị anh đào có thể nằm bất kỳ đâu trong khoảng từ 0 đến 1. Trong trường hợp đó, chúng ta có một sự liên tục (continuum) các giả thuyết. Tham số trong trường hợp này, mà chúng ta gọi là $\theta$, là tỷ lệ kẹo vị anh đào, và giả thuyết là $h_\theta$. (Tỷ lệ kẹo vị chanh chỉ là $1 - \theta$). Nếu chúng ta giả định rằng tất cả các tỷ lệ đều có khả năng như nhau theo một cách tiên nghiệm, thì một cách tiếp cận hợp lý cực đại là phù hợp. Nếu chúng ta mô hình hóa tình huống bằng một mạng Bayes, chúng ta chỉ cần một biến ngẫu nhiên, $Flavor$ (hương vị của một viên kẹo được chọn ngẫu nhiên từ túi). Nó có các giá trị là $cherry$ (anh đào) và $lime$ (chanh), trong đó xác suất của $cherry$ là $\theta$ (xem <strong>Hình 21.2(a)</strong>). Bây giờ giả sử chúng ta mở $N$ viên kẹo, trong đó có $c$ viên là vị anh đào và $\ell = N - c$ viên là vị chanh. Theo Phương trình (21.3), khả năng (likelihood) của tập dữ liệu cụ thể này là:</p>
+
+<p>$$P(\mathbf{d}|h_\theta) = \prod_{j=1}^N P(d_j|h_\theta) = \theta^c (1 - \theta)^\ell$$</p>
+
+<p>Giả thuyết hợp lý cực đại (maximum-likelihood hypothesis) được cho bởi giá trị của $\theta$ làm cực đại hóa biểu thức này. Bởi vì hàm log là hàm đơn điệu, giá trị tương tự có thể đạt được bằng cách cực đại hóa <strong>log likelihood (log của khả năng)</strong> thay thế:</p>
+
+<p>$$L(\mathbf{d}|h_\theta) = \log P(\mathbf{d}|h_\theta) = \sum_{j=1}^N \log P(d_j|h_\theta) = c \log \theta + \ell \log (1 - \theta)$$</p>
+
+<p>(Bằng cách lấy logarit, chúng ta giảm tích thành một tổng trên dữ liệu, điều này thường dễ để làm cực đại hóa hơn). Để tìm giá trị hợp lý cực đại của $\theta$, chúng ta lấy đạo hàm của $L$ theo $\theta$ và cho biểu thức kết quả bằng 0:</p>
+
+<p>$$\frac{\partial L(\mathbf{d}|h_\theta)}{\partial \theta} = \frac{c}{\theta} - \frac{\ell}{1 - \theta} = 0 \implies \theta = \frac{c}{c + \ell} = \frac{c}{N}$$</p>
+
+<p>Nói theo ngôn ngữ thông thường, giả thuyết hợp lý cực đại $h_{ML}$ khẳng định rằng <em>tỷ lệ thực tế của kẹo anh đào trong túi bằng với tỷ lệ được quan sát trong số kẹo đã được bóc ra cho đến nay!</em></p>
+
+<p>Có vẻ như chúng ta đã làm rất nhiều việc chỉ để khám phá ra điều hiển nhiên. Nhưng thực tế, chúng ta đã trình bày một phương pháp tiêu chuẩn để học tham số hợp lý cực đại, một phương pháp có tính ứng dụng rộng rãi:</p>
+<ol>
+<li>Viết ra một biểu thức cho khả năng của dữ liệu dưới dạng một hàm của (các) tham số.</li>
+<li>Viết ra đạo hàm của log khả năng theo từng tham số.</li>
+<li>Tìm các giá trị tham số sao cho các đạo hàm bằng 0.</li>
+</ol>
+
+<p>Bước khó nhất thường là bước cuối cùng. Trong ví dụ của chúng ta, nó là tầm thường (trivial), nhưng chúng ta sẽ thấy rằng trong nhiều trường hợp, chúng ta cần dùng đến các thuật toán giải quyết lặp (iterative solution algorithms) hoặc các kỹ thuật tối ưu hóa số học khác, như đã mô tả trong Mục 4.2. Ví dụ này cũng minh họa một vấn đề đáng kể với học hợp lý cực đại nói chung: khi tập dữ liệu đủ nhỏ đến mức một số sự kiện <em>chưa</em> được quan sát thấy—ví dụ: không có viên kẹo anh đào nào—giả thuyết hợp lý cực đại gán <strong>xác suất bằng không</strong> cho các sự kiện đó. Nhiều mẹo khác nhau được sử dụng để tránh vấn đề này, chẳng hạn như khởi tạo số đếm cho mỗi sự kiện bằng 1 thay vì 0.</p>
+
+<p>Hãy xem xét một ví dụ khác. Giả sử nhà sản xuất kẹo mới này muốn gợi ý một chút cho người tiêu dùng và sử dụng giấy gói kẹo có màu đỏ và màu xanh lá cây. Vỏ bọc ($Wrapper$) cho mỗi viên kẹo được chọn <em>theo xác suất</em>, tuân theo một phân phối có điều kiện không xác định nào đó, phụ thuộc vào hương vị. Mô hình xác suất tương ứng được thể hiện trong <strong>Hình 21.2(b)</strong>. Lưu ý rằng nó có ba tham số: $\theta$, $\theta_1$, và $\theta_2$. Với các tham số này, khả năng của việc nhìn thấy, giả sử, một viên kẹo anh đào trong giấy gói màu xanh lá cây có thể thu được từ ngữ nghĩa tiêu chuẩn cho mạng Bayes:</p>
+
+<p>$$P(Flavor=cherry, Wrapper=green | h_{\theta,\theta_1,\theta_2}) = P(Flavor=cherry | h_{\theta,\theta_1,\theta_2}) P(Wrapper=green | Flavor=cherry, h_{\theta,\theta_1,\theta_2})$$
+$$= \theta(1 - \theta_1)$$</p>
+
+<p>Bây giờ chúng ta bóc $N$ viên kẹo, trong đó có $c$ viên là anh đào và $\ell$ viên là chanh. Số đếm vỏ bọc như sau: $r_c$ viên kẹo anh đào có giấy gói màu đỏ và $g_c$ viên có giấy gói màu xanh lá cây, trong khi $r_\ell$ viên kẹo chanh có giấy gói màu đỏ và $g_\ell$ viên có giấy gói màu xanh lá cây. Khả năng của dữ liệu được cho bởi:</p>
+
+<p>$$P(\mathbf{d}|h_{\theta,\theta_1,\theta_2}) = \theta^c (1 - \theta)^\ell \theta_1^{r_c} (1 - \theta_1)^{g_c} \theta_2^{r_\ell} (1 - \theta_2)^{g_\ell}$$</p>
+
+<p>Điều này trông khá khủng khiếp, nhưng việc lấy logarit sẽ giúp ích:</p>
+
+<p>$$L = [c \log \theta + \ell \log (1 - \theta)] + [r_c \log \theta_1 + g_c \log (1 - \theta_1)] + [r_\ell \log \theta_2 + g_\ell \log (1 - \theta_2)]$$</p>
+
+<p>Lợi ích của việc lấy log là rất rõ ràng: log của khả năng là tổng của ba số hạng, mỗi số hạng chỉ chứa một tham số duy nhất. Khi chúng ta lấy đạo hàm theo từng tham số và cho chúng bằng 0, chúng ta có được ba phương trình độc lập, mỗi phương trình chỉ chứa một tham số:</p>
+
+<p>$$\frac{\partial L}{\partial \theta} = \frac{c}{\theta} - \frac{\ell}{1 - \theta} = 0 \implies \theta = \frac{c}{c + \ell}$$
+$$\frac{\partial L}{\partial \theta_1} = \frac{r_c}{\theta_1} - \frac{g_c}{1 - \theta_1} = 0 \implies \theta_1 = \frac{r_c}{r_c + g_c}$$
+$$\frac{\partial L}{\partial \theta_2} = \frac{r_\ell}{\theta_2} - \frac{g_\ell}{1 - \theta_2} = 0 \implies \theta_2 = \frac{r_\ell}{r_\ell + g_\ell}$$</p>
+
+<p>Giải pháp cho $\theta$ vẫn giống như trước. Giải pháp cho $\theta_1$, xác suất một viên kẹo anh đào có vỏ bọc màu đỏ, chính là tỷ lệ quan sát được của kẹo anh đào có vỏ bọc màu đỏ, và tương tự đối với $\theta_2$.</p>
+
+<p>Những kết quả này rất đáng an tâm, và thật dễ để thấy rằng chúng có thể được mở rộng cho bất kỳ mạng Bayes nào mà các xác suất có điều kiện của nó được biểu diễn dưới dạng bảng. Điểm quan trọng nhất là với <em>dữ liệu đầy đủ</em>, bài toán học tham số hợp lý cực đại cho một mạng Bayes sẽ <strong>phân rã (decomposes)</strong> thành các bài toán học riêng biệt, mỗi bài toán cho một tham số. Điểm thứ hai là các giá trị tham số cho một biến, cho trước các nút cha của nó, chỉ đơn giản là các tần suất quan sát được của các giá trị của biến đối với mỗi thiết lập của các giá trị nút cha. Như trước đây, chúng ta phải cẩn thận để tránh các số không (zeroes) khi tập dữ liệu nhỏ.</p>
+
+<h3 id="2122-naive-bayes-models">21.2.2 Mô hình Naive Bayes</h3>
+<p>Có lẽ mô hình mạng Bayes phổ biến nhất được sử dụng trong học máy là <strong>mô hình Naive Bayes</strong>. Trong mô hình này, biến "lớp" (class variable) $C$ (biến cần được dự đoán) là nút gốc (root) và các biến "thuộc tính" (attribute variables) $X_i$ là các nút lá (leaves). Mô hình này là "ngây thơ" (naive) vì nó giả định rằng các thuộc tính độc lập có điều kiện với nhau, cho trước lớp. (Mô hình trong <strong>Hình 21.2(b)</strong> là một mô hình naive Bayes với lớp $Flavor$ và chỉ một thuộc tính, $Wrapper$). Trong trường hợp các biến Boolean, các tham số là:</p>
+
+<p>$$\theta = P(C=true), \theta_{i1} = P(X_i=true|C=true), \theta_{i2} = P(X_i=true|C=false)$$</p>
+
+<p>Các giá trị tham số hợp lý cực đại được tìm thấy theo cách hoàn toàn giống như trong <strong>Hình 21.2(b)</strong>. Khi mô hình đã được huấn luyện theo cách này, nó có thể được sử dụng để phân loại các ví dụ mới mà biến lớp $C$ không được quan sát. Với các giá trị thuộc tính quan sát được $x_1, \ldots, x_n$, xác suất của mỗi lớp được cho bởi:</p>
+
+<p>$$P(C|x_1, \ldots, x_n) = \alpha P(C) \prod_i P(x_i|C)$$</p>
+
+<p>Một dự đoán tất định có thể thu được bằng cách chọn lớp có khả năng cao nhất. <strong>Hình 21.3</strong> cho thấy đường cong học tập (learning curve) cho phương pháp này khi nó được áp dụng cho bài toán nhà hàng từ Chương 19. Học Naive Bayes đạt hiệu quả một cách đáng ngạc nhiên trong nhiều ứng dụng rộng rãi. Học Naive Bayes có khả năng mở rộng tốt (scales well) cho các bài toán rất lớn: với $n$ thuộc tính Boolean, chỉ có $2n+1$ tham số, và không cần tìm kiếm (no search) để tìm ra $h_{ML}$. Cuối cùng, các hệ thống học Naive Bayes đối phó tốt với dữ liệu bị nhiễu hoặc bị thiếu và có thể đưa ra các dự đoán xác suất khi thích hợp. Hạn chế chính của chúng là thực tế giả định độc lập có điều kiện hiếm khi chính xác; dẫn đến các xác suất quá tự tin (overconfident probabilities) thường rất gần với 0 hoặc 1, đặc biệt là với số lượng lớn các thuộc tính.</p>
+
+<h3 id="2123-generative-and-discriminative-models">21.2.3 Các mô hình sinh (Generative models) và mô hình phân biệt (Discriminative models)</h3>
+<p>Chúng ta có thể phân biệt hai loại mô hình học máy được sử dụng cho bộ phân loại (classifiers): <strong>mô hình sinh (generative)</strong> và <strong>mô hình phân biệt (discriminative)</strong>. Một mô hình sinh lập mô hình cho phân phối xác suất của từng lớp. Ví dụ, bộ phân loại văn bản Naive Bayes từ Mục 12.6.1 tạo ra một mô hình riêng biệt cho từng danh mục văn bản—một cho thể thao, một cho thời tiết, v.v. Mỗi mô hình bao gồm xác suất tiên nghiệm của danh mục—ví dụ: $P(Category=weather)$—cũng như xác suất có điều kiện $P(Inputs|Category=weather)$. Từ những xác suất này, chúng ta có thể tính toán xác suất đồng thời (joint probability) $P(Inputs, Category=weather)$ và chúng ta có thể <em>sinh ra</em> một lựa chọn ngẫu nhiên các từ mang tính đại diện cho các văn bản trong danh mục thời tiết.</p>

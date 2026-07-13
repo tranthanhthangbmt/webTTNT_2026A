@@ -1,0 +1,70 @@
+<p>bởi vì tác tử phải xem xét tác động của các quan sát trong tương lai đối với niềm tin của nó về mô hình chuyển đổi. Bài toán trở thành một <strong>POMDP khám phá (exploration POMDP)</strong> mà trong đó các trạng thái niềm tin là các phân phối trên các mô hình. Về nguyên tắc, POMDP khám phá này có thể được hình thành và giải quyết trước khi tác tử thực sự đặt chân vào thế giới. (Bài tập 23.EPOM yêu cầu bạn thực hiện điều này đối với trò chơi Dò mìn (Minesweeper) để tìm ra nước đi đầu tiên tốt nhất.) Kết quả là một chiến lược hoàn chỉnh cho tác tử biết phải làm gì tiếp theo đối với mọi chuỗi nhận thức có thể xảy ra. Việc giải quyết POMDP khám phá thường là bất khả thi một cách dữ dội (wildly intractable), nhưng khái niệm này cung cấp một nền tảng phân tích để hiểu bài toán khám phá được mô tả trong Mục 23.3.</p>
+
+<p>Cần lưu ý rằng việc trở thành một tác tử Bayes hoàn hảo sẽ không bảo vệ được tác tử khỏi một cái chết không đúng lúc. Trừ khi tiên nghiệm cung cấp một số dấu hiệu về các nhận thức gợi ý nguy hiểm, bằng không thì không có gì có thể ngăn cản tác tử thực hiện một hành động khám phá dẫn đến một trạng thái bị hấp thụ. Ví dụ, trước đây người ta từng cho rằng trẻ sơ sinh có nỗi sợ bẩm sinh về độ cao và sẽ không bò qua một vách đá, nhưng điều này hóa ra lại không đúng (Adolph và cộng sự, 2014).</p>
+
+<p>Phương pháp tiếp cận thứ hai, bắt nguồn từ <strong>lý thuyết điều khiển bền vững (robust control theory)</strong>, cho phép một tập hợp các mô hình có thể có $H$ mà không cần gán các xác suất cho chúng, và định nghĩa một chính sách bền vững tối ưu (optimal robust policy) là chính sách mang lại kết quả tốt nhất trong trường hợp tồi tệ nhất trong $H$:</p>
+
+<p>$$\pi^* = \arg\max_{\pi} \min_h U_h^{\pi}.$$</p>
+
+<p>Thông thường, tập hợp $H$ sẽ là tập hợp các mô hình vượt qua một ngưỡng khả năng (likelihood threshold) nhất định đối với $P(h|e)$, do đó các phương pháp tiếp cận bền vững và Bayes có liên quan với nhau.</p>
+
+<p>Phương pháp tiếp cận điều khiển bền vững có thể được coi như một trò chơi giữa tác tử và một đối thủ, trong đó đối thủ được chọn kết quả tồi tệ nhất có thể cho bất kỳ hành động nào, và chính sách mà chúng ta có được là giải pháp minimax cho trò chơi đó. Tác tử wumpus logic của chúng ta (xem Mục 7.7) là một tác tử điều khiển bền vững theo cách này: nó xem xét tất cả các mô hình có thể có về mặt logic, và không khám phá bất kỳ vị trí nào có thể chứa một cái hố hoặc một con wumpus, do đó nó đang tìm ra hành động có độ thỏa dụng tối đa trong trường hợp tồi tệ nhất trên tất cả các giả thuyết có thể có.</p>
+
+<p>Vấn đề với giả định trường hợp tồi tệ nhất là nó dẫn đến hành vi quá thận trọng. Một chiếc ô tô tự lái giả định rằng mọi người lái xe khác đều sẽ cố gắng va chạm với nó thì không còn lựa chọn nào khác ngoài việc ở yên trong gara. Cuộc sống thực tế có đầy rẫy những sự đánh đổi rủi ro-phần thưởng (risk-reward tradeoffs) như vậy.</p>
+
+<p>Mặc dù một lý do để mạo hiểm tiến vào lĩnh vực học tăng cường là để thoát khỏi nhu cầu cần đến một người thầy con người (như trong học có giám sát), nhưng hóa ra là kiến thức của con người có thể giúp giữ cho một hệ thống được an toàn. Một cách là ghi lại một chuỗi các hành động của một người thầy có kinh nghiệm, sao cho hệ thống sẽ hành động một cách hợp lý ngay từ đầu, và có thể học hỏi để cải thiện từ đó. Cách thứ hai là con người viết ra các ràng buộc về những gì hệ thống có thể làm, và yêu cầu một chương trình bên ngoài hệ thống học tăng cường thực thi những ràng buộc đó. Ví dụ, khi huấn luyện một máy bay trực thăng tự động, một chính sách một phần có thể được cung cấp nhằm tiếp quản quyền điều khiển khi máy bay trực thăng đi vào một trạng thái mà từ đó bất kỳ hành động không an toàn nào tiếp theo sẽ dẫn đến một trạng thái không thể phục hồi (irrecoverable state)—một trạng thái mà ở đó bộ điều khiển an toàn không thể đảm bảo rằng sẽ tránh được trạng thái bị hấp thụ. Ở tất cả các trạng thái khác, tác tử học được tự do làm theo ý muốn của mình.</p>
+
+<h3>23.3.3 Q-learning theo chênh lệch thời gian (Temporal-difference Q-learning)</h3>
+
+<p>Bây giờ chúng ta đã có một tác tử ADP chủ động, hãy xem xét cách xây dựng một tác tử học theo chênh lệch thời gian (TD) chủ động. Thay đổi hiển nhiên nhất là tác tử sẽ phải học một mô hình chuyển đổi để nó có thể chọn một hành động dựa trên $U(s)$ thông qua việc nhìn trước một bước. Bài toán thu nhận mô hình đối với tác tử TD giống hệt như bài toán đối với tác tử ADP, và quy tắc cập nhật TD vẫn không thay đổi. Một lần nữa, có thể chỉ ra rằng thuật toán TD sẽ hội tụ về cùng các giá trị như ADP, khi số lượng chuỗi huấn luyện tiến tới vô hạn.</p>
+
+<p>Phương pháp <strong>Q-learning</strong> tránh được việc cần đến một mô hình bằng cách học một hàm độ thỏa dụng của hành động $Q(s,a)$ thay vì một hàm độ thỏa dụng $U(s)$. $Q(s,a)$ biểu thị tổng phần thưởng bị chiết khấu theo kỳ vọng nếu tác tử thực hiện hành động $a$ ở trạng thái $s$ và hành động một cách tối ưu kể từ đó trở đi. Việc biết hàm Q cho phép tác tử hành động một cách tối ưu chỉ bằng việc chọn $\arg\max_a Q(s,a)$, mà không cần đến bước nhìn trước dựa trên mô hình chuyển đổi.</p>
+
+<p>Chúng ta cũng có thể suy ra một bản cập nhật TD không dựa trên mô hình cho các giá trị Q. Chúng ta bắt đầu với phương trình Bellman cho $Q(s,a)$, được lặp lại ở đây từ Phương trình (16.8):</p>
+
+<p>$$Q(s,a) = \sum_{s'} P(s' | s, a) [R(s, a, s') + \gamma \max_{a'} Q(s', a')] \quad (23.6)$$</p>
+
+<p>Từ đây, chúng ta có thể viết bản cập nhật TD cho Q-learning, bằng cách tương tự như bản cập nhật TD cho các độ thỏa dụng trong Phương trình (23.3):</p>
+
+<p>$$Q(s,a) \leftarrow Q(s,a) + \alpha \left[ R(s, a, s') + \gamma \max_{a'} Q(s', a') - Q(s,a) \right]. \quad (23.7)$$</p>
+
+<p>Bản cập nhật này được tính toán bất cứ khi nào hành động $a$ được thực thi ở trạng thái $s$ dẫn đến trạng thái $s'$. Tương tự như trong Phương trình (23.3), số hạng $R(s, a, s') + \gamma \max_{a'} Q(s', a') - Q(s,a)$ đại diện cho một lỗi mà bản cập nhật đang cố gắng giảm thiểu.</p>
+
+<p>Phần quan trọng của phương trình này là những gì nó <em>không</em> chứa: một tác tử Q-learning TD không cần đến một mô hình chuyển đổi, $P(s' | s, a)$, cho việc học hoặc cho việc lựa chọn hành động. Như đã lưu ý ở phần đầu của chương, các phương pháp không dựa trên mô hình (model-free methods) có thể được áp dụng ngay cả trong các miền rất phức tạp bởi vì không cần phải cung cấp hoặc học một mô hình nào. Mặt khác, tác tử Q-learning không có phương tiện nào để nhìn vào tương lai, do đó nó có thể gặp khó khăn khi các phần thưởng trở nên thưa thớt và phải xây dựng các chuỗi hành động dài để tiếp cận chúng.</p>
+
+<p>Thiết kế tác tử hoàn chỉnh cho một tác tử Q-learning TD mang tính khám phá được trình bày trong Hình 23.8. Lưu ý rằng nó sử dụng chính xác hàm khám phá $f$ giống như hàm được sử dụng bởi tác tử ADP mang tính khám phá—do đó cần phải lưu giữ số liệu thống kê về các hành động đã thực hiện (bảng $N$). Nếu một chính sách khám phá đơn giản hơn được sử dụng—giả sử, hành động ngẫu nhiên trên một tỷ lệ phần trăm các bước nào đó, trong đó tỷ lệ này giảm dần theo thời gian—thì chúng ta có thể bỏ qua các số liệu thống kê.</p>
+
+<p>Q-learning có một người họ hàng gần gũi được gọi là <strong>SARSA</strong> (viết tắt của trạng thái, hành động, phần thưởng, trạng thái, hành động - state, action, reward, state, action). Quy tắc cập nhật cho SARSA rất giống với quy tắc cập nhật Q-learning (Phương trình (23.7)), ngoại trừ việc SARSA cập nhật bằng giá trị Q của hành động $a'$ <em>thực sự được thực hiện</em>:</p>
+
+<p>$$Q(s,a) \leftarrow Q(s,a) + \alpha \left[ R(s, a, s') + \gamma Q(s', a') - Q(s,a) \right]. \quad (23.8)$$</p>
+
+<p>Quy tắc này được áp dụng ở cuối mỗi bộ năm $s, a, r, s', a'$—do đó có tên gọi này. Sự khác biệt so với Q-learning khá tinh tế: trong khi Q-learning sao lưu (backs up) giá trị Q từ hành động <em>tốt nhất</em> ở $s'$, SARSA đợi cho đến khi một hành động thực sự <em>được thực hiện</em> và sao lưu giá trị Q cho hành động đó. Nếu tác tử tham lam và luôn thực hiện hành động có giá trị Q tốt nhất, hai thuật toán sẽ giống hệt nhau. Tuy nhiên, khi việc khám phá diễn ra, chúng sẽ khác nhau: nếu việc khám phá mang lại phần thưởng âm, SARSA sẽ phạt hành động đó, trong khi Q-learning thì không.</p>
+
+<p>Q-learning là một thuật toán học <strong>ngoài chính sách (off-policy)</strong>, bởi vì nó học các giá trị Q trả lời cho câu hỏi "Hành động này sẽ có giá trị như thế nào trong trạng thái này, giả sử rằng tôi ngừng sử dụng bất kỳ chính sách nào mà tôi đang sử dụng bây giờ, và bắt đầu hành động theo một chính sách lựa chọn hành động tốt nhất (theo ước lượng của tôi)?". SARSA là một thuật toán <strong>trong chính sách (on-policy)</strong>: nó học các giá trị Q trả lời cho câu hỏi "Hành động này sẽ có giá trị như thế nào trong trạng thái này, giả sử tôi tiếp tục tuân theo chính sách của mình?".</p>
+
+<pre><code>function Q-LEARNING-AGENT(percept) returns an action
+  inputs: percept, a percept indicating the current state s' and reward signal r'
+  persistent: Q, a table of action values indexed by state and action, initially zero
+              $N_{sa}$, a table of frequencies for state–action pairs, initially zero
+              s, a, the previous state and action, initially null
+  
+  if s is not null then
+      increment $N_{sa}[s, a]$
+      Q[s, a] $\leftarrow$ Q[s, a] + $\alpha(N_{sa}[s, a])(r + \gamma \max_{a'} Q[s', a'] - Q[s, a])$
+  s, a $\leftarrow$ s', $\arg\max_{a'} f(Q[s', a'], N_{sa}[s', a'])$
+  return a
+</code></pre>
+
+<p><strong>Hình 23.8</strong> Một tác tử Q-learning mang tính khám phá. Nó là một tác tử học chủ động học giá trị $Q(s, a)$ của từng hành động trong mỗi tình huống. Nó sử dụng hàm khám phá $f$ giống như tác tử ADP mang tính khám phá, nhưng tránh được việc phải học mô hình chuyển đổi.</p>
+
+<p>Q-learning linh hoạt hơn SARSA, theo nghĩa là một tác tử Q-learning có thể học cách hành xử tốt ngay cả khi dưới sự kiểm soát của nhiều chính sách khám phá khác nhau. Mặt khác, SARSA lại phù hợp nếu chính sách tổng thể thậm chí được kiểm soát một phần bởi các tác tử hoặc chương trình khác, trong trường hợp này, việc học một hàm Q cho những gì sẽ thực sự xảy ra tốt hơn là những gì sẽ xảy ra nếu tác tử được chọn các hành động tốt nhất theo ước lượng. Cả Q-learning và SARSA đều học được chính sách tối ưu cho thế giới $4 \times 3$, nhưng chúng làm như vậy ở một tốc độ chậm hơn nhiều so với tác tử ADP. Đó là vì các bản cập nhật cục bộ không bắt buộc sự nhất quán giữa tất cả các giá trị Q thông qua mô hình.</p>
+
+<h2>23.4 Khái quát hóa trong Học tăng cường (Generalization in Reinforcement Learning)</h2>
+
+<p>Đến đây, chúng ta đã giả định rằng các hàm độ thỏa dụng và các hàm Q được biểu diễn ở dạng bảng với một giá trị đầu ra cho mỗi trạng thái. Điều này hoạt động tốt cho các không gian trạng thái lên đến khoảng $10^6$ trạng thái, thừa đủ cho các môi trường lưới hai chiều đồ chơi (toy) của chúng ta. Nhưng trong các môi trường thế giới thực với số lượng trạng thái lớn hơn rất nhiều, sự hội tụ sẽ diễn ra quá chậm. Trò chơi cờ súc sắc (backgammon) đơn giản hơn hầu hết các ứng dụng trong thế giới thực, thế nhưng nó có khoảng $10^{20}$ trạng thái. Chúng ta không thể dễ dàng ghé thăm tất cả chúng để học cách chơi trò chơi này.</p>
+
+<p>Chương 6 đã giới thiệu ý tưởng về một hàm đánh giá (evaluation function) như là một thước đo nhỏ gọn về tính mong muốn cho các không gian trạng thái tiềm năng rộng lớn. Theo thuật ngữ của chương này, hàm đánh giá chính là một hàm độ thỏa dụng xấp xỉ; chúng ta sử dụng thuật ngữ <strong>xấp xỉ hàm (function approximation)</strong> cho quá trình xây dựng một giá trị xấp xỉ nhỏ gọn của hàm độ thỏa dụng thực hoặc hàm Q thực. Ví dụ, chúng ta có thể xấp xỉ hàm độ thỏa dụng bằng cách sử dụng sự kết hợp tuyến tính có trọng số của các đặc trưng $f_1, \ldots, f_n$:</p>
+
+<p>$$\hat{U}(s) = \theta_1 f_1(s) + \theta_2 f_2(s) + \cdots + \theta_n f_n(s).$$</p>
+
+<p>Thay vì học $10^{20}$ giá trị trạng thái trong một bảng, một thuật toán học tăng cường có thể chỉ học, giả sử, 20 giá trị cho các tham số $\theta = \theta_1, \ldots, \theta_{20}$ để biến $\hat{U}$ thành một xấp xỉ tốt của hàm độ thỏa dụng thực. Đôi khi hàm độ thỏa dụng xấp xỉ này được kết hợp với việc tìm kiếm nhìn trước (look-ahead search) để đưa ra các quyết định chính xác hơn. Thêm vào tìm kiếm nhìn trước có nghĩa là...</p>
