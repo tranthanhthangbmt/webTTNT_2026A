@@ -1,0 +1,13 @@
+\code{
+\func{Hill-Climbing}{{\ts}\var{problem}}{một trạng thái giải pháp}
+    \firstinputs{problem}{một bài toán}
+    \firstlocal{current}{một nút}
+    \local{next}{một nút}
+\bodysep
+    \setq{\var{current}}{\prog{Make-Node}(\prog{Initial-State}[\var{problem}])}
+    \key{loop do}
+          \setq{\var{next}}{một nút kế tiếp có giá trị cao nhất của \var{current}}
+          \key{if} \prog{Value}[next] $<$ \prog{Value}[current] \key{then return} \var{current}
+          \setq{\var{current}}{\var{next}}
+    \key{end}
+}

@@ -1,0 +1,188 @@
+\documentclass[fleqn]{article}
+
+\usepackage{aima-slides}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{lmodern}
+
+\begin{document}
+
+\begin{huge}
+\titleslide{Lập kế hoạch và Hành động (Planning and Acting)}{Chương 13}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Nội dung}
+
+\blob Thế giới thực
+
+\blob Lập kế hoạch có điều kiện
+
+\blob Giám sát và Lập lại kế hoạch
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Thế giới thực}
+
+\vspace*{0.2in}
+
+\epsfxsize=0.5\textwidth
+\fig{\file{figures}{flat-tire-picture.ps}}
+
+\vspace*{0.4in}
+
+\epsfxsize=0.8\textwidth
+\fig{\file{figures}{flat-tire-model.ps}}
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Những điều có thể sai lệch}
+
+\u{Thông tin không đầy đủ (Incomplete information)}\al
+  Chưa biết các tiền điều kiện, ví dụ: $Intact(Spare)$?\al
+  Hiệu ứng tuyển, ví dụ: $Inflate(x)$ gây ra\nl
+    $Inflated(x) \lor SlowHiss(x) \lor Burst(x) \lor BrokenPump \lor \ldots$
+
+\u{Thông tin không chính xác (Incorrect information)}\al
+  Trạng thái hiện tại không chính xác, ví dụ: lốp dự phòng KHÔNG nguyên vẹn\al
+  Thiếu/sai các hậu điều kiện trong các toán tử
+
+Vấn đề chất lượng (Qualification problem):\nl
+   không bao giờ có thể liệt kê xong tất cả các tiền điều kiện bắt buộc và\nl
+   các kết quả có điều kiện có thể xảy ra của các hành động
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Các giải pháp}
+
+\u{Lập kế hoạch có điều kiện (Conditional planning)}\nl
+    Lập kế hoạch để thu thập thông tin ({\bf các hành động quan sát})\nl
+    Kế hoạch con cho từng tình huống ngẫu nhiên, ví dụ:\nl
+    $[Check(Tire1),\mbf{If}(Intact(Tire1),[Inflate(Tire1)],[CallAAA])]$\\
+Tốn kém vì nó lập kế hoạch cho nhiều trường hợp khó xảy ra
+
+\u{Giám sát/Lập lại kế hoạch (Monitoring/Replanning)}\nl
+    Giả định các trạng thái bình thường, kết quả bình thường\nl
+    Kiểm tra tiến độ {\em trong quá trình thực thi}, lập lại kế hoạch nếu cần thiết\\
+Kết quả không lường trước có thể dẫn đến thất bại (ví dụ: không có thẻ AAA)
+
+Nhìn chung, một số giám sát là không thể tránh khỏi
+       
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Lập kế hoạch có điều kiện}
+
+$[\ldots,\mbf{If}(p,[then\,plan],[else\,plan]),\ldots]$
+
+Thực thi: kiểm tra $p$ dựa trên KB hiện tại, thực thi nhánh ``then'' hoặc ``else''
+
+Lập kế hoạch có điều kiện: giống như \prog{POP} ngoại trừ\al
+  nếu một điều kiện mở có thể được thiết lập bởi hành động \u{quan sát}\nl
+    thêm hành động đó vào kế hoạch\nl
+    hoàn thành kế hoạch cho từng kết quả quan sát có thể xảy ra\nl
+    chèn bước điều kiện với các kế hoạch con này
+
+\epsfxsize=0.5\textwidth
+\fig{\file{figures}{observation-schema.ps}}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ lập kế hoạch có điều kiện}
+
+\vspace*{0.3in}
+
+\epsfxsize=1.07\textwidth
+\fig{\sfile{figures}{flat1.ps}}
+
+
+
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{Ví dụ lập kế hoạch có điều kiện}
+
+\vspace*{0.3in}
+
+\epsfxsize=1.07\textwidth
+\fig{\sfile{figures}{flat2.ps}}
+
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{Ví dụ lập kế hoạch có điều kiện}
+
+\vspace*{0.3in}
+
+\epsfxsize=1.07\textwidth
+\fig{\sfile{figures}{flat3.ps}}
+
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{Ví dụ lập kế hoạch có điều kiện}
+
+\vspace*{0.3in}
+
+\epsfxsize=1.07\textwidth
+\fig{\sfile{figures}{flat4.ps}}
+
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{Ví dụ lập kế hoạch có điều kiện}
+
+\vspace*{0.3in}
+
+\epsfxsize=1.07\textwidth
+\fig{\sfile{figures}{flat5.ps}}
+
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{Ví dụ lập kế hoạch có điều kiện}
+
+\vspace*{0.3in}
+
+\epsfxsize=1.07\textwidth
+\fig{\sfile{figures}{flat6.ps}}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Giám sát (Monitoring)}
+
+{\bf Giám sát thực thi (Execution monitoring)}\al
+  ``thất bại'' = tiền điều kiện của {\em kế hoạch còn lại} không được đáp ứng\al
+  tiền điều kiện = \u{các liên kết nhân quả tại thời điểm hiện tại}
+
+{\bf Giám sát hành động (Action monitoring)}\al
+    ``thất bại'' = tiền điều kiện của {\em hành động tiếp theo} không được đáp ứng\nl
+       (hoặc bản thân hành động thất bại, ví dụ: cảm biến va chạm của robot)
+
+Trong cả hai trường hợp, đều cần phải {\em lập lại kế hoạch (replan)}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Các tiền điều kiện cho kế hoạch còn lại}
+
+\vspace*{0.2in}
+
+\epsfysize=0.8\textheight
+\fig{\file{figures}{plan-preconditions.ps}}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Lập lại kế hoạch (Replanning)}
+
+Đơn giản nhất: khi thất bại, lập lại kế hoạch từ đầu
+
+Tốt hơn: lập kế hoạch để quay trở lại đúng hướng bằng cách kết nối lại với phần tiếp theo tốt nhất\\
+Tạo ra hành vi ``lặp cho đến khi xong'' mà không có vòng lặp rõ ràng
+
+\vspace*{0.2in}
+
+\epsfxsize=0.4\textwidth
+\fig{\file{figures}{replanning-generic.ps}}
+
+\vspace*{0.2in}
+
+\epsfxsize=0.75\textwidth
+\fig{\file{figures}{replanning-paint.ps}}
+
+
+
+\end{huge} 
+\end{document}

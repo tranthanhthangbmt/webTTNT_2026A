@@ -1,0 +1,15 @@
+\code{
+\func{Value-Iteration}{\var{M{\ac}R}}{a utility function}
+    \firstinputs{M}{a transition model}
+    \inputs{R}{a reward function on states}
+    \firstlocal{U}{utility function, initially identical to \var{R}}
+    \local{U$'$}{utility function, initially identical to \var{R}}
+\bodysep
+    \key{repeat}
+          \setq{\var{U}}{\var{U}$'$}
+          \key{for each} state \var{i} \key{do}
+              \setq{\var{U}$'$[i]}{$\var{R}[\var{i}] + \max_a \sum_j \var{M}_{ij}^a \var{U}[j]$}
+          \key{end}
+    \key{until} \prog{Close-Enough}(\var{U}{\ac}\var{U}$'$)
+    \key{return} \var{U}
+}

@@ -1,0 +1,14 @@
+\code{
+\func{Align}{\var{Image feature points{\ac}Model feature points}}{a solution or failure} 
+\bodysep
+    \key{loop do}
+          \key{choose} an untried triplet  $p_{i_1}, p_{i_2}, p_{i_3}$ from image 
+          \key{if} no untried triplets left \key{then return} failure
+          \key{while} there are still untried model triplets left \key{do}
+                \key{choose} an untried triplet  $\mu_{j_1}, \mu_{j_2}, \mu_{j_3}$ from model 
+                \setq{\var{Q}}{\prog{Find-Transform}({\ts}$p_{i_1}, p_{i_2}, p_{i_3}${\ac}$\mu_{j_1}, \mu_{j_2}, \mu_{j_3}$)}
+                \key{if} projection according to \var{Q} explains image \key{then}
+                      \key{return} (success, \var{Q}) 
+          \key{end}
+    \key{end}
+}

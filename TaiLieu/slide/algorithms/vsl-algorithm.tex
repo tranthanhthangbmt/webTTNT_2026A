@@ -1,0 +1,15 @@
+\code{
+\func{Version-Space-Learning}{\var{examples}}{a version space}
+    \firstlocal{V}{the version space: the set of all hypotheses}
+\bodysep
+    \setq{\var{V}}{the set of all hypotheses}
+    \key{for} \key{each} example \var{e} in \var{examples} \key{do}
+          \key{if} \var{V} is not empty \key{then} \setq{\var{V}}{\prog{Version-Space-Update}(\var{V}{\ac}\var{e})}
+    \key{end}
+    \key{return} \var{V}
+\fnsep
+\func{Version-Space-Update}{V{\ac}e}{an updated version space}
+\subfnsep
+    \setq{\var{V}}{$\{h \in \var{V}:\ h\mbox{ is consistent with }\var{e}\}$}
+
+}

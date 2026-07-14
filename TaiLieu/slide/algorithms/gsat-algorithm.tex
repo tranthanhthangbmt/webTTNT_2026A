@@ -1,0 +1,12 @@
+\code{
+\func{Gsat}{\var{sentence{\ac}max-restarts{\ac}max-climbs}}{a truth assignment or failure}
+\bodysep
+    \key{for} \setq{\var{i}} 1 \key{to} \var{max-restarts} \key{do}
+          \setq{\var{A}}{A randomly generated truth assignment}
+          \key{for} \setq{\var{j}} 1 \key{to} \var{max-climbs} \key{do}
+                \key{if} \var{A} satisfies \var{sentence} \key{then return} \var{A}
+                \setq{A}{a random choice of one of the best successors of \var{A}}
+          \key{end}
+    \key{end}
+    \key{return} failure
+}

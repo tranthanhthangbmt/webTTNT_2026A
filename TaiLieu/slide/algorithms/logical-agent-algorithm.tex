@@ -1,0 +1,11 @@
+\code{
+\func{KB-Agent}{{\ts}\var{percept}}{một \var{hành động (action)}}
+    \firststatic{KB}{một cơ sở tri thức (knowledge base)}
+    \static{t}{bộ đếm, ban đầu là 0, chỉ báo thời gian}
+\bodysep
+    \noprog{Tell}(\var{KB}{\ac}\prog{Make-Percept-Sentence}({\ts}\var{percept{\ac}t}))
+    \setq{\var{action}}{\noprog{Ask}(\var{KB}{\ac}\prog{Make-Action-Query}(\var{t}))}
+    \noprog{Tell}(\var{KB}{\ac}\prog{Make-Action-Sentence}(\var{action}{\ac}\var{t}))
+    \setq{\var{t}}{\var{t} + 1}
+    \key{return} \var{action}
+}

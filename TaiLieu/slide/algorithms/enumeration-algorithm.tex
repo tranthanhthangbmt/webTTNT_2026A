@@ -1,0 +1,21 @@
+\code{
+\prog{EnumerationAsk}(\v{X},\mbf{e},\v{bn}) \k{returns} a distribution over \v{X} 
+\k{inputs}: \v{X}, {the query variable}
+            {\mbf{e}}, {evidence specified as an event}
+            \v{bn}, {a belief network specifying joint distribution $\pv(X_1,\ldots,X_n)$}
+\bodysep
+    \setq{$\qv(\v{X})$}{a distribution over \v{X}}
+    \k{for each} value $x_i$ of \v{X} \k{do}
+          extend \mbf{e} with value $x_i$ for \v{X}
+          \setq{$\qv(x_i)$}{\prog{EnumerateAll}(\noprog{Vars}[\v{bn}],\mbf{e})}
+    \k{return} \prog{Normalize}($\qv(X)$)
+\fnsep
+\prog{EnumerateAll}(\v{vars},\mbf{e}) \k{returns} a real number
+    \k{if} \noprog{Empty?}(\v{vars}) \k{then return} 1.0
+    \k{else do}
+          \setq{\v{Y}}{\noprog{First}(\v{vars})}
+          \k{if} \v{Y} has value \v{y} in \mbf{e}
+                \k{then return} $P(y | Pa(Y)) \times {}$\prog{EnumerateAll}(\noprog{Rest}(\v{vars}),\mbf{e})
+                \k{else return} $\sum_{y} P(y | Pa(Y)) \times {}$\prog{EnumerateAll}(\noprog{Rest}(\v{vars}),$\mbf{e}_y$)
+                      where $\mbf{e}_y$ is \mbf{e} extended with $Y\eq y$
+}

@@ -1,0 +1,445 @@
+%%%%%%% aima-slides.sty - macros for AIMA slides (first edition).         
+
+%%%%%%% Basic elements of a talk
+
+\def\titleslide#1#2{%
+\global\def\footmark{#2}%
+\noindent\rule{0pt}{1.1\baselineskip}%
+\begin{center}
+\par\vspace*{0.15\textheight}\par
+{\Huge\sc #1\par}
+\vspace{0.15\textheight}\par
+{\huge\sc #2\par}
+\vfill\par
+\end{center}
+\newpage
+}
+
+\def\noheading{%
+\newpage\noindent\rule{0pt}{1.1\baselineskip}}
+
+\def\heading#1{\newpage\noindent\fbox{\fbox{\makebox[\headingwidth]{\rule[-1.5\fboxsep]{0em}{1em}\headingfont #1}}}\par\medskip}
+
+\def\phantomheading#1{\newpage\noindent\phantom{\fbox{\fbox{\makebox[\headingwidth]{\rule[-1.5\fboxsep]{0em}{1em}\headingfont #1}}}}\par\medskip}
+
+%%%%%%% Useful formatting commands for lines of text etc.
+
+\def\tab{\hbox{\kern0.4in}}    %% Insert space (even at start of line)
+\def\al{\\\tab}                %% Next line is indented
+\def\nl{\\\tab\tab}            %% Next line is double-indented
+\def\nnl{\\\tab\tab\tab}       %% Next line is triple-indented
+\def\blob{$\diamondsuit\ \ $}  %% Itemization without all the spacing
+\def\bull{\vskip -8pt\item{$\bullet$\ }} %% Itemization with less spacing
+\usepackage[normalem]{ulem}
+\def\u#1{\uline{#1}}
+\def\q#1{\u{\u{#1}}??}
+
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\epstopdfDeclareGraphicsRule{.ps}{pdf}{.pdf}{epstopdf #1 --outfile=\OutputFile}
+\AppendGraphicsExtensions{.ps}
+\newlength{\epsfxsize}
+\newlength{\epsfysize}
+\setlength{\epsfxsize}{0pt}
+\setlength{\epsfysize}{0pt}
+\newcommand{\epsffile}[1]{%
+  \ifdim\epsfxsize>0pt
+    \includegraphics[width=\epsfxsize]{#1}%
+    \setlength{\epsfxsize}{0pt}%
+  \else
+    \includegraphics{#1}%
+  \fi
+}
+
+\newenvironment{point}{\hbox{}\em\hand\ignorespaces}{}
+
+\newcommand{\hand}{\hspace*{0pt}\marginpar{\noindent\raisebox{-11pt}[0pt][0pt]{\includegraphics[width=0.5\marginparwidth]{figures/hand.ps}}}}
+
+
+%%%%%%% Handling problems in math fonts and helvetica bold
+
+\font\cmmi=cmmi10 scaled 2500  %% chapter number in heading
+\def\mathbold{\fontsize{25}{30}\bfseries\selectfont}
+\def\smathbold{\fontsize{17}{20}\bfseries\selectfont}
+\let\headingfont=\mathbold
+
+\def\mysum{\begin{Huge}\mbox{$\Sigma$}\end{Huge}}
+\def\myprod{\begin{Huge}\mbox{$\Pi$}\end{Huge}}
+%\newcommand{\mbf}[1]{\mbox{{\mathbold #1}}} %%%[[gives HUGE fonts!]]
+\newcommand{\smbf}[1]{\mbox{{\smathbold #1}}}
+\newcommand{\mbf}[1]{\mbox{{\bf #1}}}
+
+%%%%%%% Formatting tables - AIMA uses full-width tables with spacing
+
+\newenvironment{mytabular}%
+{\noindent\begin{tabular*}{\textwidth}}%
+{\end{tabular*}}
+
+\newcommand{\tabtop}{\rule{0pt}{2ex}}%%Use after hline in body of table
+\newcommand{\tabbot}{\rule[-1ex]{0pt}{1.8ex}}%%Use before hline " " " "
+\newcommand{\tabhead}{\rule[-0.85ex]{0pt}{2.8ex}}%%Use in lines between hlines
+\newcommand{\squad}{\hspace*{0.5em}}%%Use occasionally at left edge
+\newcommand{\sq}[1]{\hspace*{#1\textwidth}}
+\def\tf{\rm} %% table font
+
+%%%%%%% Figures, graphs etc.
+
+%%% All file inclusions (\input, \fig, \epsffile etc) except figure 
+%%% sequences should use \file{dir}{name} to allow for simple portability 
+%%% to Mac, Windows etc. >>>>> MODIFY THIS MACRO FOR NON-UNIX PLATFORMS
+\def\file#1#2{#1/#2}
+
+%%% For figure sequences, use \sfile instead of \file
+%%% This will modify the file name by adding a suffix:
+%%%    ``o'' for overlays, appropriate for use with transparencies
+%%%    ``c'' for cumulative figures, appropriate for computer projection
+%%% The suffix is determined by \sfilechar, which is set by 
+%%% the \overlay command or the \cumulative command.
+\def\overlay{\def\sfilechar{o}\def\ptext{.\phantom}\def\pheading{\phantomheading}}
+\def\cumulative{\def\sfilechar{c}\def\ptext{}\def\pheading{\heading}}
+\def\sfile#1#2{#1/\sfilename#2}
+\def\sfilename#1.#2{#1\sfilechar.#2}
+
+%%% The default is for overlays. >>>>>> Change this for computer projection.
+\overlay
+%\cumulative
+
+\def\graphbox#1{%
+\framebox[\textwidth]{\hbox{\hfill\epsffile{#1}\hspace*{0.4in}\hbox{}\hfill}}}
+
+\def\figbox#1{%
+\framebox[\textwidth]{\hbox{\hfill\epsffile{#1}\hfill}}}
+
+\def\fig#1{\centerline{\epsffile{#1}}}
+
+\def\twofig#1#2{%
+\centerline{%
+\epsfxsize=0.48\textwidth
+\noindent\epsffile{#1}%
+\hspace*{0.04\textwidth}%
+\epsfxsize=0.48\textwidth
+\epsffile{#2}}}
+
+\def\twograph#1#2{%
+\centerline{%
+\vspace*{-10pt}%
+\hspace*{-0.07\maxfigwidth}%
+\epsfxsize=0.57\maxfigwidth
+\noindent\epsffile{#1}%
+\hspace*{-0.07\maxfigwidth}%
+\epsfxsize=0.57\maxfigwidth
+\epsffile{#2}}}
+
+
+\def\threefig#1#2#3{%
+\centerline{%
+\epsfxsize=0.32\textwidth
+\epsffile{#1}\hspace*{0.02\textwidth}
+\epsfxsize=0.32\textwidth
+\epsffile{#2}\hspace*{0.02\textwidth}
+\epsfxsize=0.32\textwidth
+\epsffile{#3}}}
+
+\def\threegraph#1#2#3{%
+\centerline{%
+\vspace*{-10pt}%
+\hspace*{-0.04\maxfigwidth}%
+\epsfxsize=0.37\maxfigwidth
+\noindent\epsffile{#1}%
+\hspace*{-0.04\maxfigwidth}%
+\epsfxsize=0.37\textwidth
+\epsffile{#2}%
+\hspace*{-0.04\maxfigwidth}%
+\epsfxsize=0.37\textwidth
+\epsffile{#3}}}
+
+\newcommand{\FigBox}[1]{%%% The alternative to figbox - pnorvig
+\noindent\framebox[\textwidth]{%
+\begin{minipage}{\codewidth}%
+#1%
+\end{minipage}}%
+}
+
+
+
+%%%%%%% Useful symbols and dingbats
+
+\newcommand{\tick}{$\sqrt{}$}
+\newcommand{\cross}{$\times$}
+\newcommand{\smiley}{\epsfxsize=1.25em%
+\noindent\raisebox{-5pt}[0pt][0pt]{\epsffile{figures/smiley.ps}}}
+\newcommand{\frowny}{\epsfxsize=1.25em%
+\noindent\raisebox{-5pt}[0pt][0pt]{\epsffile{figures/frowny.ps}}}
+
+%%%%%%% Sizes for slides. 
+
+\setlength{\fboxsep}{0.2em}
+\setlength{\fboxrule}{0.1em}
+
+\newlength{\headingwidth}
+\newlength{\backdrop}
+\newlength{\backheight}
+\newlength{\backwidth}
+\newlength{\xborder}
+\newlength{\yborder}
+\setlength{\xborder}{1.5in}
+\setlength{\yborder}{1in}
+
+
+\def\portrait{%
+\textwidth=6.5in
+\textheight=8.5in
+\oddsidemargin=0.25in
+\evensidemargin=0.25in
+\topmargin=-0.5in
+\ifx\pdfpagewidth\undefined\else\pdfpagewidth=8.5in \pdfpageheight=11in\fi}
+\def\landscape{%
+\textheight=6.5in
+\textwidth=8.5in
+\oddsidemargin=0.25in
+\evensidemargin=0.25in
+\topmargin=-0.5in
+\ifx\pdfpagewidth\undefined\else\pdfpagewidth=11in \pdfpageheight=8.5in\fi
+\AtBeginDocument{\ifx\pdfpagewidth\undefined\else\pdfpagewidth=11in \pdfpageheight=8.5in\fi\raggedright}
+}
+
+\landscape
+
+\def\setvariabledimens{%
+\parskip=0.025\textwidth
+\setlength{\headingwidth}{\textwidth}%
+\addtolength{\headingwidth}{-4\fboxsep}%
+\addtolength{\headingwidth}{-4\fboxrule}%
+\setlength{\backwidth}{\textwidth}%
+\addtolength{\backwidth}{2\xborder}%
+\setlength{\backheight}{\textheight}%
+\addtolength{\backheight}{2\yborder}%
+\setlength{\backdrop}{\backheight}%
+\addtolength{\backdrop}{-2.1\baselineskip}%%% approximate - need hdheight
+\addtolength{\backdrop}{-\yborder}%
+}
+
+\setvariabledimens
+
+\headheight=0in
+\ifx\footheight\undefined\newdimen\footheight\fi
+\footheight=20pt
+\parindent=0in
+
+\topsep=0pt
+\parsep=0pt
+\itemsep=0pt
+\partopsep=0pt
+
+%%%%%% page headings
+
+\def\ps@myheadings{\let\@mkboth\@gobbletwo
+\def\@oddfoot{\begin{footnotesize}AIMA Slides \copyright Stuart Russell and Peter Norvig, 1998 \hfill\footmark\qquad\thepage\end{footnotesize}}%
+\def\@evenfoot{\begin{footnotesize}AIMA Slides \copyright Stuart Russell and Peter Norvig, 1998 \hfill\footmark\qquad\thepage\end{footnotesize}}%
+\def\@evenhead{}\def\@oddhead{}}
+
+\pagestyle{myheadings}
+
+
+%%%%%%%%%%%% elements of programs %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\defprog}[1]{\mbox{{\sc #1}}} 
+\newcommand{\prog}[1]{\mbox{{\sc #1}}}   %%% same as defprog
+\newcommand{\noprog}[1]{\mbox{{\sc #1}}} %%% same as defprog
+\newcommand{\system}[1]{\mbox{{\sc #1}}} %%% same as defprog
+\newcommand{\nosystem}[1]{\mbox{{\sc #1}}} %%% same as defprog
+\newcommand{\act}[1]{{\it #1}}
+\newcommand{\key}[1]{{\bf #1}}
+\def\k{\key}
+\newcommand{\var}[1]{{\it #1}}
+\def\v{\var}
+\def\p{\prg}
+\newcommand{\setq}[2]{#1\hbox{$\,\leftarrow\,$}#2}
+\newcommand{\setqmath}[2]{#1 \leftarrow #2}
+
+%%pnorvig Mar 14 1994:
+\newcommand{\labl}[1]{\prog{#1}}	% Statement Label in code
+\newcommand{\cmt}[1]{{\tt /*} {\it #1} {\tt */}}	% Comment in code
+\newcommand{\rcmt}[1]{\hfill {\tt /*} {\it #1} {\tt */}}
+\newcommand{\Endfn}[1]{}		% End of a function in code
+\newcommand{\fnsep}{\hspace*{0in}\raisebox{3pt}{\rule{\codewidth}{0.2pt}}\hfill}	% Between functions in code
+
+\def\code{\noindent\nobreak\begin{Large}
+        \begingroup\obeylines\obeyspaces\docode}
+\def\docode#1{\noindent\framebox[\columnwidth][l]%
+{~~\begin{minipage}{\codewidth}~
+#1
+~\end{minipage}}\endgroup%
+\nobreak\end{Large}\noindent\ignorespaces}
+\def\asis{\obeylines\obeyspaces}
+\def\ttp{.\skip -0.5em\ }
+{\obeyspaces\global\def {\ }}
+
+
+%% Fine tuning for perfect formatting
+
+\newcommand{\ac}{,\hspace{0.15em}}
+\newcommand{\ts}{\,}
+\newcommand{\bodysep}{\vspace{0.1in}}
+\newcommand{\subfnsep}{\vspace{0.06in}}
+\newcommand{\prebnfsep}{\vspace{-0.25in}}
+\newcommand{\postbnfsep}{\vspace{0.1in}}
+\newcommand{\fnvar}[1]{\prog{#1}}
+\newcommand{\func}[3]{\key{function} \defprog{#1}(#2) \key{returns} #3}
+\newcommand{\nofunc}[3]{\key{function} \noprog{#1}(#2) \key{returns} #3}
+\newcommand{\proc}[2]{\key{procedure} \defprog{#1}(#2)}
+\newcommand{\noproc}[2]{\key{procedure} \noprog{#1}(#2)}
+\newcommand{\firstinputs}[2]{\key{inputs}: \var{#1}, #2}
+\newcommand{\inputs}[2]{\phantom{\key{inputs}: }\var{#1}, #2}
+\newcommand{\firstlocal}[2]{\key{local variables}: \var{#1}, #2}
+\newcommand{\local}[2]{\phantom{\key{local variables}: }\var{#1}, #2}
+\newcommand{\firststatic}[2]{\key{static}: \var{#1}, #2}
+\newcommand{\static}[2]{\phantom{\key{static}: }\var{#1}, #2}
+
+%%%%%%% Mathematics, logic, probability, etc.
+
+\newenvironment{formula}{\[\begin{array}{lll}}{\end{array}\]}
+
+\def\<{\langle}
+\def\>{\rangle}
+
+%%%%%% logical symbols
+\newcommand{\implies}{\:\;{\Rightarrow}\:\;}
+\newcommand{\impliessymbol}{\Rightarrow}
+\newcommand{\lequiv}{\;\;{\Leftrightarrow}\;\;}
+\newcommand{\lequivsymbol}{\Leftrightarrow}
+\newcommand{\xor}{\not\lequiv}
+\newcommand{\All}[1]{\forall\,#1\;\;}
+\newcommand{\Exi}[1]{\exists\,#1\;\;}
+\newcommand{\Exii}[1]{\exists!\,#1\;\;}% -pnorvig
+\newcommand{\Iot}[2]{\iota\,#1\,#2}
+\newcommand{\Lam}[2]{\lambda #1\;#2}
+\newcommand{\Qua}[3]{[#1\,#2\;#3]}
+
+\newcommand{\elt}{{\,{\in}\,}}  %%%cuts down on spacing
+\newcommand{\eq}{{\,{=}\,}}  %%%cuts down on spacing
+\def\stimes{{\,\times\,}}       %%%cuts down on spacing
+
+\newcommand{\sr}[1]{\mathrel{\raisebox{-0.6ex}{$\stackrel{#1}{\longrightarrow}$}}}
+\newcommand{\srbox}[1]{\sr{\fboxsep=1pt\fbox{$\,{\scriptstyle #1}\,$}}}
+\newcommand{\srboxbox}[1]{\sr{\fboxsep=1pt\fbox{\fbox{$\,{\scriptstyle #1}\,$}}}}
+
+%%%%%% probability and decision theory
+\newcommand{\pv}{\mbf{P}}
+\newcommand{\qv}{\mbf{Q}}
+\newcommand{\given}{\mid}
+\def\transition#1#2{q(#1\rightarrow #2)}
+
+\def\e{E}
+\def\ec{E^{+}}
+\def\ee{E^{-}}
+
+\def\indiff{\mathrel{\sim}}
+\def\pref{\mathrel{\succ}}
+\def\prefeq{\mathrel{\raisebox{-1.5pt}%
+{$\stackrel{{\raisebox{-0.65pt}{$\textstyle\succ$}}}{\sim}$}}}
+\def\ubest{u_\top}
+\def\uworst{u_\bot}
+
+\newcommand{\qplus}{\mathrel{\raisebox{-0.3ex}{$\stackrel{+}{\longrightarrow}$}}}
+
+
+%%%%%%%%%%% From NLP: %pnorvig Apr  2 1994:
+\newcommand{\gap}{{\mbox{$_\sqcup$}}}
+\newcommand{\E}[1]{\mbox{${\cal E}_{#1}$}}
+\newcommand{\blank}{\framebox{~~}}
+\newcommand{\qt}[1]{\mbox{``\(#1\)''}}%QUOTE
+\newcommand{\uq}[1]{\underline{#1}}%UNQUOTE - better choice?
+\newcommand{\vertex}[1]{\(~_{#1}\)}
+\newcommand{\stackii}[2]{$\left\{\begin{array}{c} \mbox{#1} \\ \mbox{#2} \end{array}\right\}$}
+
+\newcommand{\nbar}{\bnf{Noun}}
+\newcommand{\nbars}{{\mbox{$_{\nbar}$}}}
+\newcommand{\chdot}{\begin{footnotesize}\bullet\end{footnotesize}}
+
+
+%% BNF grammars %pnorvig Mar 14 1994:
+\newcommand{\bl}{\;}			%A blank between BNF constituents
+\newcommand{\bnf}[1]{{\it #1}}		%A BNF constituent
+\newcommand{\bnfeq}{\rightarrow}	% BNF arrow (separates LHS from RHS)
+\newcommand{\bnfreveq}{\leftarrow}	% Reverse BNF arrow
+\newcommand{\bnft}[1]{\mbox{\boldmath \( #1 \)}} % A BNF terminal 
+\newcommand{\bnfv}[1]{\bnf{#1}} 	% A BNF terminal variable constituent
+\newcommand{\bnfnull}{\bnft{\epsilon}} 	% An empty BNF right-hand-side
+\newcommand{\bnfor}{\mid\bl} 		% A BNF disjunction
+\newcommand{\dcg}{\Leftarrow_{dcg}}	% Obsolete!
+
+\newcommand{\fhs}[3]{\frac{#1}{#2} #3}	% Filler, Hole, Semantics
+
+%% Planning %pnorvig Mar 14 1994:	
+\newcommand{\cl}[3]{#1 \mathrel{\raisebox{-0.4ex}{$\stackrel{#2}{\longrightarrow}$}} #3}
+\newcommand{\before}{{\,\prec\,}}
+\newcommand{\Act}[1]{\noprog{Action:} #1}
+\newcommand{\Pre}[1]{\noprog{Precond:} #1}
+\newcommand{\Eff}[1]{\noprog{Effect:} #1}
+\newcommand{\strips}[3]{\begin{array}{l} Op(\Act{#1},\Pre{#2},\Eff{#3}
+			\end{array}}
+
+%%%%%% learning
+%\newcommand{\leadsto}{\rightarrow}  %%nlatex does not have \leadsto!!
+
+%\newcommand{\w}[2]{W_{#1 \rightarrow #2}}  %% Winston does this
+\newcommand{\w}[2]{W_{#1,#2}}
+
+\newcommand{\error}{\mbox{error}}
+\newcommand{\hs}{\mbox{{\bf H}}}
+\newcommand{\hbad}{\hs_{\mbox{\scriptsize bad}}}
+\newcommand{\kdl}{k\mbox{\scriptsize -DL}}
+\newcommand{\kdt}{k\mbox{\scriptsize -DT}}
+\def\Hmap{H_{\mbox{\scriptsize MAP}}}
+\def\Hml{H_{\mbox{\scriptsize ML}}}
+
+%%robotics
+\newcommand{\reals}{\hbox{{\cal R}}}
+\newcommand{\cspace}{\hbox{${\cal C}$}}
+\newcommand{\espace}{\hbox{${\cal E}$}}
+\newcommand{\wspace}{\hbox{${\cal W}$}}
+\newcommand{\co}{\hbox{${\cal O}$}}
+\newcommand{\fp}{\hbox{${\cal F}$}}
+
+%%%%%% special-purpose sizes
+
+\newlength{\headtotal}
+\setlength{\headtotal}{\headsep}
+\addtolength{\headtotal}{\headheight}
+
+\newlength{\codewidth}
+\setlength{\codewidth}{\textwidth}
+\addtolength{\codewidth}{-0.5in}
+
+\newlength{\boxwidth}
+\newlength{\boxheight}
+\newlength{\skipwidth}
+\newlength{\roomheight}
+\newlength{\charheight}
+\setlength{\charheight}{10pt}
+
+\newlength{\marginlineskip}
+\newlength{\marginwidth}
+\setlength{\marginlineskip}{3.5pt}
+\setlength{\marginwidth}{\marginparwidth}
+\addtolength{\marginwidth}{\marginparsep}
+
+\newlength{\textplusmarginwidth}
+\setlength{\textplusmarginwidth}{\marginwidth}
+\addtolength{\textplusmarginwidth}{\textwidth}
+
+\newlength{\maxfigwidth}
+\setlength{\maxfigwidth}{\textwidth}
+\addtolength{\maxfigwidth}{-2\fboxsep}
+\addtolength{\maxfigwidth}{-2\fboxrule}
+
+\newlength{\tablewidth}
+\setlength{\tablewidth}{\textwidth}
+
+\newlength{\captionskip}
+\setlength{\captionskip}{-1mm}
+
+\newlength{\tcaptionskip}
+\setlength{\tcaptionskip}{0pt}

@@ -1,0 +1,11 @@
+\code{
+\func{General-Search}{{\ts}\var{problem{\ac}\fnvar{Queuing-Fn}}}{một giải pháp, hoặc thất bại}
+\bodysep
+    \setq{\var{nodes}}{\prog{Make-Queue}(\prog{Make-Node}(\prog{Initial-State}[\var{problem}]))}
+    \key{loop} \key{do}
+          \key{if} \var{nodes} trống \key{then} \key{return} thất bại
+          \setq{\var{node}}{\prog{Remove-Front}(\var{nodes})}
+          \key{if} \prog{Goal-Test}[\var{problem}] áp dụng cho \noprog{State}(\var{node}) thành công \key{then} \key{return} \var{node}
+          \setq{\var{nodes}}{\fnvar{Queuing-Fn}(\var{nodes}{\ac}\prog{Expand}(\var{node}{\ac}\prog{Operators}[\var{problem}]))}
+    \key{end}
+}

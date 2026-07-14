@@ -1,0 +1,12 @@
+\code{
+\func{DT-Agent}{{\ts}\var{percept}}{an \var{action}}
+    \key{static}: a set probabilistic beliefs about the state of the world
+\bodysep
+    calculate updated probabilities for current state based on 
+          available evidence including current percept and previous action
+    calculate outcome probabilities for actions, 
+          given action descriptions and probabilities of current states
+    select \var{action} with highest expected utility
+          given probabilities of outcomes and utility information
+    \key{return} \var{action}
+}

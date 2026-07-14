@@ -1,0 +1,18 @@
+\code{
+\func{Policy-Iteration}{\var{M{\ac}R}}{a policy}
+    \firstinputs{M}{a transition model}
+    \inputs{R}{a reward function on states}
+    \firstlocal{U}{a utility function, initially identical to \var{R}}
+    \local{P}{a policy, initially optimal with respect to \var{U}}
+\bodysep
+    \key{repeat}
+          \setq{\var{U}}{\prog{Value-Determination}(\var{P}{\ac}\var{U}{\ac}\var{M}{\ac}\var{R})}
+          \setq{\var{unchanged?}}{true}
+          \key{for each} state \var{i} \key{do}
+                \key{if} $\max_a \sum\limits_j \var{M}_{ij}^a \var{U}[j] > \sum\limits_j \var{M}_{ij}^{\var{P}[\var{i}]} \var{U}[j]$ \key{then}
+                      \setq{\var{P}[\var{i}]}{$\arg\max_a \sum\limits_j \var{M}_{ij}^a \var{U}[j]$}
+                      \setq{\var{unchanged?}}{false}
+          \key{end}
+    \key{until} \var{unchanged?}
+    \key{return} \var{P}
+}

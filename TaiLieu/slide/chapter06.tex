@@ -1,0 +1,474 @@
+\documentclass[fleqn]{article}
+
+\usepackage{aima-slides}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{lmodern}
+
+\begin{document}
+
+\begin{huge}
+\titleslide{Tác tử logic (Logical agents)}{Chương 6}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Nội dung}
+
+\blob Cơ sở tri thức (Knowledge bases)
+
+\blob Thế giới Wumpus
+
+\blob Logic nói chung
+
+\blob Logic mệnh đề (Logic Boolean)
+
+\blob Các dạng chuẩn (Normal forms)
+
+\blob Các quy tắc suy diễn (Inference rules)
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Cơ sở tri thức}
+
+
+\epsfxsize=0.8\maxfigwidth
+\fig{\file{figures}{kbs.ps}}
+
+Cơ sở tri thức = tập hợp các \u{câu} trong một ngôn ngữ \u{hình thức}
+
+Cách tiếp cận \u{Khai báo (Declarative)} để xây dựng một tác tử (hoặc hệ thống khác):\nl
+   {\sc Tell} (Cho biết) những gì nó cần biết
+
+Sau đó nó có thể tự {\sc Ask} (Hỏi) xem cần phải làm gì---câu trả lời phải được suy ra từ KB (cơ sở tri thức)
+
+Các tác tử có thể được xem xét ở \u{cấp độ tri thức}\nl
+   tức là, chúng biết gì, bất kể việc được cài đặt như thế nào
+
+Hoặc ở \u{cấp độ cài đặt}\nl
+   tức là, cấu trúc dữ liệu trong KB và các thuật toán thao tác trên chúng
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Một tác tử dựa trên tri thức đơn giản}
+
+\input{\file{algorithms}{logical-agent-algorithm}}
+
+Tác tử phải có khả năng:\al
+Biểu diễn các trạng thái, hành động, v.v.\al
+Kết hợp các nhận thức mới\al
+Cập nhật các biểu diễn nội bộ của thế giới\al
+Suy diễn các thuộc tính ẩn của thế giới\al
+Suy diễn các hành động phù hợp
+
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Mô tả PAGE cho Thế giới Wumpus}
+
+\begin{tabular}{lr}
+\hbox{\begin{minipage}[b]{0.6\textwidth}
+\u{Nhận thức} Gió nhẹ (Breeze), Lấp lánh (Glitter), Mùi (Smell)\\
+
+\u{Hành động} Rẽ trái (Left turn), Rẽ phải (Right turn),\nl
+    Đi tới (Forward), Lấy (Grab), Thả (Release), Bắn (Shoot)\\
+
+\u{Đích} Mang vàng trở lại điểm xuất phát\\
+mà không rơi vào hố hoặc ô có Wumpus
+
+\end{minipage}}
+&
+\epsfxsize=0.3\textwidth
+\epsffile{\file{figures}{wumpus-world.ps}}
+\end{tabular}
+
+\u{Môi trường}\al
+Các ô kề với wumpus có mùi\al
+Các ô kề với hố có gió nhẹ\al
+Lấp lánh khi và chỉ khi vàng ở trong cùng ô đó\al
+Bắn sẽ giết wumpus nếu bạn đang đối mặt với nó\al
+Bắn sẽ làm tiêu hao mũi tên duy nhất\al
+Lấy sẽ nhặt vàng nếu ở cùng ô đó\al
+Thả sẽ đánh rơi vàng trong cùng ô đó
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Đặc điểm thế giới Wumpus}
+
+\q{Thế giới có tất định không?}
+
+\q{Thế giới có thể truy cập đầy đủ không?}
+
+\q{Thế giới có tĩnh không?}
+
+\q{Thế giới có rời rạc không?}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Đặc điểm thế giới Wumpus}
+
+\q{Thế giới có tất định không?} Có---kết quả được xác định chính xác
+
+\q{Thế giới có thể truy cập đầy đủ không?} Không---chỉ nhận thức \u{cục bộ}
+
+\q{Thế giới có tĩnh không?} Có---Wumpus và các hố không di chuyển
+
+\q{Thế giới có rời rạc không?} Có
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Khám phá một thế giới wumpus}
+
+\vspace*{0.4in}
+
+\epsfxsize=0.6\textwidth
+\fig{\sfile{figures}{wumpus-seq0.ps}}
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{}
+
+\vspace*{0.4in}
+
+\epsfxsize=0.6\textwidth
+\fig{\sfile{figures}{wumpus-seq1.ps}}
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{}
+
+\vspace*{0.4in}
+
+\epsfxsize=0.6\textwidth
+\fig{\sfile{figures}{wumpus-seq2.ps}}
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{}
+
+\vspace*{0.4in}
+
+\epsfxsize=0.6\textwidth
+\fig{\sfile{figures}{wumpus-seq3.ps}}
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{}
+
+\vspace*{0.4in}
+
+\epsfxsize=0.6\textwidth
+\fig{\sfile{figures}{wumpus-seq4.ps}}
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{}
+
+\vspace*{0.4in}
+
+\epsfxsize=0.6\textwidth
+\fig{\sfile{figures}{wumpus-seq5.ps}}
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{}
+
+\vspace*{0.4in}
+
+\epsfxsize=0.6\textwidth
+\fig{\sfile{figures}{wumpus-seq6.ps}}
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{}
+
+\vspace*{0.4in}
+
+\epsfxsize=0.6\textwidth
+\fig{\sfile{figures}{wumpus-seq7.ps}}
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Các tình huống khó khăn khác}
+
+\begin{tabular}{lr}
+\epsfxsize=2.7in
+\raisebox{-0.5in}[2.5in]{\epsffile{\file{figures}{wumpus-bb.ps}}}
+&
+\hbox{\begin{minipage}[b]{0.5\textwidth}
+Gió nhẹ ở (1,2) và (2,1)\al
+$\Rightarrow$ không có hành động nào an toàn\\
+
+Giả sử các hố được phân bố đều,\\
+(2,2) có khả năng có hố nhất
+
+\end{minipage}}
+\\
+   & \\
+\epsfxsize=1.8in
+\epsffile{\file{figures}{wumpus-s.ps}}
+&
+\hbox{\begin{minipage}[b]{0.65\textwidth}
+Mùi ở (1,1) \al
+$\Rightarrow$ không thể di chuyển
+
+Có thể sử dụng chiến lược \u{ép buộc (coercion)}:\al
+  bắn thẳng về phía trước\al
+  nếu có wumpus ở đó $\Rightarrow$ chết $\Rightarrow$ an toàn\al
+  nếu wumpus không ở đó $\Rightarrow$ an toàn\al
+
+\end{minipage}}
+\end{tabular}
+
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Logic nói chung}
+
+\u{Các logic} là các ngôn ngữ hình thức để biểu diễn thông tin\al
+   sao cho có thể rút ra các kết luận
+
+\u{Cú pháp (Syntax)} xác định các câu trong ngôn ngữ
+
+\u{Ngữ nghĩa (Semantics)} định nghĩa ``ý nghĩa'' của các câu;\al
+   tức là, định nghĩa \u{sự thật (truth)} của một câu trong một thế giới
+
+Ví dụ, ngôn ngữ của số học
+
+$x+2 \geq y$ là một câu; $x2+y>{}$ không phải là một câu
+
+$x+2 \geq y$ là đúng khi và chỉ khi số $x+2$ không nhỏ hơn
+số $y$
+
+$x+2 \geq y$ là đúng trong một thế giới mà $x\eq 7,\ y\eq 1$\\
+$x+2 \geq y$ là sai trong một thế giới mà $x\eq 0,\ y\eq 6$
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Các loại logic}
+
+Các logic được đặc trưng bởi những gì chúng cam kết là ``nguyên thủy''
+
+Cam kết bản thể học (Ontological commitment): điều gì tồn tại---sự kiện? đối tượng? thời gian? niềm tin?
+
+Cam kết nhận thức học (Epistemological commitment): các trạng thái tri thức là gì?
+
+\begin{LARGE}
+\input{\file{tables}{ontological-epistemological-table}}
+\end{LARGE}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Kéo theo (Entailment)}
+
+\[KB \models \alpha\]
+
+Cơ sở tri thức $KB$ \u{kéo theo (entails)} câu $\alpha$\nl
+   khi và chỉ khi\\
+$\alpha$ đúng trong tất cả các thế giới mà $KB$ đúng
+
+Ví dụ, KB chứa ``đội Giants thắng'' và ``đội Reds thắng''\\
+kéo theo ``Hoặc đội Giants thắng hoặc đội Reds thắng''
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Mô hình (Models)}
+
+Các nhà logic học thường suy nghĩ dưới dạng các \u{mô hình (models)}, là các thế giới có cấu trúc\\
+hình thức mà theo đó chân lý có thể được đánh giá
+
+Ta nói $m$ là một \u{mô hình} của câu $\alpha$
+nếu $\alpha$ là đúng trong $m$
+
+$M(\alpha)$ là tập hợp tất cả các mô hình của $\alpha$
+
+Khi đó $KB \models \alpha$ khi và chỉ khi $M(KB) \subseteq M(\alpha)$
+
+\begin{tabular}{lr}
+\hbox{\begin{minipage}[b]{0.6\textwidth}
+Ví dụ: $KB$ = Giants thắng và Reds thắng\nl
+     $\alpha$ = Giants thắng
+\end{minipage}}
+&
+\epsfxsize=3.2in
+\raisebox{-2in}[0in]{\epsffile{\file{figures}{model-inclusion.ps}}}
+\end{tabular}
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Suy diễn (Inference)}
+
+$KB\vdash_i\alpha$ = câu $\alpha$ có thể được dẫn xuất từ $KB$ bằng thủ tục $i$
+
+\u{Tính đúng đắn (Soundness)}: $i$ là đúng đắn nếu\nl
+bất cứ khi nào $KB\vdash_i\alpha$, thì nó cũng đúng là $KB\models\alpha$
+
+\u{Tính đầy đủ (Completeness)}: $i$ là đầy đủ nếu\nl
+bất cứ khi nào $KB\models\alpha$, thì nó cũng đúng là $KB\vdash_i\alpha$
+
+Xem trước: chúng ta sẽ định nghĩa một logic (logic bậc một) mà đủ
+biểu đạt để nói hầu hết những điều quan tâm, và với nó
+có tồn tại một thủ tục suy diễn đúng đắn và đầy đủ.
+
+Nghĩa là, thủ tục sẽ trả lời mọi câu hỏi mà câu trả lời có thể được rút ra
+từ những gì mà $KB$ đã biết.
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Logic mệnh đề: Cú pháp}
+
+Logic mệnh đề là logic đơn giản nhất---minh họa các ý tưởng cơ bản
+
+Các ký hiệu mệnh đề $P_1$, $P_2$, v.v. là các câu
+
+Nếu $S$ là một câu, $\lnot S$ là một câu
+
+Nếu $S_1$ và $S_2$ là câu, $S_1 \land S_2$ là một câu
+
+Nếu $S_1$ và $S_2$ là câu, $S_1 \lor S_2$ là một câu
+
+Nếu $S_1$ và $S_2$ là câu, $S_1 \implies S_2$ là một câu
+
+Nếu $S_1$ và $S_2$ là câu, $S_1 \lequiv S_2$ là một câu
+
+
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Logic mệnh đề: Ngữ nghĩa}
+
+Mỗi mô hình chỉ định đúng/sai cho từng ký hiệu mệnh đề
+
+\begin{tabular}{lccc}
+Ví dụ: & $A$ & $B$ & $C$\\
+     & $Đúng$   &  $Đúng$ &  $Sai$
+\end{tabular}
+
+Các quy tắc đánh giá chân lý đối với mô hình $m$:
+
+\begin{tabular}{rcclcl}
+$\lnot S$          & đúng khi và chỉ khi & $S$ & sai & & \\
+$S_1 \land S_2$    & đúng khi và chỉ khi & $S_1$ & đúng \u{và} & $S_2$ & đúng\\
+$S_1 \lor S_2$     & đúng khi và chỉ khi & $S_1$ & đúng \u{hoặc} & $S_2$ & đúng\\
+$S_1 \implies S_2$ & đúng khi và chỉ khi& $S_1$ & sai \u{hoặc} & $S_2$ & đúng\\
+\qquad tức là,  & sai khi và chỉ khi& $S_1$ & đúng \u{và} & $S_2$ & sai\\
+$S_1 \lequiv S_2$ & đúng khi và chỉ khi& $S_1\implies S_2$ & đúng \u{và} & $S_2\implies S_1$ & đúng
+\end{tabular}
+
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Suy diễn mệnh đề: Phương pháp liệt kê}
+
+
+Cho $\alpha = A \lor B$ và $KB = (A\lor C) \land (B \lor \lnot C)$
+
+Liệu có trường hợp $KB\models\alpha$ không? \\
+Kiểm tra mọi mô hình có thể---$\alpha$ phải đúng ở mọi nơi mà $KB$ đúng
+
+\input{\file{tables}{abc-truth-table}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Suy diễn mệnh đề: Giải pháp}
+
+\input{\file{tables}{abc-solution-table}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Các dạng chuẩn (Normal forms)}
+
+Các phương pháp tiếp cận khác đối với việc suy diễn sử dụng các thao tác cú pháp
+trên câu, thường được thể hiện ở dạng chuẩn
+
+\u{Dạng chuẩn hội (Conjunctive Normal Form - CNF)} (phổ quát)\nl
+    {\em phép hội} của $\underbrace{\mbox{các {\em phép tuyển} của các {\em literal}}}$\nl
+    \phantom{{\em phép hội} của các {\em phép t}}{\em các mệnh đề}\nl
+    Ví dụ: $(A \lor \lnot B) \land (B \lor \lnot C \lor \lnot D)$
+
+\u{Dạng chuẩn tuyển (Disjunctive Normal Form - DNF)} (phổ quát)\nl
+    {\em phép tuyển} của $\underbrace{\mbox{các {\em phép hội} của các {\em literal}}}$\nl
+    \phantom{{\em phép tuyển} của các {\em phép h}}{\em các số hạng}\nl
+    Ví dụ: $(A\land B) \lor (A \land \lnot C) \lor (A \land \lnot D)
+           \lor (\lnot B \land \lnot C) \lor (\lnot B \land \lnot D)$
+
+\u{Dạng Horn (Horn Form)} (bị hạn chế)\nl
+    {\em phép hội} của các {\em mệnh đề Horn} (các mệnh đề có $\leq 1$ literal khẳng định)\nl
+    Ví dụ: $(A \lor \lnot B) \land (B \lor \lnot C \lor \lnot D)$\nl
+    Thường được viết dưới dạng tập hợp các phép kéo theo:\nl
+    $B \implies A$ và $(C \land D) \implies B$
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tính hợp lệ và Tính thỏa mãn được}
+
+Một câu là \u{hợp lệ (valid)} nếu nó đúng trong \u{tất cả} các mô hình\nl
+ví dụ, $A \lor \lnot A$, \qquad $A \implies A$, \qquad 
+      $(A \land (A \implies B)) \implies B$
+
+Tính hợp lệ được liên kết với suy diễn qua \u{Định lý suy diễn (Deduction Theorem)}:\nl
+      $KB \models \alpha$ khi và chỉ khi $(KB \implies \alpha)$ là hợp lệ
+
+Một câu là \u{thỏa mãn được (satisfiable)} nếu nó đúng trong \u{một số} mô hình\nl
+ví dụ, $A\lor B$,\qquad $C$
+
+Một câu là \u{không thỏa mãn được (unsatisfiable)} nếu nó không đúng trong \u{bất kỳ} mô hình nào\nl
+ví dụ, $A\land \lnot A$
+
+Tính thỏa mãn được liên kết với suy diễn thông qua điều sau:\nl
+      $KB \models \alpha$ khi và chỉ khi $(KB \land \lnot \alpha)$ là không thỏa mãn được\\
+tức là, chứng minh $\alpha$ bằng phương pháp {\em phản chứng (reductio ad absurdum)}
+
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Các phương pháp chứng minh}
+
+Các phương pháp chứng minh chia thành (khoảng) hai loại:\al
+
+\u{Kiểm tra mô hình (Model checking)}\al
+    liệt kê bảng chân lý (đúng đắn và đầy đủ cho logic mệnh đề)\al
+    tìm kiếm heuristic trong không gian mô hình (đúng đắn nhưng không đầy đủ)\nl
+       ví dụ, thuật toán GSAT (Bài tập 6.15)
+
+
+\u{Áp dụng các quy tắc suy diễn (Application of inference rules)}\al
+    Sinh (đúng đắn) hợp pháp các câu mới từ những câu cũ\al
+    \u{Chứng minh (Proof)} = một chuỗi các ứng dụng quy tắc suy diễn\nl
+       Có thể sử dụng các quy tắc suy diễn như các toán tử trong một thuật toán tìm kiếm tiêu chuẩn.
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Các quy tắc suy diễn cho logic mệnh đề}
+
+\u{Hợp giải (Resolution)} (đối với dạng CNF): đầy đủ cho logic mệnh đề
+\[
+\frac{\alpha \lor \beta,\qquad \lnot \beta \lor \gamma}{\alpha \lor \gamma}
+\]
+
+\u{Modus Ponens} (đối với dạng Horn): đầy đủ cho KB Horn
+\[\frac{\alpha_1,\ldots,\alpha_n,\qquad \alpha_1\land \cdots \land \alpha_n\implies \beta}{\beta} 
+\]
+Có thể được sử dụng với \u{suy diễn tiến (forward chaining)} hoặc \u{suy diễn lùi (backward chaining)}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tóm tắt}
+
+Các tác tử logic áp dụng \u{suy diễn (inference)} vào \u{cơ sở tri thức (knowledge base)}\al
+để rút ra thông tin mới và đưa ra quyết định
+
+Các khái niệm cơ bản của logic:\al
+-- \u{cú pháp (syntax)}: cấu trúc hình thức của \u{các câu}\al
+-- \u{ngữ nghĩa (semantics)}: \u{chân lý} của các câu so với \u{mô hình}\al
+-- \u{kéo theo (entailment)}: tính chân lý tất yếu của một câu khi cho trước một câu khác\al
+-- \u{suy diễn (inference)}: dẫn xuất ra các câu từ các câu khác\al
+-- \u{tính đúng đắn (soundness)}: các dẫn xuất chỉ tạo ra các câu kéo theo\al
+-- \u{tính đầy đủ (completeness)}: các dẫn xuất có thể tạo ra tất cả các câu kéo theo
+
+Thế giới wumpus đòi hỏi khả năng biểu diễn thông tin
+từng phần và bị phủ định, lập luận theo các trường hợp, v.v.
+
+Logic mệnh đề đủ cho một số nhiệm vụ này
+
+Phương pháp bảng chân lý là đúng đắn và đầy đủ đối với logic mệnh đề
+
+
+\end{huge} 
+\end{document}

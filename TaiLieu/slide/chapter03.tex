@@ -1,0 +1,745 @@
+\documentclass[fleqn]{article}
+
+\usepackage{aima-slides}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{lmodern}
+
+\begin{document}
+
+\begin{huge}
+\titleslide{Giải quyết vấn đề và tìm kiếm}{Chương 3, Phần 1--5}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Nội dung}
+
+\blob Tác nhân giải quyết vấn đề
+
+\blob Các loại bài toán
+
+\blob Khởi tạo bài toán
+
+\blob Các bài toán ví dụ
+
+\blob Các thuật toán tìm kiếm cơ bản
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tác nhân giải quyết vấn đề}
+
+Một dạng hạn chế của tác nhân tổng quát:
+
+\input{\file{algorithms}{simple-PS-agent-algorithm}}
+
+Lưu ý: đây là giải quyết vấn đề {\em ngoại tuyến (offline)}.\\
+Giải quyết vấn đề {\em trực tuyến (online)} bao gồm việc hành động mà không có
+tri thức đầy đủ về bài toán và giải pháp.
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ: Romania}
+
+Đang đi nghỉ ở Romania; hiện đang ở Arad.\\
+Chuyến bay khởi hành vào ngày mai từ Bucharest
+
+\u{Định dạng mục tiêu}:\nl
+có mặt ở Bucharest
+
+\u{Khởi tạo bài toán}:\nl
+{\em trạng thái}: các thành phố khác nhau\nl
+{\em toán tử}: lái xe giữa các thành phố
+
+\u{Tìm giải pháp}:\nl
+chuỗi các thành phố, ví dụ: Arad, Sibiu, Fagaras, Bucharest
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ: Romania}
+
+
+\epsfxsize=\maxfigwidth
+\fig{\file{figures}{romania.ps}}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Các loại bài toán}
+
+\u{Tất định, có thể truy cập} $\Longrightarrow$ {\em bài toán trạng thái đơn (single-state)}\\
+\u{Tất định, không thể truy cập} $\Longrightarrow$ {\em bài toán đa trạng thái (multiple-state)}
+
+\u{Không tất định, không thể truy cập} $\Longrightarrow$ {\em bài toán dự phòng (contingency)}\nl
+phải sử dụng cảm biến trong quá trình thực thi \nl
+giải pháp là một {\em cây} hoặc {\em chính sách} \nl
+thường {\em đan xen} giữa tìm kiếm và thực thi
+
+\u{Không gian trạng thái chưa biết} $\Longrightarrow$ {\em bài toán khám phá} (``trực tuyến'')
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ: thế giới máy hút bụi}
+
+\begin{tabular}{lr}
+\hbox{\begin{minipage}[b]{0.6\textwidth}
+\u{Trạng thái đơn}, bắt đầu ở \#5. \q{Giải pháp} 
+\\
+
+\u{Đa trạng thái}, bắt đầu ở $\{1,2,3,4,5,6,7,8\}$\\
+ví dụ: $Phải$ đi đến $\{2,4,6,8\}$. \q{Giải pháp}
+\\
+
+\u{Dự phòng}, bắt đầu ở \#5\\
+Định luật Murphy: $Hút$ có thể làm bẩn một tấm thảm đang sạch\\
+Cảm biến cục bộ: chỉ biết có bụi và vị trí hiện tại.\\
+\q{Giải pháp}
+\end{minipage}}
+&
+\epsfxsize=0.4\textwidth
+\epsffile{\file{figures}{vacuum2-space.ps}}
+\end{tabular}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Khởi tạo bài toán trạng thái đơn}
+
+Một {\em bài toán} được định nghĩa bởi bốn mục:
+
+\u{{\em trạng thái ban đầu}} \quad ví dụ: ``ở Arad''
+
+\u{{\em toán tử}} (hoặc {\em hàm kế tiếp} $S(x)$) \nl
+ví dụ: Arad $\rightarrow$ Zerind \qquad Arad $\rightarrow$ Sibiu \qquad v.v.
+
+\u{{\em kiểm tra mục tiêu}}, có thể là\nl
+{\em tường minh}, ví dụ: $x$ = ``ở Bucharest''\nl
+{\em ngầm định}, ví dụ: $NoDirt(x)$
+
+\u{{\em chi phí đường đi}} (cộng dồn)\nl
+ví dụ: tổng khoảng cách, số lượng toán tử đã thực thi, v.v.
+
+Một {\em giải pháp} là một chuỗi các toán tử\\
+dẫn từ trạng thái ban đầu đến một trạng thái mục tiêu
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Chọn lựa một không gian trạng thái}
+
+Thế giới thực thì phức tạp một cách vô lý \nl
+$\Rightarrow$ không gian trạng thái phải được {\em trừu tượng hóa} để giải quyết bài toán
+
+(Trừu tượng) trạng thái = tập hợp các trạng thái thực
+
+(Trừu tượng) toán tử = kết hợp phức tạp của các hành động thực\nl
+   ví dụ: ``Arad $\rightarrow$ Zerind'' đại diện cho một tập hợp phức tạp\nnl
+   các tuyến đường có thể, đường vòng, trạm dừng chân, v.v. \\
+Để đảm bảo tính khả thi, \u{bất kỳ} trạng thái thực nào ``ở Arad''\al
+đều phải đi được đến {\em một} trạng thái thực nào đó ``ở Zerind''
+
+(Trừu tượng) giải pháp = \nl
+   tập hợp các đường đi thực tế là giải pháp trong thế giới thực
+
+Mỗi hành động trừu tượng phải ``dễ dàng'' hơn bài toán ban đầu!
+
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ: Câu đố 8 ô (8-puzzle)}
+
+\epsfxsize=0.6\textwidth
+\fig{\file{figures}{8puzzle.ps}}
+
+\q{trạng thái}\\
+\q{toán tử}\\
+\q{kiểm tra mục tiêu}\\
+\q{chi phí đường đi}
+
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ: Câu đố 8 ô (8-puzzle)}
+
+\epsfxsize=0.6\textwidth
+\fig{\file{figures}{8puzzle.ps}}
+
+\q{trạng thái}: vị trí nguyên của các ô vuông (bỏ qua các vị trí trung gian)\\
+\q{toán tử}: di chuyển ô trống sang trái, phải, lên, xuống (bỏ qua kẹt v.v.)\\
+\q{kiểm tra mục tiêu}: = trạng thái mục tiêu (được cho trước)\\
+\q{chi phí đường đi}: 1 cho mỗi lần di chuyển
+
+[Lưu ý: giải pháp tối ưu của họ Câu đố $n$-ô là NP-khó]
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ: đồ thị không gian trạng thái thế giới máy hút bụi}
+
+\epsfxsize=0.8\textwidth
+\fig{\file{figures}{vacuum2-paths.ps}}
+
+\q{trạng thái}\\
+\q{toán tử}\\
+\q{kiểm tra mục tiêu}\\
+\q{chi phí đường đi}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ: đồ thị không gian trạng thái thế giới máy hút bụi}
+
+\epsfxsize=0.8\textwidth
+\fig{\file{figures}{vacuum2-paths.ps}}
+
+\q{trạng thái}: số nguyên biểu thị vị trí bụi và robot (bỏ qua {\em lượng} bụi)\\
+\q{toán tử}: $Trái$, $Phải$, $Hút$\\
+\q{kiểm tra mục tiêu}: không còn bụi\\
+\q{chi phí đường đi}: 1 cho mỗi toán tử
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ: lắp ráp robot}
+
+\epsfxsize=0.5\textwidth
+\fig{\file{figures}{stanford-arm+blocks.ps}}
+
+\q{trạng thái}: tọa độ giá trị thực của\nl
+các khớp robot\nl
+các bộ phận của vật thể cần lắp ráp
+
+\q{toán tử}: chuyển động liên tục của các khớp robot
+
+\q{kiểm tra mục tiêu}: lắp ráp hoàn chỉnh {\em không tính robot!}
+
+\q{chi phí đường đi}: thời gian thực thi
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Các thuật toán tìm kiếm}
+
+Ý tưởng cơ bản:\al
+khám phá ngoại tuyến, mô phỏng không gian trạng thái\al
+bằng cách sinh ra các trạng thái kế tiếp từ những trạng thái đã khám phá\nnl
+(còn gọi là {\em khai triển} trạng thái)
+
+\input{\file{algorithms}{informal-gs-algorithm}}
+
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ tìm kiếm tổng quát}
+
+\epsfxsize=0.7\textwidth
+\fig{\sfile{figures}{general-romania1.ps}}
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{Ví dụ tìm kiếm tổng quát}
+
+\epsfxsize=0.7\textwidth
+\fig{\sfile{figures}{general-romania2.ps}}
+
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{Ví dụ tìm kiếm tổng quát}
+
+\epsfxsize=0.7\textwidth
+\fig{\sfile{figures}{general-romania3.ps}}
+
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{Ví dụ tìm kiếm tổng quát}
+
+\epsfxsize=0.7\textwidth
+\fig{\sfile{figures}{general-romania4.ps}}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Cài đặt các thuật toán tìm kiếm}
+
+\input{\file{algorithms}{general-search-algorithm}}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Cài đặt (tiếp theo): trạng thái (states) vs.~nút (nodes)}
+
+Một {\em trạng thái} là một (biểu diễn của) cấu hình vật lý\\
+Một {\em nút} là một cấu trúc dữ liệu tạo thành một phần của cây tìm kiếm\nl
+    bao gồm {\em nút cha}, {\em các nút con}, {\em độ sâu}, {\em chi phí đường đi} $g(x)$\\
+{\em Trạng thái} không có nút cha, nút con, độ sâu, hay chi phí đường đi!
+
+\epsfxsize=0.65\textwidth
+\fig{\file{figures}{state-vs-node.ps}}
+
+Hàm {\sc Expand} (Khai triển) tạo ra các nút mới, điền vào các trường
+khác nhau và sử dụng {\sc Operators} (Toán tử) (hoặc {\sc SuccessorFn}) của
+bài toán để tạo ra các trạng thái tương ứng.
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Các chiến lược tìm kiếm}
+
+Một chiến lược được xác định bằng cách chọn {\em thứ tự khai triển nút}
+
+Các chiến lược được đánh giá dựa trên các khía cạnh sau:\nl
+\u{tính hoàn chỉnh (completeness)}---nó có luôn tìm ra giải pháp nếu giải pháp tồn tại không?\nl
+\u{độ phức tạp thời gian}---số lượng nút được tạo/khai triển\nl
+\u{độ phức tạp không gian}---số lượng nút tối đa lưu trong bộ nhớ\nl
+\u{tính tối ưu (optimality)}---nó có luôn tìm ra giải pháp có chi phí thấp nhất không?
+
+Độ phức tạp thời gian và không gian được đo lường thông qua\nl
+$b$---hệ số rẽ nhánh (branching factor) tối đa của cây tìm kiếm\nl
+$d$---độ sâu của giải pháp có chi phí thấp nhất\nl
+$m$---độ sâu tối đa của không gian trạng thái (có thể là $\infty$)
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Các chiến lược tìm kiếm mù (Uninformed search)}
+
+Chiến lược {\em tìm kiếm mù} chỉ sử dụng những thông tin có sẵn\\
+trong định nghĩa của bài toán
+
+Tìm kiếm theo chiều rộng (Breadth-first search)
+
+Tìm kiếm chi phí đồng nhất (Uniform-cost search)
+
+Tìm kiếm theo chiều sâu (Depth-first search)
+
+Tìm kiếm sâu hạn chế (Depth-limited search)
+
+Tìm kiếm sâu lặp sâu dần (Iterative deepening search)
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tìm kiếm theo chiều rộng}
+
+Khai triển nút chưa khai triển ở độ sâu nông nhất
+
+\u{Cài đặt}:\nl
+{\sc QueueingFn} (Hàm hàng đợi) = đặt các nút kế tiếp vào cuối hàng đợi
+
+\epsfxsize=1.1\textwidth
+\fig{\sfile{figures}{bfs-romania1.ps}}
+
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{Tìm kiếm theo chiều rộng}
+
+.
+
+.\\
+.
+
+\epsfxsize=1.1\textwidth
+\fig{\sfile{figures}{bfs-romania2.ps}}
+
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{Tìm kiếm theo chiều rộng}
+
+.
+
+.\\
+.
+
+\epsfxsize=1.1\textwidth
+\fig{\sfile{figures}{bfs-romania3.ps}}
+
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{Tìm kiếm theo chiều rộng}
+
+.
+
+.\\
+.
+
+\epsfxsize=1.1\textwidth
+\fig{\sfile{figures}{bfs-romania4.ps}}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Các thuộc tính của tìm kiếm theo chiều rộng}
+
+\q{Hoàn chỉnh}
+
+\q{Thời gian}
+
+\q{Không gian}
+
+\q{Tối ưu}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Các thuộc tính của tìm kiếm theo chiều rộng}
+
+\q{Hoàn chỉnh} Có (nếu $b$ là hữu hạn)
+
+\q{Thời gian} $1+b+b^2+b^3+\ldots +b^d = O(b^d)$, tức là tăng theo hàm mũ của $d$
+
+\q{Không gian} $O(b^d)$ (lưu giữ mọi nút trong bộ nhớ)
+
+\q{Tối ưu} Có (nếu chi phí = 1 cho mỗi bước); thông thường thì không tối ưu
+
+{\em Không gian} là một vấn đề lớn; có thể dễ dàng tạo ra các nút ở mức 1MB/giây\nl
+do đó 24 giờ = 86GB.
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Romania với chi phí bước tính bằng km}
+
+\epsfxsize=1.0\textwidth
+\fig{\file{figures}{romania2.ps}}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tìm kiếm chi phí đồng nhất}
+
+Khai triển nút chưa khai triển có chi phí thấp nhất
+
+\u{Cài đặt}:\nl
+{\sc QueueingFn} = chèn theo thứ tự chi phí đường đi tăng dần
+
+\epsfxsize=1.1\textwidth
+\fig{\sfile{figures}{uc-romania1.ps}}
+
+
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{Tìm kiếm chi phí đồng nhất}
+
+.
+
+.\\
+.
+
+\epsfxsize=1.1\textwidth
+\fig{\sfile{figures}{uc-romania2.ps}}
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{Tìm kiếm chi phí đồng nhất}
+
+.
+
+.\\
+.
+
+\epsfxsize=1.1\textwidth
+\fig{\sfile{figures}{uc-romania3.ps}}
+
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{Tìm kiếm chi phí đồng nhất}
+
+.
+
+.\\
+.
+
+\epsfxsize=1.1\textwidth
+\fig{\sfile{figures}{uc-romania4.ps}}
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Các thuộc tính của tìm kiếm chi phí đồng nhất}
+
+\q{Hoàn chỉnh} Có, nếu chi phí mỗi bước $\geq \epsilon$
+
+\q{Thời gian} Số nút có $g \leq {}$ chi phí của giải pháp tối ưu
+
+\q{Không gian} Số nút có $g \leq {}$ chi phí của giải pháp tối ưu
+
+\q{Tối ưu} Có
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tìm kiếm theo chiều sâu}
+
+Khai triển nút chưa khai triển ở độ sâu sâu nhất
+
+\u{Cài đặt}:\nl
+{\sc QueueingFn} = chèn các nút kế tiếp vào đầu hàng đợi
+
+\epsfxsize=1.1\textwidth
+\fig{\sfile{figures}{dfs-romania1.ps}}
+
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{Tìm kiếm theo chiều sâu}
+
+.
+
+.\\
+.
+
+\epsfxsize=1.1\textwidth
+\fig{\sfile{figures}{dfs-romania2.ps}}
+
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{Tìm kiếm theo chiều sâu}
+
+.
+
+.\\
+.
+
+\epsfxsize=1.1\textwidth
+\fig{\sfile{figures}{dfs-romania3.ps}}
+
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{Tìm kiếm theo chiều sâu}
+
+.
+
+.\\
+.
+
+\epsfxsize=1.1\textwidth
+\fig{\sfile{figures}{dfs-romania4.ps}}
+
+\vspace*{-0.6in}
+
+Tức là, tìm kiếm theo chiều sâu có thể rơi vào các vòng lặp vô hạn\\
+Cần một không gian tìm kiếm hữu hạn, không có chu trình (hoặc phải kiểm tra trạng thái lặp lại)
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tìm kiếm theo chiều sâu trên cây nhị phân độ sâu 3}
+
+\vspace*{0.3in}
+
+\epsfxsize=1.0\textwidth
+\fig{\sfile{figures}{dfs-binary1.ps}}
+
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{Tìm kiếm theo chiều sâu trên cây nhị phân độ sâu 3}
+
+\vspace*{0.3in}
+
+\epsfxsize=1.0\textwidth
+\fig{\sfile{figures}{dfs-binary2.ps}}
+
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{Tìm kiếm theo chiều sâu trên cây nhị phân độ sâu 3}
+
+\vspace*{0.3in}
+
+\epsfxsize=1.0\textwidth
+\fig{\sfile{figures}{dfs-binary3.ps}}
+
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{Tìm kiếm theo chiều sâu trên cây nhị phân độ sâu 3}
+
+\vspace*{0.3in}
+
+\epsfxsize=1.0\textwidth
+\fig{\sfile{figures}{dfs-binary4.ps}}
+
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{Tìm kiếm theo chiều sâu trên cây nhị phân độ sâu 3}
+
+\vspace*{0.3in}
+
+\epsfxsize=1.0\textwidth
+\fig{\sfile{figures}{dfs-binary5.ps}}
+
+
+%%%%%%%%%%%% SLide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tìm kiếm theo chiều sâu trên cây nhị phân độ sâu 3 (tiếp)}
+
+\vspace*{0.3in}
+
+\epsfxsize=1.0\textwidth
+\fig{\sfile{figures}{dfs-binary6.ps}}
+
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{Tìm kiếm theo chiều sâu trên cây nhị phân độ sâu 3}
+
+\vspace*{0.3in}
+
+\epsfxsize=1.0\textwidth
+\fig{\sfile{figures}{dfs-binary7.ps}}
+
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{Tìm kiếm theo chiều sâu trên cây nhị phân độ sâu 3}
+
+\vspace*{0.3in}
+
+\epsfxsize=1.0\textwidth
+\fig{\sfile{figures}{dfs-binary8.ps}}
+
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{Tìm kiếm theo chiều sâu trên cây nhị phân độ sâu 3}
+
+\vspace*{0.3in}
+
+\epsfxsize=1.0\textwidth
+\fig{\sfile{figures}{dfs-binary9.ps}}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Các thuộc tính của tìm kiếm theo chiều sâu}
+
+\q{Hoàn chỉnh}
+
+\q{Thời gian}
+
+\q{Không gian}
+
+\q{Tối ưu}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Các thuộc tính của tìm kiếm theo chiều sâu}
+
+\q{Hoàn chỉnh} Không: thất bại trong không gian có độ sâu vô hạn, không gian có chu trình\nl
+Sửa đổi để tránh lặp lại các trạng thái trên đường đi\nnl
+$\Rightarrow$ hoàn chỉnh trong các không gian hữu hạn
+
+\q{Thời gian} $O(b^m)$: rất tệ nếu $m$ lớn hơn nhiều so với $d$\nl
+        nhưng nếu các giải pháp dày đặc, có thể nhanh hơn nhiều so với tìm kiếm theo chiều rộng
+
+\q{Không gian} $O(bm)$, tức là không gian tuyến tính!
+
+\q{Tối ưu} Không
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tìm kiếm sâu hạn chế (Depth-limited search)}
+
+= tìm kiếm theo chiều sâu với giới hạn độ sâu là $l$
+
+\u{Cài đặt}:\nl
+Các nút ở độ sâu $l$ không có nút con kế tiếp
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tìm kiếm sâu lặp sâu dần (Iterative deepening search)}
+
+\input{\file{algorithms}{ids-algorithm}}
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tìm kiếm sâu lặp sâu dần $l=0$}
+
+\vspace*{0.3in}
+
+\epsfxsize=1.1\textwidth
+\fig{\sfile{figures}{ids-romania1.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tìm kiếm sâu lặp sâu dần $l=1$}
+
+\vspace*{0.3in}
+
+\epsfxsize=1.1\textwidth
+\fig{\sfile{figures}{ids-romania1.ps}}
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{Tìm kiếm sâu lặp sâu dần $l=1$}
+
+\vspace*{0.3in}
+
+\epsfxsize=1.1\textwidth
+\fig{\sfile{figures}{ids-romania2.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tìm kiếm sâu lặp sâu dần $l=2$}
+
+\vspace*{0.3in}
+
+\epsfxsize=1.1\textwidth
+\fig{\sfile{figures}{ids-romania1.ps}}
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{Tìm kiếm sâu lặp sâu dần $l=2$}
+
+\vspace*{0.3in}
+
+\epsfxsize=1.1\textwidth
+\fig{\sfile{figures}{ids-romania2.ps}}
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{Tìm kiếm sâu lặp sâu dần $l=2$}
+
+\vspace*{0.3in}
+
+\epsfxsize=1.1\textwidth
+\fig{\sfile{figures}{ids-romania3.ps}}
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{Tìm kiếm sâu lặp sâu dần $l=2$}
+
+\vspace*{0.3in}
+
+\epsfxsize=1.1\textwidth
+\fig{\sfile{figures}{ids-romania4.ps}}
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{Tìm kiếm sâu lặp sâu dần $l=2$}
+
+\vspace*{0.3in}
+
+\epsfxsize=1.1\textwidth
+\fig{\sfile{figures}{ids-romania5.ps}}
+
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Các thuộc tính của tìm kiếm sâu lặp sâu dần}
+
+\q{Hoàn chỉnh}
+
+\q{Thời gian}
+
+\q{Không gian}
+
+\q{Tối ưu}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Các thuộc tính của tìm kiếm sâu lặp sâu dần}
+
+\q{Hoàn chỉnh} Có
+
+\q{Thời gian} $(d+1)b^0 + d b^1 + (d-1)b^2 + \ldots + b^d = O(b^d)$
+
+\q{Không gian} $O(bd)$
+
+\q{Tối ưu} Có, nếu chi phí bước = 1\nl
+Có thể sửa đổi để khám phá trên cây chi phí đồng nhất
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tóm tắt}
+
+Khởi tạo bài toán thường yêu cầu trừu tượng hóa các chi tiết của thế giới thực
+để định nghĩa một không gian trạng thái có thể khả thi để khám phá
+
+Nhiều chiến lược tìm kiếm mù khác nhau
+
+Tìm kiếm sâu lặp sâu dần chỉ sử dụng không gian tuyến tính\\
+và không tốn nhiều thời gian hơn các thuật toán tìm kiếm mù khác
+
+
+
+\end{huge}
+\end{document}
+
+
+
+
+
+
+

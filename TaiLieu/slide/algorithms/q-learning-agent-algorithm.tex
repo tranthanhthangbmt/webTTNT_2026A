@@ -1,0 +1,20 @@
+\code{
+\func{Q-Learning-Agent}{\var{e}}{an action}
+    \firststatic{Q}{a table of action values}
+    \static{N}{a table of state-action frequencies}
+    \static{a}{the last action taken}
+    \static{i}{the previous state visited}
+    \static{r}{the reward received in state \var{i}}
+\bodysep
+    \setq{j}{\noprog{State}[\var{e}]}
+    \key{if} \var{i} is non-null \key{then}
+          \setq{\var{N}[\var{a}{\ac}\var{i}]}{\var{N}[\var{a}{\ac}\var{i}] + 1}
+          \setq{\var{Q}[\var{a}{\ac}\var{i}]}{\var{Q}[\var{a}{\ac}\var{i}] + $\alpha(\var{r} + \max_{a'} \var{Q}[a'{\ac}\var{j}] - \var{Q}[\var{a}{\ac}\var{i}])$}
+    \key{if} \prog{Terminal?}[\var{e}] \key{then}
+          \setq{\var{i}}{null}
+    \key{else} 
+          \setq{\var{i}}{\var{j}}
+          \setq{\var{r}}{\noprog{Reward}[\var{e}]}
+    \setq{\var{a}}{$\arg\max_{a'} f(\var{Q}[a',\var{j}],\var{N}[a',\var{j}])$}
+    \key{return} \var{a}
+}

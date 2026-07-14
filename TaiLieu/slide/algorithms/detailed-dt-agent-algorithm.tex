@@ -1,0 +1,11 @@
+\code{
+\func{Decision-Theoretic-Agent}{\var{$\mbf{E}_t$}}{an action}
+    \firstinputs{$\mbf{E}_t$}{the percept at time $t$}
+    \firststatic{BN}{a belief network with nodes $\mbf{X}$}
+    \static{$Bel(\mbf{X})$}{a vector of probabilities, updated over time}
+\bodysep
+    \setq{$\widehat{Bel}(\mbf{X}_t)$}{$\sum\nolimits_{\mbf{x}_{t-1}} \pv(\mbf{X}_t | \mbf{X}_{t-1}{=}\mbf{x}_{t-1}{\ac}A_{t-1}) Bel(\mbf{X}_{t-1}{=}\mbf{x}_{t-1})$}
+    \setq{$Bel(\mbf{X}_t)$}{$\alpha \pv(\mbf{E}_t | \mbf{X}_t) \widehat{Bel}(\mbf{X}_t)$}
+    \setq{\var{action}}{$\arg\max_{A_t} \sum\nolimits_{\mbf{x}_{t}} \left[ Bel(\mbf{X}_t{=}\mbf{x}_t) \sum\nolimits_{\mbf{x}_{t+1}} P(\mbf{X}_{t+1} {=} \mbf{x}_{t+1} | \mbf{X}_t{=}\mbf{x}_t{\ac}A_t) U(\mbf{x}_{t+1}) \right]$}
+    \key{return} \var{action}
+}

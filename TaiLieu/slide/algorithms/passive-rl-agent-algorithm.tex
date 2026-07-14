@@ -1,0 +1,13 @@
+\code{
+\func{Passive-RL-Agent}{\var{e}}{an action}
+    \firststatic{U}{a table of utility estimates}
+    \static{N}{a table of frequencies for states}
+    \static{M}{a table of transition probabilities from state to state}
+    \static{percepts}{a percept sequence (initially empty)}
+\bodysep
+    add \var{e} to \var{percepts}
+    increment \var{N}[\noprog{State}[\var{e}]]
+    \setq{\var{U}}{\prog{Update}(\var{U{\ac}e{\ac}percepts{\ac}M{\ac}N})}
+    \key{if} \prog{Terminal?}[\var{e}] \key{then} \setq{\var{percepts}}{the empty sequence} 
+    \key{return} the action \var{Observe}
+}

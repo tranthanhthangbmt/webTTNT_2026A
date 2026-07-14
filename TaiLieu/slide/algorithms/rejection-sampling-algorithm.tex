@@ -1,0 +1,9 @@
+\code{
+\func{RejectionSampling}{\v{X},\mbf{e},\v{bn},\v{N}}{an approximation to $P(X|\mbf{e})$}
+    \setq{\mbf{N}[\v{X}]}{a vector of counts over \v{X}, initially zero}
+    \k{for} \v{j} = 1 to $N$ \k{do}
+          \setq{\mbf{x}}{\prog{PriorSample}(\v{bn})}
+          \k{if} \mbf{x} is consistent with \mbf{e} \k{then}
+              \setq{\mbf{N}[\v{x}]}{\mbf{N}[\v{x}]+1} where \v{x} is the value of \v{X} in \mbf{x}
+    \k{return} \noprog{Normalize}(\mbf{N}[\v{X}])
+}

@@ -1,0 +1,21 @@
+\code{
+\proc{Forward-Chain}{\var{KB{\ac}p}}
+\bodysep
+    \key{if} there is a sentence in \var{KB} that is a renaming of \var{p} \key{then return}
+    Add \var{p} to \var{KB}
+    \key{for each} sentence \var{r} \key{in} \var{KB} where \noprog{Standardize}(\var{r}) = $({\ts}\var{p}_1\land\ldots\land \var{p_n}\implies \var{q})$ \key{do} 
+          \key{for each} $i$ such that \setq{$\theta$}{$\prog{Unify}({\ts}\var{p}_i{\ac}\var{p})$} succeeds \key{do}
+                \prog{Find-And-Infer}(\var{KB}{\ac}$[p_1{\ac}\ldots,p_{i-1},p_{i+1},\ldots,p_n]${\ac}\var{q}{\ac}$\theta$)
+    \key{end}
+\fnsep
+\proc{Find-And-Infer}{\var{KB{\ac}premises{\ac}conclusion{\ac}$\theta$}}
+\bodysep
+    \key{if} $\var{premises} = [\,]$ \key{then} 
+          \prog{Forward-Chain}(\var{KB}{\ac}\noprog{Subst}($\theta${\ac}\var{conclusion}))
+    \key{else for each} $p'$ \key{in} \var{KB} such that \setq{$\theta_2$}{\prog{Unify}({\ts}$p'${\ac}\noprog{Subst}($\theta${\ac}\prog{First}({\ts}\var{premises})))} succeeds \key{do}
+          \prog{Find-And-Infer}(\var{KB}{\ac}\prog{Rest}({\ts}\var{premises}){\ac}\var{conclusion}{\ac}\prog{Compose}($\theta{\ac}\theta_2$))
+    \key{end}
+}
+
+
+

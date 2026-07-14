@@ -1,0 +1,40 @@
+\code{
+\func{Chart-Parse}{\var{string{\ac}grammar}}{\var{chart}}
+\bodysep
+    \setq{\var{chart}[0]}{\{$[0,0,S' \bnfeq \chdot S]$\}}
+    \key{for} \setq{\var{v}}{\key{from} 1 \key{to} \prog{Length}(\var{string})} \key{do}
+      \prog{Scanner}(\var{v{\ac}string}[\var{v}])
+    \key{end}
+    \key{return} \var{chart}
+%  \fnsep
+\subfnsep
+    \proc{Add-Edge}{\var{edge}}
+          \key{if} \var{edge} in \var{chart}[\prog{End}(\var{edge})] \key{then} do nothing
+          \key{else}
+                push \var{edge} on \var{chart}[\prog{End}(\var{edge})]
+                \key{if} \prog{Complete?}(\var{edge}) \key{then} \prog{Completer}(\var{edge})
+                \key{else} \prog{Predictor}(\var{edge})
+%  \fnsep
+\subfnsep
+    \proc{Scanner}{\var{j{\ac}word}}
+          \key{for each} $[i,j, A \bnfeq \alpha \chdot B \beta]$ \key{in} \var{chart}[\var{j}] \key{do}
+                \key{if} \var{word} is of category $B$ \key{then}
+                      \prog{Add-Edge}($[i,j{+}1,\;A \bnfeq \alpha B \chdot \beta]$)
+          \key{end}
+%  \fnsep
+\subfnsep
+    \proc{Predictor}{\var{$[i,j,\; A \bnfeq \alpha\chdot B \beta]$}}
+          \key{for each} $(B \bnfeq \gamma)$ \key{in} \prog{Rewrites-For}($B${\ac}\var{grammar}) \key{do}
+                \prog{Add-Edge}($[j,j,\; B \bnfeq \chdot \gamma]$)
+          \key{end}
+%  \fnsep
+\subfnsep
+    \proc{Completer}{\var{$[j,k,\; B \bnfeq \gamma \chdot]$}}
+          \key{for each} $[i,j, A \bnfeq \alpha \chdot B' \beta]$ \key{in} \var{chart}[\var{j}] \key{do}
+                \key{if} $B = B'$ \key{then}
+                      \prog{Add-Edge}($[i,k,\; A \bnfeq \alpha B' \chdot \beta]$)
+          \key{end}
+%\key{end} \prog{Chart-Parse}
+}
+
+

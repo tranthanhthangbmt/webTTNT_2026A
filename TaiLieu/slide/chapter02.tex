@@ -1,0 +1,235 @@
+\documentclass[fleqn]{article}
+
+\usepackage{aima-slides}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{lmodern}
+
+\begin{document}
+
+\begin{huge}
+\titleslide{Tác nhân thông minh}{Chương 2}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Nội dung}
+
+\blob PAGE (Nhận thức, Hành động, Mục tiêu, Môi trường)
+
+\blob Các loại môi trường
+
+\blob Hàm tác nhân và chương trình tác nhân
+
+\blob Các loại tác nhân
+
+\blob Thế giới máy hút bụi
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{PAGE}
+
+Đầu tiên phải xác định bối cảnh để thiết kế tác nhân thông minh
+
+Xem xét, ví dụ: nhiệm vụ thiết kế một chiếc taxi tự động:
+
+\q{Nhận thức (Percepts)}
+
+\q{Hành động (Actions)}
+
+\q{Mục tiêu (Goals)}
+
+\q{Môi trường (Environment)}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{PAGE}
+
+Đầu tiên phải xác định bối cảnh để thiết kế tác nhân thông minh
+
+Xem xét, ví dụ: nhiệm vụ thiết kế một chiếc taxi tự động:
+
+\q{Nhận thức (Percepts)} video, gia tốc kế, đồng hồ đo, cảm biến động cơ, bàn phím, GPS, $\ldots$
+
+\q{Hành động (Actions)} bẻ lái, tăng tốc, phanh, bấm còi, nói/hiển thị, $\ldots$
+
+\q{Mục tiêu (Goals)} an toàn, đến đích, tối đa hóa lợi nhuận, tuân thủ luật pháp, sự thoải mái của hành khách, $\ldots$
+
+\q{Môi trường (Environment)} đường phố Mỹ, đường cao tốc, giao thông, người đi bộ, thời tiết, khách hàng, $\ldots$
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tác nhân mua sắm trên Internet}
+
+\q{Nhận thức}
+
+\q{Hành động}
+
+\q{Mục tiêu}
+
+\q{Môi trường}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tác nhân hợp lý (Rational agents)}
+
+Không mất tính tổng quát, ``mục tiêu'' có thể được xác định bằng \u{độ đo hiệu suất}\\
+xác định một giá trị số cho bất kỳ lịch sử môi trường nào
+
+\u{Hành động hợp lý}: bất kỳ hành động nào tối đa hóa giá trị kỳ vọng của
+độ đo hiệu suất \u{cho trước chuỗi nhận thức cho đến nay}
+
+Hợp lý $\neq$ toàn tri (omniscient)\\
+Hợp lý $\neq$ thấu thị (clairvoyant)\\
+Hợp lý $\neq$ thành công (successful)
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Các loại môi trường}
+
+\resizebox{\textwidth}{!}{
+\begin{mytabular}{@{\extracolsep\fill}|@{\squad}l@{\quad}|cccc@{\squad}|}
+\hline
+\tabhead & {Xếp bài (Solitaire)} & {Cờ đố (Backgammon)} & {Mua sắm Internet} & {Taxi} \\
+\hline
+\tabtop 
+\q{Có thể truy cập (Accessible)}   &   &   &   &  \\
+\q{Tất định (Deterministic)} &   &   &   &  \\
+\q{Theo giai đoạn (Episodic)}      &   &   &   &  \\
+\q{Tĩnh (Static)}       &   &   &   &  \\
+\tabbot 
+\q{Rời rạc (Discrete)}     &   &   &   &  \\
+\hline
+\end{mytabular}
+}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Các loại môi trường}
+
+\resizebox{\textwidth}{!}{
+\begin{mytabular}{@{\extracolsep\fill}|@{\squad}l@{\quad}|cccc@{\squad}|}
+\hline
+\tabhead & {Xếp bài} & {Cờ đố} & {Mua sắm Internet} & {Taxi} \\
+\hline
+\tabtop 
+\q{Có thể truy cập}   & Có  & Có  & Không  & Không \\
+\q{Tất định}  & Có  & Không  & Một phần  & Không \\
+\q{Theo giai đoạn}     & Không  & Không  & Không  & Không \\
+\q{Tĩnh}           & Có  & Bán tĩnh  & Bán tĩnh  & Không \\
+\tabbot 
+\q{Rời rạc}     & Có  & Có  & Có  & Không \\
+\hline
+\end{mytabular}
+}
+
+Loại môi trường phần lớn quyết định thiết kế của tác nhân
+
+Thế giới thực (tất nhiên) là không thể truy cập, ngẫu nhiên, tuần tự,
+động, liên tục
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Hàm tác nhân và chương trình}
+
+Một tác nhân được xác định hoàn toàn bởi \u{hàm tác nhân}\\
+ánh xạ chuỗi nhận thức thành các hành động
+
+(Về nguyên tắc, người ta có thể cung cấp từng chuỗi có thể để xem nó
+làm gì. Rõ ràng, một bảng tra cứu thường sẽ rất khổng lồ.)
+
+Một hàm tác nhân (hoặc một lớp tương đương nhỏ) là \u{hợp lý}
+
+Mục đích: tìm cách triển khai hàm tác nhân hợp lý một cách ngắn gọn
+
+Một \u{chương trình tác nhân} lấy một nhận thức duy nhất làm đầu vào, lưu giữ
+trạng thái nội bộ:
+
+\input{algorithms/skeleton-agent-algorithm}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Mã nguồn AIMA}
+
+Mã nguồn cho mỗi chủ đề được chia thành bốn thư mục:\al
+-- {\tt agents}: mã nguồn định nghĩa các loại tác nhân và chương trình\al
+-- {\tt algorithms}: mã nguồn cho các phương pháp được sử dụng bởi chương trình tác nhân\al
+-- {\tt environments}: mã nguồn định nghĩa các loại môi trường, mô phỏng\al
+-- {\tt domains}: các loại bài toán và ví dụ đầu vào cho thuật toán\\
+(Thường chạy các thuật toán trên các miền thay vì các tác nhân trong môi trường.)
+
+{\small
+\begin{verbatim}
+(setq joe (make-agent :name 'joe :body (make-agent-body)
+                      :program (make-dumb-agent-program)))
+
+(defun make-dumb-agent-program ()
+  (let ((memory nil))
+    #'(lambda (percept)
+        (push percept memory)
+        'no-op)))
+\end{verbatim}
+}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Các loại tác nhân}
+
+Bốn loại cơ bản theo thứ tự tính tổng quát tăng dần:\al
+-- tác nhân phản xạ đơn giản\al
+-- tác nhân phản xạ có trạng thái\al
+-- tác nhân dựa trên mục tiêu\al
+-- tác nhân dựa trên độ hữu dụng
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tác nhân phản xạ đơn giản}
+
+\epsfxsize=0.95\textwidth
+\fig{\file{figures}{d-agent.ps}}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tác nhân phản xạ có trạng thái}
+
+\epsfxsize=0.95\textwidth
+\fig{\file{figures}{d+-agent.ps}}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tác nhân dựa trên mục tiêu}
+
+\epsfxsize=0.95\textwidth
+\fig{\file{figures}{goal-based-agent.ps}}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tác nhân dựa trên độ hữu dụng}
+
+\epsfxsize=0.95\textwidth
+\fig{\file{figures}{utility-based-agent.ps}}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Thế giới máy hút bụi}
+
+\verb|code/agents/environments/vacuum.lisp|
+
+\u{Nhận thức} \verb|(<bump> <dirt> <home>)|\hfill\hbox{\epsfxsize=0.15\textwidth\epsffile{\file{figures}{vacuum2.ps}}}
+
+\u{Hành động} \verb|shutoff forward suck (turn left) (turn right)|
+
+\u{Mục tiêu} (độ đo hiệu suất trên lịch sử môi trường)\al
+-- +100 cho mỗi mảng bụi được dọn sạch\al
+-- -1 cho mỗi hành động\al
+-- -1000 nếu tắt máy khi xa nhà
+
+\u{Môi trường}\al
+-- dạng lưới, tường/chướng ngại vật, phân bố và tạo bụi, cơ thể
+tác nhân\al
+-- các hành động di chuyển hoạt động trừ khi đụng tường\al
+-- hành động hút đưa bụi vào cơ thể tác nhân (hoặc không)
+
+Có thể truy cập? Tất định? Theo giai đoạn? Tĩnh? Rời rạc?
+
+
+\end{huge}
+\end{document}

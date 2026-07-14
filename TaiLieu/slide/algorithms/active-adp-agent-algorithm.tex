@@ -1,0 +1,17 @@
+\code{
+\func{Active-ADP-Agent}{\var{e}}{an action}
+    \firststatic{U}{a table of utility estimates}
+    \static{M}{a table of transition probabilities from state to state for each action}
+    \static{R}{a table of rewards for states}
+    \static{percepts}{a percept sequence (initially empty)}
+    \static{last-action}{the action just executed}
+\bodysep
+    add \var{e} to \var{percepts}
+    \setq{\var{R}[\noprog{State}[\var{e}]]}{\noprog{Reward}[\var{e}]}
+    \setq{\var{M}}{\prog{Update-Active-Model}(\var{M}{\ac}\var{percepts}{\ac}\var{last-action})}
+    \setq{\var{U}}{\prog{Value-Iteration}(\var{U}{\ac}\var{M}{\ac}\var{R})}
+    \key{if} \prog{Terminal?}[\var{e}] \key{then}
+          \setq{\var{percepts}}{the empty sequence} 
+    \setq{\var{last-action}}{\prog{Performance-Element}(\var{e})}
+    \key{return} \var{last-action}
+}

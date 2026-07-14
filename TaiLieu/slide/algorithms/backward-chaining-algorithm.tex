@@ -1,0 +1,22 @@
+\code{
+\func{Back-Chain}{\var{KB{\ac}q}}{a set of substitutions}
+\bodysep
+    \key{return} \prog{Back-Chain-List}(\var{KB}{\ac}[\var{q}]{\ac}$\{\}$)
+\fnsep
+\func{Back-Chain-List}{\var{KB{\ac}qlist{\ac}$\theta$}}{a set of substitutions}
+    \firstinputs{KB}{a knowledge base}
+    \inputs{qlist}{a list of conjuncts forming a query ($\theta$ already applied)}
+    \inputs{$\theta$}{the current substitution}
+    \firstlocal{answers}{a set of substitutions, initially empty}
+\bodysep
+    \key{if} \var{qlist} is empty \key{then return} $\{\theta\}$
+    \setq{\var{q}}{\prog{First}(\var{qlist})}
+          \key{for each} $\var{q}_i'$ \key{in} \var{KB} such that \setq{$\theta_i$}{\prog{Unify}(\var{q}{\ac}\noprog{Standardize}($\var{q}_i'$))} succeeds \key{do}
+              Add \prog{Compose}($\theta${\ac}$\theta_i$) to \var{answers}
+          \key{end}
+          \key{for each} sentence \var{r} \key{in} \var{KB} where \noprog{Standardize}(\var{r}) = $({\ts}\var{p}_1 \land \ldots \land \var{p_n} \Rightarrow q'_i)$
+                 and \setq{$\theta_i$}{\prog{Unify}(\var{q}{\ac}$\var{q}_i'$)} succeeds \key{do}
+              \setq{\var{answers}}{\mbox{\prog{Back-Chain-List}}(\var{KB}{\ac}\noprog{Subst}($\theta_i${\ac}[{\ts}$\var{p}_1\ldots\var{p}_n$]){\ac}\prog{Compose}($\theta${\ac}$\theta_i$)) $\cup$ \var{answers}}
+          \key{end}
+    \key{return} the union of \prog{Back-Chain-List}(\var{KB}{\ac}\noprog{Subst}($\theta${\ac}\prog{Rest}(\var{qlist})){\ac}$\theta$) for each $\theta \in \var{answers}$
+}

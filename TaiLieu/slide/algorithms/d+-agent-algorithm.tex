@@ -1,0 +1,11 @@
+\code{
+\func{Reflex-Agent-With-State}{{\ts}\var{percept}}{\var{action}}
+    \firststatic{state}{a description of the current world state}
+    \static{rules}{a set of condition-action rules}
+\bodysep
+    \setq{\var{state}}{\prog{Update-State}(\var{state{\ac}percept})}
+    \setq{\var{rule}}{\prog{Rule-Match}(\var{state{\ac}rules})}
+    \setq{\var{action}}{\prog{Rule-Action}[\var{rule}]}
+    \setq{\var{state}}{\prog{Update-State}(\var{state{\ac}action})} 
+    \key{return} \var{action}
+}

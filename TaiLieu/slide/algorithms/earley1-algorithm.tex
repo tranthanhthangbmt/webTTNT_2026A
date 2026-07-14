@@ -1,0 +1,20 @@
+\code{
+\func{Nondeterministic-Chart-Parse}{\var{string{\ac}grammar}}{\var{chart}}
+\bodysep
+    \prog{Initializer}:
+          \setq{\var{chart}}{$[0,0,\;S' \bnfeq \chdot S]$}
+    \key{while} new edges can still be added \key{do}
+          \setq{\var{edge}}{\key{choose} $[i,j,\;A \bnfeq \alpha \chdot B \beta]$ \key{in} \var{chart}}  
+          \key{choose} one of the three methods that will succeed:
+                \prog{Predictor}:
+                      \key{choose} $(B \bnfeq \gamma)$ \key{in} \prog{Rules}$[grammar]$
+                      add $[j,j,\; B \bnfeq \chdot \gamma]$ to \var{chart}  
+                \prog{Completer}:
+                      \key{choose} $[j,k,\; B \bnfeq F \chdot]$ \key{in} \var{chart}  
+                      add $[i,k,\; A \bnfeq \alpha B \chdot \beta]$ to \var{chart}  
+                \prog{Scanner}:
+                      \key{if} \var{string}[$j+1$] is of category $B$ \key{then}
+                            add $[j,j+1,\; A \bnfeq \alpha B \chdot \beta]$ to \var{chart}  
+    \key{end}
+    \key{return} \var{chart}
+}

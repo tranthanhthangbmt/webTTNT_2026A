@@ -1,0 +1,23 @@
+\code{
+\func{Minimal-Consistent-Det}{\var{E{\ac}A}}{a determination}
+    \firstinputs{E}{a set of examples}
+    \inputs{A}{a set of attributes, of size \var{n}}
+\bodysep
+    \key{for} \setq{\var{i}}{$0,\, \ldots,\, \var{n}$} \key{do}
+          \key{for each} subset \var{A}$_i$ of \var{A} of size \var{i} \key{do}
+                \key{if} \prog{Consistent-Det?}(\var{A}$_i${\ac}\var{E}) \key{then return} \var{A}$_i$
+          \key{end}
+    \key{end}
+\fnsep
+\func{Consistent-Det?}{\var{A}{\ac}\var{E}}{a truth-value}
+    \firstinputs{A}{a set of attributes}
+    \inputs{E}{a set of examples}
+    \firstlocal{H}{a hash table}
+\bodysep
+    \key{for each} example \var{e} \key{in} \var{E} \key{do}
+          \key{if} some example in \var{H} has the same values as \var{e} for the attributes \var{A}
+          \phantom{\key{if}} but a different classification \key{then return} \var{False}
+          store the class of \var{e} in \var{H}, indexed by the values for attributes \var{A} of the example \var{e}
+    \key{end}
+    \key{return} \var{True}
+}

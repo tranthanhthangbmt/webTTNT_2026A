@@ -1,0 +1,410 @@
+\documentclass[fleqn]{article}
+
+\usepackage{aima-slides}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{lmodern}
+
+\begin{document}
+
+\begin{huge}
+\titleslide{Rational decisions}{Chapter 16}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Outline}
+
+\blob Rational preferences
+
+\blob Utilities
+
+\blob Money
+
+\blob Multiattribute utilities
+
+\blob Decision networks
+
+\blob Value of information
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Preferences}
+
+An agent chooses among \u{prizes} ($A$, $B$, etc.) and 
+\u{lotteries}, i.e., situations with uncertain prizes
+
+\begin{tabular}{lr}
+\hbox{\begin{minipage}[b]{0.6\textwidth}
+\vspace*{0.3in}
+
+Lottery $L = [p,A;\ (1-p),B]$
+
+\vspace*{0.3in}
+
+\end{minipage}}
+&
+\epsfxsize=0.3\textwidth
+\epsffile{\file{figures}{lottery.ps}}
+\end{tabular}
+
+Notation:\al
+$A \pref B$ \qquad $A$ preferred to $B$\al
+$A \indiff B$ \qquad indifference between $A$ and $B$\al
+$A \prefeq B$ \qquad $B$ not preferred to $A$
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Rational preferences}
+
+Idea: preferences of a rational agent must obey constraints.\\
+Rational preferences $\implies$ \nl
+   behavior describable as maximization of expected utility
+
+Constraints:\al
+\underline{Orderability}\nl
+$(A \pref B) \lor (B \pref A) \lor (A \indiff B)$\al
+\underline{Transitivity}\nl
+$(A \pref B) \land (B \pref C) \implies (A \pref C)$\al
+\underline{Continuity}\nl
+$A \pref B \pref C \implies \Exi{p} [p,A;\ 1-p,C] \indiff B$\al
+\underline{Substitutability}\nl
+$A \indiff B \implies [p,A;\ 1-p,C] \indiff [p,B; 1-p,C]$\al
+\underline{Monotonicity}\nl
+$A \pref B \implies (p \geq q \lequiv [p,A;\ 1-p,B] \prefeq [q,A;\ 1-q,B])$
+
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Rational preferences contd.}
+
+Violating the constraints leads to self-evident irrationality
+
+For example: an agent with intransitive preferences
+can be induced to give away all its money
+
+\begin{tabular}{lr}
+\hbox{\begin{minipage}[b]{0.5\textwidth}
+
+If $B \pref C$, then an agent who has $C$
+would pay (say) 1 cent to get $B$
+
+\vspace*{0.2in}
+
+If $A \pref B$, then an agent who has $B$
+would pay (say) 1 cent to get $A$
+
+\vspace*{0.2in}
+
+If $C \pref A$, then an agent who has $A$
+would pay (say) 1 cent to get $C$
+
+
+\end{minipage}}
+&
+\epsfxsize=0.3\textwidth
+\ \qquad\qquad\epsffile{\file{figures}{cash-machine.ps}}
+\end{tabular}
+
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Maximizing expected utility}
+
+\u{Theorem} (Ramsey, 1931; von Neumann and Morgenstern, 1944):\\
+Given preferences satisfying the constraints\\
+there exists a real-valued function $U$ such that\nl
+    $U(A) \geq U(B)\ \lequiv \ A\prefeq B$\nl
+    $U([p_1,S_1;\ \ldots\ ;\ p_n,S_n]) = \mysum_i\ p_i U(S_i)$
+
+\u{MEU principle}:\al
+Choose the action that maximizes expected utility
+
+Note: an agent can be entirely rational (consistent with MEU)\\
+without ever representing or manipulating utilities and probabilities
+
+E.g., a lookup table for perfect tictactoe
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Utilities}
+
+Utilities map states to real numbers. Which numbers?
+
+Standard approach to assessment of human utilities:\al
+  compare a given state $A$ to a \u{standard lottery} $L_p$ that has\nl
+    ``best possible prize'' $\ubest$ with probability $p$\nl
+    ``worst possible catastrophe'' $\uworst$ with probability $(1-p)$\al
+  adjust lottery probability $p$ until $A \indiff L_p$
+
+\vspace*{0.4in}
+
+\epsfxsize=0.85\textwidth
+\fig{\file{figures}{micromort.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Utility scales}
+
+\u{Normalized utilities}: $\ubest = 1.0$, $\uworst = 0.0$
+
+\u{Micromorts}: one-millionth chance of death\al
+  useful for Russian roulette, paying to reduce product risks, etc.
+
+\u{QALYs}: quality-adjusted life years\al
+  useful for medical decisions involving substantial risk
+
+Note: behavior is \u{invariant} w.r.t. +ve linear transformation
+\[
+  U'(x) = k_1 U(x) + k_2 \quad\mbox{where } k_1 > 0
+\]
+With deterministic prizes only (no lottery choices), only\\
+\u{ordinal utility} can be determined, i.e., total order on prizes
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Money}
+
+Money does \u{not} behave as a utility function
+
+Given a lottery $L$ with expected monetary value $EMV(L)$,\\
+usually $U(L) < U(EMV(L))$, i.e., people are \u{risk-averse}
+
+Utility curve: for what probability $p$ am I indifferent between\
+a fixed prize $x$ and a lottery $[p,\$M;\ (1-p),\$0]$ for large $M$?
+
+Typical empirical data, extrapolated with \u{risk-prone} behavior:
+
+\vspace*{0.2in}
+
+\epsfxsize=0.55\textwidth
+\fig{\file{figures}{beard-utility.ps}}
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Student group utility}
+
+For each $x$, adjust $p$ until half the class votes for lottery (M=10,000)
+
+\vspace*{0.2in}
+
+\epsfxsize=1.05\textwidth
+\fig{\file{figures}{student-utility.ps}}
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Decision networks}
+
+Add \u{action nodes} and \u{utility} nodes to belief networks\\
+to enable rational decision making
+
+\vspace*{0.2in}
+
+\epsfxsize=0.48\textwidth
+\fig{\file{figures}{airport-id.ps}}
+
+Algorithm:\al
+  For each value of action node\nl
+    compute expected value of utility node given action, evidence\al
+  Return MEU action
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Multiattribute utility}
+
+How can we handle utility functions of many variables $X_1\ldots X_n$?\\
+E.g., what is $U(Deaths,Noise,Cost)$?
+
+How can complex utility functions be assessed from \\
+preference behaviour?
+
+Idea 1: identify conditions under which decisions can be made without
+complete identification of $U(x_1,\ldots,x_n)$
+
+Idea 2: identify various types of \u{independence} in preferences\\
+and derive consequent canonical forms for $U(x_1,\ldots,x_n)$
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Strict dominance}
+
+Typically define attributes such that $U$ is \u{monotonic} in each
+
+\u{Strict dominance}: choice $B$ strictly dominates choice $A$ iff\nl
+$\All{i} X_i(B) \geq X_i(A)$ \quad (and hence $U(B) \geq U(A)$)
+
+\vspace*{0.2in}
+
+\epsfxsize=0.8\textwidth
+\fig{\file{figures}{strict-dominance.ps}}
+
+Strict dominance seldom holds in practice
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Stochastic dominance}
+
+\twograph{\file{graphs}{dominance-density.ps}}{\file{graphs}{dominance-cumulative.ps}}
+
+Distribution $p_1$ \u{stochastically dominates} distribution $p_2$ iff\nl
+  $\displaystyle\All{t} \int_{-\infty}^t p_1(x)dx \leq \int_{-\infty}^t p_2(t)dt$
+
+If $U$ is monotonic in $x$, then $A_1$ with outcome distribution $p_1$\\
+stochastically dominates $A_2$ with outcome distribution $p_2$:\nl
+  $\displaystyle\int_{-\infty}^{\infty} p_1(x) U(x)dx \geq \int_{-\infty}^{\infty} p_2(x) U(x)dx $\\
+Multiattribute case: stochastic dominance on all attributes $\implies$ optimal
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Stochastic dominance contd.}
+
+Stochastic dominance can often be determined without\\
+exact distributions using \u{qualitative} reasoning
+
+E.q., construction cost increases with distance from city\nl
+      $S_2$ is further from the city than $S_1$\al
+  $\implies$ $S_1$ stochastically dominates $S_2$ on cost
+
+E.g., injury increases with collision speed
+
+Can annotate belief networks with stochastic dominance information:\al
+  $X \qplus Y$ ($X$ positively influences $Y$) means that\al
+  For every value $\mbf{z}$ of $Y$'s other parents $\mbf{Z}$\nl
+    $\All{x_1,x_2} x_1 \geq x_2 \implies
+      \pv(Y|x_1,\mbf{z})$ stochastically dominates $ \pv(Y|x_2,\mbf{z})$
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Example: car insurance}
+
+Which arcs are positive or negative influences?
+
+\vspace*{0.2in}
+
+\epsfxsize=0.95\textwidth
+\fig{\file{figures}{insurance-net.ps}}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Preference structure: Deterministic}
+
+$X_1$ and $X_2$ \u{preferentially independent} of $X_3$ iff\al
+  preference between $\< x_1,x_2,x_3 \>$ and $\< x_1',x_2',x_3 \>$\al
+  does not depend on $x_3$
+
+E.g., $\<Noise,Cost,Safety\>$:\al
+  $\<$20,000 suffer, \$4.6 billion, 0.06 deaths/mpm$\>$ vs.\al
+  $\<$70,000 suffer, \$4.2 billion, 0.06 deaths/mpm$\>$
+
+\u{Theorem} (Leontief, 1947): if every pair of attributes is P.I. of its complement,
+then every subset of attributes is P.I of its complement: \u{mutual P.I.}.
+
+\u{Theorem} (Debreu, 1960): mutual P.I. $\implies$ $\exists$ \u{additive} value function:
+\[
+  V(S) = \mysum_i V_i(X_i(S))
+\]
+Hence assess $n$ single-attribute functions; often a good approximation
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Preference structure: Stochastic}
+
+Need to consider preferences over lotteries:\\
+$\mbf{X}$ is \u{utility-independent} of $\mbf{Y}$ iff\al
+  preferences over lotteries $\mbf{X}$ do not depend on $\mbf{y}$
+
+Mutual U.I.: each subset is U.I of its complement\\
+$\implies$ $\exists$ \u{multiplicative} utility function:\al
+$U  =  k_1U_1 + k_2U_2 + k_3U_3$\nl
+ + $k_1k_2U_1U_2 + k_2k_3U_2U_3 + k_3k_1U_3U_1$\nl
+ + $k_1k_2k_3U_1U_2U_3$
+
+Routine procedures and software packages for generating preference
+tests to identify various canonical families of utility functions
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Value of information}
+
+Idea: compute value of acquiring each possible piece of evidence\\
+Can be done \u{directly from decision network}
+
+Example: buying oil drilling rights\al
+  Two blocks $A$ and $B$, exactly one has oil, worth $k$\al
+  Prior probabilities 0.5 each, mutually exclusive\al
+  Current price of each block is $k/2$\al
+  Consultant offers accurate survey of $A$. Fair price?
+
+Solution: compute expected value of information\al
+  = expected value of best action given the information\nl
+    minus expected value of best action without information\\
+Survey may say ``oil in A'' or ``no oil in A'', prob. 0.5 each\al
+  = [$0.5 \times {}$ value of ``buy A'' given ``oil in A''\nl
+    + $0.5 \times {}$ value of ``buy B'' given ``no oil in A'']\nl
+    -- 0\al
+  = $(0.5 \times k/2) + (0.5 \times k/2) - 0 = k/2$
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{General formula}
+
+Current evidence $E$, current best action $\alpha$\\
+Possible action outcomes $S_i$, potential new evidence $E_j$
+\[
+  EU(\alpha|E) = \max_{a} \mysum_i\ U(S_i)\;P(S_i|E,a)
+\]
+Suppose we knew $E_j \eq e_{jk}$, then we would choose $\alpha_{e_{jk}}$ s.t.
+\[
+  EU(\alpha_{e_{jk}}|E,E_j \eq e_{jk}) = \max_a \mysum_i\ U(S_i)\;P(S_i|E,a,E_j \eq e_{jk})
+\]
+$E_j$ is a random variable whose value is {\it currently} unknown\\
+$\implies$ must compute expected gain over all possible values:
+\[
+VPI_{E}(E_j) = \left(\mysum_k\ P(E_j \eq e_{jk}|E)
+EU(\alpha_{e_{jk}}|E,E_j \eq e_{jk})\right) - EU(\alpha|E) 
+\]
+(VPI = value of perfect information)
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Properties of VPI}
+
+\u{Nonnegative}---in {\em expectation}, not {\em post hoc}
+\[
+\All{j,E} VPI_{E}(E_j)\geq 0\
+\]
+\u{Nonadditive}---consider, e.g., obtaining $E_j$ twice
+\[
+VPI_{E}(E_j,E_k) \not= VPI_{E}(E_j) + VPI_{E}(E_k)
+\]
+\u{Order-independent}
+\[
+VPI_{E}(E_j,E_k) = VPI_{E}(E_j) + VPI_{E,E_j}(E_k)
+                   = VPI_{E}(E_k) + VPI_{E,E_k}(E_j) 
+\]
+Note: when more than one piece of evidence can be gathered,\\
+maximizing VPI for each to select one is not always optimal\\
+$\implies$ evidence-gathering becomes a \u{sequential} decision problem
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Qualitative behaviors}
+
+a) Choice is obvious, information worth little\\
+b) Choice is nonobvious, information worth a lot\\
+c) Choice is nonobvious, information worth little
+
+\vspace*{-0.2in} %% the following figure's bounding box includes whitespace
+
+\epsfxsize=1.0\textwidth
+\fig{\file{figures}{3cases.ps}}
+
+
+
+
+
+\end{huge} 
+\end{document}

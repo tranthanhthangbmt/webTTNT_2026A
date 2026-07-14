@@ -1,0 +1,17 @@
+\code{
+\func{Bottom-Up-Parse}{\var{words{\ac}grammar}}{a parse tree}
+\bodysep
+    \setq{\var{forest}}{\var{words}}
+    \key{loop do}
+          \key{if} \prog{Length}(\var{forest}) = 1 \key{and} \prog{Category}(\var{forest}[1]) = \prog{Start}(\var{grammar}) \key{then}
+                \key{return} \var{forest}[1]
+          \key{else}
+                \setq{\var{i}}{\key{choose} from \{1\ldots\prog{Length}(\var{forest})\}}
+                \setq{\var{rule}}{\key{choose} from \prog{Rules}(\var{grammar})}
+                \setq{\var{n}}{\prog{Length}(\prog{Rule-RHS}(\var{rule}))}
+                \setq{\var{subsequence}}{\prog{Subsequence}(\var{forest}{\ac}\var{i}{\ac}\var{i}+\var{n}-1)}
+                \key{if} \prog{Match}(\var{subsequence}{\ac}\prog{Rule-RHS}(\var{rule})) \key{then}
+                      \setq{forest[\var{i}\ldots\var{i}+\var{n}-1]}{[\prog{Make-Node}(\prog{Rule-LHS}(\var{rule}){\ac}\var{subsequence})]}
+                \key{else fail}
+    \key{end}
+}

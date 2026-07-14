@@ -1,0 +1,23 @@
+\code{
+\func{Max-Value}{\var{state{\ac}game{\ac}$\alpha${\ac}$\beta$}}{giá trị minimax của \var{state}}
+    \firstinputs{state}{trạng thái hiện tại trong trò chơi}
+    \inputs{game}{mô tả trò chơi}
+    \inputs{$\alpha$}{điểm tốt nhất cho {\sc max} dọc theo đường đi đến \var{state}}
+    \inputs{$\beta$}{điểm tốt nhất cho {\sc min} dọc theo đường đi đến \var{state}}
+\bodysep
+    \key{if} \prog{Cutoff-Test}(\var{state}) \key{then return} \prog{Eval}(\var{state})
+    \key{for each} \var{s} \key{in} \prog{Successors}(\var{state}) \key{do}
+          \setq{$\alpha$}{\prog{Max}($\alpha${\ac}\prog{Min-Value}(\var{s{\ac}game{\ac}$\alpha${\ac}$\beta$}))}
+          \key{if} $\alpha \geq \beta$ \key{then return} $\beta$ 
+    \key{end}
+    \key{return} $\alpha$
+\fnsep
+\func{Min-Value}{\var{state{\ac}game{\ac}$\alpha${\ac}$\beta$}}{giá trị minimax của \var{state}}
+\bodysep
+    \key{if} \prog{Cutoff-Test}(\var{state}) \key{then return} \prog{Eval}(\var{state})
+    \key{for each} \var{s} \key{in} \prog{Successors}(\var{state}) \key{do}
+          \setq{$\beta$}{\prog{Min}({\ts}$\beta${\ac}\prog{Max-Value}(\var{s{\ac}game{\ac}$\alpha${\ac}$\beta$}))}
+          \key{if} $\beta \leq \alpha$ \key{then return} $\alpha$ 
+    \key{end}
+    \key{return} $\beta$ 
+}

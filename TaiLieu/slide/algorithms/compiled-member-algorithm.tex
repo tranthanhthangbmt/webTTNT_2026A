@@ -1,0 +1,9 @@
+\code{
+\proc{Member}{\var{item{\ac}list{\ac}continuation}}
+\bodysep
+    \setq{\var{trail}}\prog{Global-Trail-Pointer}()
+    \key{if} \prog{Unify}([\var{item} | \prog{New-Variable}()]{\ac}\var{list}) \key{then} \prog{Call}(\var{continuation})
+    \prog{Reset-Trail}(\var{trail})
+    \setq{\var{rest}}{\prog{New-Variable}()}
+    \key{if} \prog{Unify}(\var{list}{\ac}[\prog{New-Variable}() | \var{rest}]) \key{then} \prog{Member}(\var{item}{\ac}\var{rest}{\ac}\var{continuation})
+}

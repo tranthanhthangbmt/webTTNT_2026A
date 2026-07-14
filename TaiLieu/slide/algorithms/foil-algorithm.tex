@@ -1,0 +1,31 @@
+\code{
+\func{Foil}{\var{examples{\ac}target}}{a set of Horn clauses}
+    \firstinputs{examples}{set of examples}
+    \inputs{target}{a literal for the goal predicate}
+    \firstlocal{clauses}{set of clauses, initially empty}
+\bodysep
+    \key{while} \var{examples} contains positive examples \key{do}
+          \setq{\var{clause}}{\noprog{New-Clause}(\var{examples}{\ac}\var{target})}
+          remove examples covered by \var{clause} from \var{examples}
+          add \var{clause} to \var{clauses}
+    \key{return} \var{clauses}
+\fnsep
+\func{New-Clause}{\var{examples{\ac}target}}{a Horn clause}
+    \firstlocal{clause}{a clause with \var{target} as head and an empty body}
+    \local{l}{a literal to be added to the clause}
+    \local{extended-examples}{a set of examples with values for new variables}
+\bodysep
+    \setq{\var{extended-examples}}{\var{examples}}
+    \key{while} \var{extended-examples} contains negative examples \key{do}
+          \setq{\var{l}}{\prog{Choose-Literal}(\prog{New-Literals}(\var{clause}){\ac}\var{extended-examples})}
+          append \var{l} to the body of \var{clause}
+          \setq{\var{extended-examples}}{set of examples created by applying \noprog{Extend-Example}
+               to each example in \var{extended-examples}}
+    \key{return} \var{clause}
+\fnsep
+\nofunc{Extend-Example}{\var{example{\ac}literal}}
+    \key{if} \var{example} satisfies \var{literal}
+          \key{then} \key{return} the set of examples created by extending \var{example} with 
+              each possible constant value for each new variable in \var{literal}
+    \key{else} \key{return} the empty set
+}

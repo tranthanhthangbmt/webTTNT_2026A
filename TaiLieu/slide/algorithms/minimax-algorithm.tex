@@ -1,0 +1,17 @@
+\code{
+\func{Minimax-Decision}{\var{game}}{\var{một toán tử}}
+\bodysep
+    \key{for each} \var{op} \key{in} \prog{Operators}[\var{game}] \key{do}
+          \setq{\prog{Value}[\var{op}]}{\prog{Minimax-Value}(\prog{Apply}(\var{op}{\ac}\var{game}){\ac}\var{game})}
+    \key{end}
+    \key{return} \var{op} có \prog{Value}[\var{op}] cao nhất
+\fnsep
+\func{Minimax-Value}{\var{state{\ac}game}}{\var{một giá trị tiện ích}}
+\bodysep
+    \key{if} \prog{Terminal-Test}[\var{game}](\var{state}) \key{then}
+          \key{return} \prog{Utility}[\var{game}](\var{state})
+    \key{else} \key{if} đến lượt {\sc max} di chuyển trong \var{state} \key{then}
+          \key{return} \prog{Minimax-Value} cao nhất của \prog{Successors}(\var{state})
+    \key{else} 
+          \key{return} \prog{Minimax-Value} thấp nhất của \prog{Successors}(\var{state})
+}

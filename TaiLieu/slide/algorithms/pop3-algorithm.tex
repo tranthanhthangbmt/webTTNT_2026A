@@ -1,0 +1,18 @@
+\code{
+\proc{Resolve-Threats}{\var{plan}}
+\bodysep
+    \key{for each} $\cl{S_i}{c}{S_j}$ \key{in} \noprog{Links}({\ts}\var{plan}) \key{do}
+          \key{for each} $S_{threat}$ \key{in} \noprog{Steps}({\ts}\var{plan})  \key{do}
+                \key{for each} $c'$ \key{in} \prog{Effect}($S_{threat}$) \key{do}
+                      \key{if} $\noprog{Subst}(\noprog{Bindings}({\ts}\var{plan}){\ac}c) = \noprog{Subst}(\noprog{Bindings}({\ts}\var{plan}){\ac}\lnot c')$ \key{then} 
+                            \key{choose} either
+                                  {\it Promotion:} Add $S_{threat}\before S_i$ to \noprog{Orderings}({\ts}\var{plan}) 
+                                  {\it Demotion:} Add $S_j \before S_{threat}$ to \noprog{Orderings}({\ts}\var{plan}) 
+                                  {\it Confrontation}: \key{if} $c'$ is really of the form $(c' \key{when} p)$ \key{then}
+                                        \prog{Choose-Operator}({\ts}\var{plan{\ac}operators}{\ac}$S_{threat}, \lnot p$)
+                                        \prog{Resolve-Threats}({\ts}\var{plan}) 
+                            \key{if not} \prog{Consistent}({\ts}\var{plan}) \key{then fail}
+                \key{end}
+          \key{end}
+    \key{end}
+}

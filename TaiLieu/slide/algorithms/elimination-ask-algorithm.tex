@@ -1,0 +1,14 @@
+\code{
+\func{EliminationAsk}{\v{X},\mbf{e},\v{bn}}{a distribution over \v{X}}
+    \firstinputs{X}{the query variable}
+    \inputs{\mbf{e}}{evidence specified as an event}
+    \inputs{bn}{a belief network specifying joint distribution $\pv(X_1,\ldots,X_n)$}
+\bodysep
+    \key{if} $\v{X}\elt\mbf{e}$ \key{then return} observed point distribution for \v{X}
+    \setq{\v{factors}}{$[\,]$}; \setq{\v{vars}}{\noprog{Reverse}(\noprog{Vars}[\v{bn}])}
+    \k{for each} \v{var} \k{in} \v{vars} \k{do}
+          \setq{\v{factors}}{$[\noprog{MakeFactor}(\v{var},\mbf{e})|\v{factors}]$}
+          \k{if} \v{var} is a hidden variable \k{then} \setq{\v{factors}}{\noprog{SumOut}(\v{var},\v{factors})}
+    \k{return} \prog{Normalize}(\prog{PointwiseProduct}(\v{factors}))
+}
+

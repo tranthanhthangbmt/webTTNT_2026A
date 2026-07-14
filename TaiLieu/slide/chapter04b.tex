@@ -1,0 +1,583 @@
+\documentclass[fleqn]{article}
+
+\usepackage{aima-slides}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{lmodern}
+
+\begin{document}
+
+\begin{huge}
+\titleslide{Bài toán thỏa mãn ràng buộc (CSP)}{Chương 3, Phần 7 và Chương 4, Phần 4.4}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Nội dung}
+
+\blob Các ví dụ về CSP
+
+\blob Tìm kiếm tổng quát áp dụng cho CSP
+
+\blob Quay lui (Backtracking)
+
+\blob Kiểm tra tới (Forward checking)
+
+\blob Heuristic cho CSP
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Bài toán thỏa mãn ràng buộc (CSP)}
+
+Bài toán tìm kiếm chuẩn:\al
+\u{Trạng thái} là một ``hộp đen''---một cấu trúc dữ liệu cũ bất kỳ\nl
+hỗ trợ kiểm tra đích, đánh giá, sinh trạng thái kế tiếp
+
+CSP (Constraint Satisfaction Problems):\al
+\u{Trạng thái} được định nghĩa bởi các {\em biến} $V_i$
+   có {\em giá trị} thuộc {\em miền giá trị} $D_i$\al
+\ \al
+\u{Kiểm tra đích} là một tập hợp các {\em ràng buộc} quy định\nl
+   các tổ hợp giá trị cho phép đối với các tập con của các biến
+
+Ví dụ đơn giản về một {\em ngôn ngữ biểu diễn hình thức}
+
+Cho phép các thuật toán {\em đa năng} hữu ích có sức mạnh lớn hơn\\
+các thuật toán tìm kiếm tiêu chuẩn
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ: Bài toán 4 quân hậu dưới dạng CSP}
+
+Giả sử mỗi cột có một quân hậu. Mỗi quân hậu sẽ nằm ở hàng nào?
+
+\begin{tabular}{lr}
+\hbox{\begin{minipage}[b]{0.6\textwidth}
+\u{Các biến} $Q_1$, $Q_2$, $Q_3$, $Q_4$ \\
+
+\u{Miền giá trị} $D_i = \{1,2,3,4\}$\\
+
+
+\u{Các ràng buộc}\al
+$Q_i \neq Q_j$ (không thể ở cùng hàng)\al
+$|Q_i - Q_j| \neq |i-j|$ (hoặc cùng đường chéo)
+
+\end{minipage}}
+&
+\epsfxsize=2.3in
+\epsffile{\file{figures}{4queens.ps}}
+\end{tabular}
+
+
+Dịch mỗi ràng buộc thành tập các giá trị cho phép đối với các biến của nó
+
+Ví dụ: các giá trị cho $(Q_1,Q_2)$ là 
+$(1,3)\ (1,4)\ (2,4)\ (3,1)\ (4,1)\ (4,2)$
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Đồ thị ràng buộc}
+
+{\em CSP nhị phân (Binary CSP)}: mỗi ràng buộc liên kết tối đa hai biến
+
+{\em Đồ thị ràng buộc}: các nút là các biến, các cung thể hiện các ràng buộc
+
+\vspace*{0.3in}
+
+\epsfxsize=0.3\textwidth
+\centerline{\epsffile{\file{figures}{4queens-graph.ps}}}
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ: Số học mật mã (Cryptarithmetic)}
+
+\begin{tabular}{lr}
+\hbox{\begin{minipage}{0.6\textwidth}
+\u{Các biến}\al
+$D\ E\ M\ N\ O\ R\ S\ Y$
+
+\u{Miền giá trị}\al
+$\{0,1,2,3,4,5,6,7,8,9\}$
+\end{minipage}}
+&
+\hbox{\begin{minipage}{0.3\textwidth}
+\begin{tabular}{ccccc}
+ &S&E&N&D\\
++&M&O&R&E\\
+\hline
+M&O&N&E&Y
+\end{tabular}
+\end{minipage}}
+\end{tabular}
+
+\u{Các ràng buộc}\al
+$M\neq 0$, $S\neq 0$ ({\em ràng buộc một ngôi})\al
+$Y = D+E$ hoặc $Y=D+E-10$, v.v.\al
+$D\neq E$, $D\neq M$, $D\neq N$, v.v.
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ: Tô màu bản đồ}
+
+Tô màu một bản đồ sao cho không có hai quốc gia kề nhau nào có cùng màu
+
+\begin{tabular}{lr}
+\hbox{\begin{minipage}[b]{0.6\textwidth}
+\u{Các biến}\al
+Các quốc gia $C_i$
+
+\u{Miền giá trị}\al
+$\{Đỏ, Xanh\ dương, Xanh\ lá\}$
+
+\u{Các ràng buộc}\al
+$C_1 \neq C_2$, $C_1 \neq C_5$, v.v.
+
+\end{minipage}}
+&
+\epsfxsize=2.7in
+\epsffile{\file{figures}{map-coloring.ps}}
+\end{tabular}
+
+\vspace*{0.2in}
+
+\begin{tabular}{lr}
+\hbox{\begin{minipage}{0.6\textwidth}
+Đồ thị ràng buộc:
+\end{minipage}}
+&
+\epsfxsize=2.5in
+\raisebox{-2.5in}[0pt][0pt]{\epsffile{\file{figures}{map-coloring-graph.ps}}}
+\end{tabular}
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Các CSP trong thế giới thực}
+
+Bài toán phân công\al
+    ví dụ: ai dạy lớp nào
+
+Bài toán xếp thời khóa biểu\al
+    ví dụ: lớp nào được cung cấp khi nào và ở đâu?
+
+Cấu hình phần cứng
+
+Bảng tính (Spreadsheets)
+
+Lập lịch vận tải
+
+Lập lịch nhà máy
+
+Thiết kế sơ đồ mặt bằng (Floorplanning)
+
+\vspace*{0.3in}
+
+Lưu ý rằng nhiều bài toán trong thế giới thực liên quan đến các biến có giá trị thực
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Áp dụng tìm kiếm tiêu chuẩn}
+
+Hãy bắt đầu với một phương pháp đơn giản, ngốc nghếch, sau đó sửa chữa nó
+
+Các trạng thái được xác định bởi các giá trị đã được gán cho đến hiện tại
+
+\u{Trạng thái ban đầu}: tất cả các biến đều chưa được gán
+
+\u{Toán tử}: gán một giá trị cho một biến chưa được gán
+
+\u{Kiểm tra đích}: tất cả các biến đã được gán, không có ràng buộc nào bị vi phạm
+
+\vspace*{0.3in}
+
+Lưu ý rằng điều này giống nhau đối với tất cả các CSP!
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Cài đặt}
+
+Trạng thái CSP theo dõi các biến nào đã có giá trị cho đến thời điểm hiện tại\\
+Mỗi biến có một miền và một giá trị hiện tại
+
+\input{\file{algorithms}{csp-datatypes-algorithm}}
+
+Các ràng buộc có thể được biểu diễn\al
+\u{rõ ràng} dưới dạng tập hợp các giá trị cho phép, hoặc\al
+\u{ngầm định} bởi một hàm kiểm tra sự thỏa mãn ràng buộc
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tìm kiếm tiêu chuẩn áp dụng cho tô màu bản đồ}
+
+\vspace*{0.5in}
+
+\epsfxsize=1.0\textwidth
+\fig{\file{figures}{map-coloring-tree.ps}}
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Độ phức tạp của phương pháp ngốc nghếch}
+
+\q{Độ sâu tối đa của không gian $m = {}$}
+
+\q{Độ sâu của trạng thái đích $d = {}$}
+
+\q{Thuật toán tìm kiếm sử dụng}
+
+\q{Hệ số phân nhánh $b = {}$}
+
+Điều này có thể được cải thiện đáng kể bằng cách lưu ý những điều sau:
+
+1) Thứ tự gán không quan trọng, do đó nhiều đường đi là tương đương nhau\\
+2) Việc thêm các phép gán không thể khắc phục một ràng buộc đã bị vi phạm
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Độ phức tạp của phương pháp ngốc nghếch}
+
+\q{Độ sâu tối đa của không gian $m = {}$} $n$ (số lượng biến)
+
+\q{Độ sâu của trạng thái đích $d = {}$} $n$ (tất cả các biến đều được gán)
+
+\q{Thuật toán tìm kiếm sử dụng} tìm kiếm theo chiều sâu (depth-first)
+
+\q{Hệ số phân nhánh $b = {}$} $\mysum_i |D_i|$ (ở trên cùng của cây)
+
+Điều này có thể được cải thiện đáng kể bằng cách lưu ý những điều sau:
+
+1) Thứ tự gán không quan trọng, do đó nhiều đường đi là tương đương nhau\\
+2) Việc thêm các phép gán không thể khắc phục một ràng buộc đã bị vi phạm
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tìm kiếm quay lui (Backtracking search)}
+
+Sử dụng tìm kiếm theo chiều sâu, nhưng\al
+1) cố định thứ tự gán, ${} \implies b = |D_i|$\nl
+   (có thể được thực hiện trong hàm {\sc Successors})\al
+2) kiểm tra sự vi phạm ràng buộc
+
+Kiểm tra vi phạm ràng buộc có thể được thực hiện theo hai cách:\al
+1) sửa đổi hàm {\sc Successors} để chỉ gán những giá trị\nl
+   được phép, với những giá trị đã được gán trước đó\al
+hoặc 2) kiểm tra các ràng buộc có được thỏa mãn trước khi phát triển một trạng thái
+
+Tìm kiếm quay lui là thuật toán không có thông tin cơ bản cho các CSP
+
+Có thể giải bài toán $n$-quân hậu với $n \approx 15$
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Kiểm tra tới (Forward checking)}
+
+\u{Ý tưởng}: Theo dõi các giá trị hợp lệ còn lại cho các biến chưa được gán\\
+\phantom{\u{Ý tưởng}: }Dừng tìm kiếm khi bất kỳ biến nào không còn giá trị hợp lệ nào
+
+Ví dụ tô màu bản đồ được đơn giản hóa:
+
+\begin{tabular}{lr}
+\hbox{\begin{minipage}{0.6\textwidth}
+\begin{tabular}{|l|c|c|c|}
+\hline
+ & {\sc đỏ} & {\sc xanh\ dương} & {\sc xanh\ lá} \\
+\hline
+$C_1$ &  &  &  \\
+\hline
+$C_2$ &  &  &  \\
+\hline
+$C_3$ &  &  &  \\
+\hline
+$C_4$ &  &  &  \\
+\hline
+$C_5$ &  &  &  \\
+\hline
+\end{tabular}
+\end{minipage}}
+&
+\epsfxsize=2.7in
+\raisebox{-1in}[0pt][0pt]{\epsffile{\file{figures}{map-coloring2.ps}}}
+\end{tabular}
+
+Có thể giải bài toán $n$-quân hậu lên đến $n \approx 30$
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{}
+
+.\\
+.
+
+.
+
+\begin{tabular}{lr}
+\hbox{\begin{minipage}{0.6\textwidth}
+\begin{tabular}{|l|c|c|c|}
+\hline
+ & \phantom{{\sc đỏ}} & \phantom{{\sc xanh\ dương}} & \phantom{{\sc xanh\ lá}} \\
+\hline
+\phantom{$C_1$} & \tick  &  &  \\
+\hline
+\phantom{$C_2$} & \cross &  &  \\
+\hline
+\phantom{$C_3$} &  &  &  \\
+\hline
+\phantom{$C_4$} & \cross &  &  \\
+\hline
+\phantom{$C_5$} & \cross &  &  \\
+\hline
+\end{tabular}
+\end{minipage}}
+&
+\end{tabular}
+
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{}
+
+.\\
+.
+
+.
+
+\begin{tabular}{lr}
+\hbox{\begin{minipage}{0.6\textwidth}
+\begin{tabular}{|l|c|c|c|}
+\hline
+ & \phantom{{\sc đỏ}} & \phantom{{\sc xanh\ dương}} & \phantom{{\sc xanh\ lá}} \\
+\hline
+\phantom{$C_1$} &  &  &  \\
+\hline
+\phantom{$C_2$} &  & \tick &  \\
+\hline
+\phantom{$C_3$} &  & \cross &  \\
+\hline
+\phantom{$C_4$} &  & \cross &  \\
+\hline
+\phantom{$C_5$} &  & \cross &  \\
+\hline
+\end{tabular}
+\end{minipage}}
+&
+\end{tabular}
+
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{}
+
+.\\
+.
+
+.
+
+\begin{tabular}{lr}
+\hbox{\begin{minipage}{0.6\textwidth}
+\begin{tabular}{|l|c|c|c|}
+\hline
+ & \phantom{{\sc đỏ}} & \phantom{{\sc xanh\ dương}} & \phantom{{\sc xanh\ lá}} \\
+\hline
+\phantom{$C_1$} &  &  &  \\
+\hline
+\phantom{$C_2$} &  &  &  \\
+\hline
+\phantom{$C_3$} &  &  & \tick \\
+\hline
+\phantom{$C_4$} &  &  &  \\
+\hline
+\phantom{$C_5$} &  &  & \cross \\
+\hline
+\end{tabular}
+\end{minipage}}
+&
+\end{tabular}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Heuristic cho CSP}
+
+Các quyết định thông minh hơn về việc\al
+chọn giá trị nào cho mỗi biến\al
+biến nào sẽ được gán tiếp theo
+
+
+\begin{tabular}{lr}
+\hbox{\begin{minipage}[b]{0.7\textwidth}
+\q{Cho $C_1 \eq Đỏ$, $C_2 \eq Xanh\ lá$, chọn $C_3 \eq$}\al
+.
+
+\q{Cho $C_1 \eq Đỏ$, $C_2 \eq Xanh\ lá$, tiếp theo chọn biến nào}\al
+.
+\end{minipage}}
+&
+\epsfxsize=2.7in
+\epsffile{\file{figures}{map-coloring.ps}}
+\end{tabular}
+
+Có thể giải bài toán $n$-quân hậu cho $n \approx 1000$
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Heuristic cho CSP}
+
+Các quyết định thông minh hơn về việc\al
+chọn giá trị nào cho mỗi biến\al
+biến nào sẽ được gán tiếp theo
+
+\begin{tabular}{lr}
+\hbox{\begin{minipage}[b]{0.7\textwidth}
+\q{Cho $C_1 \eq Đỏ$, $C_2 \eq Xanh\ lá$, chọn $C_3 \eq$}\al
+$C_3 \eq Xanh\ lá$: {\em giá-trị-ràng-buộc-ít-nhất (least-constraining-value)}
+
+\q{Cho $C_1 \eq Đỏ$, $C_2 \eq Xanh\ lá$, tiếp theo chọn biến nào}\al
+$C_5$: {\em biến-bị-ràng-buộc-nhiều-nhất (most-constrained-variable)}
+\end{minipage}}
+&
+\epsfxsize=2.7in
+\epsffile{\file{figures}{map-coloring.ps}}
+\end{tabular}
+
+Có thể giải bài toán $n$-quân hậu cho $n \approx 1000$
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Thuật toán lặp cho CSP}
+
+Leo đồi, luyện kim mô phỏng thường hoạt động với\\
+các trạng thái ``đầy đủ'', tức là tất cả các biến đã được gán
+
+Để áp dụng cho CSP:\al
+cho phép các trạng thái với các ràng buộc không được thỏa mãn\al
+toán tử {\em gán lại} (reassign) các giá trị của biến
+
+Lựa chọn biến: chọn ngẫu nhiên bất kỳ biến nào đang có xung đột
+
+\u{Heuristic {\em xung-đột-nhỏ-nhất} (min-conflicts)}:\al
+chọn giá trị vi phạm ít ràng buộc nhất\al
+tức là leo đồi với $h(n)$ = tổng số ràng buộc bị vi phạm
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ: Bài toán 4 quân hậu}
+
+\u{Trạng thái}: 4 quân hậu trong 4 cột (có $4^4 = 256$ trạng thái)
+
+\u{Toán tử}: di chuyển quân hậu trong cột
+
+\u{Kiểm tra đích}: không có sự tấn công nào
+
+\u{Đánh giá}: $h(n)$ = số lượng các cuộc tấn công
+
+\vspace*{0.3in}
+
+\epsfxsize=0.7\textwidth
+\epsffile{\file{figures}{4queens-iterative.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Hiệu suất của min-conflicts}
+
+Với trạng thái khởi tạo ngẫu nhiên, có thể giải bài toán $n$-quân hậu trong thời gian
+gần như hằng số đối với bất kỳ $n$ nào với xác suất cao (ví dụ: $n$ = 10,000,000)
+
+Điều tương tự có vẻ cũng đúng cho bất kỳ CSP được sinh ngẫu nhiên nào\\
+\u{ngoại trừ} trong một phạm vi hẹp của tỷ lệ
+\[
+R = \frac{\mbox{số lượng ràng buộc}}{\mbox{số lượng biến}}
+\]
+
+\vspace*{0.2in}
+
+\epsfxsize=0.6\textwidth
+\fig{\file{figures}{random-csp-runtime.ps}}
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{CSP có cấu trúc cây (Tree-structured CSPs)}
+
+%%%%% Note: this material does not appear AIMA/1e
+
+\vspace*{0.3in}
+
+\epsfxsize=0.5\textwidth
+\centerline{\epsffile{\file{figures}{abcdef-graph.ps}}}
+
+\u{Định lý}: nếu đồ thị ràng buộc không có vòng lặp (loop), CSP có thể được giải trong 
+thời gian $O(n|D|^2)$
+
+So sánh với các CSP tổng quát, nơi thời gian xấu nhất là $O(|D|^n)$
+
+Thuộc tính này cũng áp dụng cho suy luận logic và xác suất:\\
+một ví dụ quan trọng về mối quan hệ giữa
+những hạn chế về cú pháp và độ phức tạp của suy luận.
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Thuật toán cho các CSP có cấu trúc cây}
+
+Bước cơ bản được gọi là {\em lọc (filtering)}:
+
+${\sc Filter}(V_i,\, V_j)$\al
+loại bỏ các giá trị của $V_i$ không nhất quán với TẤT CẢ các giá trị của $V_j$
+
+Ví dụ về lọc:
+
+\vspace*{0.3in}
+
+\epsfxsize=0.65\textwidth
+\epsffile{\file{figures}{csp-filter.ps}}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Thuật toán (tiếp)}
+
+\vspace*{0.3in}
+
+\epsfxsize=0.5\textwidth
+\centerline{\epsffile{\file{figures}{abcdef-graph.ps}}}
+
+1) Sắp xếp các nút theo chiều rộng (breadth-first) bắt đầu từ bất kỳ nút lá nào:
+
+\epsfxsize=0.7\textwidth
+\centerline{\epsffile{\file{figures}{abcdef-ordered.ps}}}
+
+2) Đối với $j = n$ giảm xuống $1$, áp dụng ${\sc Filter}(V_i,\, V_j)$
+trong đó $V_i$ là nút cha của $V_j$
+
+3) Đối với $j = 1$ tăng lên $n$, chọn giá trị hợp lệ cho $V_j$ với giá trị của nút cha đã cho
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tóm tắt}
+
+CSP là một loại bài toán đặc biệt:\al
+trạng thái được xác định bằng các giá trị của một tập hợp các biến cố định\al
+kiểm tra đích được xác định bởi các {\em ràng buộc} trên giá trị của các biến
+
+Quay lui (Backtracking) = tìm kiếm theo chiều sâu với\al
+1) thứ tự biến cố định\al
+2) chỉ có các trạng thái kế tiếp hợp lệ
+
+Kiểm tra tới (Forward checking) ngăn chặn các phép gán chắc chắn dẫn đến thất bại sau này
+
+Heuristic để chọn thứ tự biến và chọn giá trị giúp ích đáng kể
+
+Cải tiến lặp min-conflicts \u{thường} có hiệu quả trong thực tế
+
+Các CSP có cấu trúc cây \u{luôn luôn} có thể được giải quyết rất hiệu quả
+
+
+
+
+
+
+\end{huge}
+\end{document}
+
+
+
+
+
+
+

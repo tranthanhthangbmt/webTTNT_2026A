@@ -1,0 +1,13 @@
+\code{
+\func{LMS-Update}{\var{U{\ac}e{\ac}percepts{\ac}M{\ac}N}}{an updated \var{U}}
+\bodysep
+    \key{if} \prog{Terminal?}[\var{e}] \key{then} 
+          \setq{\var{reward-to-go}}{0}
+          \key{for each} \var{e}$_i$ \key{in} \var{percepts} (starting at end) \key{do}
+                \setq{\var{reward-to-go}}{\var{reward-to-go} + \noprog{Reward}[\var{e}$_i$]}
+                \setq{\var{U}[\noprog{State}[\var{e}$_i$]]}{\prog{Running-Average}(\var{U}[\noprog{State}[\var{e}$_i$]]\var{{\ac}reward-to-go{\ac}N}[\noprog{State}[\var{e}$_i$]])}
+          \key{end}
+%\fnsep
+%\key{function} \prog{Running-Average}(\var{avg{\ac}value{\ac}N}) \key{returns} a number
+%   \key{return} $(\var{value}+(\var{N}-1)\times \var{avg})/\var{N}$
+}

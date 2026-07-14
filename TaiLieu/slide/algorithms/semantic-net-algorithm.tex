@@ -1,0 +1,32 @@
+\code{
+\func{Member?}{\var{element{\ac}category}}{\var{True} or \var{False}}
+\bodysep
+    \key{for each} \var{c} \key{in} \prog{Memberships}[\var{element}] \key{do} 
+          \key{if} \prog{Subset?}(\var{c{\ac}category}) \key{then return} \var{True}
+    \key{return} \var{False}
+\fnsep
+\func{Subset?}{\var{sub{\ac}super}}{\var{True} or \var{False}}
+\bodysep
+    \key{if} \var{sub} = \var{super} \key{then return} \var{True}
+    \key{for each} \var{c} \key{in} \prog{Supers}[\var{sub}] \key{do}
+          \key{if} \prog{Subset?}(\var{c}{\ac}\var{super}) \key{then return} \var{True}
+    \key{return} \var{False}
+\fnsep
+\func{Related-To?}{\var{source{\ac}relation{\ac}destination}}{\var{True} or \var{False}}
+\bodysep
+    \key{if} \var{relation} {\rm appears in} \prog{Rels-Out}(\var{source}) \key{then}
+          \key{return} \prog{Member}([\var{relation{\ac}destination}]{\ac}\prog{Rels-Out}(\var{source}))
+    \key{else} \key{for each} \var{c} \key{in} \prog{Memberships}(\var{source}) \key{do}
+          \key{if} \prog{All-Related-To?}(\var{c}{\ac}\var{relation}{\ac}\var{destination}) \key{then} \key{return} \var{True}
+    \key{end}
+    \key{return} \var{False}
+\fnsep
+\func{All-Related-To?}{\var{source{\ac}relation{\ac}destination}}{\var{True} or \var{False}}
+\bodysep
+    \key{if} \var{relation} appears in \prog{All-Rels-Out}(\var{source}) \key{then}
+          \key{return} \prog{Member}([\var{relation{\ac}destination}]{\ac}\prog{All-Rels-Out}(\var{source}))
+    \key{else} \key{for each} \var{c} \key{in} \prog{Supers}(category) \key{do}
+          \key{if} \prog{All-Related-To?}(\var{c{\ac}relation{\ac}destination}) \key{then} \key{return} \var{True}
+    \key{end}
+    \key{return} \var{False}
+}

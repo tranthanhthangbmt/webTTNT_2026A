@@ -1,0 +1,409 @@
+\usepackage{aima-slides}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{lmodern}
+
+# Độ bất định (Uncertainty)
+
+## Chương 14
+
+---
+## Nội dung
+
+- Độ bất định (Uncertainty)
+
+- Xác suất (Probability)
+
+- Cú pháp (Syntax)
+
+- Ngữ nghĩa (Semantics)
+
+- Các quy tắc suy diễn (Inference rules)
+
+---
+## Độ bất định
+
+Cho hành động $A_t$ = rời đi sân bay trước $t$ phút chuyến bay cất cánh
+
+Liệu $A_t$ có giúp tôi đến đó đúng giờ không?
+
+Các vấn đề:
+  
+1) khả năng quan sát một phần (tình trạng đường xá, kế hoạch của tài xế khác, v.v.)
+  
+2) cảm biến bị nhiễu (Báo cáo giao thông KCBS)
+  
+3) sự không chắc chắn trong kết quả hành động (xịt lốp xe, v.v.)
+  
+4) sự phức tạp to lớn của việc mô hình hóa và dự đoán giao thông
+
+Do đó, một cách tiếp cận logic thuần túy có thể
+
+\phantom{hoặc }1) có nguy cơ sai sự thật: "$A_{25}$ sẽ giúp tôi đến đó đúng giờ"
+
+hoặc 2) dẫn đến các kết luận quá yếu để ra quyết định:
+    
+"$A_{25}$ sẽ giúp tôi đến đó đúng giờ nếu không có tai nạn trên cầu
+    
+và trời không mưa và lốp xe của tôi vẫn nguyên vẹn v.v. và v.v."
+
+(Có thể nói $A_{1440}$ sẽ giúp tôi đến đó đúng giờ một cách hợp lý
+
+nhưng tôi sẽ phải ở lại qua đêm tại sân bay $\ldots$)
+
+---
+## Các phương pháp xử lý độ bất định
+
+Logic <u>mặc định (Default)</u> hoặc <u>phi đơn điệu (nonmonotonic)</u>:
+  
+  Giả sử xe của tôi không bị xịt lốp
+  
+  Giả sử $A_{25}$ có tác dụng trừ khi bị mâu thuẫn bởi bằng chứng
+
+Vấn đề: Những giả định nào là hợp lý? Làm thế nào để xử lý sự mâu thuẫn?
+
+<u>Các quy tắc với hệ số fudge (Fudge factors)</u>:
+  
+$A_{25} \mapsto_{0.3}$ đến đó đúng giờ
+  
+$Sprinkler \mapsto_{0.99} WetGrass$
+  
+$WetGrass \mapsto_{0.7} Rain$
+
+Vấn đề: Các rắc rối với sự kết hợp, ví dụ, $Sprinkler$ gây ra $Rain$??
+
+<u>Xác suất (Probability)</u>
+  
+  Dựa trên các bằng chứng có sẵn,
+    
+    $A_{25}$ sẽ giúp tôi đến đó đúng giờ với xác suất 0.04
+
+Lý thuyết cờ bạc của Mahaviracarya (thế kỷ 9), Cardamo (1565)
+
+(Logic <u>mờ (Fuzzy)</u> xử lý *mức độ đúng đắn (degree of truth)* CHỨ KHÔNG PHẢI độ bất định, ví dụ:
+  
+  $WetGrass$ đúng ở mức độ 0.2)
+
+---
+## Xác suất (Probability)
+
+Các khẳng định xác suất *tóm tắt* ảnh hưởng của
+  
+  <u>sự lười biếng (laziness)</u>: thất bại trong việc liệt kê các trường hợp ngoại lệ, các điều kiện phụ, v.v.
+  
+  <u>sự thiếu hiểu biết (ignorance)</u>: thiếu các sự kiện liên quan, các điều kiện ban đầu, v.v.
+
+Xác suất <u>chủ quan (Subjective)</u> hoặc <u>Bayesian</u>:
+
+Xác suất liên hệ các mệnh đề với trạng thái tri thức của chính một người
+    
+ví dụ, $P(A_{25} | \mbox{không có tai nạn nào được báo cáo}) = 0.06$
+
+Đây <u>không</u> phải là các khẳng định về thế giới
+
+Xác suất của các mệnh đề thay đổi khi có bằng chứng mới:
+    
+ví dụ, $P(A_{25} | \mbox{không có tai nạn nào được báo cáo},\ \mbox{5 a.m.}) = 0.15$
+
+(Tương tự như trạng thái kéo theo logic $KB \models 
+  pha$, chứ không phải là sự thật.)
+
+---
+## Đưa ra quyết định trong điều kiện bất định
+
+Giả sử tôi tin vào điều sau đây:
+\begin{eqnarray*}
+P(A_{25}\mbox{ giúp tôi đến đó đúng giờ} | \ldots) &=& 0.04 
+
+P(A_{90}\mbox{ giúp tôi đến đó đúng giờ} | \ldots) &=& 0.70 
+
+P(A_{120}\mbox{ giúp tôi đến đó đúng giờ} | \ldots) &=& 0.95 
+
+P(A_{1440}\mbox{ giúp tôi đến đó đúng giờ} | \ldots) &=& 0.9999 
+\end{eqnarray*}
+Nên chọn hành động nào?
+
+Phụ thuộc vào <u>sự ưu tiên (preferences)</u> của tôi đối với việc lỡ chuyến bay so với ẩm thực sân bay, v.v.
+
+<u>Lý thuyết hữu ích (Utility theory)</u> được sử dụng để biểu diễn và suy diễn các sự ưu tiên
+
+<u>Lý thuyết quyết định (Decision theory)</u> = lý thuyết hữu ích + lý thuyết xác suất
+
+---
+## Các tiên đề của xác suất
+
+Với bất kỳ mệnh đề $A$, $B$ nào
+
+1. $0 \leq P(A) \leq 1$
+
+2. $P(True) = 1$ và $P(False) = 0$
+
+3. $P(A \lor B) = P(A) + P(B) - P(A\land B)$
+
+![Hình ảnh](../TaiLieu/slide_md/figures/axiom3-venn.png)
+
+de Finetti (1931): một tác tử đặt cược theo các xác suất vi phạm
+các tiên đề này có thể bị buộc phải đặt cược sao cho mất tiền bất kể kết quả như thế nào.
+
+---
+## Cú pháp (Syntax)
+
+Tương tự logic mệnh đề: các thế giới có thể được định nghĩa bằng việc gán
+giá trị cho các <u>biến ngẫu nhiên (random variables)</u>.
+
+Các biến ngẫu nhiên <u>mệnh đề</u> hoặc <u>Boolean</u>
+  
+  ví dụ: $Cavity$ (tôi có bị sâu răng không?)
+
+Bao gồm các biểu thức logic mệnh đề
+  
+  ví dụ: $\lnot Burglary \lor Earthquake$
+
+Biến ngẫu nhiên <u>nhiều giá trị (Multivalued)</u>
+  
+  ví dụ: $Weather$ là một trong $\<sunny,rain,cloudy,snow\>$
+
+Các giá trị phải đầy đủ (exhaustive) và loại trừ lẫn nhau (mutually exclusive)
+
+Mệnh đề được xây dựng bằng cách gán một giá trị:
+  
+ví dụ: $Weather \eq sunny$; hoặc $Cavity \eq true$ cho rõ ràng
+
+---
+## Cú pháp (tiếp)
+
+Xác suất <u>tiên nghiệm (Prior)</u> hoặc <u>không điều kiện (unconditional)</u> của các mệnh đề
+  
+  ví dụ: $P(Cavity) = 0.1$ và $P(Weather \eq sunny) = 0.72$
+
+tương ứng với niềm tin trước khi có bất kỳ bằng chứng (mới) nào
+
+<u>Phân phối xác suất (Probability distribution)</u> đưa ra các giá trị cho tất cả các phép gán có thể có:
+  
+  $P(Weather) = \<0.72,0.1,0.08,0.1\>$ (<u>đã chuẩn hóa (normalized)</u>, nghĩa là tổng bằng 1)
+
+<u>Phân phối xác suất đồng thời (Joint probability distribution)</u> đối với một tập các biến đưa ra
+
+các giá trị cho từng phép gán có thể có đối với tất cả các biến
+  
+  $P(Weather,Cavity)$ = một ma trận các giá trị $4 \times 2$:
+
+\[\begin{array}{l|cccc}
+\hfil Weather \eq & sunny & rain & cloudy & snow 
+
+\hline
+Cavity \eq true & & & & 
+
+Cavity \eq false & & & &
+\end{array}\]
+
+---
+## Cú pháp (tiếp)
+
+Xác suất <u>có điều kiện (Conditional)</u> hoặc <u>hậu nghiệm (posterior)</u>
+  
+  ví dụ: $P(Cavity | Toothache) = 0.8$
+  
+  nghĩa là, <u>\u{biết rằng $Toothache$ là tất cả những gì tôi biết</u>}
+
+Ký hiệu cho phân phối có điều kiện:
+  
+  $P(Weather | Earthquake)$ = vector 2 phần tử của các vector 4 phần tử
+
+Nếu chúng ta biết nhiều hơn, ví dụ: $Cavity$ cũng được cho trước, thì chúng ta có
+  
+  $P(Cavity | Toothache,Cavity) = 1$
+
+Lưu ý: niềm tin ít cụ thể hơn *vẫn có giá trị* sau khi có thêm bằng chứng
+mới đến, nhưng không phải lúc nào cũng *hữu ích*
+
+Bằng chứng mới có thể không liên quan, cho phép đơn giản hóa, ví dụ:
+  
+$P(Cavity | Toothache,49ersWin) = P(Cavity | Toothache) = 0.8$
+
+Loại suy diễn này, được phê chuẩn bởi kiến thức miền, là rất quan trọng
+
+---
+## Xác suất có điều kiện
+
+Định nghĩa xác suất có điều kiện:
+\[
+  P(A|B) = \frac{P(A\land B)}{P(B)} \mbox{ nếu } P(B) \neq 0
+\]
+<u>Quy tắc nhân (Product rule)</u> đưa ra một công thức thay thế:
+  
+  $P(A\land B) = P(A|B)P(B) = P(B|A)P(A)$
+
+Một phiên bản tổng quát áp dụng cho toàn bộ phân phối, ví dụ:
+  
+  $P(Weather,Cavity) = P(Weather|Cavity) P(Cavity)$
+
+(Xem như một tập hợp $4\times 2$ các phương trình, *không* phải nhân ma trận.)
+
+<u>Quy tắc chuỗi (Chain rule)</u> được suy ra bằng cách áp dụng liên tiếp quy tắc nhân:
+  
+$P(X_1,\ldots,X_n) = P(X_1,\ldots,X_{n-1})\ 
+                        P(X_n | X_1,\ldots,X_{n-1})$
+    
+                    = $P(X_1,\ldots,X_{n-2})\ 
+                        P(X_{n-1} | X_1,\ldots,X_{n-2})\ 
+                        P(X_n | X_1,\ldots,X_{n-1})$
+    
+                  = $\ldots$
+    
+                  = $\myprod_{i\eq 1}^n P(X_i | X_1,\ldots,X_{i-1})$
+
+---
+## Quy tắc Bayes (Bayes' Rule)
+
+Quy tắc nhân $P(A\land B) = P(A|B)P(B) = P(B|A)P(A)$
+\[
+{}\implies \mbox{<u>Quy tắc Bayes </u>}  P(A|B) = \frac{P(B|A)P(A)}{P(B)}
+\]
+Tại sao điều này lại hữu ích???
+
+Để đánh giá xác suất <u>chẩn đoán (diagnostic)</u> từ xác suất <u>nhân quả (causal)</u>:
+\[
+  P(Nguy\hat{e}n\ nh\hat{a}n|K\hat{e}t\ qu\mbox{\`{a}}) = \frac{P(K\hat{e}t\ qu\mbox{\`{a}}|Nguy\hat{e}n\ nh\hat{a}n)P(Nguy\hat{e}n\ nh\hat{a}n)}{P(K\hat{e}t\ qu\mbox{\`{a}})}
+\]
+Ví dụ, gọi $M$ là viêm màng não, $S$ là cứng cổ:
+\[
+  P(M|S) = \frac{P(S|M)P(M)}{P(S)} = \frac{0.8 \times 0.0001}{0.1} = 0.0008
+\]
+Lưu ý: xác suất hậu nghiệm của bệnh viêm màng não vẫn rất nhỏ!
+
+---
+## Chuẩn hóa (Normalization)
+
+Giả sử chúng ta muốn tính phân phối hậu nghiệm trên $A$
+
+khi biết $B\eq b$, và giả sử $A$ có các giá trị có thể có $a_1 \ldots a_m$
+
+Chúng ta có thể áp dụng quy tắc Bayes cho mỗi giá trị của $A$:
+  
+  $P(A\eq a_1|B\eq b) = P(B\eq b|A\eq a_1)P(A\eq a_1)/P(B\eq b)$
+  
+  $\ldots$
+  
+  $P(A\eq a_m|B\eq b) = P(B\eq b|A\eq a_m)P(A\eq a_m)/P(B\eq b)$
+
+Cộng các giá trị này lại, và lưu ý rằng $\mysum_i P(A\eq a_i|B\eq b) = 1$:
+\[1/P(B\eq b)  = 1/\mysum_i P(B\eq b|A\eq a_i)P(A\eq a_i)\]
+Đây là <u>hệ số chuẩn hóa (normalization factor)</u>, hằng số theo $i$, được ký hiệu là $
+  pha$:
+\[
+  P(A|B\eq b) = 
+  pha P(B\eq b | A)P(A)
+\]
+Thông thường tính một phân phối chưa chuẩn hóa, sau đó chuẩn hóa ở cuối
+  
+  ví dụ: giả sử $P(B\eq b | A)P(A) = \<0.4,0.2,0.2\>$
+    
+    thì $P(A|B\eq b) = 
+  pha \<0.4,0.2,0.2\> 
+                        = \frac{\<0.4,0.2,0.2\>}{0.4+0.2+0.2} 
+                        = \<0.5,0.25,0.25\>$
+
+---
+## Điều kiện hóa (Conditioning)
+
+Giới thiệu một biến làm điều kiện bổ sung:
+\[
+  P(X|Y) = \mysum_z P(X|Y,Z\eq z) P(Z\eq z|Y)
+\]
+Trực giác: thường dễ dàng hơn để đánh giá từng trường hợp cụ thể, ví dụ:
+
+$P(RunOver|Cross)$
+  
+  = $P(RunOver|Cross,Light\eq green)P(Light\eq green|Cross)$
+  
+  + $P(RunOver|Cross,Light\eq yellow)P(Light\eq yellow|Cross)$
+  
+  + $P(RunOver|Cross,Light\eq red)P(Light\eq red|Cross)$
+
+Khi $Y$ vắng mặt, chúng ta có <u>tổng lấy ra (summing out)</u> hoặc <u>lấy biên (marginalization)</u>:
+\[
+  P(X) = \mysum_z P(X|Z\eq z) P(Z\eq z) = \mysum_z P(X,Z\eq z)
+\]
+Nói chung, với một phân phối đồng thời trên một tập các biến, thì
+phân phối trên bất kỳ tập con nào (được gọi là phân phối <u>biên (marginal)</u> vì
+lý do lịch sử) có thể được tính bằng cách tính tổng các biến khác.
+
+---
+## Phân phối đồng thời đầy đủ (Full joint distributions)
+
+Một <u>mô hình xác suất hoàn chỉnh</u> xác định mọi mục nhập trong phân phối
+đồng thời cho tất cả các biến $\mbf{X} = X_1,\ldots,X_n$
+
+Nghĩa là, một xác suất cho mỗi thế giới có thể có $X_1\eq x_1,\ldots,X_n\eq x_n$
+
+(So sánh với các lý thuyết đầy đủ trong logic.)
+
+Ví dụ: giả sử $Toothache$ và $Cavity$ là các biến ngẫu nhiên:
+\[\begin{array}{l|cc}
+ & Toothache\eq true & Toothache\eq false 
+
+\hline
+Cavity \eq true  & 0.04 & 0.06 
+
+Cavity \eq false & 0.01 & 0.89
+\end{array}\]
+Các thế giới có thể có loại trừ lẫn nhau $\implies$ $P(w_1 \land w_2) = 0$
+
+Các thế giới có thể có là đầy đủ $\implies$ $w_1 \lor \cdots \lor w_n$ là $True$
+    
+do đó $\mysum_i P(w_i) = 1$
+
+---
+## Phân phối đồng thời đầy đủ (tiếp)
+
+1) Đối với bất kỳ mệnh đề $\phi$ nào được định nghĩa trên các biến ngẫu nhiên
+    
+   $\phi(w_i)$ là đúng hoặc sai
+
+2) $\phi$ tương đương với phép tuyển của các $w_i$ khi $\phi(w_i)$ đúng
+
+Do đó $P(\phi) = \mysum_{\{w_i:\ \phi(w_i)\}} P(w_i)$
+
+Nghĩa là, xác suất không điều kiện của bất kỳ mệnh đề nào đều có thể tính được
+như là tổng của các mục nhập từ phân phối đồng thời đầy đủ
+
+Xác suất có điều kiện có thể được tính theo cùng một cách như một tỷ lệ:
+\[
+  P(\phi|\xi) = \frac{P(\phi\land \xi)}{P(\xi)}
+\]
+Ví dụ: 
+\[
+  P(Cavity |Toothache) 
+   = \frac{P(Cavity \land Toothache)}{P(Toothache)}
+   = \frac{0.04}{0.04+0.01} = 0.8
+\]
+
+---
+## Suy diễn từ các phân phối đồng thời
+
+Thông thường, chúng ta quan tâm đến 
+  
+  phân phối đồng thời hậu nghiệm của <u>các biến truy vấn (query variables)</u> $\mbf{Y}$
+  
+  cho trước các giá trị cụ thể $\mbf{e}$ đối với <u>các biến bằng chứng (evidence variables)</u> $\mbf{E}$
+
+Gọi <u>các biến ẩn (hidden variables)</u> là $\mbf{H} = \mbf{X} - \mbf{Y} - \mbf{E}$
+
+Khi đó phép tính tổng các mục nhập đồng thời được yêu cầu sẽ được thực hiện bằng cách lấy tổng
+các biến ẩn:
+\[
+P(\mbf{Y}|\mbf{E}\eq \mbf{e}) = 
+  pha P(\mbf{Y},\mbf{E}\eq \mbf{e})
+= 
+  pha \mysum_{\smbf{h}} P(\mbf{Y},\mbf{E}\eq \mbf{e},\mbf{H}\eq \mbf{h})
+\]
+Các số hạng trong phép tổng là các mục nhập đồng thời vì $\mbf{Y}$, $\mbf{E}$, và $\mbf{H}$ cùng nhau vét cạn tập các biến ngẫu nhiên
+
+Các vấn đề rõ ràng:
+  
+1) Độ phức tạp thời gian trong trường hợp xấu nhất là $O(d^n)$ trong đó $d$ là số ngôi (arity) lớn nhất
+  
+2) Độ phức tạp không gian $O(d^n)$ để lưu trữ phân phối đồng thời
+  
+3) Làm thế nào để tìm ra các con số cho $O(d^n)$ mục nhập???

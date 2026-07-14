@@ -1,0 +1,50 @@
+\code{
+\func{Situated-Planning-Agent}{{\ts}\var{percept}}{an \var{action}}
+    \firststatic{KB}{a knowledge base (includes action descriptions)}
+    \static{p}{a plan, initially $NoPlan$}
+    \static{t}{a counter, initially 0, indicating time}
+    \static{G}{a goal}
+\bodysep
+    \noprog{Tell}(\var{KB}{\ac}\prog{Make-Percept-Sentence}({\ts}\var{percept{\ac}t}))
+    \setq{\var{current}}{\prog{State-Description}(\var{KB{\ac}t})}
+    \setq{\prog{Effects}(\prog{Start}({\ts}\var{p}))}{\var{current}}
+    \key{if} $\var{p} = NoPlan$ \key{then} 
+          \setq{\var{G}}{\noprog{Ask}(\var{KB}{\ac}\prog{Make-Goal-Query}(\var{t}))}
+          \setq{\var{p}}{\prog{Make-Plan}(\var{current{\ac}G{\ac}KB})}
+    \setq{\var{action}}{$NoOp$} (the default)
+\subfnsep
+    {\it Termination}:
+          \key{if} there are no open preconditions and \var{p} has no steps other than \prog{Start} and \prog{Finish} \key{then}
+                \setq{\var{p}}{$NoPlan$} and skip remaining steps
+\subfnsep
+    {\it Resolving standard flaws}:
+          resolve any open condition by adding a causal link from any existing
+                possibly prior step or a new step
+          resolve potential threats by promotion or demotion
+\subfnsep
+    {\it Remove unsupported causal links}:
+          \key{if} there is a causal link $\cl{\prog{Start}}{c}{S}$ protecting a proposition $c$ 
+          \phantom{\key{if}} that no longer holds in \prog{Start} \key{then}
+                remove the link and any associated bindings
+\subfnsep
+    {\it Extend causal links back to earliest possible step}:  
+          \key{if} there is a causal link $\cl{S_j}{c}{S_k}$ such that 
+          \phantom{\key{if}} another step $S_i$ exists with $S_i < S_j$ and the link $\cl{S_i}{c}{S_k}$ is safe \key{then}
+                replace $\cl{S_j}{c}{S_k}$ with $\cl{S_i}{c}{S_k}$
+\subfnsep
+    {\it Remove redundant actions}:  
+          remove any step $S$ that supplies no causal links
+\subfnsep
+    {\it Execute actions when ready for execution}:  
+          \key{if} a step $S$ in the plan other than \prog{Finish} satisfies the following:
+                (a) all preconditions satisfied by \prog{Start};
+                (b) no other steps necessarily between \prog{Start} and $S$; and
+                (c) $S$ does not threaten any causal link in \var{p} \key{then}
+                      add ordering constraints to force all other steps after $S$
+                      remove $S$ from \var{p}, and all causal links to and from $S$
+                      \setq{\var{action}}{the action in $S$}
+\subfnsep
+    \noprog{Tell}(\var{KB}{\ac}\prog{Make-Action-Sentence}(\var{action}{\ac}\var{t}))
+    \setq{\var{t}}{\var{t} + 1}
+    \key{return} \var{action}
+}

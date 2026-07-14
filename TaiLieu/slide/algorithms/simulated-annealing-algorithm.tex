@@ -1,0 +1,17 @@
+\code{
+\func{Simulated-Annealing}{{\ts}\var{problem{\ac}schedule}}{một trạng thái giải pháp}
+    \firstinputs{problem}{một bài toán}
+    \inputs{schedule}{một ánh xạ từ thời gian sang ``nhiệt độ''}
+    \firstlocal{current}{một nút}
+    \local{next}{một nút}
+    \local{T}{một ``nhiệt độ'' kiểm soát xác suất của các bước đi xuống}
+\bodysep
+    \setq{\var{current}}{\prog{Make-Node}(\prog{Initial-State}[\var{problem}])}
+    \key{for} \setq{\var{t}} 1 \key{to} $\infty$ \key{do}
+          \setq{\var{T}}{\var{schedule}[\var{t}]}
+          \key{if} \var{T}=0 \key{then return} \var{current}
+          \setq{\var{next}}{một nút kế tiếp được chọn ngẫu nhiên của \var{current}}
+          \setq{\var{$\Delta$E}}{\prog{Value}[\var{next}] -- \prog{Value}[\var{current}]}
+          \key{if} \var{$\Delta$E} $>$ 0 \key{then} \setq{\var{current}}{\var{next}}
+          \key{else} \setq{\var{current}}{\var{next}} chỉ với xác suất $e^{\Delta\var{E}/\var{T}}$
+}

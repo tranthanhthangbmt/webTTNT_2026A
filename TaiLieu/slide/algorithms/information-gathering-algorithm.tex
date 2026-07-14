@@ -1,0 +1,10 @@
+\code{
+\func{Information-Gathering-Agent}{{\ts}\var{percept}}{an \var{action}}
+    \firststatic{D}{a decision network}
+\bodysep
+    integrate \var{percept} into \var{D}
+    \setq{\var{j}}{the value that maximizes $VPI(E_j) - Cost(E_j)$}
+    \key{if} $VPI(E_j) > Cost(E_j)$ 
+          \key{then return} \prog{Request}($E_j$)
+    \key{else return} the best action from \var{D}
+}
