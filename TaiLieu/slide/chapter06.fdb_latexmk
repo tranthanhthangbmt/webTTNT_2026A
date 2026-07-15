@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1784102981.83858 "chapter06.tex" "chapter06.pdf" "chapter06" 1784102983.77393 2
+["pdflatex"] 1784110948.74305 "chapter06.tex" "chapter06.pdf" "chapter06" 1784110953.76271 2
   "C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1784049722 89969 e95579120a3aa0ebc21d2737ca2ba701 ""
   "C:/Users/thanh/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1782268607 13333528 ce7767b4b1864107ed4ad937a79bf98c ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc" 1256929440 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
@@ -100,8 +100,8 @@
   "algorithms/alpha-beta-algorithm.tex" 1784078101 1162 514a053a211612e9650d06b13d7433ff ""
   "algorithms/logical-agent-algorithm.tex" 1784078101 505 7d00d3ebfe63ccad4d98ce0c566fe60f ""
   "algorithms/minimax-algorithm.tex" 1784078101 946 10f0c0a342deb87c6e82dac9f8ced644 ""
-  "chapter06.aux" 1784102982 8 a94a2480d3289e625eea47cd1b285758 "pdflatex"
-  "chapter06.tex" 1784101974 22041 7441293ad379e04628d2e0c48f683169 ""
+  "chapter06.aux" 1784110952 8 a94a2480d3289e625eea47cd1b285758 "pdflatex"
+  "chapter06.tex" 1784110759 22061 ae18ca6023302d17bbc308f91cf3aa7e ""
   "epsf.sty" 1784040955 8344 4fe02452014c262d15e6b94053672392 ""
   "figures/alpha-beta-general.ps" 1784078101 14628 aed00d1dcfa9b4d138c99096f7f13159 ""
   "figures/alpha-beta-progress1c.ps" 1784078101 14101 79a16969c0d03739180c3a472be24ef0 ""

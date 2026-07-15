@@ -18,9 +18,9 @@
 \usepackage{epsf}
 \usepackage{aima2e-slides}
 
-# Vision
+# Thị giác máy tính (Vision)
 
-## Chapter 24
+## Chương 24
 
 ---
 ## Phác thảo

@@ -3,9 +3,9 @@
 \usepackage[dvips]{color}
 \usepackage{aima2e-slides}
 
-# Intelligent Agents
+# Tác tử thông minh (Intelligent Agents)
 
-## Chapter 2
+## Chương 2
 
 ---
 ## Nhắc nhở

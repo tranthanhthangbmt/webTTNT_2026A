@@ -2,9 +2,9 @@
 \usepackage{epsf}
 \usepackage{aima2e-slides}
 
-# Speech recognition (briefly)
+# Nhận dạng giọng nói (Speech recognition)
 
-## Chapter 15, Section 6
+## Chương 15, Phần 6
 
 ---
 ## Phác thảo

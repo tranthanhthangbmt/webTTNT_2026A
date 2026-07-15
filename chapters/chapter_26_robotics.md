@@ -18,9 +18,9 @@
 \usepackage{epsf}
 \usepackage{aima2e-slides}
 
-# Robotics
+# Robot học (Robotics)
 
-## Chapter 25
+## Chương 25
 
 ---
 ## Phác thảo

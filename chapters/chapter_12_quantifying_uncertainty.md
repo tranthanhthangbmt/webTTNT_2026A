@@ -23,9 +23,9 @@
 \newcommand{\whilestep}[2]{\mbf{while} #1 \mbf{do} #2}
 \newcommand{\noplan}{\emptylist}
 
-# Planning and Acting
+# Lập kế hoạch và Hành động (Planning and Acting)
 
-## Chapter 13
+## Chương 12
 
 ---
 ## Phác thảo

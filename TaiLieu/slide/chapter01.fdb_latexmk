@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1784102944.20491 "chapter01.tex" "chapter01.pdf" "chapter01" 1784102946.2706 0
+["pdflatex"] 1784110882.50051 "chapter01.tex" "chapter01.pdf" "chapter01" 1784110890.53178 0
   "C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1784049722 89969 e95579120a3aa0ebc21d2737ca2ba701 ""
   "C:/Users/thanh/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1782268607 13333528 ce7767b4b1864107ed4ad937a79bf98c ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmmi10.tfm" 1136765053 1528 abec98dbc43e172678c11b3b9031252a ""
@@ -40,8 +40,8 @@
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/vntex/t5enc.def" 1368738347 21986 ccb3b8f7cc27fbd61b3daabbbb82ad3f ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/vntex/t5enc.dfu" 1368738347 13949 387dd4fa58aea5f873839c93430fffed ""
   "aima2e-slides.sty" 1784099448 17063 5afe703776cd45f35c68fcc45cca9c03 ""
-  "chapter01.aux" 1784102945 33 9227a8ee1c90cd54409ecb589a84df09 "pdflatex"
-  "chapter01.tex" 1784101769 21129 d9d91c2ac349558d08f0aea6c48cbee7 ""
+  "chapter01.aux" 1784110886 33 9227a8ee1c90cd54409ecb589a84df09 "pdflatex"
+  "chapter01.tex" 1784110759 21155 75827515b2d9fdb0f7cb5748b19b3921 ""
   "epsf.sty" 1784040955 8344 4fe02452014c262d15e6b94053672392 ""
   "figures/turing.ps" 1784078106 50638 f6cd1a9756d726e43de7e3f599946ac9 ""
   "tables/ai-is-table.tex" 1784078108 262 4ee06c9e437c49743c4c013a738b7d26 ""

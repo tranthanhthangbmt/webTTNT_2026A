@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.24)  15 JUL 2026 15:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.24)  15 JUL 2026 17:26
 entering extended mode
- \write18 enabled.
+ restricted \write18 enabled.
  %&-line parsing enabled.
 **./chapter01.tex
 (chapter01.tex
@@ -1229,7 +1229,7 @@ blic/amsfonts/cm/cmsy10.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts
 s/type1/vntex/vnr/vnr8.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/
 type1/vntex/vnr/vnss17.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/
 type1/vntex/vnr/vnssbx10.pfb>
-Output written on chapter01.pdf (30 pages, 141764 bytes).
+Output written on chapter01.pdf (30 pages, 149212 bytes).
 PDF statistics:
  138 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

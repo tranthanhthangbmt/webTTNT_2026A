@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1784103050.59746 "chapter17a.tex" "chapter17a.pdf" "chapter17a" 1784103053.9145 2
+["pdflatex"] 1784110987.40736 "chapter17a.tex" "chapter17a.pdf" "chapter17a" 1784110990.63419 2
   "C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1784049722 89969 e95579120a3aa0ebc21d2737ca2ba701 ""
   "C:/Users/thanh/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1782268607 13333528 ce7767b4b1864107ed4ad937a79bf98c ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc" 1256929440 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -71,9 +71,9 @@
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/vntex/t5enc.def" 1368738347 21986 ccb3b8f7cc27fbd61b3daabbbb82ad3f ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/vntex/t5enc.dfu" 1368738347 13949 387dd4fa58aea5f873839c93430fffed ""
   "aima-slides.sty" 1784080572 14189 6be9220f5305bbd3e1f55f538ba3d73e ""
-  "chapter17a.aux" 1784103052 33 dca2c25acf2dd0fcc68a5b8e6d3e57b9 "pdflatex"
-  "chapter17a.tex" 1784102512 6250 8904a2b2cfa671eb4993d665c0eedb43 ""
-  "d:/DongAUniversity/TÀI LIỆU DẠY HỌC_2024-2025/Trí tuệ nhân tạo_UDA_2025/webTTNT_2026/TaiLieu/slide/chapter17a.tex" 1784102512 6250 8904a2b2cfa671eb4993d665c0eedb43 ""
+  "chapter17a.aux" 1784110989 33 dca2c25acf2dd0fcc68a5b8e6d3e57b9 "pdflatex"
+  "chapter17a.tex" 1784110759 6285 00356afee915b0daa642ec162463a70c ""
+  "d:/DongAUniversity/TÀI LIỆU DẠY HỌC_2024-2025/Trí tuệ nhân tạo_UDA_2025/webTTNT_2026/TaiLieu/slide/chapter17a.tex" 1784110759 6285 00356afee915b0daa642ec162463a70c ""
   "figures/decision-problems-ps-converted-to.pdf" 1784083364 8190 829ce100141cf0de850698a2be3372ee ""
   "figures/decision-problems.ps" 1784078103 13591 ca0eb5495a943875f6e7ef683737a580 ""
   "figures/sequential-decision-model.ps" 1784078106 12292 aa709156c3a9788f523058e384e73068 ""

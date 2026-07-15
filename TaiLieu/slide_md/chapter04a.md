@@ -4,9 +4,9 @@
 \usepackage{aima2e-slides}
 \def\Astar{A$^*$}
 
-# Informed search algorithms
+# Thuật toán tìm kiếm có thông tin (Informed search algorithms)
 
-## Chapter 4, Sections 1--2
+## Chương 4, Phần 1--2
 
 ---
 ## Phác thảo

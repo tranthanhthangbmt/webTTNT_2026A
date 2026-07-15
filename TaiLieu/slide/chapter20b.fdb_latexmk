@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1784103066.79159 "chapter20b.tex" "chapter20b.pdf" "chapter20b" 1784103069.39495 2
+["pdflatex"] 1784110858.28853 "chapter20b.tex" "chapter20b.pdf" "chapter20b" 1784110862.77212 2
   "C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1784049722 89969 e95579120a3aa0ebc21d2737ca2ba701 ""
   "C:/Users/thanh/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1782268607 13333528 ce7767b4b1864107ed4ad937a79bf98c ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmmi10.tfm" 1136765053 1528 abec98dbc43e172678c11b3b9031252a ""
@@ -33,8 +33,8 @@
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/vntex/t5enc.def" 1368738347 21986 ccb3b8f7cc27fbd61b3daabbbb82ad3f ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/vntex/t5enc.dfu" 1368738347 13949 387dd4fa58aea5f873839c93430fffed ""
   "aima2e-slides.sty" 1784099448 17063 5afe703776cd45f35c68fcc45cca9c03 ""
-  "chapter20b.aux" 1784103068 8 a94a2480d3289e625eea47cd1b285758 "pdflatex"
-  "chapter20b.tex" 1784102601 13754 23d80cd760f066daf3db087cd449a2d6 ""
+  "chapter20b.aux" 1784110862 8 a94a2480d3289e625eea47cd1b285758 "pdflatex"
+  "chapter20b.tex" 1784110759 13771 67c3acdb2e89e6c5131e8de945bda407 ""
   "epsf.sty" 1784040955 8344 4fe02452014c262d15e6b94053672392 ""
   "figures/activation-fns.eps" 1784078101 381794 7810b379770020856ab3c3e237d46dad ""
   "figures/neural-net.ps" 1784078105 16288 e1e7546c4a7aaf0d9faa74ebe0c04edd ""

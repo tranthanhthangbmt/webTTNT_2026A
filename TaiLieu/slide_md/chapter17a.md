@@ -3,9 +3,9 @@
 \usepackage[T5]{fontenc}
 \usepackage{lmodern}
 
-# Complex decisions
+# Các quyết định phức tạp (Complex decisions)
 
-## Chapter 17, Sections 1--3
+## Chương 17, Phần 1--3
 
 ---
 ## Phác thảo

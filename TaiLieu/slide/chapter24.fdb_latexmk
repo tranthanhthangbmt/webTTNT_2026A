@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1784103073.59862 "chapter24.tex" "chapter24.pdf" "chapter24" 1784103075.33769 2
+["pdflatex"] 1784110870.77712 "chapter24.tex" "chapter24.pdf" "chapter24" 1784110875.19283 2
   "C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1784049722 89969 e95579120a3aa0ebc21d2737ca2ba701 ""
   "C:/Users/thanh/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1782268607 13333528 ce7767b4b1864107ed4ad937a79bf98c ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmmi10.tfm" 1136765053 1528 abec98dbc43e172678c11b3b9031252a ""
@@ -32,8 +32,8 @@
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/vntex/t5enc.def" 1368738347 21986 ccb3b8f7cc27fbd61b3daabbbb82ad3f ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/vntex/t5enc.dfu" 1368738347 13949 387dd4fa58aea5f873839c93430fffed ""
   "aima2e-slides.sty" 1784099448 17063 5afe703776cd45f35c68fcc45cca9c03 ""
-  "chapter24.aux" 1784103074 8 a94a2480d3289e625eea47cd1b285758 "pdflatex"
-  "chapter24.tex" 1784102727 17192 2905a8d0e9e77154a62cca2288ee6e6e ""
+  "chapter24.aux" 1784110874 8 a94a2480d3289e625eea47cd1b285758 "pdflatex"
+  "chapter24.tex" 1784110759 17218 da270927edf9fa387c0483ab929ffdb2 ""
   "epsf.sty" 1784040955 8344 4fe02452014c262d15e6b94053672392 ""
   "figures/Rubic.00.ps" 1784078101 125523 fd4086b076263837994821512c9cc37e ""
   "figures/Rubic.19.ps" 1784078101 125523 671dbae6ec99f1df6a27cb1abae69141 ""

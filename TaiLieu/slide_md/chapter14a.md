@@ -2,9 +2,9 @@
 \usepackage{epsf}
 \usepackage{aima2e-slides}
 
-# Bayesian networks
+# Mạng Bayes (Bayesian networks)
 
-## Chapter 14.1--3
+## Chương 14.1--3
 
 ---
 ## Phác thảo

@@ -2,9 +2,9 @@
 \usepackage{epsf}
 \usepackage{aima2e-slides}
 
-# Rational decisions
+# Quyết định hợp lý (Rational decisions)
 
-## Chapter 16
+## Chương 16
 
 ---
 ## Phác thảo

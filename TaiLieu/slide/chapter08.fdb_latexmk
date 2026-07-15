@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1784102987.88103 "chapter08.tex" "chapter08.pdf" "chapter08" 1784102990.63283 0
+["pdflatex"] 1784110960.93895 "chapter08.tex" "chapter08.pdf" "chapter08" 1784110967.60549 0
   "C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1784049722 89969 e95579120a3aa0ebc21d2737ca2ba701 ""
   "C:/Users/thanh/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm2074.pk" 1784083284 26148 a29752f8bd9ef902bc44485c31590d8c ""
   "C:/Users/thanh/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1782268607 13333528 ce7767b4b1864107ed4ad937a79bf98c ""
@@ -43,8 +43,8 @@
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/vntex/t5enc.def" 1368738347 21986 ccb3b8f7cc27fbd61b3daabbbb82ad3f ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/vntex/t5enc.dfu" 1368738347 13949 387dd4fa58aea5f873839c93430fffed ""
   "aima2e-slides.sty" 1784099448 17063 5afe703776cd45f35c68fcc45cca9c03 ""
-  "chapter08.aux" 1784102988 33 16476e6a4b2ecb9c65da29b39f0ac55d "pdflatex"
-  "chapter08.tex" 1784102063 19990 5cf825bb1ac5acdea5cf2b4efe57a7a2 ""
+  "chapter08.aux" 1784110966 33 16476e6a4b2ecb9c65da29b39f0ac55d "pdflatex"
+  "chapter08.tex" 1784110759 20011 65dd3e6ee987632d418d1fb5d7abc955 ""
   "epsf.sty" 1784040955 8344 4fe02452014c262d15e6b94053672392 ""
   "figures/fol-model.ps" 1784078104 25298 9d2d1bb06599a110d402927f267ea92b ""
   "figures/frowny.ps" 1784078104 9280 ac61104baa939dc6bdf89391572c72b1 ""

@@ -3,9 +3,9 @@
 \usepackage[dvips]{color}
 \usepackage{aima2e-slides}
 
-# Planning
+# Lập kế hoạch (Planning)
 
-## Chapter 11
+## Chương 11
 
 ---
 ## Phác thảo

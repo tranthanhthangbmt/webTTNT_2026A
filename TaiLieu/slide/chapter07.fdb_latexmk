@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1784102985.22725 "chapter07.tex" "chapter07.pdf" "chapter07" 1784102986.70083 2
+["pdflatex"] 1784110956.47781 "chapter07.tex" "chapter07.pdf" "chapter07" 1784110958.46435 2
   "C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1784049722 89969 e95579120a3aa0ebc21d2737ca2ba701 ""
   "C:/Users/thanh/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1782268607 13333528 ce7767b4b1864107ed4ad937a79bf98c ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc" 1256929440 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -85,8 +85,8 @@
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/vntex/t5enc.dfu" 1368738347 13949 387dd4fa58aea5f873839c93430fffed ""
   "aima-slides.sty" 1784080572 14189 6be9220f5305bbd3e1f55f538ba3d73e ""
   "aima2e-slides.sty" 1784099448 17063 5afe703776cd45f35c68fcc45cca9c03 ""
-  "chapter07.aux" 1784102986 8 a94a2480d3289e625eea47cd1b285758 "pdflatex"
-  "chapter07.tex" 1784102033 31738 a138be0e2f658217d750ee4e510623aa ""
+  "chapter07.aux" 1784110957 8 a94a2480d3289e625eea47cd1b285758 "pdflatex"
+  "chapter07.tex" 1784110759 31757 fb13d2a36c0521aff5ebe184dcf72990 ""
   "epsf.sty" 1784040955 8344 4fe02452014c262d15e6b94053672392 ""
   "figures/fol-models-ps-converted-to.pdf" 1784051783 7641 6a52ca1b8e83b6230eb90569e04d87e0 ""
   "figures/fol-models.ps" 1784078104 30115 8c91bd44b7b3661f4609ac2f96849914 ""

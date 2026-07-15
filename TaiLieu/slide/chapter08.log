@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.24)  15 JUL 2026 15:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.24)  15 JUL 2026 17:26
 entering extended mode
- \write18 enabled.
+ restricted \write18 enabled.
  %&-line parsing enabled.
 **./chapter08.tex
 (chapter08.tex
@@ -1606,7 +1606,7 @@ s/MiKTeX/fonts/type1/vntex/vnr/vncsc10.pfb><C:/Users/thanh/AppData/Local/Progra
 ms/MiKTeX/fonts/type1/vntex/vnr/vnr8.pfb><C:/Users/thanh/AppData/Local/Programs
 /MiKTeX/fonts/type1/vntex/vnr/vnss17.pfb><C:/Users/thanh/AppData/Local/Programs
 /MiKTeX/fonts/type1/vntex/vnr/vnssbx10.pfb>
-Output written on chapter08.pdf (39 pages, 172225 bytes).
+Output written on chapter08.pdf (39 pages, 179647 bytes).
 PDF statistics:
  179 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

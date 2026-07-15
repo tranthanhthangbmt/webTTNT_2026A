@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1784102948.8776 "chapter02.tex" "chapter02.pdf" "chapter02" 1784102952.12263 0
+["pdflatex"] 1784110893.24866 "chapter02.tex" "chapter02.pdf" "chapter02" 1784110898.58306 0
   "C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1784049722 89969 e95579120a3aa0ebc21d2737ca2ba701 ""
   "C:/Users/thanh/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1782268607 13333528 ce7767b4b1864107ed4ad937a79bf98c ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmmi10.tfm" 1136765053 1528 abec98dbc43e172678c11b3b9031252a ""
@@ -47,8 +47,8 @@
   "aima2e-slides.sty" 1784099448 17063 5afe703776cd45f35c68fcc45cca9c03 ""
   "algorithms/reflex-vacuum-agent-algorithm.tex" 1784078101 306 419e82a8c3a315f2a8d0f231910f366c ""
   "algorithms/reflex-vacuum-agent-with-state-algorithm.tex" 1784078101 213 714f25c0ef61597c81f818f6126cfb9a ""
-  "chapter02.aux" 1784102950 33 3874e8931301f694f39f57cb0d8ecc5f "pdflatex"
-  "chapter02.tex" 1784101793 13878 0a681579da8f281a969e1a70734a39e0 ""
+  "chapter02.aux" 1784110897 33 3874e8931301f694f39f57cb0d8ecc5f "pdflatex"
+  "chapter02.tex" 1784110759 13903 461f542c87a63fc4941a80c09b6a54b7 ""
   "epsf.sty" 1784040955 8344 4fe02452014c262d15e6b94053672392 ""
   "figures/agent-environment.ps" 1784078101 17123 af4782e973b8feb72c055de59f166b9f ""
   "figures/goal-based-agent.ps" 1784078104 17918 0d34f3b8f78d96233f540aee5ab8fcf9 ""

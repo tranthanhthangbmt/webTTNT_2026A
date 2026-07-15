@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1784103009.61436 "chapter13.tex" "chapter13.pdf" "chapter13" 1784103012.09484 0
+["pdflatex"] 1784110764.52769 "chapter13.tex" "chapter13.pdf" "chapter13" 1784110790.09087 0
   "C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1784049722 89969 e95579120a3aa0ebc21d2737ca2ba701 ""
   "C:/Users/thanh/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1782268607 13333528 ce7767b4b1864107ed4ad937a79bf98c ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmmi10.tfm" 1136765053 1528 abec98dbc43e172678c11b3b9031252a ""
@@ -42,8 +42,8 @@
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/vntex/t5enc.def" 1368738347 21986 ccb3b8f7cc27fbd61b3daabbbb82ad3f ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/vntex/t5enc.dfu" 1368738347 13949 387dd4fa58aea5f873839c93430fffed ""
   "aima2e-slides.sty" 1784099448 17063 5afe703776cd45f35c68fcc45cca9c03 ""
-  "chapter13.aux" 1784103010 33 b6d5e554d4806271954d99b9100d4b19 "pdflatex"
-  "chapter13.tex" 1784102209 26012 eba845ee3e4bb3d620d2c8d1922eff49 ""
+  "chapter13.aux" 1784110787 33 b6d5e554d4806271954d99b9100d4b19 "pdflatex"
+  "chapter13.tex" 1784110759 26035 21757363ebfa66e7c5099cfe26ee31b8 ""
   "epsf.sty" 1784040955 8344 4fe02452014c262d15e6b94053672392 ""
   "figures/axiom3-venn.ps" 1784078102 12166 e5cddec7997971e53e94a25afe33c575 ""
   "figures/dentist-joint.ps" 1784078103 16132 b7c633389884bb6b6e1f39ab439043a6 ""

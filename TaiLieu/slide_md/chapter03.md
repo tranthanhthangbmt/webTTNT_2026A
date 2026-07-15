@@ -3,9 +3,9 @@
 \usepackage[dvips]{color}
 \usepackage{aima2e-slides}
 
-# Problem solving and search
+# Giải quyết vấn đề và Tìm kiếm (Problem solving and search)
 
-## Chapter 3
+## Chương 3
 
 ---
 ## Nhắc nhở

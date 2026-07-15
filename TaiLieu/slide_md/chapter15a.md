@@ -2,9 +2,9 @@
 \usepackage{epsf}
 \usepackage{aima2e-slides}
 
-# Temporal probability models
+# Các mô hình xác suất theo thời gian (Temporal probability models)
 
-## Chapter 15, Sections 1--5
+## Chương 15, Phần 1--5
 
 ---
 ## Phác thảo

@@ -3,9 +3,9 @@
 \usepackage[dvips]{color}
 \usepackage{aima2e-slides}
 
-# Local search algorithms
+# Thuật toán tìm kiếm cục bộ (Local search algorithms)
 
-## Chapter 4, Sections 3--4
+## Chương 4, Phần 3--4
 
 ---
 ## Phác thảo

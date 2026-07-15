@@ -1,10 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.24)  15 JUL 2026 14:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.24)  15 JUL 2026 17:26
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
-**"d:/DongAUniversity/TÀI LIỆU DẠY HỌC_2024-2025/Trí tuệ nhân tạo_UDA_2025/webTTNT_2026/TaiLieu/slide/chapter09.tex"
-(d:/DongAUniversity/TÀI LIỆU DẠY HỌC_2024-2025/Trí tuệ nhân tạo_UDA_2025/webTTNT_2026/TaiLieu/slide/chapter09.tex
+**./chapter09.tex
+(chapter09.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -23,7 +22,8 @@ File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
 \abovecaptionskip=\skip49
 \belowcaptionskip=\skip50
 \bibindent=\dimen148
-) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\fleqn.sty
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\fleqn.sty
 
 LaTeX Warning: inputting `fleqn.clo' instead of obsolete `fleqn.sty'.
 
@@ -36,7 +36,8 @@ Already applied: [0000/00/00] Make \[ robust on input line 62.
 Applying: [2015/01/01] Make \] robust on input line 74.
 LaTeX Info: Redefining \] on input line 75.
 Already applied: [0000/00/00] Make \] robust on input line 83.
-)) (epsf.sty
+))
+(epsf.sty
 \epsffilein=\read2
 \epsfxsize=\dimen149
 \epsfysize=\dimen150
@@ -44,23 +45,29 @@ Already applied: [0000/00/00] Make \] robust on input line 83.
 \epsfrsize=\dimen152
 \epsftmp=\dimen153
 \pspoints=\dimen154
-) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
 Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
- (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: dvips.def on input line 149.
- (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\dvips.def
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\dvips.def
 File: dvips.def 2025/01/21 v3.2a Graphics/color driver for dvips
 ) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\dvipsnam.def
 File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
-) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)) (aima2e-slides.sty (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.lt
+x)) (aima2e-slides.sty
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
- (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5enc.def
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5enc.def
 File: t5enc.def 2006/11/21 v1.4 Vietnamese T5 encoding
 Now handling font encoding T5 ...
 ... processing UTF-8 mapping file for font encoding T5
- (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5enc.dfu
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5enc.dfu
 File: t5enc.dfu 2006/08/19 v1.1 UTF8 support for Vietnamese
    defining Unicode char U+00AB (decimal 171)
    defining Unicode char U+00BB (decimal 187)
@@ -214,10 +221,13 @@ File: t5enc.dfu 2006/08/19 v1.1 UTF8 support for Vietnamese
    defining Unicode char U+203A (decimal 8250)
    defining Unicode char U+2423 (decimal 9251)
 ))
-LaTeX Font Info:    Trying to load font information for T5+cmr on input line 116.
- (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmr.fd
+LaTeX Font Info:    Trying to load font information for T5+cmr on input line 11
+6.
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmr.fd
 File: t5cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+))
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
 Package: inputenc 2024/02/08 v1.3d Input encoding file
 \inpenc@prehook=\toks17
 \inpenc@posthook=\toks18
@@ -244,7 +254,9 @@ Package color Info: Redefining color cyan on input line 14.
 \tablewidth=\skip69
 \captionskip=\skip70
 \tcaptionskip=\skip71
-) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
+tex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count283
 ) (chapter09.aux)
@@ -284,7 +296,8 @@ Non-PDF special ignored!
 Non-PDF special ignored!
 <special> color pop
 ]
-LaTeX Font Info:    Trying to load font information for T5+cmss on input line 13.
+LaTeX Font Info:    Trying to load font information for T5+cmss on input line 1
+3.
  (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmss.fd
 File: t5cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
@@ -294,7 +307,8 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <14.4> on input line 18.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 18.
- [2
+
+[2
 Non-PDF special ignored!
 <special> color push  Black
 Non-PDF special ignored!
@@ -309,25 +323,25 @@ Runaway argument?
 ! File ended while scanning use of \note.
 <inserted text> 
                 \par 
-<*> ...5/webTTNT_2026/TaiLieu/slide/chapter09.tex"
-                                                  
+<*> ./chapter09.tex
+                   
 I suspect you have forgotten a `}', causing me
 to read past where you wanted me to stop.
 I'll try to recover; but if the error is serious,
 you'd better type `E' or `X' now and fix your file.
 
 ! Emergency stop.
-<*> ...5/webTTNT_2026/TaiLieu/slide/chapter09.tex"
-                                                  
+<*> ./chapter09.tex
+                   
 *** (job aborted, no legal \end found)
 
  
 Here is how much of TeX's memory you used:
- 1755 strings out of 467870
- 25235 string characters out of 5418355
+ 1753 strings out of 467870
+ 24895 string characters out of 5418355
  435733 words of memory out of 5000000
  30661 multiletter control sequences out of 15000+600000
  638214 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,6n,65p,332b,259s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,6n,65p,220b,259s stack positions out of 10000i,1000n,20000p,200000b,200000s
 !  ==> Fatal error occurred, no output PDF file produced!

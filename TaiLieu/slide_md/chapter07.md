@@ -3,9 +3,9 @@
 \usepackage[dvips]{color}
 \usepackage{aima2e-slides}
 
-# Logical agents
+# Tác tử logic (Logical agents)
 
-## Chapter 7
+## Chương 7
 
 ---
 ## Phác thảo

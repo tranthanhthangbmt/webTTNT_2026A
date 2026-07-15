@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1784103031.15593 "chapter15a.tex" "chapter15a.pdf" "chapter15a" 1784103036.26138 2
+["pdflatex"] 1784110809.39221 "chapter15a.tex" "chapter15a.pdf" "chapter15a" 1784110818.32387 2
   "C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1784049722 89969 e95579120a3aa0ebc21d2737ca2ba701 ""
   "C:/Users/thanh/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1782268607 13333528 ce7767b4b1864107ed4ad937a79bf98c ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbsy10.tfm" 1136765053 1116 4e6ba9d7914baa6482fd69f67d126380 ""
@@ -47,8 +47,8 @@
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/vntex/t5enc.def" 1368738347 21986 ccb3b8f7cc27fbd61b3daabbbb82ad3f ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/vntex/t5enc.dfu" 1368738347 13949 387dd4fa58aea5f873839c93430fffed ""
   "aima2e-slides.sty" 1784099448 17063 5afe703776cd45f35c68fcc45cca9c03 ""
-  "chapter15a.aux" 1784103032 33 b44ed21e412957fdb594a7d135ccfe52 "pdflatex"
-  "chapter15a.tex" 1784102398 29186 7d94ef33eb6f072bdfc0414274d4a2b7 ""
+  "chapter15a.aux" 1784110816 33 b44ed21e412957fdb594a7d135ccfe52 "pdflatex"
+  "chapter15a.tex" 1784110759 29231 a9bb8fa06b8d2f821d701df6f74499aa ""
   "epsf.sty" 1784040955 8344 4fe02452014c262d15e6b94053672392 ""
   "figures/country-dance01c.ps" 1784078102 13392 0b3495e5702c56309137e0a7ac4a8851 ""
   "figures/country-dance02c.ps" 1784078102 13392 bad6ee4cfa90d43bd3652ae273e01b4a ""

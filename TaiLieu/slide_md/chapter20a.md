@@ -2,9 +2,9 @@
 \usepackage{epsf}
 \usepackage{aima2e-slides}
 
-# Statistical learning
+# Học thống kê (Statistical learning)
 
-## Chapter 20, Sections 1--3
+## Chương 20, Phần 1--3
 
 ---
 ## Phác thảo

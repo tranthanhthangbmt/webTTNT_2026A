@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1784102953.43631 "chapter03.tex" "chapter03.pdf" "chapter03" 1784102962.98497 2
+["pdflatex"] 1784110901.50691 "chapter03.tex" "chapter03.pdf" "chapter03" 1784110915.96117 2
   "C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1784049722 89969 e95579120a3aa0ebc21d2737ca2ba701 ""
   "C:/Users/thanh/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1782268607 13333528 ce7767b4b1864107ed4ad937a79bf98c ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc" 1256929440 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -113,8 +113,8 @@
   "algorithms/recursive-dls-algorithm.tex" 1784078101 1037 7ea1a2cc04879fcc7098a058344f4632 ""
   "algorithms/simple-PS-agent-algorithm.tex" 1784078101 770 83a49726675f46f5fa2564cdd80204bb ""
   "algorithms/tree-search-algorithm.tex" 1784078101 1326 3a7431b9a21ee304266a8870d989817a ""
-  "chapter03.aux" 1784102958 33 a63c86c3d10aa3741ba04b67d1ec0aab "pdflatex"
-  "chapter03.tex" 1784101855 32116 3040c3d55bce01e3415fbd3a1a8bbc37 ""
+  "chapter03.aux" 1784110913 33 a63c86c3d10aa3741ba04b67d1ec0aab "pdflatex"
+  "chapter03.tex" 1784110759 32162 bba47974c1e0327eabc7126b5c6f833b ""
   "epsf.sty" 1784040955 8344 4fe02452014c262d15e6b94053672392 ""
   "figures/8puzzle-ps-converted-to.pdf" 1784050090 6202 c33c163f9948f5be2ff0259d36404748 ""
   "figures/8puzzle.ps" 1784078101 21803 7c2b71e1b7e1331bcb652a952e839da5 ""

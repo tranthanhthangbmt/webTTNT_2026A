@@ -18,9 +18,9 @@
 \usepackage{epsf}
 \usepackage{aima2e-slides}
 
-# Communication and Language
+# Giao tiếp và Ngôn ngữ (Communication and Language)
 
-## Chapter 22
+## Chương 22
 
 ---
 ## Phác thảo

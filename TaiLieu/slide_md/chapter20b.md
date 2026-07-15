@@ -2,9 +2,9 @@
 \usepackage{epsf}
 \usepackage{aima2e-slides}
 
-# Neural networks
+# Mạng nơ-ron (Neural networks)
 
-## Chapter 20, Section 5
+## Chương 20, Phần 5
 
 ---
 ## Phác thảo

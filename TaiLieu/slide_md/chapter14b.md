@@ -2,9 +2,9 @@
 \usepackage{epsf}
 \usepackage{aima2e-slides}
 
-# Inference in Bayesian networks
+# Suy diễn trong mạng Bayes (Inference in Bayesian networks)
 
-## Chapter 14.4--5
+## Chương 14.4--5
 
 ---
 ## Phác thảo

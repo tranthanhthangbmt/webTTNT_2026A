@@ -19,9 +19,9 @@
 \usepackage[dvips]{color}
 \usepackage{aima2e-slides}
 
-# Constraint Satisfaction Problems
+# Bài toán Thỏa mãn Ràng buộc (Constraint Satisfaction Problems)
 
-## Chapter 5
+## Chương 5
 
 ---
 ## Phác thảo

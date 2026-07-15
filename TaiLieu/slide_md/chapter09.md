@@ -3,9 +3,9 @@
 \usepackage[dvips]{color}
 \usepackage{aima2e-slides}
 
-# Inference in first-order logic
+# Suy diễn trong logic bậc một (Inference in first-order logic)
 
-## Chapter 9
+## Chương 9
 
 ---
 ## Phác thảo

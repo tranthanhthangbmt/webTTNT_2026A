@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1784102965.38825 "chapter04a.tex" "chapter04a.pdf" "chapter04a" 1784102970.60464 2
+["pdflatex"] 1784110919.59612 "chapter04a.tex" "chapter04a.pdf" "chapter04a" 1784110925.55554 2
   "C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1784049722 89969 e95579120a3aa0ebc21d2737ca2ba701 ""
   "C:/Users/thanh/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1782268607 13333528 ce7767b4b1864107ed4ad937a79bf98c ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc" 1256929440 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -102,8 +102,8 @@
   "algorithms/hill-climbing-algorithm.tex" 1784078101 544 e5cbd923a4c97f3830c2ff8a48c5c92f ""
   "algorithms/simulated-annealing-algorithm.tex" 1784078101 919 eea3d3f4aa1602cdb73db7e45ae657c3 ""
   "algorithms/tree-search-short-algorithm.tex" 1784078101 601 c80cc55d6e5b9ef6333f4dee764faec1 ""
-  "chapter04a.aux" 1784102968 8 a94a2480d3289e625eea47cd1b285758 "pdflatex"
-  "chapter04a.tex" 1784101884 15095 bbc0603e0ce6ab4e9cb4f8d76e1e5a7d ""
+  "chapter04a.aux" 1784110924 8 a94a2480d3289e625eea47cd1b285758 "pdflatex"
+  "chapter04a.tex" 1784110759 15137 7b5df3b7f2a66bbb976b2e3fb1d6b372 ""
   "epsf.sty" 1784040955 8344 4fe02452014c262d15e6b94053672392 ""
   "figures/4queens-sequence-ps-converted-to.pdf" 1784051153 6378 776fc7ef029cdb28e744d4879b25e062 ""
   "figures/4queens-sequence.ps" 1784078101 49534 8f9af858e7943ca336bacb47d43fdcc0 ""

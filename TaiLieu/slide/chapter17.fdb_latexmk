@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1784103046.51055 "chapter17.tex" "chapter17.pdf" "chapter17" 1784103049.21928 2
+["pdflatex"] 1784110835.44227 "chapter17.tex" "chapter17.pdf" "chapter17" 1784110839.37723 2
   "C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1784049722 89969 e95579120a3aa0ebc21d2737ca2ba701 ""
   "C:/Users/thanh/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1782268607 13333528 ce7767b4b1864107ed4ad937a79bf98c ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmmi10.tfm" 1136765053 1528 abec98dbc43e172678c11b3b9031252a ""
@@ -43,8 +43,8 @@
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/vntex/t5enc.def" 1368738347 21986 ccb3b8f7cc27fbd61b3daabbbb82ad3f ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/vntex/t5enc.dfu" 1368738347 13949 387dd4fa58aea5f873839c93430fffed ""
   "aima2e-slides.sty" 1784099448 17063 5afe703776cd45f35c68fcc45cca9c03 ""
-  "chapter17.aux" 1784103048 33 aabb81b4d016483432922ef7da3a976a "pdflatex"
-  "chapter17.tex" 1784102498 13089 30c5ba4a9dbd7b15ea818e9501274f42 ""
+  "chapter17.aux" 1784110838 33 aabb81b4d016483432922ef7da3a976a "pdflatex"
+  "chapter17.tex" 1784110759 13124 5c2409b988453d3a1d6f98c140d2bd62 ""
   "epsf.sty" 1784040955 8344 4fe02452014c262d15e6b94053672392 ""
   "figures/decision-problems.ps" 1784078103 13591 ca0eb5495a943875f6e7ef683737a580 ""
   "figures/policy-flips4.ps" 1784078105 28558 546cef55ac0e1d26ff87aa94375f32b6 ""

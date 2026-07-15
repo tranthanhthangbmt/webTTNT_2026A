@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.24)  15 JUL 2026 15:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.24)  15 JUL 2026 17:26
 entering extended mode
- \write18 enabled.
+ restricted \write18 enabled.
  %&-line parsing enabled.
 **./chapter09a.tex
 (chapter09a.tex
@@ -1061,7 +1061,7 @@ my insertion and my current dilemma will both disappear.
 Here is how much of TeX's memory you used:
  3056 strings out of 467870
  49813 string characters out of 5418355
- 461294 words of memory out of 5000000
+ 461281 words of memory out of 5000000
  31881 multiletter control sequences out of 15000+600000
  683491 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191

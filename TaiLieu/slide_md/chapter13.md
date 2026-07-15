@@ -2,9 +2,9 @@
 \usepackage{epsf}
 \usepackage{aima2e-slides}
 
-# Uncertainty
+# Độ bất định (Uncertainty)
 
-## Chapter 13
+## Chương 13
 
 ---
 ## Phác thảo

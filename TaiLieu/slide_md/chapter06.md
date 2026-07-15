@@ -3,9 +3,9 @@
 \usepackage[dvips]{color}
 \usepackage{aima2e-slides}
 
-# Game playing
+# Chơi trò chơi (Game playing)
 
-## Chapter 6
+## Chương 6
 
 ---
 ## Phác thảo

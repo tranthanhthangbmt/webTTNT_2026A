@@ -3,9 +3,9 @@
 \usepackage[dvips]{color}
 \usepackage{aima2e-slides}
 
-# Artificial Intelligence
+# Trí tuệ nhân tạo (Artificial Intelligence)
 
-## Chapter 1
+## Chương 1
 
 ---
 ## Phác thảo

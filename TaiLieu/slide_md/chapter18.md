@@ -2,9 +2,9 @@
 \usepackage{epsf}
 \usepackage{aima2e-slides}
 
-# Learning from Observations
+# Học từ các quan sát (Learning from Observations)
 
-## Chapter 18, Sections 1--3
+## Chương 18, Phần 1--3
 
 ---
 ## Phác thảo

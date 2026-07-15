@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1784103028.29347 "chapter14b.tex" "chapter14b.pdf" "chapter14b" 1784103029.74377 2
+["pdflatex"] 1784110802.93086 "chapter14b.tex" "chapter14b.pdf" "chapter14b" 1784110805.80337 2
   "C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1784049722 89969 e95579120a3aa0ebc21d2737ca2ba701 ""
   "C:/Users/thanh/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1782268607 13333528 ce7767b4b1864107ed4ad937a79bf98c ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmmi10.tfm" 1136765053 1528 abec98dbc43e172678c11b3b9031252a ""
@@ -31,8 +31,8 @@
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/vntex/t5enc.def" 1368738347 21986 ccb3b8f7cc27fbd61b3daabbbb82ad3f ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/vntex/t5enc.dfu" 1368738347 13949 387dd4fa58aea5f873839c93430fffed ""
   "aima2e-slides.sty" 1784099448 17063 5afe703776cd45f35c68fcc45cca9c03 ""
-  "chapter14b.aux" 1784103029 8 a94a2480d3289e625eea47cd1b285758 "pdflatex"
-  "chapter14b.tex" 1784102328 22942 99e3b711d114e762768934385c3b66e1 ""
+  "chapter14b.aux" 1784110804 8 a94a2480d3289e625eea47cd1b285758 "pdflatex"
+  "chapter14b.tex" 1784110759 22975 66aa7825e72af3b86cd47d1d8e7c2043 ""
   "epsf.sty" 1784040955 8344 4fe02452014c262d15e6b94053672392 ""
   (generated)
   "chapter14b.aux"

@@ -3,9 +3,9 @@
 \usepackage[dvips]{color}
 \usepackage{aima2e-slides}
 
-# First-order logic
+# Logic bậc một (First-order logic)
 
-## Chapter 8
+## Chương 8
 
 ---
 ## Phác thảo

@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1784103055.41074 "chapter18.tex" "chapter18.pdf" "chapter18" 1784103057.73846 2
+["pdflatex"] 1784110842.20675 "chapter18.tex" "chapter18.pdf" "chapter18" 1784110848.53975 2
   "C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1784049722 89969 e95579120a3aa0ebc21d2737ca2ba701 ""
   "C:/Users/thanh/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1782268607 13333528 ce7767b4b1864107ed4ad937a79bf98c ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmmi10.tfm" 1136765053 1528 abec98dbc43e172678c11b3b9031252a ""
@@ -50,8 +50,8 @@
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/vntex/t5enc.dfu" 1368738347 13949 387dd4fa58aea5f873839c93430fffed ""
   "aima2e-slides.sty" 1784099448 17063 5afe703776cd45f35c68fcc45cca9c03 ""
   "algorithms/DTL-algorithm.tex" 1784078101 997 6dd7a7f034c4a6b567fbe6c07dcf2e1f ""
-  "chapter18.aux" 1784103056 33 2cf1851e6fc294062cbaec329150036d "pdflatex"
-  "chapter18.tex" 1784102556 17488 4f90a5e82154a5e562be9fcef4822038 ""
+  "chapter18.aux" 1784110847 33 2cf1851e6fc294062cbaec329150036d "pdflatex"
+  "chapter18.tex" 1784110759 17515 092afa0a4cd193dba1f5422de4c2ee4c ""
   "epsf.sty" 1784040955 8344 4fe02452014c262d15e6b94053672392 ""
   "figures/curve-fitting1c.ps" 1784078103 14371 b625ff09d04ac74638222bc93662e023 ""
   "figures/curve-fitting2c.ps" 1784078103 14586 bd986faee2260cb1d9ad70988d134508 ""

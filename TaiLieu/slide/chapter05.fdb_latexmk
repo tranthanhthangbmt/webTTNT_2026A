@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1784102977.42195 "chapter05.tex" "chapter05.pdf" "chapter05" 1784102980.72133 2
+["pdflatex"] 1784110936.59776 "chapter05.tex" "chapter05.pdf" "chapter05" 1784110946.17058 2
   "C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1784049722 89969 e95579120a3aa0ebc21d2737ca2ba701 ""
   "C:/Users/thanh/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1782268607 13333528 ce7767b4b1864107ed4ad937a79bf98c ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc" 1256929440 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -97,8 +97,8 @@
   "algorithms/alpha-beta-algorithm.tex" 1784078101 1162 514a053a211612e9650d06b13d7433ff ""
   "algorithms/backtracking-search-algorithm.tex" 1784078101 1039 9ac5871615b61dabdda60e3664ac3508 ""
   "algorithms/minimax-algorithm.tex" 1784078101 946 10f0c0a342deb87c6e82dac9f8ced644 ""
-  "chapter05.aux" 1784102978 8 a94a2480d3289e625eea47cd1b285758 "pdflatex"
-  "chapter05.tex" 1784101931 21607 ef2c3b8db41d15039f9d097defd2347c ""
+  "chapter05.aux" 1784110943 8 a94a2480d3289e625eea47cd1b285758 "pdflatex"
+  "chapter05.tex" 1784110759 21646 56eb1509ea7695141409a2a5bfe39519 ""
   "epsf.sty" 1784040955 8344 4fe02452014c262d15e6b94053672392 ""
   "figures/ac-example1c.ps" 1784078101 29223 be16e94fd16d409b1bb5f6cbcf66df15 ""
   "figures/ac-example2c.ps" 1784078101 29623 c67e490d65b3d1ebe6ee0addc64ba87c ""
