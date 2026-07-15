@@ -1,169 +1,162 @@
-\documentclass[fleqn]{article}
-
-\usepackage{aima-slides}
-\usepackage[utf8]{inputenc}
-\usepackage[T5]{fontenc}
-\usepackage{lmodern}
+\documentclass{article}
+\usepackage{fleqn}
+\usepackage{epsf}
+\usepackage[dvips]{color}
+\usepackage{aima2e-slides}
 
 \begin{document}
 
 \begin{huge}
-\titleslide{Lập kế hoạch (Planning)}{Chương 11}
+\titleslide{Planning}{Chapter 11}
+
+\sf
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Nội dung}
+\heading{Phác thảo}
 
-\blob Tìm kiếm so với lập kế hoạch
+\blob Tìm kiếm và lập kế hoạch
 
-\blob Các toán tử STRIPS
+\blob Toán tử STRIPS
 
-\blob Lập kế hoạch theo thứ tự cục bộ (Partial-order planning)
+\blob Lập kế hoạch theo thứ tự từng phần
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Tìm kiếm so với lập kế hoạch}
+\heading{Tìm kiếm và lập kế hoạch}
 
-Xem xét nhiệm vụ {\em lấy sữa, chuối và máy khoan không dây}
-
+Xét nhiệm vụ \txr{\em lấy sữa, chuối và máy khoan không dây}\\
 Các thuật toán tìm kiếm tiêu chuẩn dường như thất bại thảm hại:
 
-\vspace*{0.3in}
+\vspace*{0.1in}
 
-\epsfxsize=0.7\textwidth
+\epsfxsize=0,8\textwidth
 \fig{\file{figures}{supermarket1.ps}}
 
-Kiểm tra heuristic/đích sau khi sự việc xảy ra là không thỏa đáng
+Kiểm tra mục tiêu/kinh nghiệm sau thực tế không đầy đủ
 
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Tìm kiếm so với lập kế hoạch (tiếp)}
+\heading{Tiếp theo là tìm kiếm và lập kế hoạch.}
 
-Các hệ thống lập kế hoạch thực hiện những việc sau:\al
-1) mở rộng biểu diễn hành động và đích để cho phép lựa chọn\al
-2) chia để trị bằng cách đặt các mục tiêu con (subgoaling)\al
-3) nới lỏng yêu cầu xây dựng các giải pháp tuần tự
+Hệ thống lập kế hoạch thực hiện những việc sau:\al
+1) mở ra hành động và thể hiện mục tiêu để cho phép lựa chọn\al
+2) chia để trị bằng cách đặt mục tiêu phụ\al
+3) nới lỏng yêu cầu xây dựng giải pháp tuần tự
 
 \begin{tabular}{l|l|l}
               & {\bf Tìm kiếm} & {\bf Lập kế hoạch} \\
 \hline
-{\bf Trạng thái}  & Cấu trúc dữ liệu Lisp & Các câu logic \\
-{\bf Hành động} & Mã Lisp            & Tiền điều kiện/kết quả \\
-{\bf Đích}    & Mã Lisp            & Câu logic (phép hội)\\
-{\bf Kế hoạch}    & Chuỗi từ $S_0$  & Các ràng buộc trên các hành động
+{\bf Trạng thái} & Cấu trúc dữ liệu Lisp & Câu logic \\
+{\bf Hành động} & Mã Lisp & Điều kiện tiên quyết/kết quả \\
+{\bf Mục tiêu} & Mã Lisp & Câu logic (liên từ)\\
+{\bf Kế hoạch} & Trình tự từ $S_0$ & Ràng buộc về hành động
 \end{tabular}
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Lập kế hoạch trong phép tính tình huống}
+\heading{Toán tử STRIPS}
 
-$PlanResult(p,s)$ là tình huống kết quả từ việc thực thi $p$ trong $s$\nl
-  $PlanResult([],s) = s$\nl
-  $PlanResult([a|p],s) = PlanResult(p,Result(a,s))$
+Mô tả hành động được sắp xếp gọn gàng, ngôn ngữ hạn chế
 
-{\bf Trạng thái ban đầu} $At(Home,S_0) \land \lnot Have(Milk,S_0) \land \ldots$
+{\sc Hành động}: $Buy(x)$\hfill\epsfxsize=0.2\textwidth\raisebox{-1.5in[0pt][0pt]{\epsffile{\file{figures}{operator-schema2.ps}}\\
+{\sc Điều kiện tiên quyết}: $At(p), Sells(p,x)$\\
+{\sc Effect}: $Have(x)$
 
-{\bf Hành động} như các tiên đề Trạng thái kế tiếp\\
-  $Have(Milk,Result(a,s)) \lequiv {}$\\
-    $[(a=Buy(Milk) \land At(Supermarket,s))
-     \lor (Have(Milk,s) \land a \neq \ldots)]$
+[Lưu ý: phần này tóm tắt nhiều chi tiết quan trọng!]
 
-{\bf Truy vấn}\al
-  $s=PlanResult(p,S_0) \land At(Home,s) \land Have(Milk,s) \land \ldots$
+Ngôn ngữ bị hạn chế $\implies$ thuật toán hiệu quả \nl
+Điều kiện tiên quyết: sự kết hợp của các chữ tích cực\nl
+Tác dụng: sự kết hợp của chữ
 
-{\bf Giải pháp}\al
-  $p = [Go(Supermarket),Buy(Milk),Buy(Bananas),Go(HWS),\ldots]$
+Một bộ toán tử STRIPS hoàn chỉnh có thể được dịch \\
+thành một tập tiên đề trạng thái kế tiếp
 
-Khó khăn chính: phân nhánh không bị ràng buộc, khó áp dụng các heuristic
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Các kế hoạch được đặt hàng một phần}
+
+\txr{\em Tập hợp các bước được sắp xếp một phần} với\nl
+  \txb{$Finish$ step} có mô tả trạng thái ban đầu là hiệu ứng của nó\nl
+  \txb{$Finish$ step} có mô tả mục tiêu là điều kiện tiên quyết\nl
+  \txb{liên kết nhân quả} từ kết quả của bước này đến điều kiện tiên quyết của bước khác\nl
+  \txb{thứ tự thời gian} giữa các cặp bước
+
+\txb{Điều kiện mở} = điều kiện tiên quyết của bước chưa được liên kết nhân quả
+
+Một kế hoạch là \txb{hoàn thành} nếu mọi điều kiện tiên quyết đều đạt được
+
+Một điều kiện tiên quyết đã đạt được \txb{} nếu đó là hiệu quả của bước trước đó\\
+và không có bước \txb{ nào có thể can thiệp } có thể hoàn tác nó
+
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Các toán tử STRIPS}
-
-Mô tả các hành động được sắp xếp gọn gàng, ngôn ngữ bị hạn chế
-
-{\sc Hành động (Action)}: $Buy(x)$\\
-{\sc Tiền điều kiện (Precondition)}: $At(p), Sells(p,x)$\\
-{\sc Hiệu ứng (Effect)}: $Have(x)$
-
-[Lưu ý: điều này trừu tượng hóa nhiều chi tiết quan trọng!]
-
-Ngôn ngữ bị hạn chế $\implies$ thuật toán hiệu quả\nl
-Tiền điều kiện: phép hội của các literal khẳng định\nl
-Hiệu ứng: phép hội của các literal
+\heading{Ví dụ}
 
 \vspace*{0.2in}
 
-\epsfxsize=0.4\textwidth
-\fig{\file{figures}{operator-schema2.ps}}
+\centerline{\raisebox{-0.9\textheight[0pt][0pt]{\epsfysize=0.95\textheight\epsffile{\file{figures}{plan-construction1.ps}}}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ}
+
+\vspace*{0.2in}
+
+\centerline{\raisebox{-0.9\textheight[0pt][0pt]{\epsfysize=0.95\textheight\epsffile{\file{figures}{plan-construction2.ps}}}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ}
+
+\vspace*{0.2in}
+
+\centerline{\raisebox{-0.9\textheight[0pt][0pt]{\epsfysize=0.95\textheight\epsffile{\file{figures}{plan-construction3.ps}}}
+
 
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Không gian trạng thái so với không gian kế hoạch}
+\heading{Quy trình lập kế hoạch}
 
-Tìm kiếm tiêu chuẩn: nút = trạng thái thế giới cụ thể\\
-Tìm kiếm lập kế hoạch: nút = \u{kế hoạch cục bộ (partial plan)}
+Người vận hành trên các gói một phần:\nl
+   \txb{thêm liên kết} từ hành động hiện có vào điều kiện mở\nl
+   \txb{thêm một bước} để đáp ứng điều kiện mở\nl
+   \txb{order} một bước khác để loại bỏ những xung đột có thể xảy ra
 
-Định nghĩa: \u{điều kiện mở (open condition)} là một tiền điều kiện của một bước chưa được hoàn thành
+Dần dần chuyển từ những kế hoạch chưa đầy đủ/mơ hồ sang những kế hoạch hoàn chỉnh, đúng đắn
 
-Các toán tử trên các kế hoạch cục bộ:\nl
-   \u{thêm một liên kết} từ một hành động hiện có đến một điều kiện mở\nl
-   \u{thêm một bước} để hoàn thành một điều kiện mở\nl
-   \u{sắp xếp} một bước so với bước khác
-
-Chuyển dần từ các kế hoạch không đầy đủ/mơ hồ sang các kế hoạch đầy đủ, chính xác
-
+Quay lại nếu điều kiện mở không thể đạt được hoặc \\
+nếu xung đột không thể giải quyết được
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Các kế hoạch được sắp xếp cục bộ}
-
-\epsfxsize=0.5\textwidth
-\fig{\file{figures}{shoes-socks4.ps}}
-
-Một kế hoạch là \u{đầy đủ (complete)} khi và chỉ khi mọi tiền điều kiện đều đạt được
-
-Một tiền điều kiện \u{đạt được (achieved)} khi và chỉ khi nó là hiệu ứng của một bước trước đó\\
-và không có bước \u{có khả năng can thiệp (possibly intervening)} nào hủy bỏ nó
-
-
-
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Phác thảo thuật toán POP}
+\heading{Bản phác thảo thuật toán POP}
 
 \input{\file{algorithms}{pop-algorithm1}}
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Thuật toán POP (tiếp)}
+\heading{Tiếp theo thuật toán POP.}
 
 \input{\file{algorithms}{pop-algorithm2}}
 
-POP là đúng đắn, đầy đủ và \u{có hệ thống} (không lặp lại)
-
-Mở rộng cho phép tuyển, lượng từ phổ dụng, phủ định, điều kiện
-
-%Hiện tại không phải là phương pháp hiệu quả nhất---rất nhạy cảm với thứ tự mục tiêu con
-
-
-
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Đè bẹp (Clobbering) và thăng hạng/hạ hạng (promotion/demotion)}
+\heading{Tấn công và thăng chức/hạ cấp}
 
-Một \u{clobberer} là một bước can thiệp tiềm năng phá hủy
-điều kiện đạt được bởi một liên kết nhân quả. Ví dụ, $Go(Home)$ đè bẹp $At(HWS)$:
+\txb{clobberer} là một bước can thiệp có khả năng phá hủy
+điều kiện đạt được bởi một liên kết nhân quả. Ví dụ: $Go(Home)$ tắc nghẽn $At(Supermarket)$:
 
 \begin{tabular}{lr}
-\epsfxsize=0.35\textwidth
+\epsfxsize=0,40\textwidth
 \epsffile{\file{figures}{clobber.ps}}
 &
 \hbox{\begin{minipage}[b]{0.6\textwidth}
 \vspace*{0.3in}
 
-\u{Hạ hạng (Demotion)}: đặt trước $Go(HWS)$
+\txb{Hạ cấp}: đặt trước $Go(Supermarket)$
 
 \vspace*{1.7in}
 
-\u{Thăng hạng (Promotion)}: đặt sau $Buy(Drill)$
+\txb{Khuyến mãi}: xếp sau $Buy(Milk)$
 
 \vspace*{1in}
 \ 
@@ -171,7 +164,24 @@ Một \u{clobberer} là một bước can thiệp tiềm năng phá hủy
 \end{tabular}
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Ví dụ: Thế giới khối (Blocks world)}
+\heading{Thuộc tính của POP}
+
+Thuật toán không xác định: quay lại tại điểm \txb{lựa chọn} khi thất bại:\al
+ -- lựa chọn $S_{add}$ để đạt được $S_{need}$\al
+ -- lựa chọn giáng chức hoặc thăng chức cho kẻ phá hoại\al
+ -- việc lựa chọn $S_{need}$ là không thể hủy bỏ
+
+POP là âm thanh, hoàn chỉnh và \txb{có hệ thống} (không lặp lại)
+
+Phần mở rộng cho sự phân tách, phổ quát, phủ định, điều kiện
+
+Có thể được thực hiện hiệu quả với các phương pháp phỏng đoán tốt bắt nguồn từ việc mô tả vấn đề
+
+Đặc biệt tốt cho các vấn đề có nhiều mục tiêu phụ có liên quan lỏng lẻo
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ: Thế giới khối}
 
 \vspace*{0.3in}
 
@@ -179,7 +189,7 @@ Một \u{clobberer} là một bước can thiệp tiềm năng phá hủy
 \fig{\file{figures}{blocks-world.ps}}
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Ví dụ (tiếp)}
+\heading{Ví dụ tiếp theo.}
 
 \vspace*{0.1in}
 
@@ -190,7 +200,7 @@ Một \u{clobberer} là một bước can thiệp tiềm năng phá hủy
 
 
 %%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pheading{Ví dụ (tiếp)}
+\pheading{Ví dụ tiếp theo.}
 
 \vspace*{0.1in}
 
@@ -200,7 +210,7 @@ Một \u{clobberer} là một bước can thiệp tiềm năng phá hủy
 
 
 %%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pheading{Ví dụ (tiếp)}
+\pheading{Ví dụ tiếp theo.}
 
 \vspace*{0.1in}
 
@@ -210,7 +220,7 @@ Một \u{clobberer} là một bước can thiệp tiềm năng phá hủy
 
 
 %%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pheading{Ví dụ (tiếp)}
+\pheading{Ví dụ tiếp theo.}
 
 \vspace*{0.1in}
 

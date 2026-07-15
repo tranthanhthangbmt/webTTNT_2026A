@@ -2,7 +2,7 @@
 %%Creator: idraw
 %%DocumentFonts:
 %%Pages: 1
-%%BoundingBox: 118 607 448 732
+%%BoundingBox: 118 607 449 732
 %%EndComments
 
 %%BeginIdrawPrologue
@@ -77,8 +77,8 @@ end
 
 %%EndIdrawPrologue
 
-/arrowHeight 11 def
-/arrowWidth 5 def
+/arrowHeight 8 def
+/arrowWidth 4 def
 
 /IdrawDict 50 dict def
 IdrawDict begin
@@ -170,6 +170,7 @@ end
 /Circ {
 newpath
 0 360 arc
+closepath
 patternNone not { ifill } if
 brushNone not { istroke } if
 } def
@@ -201,6 +202,7 @@ newpath
 translate
 scale
 0 0 1 0 360 arc
+closepath
 patternNone not { ifill } if
 brushNone not { istroke } if
 end
@@ -320,7 +322,7 @@ grestore
 gsave
 fgred fggreen fgblue setrgbcolor
 /fontDict printFont printSize scalefont dup setfont def
-/descender fontDict begin 0 [FontBBox] 1 get FontMatrix end
+/descender fontDict begin 0 /FontBBox load  1 get FontMatrix end
 transform exch pop def
 /vertoffset 1 printSize sub descender sub def {
 0 vertoffset moveto show
@@ -450,7 +452,7 @@ exch dup 3 1 roll 1 0 0 -1 0 6 -1 roll matrix astore
 
 %%EndProlog
 
-%I Idraw 10 Grid 8 8 
+%I Idraw 12 Grid 8 8 
 
 %%Page: 1 1
 
@@ -463,6 +465,70 @@ Begin
 %I t
 [ 0.754552 0 0 0.754552 0 0 ] concat
 /originalCTM matrix currentmatrix def
+
+Begin %I Line
+%I b 65535
+3 0 0 [] 0 SetB
+%I cfg Red
+1 0 0 SetCFg
+%I cbg White
+1 1 1 SetCBg
+%I p
+0 SetP
+%I t
+[ 1 0 0 1 -43 172 ] concat
+%I
+483 644 483 788 Line
+%I 1
+End
+
+Begin %I Line
+%I b 65535
+3 0 0 [] 0 SetB
+%I cfg Red
+1 0 0 SetCFg
+%I cbg White
+1 1 1 SetCBg
+%I p
+0 SetP
+%I t
+[ 1 0 0 1 -43 172 ] concat
+%I
+627 788 579 716 Line
+%I 1
+End
+
+Begin %I Line
+%I b 65520
+3 0 0 [12 4] 0 SetB
+%I cfg Red
+1 0 0 SetCFg
+%I cbg White
+1 1 1 SetCBg
+%I p
+0 SetP
+%I t
+[ 1 0 0 1 -43 172 ] concat
+%I
+355 788 211 644 Line
+%I 1
+End
+
+Begin %I Line
+%I b 65520
+3 0 0 [12 4] 0 SetB
+%I cfg Red
+1 0 0 SetCFg
+%I cbg White
+1 1 1 SetCBg
+%I p
+0 SetP
+%I t
+[ 1 0 0 1 -43 172 ] concat
+%I
+307 716 211 788 Line
+%I 1
+End
 
 Begin %I Elli
 %I b 65535
@@ -541,7 +607,7 @@ End
 
 Begin %I Line
 %I b 65535
-2 0 0 [] 0 SetB
+3 0 0 [] 0 SetB
 %I cfg Black
 0 0 0 SetCFg
 %I cbg White
@@ -556,24 +622,8 @@ Begin %I Line
 End
 
 Begin %I Line
-%I b 65520
-2 0 0 [12 4] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-0 SetP
-%I t
-[ 1 0 0 1 -43 172 ] concat
-%I
-355 788 211 644 Line
-%I 1
-End
-
-Begin %I Line
 %I b 65535
-2 0 0 [] 0 SetB
+3 0 0 [] 0 SetB
 %I cfg Black
 0 0 0 SetCFg
 %I cbg White
@@ -589,7 +639,7 @@ End
 
 Begin %I Line
 %I b 65535
-2 0 0 [] 0 SetB
+3 0 0 [] 0 SetB
 %I cfg Black
 0 0 0 SetCFg
 %I cbg White
@@ -600,22 +650,6 @@ Begin %I Line
 [ 1 0 0 1 -43 172 ] concat
 %I
 355 644 307 716 Line
-%I 1
-End
-
-Begin %I Line
-%I b 65520
-2 0 0 [12 4] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-0 SetP
-%I t
-[ 1 0 0 1 -43 172 ] concat
-%I
-307 716 211 788 Line
 %I 1
 End
 
@@ -696,7 +730,7 @@ End
 
 Begin %I Line
 %I b 65535
-2 0 0 [] 0 SetB
+3 0 0 [] 0 SetB
 %I cfg Black
 0 0 0 SetCFg
 %I cbg White
@@ -712,7 +746,7 @@ End
 
 Begin %I Line
 %I b 65535
-2 0 0 [] 0 SetB
+3 0 0 [] 0 SetB
 %I cfg Black
 0 0 0 SetCFg
 %I cbg White
@@ -728,7 +762,7 @@ End
 
 Begin %I Line
 %I b 65535
-2 0 0 [] 0 SetB
+3 0 0 [] 0 SetB
 %I cfg Black
 0 0 0 SetCFg
 %I cbg White
@@ -739,38 +773,6 @@ Begin %I Line
 [ 1 0 0 1 229 172 ] concat
 %I
 355 644 307 716 Line
-%I 1
-End
-
-Begin %I Line
-%I b 65535
-2 0 0 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-0 SetP
-%I t
-[ 1 0 0 1 -43 172 ] concat
-%I
-483 644 483 788 Line
-%I 1
-End
-
-Begin %I Line
-%I b 65535
-2 0 0 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-0 SetP
-%I t
-[ 1 0 0 1 -43 172 ] concat
-%I
-627 788 579 716 Line
 %I 1
 End
 

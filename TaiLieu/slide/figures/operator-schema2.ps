@@ -2,7 +2,7 @@
 %%Creator: idraw
 %%DocumentFonts: Helvetica-Oblique Helvetica-Bold
 %%Pages: 1
-%%BoundingBox: 158 572 350 691
+%%BoundingBox: 178 591 275 672
 %%EndComments
 
 %%BeginIdrawPrologue
@@ -78,7 +78,7 @@ end
 %%EndIdrawPrologue
 
 /arrowHeight 11 def
-/arrowWidth 5 def
+/arrowWidth 6 def
 
 /IdrawDict 52 dict def
 IdrawDict begin
@@ -211,6 +211,7 @@ end
 /Circ {
 newpath
 0 360 arc
+closepath
 patternNone not { ifill } if
 brushNone not { istroke } if
 } def
@@ -242,6 +243,7 @@ newpath
 translate
 scale
 0 0 1 0 360 arc
+closepath
 patternNone not { ifill } if
 brushNone not { istroke } if
 end
@@ -361,7 +363,7 @@ grestore
 gsave
 fgred fggreen fgblue setrgbcolor
 /fontDict printFont printSize scalefont dup setfont def
-/descender fontDict begin 0 [FontBBox] 1 get FontMatrix end
+/descender fontDict begin 0 /FontBBox load  1 get FontMatrix end
 transform exch pop def
 /vertoffset 1 printSize sub descender sub def {
 0 vertoffset moveto show
@@ -491,7 +493,7 @@ exch dup 3 1 roll 1 0 0 -1 0 6 -1 roll matrix astore
 
 %%EndProlog
 
-%I Idraw 10 Grid 8 8 
+%I Idraw 12 Grid 8 8 
 
 %%Page: 1 1
 
@@ -504,19 +506,6 @@ Begin
 %I t
 [ 0.86747 0 0 0.86747 0 0 ] concat
 /originalCTM matrix currentmatrix def
-
-Begin %I Rect
-none SetB %I b n
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-none SetP %I p n
-%I t
-[ 0.890325 0 0 0.890325 -52.0231 302.783 ] concat
-%I
-265 402 511 554 Rect
-End
 
 Begin %I Text
 %I cfg Black

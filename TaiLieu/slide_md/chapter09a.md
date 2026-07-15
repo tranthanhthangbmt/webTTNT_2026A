@@ -10,22 +10,22 @@
 ---
 ## Nội dung
 
-- Các phép chứng minh (Proofs)
+- Các bằng chứng được phép (Bằng chứng)
 
-- Sự hợp nhất (Unification)
+- Sự hợp nhất (Thống nhất)
 
-- Modus Ponens tổng quát (Generalized Modus Ponens)
+- Modus Ponens tổng hợp (Generalized Modus Ponens)
 
-- Suy diễn tiến và lùi (Forward and backward chaining)
+- Suy diễn tiến và lùi (Chuỗi tiến và lùi)
 
 ---
-## Các phép chứng minh
+##  Bằng chứng được phép
 
-Suy diễn đúng đắn: tìm $
+Suy diễn đúng nền: tìm $
   pha$ sao cho $KB \models 
   pha$.
 
-Quá trình chứng minh là một quá trình <u>tìm kiếm</u>, các toán tử là các quy tắc suy diễn.
+Quá trình chứng minh là một quá trình <u>tìm kiếm</u>, các toán tử là quy tắc diễn đàn.
 
 Ví dụ, Modus Ponens (MP)
 \[\displaystyle
@@ -35,7 +35,7 @@ Ví dụ, Modus Ponens (MP)
 \frac{At(Joe,UCB) &nbsp;&nbsp;  At(Joe,UCB)\implies OK(Joe)}{OK(Joe)}
 \]
 
-Ví dụ, And-Introduction (AI)
+Ví dụ, Và-Giới thiệu (AI)
 \[\displaystyle
 \frac{
   pha  &nbsp;&nbsp;  \beta}{
@@ -43,14 +43,14 @@ Ví dụ, And-Introduction (AI)
 \frac{OK(Joe) &nbsp;&nbsp;  CSMajor(Joe)}{OK(Joe)\land CSMajor(Joe)}
 \]
 
-Ví dụ, Universal Elimination (UE)
+Ví dụ, Loại bỏ toàn cầu (UE)
 \[\displaystyle
 \frac{\All{x} 
   pha}{
   pha\{x/\tau\}}  &nbsp;&nbsp;&nbsp;&nbsp; 
 \frac{\All{x} At(x,UCB)\implies OK(x)}{At(Pat,UCB)\implies OK(Pat)}
 \]
-$\tau$ phải là một hạng thức cơ sở (ground term) (tức là, không có biến số)
+$\tau$ phải là một cơ sở dữ liệu hạng (thuật ngữ cơ bản) (tức là không có biến số)
 
 ---
 ## Ví dụ chứng minh
@@ -60,7 +60,7 @@ $\tau$ phải là một hạng thức cơ sở (ground term) (tức là, không 
 | Bob là một con trâu | 1. | $Buffalo(Bob)$ |
 | Pat là một con lợn | 2. | $Pig(Pat)$ |
 | Trâu chạy nhanh hơn lợn | 3. | $\All{x,y} Buffalo(x) \land Pig(y) \implies Faster(x,y)$ |
-| Bob chạy nhanh hơn Pat |  | \phantom{$Buffalo(Bob) \land Pig(Pat) \implies Faster(Bob,Pat)$} |
+| Bob chạy nhanh hơn Pat |  | \phantom{$Buffalo(Bob) \land Pig(Pat) \implies Faster(Bob,Pat)$ |
 | \phantom{UE 3, $\{x/Bob,y/Pat\}$} |  |  |
 
 ---
@@ -71,7 +71,7 @@ $\tau$ phải là một hạng thức cơ sở (ground term) (tức là, không 
 | \phantom{Bob là một con trâu} |  |  |
 | \phantom{UE 3, $\{x/Bob,y/Pat\}$} |  |  |
 | \phantom{Trâu chạy nhanh hơn lợn} |  |  |
-| \phantom{Bob chạy nhanh hơn Pat} |  | \phantom{$Buffalo(Bob) \land Pig(Pat) \implies Faster(Bob,Pat)$} |
+| \phantom{Bob chạy nhanh hơn Pat} |  | \phantom{$Buffalo(Bob) \land Pig(Pat) \implies Faster(Bob,Pat)$ |
 | AI 1 \ | 2 | 4. | $Buffalo(Bob) \land Pig(Pat)$ |
 
 ---
@@ -82,7 +82,7 @@ $\tau$ phải là một hạng thức cơ sở (ground term) (tức là, không 
 | \phantom{Bob là một con trâu} |  |  |
 | \phantom{Pat là một con lợn} |  |  |
 | \phantom{Trâu chạy nhanh hơn lợn} |  |  |
-| \phantom{Bob chạy nhanh hơn Pat} |  | \phantom{$Buffalo(Bob) \land Pig(Pat) \implies Faster(Bob,Pat)$} |
+| \phantom{Bob chạy nhanh hơn Pat} |  | \phantom{$Buffalo(Bob) \land Pig(Pat) \implies Faster(Bob,Pat)$ |
 | \phantom{AI 1 \ | 2} |  |  |
 | UE 3, $\{x/Bob,y/Pat\}$ | 5. | $Buffalo(Bob) \land Pig(Pat) \implies Faster(Bob,Pat)$ |
 
@@ -100,31 +100,31 @@ $\tau$ phải là một hạng thức cơ sở (ground term) (tức là, không 
 | MP 6 \ | 7 | 6. | $Faster(Bob,Pat)$ |
 
 ---
-## Tìm kiếm với các quy tắc suy diễn nguyên thủy
+## Tìm kiếm các quy tắc suy diễn nguyên thủy
 
 Các toán tử là các quy tắc suy diễn
 
-Các trạng thái là các tập hợp các câu
+Trạng thái là các tập hợp 
 
-Kiểm tra đích kiểm tra trạng thái để xem nó có chứa câu truy vấn hay không
+Kiểm tra trạng thái kiểm tra đích để xem nó có chứa câu hỏi hay không
 
+,3\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/naive-proof-tree.png)
  
 
 AI, UE, MP là một mẫu suy diễn phổ biến
 
-<u>Vấn đề</u>: hệ số phân nhánh khổng lồ, đặc biệt đối với UE
+<u>Vấn đề</u>: hệ thống phân nhánh, đặc biệt đối với UE
 
 <u>Ý tưởng</u>: tìm một phép thế làm cho tiền đề của quy tắc khớp với một số
 sự kiện đã biết
   
-$\Rightarrow$ một quy tắc suy diễn duy nhất, mạnh mẽ hơn
+$\Rightarrow$ một quy tắc suy diễn duy nhất,mạnh mẽ hơn
 
----
-## Sự hợp nhất (Unification)
+<u> Hợp nhất (Unification)</u>
 
-Một phép thế $\sigma$ hợp nhất các câu nguyên thủy $p$ và $q$ nếu
-<u>\u{$p\sigma = q\sigma$</u>}
+Một quyền thế $\sigma$ hợp nhất các câu nguyên thủy $p$ và $q$ if
+<u> \u{ $p\sigma = q\sigma$ </u> }
 \[\begin{array}{l|l|l}
 p & q & \sigma 
 
@@ -138,7 +138,7 @@ Knows(John,x) & Knows(y,Mother(y)& \phantom{\{y/John,x/Mother(John)\}}
 \end{array}\]
 
 ---
-## Sự hợp nhất
+## Hợp lý nhất
 
 .
 \[\begin{array}{l|l|l}
@@ -157,12 +157,12 @@ Knows(John,x) & Knows(y,Mother(y)& \phantom{\{y/John,x/Mother(John)\}}
 | &nbsp; | &nbsp; |
 |---|---|
 | Ví dụ, nếu chúng ta biết $q$ và | $Knows(John,x) \implies Likes(John,x)$ |
-| thì chúng ta kết luận | $Likes(John,Jane)$ |
+| thì chúng ta ta kết luận | $Likes(John,Jane)$ |
 |  | $Likes(John,OJ)$ |
 |  | $Likes(John,Mother(John))$ |
 
 ---
-## Modus Ponens tổng quát (Generalized Modus Ponens - GMP)
+## Modus Ponens tổng hợp (Generalized Modus Ponens - GMP)
 
 \[\frac{{p_1}', \;\; {p_2}', \; \ldots, \; {p_n}', \;\;
 ( p_1 \land p_2 \land \ldots \land p_n \Rightarrow q)}{q\sigma}
@@ -171,24 +171,24 @@ Knows(John,x) & Knows(y,Mother(y)& \phantom{\{y/John,x/Mother(John)\}}
 
 | &nbsp; | &nbsp; |
 |---|---|
-| Ví dụ ${p_1}'\eq$ | Faster(Bob,Pat) |
-| ${p_2}'\eq$ | Faster(Pat,Steve) |
+| Ví dụ ${p_1}'\eq$ | Nhanh hơn(Bob,Pat) |
+| ${p_2}'\eq$ | Nhanh hơn(Pat,Steve) |
 | $p_1 \land p_2 \implies q\ \eq$ | $Faster(x,y) \land Faster(y,z) \implies Faster(x,z)$ |
 | $\sigma\eq$ | $\{x/Bob,y/Pat,z/Steve\}$ |
 | $q\sigma\eq$ | $Faster(Bob,Steve)$ |
 
-GMP được sử dụng với KB của <u>các mệnh đề xác định (definite clauses)</u> (*chính xác* một literal khẳng định):
+GMP được sử dụng với KB của <u>các mệnh đề xác định (mệnh đề xác định)</u> (*chính xác* một khẳng định theo nghĩa đen):
 
-hoặc là một câu nguyên thủy đơn hoặc
+hoặc là một câu cá đơn hoặc 
     
-(phép hội của các câu nguyên thủy) $\Rightarrow$ (câu nguyên thủy)
+(phép hội của các nguyên thủy) $\Rightarrow$ (câu nguyên thủy)
 
-Tất cả các biến được giả định là có lượng từ phổ dụng
+Tất cả các biến được định nghĩa đều có giá trị từ phổ biến
 
 ---
-## Tính đúng đắn của GMP
+##  Tính đúng của GMP
 
-Cần phải chỉ ra rằng 
+Cần phải chỉ ra điều đó 
 \[{p_1}', \; \ldots, \; {p_n}', \;\;
 ( p_1 \land \ldots \land p_n \Rightarrow q) \models q\sigma\]
 với điều kiện là ${p_i}'\sigma \eq p_i\sigma$ với mọi $i$
@@ -206,26 +206,26 @@ Bổ đề: Đối với bất kỳ mệnh đề xác định $p$ nào, ta có $
 3. Từ 1 và 2, $q\sigma$ được rút ra bằng MP đơn giản
 
 ---
-## Suy diễn tiến (Forward chaining)
+## Suy diễn tiến (Chuỗi chuyển tiếp)
 
 Khi một sự kiện mới $p$ được thêm vào KB
   
-   với mỗi quy tắc sao cho $p$ hợp nhất với một tiền đề
+   with each quy tắc sao cho $p$ hợp nhất với một tiền đề
     
-      nếu các tiền đề khác <u>đã biết</u>
+      if các tiền đề khác <u>đã biết</u>
     
-      thì thêm kết luận vào KB và tiếp tục suy diễn (chaining)
+      thì thêm phần thảo luận vào KB và tiếp tục suy diễn (chaining)
 
-Suy diễn tiến <u>được thúc đẩy bởi dữ liệu (data-driven)</u>
+Suy diễn tiến <u>được cung cấp bởi data (data-driven)</u>
     
-ví dụ, suy diễn các thuộc tính và loại từ các nhận thức
+ví dụ, suy diễn các thuộc tính và loại từ các biểu thức nhận biết
 
 ---
-## Ví dụ suy diễn tiến
+## Ví ngữ suy diễn tiến
 
-Lần lượt thêm các sự kiện 1, 2, 3, 4, 5, 7.
+Lượt xem thêm các sự kiện 1, 2, 3, 4, 5, 7.
 
-Số trong [] = literal hợp nhất; \tick\ chỉ ra quy tắc được kích hoạt
+Số trong [] = hợp lý nhất theo nghĩa đen; \tick\ ra quy tắc được kích hoạt
 
 <u>1.</u> $Buffalo(x) \land Pig(y) \implies Faster(x,y)$
 
@@ -235,13 +235,13 @@ Số trong [] = literal hợp nhất; \tick\ chỉ ra quy tắc được kích h
 
 <u>4.</u> $Buffalo(Bob)$ <u>[1a,\cross]</u>
 
-<u>5.</u> $Pig(Pat)$ <u>[1b,\tick]</u> $\rightarrow$ <u>6.</u> $Faster(Bob,Pat)$ <u>[3a,\cross]</u>, <u>[3b,\cross]</u>
+<u>5.</u> $Pig(Pat)$ <u>[1b,\cross]</u> $\rightarrow$ <u>6.</u> $Faster(Bob,Pat)$ <u>[3a,\cross]</u>, <u> [3b, \cross] </u> 
 
 \phantom{<u>5.</u> $Pig(Pat)$} <u>[2a,\cross]</u>
 
-<u>7.</u> $Slug(Steve)$ <u>[2b,\tick]</u>
+<u>7.</u> $Slug(Steve)$ <u>[2b,\cross]</u>
   
-$\rightarrow$<u>8.</u> $Faster(Pat,Steve)$ <u>[3a,\cross]</u>, <u>[3b,\tick]</u>
+$\rightarrow$<u>8.</u> $Faster(Pat,Steve)$ <u>[3a,\cross]</u>, <u>[3b,\cross]</u>
     
 $\rightarrow$<u>9.</u> $Faster(Bob,Steve)$ <u>[3a,\cross]</u>, <u>[3b,\cross]</u>
 
@@ -250,22 +250,22 @@ $\rightarrow$<u>9.</u> $Faster(Bob,Steve)$ <u>[3a,\cross]</u>, <u>[3b,\cross]</u
 
 Khi một truy vấn $q$ được hỏi
   
-   nếu một sự kiện khớp $q'$ đã được biết, trả về bộ hợp nhất
+   nếu đã biết một sự kiện trùng khớp $q'$, hãy trả về bộ hợp nhất 
   
-   với mỗi quy tắc mà hệ quả $q'$ của nó khớp với $q$
+   with each quy tắc mà hệ quả $q'$ của nó phù hợp với $q$
     
       cố gắng chứng minh từng tiền đề của quy tắc bằng suy diễn lùi
 
-(Có một số phức tạp được thêm vào trong việc theo dõi các bộ hợp nhất)
+(Có một số bộ phức hợp được thêm vào trong quá trình theo dõi bộ hợp nhất)
 
-(Nhiều phức tạp hơn giúp tránh các vòng lặp vô hạn)
+(Nhiều tạp hơn giúp tránh vô hạn vòng lặp)
 
-Hai phiên bản: tìm <u>bất kỳ</u> giải pháp nào, tìm <u>tất cả</u> các giải pháp
+Hai bản: tìm <u>bất kỳ </u> giải pháp nào, tìm <u>tất cả</u> giải pháp
 
-Suy diễn lùi là cơ sở cho <u>lập trình logic (logic programming)</u>, ví dụ: Prolog
+Suy diễn lùi là cơ sở cho <u>lập trình logic (lập trình logic)</u>, ví dụ: Prolog
 
 ---
-## Ví dụ suy diễn lùi
+## Ví phiên suy diễn lùi
 
 <u>1.</u> $Pig(y) \land Slug(z) \implies Faster(y,z)$
 
@@ -273,4 +273,5 @@ Suy diễn lùi là cơ sở cho <u>lập trình logic (logic programming)</u>, 
 
 <u>3.</u> $Pig(Pat)$  &nbsp;&nbsp;&nbsp;&nbsp;  <u>4.</u> $Slimy(Steve)$  &nbsp;&nbsp;&nbsp;&nbsp;  <u>5.</u> $Creeps(Steve)$
 
+,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/slug-bc.png)

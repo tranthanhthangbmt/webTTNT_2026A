@@ -1,15 +1,16 @@
 \code{
-\func{MCMC-Ask}{\v{X},\mbf{e},\v{bn},\v{N}}{an approximation to $P(X|\mbf{e})$}
-    \firstlocal{$\mbf{N}[\v{X}]$}{a vector of counts over \v{X}, initially zero}
-    \local{\mbf{Y}}{the nonevidence variables in \v{bn}}
-    \local{\mbf{x}}{the current state of the network, initially copied from \mbf{e}}
+\func{MCMC-Ask}{\v{X}{\ac}\v{\e}{\ac}\v{bn}{\ac}\v{N}}{an estimate of $P(\v{X}|\v{\e})$}
+    \firstlocal{$\v{\mbf{N}}[\v{X}]$}{a vector of counts over \v{X}, initially zero}
+    \local{\mbf{Z}}{the nonevidence variables in \v{bn}}
+    \local{\v{\x}}{the current state of the network, initially copied from \v{\e}}
 \bodysep
-    initialize \v{\mbf{x}} with random values for the variables in \v{\mbf{Y}}
-    \k{for} \v{j} = 1 to $N$ \k{do}
-          \setq{$\mbf{N}[\v{x}]$}{$\mbf{N}[\v{x}]+1$} where \v{x} is the value of \v{X} in \mbf{x}
-          \k{for each} $Y_i$ in \v{\mbf{Y}} \k{do}
-                sample the value of $Y_i$ in \mbf{x} from $\pv(Y_i|MB(Y_i))$ given the values of $MB(Y_i)$ in \mbf{x}
-    \k{return} \prog{Normalize}($\mbf{N}[\v{X}]$)
+    initialize \v{\x} with random values for the variables in \v{\mbf{Y}}
+    \k{for} \v{j} = 1 to \v{N} \k{do}
+          \k{for each} $\v{Z_i}$ in \v{\mbf{Z}} \k{do}
+                sample the value of $\v{Z_i}$ in \v{\x} from $\pv(\v{Z_i}|\markovBlanket(\v{Z_i}))$ 
+                      given the values of $\MarkovBlanket(\v{Z_i})$ in \v{\x}
+                \setq{$\v{\mbf{N}}[\v{x}]$}{$\v{\mbf{N}}[\v{x}]+1$} where \v{x} is the value of \v{X} in \v{\x}
+    \k{return} \prog{Normalize}($\v{\mbf{N}}[\v{X}]$)
 }
 
 

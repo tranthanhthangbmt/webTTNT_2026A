@@ -1,132 +1,130 @@
-\usepackage{aima-slides}
-\usepackage[utf8]{inputenc}
-\usepackage[T5]{fontenc}
-\usepackage{lmodern}
+\usepackage{fleqn}
+\usepackage{epsf}
+\usepackage[dvips]{color}
+\usepackage{aima2e-slides}
 
-# Lập kế hoạch (Planning)
+# Planning
 
-## Chương 11
-
----
-## Nội dung
-
-- Tìm kiếm so với lập kế hoạch
-
-- Các toán tử STRIPS
-
-- Lập kế hoạch theo thứ tự cục bộ (Partial-order planning)
+## Chapter 11
 
 ---
-## Tìm kiếm so với lập kế hoạch
+## Phác thảo
 
-Xem xét nhiệm vụ *lấy sữa, chuối và máy khoan không dây*
+- Tìm kiếm và lập kế hoạch
+
+- Toán tử STRIPS
+
+- Lập kế hoạch theo thứ tự từng phần
+
+---
+## Tìm kiếm và lập kế hoạch
+
+Xét nhiệm vụ \txr*lấy sữa, chuối và máy khoan không dây*
 
 Các thuật toán tìm kiếm tiêu chuẩn dường như thất bại thảm hại:
 
+,8\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/supermarket1.png)
 
-Kiểm tra heuristic/đích sau khi sự việc xảy ra là không thỏa đáng
+Kiểm tra mục tiêu/kinh nghiệm sau thực tế không đầy đủ
 
 ---
-## Tìm kiếm so với lập kế hoạch (tiếp)
+## Tiếp theo là tìm kiếm và lập kế hoạch.
 
-Các hệ thống lập kế hoạch thực hiện những việc sau:
+Hệ thống lập kế hoạch thực hiện những việc sau:
   
-1) mở rộng biểu diễn hành động và đích để cho phép lựa chọn
+1) mở ra hành động và thể hiện mục tiêu để cho phép lựa chọn
   
-2) chia để trị bằng cách đặt các mục tiêu con (subgoaling)
+2) chia để trị bằng cách đặt mục tiêu phụ
   
-3) nới lỏng yêu cầu xây dựng các giải pháp tuần tự
+3) nới lỏng yêu cầu xây dựng giải pháp tuần tự
 
 | &nbsp; | &nbsp; | &nbsp; |
 |---|---|---|
 |  | {\bf Tìm kiếm} | {\bf Lập kế hoạch} |
-| {\bf Trạng thái} | Cấu trúc dữ liệu Lisp | Các câu logic |
-| {\bf Hành động} | Mã Lisp | Tiền điều kiện/kết quả |
-| {\bf Đích} | Mã Lisp | Câu logic (phép hội) |
-| {\bf Kế hoạch} | Chuỗi từ $S_0$ | Các ràng buộc trên các hành động |
+| {\bf Trạng thái} | Cấu trúc dữ liệu Lisp | Câu logic |
+| {\bf Hành động} | Mã Lisp | Điều kiện tiên quyết/kết quả |
+| {\bf Mục tiêu} | Mã Lisp | Câu logic (liên từ) |
+| {\bf Kế hoạch} | Trình tự từ $S_0$ | Ràng buộc về hành động |
 
 ---
-## Lập kế hoạch trong phép tính tình huống
+## Toán tử STRIPS
 
-$PlanResult(p,s)$ là tình huống kết quả từ việc thực thi $p$ trong $s$
+Mô tả hành động được sắp xếp gọn gàng, ngôn ngữ hạn chế
+
+**Hành động**: $Buy(x)$\raisebox{-1.5in[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/operator-schema2.png)
+
+**Điều kiện tiên quyết**: $At(p), Sells(p,x)$
+
+**Effect**: $Have(x)$
+
+[Lưu ý: phần này tóm tắt nhiều chi tiết quan trọng!]
+
+Ngôn ngữ bị hạn chế $\implies$ thuật toán hiệu quả 
     
-  $PlanResult([],s) = s$
+Điều kiện tiên quyết: sự kết hợp của các chữ tích cực
     
-  $PlanResult([a|p],s) = PlanResult(p,Result(a,s))$
+Tác dụng: sự kết hợp của chữ
 
-{\bf Trạng thái ban đầu} $At(Home,S_0) \land \lnot Have(Milk,S_0) \land \ldots$
+Một bộ toán tử STRIPS hoàn chỉnh có thể được dịch 
 
-{\bf Hành động} như các tiên đề Trạng thái kế tiếp
-
-  $Have(Milk,Result(a,s)) \lequiv {}$
-
-    $[(a=Buy(Milk) \land At(Supermarket,s))
-     \lor (Have(Milk,s) \land a \neq \ldots)]$
-
-{\bf Truy vấn}
-  
-  $s=PlanResult(p,S_0) \land At(Home,s) \land Have(Milk,s) \land \ldots$
-
-{\bf Giải pháp}
-  
-  $p = [Go(Supermarket),Buy(Milk),Buy(Bananas),Go(HWS),\ldots]$
-
-Khó khăn chính: phân nhánh không bị ràng buộc, khó áp dụng các heuristic
+thành một tập tiên đề trạng thái kế tiếp
 
 ---
-## Các toán tử STRIPS
+## Các kế hoạch được đặt hàng một phần
 
-Mô tả các hành động được sắp xếp gọn gàng, ngôn ngữ bị hạn chế
-
-**Hành động (Action)**: $Buy(x)$
-
-**Tiền điều kiện (Precondition)**: $At(p), Sells(p,x)$
-
-**Hiệu ứng (Effect)**: $Have(x)$
-
-[Lưu ý: điều này trừu tượng hóa nhiều chi tiết quan trọng!]
-
-Ngôn ngữ bị hạn chế $\implies$ thuật toán hiệu quả
+\txr*Tập hợp các bước được sắp xếp một phần* với
     
-Tiền điều kiện: phép hội của các literal khẳng định
+  \txb{$Finish$ step} có mô tả trạng thái ban đầu là hiệu ứng của nó
     
-Hiệu ứng: phép hội của các literal
+  \txb{$Finish$ step} có mô tả mục tiêu là điều kiện tiên quyết
+    
+  \txb{liên kết nhân quả} từ kết quả của bước này đến điều kiện tiên quyết của bước khác
+    
+  \txb{thứ tự thời gian} giữa các cặp bước
 
-![Hình ảnh](../TaiLieu/slide_md/figures/operator-schema2.png)
+\txb{Điều kiện mở} = điều kiện tiên quyết của bước chưa được liên kết nhân quả
+
+Một kế hoạch là \txb{hoàn thành} nếu mọi điều kiện tiên quyết đều đạt được
+
+Một điều kiện tiên quyết đã đạt được \txb{} nếu đó là hiệu quả của bước trước đó
+
+và không có bước \txb{ nào có thể can thiệp } có thể hoàn tác nó
 
 ---
-## Không gian trạng thái so với không gian kế hoạch
+## Ví dụ
 
-Tìm kiếm tiêu chuẩn: nút = trạng thái thế giới cụ thể
-
-Tìm kiếm lập kế hoạch: nút = <u>kế hoạch cục bộ (partial plan)</u>
-
-Định nghĩa: <u>điều kiện mở (open condition)</u> là một tiền điều kiện của một bước chưa được hoàn thành
-
-Các toán tử trên các kế hoạch cục bộ:
-    
-   <u>thêm một liên kết</u> từ một hành động hiện có đến một điều kiện mở
-    
-   <u>thêm một bước</u> để hoàn thành một điều kiện mở
-    
-   <u>sắp xếp</u> một bước so với bước khác
-
-Chuyển dần từ các kế hoạch không đầy đủ/mơ hồ sang các kế hoạch đầy đủ, chính xác
+\centerline{\raisebox{-0.9\textheight[0pt][0pt]{\epsfysize=0.95\textheight![Hình ảnh](../TaiLieu/slide_md/figures/plan-construction1.png)}
 
 ---
-## Các kế hoạch được sắp xếp cục bộ
+## Ví dụ
 
-![Hình ảnh](../TaiLieu/slide_md/figures/shoes-socks4.png)
-
-Một kế hoạch là <u>đầy đủ (complete)</u> khi và chỉ khi mọi tiền điều kiện đều đạt được
-
-Một tiền điều kiện <u>đạt được (achieved)</u> khi và chỉ khi nó là hiệu ứng của một bước trước đó
-
-và không có bước <u>có khả năng can thiệp (possibly intervening)</u> nào hủy bỏ nó
+\centerline{\raisebox{-0.9\textheight[0pt][0pt]{\epsfysize=0.95\textheight![Hình ảnh](../TaiLieu/slide_md/figures/plan-construction2.png)}
 
 ---
-## Phác thảo thuật toán POP
+## Ví dụ
+
+\centerline{\raisebox{-0.9\textheight[0pt][0pt]{\epsfysize=0.95\textheight![Hình ảnh](../TaiLieu/slide_md/figures/plan-construction3.png)}
+
+---
+## Quy trình lập kế hoạch
+
+Người vận hành trên các gói một phần:
+    
+   \txb{thêm liên kết} từ hành động hiện có vào điều kiện mở
+    
+   \txb{thêm một bước} để đáp ứng điều kiện mở
+    
+   \txb{order} một bước khác để loại bỏ những xung đột có thể xảy ra
+
+Dần dần chuyển từ những kế hoạch chưa đầy đủ/mơ hồ sang những kế hoạch hoàn chỉnh, đúng đắn
+
+Quay lại nếu điều kiện mở không thể đạt được hoặc 
+
+nếu xung đột không thể giải quyết được
+
+---
+## Bản phác thảo thuật toán POP
 
 ```text
 function POP(initial, goal, operators) returns plan
@@ -141,75 +139,91 @@ function POP(initial, goal, operators) returns plan
 \fnsep
 function Select-Subgoal(plan) returns $S_{need, c$}
 
-    chọn một bước kế hoạch $S_{need}$ từ Steps(plan)
-          với một tiền điều kiện $c$ chưa đạt được
+    pick a plan step $S_{need}$ from Steps(plan)
+          with a precondition $c$ that has not been achieved
     return $S_{need}, c$
 ```
 
 ---
-## Thuật toán POP (tiếp)
+## Tiếp theo thuật toán POP.
 
 ```text
 \proc{Choose-Operator}{plan, operators, $S_{need$, c}}
 
-    choose chọn một bước $S_{add}$ từ operators hoặc Steps(plan) có hiệu ứng là $c$
-    if nếu không có bước như vậy then fail 
-    thêm liên kết nhân quả $\cl{S_{add}}{c}{S_{need}}$ vào Links(plan)
-    thêm ràng buộc thứ tự $S_{add} \before S_{need}$ vào Orderings(plan)
-    if nếu $S_{add}$ là một bước mới được thêm từ operators then
-          thêm $S_{add}$ vào Steps(plan)
-          thêm $Start \before S_{add} \before Finish$ vào Orderings(plan)
+    choose a step $S_{add}$ from operators or Steps(plan) that has $c$ as an effect
+    if there is no such step then fail 
+    add the causal link $\cl{S_{add}}{c}{S_{need}}$ to Links(plan)
+    add the ordering constraint $S_{add} \before S_{need}$ to Orderings(plan)
+    if $S_{add}$ is a newly added step from operators then
+          add $S_{add}$ to Steps(plan)
+          add $Start \before S_{add} \before Finish$ to Orderings(plan)
 \fnsep
 \proc{Resolve-Threats}{plan}
 
-    for each với mỗi $S_{threat}$ đe dọa liên kết $S_i --c--> S_j$ trong Links(plan) do
-          choose chọn hoặc
-                *Hạ hạng (Demotion):* Thêm $S_{threat}\before S_i$ vào Orderings(plan)
-                *Thăng hạng (Promotion):* Thêm $S_j \before S_{threat}$ vào Orderings(plan)
-          if not nếu không Consistent(plan) then fail
+    for each $S_{threat}$ that threatens a link $S_i --c--> S_j$ in Links(plan) do
+          choose either
+                *Demotion:* Add $S_{threat}\before S_i$ to Orderings(plan)
+                *Promotion:* Add $S_j \before S_{threat}$ to Orderings(plan)
+          if not Consistent(plan) then fail
     end
 ```
 
-POP là đúng đắn, đầy đủ và <u>có hệ thống</u> (không lặp lại)
-
-Mở rộng cho phép tuyển, lượng từ phổ dụng, phủ định, điều kiện
-
 ---
-## Đè bẹp (Clobbering) và thăng hạng/hạ hạng (promotion/demotion)
+## Tấn công và thăng chức/hạ cấp
 
-Một <u>clobberer</u> là một bước can thiệp tiềm năng phá hủy
-điều kiện đạt được bởi một liên kết nhân quả. Ví dụ, $Go(Home)$ đè bẹp $At(HWS)$:
+\txb{clobberer} là một bước can thiệp có khả năng phá hủy
+điều kiện đạt được bởi một liên kết nhân quả. Ví dụ: $Go(Home)$ tắc nghẽn $At(Supermarket)$:
 
+,40\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/clobber.png)
  
 
-<u>Hạ hạng (Demotion)</u>: đặt trước $Go(HWS)$
+\txb{Hạ cấp}: đặt trước $Go(Supermarket)$
 
-<u>Thăng hạng (Promotion)</u>: đặt sau $Buy(Drill)$
+\txb{Khuyến mãi}: xếp sau $Buy(Milk)$
 
 \ 
 
 ---
-## Ví dụ: Thế giới khối (Blocks world)
+## Thuộc tính của POP
+
+Thuật toán không xác định: quay lại tại điểm \txb{lựa chọn} khi thất bại:
+  
+ -- lựa chọn $S_{add}$ để đạt được $S_{need}$
+  
+ -- lựa chọn giáng chức hoặc thăng chức cho kẻ phá hoại
+  
+ -- việc lựa chọn $S_{need}$ là không thể hủy bỏ
+
+POP là âm thanh, hoàn chỉnh và \txb{có hệ thống} (không lặp lại)
+
+Phần mở rộng cho sự phân tách, phổ quát, phủ định, điều kiện
+
+Có thể được thực hiện hiệu quả với các phương pháp phỏng đoán tốt bắt nguồn từ việc mô tả vấn đề
+
+Đặc biệt tốt cho các vấn đề có nhiều mục tiêu phụ có liên quan lỏng lẻo
+
+---
+## Ví dụ: Thế giới khối
 
 ![Hình ảnh](../TaiLieu/slide_md/figures/blocks-world.png)
 
 ---
-## Ví dụ (tiếp)
+## Ví dụ tiếp theo.
 
 ![Hình ảnh](../TaiLieu/slide_md/figures/sussman1.png)
 
 ---
-## Ví dụ (tiếp)
+## Ví dụ tiếp theo.
 
 ![Hình ảnh](../TaiLieu/slide_md/figures/sussman2.png)
 
 ---
-## Ví dụ (tiếp)
+## Ví dụ tiếp theo.
 
 ![Hình ảnh](../TaiLieu/slide_md/figures/sussman3.png)
 
 ---
-## Ví dụ (tiếp)
+## Ví dụ tiếp theo.
 
 ![Hình ảnh](../TaiLieu/slide_md/figures/sussman4.png)

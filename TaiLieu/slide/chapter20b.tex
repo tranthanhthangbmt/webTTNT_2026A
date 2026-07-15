@@ -1,0 +1,359 @@
+\documentclass{article}
+\usepackage{fleqn}
+\usepackage{epsf}
+\usepackage{aima2e-slides}
+
+\begin{document}
+
+\begin{huge}
+\titleslide{Neural networks}{Chapter 20, Section 5}
+
+\sf
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Phác thảo}
+
+\blob Bộ não
+
+\blob Mạng lưới thần kinh
+
+\blob Perceptron
+
+\blob Perceptron nhiều lớp
+
+\blob Ứng dụng của mạng nơ-ron
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Bộ não}
+
+\mat{$10^{11}$} tế bào thần kinh thuộc loại \mat{${}> 20$}, khớp thần kinh \mat{$10^{14}$}, thời gian chu kỳ 1ms--10ms\\
+Tín hiệu ồn ào 'đoàn tàu gai' của điện thế
+
+\vspace*{0.2in}
+
+\epsfxsize=0,8\textwidth
+\fig{\file{figures}{neuron.ps}}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{McCulloch--Pitts ``đơn vị''}
+
+Đầu ra là hàm tuyến tính `` bị nén '' của các đầu vào:
+\mat{\[
+a_i \leftarrow g(in_i) = g\left(\mysum_j \w{j}{i} a_j\right)
+\]}
+
+
+\vspace*{0.2in}
+
+\epsfxsize=0,8\textwidth
+\fig{\file{figures}{neuron-unit.eps}}
+
+Sự đơn giản hóa quá mức của các nơ-ron thực, nhưng mục đích của nó là\\
+để phát triển sự hiểu biết về những gì mạng lưới các đơn vị đơn giản có thể làm
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Chức năng kích hoạt}
+
+\vspace*{0.2in}
+
+\epsfxsize=0,95\textwidth
+\fig{\file{figures}{activation-fns.eps}}
+
+(a) là hàm bước \defn{} hoặc \defn{hàm ngưỡng }
+
+(b) là hàm \defn{sigmoid} \mat{$1/(1+e^{-x})$}
+
+Thay đổi trọng số thiên vị \mat{$\w{0}{i}$} sẽ di chuyển vị trí ngưỡng
+
+
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Thực hiện các hàm logic}
+
+\vspace*{0.2in}
+
+\epsfxsize=0,8\textwidth
+\fig{\file{figures}{nn-logical.eps}}
+
+McCulloch và Pitts: mọi hàm Boolean đều có thể được triển khai
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Cấu trúc mạng}
+
+\defn{Mạng chuyển tiếp nguồn cấp dữ liệu}:\al
+-- \note{perceptron một lớp}\al
+-- \note{perceptron nhiều lớp}
+
+Mạng chuyển tiếp nguồn cấp dữ liệu thực hiện các chức năng, không có trạng thái nội bộ
+
+\defn{Mạng định kỳ}:\al
+-- \note{Mạng Hopfield} có trọng số đối xứng (\mat{$\w{i}{j} = \w{j}{i}$})\nl
+   \mat{$g(x)\eq \mbox{sign}(x)$}, \mat{$a_i\eq \pm 1$}; \emph{bộ nhớ kết hợp ba chiều}\al
+-- \note{Máy Boltzmann} sử dụng hàm kích hoạt ngẫu nhiên, \nl
+   $\approx$ MCMC trong mạng Bayes\al
+-- mạng lưới thần kinh tái phát có chu kỳ định hướng với độ trễ\nl
+  $\implies$ có trạng thái bên trong (như flip-flop), có thể dao động, v.v.
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ về chuyển tiếp nguồn cấp dữ liệu}
+
+\vspace*{0.2in}
+
+\epsfxsize=0,7\textwidth
+\fig{\file{figures}{neural-net.ps}}
+
+Mạng chuyển tiếp nguồn cấp dữ liệu = một họ các hàm phi tuyến được tham số hóa:
+\mat{\begin{eqnarray*}
+a_5 & = & g(\w{3}{5}\cdot a_3 + \w{4}{5}\cdot a_4) \nonumber \\
+    & = & g(\w{3}{5}\cdot g(\w{1}{3}\cdot a_1 + \w{2}{3}\cdot a_2) + 
+              \w{4}{5}\cdot g(\w{1}{4}\cdot a_1 + \w{2}{4}\cdot a_2)) 
+\end{eqnarray*}}
+Việc điều chỉnh trọng lượng sẽ thay đổi chức năng: hãy học theo cách này!
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Perceptron một lớp}
+
+\twofig{\file{figures}{perceptron.ps}}{\file{graphs}{perceptron-model.eps}}
+
+Tất cả các đơn vị đầu ra đều hoạt động riêng biệt---không có trọng lượng chung
+
+Việc điều chỉnh trọng lượng sẽ di chuyển vị trí, hướng và độ dốc của vách đá
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tính biểu cảm của perceptron}
+
+Hãy xem xét một perceptron có \mat{$g$} = hàm bước (Rosenblatt, 1957, 1960)
+
+%%Point: Rosenblatt built a physical device, the Memistor, and used
+%%to give dramatic talks holding up the Memistor and describing it as
+%%the ``key to the future of mankind'' etc.
+
+Có thể biểu thị AND, OR, NOT, đa số, v.v., nhưng không thể biểu thị XOR
+
+Biểu thị dấu phân cách tuyến tính \defn{} trong không gian đầu vào:
+\mat{\[
+\mysum_j W_j x_j > 0 \quad\mbox{or}\quad \mbf{W} \cdot \mbf{x} > 0
+\]}
+
+\vspace*{0.1in}
+
+\epsfxsize=0.9\textwidth
+\fig{\file{figures}{perceptron-linear.eps}}
+
+Minsky \& Papert (1969) chọc thủng quả bóng mạng lưới thần kinh
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Học Perceptron}
+
+Tìm hiểu bằng cách điều chỉnh trọng số để giảm \defn{lỗi} trên tập huấn luyện
+
+\defn{lỗi bình phương} trong ví dụ với đầu vào \(\x\) và
+đầu ra thực sự \(y\) là 
+\mat{\[
+  E = \frac{1}{2}\J{Err}^2  \equiv \frac{1}{2}(y-h_{\smbf{W}}(\x))^2\ ,
+\]}
+Thực hiện tìm kiếm tối ưu hóa bằng cách giảm độ dốc:
+\mat{\begin{eqnarray*}
+\frac{\partial E}{\partial W_j} 
+   &=& \J{Err} \stimes \frac{\partial \J{Err}}{\partial W_j} 
+   = \J{Err} \stimes \frac{\partial}{\partial W_j}
+           \left(y - g(\mysum_{j\eq 0}^n W_j x_j) \right)\\
+   &=& - \J{Err} \stimes g'(\J{in}) \stimes x_j 
+\end{eqnarray*}}
+Quy tắc cập nhật trọng lượng đơn giản:
+\mat{\[
+W_j \leftarrow W_j + \alpha \stimes \J{Err} \stimes g'(\J{in}) \stimes x_j
+\]}
+Ví dụ: +ve lỗi \mat{$\implies$} tăng đầu ra mạng \\
+\mat{$\implies$} tăng trọng số trên đầu vào +ve, giảm trên -ve đầu vào
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tiếp tục học Perceptron.}
+
+Quy tắc học Perceptron hội tụ về một hàm nhất quán\\
+\emph{cho mọi tập dữ liệu có thể phân tách tuyến tính }
+
+\vspace*{0.5in}
+
+\twofig{\file{graphs}{majority-perceptron+dtl-curve.eps}}{\file{graphs}{nhà hàng-perceptron+dtl-curve.eps}}
+
+Perceptron học hàm đa số dễ dàng, DTL vô vọng
+
+%%Point: majority is representable, but only as a very large DT
+%%and DTL won't learn that without a very large data set
+
+DTL học chức năng nhà hàng dễ dàng, perceptron không thể biểu diễn được
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Bộ cảm biến nhiều lớp}
+
+Các lớp thường được kết nối đầy đủ;\\
+số lượng \defn{đơn vị ẩn} thường được chọn bằng tay
+
+\vspace*{0.2in}
+
+\epsfxsize=0.9\textwidth
+\fig{\file{figures}{restaurant-nn.eps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tính biểu cảm của MLP}
+
+Tất cả các chức năng liên tục có 2 lớp, tất cả các chức năng có 3 lớp
+
+\vspace*{0.2in}
+
+\twofig{\file{graphs}{nn-ridge.eps}}{\file{graphs}{nn-bump.eps}}
+
+Kết hợp hai hàm ngưỡng đối diện nhau để tạo thành một đường gờ
+
+Kết hợp hai đường gờ vuông góc để tạo thành một vết lồi
+
+Thêm các va chạm có kích thước và vị trí khác nhau để phù hợp với mọi bề mặt
+
+Bằng chứng yêu cầu nhiều đơn vị ẩn theo cấp số nhân (xem bằng chứng DTL)
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Học lan truyền ngược}
+
+Lớp đầu ra: giống như perceptron một lớp,
+\mat{\[
+  \w{j}{i} \leftarrow \w{j}{i} + \alpha \times a_j \times \Delta_i
+\]}
+ở đâu \mat{$\Delta_i \eq \J{Err}{}_i \times g'(\J{in}{}_i)$}
+
+Lớp ẩn: \emph{truyền ngược} lỗi từ lớp đầu ra:
+\mat{\[
+   \Delta_j = g'(\J{in}{}_j) \sum_i \w{j}{i} \Delta_i\ .
+\]}
+Cập nhật quy tắc cho trọng số trong lớp ẩn:
+\mat{\[ \w{k}{j} \leftarrow \w{k}{j} +
+ \alpha \times a_k \times \Delta_j\ .
+\]}
+(Hầu hết các nhà thần kinh học đều phủ nhận rằng hiện tượng lan truyền ngược xảy ra trong não)
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Đạo hàm lan truyền ngược}
+
+Lỗi bình phương trên một ví dụ được định nghĩa là
+\mat{\[ E = \frac{1}{2} \sum_i (y_i - a_i)^2\ , \]}
+trong đó tổng bằng các nút trong lớp đầu ra.
+\mat{\begin{eqnarray*}
+\frac{\partial E}{\partial \w{j}{i}} 
+  & = & - (y_i - a_i) \frac{\partial a_i}{\partial \w{j}{i}} 
+      = - (y_i - a_i) \frac{\partial g(\J{in}{}_i)}{\partial \w{j}{i}} \\
+  & = & - (y_i - a_i) g'(\J{in}{}_i)\frac{\partial \J{in}{}_i}{\partial \w{j}{i}}
+      = - (y_i - a_i) g'(\J{in}{}_i)\frac{\partial}{\partial\w{j}{i}}\left(\sum_j\w{j}{i} a_j \right) \\
+  & = & - (y_i - a_i) g'(\J{in}{}_i) a_j = - a_j \Delta_i
+\end{eqnarray*}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Đạo hàm lan truyền ngược tiếp theo.}
+
+\mat{\begin{eqnarray*}
+\frac{\partial E}{\partial \w{k}{j}} 
+  & = & - \sum_i (y_i - a_i) \frac{\partial a_i}{\partial \w{k}{j}} 
+      = - \sum_i (y_i - a_i) \frac{\partial g(\J{in}{}_i)}{\partial \w{k}{j}} \\
+  & = & - \sum_i (y_i - a_i) g'(\J{in}{}_i)\frac{\partial \J{in}{}_i}{\partial \w{k}{j}}
+      = - \sum_i \Delta_i\frac{\partial}{\partial\w{k}{j}}\left(\sum_j\w{j}{i} a_j \right) \\
+  & = & - \sum_i \Delta_i \w{j}{i} \frac{\partial a_j}{\partial\w{k}{j}}
+      = - \sum_i \Delta_i \w{j}{i} \frac{\partial g(\J{in}{}_j)}{\partial\w{k}{j}} \\
+  & = & - \sum_i \Delta_i \w{j}{i} g'(\J{in}{}_j)\frac{\partial \J{in}{}_j}{\partial \w{k}{j}}\\
+  & = & - \sum_i \Delta_i \w{j}{i} g'(\J{in}{}_j)\frac{\partial}{\partial \w{k}{j}}\left(\sum_k\w{k}{j} a_k \right) \\
+  & = & - \sum_i \Delta_i \w{j}{i} g'(\J{in}{}_j) a_k = - a_k \Delta_j
+\end{eqnarray*}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tiếp tục học lan truyền ngược}
+
+Tại mỗi \defn{epoch}, tính tổng các cập nhật gradient cho tất cả các mẫu và áp dụng
+
+\defn{Đường cong đào tạo} cho 100 ví dụ về nhà hàng: tìm thấy sự phù hợp chính xác
+
+\epsfxsize=0,6\textwidth
+\fig{\file{graphs}{restaurant-back-prop-error.eps}}
+
+Các vấn đề điển hình: hội tụ chậm, cực tiểu cục bộ
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tiếp tục học lan truyền ngược}
+
+Đường cong học tập cho MLP với 4 đơn vị ẩn:
+
+\vspace*{0.1in}
+
+\epsfxsize=0,65\textwidth
+\fig{\file{graphs}{restaurant-back-prop+dtl-curve.eps}}
+
+MLP khá tốt cho các nhiệm vụ nhận dạng mẫu phức tạp,\\
+nhưng các giả thuyết dẫn đến không thể được hiểu một cách dễ dàng
+
+%%Point: makes MLPs ineligible for some tasks, such as credit card and
+%%loan approvals, where law requires clear unbiased criteria
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Nhận dạng chữ số viết tay}
+
+\noindent\framebox[\textwidth]{%
+\begin{minipage}{\maxfigwidth%
+\noindent{\fboxsep=0,4pt
+\framebox{\epsfflex{0.095}{\file{figures}{easy21c.eps}}}\hfill
+\framebox{\epsfflex{0.095}{\file{figures}{easy23c.eps}}}\hfill
+\framebox{\epsfflex{0.095}{\file{figures}{easy16c.eps}}}\hfill
+\framebox{\epsfflex{0.095}{\file{figures}{easy12c.eps}}}\hfill
+\framebox{\epsfflex{0.095}{\file{figures}{easy20c.eps}}}\hfill
+\framebox{\epsfflex{0.095}{\file{figures}{easy35c.eps}}}\hfill
+\framebox{\epsfflex{0.095}{\file{figures}{easy13c.eps}}}\hfill
+\framebox{\epsfflex{0.095}{\file{figures}{easy29c.eps}}}\hfill
+\framebox{\epsfflex{0.095}{\file{figures}{easy17c.eps}}}\hfill
+\framebox{\epsfflex{0.095}{\file{figures}{easy19c.eps}}\\[6pt]
+\framebox{\epsfflex{0.095}{\file{figures}{hard53c.eps}}}\hfill
+\framebox{\epsfflex{0.095}{\file{figures}{hard04c.eps}}}\hfill
+\framebox{\epsfflex{0.095}{\file{figures}{hard20c.eps}}}\hfill
+\framebox{\epsfflex{0.095}{\file{figures}{hard13c.eps}}}\hfill
+\framebox{\epsfflex{0.095}{\file{figures}{hard01c.eps}}}\hfill
+\framebox{\epsfflex{0.095}{\file{figures}{hard10c.eps}}}\hfill
+\framebox{\epsfflex{0.095}{\file{figures}{hard34c.eps}}}\hfill
+\framebox{\epsfflex{0.095}{\file{figures}{hard52c.eps}}}\hfill
+\framebox{\epsfflex{0.095}{\file{figures}{hard05c.eps}}}\hfill
+\framebox{\epsfflex{0.095}{\file{figures}{hard14c.eps}}}}
+\end{minipage}}
+
+3-hàng xóm gần nhất = lỗi 2,4\% \\
+400--300--10 đơn vị MLP = lỗi 1,6\%\\
+LeNet: 768--192--30--10 đơn vị MLP = lỗi 0,9\%
+
+Tốt nhất hiện nay (máy hạt nhân, thuật toán thị giác) $\approx$ lỗi 0,6\%
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tóm tắt}
+
+Hầu hết bộ não đều có rất nhiều tế bào thần kinh; mỗi nơron $\approx$ đơn vị ngưỡng tuyến tính (?)
+
+Perceptron (mạng một lớp) không đủ biểu cảm
+
+Mạng nhiều lớp có đủ biểu cảm; có thể được đào tạo bởi 
+giảm độ dốc, tức là lan truyền ngược lỗi
+
+Nhiều ứng dụng: nói, lái xe, viết tay, phát hiện gian lận, v.v.
+
+Kỹ thuật, mô hình nhận thức và mô hình hệ thống thần kinh\\
+các trường con phần lớn đã chuyển hướng
+
+\end{huge}
+\end{document}
+
+

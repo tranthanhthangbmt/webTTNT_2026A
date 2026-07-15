@@ -1,465 +1,228 @@
-\documentclass[fleqn]{article}
-
-\usepackage{aima-slides}
-\usepackage[utf8]{inputenc}
-\usepackage[T5]{fontenc}
-\usepackage{lmodern}
+\documentclass{article}
+\usepackage{fleqn}
+\usepackage{epsf}
+\usepackage{aima2e-slides}
 
 \begin{document}
 
 \begin{huge}
-\titleslide{Suy diễn trong mạng niềm tin}{Chương 15.3--4 + bổ sung}
+\titleslide{Speech recognition (briefly)}{Chapter 15, Section 6}
+
+\sf
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Nội dung}
+\heading{Phác thảo}
 
-\blob Suy diễn chính xác bằng phép liệt kê (enumeration)
+\blob Lời nói dưới dạng suy luận xác suất
 
-\blob Suy diễn chính xác bằng cách loại bỏ biến (variable elimination)
+\blob Âm thanh lời nói
 
-\blob Suy diễn xấp xỉ bằng mô phỏng ngẫu nhiên (stochastic simulation)
+\blob Phát âm từ
 
-\blob Suy diễn xấp xỉ bằng chuỗi Markov Monte Carlo
-
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Các tác vụ suy diễn (Inference tasks)}
-
-\u{Truy vấn đơn giản (Simple queries)}: tính biên hậu nghiệm $\pv(X_i|\mbf{E}\eq \mbf{e})$\al
-  ví dụ: $P(NoGas|Gauge\eq empty,Lights\eq on,Starts\eq false)$
-
-\u{Truy vấn hội (Conjunctive queries)}: $\pv(X_i,X_j|\mbf{E}\eq \mbf{e}) = 
-    \pv(X_i|\mbf{E}\eq \mbf{e})  \pv(X_j|X_i,\mbf{E}\eq \mbf{e}) $
-
-\u{Quyết định tối ưu (Optimal decisions)}: mạng quyết định bao gồm thông tin về độ hữu ích;\nl
-    cần suy diễn xác suất cho $P(K\hat{e}t\ qu\mbox{\`{a}}|h\mbox{\`{a}}nh\ \mbox{\dj}\hat{o}ng,b\mbox{\`{a}}ng\ ch\acute{u}ng)$
-
-\u{Giá trị của thông tin (Value of information)}: nên tìm kiếm bằng chứng nào tiếp theo?
-
-\u{Phân tích độ nhạy (Sensitivity analysis)}: các giá trị xác suất nào là quan trọng nhất?
-
-\u{Giải thích (Explanation)}: tại sao tôi cần một bộ khởi động mới?
-
+\blob Chuỗi từ
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Suy diễn bằng cách liệt kê}
+\heading{Bài phát biểu dưới dạng suy luận xác suất}
 
-Một cách thông minh hơn một chút để tính tổng các biến từ phân phối đồng thời
-mà không thực sự xây dựng biểu diễn rõ ràng của nó
+\emph{Không dễ để phá hủy một bãi biển đẹp}
 
-Truy vấn đơn giản trên mạng trộm (burglary network):\\
-$\pv(B|J\eq true,M\eq true)$\\
-$= \pv(B,J\eq true,M\eq true)/P(J\eq true,M\eq true)$\\
-$= \alpha \pv(B,J\eq true,M\eq true)$\\
-$= \alpha \mysum_e \mysum_a \pv(B,e,a,J\eq true,M\eq true)$
+Tín hiệu giọng nói ồn ào, thay đổi, mơ hồ
 
-Viết lại các mục nhập đồng thời đầy đủ bằng cách sử dụng tích của các mục nhập CPT:\\
-$P(B\eq true|J\eq true,M\eq true)$\\
-$= \alpha \mysum_e \mysum_a P(B\eq true)P(e)P(a|B\eq true,e)P(J\eq true|a)P(M\eq true|a) $\\
-$= \alpha P(B\eq true)\mysum_e P(e)\mysum_a P(a|B\eq true,e)P(J\eq true|a)P(M\eq true|a)$
-       
+Chuỗi từ \emph{có khả năng nhất}, cho tín hiệu giọng nói là gì?\al
+Tức là chọn \mat{$Words$} để tối đa hóa \mat{$P(Words|signal)$}
 
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Thuật toán liệt kê}
+Sử dụng quy tắc Bayes:
+\mat{\[
+P(Words|signal) = \alpha P(signal|Words) P(Words)
+\]}%
+Tức là phân rã thành \defn{mô hình âm thanh} + \defn{mô hình ngôn ngữ}
 
-Liệt kê ưu tiên chiều sâu cạn kiệt (Exhaustive depth-first enumeration): độ phức tạp không gian $O(n)$, thời gian $O(d^n)$
-
-\input{\file{algorithms}{enumeration-algorithm}}
-
-
+\mat{$Words$} là chuỗi trạng thái ẩn, \mat{$signal$} là chuỗi quan sát
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Suy diễn bằng cách loại bỏ biến}
+\heading{Điện thoại}
 
-Liệt kê không hiệu quả: tính toán lặp lại\al
-  ví dụ: tính $P(J\eq true|a)P(M\eq true|a)$ cho mỗi giá trị của $e$
+Tất cả lời nói của con người được tạo thành từ 40-50 \defn{điện thoại}, được xác định bởi \\
+cấu hình của \defn{khớp nối } (môi, răng, lưỡi, dây thanh âm, luồng không khí)
 
-Loại bỏ biến (Variable elimination): thực hiện tính tổng từ phải sang trái,\\
-lưu trữ các kết quả trung gian (\u{các hệ số (factors)}) để tránh tính toán lại
+Hình thành mức độ trung gian của trạng thái ẩn giữa các từ và tín hiệu\nl
+  \mat{$\Rightarrow$} mô hình âm thanh = mô hình phát âm + mô hình điện thoại
 
-$\pv(B|J\eq true,M\eq true)$\nl
-    $= \alpha \underbrace{\pv(B)}_B 
-             \mysum_e \underbrace{P(e)}_E
-             \mysum_a \underbrace{\pv(a|B,e)}_A
-             \underbrace{P(J\eq true|a)}_J
-             \underbrace{P(M\eq true|a)}_M$\nl
-    $= \alpha \pv(B)\mysum_e P(e)\mysum_a \pv(a|B,e) P(J\eq true|a) f_M(a)$\nl
-    $= \alpha \pv(B)\mysum_e P(e)\mysum_a \pv(a|B,e) f_J(a) f_M(a)$\nl
-    $= \alpha \pv(B)\mysum_e P(e)\mysum_a f_A(a,b,e) f_J(a) f_M(a)$\nl
-    $= \alpha \pv(B)\mysum_e P(e)f_{\bar{A}JM}(b,e) $ (tính tổng $A$)\nl
-    $= \alpha \pv(B)f_{\bar{E}\bar{A}JM}(b)$ (tính tổng $E$)\nl
-    $= \alpha f_B(b)\stimes f_{\bar{E}\bar{A}JM}(b)$ 
+ARPAbet được thiết kế cho tiếng Anh Mỹ
+
+\input{tables/darpabet-partial-table}
+
+Ví dụ: `` trần '' là [s iy l ih ng] / [s iy l ix ng] / [s iy l en]
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Loại bỏ biến: Các phép toán cơ bản}
+\heading{Âm thanh lời nói}
 
-\u{Tích từng điểm (Pointwise product)} của các hệ số $f_1$ và $f_2$:\al
-  $f_1(x_1,\ldots,x_j,y_1,\ldots,y_k) \stimes
-     f_2(y_1,\ldots,y_k,z_1,\ldots,z_l)$\nl
-  = $f(x_1,\ldots,x_j,y_1,\ldots,y_k,z_1,\ldots,z_l)$\\
-Ví dụ: $f_1(a,b) \stimes f_2(b,c) = f(a,b,c)$
-
-Lấy tổng một biến ra khỏi tích các hệ số: di chuyển bất kỳ hệ số hằng số nào
-ra ngoài phép tổng:
-
-$\mysum_x f_1 \stimes \cdots \stimes f_k =
-f_1 \stimes \cdots \stimes f_i\  \mysum_x\; f_{i+1} \stimes \cdots \stimes
-f_k = f_1 \stimes \cdots \stimes f_i \stimes f_{\bar{X}}$
-
-giả sử $f_1,\ldots,f_i$ không phụ thuộc vào $X$
-
-
-
-
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Thuật toán loại bỏ biến}
-
-\input{\file{algorithms}{elimination-ask-algorithm}}
-
-
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Độ phức tạp của suy diễn chính xác}
-
-Mạng \u{kết nối đơn (Singly connected)} (hoặc \u{đa cây (polytrees)}):\al
-  -- bất kỳ hai nút nào cũng được kết nối với nhau bởi tối đa một đường dẫn (không có hướng)\al
-  -- chi phí thời gian và không gian của việc loại bỏ biến là $O(d^k n)$
-
-Mạng \u{kết nối đa (Multiply connected)}:\al
-  -- có thể quy giản 3SAT thành suy diễn chính xác $\implies$ NP-khó (NP-hard)\al
-  -- tương đương với việc {\em đếm} các mô hình 3SAT $\implies$ \#P-đầy đủ (\#P-complete)
+Tín hiệu thô là độ dịch chuyển của micrô theo hàm thời gian;\\
+được xử lý thành các khung hình 30ms \defn{} chồng chéo, mỗi khung được mô tả bởi \defn{features}
 
 \vspace*{0.2in}
 
-\epsfxsize=0.75\textwidth
-\fig{\file{figures}{bn-3sat.ps}}
+\epsfxsize=0.9\textwidth
+\fig{\file{figures}{sr-acoustic-frames.ps}}
+
+Các tính năng của khung thường là \defn{formants} --- các đỉnh trong phổ công suất
 
 
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Suy diễn bằng mô phỏng ngẫu nhiên}
-
-Ý tưởng cơ bản:\al
-  1) Rút ra $N$ mẫu từ một phân phối lấy mẫu $S$\al
-  2) Tính xác suất hậu nghiệm xấp xỉ $\hat P$\al
-  3) Chỉ ra rằng xác suất này hội tụ về xác suất thực $P$
-
-Phác thảo:\al
-  -- Lấy mẫu từ một mạng rỗng (Sampling from an empty network)\al
-  -- Lấy mẫu loại bỏ (Rejection sampling): từ chối các mẫu không khớp với bằng chứng\al
-  -- Trọng số hợp lý (Likelihood weighting): sử dụng bằng chứng để tính trọng số cho các mẫu\al
-  -- MCMC: lấy mẫu từ một quá trình ngẫu nhiên mà phân phối\nl
-       dừng của nó là phân phối hậu nghiệm thực
 
 
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Lấy mẫu từ một mạng rỗng}
-
-\input{\file{algorithms}{prior-sampling-algorithm}}
-
-\begin{tabular}{lr}
-\hbox{\begin{minipage}[b]{0.55\textwidth}
-$\pv(Cloudy) = \<0.5,0.5\>$\nl
-    mẫu $\rightarrow$ $true$\\
-$\pv(Sprinkler|Cloudy) = \<0.1,0.9\>$\nl
-    mẫu $\rightarrow$ $false$\\
-$\pv(Rain|Cloudy) = \<0.8,0.2\>$\nl
-    mẫu $\rightarrow$ $true$\\
-\hbox{$\pv(WetGrass|\lnot Sprinkler,Rain) = \<0.9,0.1\>$}\nl
-    mẫu $\rightarrow$ $true$
-\end{minipage}}
-&
-\epsfxsize=0.5\textwidth
-\epsffile{\file{figures}{rain-clustering1.ps}}
-\end{tabular}
-
-
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Lấy mẫu từ một mạng rỗng (tiếp)}
-
-Xác suất để thuật toán \prog{PriorSample} sinh ra một sự kiện cụ thể\al
-  $S_{PS}(x_1\ldots x_n) = \myprod_{i\eq 1}^n P(x_i | Parents(X_i))
-    = P(x_1\ldots x_n)$\\
-nghĩa là, xác suất tiên nghiệm thực
-
-Gọi $N_{PS}(\mbf{Y}\eq \mbf{y})$ là số mẫu được tạo ra
-trong đó $\mbf{Y}\eq \mbf{y}$, đối với bất kỳ tập biến $\mbf{Y}$ nào.
-
-Khi đó $\hat P(\mbf{Y}\eq \mbf{y}) = N_{PS}(\mbf{Y}\eq \mbf{y})/N$ và
-\begin{eqnarray*}
-  \lim_{N\to\infty} \hat P(\mbf{Y}\eq \mbf{y}) 
-      & = & \mysum_{\smbf{h}} S_{PS}(\mbf{Y}\eq \mbf{y},\mbf{H}\eq \mbf{h})\\
-      & = &  \mysum_{\smbf{h}} P(\mbf{Y}\eq \mbf{y},\mbf{H}\eq \mbf{h})\\
-      & = & P(\mbf{Y}\eq \mbf{y})
-\end{eqnarray*}
-Nghĩa là, các ước tính thu được từ \prog{PriorSample} là \u{nhất quán (consistent)}
 
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Lấy mẫu loại bỏ}
+\heading{Mẫu điện thoại}
 
-$\hat{\pv}(X|\mbf{e})$ được ước tính từ các mẫu đồng ý với $\mbf{e}$
+Các tính năng của khung trong \mat{$P(features|phone)$} được tóm tắt bởi \al
+  -- một số nguyên trong \mat{$[0\ldots 255]$} (sử dụng lượng tử hóa vectơ \defn{}); hoặc \al
+  -- các tham số của hỗn hợp Gaussian
 
-\input{\file{algorithms}{rejection-sampling-algorithm}}
+\defn{Điện thoại ba trạng thái}: mỗi điện thoại có ba giai đoạn (Khởi động, Giữa, Kết thúc)\al
+ Ví dụ: [t] có Khởi phát im lặng, Mid bùng nổ, Kết thúc rít lên \al
+ $\Rightarrow$ \mat{$P(features|phone,phase)$}
 
-Ví dụ: ước lượng $\pv(Rain|Sprinkler\eq true)$ bằng cách sử dụng 100 mẫu\al
-  27 mẫu có $Sprinkler\eq true$\nl
-    Trong số này, 8 mẫu có $Rain\eq true$ và 19 mẫu có $Rain\eq false$.\\[0.2in]
-$\hat{\pv}(Rain|Sprinkler\eq true) = \noprog{Normalize}(\<8,19\>) =
-\<0.296,0.704\>$
+\defn{Triphone context}: mỗi điện thoại trở thành \mat{$n^2$} điện thoại riêng biệt,
+tùy thuộc vào điện thoại ở bên trái và bên phải\al
+  Ví dụ: [t] trong ``star'' được viết là [t(s,aa)] (khác với ``tar''!)
 
-Tương tự như một quy trình ước lượng thực nghiệm cơ bản trong thế giới thực
-
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Phân tích lấy mẫu loại bỏ}
-
-
-$\hat{\pv}(X|\mbf{e}) = \alpha \mbf{N}_{PS}(X,\mbf{e}) $ 
-   \qquad (định nghĩa thuật toán)\al
-$= \mbf{N}_{PS}(X,\mbf{e})/N_{PS}(\mbf{e})$ 
-   \qquad (được chuẩn hóa bằng $N_{PS}(\mbf{e})$)\al
-$\approx \pv(X,\mbf{e})/P(\mbf{e})$ 
-   \qquad (đặc tính của \prog{PriorSample})\al
-$= \pv(X|\mbf{e})$ 
-   \qquad (định nghĩa xác suất có điều kiện)
-
-Do đó việc lấy mẫu loại bỏ trả về các ước tính hậu nghiệm nhất quán
-
-Vấn đề: chi phí cực kỳ lớn nếu $P(\mbf{e})$ nhỏ
+Triphones hữu ích để xử lý hiệu ứng \defn{coarticulation}: bộ phát âm
+có quán tính và không thể chuyển đổi tức thời giữa các vị trí\al
+Ví dụ: [t] trong ``thứ tám'' có lưỡi chạm vào răng cửa
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Trọng số hợp lý (Likelihood weighting)}
-
-Ý tưởng: cố định các biến bằng chứng, chỉ lấy mẫu các biến không phải bằng chứng,\\
-và đánh trọng số từng mẫu theo khả năng nó phù hợp với bằng chứng
-
-\input{\file{algorithms}{likelihood-weighting-algorithm}}
-
-
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Ví dụ về trọng số hợp lý}
-
-Ước lượng $\pv(Rain|Sprinkler\eq true,WetGrass\eq true)$
+\heading{Ví dụ về mẫu điện thoại}
 
 \vspace*{0.2in}
 
-\epsfxsize=0.5\textwidth
-\epsffile{\file{figures}{rain-clustering-mcmc.ps}}
+\epsfxsize=0,8\textwidth
+\fig{\file{figures}{sr-hmm.ps}}
 
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{LW example contd.}
 
-Sample generation process:\\
-1. $w \leftarrow 1.0$\\
-2. Sample $\pv(Cloudy) = \<0.5,0.5\>$; say $true$\\
-3. $Sprinkler$ has value $true$, so\al
-  $w \leftarrow w \times P(Sprinkler\eq true|Cloudy\eq true) = 0.1$\\
-4. Sample $\pv(Rain|Cloudy\eq true) = \<0.8,0.2\>$; say $true$ \\
-5. $WetGrass$ has value $true$, so\al
-  \hbox{$w \leftarrow w \times P(WetGrass\eq true|Sprinkler\eq true,Rain\eq true) = 0.099$}
 
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Likelihood weighting analysis}
+\heading{Mô hình phát âm từ}
 
-Sampling probability for \prog{WeightedSample} is\al
-  $S_{WS}(\mbf{y},\mbf{e}) = \myprod_{i\eq 1}^l P(y_i|Parents(Y_i))$\\
-Note: pays attention to evidence in {\em ancestors} only\nl
-    $\implies$ somewhere ``in between'' prior and posterior distribution
+Mỗi từ được mô tả như một sự phân bố qua các chuỗi điện thoại
 
-Weight for a given sample $\mbf{y},\mbf{e}$ is\al
-  $w(\mbf{y},\mbf{e}) = \myprod_{i\eq 1}^m P(e_i | Parents(E_i))$
-
-Weighted sampling probability is\al
-  $S_{WS}(\mbf{y},\mbf{e}) w(\mbf{y},\mbf{e})$\nl
-    $= \myprod_{i\eq 1}^l P(y_i|Parents(Y_i))\ \ 
-       \myprod_{i\eq 1}^m P(e_i|Parents(E_i))$\nl
-    $= P(\mbf{y},\mbf{e})$ (by standard global semantics of network)
-
-Hence likelihood weighting returns consistent estimates\\
-but performance still degrades with many evidence variables
-
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Approximate inference using MCMC}
-
-``State'' of network = current assignment to all variables
-
-Generate next state by sampling one variable given Markov blanket\\
-Sample each variable in turn, keeping evidence fixed
-
-\input{\file{algorithms}{mcmc-algorithm}}
-
-Approaches \u{stationary distribution}: long-run fraction of time
-spent in each state is exactly proportional to its posterior
-probability
-
-
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{MCMC Example}
-
-Estimate $\pv(Rain|Sprinkler\eq true,WetGrass\eq true)$
-
-Sample $Cloudy$ then $Rain$, repeat.\\
-Count number of times $Rain$ is true and false in the samples.
-
-Markov blanket of $Cloudy$ is $Sprinkler$ and $Rain$\\
-Markov blanket of $Rain$ is $Cloudy$, $Sprinkler$, and $WetGrass$
+Phân phối được biểu diễn dưới dạng mô hình chuyển tiếp HMM
 
 \vspace*{0.2in}
 
-\epsfxsize=0.5\textwidth
-\epsffile{\file{figures}{rain-clustering-mcmc.ps}}
+\epsfxsize=0,8\textwidth
+\fig{\file{figures}{sr-tomato-b.ps}}
 
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{MCMC example contd.}
+\mat{\begin{formula}
+P([towmeytow]|\mbox{``tomato''}) = P([towmaatow]|\mbox{``tomato''}) = 0.1 \\
+P([tahmeytow]|\mbox{``tomato''}) = P([tahmaatow]|\mbox{``tomato''}) = 0.4
+\end{formula}}
 
-Random initial state: $Cloudy\eq true$ and $Rain\eq false$
-
-1. $\pv(Cloudy|MB(Cloudy)) = \pv(Cloudy|Sprinkler,\lnot Rain)$\nl
-    sample $\rightarrow$ $false$
-
-2. $\pv(Rain|MB(Rain)) = \pv(Rain|\lnot Cloudy,Sprinkler,WetGrass)$\nl
-    sample $\rightarrow$ $true$
-
-Visit 100 states\al
-  31 have $Rain\eq true$, 69 have $Rain\eq false$
-
-$\hat{\pv}(Rain|Sprinkler\eq true,WetGrass\eq true)$\al
-      $= \noprog{Normalize}(\<31,69\>) = \<0.31,0.69\>$
+Cấu trúc được tạo thủ công, xác suất chuyển tiếp được học từ dữ liệu
 
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{MCMC analysis: Outline}
+\heading{Từ riêng biệt}
 
-Transition probability $\transition{\mbf{y}}{\mbf{y}'}$
+Khả năng sửa lỗi kiểu điện thoại + kiểu từ \mat{$P(e_{1:t}|word)$} cho \defn{từ cô lập}
+\mat{\[
+P(word|e_{1:t}) = \alpha P(e_{1:t}|word) P(word)
+\]}%
+Xác suất trước \mat{$P(word)$} thu được đơn giản bằng cách đếm tần số từ
 
-Occupancy probability $\pi_t(\mbf{y})$ at time $t$
+\mat{$P(e_{1:t}|word)$} có thể được tính toán đệ quy: xác định
+\mat{\[
+  \bell_{1:t}\eq \pv(\X_t,\e_{1:t})
+\]}%
+và sử dụng bản cập nhật đệ quy
+\mat{\[
+  \bell_{1:t+1} = \noprog{Forward}(\ell_{1:t},\e_{t+1})
+\]}%
+và sau đó \mat{$P(e_{1:t}|word) = \mysum_{\sx_t} \bell_{1:t}(\x_t)$}
 
-Equilibrium condition on $\pi_t$ defines stationary distribution $\pi(\mbf{y})$\nl
-Note: stationary distribution depends on choice of $\transition{\mbf{y}}{\mbf{y}'}$
-
-Pairwise \u{detailed balance} on states guarantees equilibrium
-
-\u{Gibbs sampling} transition probability:\nl
-    sample each variable given current values of all others\\
-$\implies$ detailed balance with the true posterior
-
-For Bayesian networks, Gibbs sampling reduces to\\
-sampling conditioned on each variable's Markov blanket
+Hệ thống đọc chính tả từng từ được đào tạo đạt độ chính xác 95--99\%
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Stationary distribution}
+\heading{Nói liên tục}
 
-$\pi_t(\mbf{y})$ = probability in state $\mbf{y}$ at time $t$\\
-$\pi_{t+1}(\mbf{y}')$ = probability in state $\mbf{y}'$ at time $t+1$
+Không chỉ là một chuỗi các vấn đề nhận dạng từ đơn lẻ!\al
+-- Các từ liền kề có mối tương quan cao \al
+-- Chuỗi các từ có khả năng nhất $\neq$ Chuỗi các từ có khả năng nhất \al
+-- Phân đoạn: có rất ít khoảng trống trong lời nói\al
+-- Kết hợp từ ngữ---ví dụ: ``điều tiếp theo''
 
-$\pi_{t+1}$ in terms of $\pi_t$ and $\transition{\mbf{y}}{\mbf{y}'}$
-\[
-  \pi_{t+1}(\mbf{y}') = \mysum_{\smbf{y}} \pi_t(\mbf{y}) \transition{\mbf{y}}{\mbf{y}'}
-\]
-Stationary distribution: $\pi_t = \pi_{t+1} = \pi$
-\[
-  \pi(\mbf{y}') = \mysum_{\smbf{y}} \pi(\mbf{y}) \transition{\mbf{y}}{\mbf{y}'}
-      \qquad\mbox{for all }\mbf{y}'
-\]
-If $\pi$ exists, it is unique (specific to $\transition{\mbf{y}}{\mbf{y}'}$)
+Hệ thống giọng nói liên tục quản lý độ chính xác 60--80\% vào một ngày đẹp trời
 
-In equilibrium, expected ``outflow'' = expected ``inflow''
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Mô hình ngôn ngữ}
+
+Xác suất trước của một chuỗi từ được đưa ra theo quy tắc dây chuyền:
+\mat{\[
+P(w_{1}\cdots w_{n}) = \prod_{i=1}^{n} P(w_i|w_{1}\cdots w_{i-1})
+\]}%
+\defn{Mô hình Bigram }:
+\mat{\[
+   P(w_i|w_{1}\cdots w_{i-1}) \approx P(w_i|w_{i-1})
+\]}%
+Huấn luyện bằng cách đếm tất cả các cặp từ trong kho văn bản lớn
+
+Các mô hình phức tạp hơn (bát quái, ngữ pháp, v.v.) sẽ giúp ích được đôi chút
+
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{HMM kết hợp}
+
+Các trạng thái của kiểu ngôn ngữ+từ+điện thoại kết hợp được gắn nhãn bởi\\
+từ chúng ta đang ở + số điện thoại trong từ đó + trạng thái điện thoại trong số điện thoại đó
+
+Thuật toán Viterbi tìm chuỗi \emph{trạng thái điện thoại} có khả năng nhất
+
+Thực hiện phân đoạn bằng cách xem xét tất cả các chuỗi từ và ranh giới có thể có
+
+Không phải lúc nào cũng đưa ra chuỗi từ có khả năng nhất vì\\
+mỗi chuỗi từ là tổng của nhiều chuỗi trạng thái
+
+Jelinek đã phát minh ra A$^*$ vào năm 1969 một cách để tìm chuỗi từ có khả năng xảy ra nhất\al
+   trong đó `` chi phí bước '' là \mat{$-\log P(w_i|w_{i-1})$}
+
+
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{DBN để nhận dạng giọng nói}
+
+\vspace{0.5in}
+
+\epsfxsize=1.1\textwidth
+\fig{\file{figures}{speech-dbn.ps}}
+
+Cũng dễ dàng thêm các biến cho, ví dụ: giới tính, giọng nói, tốc độ.\\
+Zweig và Russell (1998) cho thấy mức giảm lỗi tới 40% so với HMM
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tóm tắt}
+
+Từ giữa những năm 1970, nhận dạng giọng nói đã được xây dựng dưới dạng suy luận xác suất
+
+Bằng chứng = tín hiệu giọng nói, biến ẩn = chuỗi từ và âm thanh
+
+Các hiệu ứng ``Context'' (coarticulation, v.v.) được xử lý bằng cách tăng cường trạng thái
+
+Sự thay đổi trong lời nói của con người (tốc độ, âm sắc, v.v.) và tiếng ồn xung quanh\\
+làm cho nhận dạng giọng nói liên tục trong cài đặt thực tế trở thành một vấn đề mở
   
 
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Detailed balance}
-
-``Outflow'' = ``inflow'' for each pair of states:
-\[
-  \pi(\mbf{y}) \transition{\mbf{y}}{\mbf{y}'} 
-   = \pi(\mbf{y}') \transition{\mbf{y}'}{\mbf{y}}
-      \qquad\mbox{for all }\mbf{y},\ \mbf{y}'
-\]
-Detailed balance $\implies$ stationarity:
-\begin{eqnarray*}
-\mysum_{\smbf{y}} \pi(\mbf{y}) \transition{\mbf{y}}{\mbf{y}'} 
-   & = & \mysum_{\smbf{y}} \pi(\mbf{y}') \transition{\mbf{y}'}{\mbf{y}} \\
-   & = & \pi(\mbf{y}') \mysum_{\smbf{y}} \transition{\mbf{y}'}{\mbf{y}} \\
-   & = & \pi(\mbf{y}')
-\end{eqnarray*}
-
-MCMC algorithms typically constructed by designing a transition\\
-probability $q$ that is in detailed balance with desired $\pi$
-
-
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Gibbs sampling}
-
-Sample each variable in turn, given {\em all other variables}
-
-Sampling $Y_i$, let $\bar{\mbf{Y}_i}$ be all other nonevidence variables\\
-Current values are $y_i$ and $\bar{\mbf{y}_i}$; $\mbf{e}$ is fixed\\
-Transition probability is given by
-\[
-\transition{\mbf{y}}{\mbf{y}'} =
-  \transition{y_i,\bar{\mbf{y}_i}}{y_i',\bar{\mbf{y}_i}} =
-    P(y_i'|\bar{\mbf{y}_i},\mbf{e})
-\]
-This gives detailed balance with true posterior $P(\mbf{y}|\mbf{e})$:
-\begin{eqnarray*}
-\pi(\mbf{y}) \transition{\mbf{y}}{\mbf{y}'} 
-   &=& P(\mbf{y}|\mbf{e}) P(y_i'|\bar{\mbf{y}_i},\mbf{e}) 
-     =  P(y_i,\bar{\mbf{y}_i}|\mbf{e})P(y_i'|\bar{\mbf{y}_i},\mbf{e})  \\
-   &=& P(y_i|\bar{\mbf{y}_i},\mbf{e})P(\bar{\mbf{y}_i}|\mbf{e})
-       P(y_i'|\bar{\mbf{y}_i},\mbf{e}) \quad\mbox{(chain rule)} \\
-   &=& P(y_i|\bar{\mbf{y}_i},\mbf{e})P(y_i',\bar{\mbf{y}_i}|\mbf{e})
-      \qquad\mbox{(chain rule backwards)} \\
-   &=& \transition{\mbf{y}'}{\mbf{y}} \pi(\mbf{y}') 
-       = \pi(\mbf{y}') \transition{\mbf{y}'}{\mbf{y}} 
-\end{eqnarray*}
-
-
-
-
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Markov blanket sampling}
-
-A variable is independent of all others given its Markov blanket:\al
-  $P(y_i'|\bar{\mbf{y}_i},\mbf{e}) = P(y_i'|MB(Y_i))$
-
-Probability given the Markov blanket is calculated as follows:\al
-  $P(y_i'|MB(Y_i)) = P(y_i'|Parents(Y_i)) 
-           \myprod_{Z_j\in Children(Y_i)} P(z_j|Parents(Z_j))$
-
-Hence computing the sampling distribution over $Y_i$ for each
-flip requires just $cd$ multiplications if $Y_i$ has $c$ children
-and $d$ values; can cache it if $c$ not too large.
-
-Main computational problems:\al
-  1) Difficult to tell if convergence has been achieved\al
-  2) Can be wasteful if Markov blanket is large:\nl
-    $P(Y_i|MB(Y_i))$ won't change much (law of large numbers)
-
-
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Performance of approximation algorithms}
-
-\u{Absolute approximation}: 
-  $|P(X|\mbf{e}) - \hat P(X|\mbf{e})| \leq \epsilon$
-
-\u{Relative approximation}: 
-  $\frac{|P(X|\smbf{e}) - \hat P(X|\smbf{e})|}{P(X|\smbf{e})} \leq \epsilon$
-
-Relative $\implies$ absolute since $0\leq P \leq 1$ (may be $O(2^{-n})$)
-
-Randomized algorithms may fail with probability at most $\delta$
-
-Polytime approximation: $\mbox{poly}(n,\epsilon^{-1},\log \delta^{-1})$
-
-Theorem (Dagum and Luby, 1993): both absolute and relative\\
-approximation for either deterministic or randomized algorithms\\
-are NP-hard for any $\epsilon,\delta<0.5$
-
-(Absolute approximation polytime with no evidence---Chernoff bounds)
 
 
 \end{huge} 

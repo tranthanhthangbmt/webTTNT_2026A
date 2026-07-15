@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1784051863.37304 "chapter09b.tex" "chapter09b.pdf" "chapter09b" 1784051873.95409 0
+["pdflatex"] 1784103003.37359 "chapter09b.tex" "chapter09b.pdf" "chapter09b" 1784103005.29713 2
   "C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1784049722 89969 e95579120a3aa0ebc21d2737ca2ba701 ""
   "C:/Users/thanh/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1782268607 13333528 ce7767b4b1864107ed4ad937a79bf98c ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc" 1256929440 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -19,6 +19,7 @@
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/tfm/public/lm/t5-lmr10.tfm" 1256929440 21100 164585fd17f1ac9cc5e6c58d0ba511df ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/tfm/public/lm/t5-lmr17.tfm" 1256929440 21164 3207f0418107c8aac3f141c388a23f7b ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/tfm/public/lm/t5-lmr8.tfm" 1256929440 21128 5857c9db30ba8928a92305f149a40f4d ""
+  "C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/tfm/public/lm/t5-lmtk10.tfm" 1256929440 1348 8b400c05d96789e43be1180436f03553 ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/tfm/public/lm/t5-lmtt12.tfm" 1256929440 1348 de84128a77c72033d515f2510464f953 ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/tfm/public/lm/ts1-lmr8.tfm" 1256929440 1584 a2d340944f7dc70e449dcdfd4f3f8533 ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/tfm/vntex/vnr/vnr10.tfm" 1644004041 3980 a378198bbdb2c6fcd4b722396a62ad27 ""
@@ -29,6 +30,7 @@
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb" 1256929440 119752 1bd8d06e4079df624bf59ce3ad7c9aa6 ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb" 1256929440 122174 a2d5e73f396ddbeb3bdf5c79aea0993d ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb" 1256929440 27863 09ce3735688ffde955e72da27c95b61a ""
+  "C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb" 1256929440 117319 28a05fff1cac98366062ffbb2e22858d ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb" 1256929440 110323 19372944fba298bb4c4758abff959582 ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/context/base/mkii/supp-pdf.mkii" 1580390158 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/generic/iftex/iftex.sty" 1734114575 7984 7dbb9280f03c0a315425f1b4f35d43ee ""
@@ -66,13 +68,13 @@
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/vntex/t5cmr.fd" 1368738347 1333 ab1c3d512aa3d88df568aed3641db58f ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/vntex/t5enc.def" 1368738347 21986 ccb3b8f7cc27fbd61b3daabbbb82ad3f ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/vntex/t5enc.dfu" 1368738347 13949 387dd4fa58aea5f873839c93430fffed ""
-  "aima-slides.sty" 1784049698 14136 1351017c1f3c43cd12064163a27165d1 ""
-  "chapter09b.aux" 1784051872 33 f5162ef287409618820a40adc8e2d2a1 "pdflatex"
-  "chapter09b.tex" 1784051833 10227 852453293135e0665d563de27714890c ""
-  "figures/resolve-clauses-ps-converted-to.pdf" 1784051869 4295 2ab942027eaf76939cd2b2ec0af1bf4c ""
-  "figures/resolve-clauses.ps" 1784041080 11741 cd31e43b2568341296b2156fd4a0fb04 ""
-  "figures/rich-proof-ps-converted-to.pdf" 1784051871 7920 d3045be0c4797de6f66725ffba0fbe5f ""
-  "figures/rich-proof.ps" 1784041080 20512 11b7f36fb5bf14dbab40d1e6359e00b0 ""
+  "aima-slides.sty" 1784080572 14189 6be9220f5305bbd3e1f55f538ba3d73e ""
+  "chapter09b.aux" 1784103004 33 f7d8a52c1d960073e083a764194e265e "pdflatex"
+  "chapter09b.tex" 1784102138 10119 1b3c5dbce8e39ca653f6712329d2b813 ""
+  "figures/resolve-clauses-ps-converted-to.pdf" 1784102999 4297 01c1172b8d30adfc039fec5fae668f2e ""
+  "figures/resolve-clauses.ps" 1784078105 11746 1039f9ee4b8669d2ff817635deb5f4c9 ""
+  "figures/rich-proof-ps-converted-to.pdf" 1784103001 7921 aba6bd79ba60e15683a5fb818c640e4e ""
+  "figures/rich-proof.ps" 1784078105 20517 e575255983c5a60f1bf7d0405ae998de ""
   (generated)
   "chapter09b.aux"
   "chapter09b.log"

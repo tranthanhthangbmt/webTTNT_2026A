@@ -1,8 +1,8 @@
 %!PS-Adobe-2.0 EPSF-1.2
 %%Creator: idraw
-%%DocumentFonts: Helvetica-Bold
+%%DocumentFonts: Helvetica-Bold Helvetica
 %%Pages: 1
-%%BoundingBox: -91 480 496 745
+%%BoundingBox: -90 480 496 748
 %%EndComments
 
 %%BeginIdrawPrologue
@@ -80,7 +80,7 @@ end
 /arrowHeight 8 def
 /arrowWidth 4 def
 
-/IdrawDict 51 dict def
+/IdrawDict 52 dict def
 IdrawDict begin
 
 /reencodeISO {
@@ -122,6 +122,7 @@ currentdict end definefont
 /yacute/thorn/ydieresis
 ] def
 /Helvetica-Bold reencodeISO def
+/Helvetica reencodeISO def
 
 /none null def
 /numGraphicParameters 17 def
@@ -210,6 +211,7 @@ end
 /Circ {
 newpath
 0 360 arc
+closepath
 patternNone not { ifill } if
 brushNone not { istroke } if
 } def
@@ -241,6 +243,7 @@ newpath
 translate
 scale
 0 0 1 0 360 arc
+closepath
 patternNone not { ifill } if
 brushNone not { istroke } if
 end
@@ -360,7 +363,7 @@ grestore
 gsave
 fgred fggreen fgblue setrgbcolor
 /fontDict printFont printSize scalefont dup setfont def
-/descender fontDict begin 0 [FontBBox] 1 get FontMatrix end
+/descender fontDict begin 0 /FontBBox load  1 get FontMatrix end
 transform exch pop def
 /vertoffset 1 printSize sub descender sub def {
 0 vertoffset moveto show
@@ -490,7 +493,7 @@ exch dup 3 1 roll 1 0 0 -1 0 6 -1 roll matrix astore
 
 %%EndProlog
 
-%I Idraw 10 Grid 8 8 
+%I Idraw 12 Grid 8 8 
 
 %%Page: 1 1
 
@@ -1003,23 +1006,6 @@ End %I eop
 Begin %I Text
 %I cfg Black
 0 0 0 SetCFg
-%I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
-Helvetica-Bold 14 SetF
-%I t
-[ 2 0 0 2 -118 870 ] concat
-%I
-[
-(1.  A  v  B  v  C)
-()
-(2.  C  v  D  v  ~A)
-()
-(3.  B  v  C  v  ~D)
-] Text
-End
-
-Begin %I Text
-%I cfg Black
-0 0 0 SetCFg
 %I f -*-helvetica-bold-r-*-*-18-*-*-*-*-*-*-*
 Helvetica-Bold 18 SetF
 %I t
@@ -1066,6 +1052,75 @@ Helvetica-Bold 18 SetF
 %I
 [
 (0.5)
+] Text
+End
+
+Begin %I Text
+%I cfg Black
+0 0 0 SetCFg
+%I f -*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*
+Helvetica 12 SetF
+%I t
+[ 8.74228e-08 -2 -2 -8.74228e-08 612.94 882.084 ] concat
+%I
+[
+(L)
+] Text
+End
+
+Begin %I Text
+%I cfg Black
+0 0 0 SetCFg
+%I f -*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*
+Helvetica 12 SetF
+%I t
+[ 8.74228e-08 -2 -2 -8.74228e-08 257.312 890.959 ] concat
+%I
+[
+(L)
+] Text
+End
+
+Begin %I Text
+%I cfg Black
+0 0 0 SetCFg
+%I f -*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*
+Helvetica 12 SetF
+%I t
+[ 8.74228e-08 -2 -2 -8.74228e-08 55.7263 753.398 ] concat
+%I
+[
+(L)
+] Text
+End
+
+Begin %I Text
+%I cfg Black
+0 0 0 SetCFg
+%I f -*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*
+Helvetica 12 SetF
+%I t
+[ 8.74228e-08 -2 -2 -8.74228e-08 56.9941 809.817 ] concat
+%I
+[
+(L)
+] Text
+End
+
+Begin %I Text
+%I cfg Black
+0 0 0 SetCFg
+%I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
+Helvetica-Bold 14 SetF
+%I t
+[ 2 0 0 2 -117.366 869.366 ] concat
+%I
+[
+(1.  A  v  B  v  C)
+()
+(2.  C  v  D  v    A)
+()
+(3.  B  v  C  v    D)
 ] Text
 End
 

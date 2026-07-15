@@ -14,6 +14,789 @@
 
 #### **Slide**
 
+\usepackage{fleqn}
+\usepackage{epsf}
+\usepackage[dvips]{color}
+\usepackage{aima2e-slides}
+
+# Inference in first-order logic
+
+## Chapter 9
+
+---
+## Phác thảo
+
+- Rút gọn suy luận bậc nhất thành suy luận mệnh đề
+
+- Thống nhất
+
+- Các mô thức tổng quát
+
+- Chuỗi tiến và lùi
+
+- Lập trình logic
+
+- Độ phân giải
+
+---
+## Lược sử lý luận
+
+| &nbsp; | &nbsp; | &nbsp; |
+|---|---|---|
+| \note{450**b.c.** | \txr{ Stoics } | logic mệnh đề, suy luận (có thể) |
+| \note{322**b.c.** } | \txr{ Aristotle } | "syllogisms" (quy tắc suy luận), định lượng |
+| \note{1565 } | \txr{ Cardano } | lý thuyết xác suất (logic mệnh đề + độ không chắc chắn) |
+| \note{1847 } | \txr{ Boole } | logic mệnh đề (lại) |
+| \note{1879 } | \txr{ Frege } | logic bậc nhất |
+| \note{1922 } | \txr{ Wittgenstein} | bằng chứng bằng bảng chân lý |
+| \note{1930 } | \txr{ G\"odel } | $\exists$ thuật toán hoàn chỉnh cho FOL |
+| \note{1930 } | \txr{ Herbrand } | thuật toán hoàn chỉnh cho FOL (rút gọn về mệnh đề) |
+| \note{1931 } | \txr{ G\"odel } | $\lnot\exists$ thuật toán hoàn chỉnh cho số học |
+| \note{1960 } | \txr{ Davis/Putnam} | thuật toán "thực tế" cho logic mệnh đề |
+| \note{1965 } | \txr{ Robinson } | thuật toán "thực tế" cho FOL---độ phân giải |
+
+---
+##  Khởi tạo phổ quát (UI) 
+
+Mọi sự thể hiện của một câu được định lượng phổ quát đều được nó kéo theo:
+\mat{\[\frac{\All{v} 
+  pha}{\noprog{Subst}(\{v/g\},
+  pha)}\]}
+cho bất kỳ biến nào \mat{$v$} và thuật ngữ cơ bản \mat{$g$}
+
+Ví dụ: \mat{$\All{x} King(x) \land Greedy(x) \implies Evil(x)$} mang lại
+\mat{\begin{formula}
+   King(John) \land Greedy(John)  \implies Evil(John)
+
+   King(Richard) \land Greedy(Richard)  \implies Evil(Richard)
+
+   King(Father(John)) \land Greedy(Father(John))  \implies Evil(Father(John))
+
+    &nbsp;&nbsp; \vdots
+\end{formula}}
+
+---
+##  Khởi tạo hiện sinh (EI)
+
+Đối với bất kỳ câu \mat{$
+  pha$}, biến \mat{$v$} và ký hiệu hằng \mat{$k$} 
+
+*không xuất hiện ở nơi khác trong cơ sở kiến thức*:
+\mat{\[\frac{\Exi{v} 
+  pha}{\noprog{Subst}(\{v/k\},
+  pha)}\]}
+
+Ví dụ: \mat{$\Exi{x} Crown(x) \land OnHead(x,John)$} mang lại
+\mat{\[
+Crown(C_1) \land OnHead(C_1,John)
+\]}
+với điều kiện \mat{$C_1$} là ký hiệu hằng số mới, được gọi là \defn{Hằng số Skolem}
+
+Một ví dụ khác: từ \mat{$\Exi{x} {{d(x^y)}/{dy}} \eq  x^y$} chúng ta có được
+\mat{\[
+{{d(e^y)}/{dy}} \eq  e^y
+\]}
+với điều kiện \mat{$e$} là ký hiệu hằng số mới
+
+---
+##  Tiếp tục khởi tạo hiện sinh.
+
+Giao diện người dùng có thể được áp dụng nhiều lần để *thêm* câu mới;
+
+KB mới về mặt logic tương đương với KB cũ
+
+EI có thể được áp dụng một lần để *thay thế* câu hiện sinh;
+
+KB mới là *không * tương đương với cái cũ,
+
+nhưng có thể đáp ứng được nếu KB cũ có thể đáp ứng được
+
+---
+## Giảm suy luận mệnh đề
+
+Giả sử KB chỉ chứa những thứ sau:
+\mat{\begin{formula}
+   \All{x} King(x) \land Greedy(x) \implies Evil(x)
+
+   King(John)
+
+   Greedy(John)
+
+   Brother(Richard,John)
+\end{formula}}
+Khởi tạo câu phổ quát theo *tất cả các cách có thể*, chúng ta có
+\mat{\begin{formula}
+   King(John) \land Greedy(John) \implies Evil(John)
+
+   King(Richard) \land Greedy(Richard) \implies Evil(Richard)
+
+   King(John)
+
+   Greedy(John)
+
+   Brother(Richard,John)
+\end{formula}}
+KB mới được \defn{được đề xuất}: các ký hiệu mệnh đề là
+\mat{\[
+  King(John),\ Greedy(John),\ Evil(John), King(Richard)\, \bbox{etc.}
+\]}
+
+---
+## Tiếp theo mức giảm 
+
+Khiếu nại: một câu cơ bản\mat{$^*$} được đưa ra bởi KB mới nếu được KB ban đầu kéo theo
+
+Yêu cầu: mọi KB FOL đều có thể được đề xuất hóa để duy trì quyền thừa kế
+
+Ý tưởng: đề xuất KB và truy vấn, áp dụng độ phân giải, trả về kết quả
+
+Vấn đề: với các ký hiệu hàm số, có vô số thuật ngữ cơ bản,
+  
+  ví dụ: \mat{$Father(Father(Father(John)))$}
+
+Định lý: Herbrand (1930). Nếu một câu \mat{$
+  pha$} được bao gồm bởi FOL KB,
+    
+  nó được kéo theo một tập con *hữu hạn* của mệnh đề KB
+
+Ý tưởng: Với \mat{$n$} = \mat{$0$} đến \mat{$\infty$} do
+    
+    tạo một KB mệnh đề bằng cách khởi tạo với các thuật ngữ độ sâu-\mat{$n$}
+    
+    xem liệu \mat{$
+  pha$} có được KB này yêu cầu không
+
+Sự cố: hoạt động nếu \mat{$
+  pha$} được yêu cầu, lặp lại nếu \mat{$
+  pha$} không được yêu cầu
+
+Định lý: Turing (1936), Church (1936), sự kéo theo trong FOL là \defn{semicidable}
+
+---
+## Các vấn đề về mệnh đề hóa
+
+Sự đề xuất dường như tạo ra rất nhiều câu không liên quan.
+
+Ví dụ: từ 
+\mat{\begin{formula}
+   \All{x} King(x) \land Greedy(x) \implies Evil(x)
+
+   King(John)
+
+   \All{y} Greedy(y)
+
+   Brother(Richard,John)
+\end{formula}}
+điều đó có vẻ hiển nhiên \mat{$Evil(John)$}, nhưng việc mệnh đề hóa tạo ra
+rất nhiều sự thật như \mat{$Greedy(Richard)$} không liên quan
+
+Với các biến vị ngữ \mat{$p$} \mat{$k$} và hằng số \mat{$n$}, có các phiên bản \mat{$p\cdot n^k$}
+
+Với các ký hiệu chức năng, mọi chuyện còn tệ hơn nhiều!
+
+---
+## Hợp nhất
+
+Chúng ta có thể suy luận ngay lập tức nếu tìm được sự thay thế \mat{$\theta$}
+
+sao cho \mat{$King(x)$} và \mat{$Greedy(x)$} khớp với \mat{$King(John)$} và \mat{$Greedy(y)$}
+
+\mat{$\theta = \{x/John,y/John\}$} hoạt động
+
+\mat{\noprog{Unify}}\mat{$(
+  pha,\beta) = \theta$} nếu \mat{$
+  pha\theta\eq \beta\theta$}
+
+\mat{\[\begin{array}{l|l|l}
+p & q & \theta 
+
+\hline
+Knows(John,x) & Knows(John,Jane) & 
+
+Knows(John,x) & Knows(y,OJ)      & 
+
+Knows(John,x) & Knows(y,Mother(y))& \phantom{\{y/John,x/Mother(John)\}}
+
+Knows(John,x) & Knows(x,OJ)
+\end{array}\]}
+
+---
+## Hợp nhất
+
+Chúng ta có thể suy luận ngay lập tức nếu tìm được sự thay thế \mat{$\theta$}
+
+sao cho \mat{$King(x)$} và \mat{$Greedy(x)$} khớp với \mat{$King(John)$} và \mat{$Greedy(y)$}
+
+\mat{$\theta = \{x/John,y/John\}$} hoạt động
+
+\mat{\noprog{Unify}}\mat{$(
+  pha,\beta) = \theta$} nếu \mat{$
+  pha\theta\eq \beta\theta$}
+
+\mat{\[\begin{array}{l|l|l}
+p & q & \theta 
+
+\hline
+Knows(John,x) & Knows(John,Jane) & \hbox{\note{$\{x/Jane\}$}}
+
+Knows(John,x) & Knows(y,OJ)      & 
+
+Knows(John,x) & Knows(y,Mother(y))& \phantom{\{y/John,x/Mother(John)\}}
+
+Knows(John,x) & Knows(x,OJ)
+\end{array}\]}
+
+---
+## Hợp nhất
+
+Chúng ta có thể suy luận ngay lập tức nếu tìm được sự thay thế \mat{$\theta$}
+
+sao cho \mat{$King(x)$} và \mat{$Greedy(x)$} khớp với \mat{$King(John)$} và \mat{$Greedy(y)$}
+
+\mat{$\theta = \{x/John,y/John\}$} hoạt động
+
+\mat{\noprog{Unify}}\mat{$(
+  pha,\beta) = \theta$} nếu \mat{$
+  pha\theta\eq \beta\theta$}
+
+\mat{\[\begin{array}{l|l|l}
+p & q & \theta 
+
+\hline
+Knows(John,x) & Knows(John,Jane) & \hbox{\note{$\{x/Jane\}$}}
+
+Knows(John,x) & Knows(y,OJ)      & \hbox{\note{$\{x/OJ,y/John\}$}}
+
+Knows(John,x) & Knows(y,Mother(y))& \phantom{\{y/John,x/Mother(John)\}}
+
+Knows(John,x) & Knows(x,OJ)
+\end{array}\]}
+
+---
+## Hợp nhất
+
+Chúng ta có thể suy luận ngay lập tức nếu tìm được sự thay thế \mat{$\theta$}
+
+sao cho \mat{$King(x)$} và \mat{$Greedy(x)$} khớp với \mat{$King(John)$} và \mat{$Greedy(y)$}
+
+\mat{$\theta = \{x/John,y/John\}$} hoạt động
+
+\mat{\noprog{Unify}}\mat{$(
+  pha,\beta) = \theta$} nếu \mat{$
+  pha\theta\eq \beta\theta$}
+
+\mat{\[\begin{array}{l|l|l}
+p & q & \theta 
+
+\hline
+Knows(John,x) & Knows(John,Jane) & \hbox{\note{$\{x/Jane\}$}}
+
+Knows(John,x) & Knows(y,OJ)      & \hbox{\note{$\{x/OJ,y/John\}$}}
+
+Knows(John,x) & Knows(y,Mother(y))& \hbox{\note{$\{y/John,x/Mother(John)\}$}}
+
+Knows(John,x) & Knows(x,OJ)
+\end{array}\]}
+
+---
+## Hợp nhất
+
+Chúng ta có thể suy luận ngay lập tức nếu tìm được sự thay thế \mat{$\theta$}
+
+sao cho \mat{$King(x)$} và \mat{$Greedy(x)$} khớp với \mat{$King(John)$} và \mat{$Greedy(y)$}
+
+\mat{$\theta = \{x/John,y/John\}$} hoạt động
+
+\mat{\noprog{Unify}}\mat{$(
+  pha,\beta) = \theta$} nếu \mat{$
+  pha\theta\eq \beta\theta$}
+
+\mat{\[\begin{array}{l|l|l}
+p & q & \theta 
+
+\hline
+Knows(John,x) & Knows(John,Jane) & \hbox{\note{$\{x/Jane\}$}}
+
+Knows(John,x) & Knows(y,OJ)      & \hbox{\note{$\{x/OJ,y/John\}$}}
+
+Knows(John,x) & Knows(y,Mother(y))& \hbox{\note{$\{y/John,x/Mother(John)\}$}}
+
+Knows(John,x) & Knows(x,OJ) & \note{$fail$}
+\end{array}\]}
+\defn{Tiêu chuẩn hóa riêng biệt} loại bỏ sự chồng chéo của các biến, ví dụ: \mat{$Knows(z_{17},OJ)$}
+
+---
+## Phương thức tổng quát (GMP)
+
+\mat{\[\frac{{p_1}', \;\; {p_2}', \; \ldots, \; {p_n}', \;\;
+( p_1 \land p_2 \land \ldots \land p_n \Rightarrow q)}{q\theta}
+ &nbsp;&nbsp;&nbsp;&nbsp;  \bbox{where }{p_i}'\theta \eq p_i\theta\bbox{ for all } i
+\]}
+\mat{\begin{formula}
+{p_1}'  \bbox{ is }  King(John)  & p_1 \bbox{ is }  King(x) 
+
+{p_2}' \bbox{ is }  Greedy(y)  & p_2  \bbox{ is }  Greedy(x) 
+
+\theta  \bbox{ is }  \{x/John,y/John\} & q \bbox{ is } Evil(x) 
+
+q\theta \bbox{ is } Evil(John)
+\end{formula}}
+
+GMP được sử dụng với KB của \defn{mệnh đề xác định} (*chính xác* một chữ dương)
+
+Tất cả các biến giả định được định lượng phổ quát
+
+---
+## Tính hợp lý của GMP
+
+Cần phải chứng tỏ điều đó 
+\mat{\[{p_1}', \; \ldots, \; {p_n}', \;\;
+( p_1 \land \ldots \land p_n \Rightarrow q) \models q\theta\]}
+với điều kiện là \mat{${p_i}'\theta \eq p_i\theta$} cho tất cả \mat{$i$}
+
+Bổ đề: Với mọi mệnh đề xác định \mat{$p$}, ta có \mat{$p \models p\theta$} theo UI
+
+1. \mat{$( p_1 \land \ldots \land p_n \Rightarrow q) \models 
+    ( p_1 \land \ldots \land p_n \Rightarrow q)\theta \eq
+    ( p_1\theta \land \ldots \land p_n\theta \Rightarrow q\theta)$}
+
+2. \mat{$ {p_1}', \; \ldots, \; {p_n}' \models
+     {p_1}' \land \ldots \land {p_n}' \models
+     {p_1}'\theta \land \ldots \land {p_n}'\theta $}
+
+3. Từ 1 và 2, \mat{$q\theta$} tiếp theo là Modus Ponens thông thường
+
+---
+## Cơ sở kiến thức mẫu
+
+Luật pháp quy định rằng việc người Mỹ bán vũ khí cho
+các quốc gia thù địch.  Đất nước Nono\index{Nono}, kẻ thù của Mỹ,
+có một số tên lửa và tất cả tên lửa của nó đã được Đại tá bán cho nó
+Tây, người Mỹ.
+
+Chứng minh rằng Col. West là tội phạm
+
+---
+## Ví dụ cơ sở kiến thức tiếp theo.
+
+$\ldots$ việc một người Mỹ bán vũ khí cho các quốc gia thù địch là một tội ác:
+
+---
+## Ví dụ cơ sở kiến thức tiếp theo.
+
+$\ldots$ việc một người Mỹ bán vũ khí cho các quốc gia thù địch là tội ác:
+  
+  \mat{$American(x) \land  Weapon(y)\land Sells(x,y,z) \land  Hostile(z) \implies Criminal(x)$}
+
+Nono $\ldots$ có một số tên lửa
+
+---
+## Ví dụ cơ sở kiến thức tiếp theo.
+
+$\ldots$ việc một người Mỹ bán vũ khí cho các quốc gia thù địch là tội ác:
+  
+  \mat{$American(x) \land  Weapon(y)\land Sells(x,y,z) \land  Hostile(z) \implies Criminal(x)$}
+
+Nono $\ldots$ có một số tên lửa, tức là $\exists\,x\ Owns(Nono,x)\land Missile(x)$:
+  
+  \mat{$Owns(Nono,M_1)$} và \mat{$Missile(M_1)$}
+
+$\ldots$ tất cả tên lửa của nó đã được Đại tá West bán cho nó
+
+---
+## Ví dụ cơ sở kiến thức tiếp theo.
+
+$\ldots$ việc một người Mỹ bán vũ khí cho các quốc gia thù địch là tội ác:
+  
+  \mat{$American(x) \land  Weapon(y)\land Sells(x,y,z) \land  Hostile(z) \implies Criminal(x)$}
+
+Nono $\ldots$ có một số tên lửa, tức là $\exists\,x\ Owns(Nono,x)\land Missile(x)$:
+  
+  \mat{$Owns(Nono,M_1)$} và \mat{$Missile(M_1)$}
+
+$\ldots$ tất cả tên lửa của nó đã được Đại tá West bán cho nó
+  
+  \mat{$\All{x} Missile(x) \land Owns(Nono,x) \implies Sells(West,x,Nono)$}
+
+Tên lửa là vũ khí:
+
+---
+## Ví dụ cơ sở kiến thức tiếp theo.
+
+$\ldots$ việc một người Mỹ bán vũ khí cho các quốc gia thù địch là tội ác:
+  
+  \mat{$American(x) \land  Weapon(y)\land Sells(x,y,z) \land  Hostile(z) \implies Criminal(x)$}
+
+Nono $\ldots$ có một số tên lửa, tức là $\exists\,x\ Owns(Nono,x)\land Missile(x)$:
+  
+  \mat{$Owns(Nono,M_1)$} và \mat{$Missile(M_1)$}
+
+$\ldots$ tất cả tên lửa của nó đã được Đại tá West bán cho nó
+  
+  \mat{$\All{x} Missile(x) \land Owns(Nono,x) \implies Sells(West,x,Nono)$}
+
+Tên lửa là vũ khí:
+  
+  \mat{$Missile(x)\Rightarrow Weapon(x)$}
+
+Kẻ thù của Mỹ bị coi là “thù địch”:
+
+---
+## Ví dụ cơ sở kiến thức tiếp theo.
+
+$\ldots$ việc một người Mỹ bán vũ khí cho các quốc gia thù địch là tội ác:
+  
+  \mat{$American(x) \land  Weapon(y)\land Sells(x,y,z) \land  Hostile(z) \implies Criminal(x)$}
+
+Nono $\ldots$ có một số tên lửa, tức là $\exists\,x\ Owns(Nono,x)\land Missile(x)$:
+  
+  \mat{$Owns(Nono,M_1)$} và \mat{$Missile(M_1)$}
+
+$\ldots$ tất cả tên lửa của nó đã được Đại tá West bán cho nó
+  
+  \mat{$\All{x} Missile(x) \land Owns(Nono,x) \implies Sells(West,x,Nono)$}
+
+Tên lửa là vũ khí:
+  
+  \mat{$Missile(x)\Rightarrow Weapon(x)$}
+
+Kẻ thù của Mỹ bị coi là "thù địch":
+  
+  \mat{$Enemy(x,America)\implies Hostile(x)$}
+
+Tây, người Mỹ $\ldots$ 
+  
+  \mat{$American(West)$}
+
+Đất nước Nono, kẻ thù của Mỹ $\ldots$
+  
+  \mat{$Enemy(Nono,America)$}
+
+---
+## Thuật toán chuỗi chuyển tiếp
+
+```text
+function FOL-FC-Ask(\v{KB), $
+  pha$}{a substitution or \v{false}}
+
+    repeat until \v{new} is empty
+          \v{new}{$\emptyset$}
+          for each sentence \v{r} in \v{KB} do 
+                $(\v{p_1\land\ldots\land \v{p}_n\implies \v{q})$}{Standardize-Apart(\v{r})} 
+                for each $\theta$ such that $(\v{p}_1 \land \ldots \land \v{p}_n)\theta = (\v{p}'_1 \land \ldots \land \v{p}'_n)\theta$
+                                  for some $\v{p}'_1,\ldots,\v{p}'_n$ in \v{KB}
+                      $\v{q'$}{Subst($\theta$, $\v{q}$)}
+                      if $\v{q}'$ is not a renaming of a sentence already in \v{KB} or \v{new} then do
+                            add $\v{q}'$ to \v{new}
+                            $\phi$ <- Unify($\v{q'$, $
+  pha$)}
+                            \k{if} $\phi$ is not \v{fail} then return $\phi$
+          add \v{new} to \v{KB}
+    return \v{false}
+```
+
+---
+## Chứng minh xích chuyển tiếp
+
+![Hình ảnh](../TaiLieu/slide_md/figures/crime-fc1c.png)
+
+---
+## Chứng minh xích chuyển tiếp
+
+![Hình ảnh](../TaiLieu/slide_md/figures/crime-fc2c.png)
+
+---
+## Chứng minh xích chuyển tiếp
+
+![Hình ảnh](../TaiLieu/slide_md/figures/crime-fc3c.png)
+
+---
+##  Thuộc tính của chuỗi thuận 
+
+Âm thanh và đầy đủ cho các mệnh đề xác định bậc một
+
+(chứng minh tương tự chứng minh mệnh đề)
+
+\defn{Datalog} = mệnh đề xác định thứ tự đầu tiên + *không có chức năng* (ví dụ: KB tội phạm)
+
+FC chấm dứt Datalog trong nhiều lần lặp: tối đa \mat{$p\cdot n^k$} bằng chữ
+
+Nói chung có thể không chấm dứt nếu không có \mat{$
+  pha$}
+
+Điều này là không thể tránh khỏi: việc đưa ra các mệnh đề xác định là có thể bán được
+
+---
+## Hiệu quả của chuỗi chuyển tiếp 
+
+Quan sát đơn giản: không cần khớp quy tắc lặp \mat{$k$}
+
+nếu tiền đề không được thêm vào trong lần lặp \mat{$k-1$}
+    
+$\implies$ khớp với từng quy tắc có tiền đề chứa nghĩa đen mới được thêm vào
+
+Bản thân sự phù hợp có thể tốn kém
+
+\defn{Lập chỉ mục cơ sở dữ liệu} cho phép \mat{$O(1)$} truy xuất các sự kiện đã biết
+  
+ví dụ: truy vấn \mat{$Missile(x)$} truy xuất \mat{$Missile(M_1)$}
+
+Việc kết hợp các tiền đề liên kết với các sự kiện đã biết là NP-hard
+
+Chuỗi chuyển tiếp được sử dụng rộng rãi trong cơ sở dữ liệu suy diễn \defn{}
+
+---
+## Ví dụ về khớp cứng
+
+,4\maxfigwidth
+ ![Hình ảnh](../TaiLieu/slide_md/figures/australia-csp.png) 
+
+\hđiền
+
+ 
+\tab\mat{$\Diff(wa,nt)\land \Diff(wa,sa)\land{}$}
+
+[4pt]
+\tab\tab\tab\mat{$\Diff(nt,q) \Diff(nt,sa)\land {}$}
+
+[4pt]
+\tab\tab\tab\mat{$\Diff(q,nsw)\land \Diff(q,sa)\land {}$}
+
+[4pt]
+\tab\tab\tab\mat{$\Diff(nsw,v)\land \Diff(nsw,sa)\land {}$}
+
+[4pt]
+\tab\tab\tab\mat{$\Diff(v,sa) \implies Colorable()$}
+
+[8 điểm]
+\tab\mat{$\Diff(Red,Blue)  &nbsp;&nbsp;  \Diff(Red,Green)$}
+
+[4pt]
+\tab\mat{$\Diff(Green,Red) &nbsp;&nbsp;  \Diff(Green,Blue)$}
+
+[4pt]
+\tab\mat{$\Diff(Blue,Red)  &nbsp;&nbsp;  \Diff(Blue,Green)$}
+
+\mat{$Colorable()$} được suy ra nếu CSP có giải pháp 
+
+CSP bao gồm 3SAT như một trường hợp đặc biệt, do đó việc so khớp là NP-hard
+
+---
+## Thuật toán xâu chuỗi ngược
+
+```text
+function FOL-BC-Ask(KB, goals, \(\theta\)) returns a set of substitutions
+      inputs: KB, a knowledge base
+      inputs: goals, a list of conjuncts forming a query (\(\theta\) already applied)
+      inputs: \(\theta\), the current substitution, initially the empty substitution \(\emptyset\)
+      local: answers, a set of substitutions, initially empty
+
+    if goals is empty then return \(\{\theta\}\)
+    \(q'\) <- Subst(\(\theta\), First(goals))
+    for each sentence r in KB 
+                where Standardize-Apart(r) = \((p_1 \land \ldots \land p_n \Rightarrow q)\)
+                and \(\theta'\) <- Unify(q, \(q'\)) succeeds
+          new\_goals <- \([p_1,\ldots,p_n|\)Rest(goals)\(]\)
+          answers <- \mbox{FOL-BC-Ask(KB, new\_goals, Compose(\(\theta'\), \(\theta\))) \(\cup\) answers}
+    return answers
+```
+
+---
+## Ví dụ về chuỗi ngược
+
+![Hình ảnh](../TaiLieu/slide_md/figures/crime-bc01c.png)
+
+---
+## Ví dụ về chuỗi ngược
+
+![Hình ảnh](../TaiLieu/slide_md/figures/crime-bc02c.png)
+
+---
+## Ví dụ về chuỗi ngược
+
+![Hình ảnh](../TaiLieu/slide_md/figures/crime-bc03c.png)
+
+---
+## Ví dụ về chuỗi ngược
+
+![Hình ảnh](../TaiLieu/slide_md/figures/crime-bc04c.png)
+
+---
+## Ví dụ về chuỗi ngược
+
+![Hình ảnh](../TaiLieu/slide_md/figures/crime-bc05c.png)
+
+---
+## Ví dụ về chuỗi ngược
+
+![Hình ảnh](../TaiLieu/slide_md/figures/crime-bc06c.png)
+
+---
+## Ví dụ về chuỗi ngược
+
+![Hình ảnh](../TaiLieu/slide_md/figures/crime-bc07c.png)
+
+---
+##  Thuộc tính của chuỗi ngược 
+
+Tìm kiếm bằng chứng đệ quy theo chiều sâu: không gian có kích thước tuyến tính của bằng chứng
+
+Chưa hoàn thành do vòng lặp vô hạn
+  
+$\implies$ khắc phục bằng cách kiểm tra mục tiêu hiện tại với mọi mục tiêu trên ngăn xếp
+
+Không hiệu quả do các mục tiêu phụ lặp đi lặp lại (cả thành công và thất bại)
+  
+$\implies$ sửa lỗi sử dụng bộ nhớ đệm của các kết quả trước đó (thêm dung lượng!)
+
+Được sử dụng rộng rãi (không có cải tiến!) cho \defn{lập trình logic}
+
+---
+## Lập trình logic
+
+Âm thanh cắn: tính toán như suy luận trên KB logic
+
+| &nbsp; | &nbsp; | &nbsp; |
+|---|---|---|
+|  | \note{Lập trình logic} | \note{Lập trình thông thường} |
+| 1. | Xác định vấn đề | Xác định vấn đề |
+| 2. | Tập hợp thông tin | Tập hợp thông tin |
+| 3. | Tea break | Tìm giải pháp |
+| 4. | Mã hóa thông tin trong KB | Giải pháp chương trình |
+| 5. | Mã hóa trường hợp vấn đề dưới dạng dữ kiện | Mã hóa trường hợp vấn đề dưới dạng dữ liệu |
+| 6. | Đặt câu hỏi | Áp dụng chương trình vào dữ liệu |
+| 7. | Tìm thông tin sai | Gỡ lỗi thủ tục |
+
+Sẽ dễ gỡ lỗi \mat{$Capital(NewYork,US)$} hơn \mat{$x:= x+2$}!
+
+---
+## Hệ thống Prolog
+
+Cơ sở: xâu chuỗi ngược với mệnh đề Horn + chuông \& còi
+
+Được sử dụng rộng rãi ở Châu Âu, Nhật Bản (cơ sở của dự án Thế hệ thứ 5)
+
+Kỹ thuật tổng hợp $\Rightarrow$ tiếp cận một tỷ LIPS
+
+Chương trình = tập hợp các mệnh đề = `head :- Literal$_1$, $\ldots$ Literal$_n$`
+
+```text
+criminal(X) :- american(X), weapon(Y), sells(X,Y,Z), hostile(Z).
+```
+
+Hợp nhất hiệu quả bằng \defn{mã hóa mở}
+
+Truy xuất hiệu quả các mệnh đề phù hợp bằng cách liên kết trực tiếp
+
+Chuỗi lùi theo chiều sâu, từ trái sang phải
+
+Các vị từ tích hợp sẵn cho số học, v.v., ví dụ: `X is Y*Z+3`
+
+Giả định thế giới đóng ("phủ định là thất bại")
+  
+   ví dụ: cho `còn sống(X) :- chưa chết(X).
+  
+   {\tt live(joe)` thành công nếu `dead(joe)` thất bại
+
+---
+## Ví dụ về Prolog
+
+Tìm kiếm theo chiều sâu từ trạng thái bắt đầu `X`:
+
+```text
+dfs(X) :- goal(X).
+dfs(X) :- successor(X,S),dfs(S).
+```
+
+Không cần lặp lại `S`: `kế thừa` thành công cho mỗi
+
+Nối hai danh sách để tạo ra danh sách thứ ba:
+
+```text
+append([],Y,Y).                         
+append([X|L],Y,[X|Z]) :- append(L,Y,Z). 
+                                        
+query:   append(A,B,[1,2]) ?            
+answers: A=[]    B=[1,2]
+         A=[1]   B=[2]
+         A=[1,2] B=[]
+```
+
+---
+## Giải pháp: tóm tắt ngắn gọn
+
+Phiên bản đặt hàng đầu tiên đầy đủ:
+\mat{\[\frac {\ell_1 \lor \cdots\lor \ell_k, &nbsp;&nbsp;&nbsp;&nbsp;  m_1 \lor \cdots\lor m_n}
+        {(\ell_1 \lor \cdots\lor \ell_{i-1}\lor \ell_{i+1}\lor\cdots\lor \ell_k
+        \lor m_1 \lor \cdots \lor m_{j-1}\lor m_{j+1}\lor\cdots\lor m_n)\theta}
+\]}
+ở đâu \mat{$\noprog{Unify}(\ell_i,\lnot m_j) \eq \theta$}.
+
+Ví dụ,
+\mat{\begin{formula}
+{\begin{array}{l} \lnot Rich(x) \lor Unhappy(x) 
+
+                  Rich(Ken)
+ \end{array}}
+\over
+{\begin{array}{l} Unhappy(Ken)
+ \end{array}}
+\end{formula}}
+với \mat{$\theta = \{x/Ken\}$}
+
+Áp dụng các bước giải quyết cho \mat{$CNF(KB\land \lnot 
+  pha)$}; hoàn thành cho FOL
+
+---
+## Chuyển đổi sang CNF
+
+Ai yêu thương mọi loài vật thì sẽ có người yêu thương:
+   
+  \mat{$\All{x} [\All{y} Animal(y) \implies Loves(x,y)] \implies [\Exi{y} Loves(y,x)]$}
+
+1. Loại bỏ các câu điều kiện và hàm ý
+\mat{\[
+ \All{x} [\lnot \All{y} \lnot Animal(y) \lor Loves(x,y)] \lor [\Exi{y} Loves(y,x)]
+\]}
+2. Di chuyển \mat{$\lnot$} vào trong: \mat{$\lnot \All{x,p} \equiv \Exi{x} \lnot p$}, &nbsp;&nbsp; 
+                         \mat{$\lnot \Exi{x,p} \equiv \All{x} \lnot p$}:
+\mat{\begin{formula}
+ \All{x} [\Exi{y} \lnot(\lnot Animal(y) \lor Loves(x,y))] \lor [\Exi{y} Loves(y,x)] 
+
+ \All{x} [\Exi{y} \lnot\lnot Animal(y) \land \lnot Loves(x,y)] \lor [\Exi{y} Loves(y,x)] 
+
+ \All{x} [\Exi{y} Animal(y) \land \lnot Loves(x,y)] \lor [\Exi{y} Loves(y,x)] 
+\end{formula}}
+
+---
+## Chuyển đổi sang CNF tiếp.
+
+3. Chuẩn hóa các biến: mỗi bộ định lượng nên sử dụng một biến định lượng khác nhau
+\mat{\[
+ \All{x} [\Exi{y} Animal(y) \land \lnot Loves(x,y)] \lor [\Exi{z} Loves(z,x)] 
+\]}
+4. Skolemize: một hình thức tổng quát hơn của sự khởi tạo hiện sinh.
+    
+   Mỗi biến tồn tại được thay thế bằng hàm \defn{Skolem}
+    
+   của các biến định lượng phổ quát kèm theo:
+\mat{\[
+ \All{x} [Animal(F(x)) \land \lnot Loves(x,F(x))] \lor Loves(G(x),x)
+\]}
+5. Bỏ các bộ định lượng phổ quát:
+\mat{\[
+ [Animal(F(x)) \land \lnot Loves(x,F(x))] \lor Loves(G(x),x)
+\]}
+6. Phân phối \mat{$\land$} trên \mat{$\lor$}:
+\mat{\[
+ [Animal(F(x)) \lor Loves(G(x),x)] \land [\lnot Loves(x,F(x)) \lor Loves(G(x),x)]
+\]}
+
+---
+##  Chứng minh độ phân giải: mệnh đề xác định 
+
+![Hình ảnh](../TaiLieu/slide_md/figures/crime-resolution.png)
+
 \usepackage{aima-slides}
 \usepackage[utf8]{inputenc}
 \usepackage[T5]{fontenc}
@@ -26,22 +809,22 @@
 ---
 ## Nội dung
 
-- Các phép chứng minh (Proofs)
+- Các bằng chứng được phép (Bằng chứng)
 
-- Sự hợp nhất (Unification)
+- Sự hợp nhất (Thống nhất)
 
-- Modus Ponens tổng quát (Generalized Modus Ponens)
+- Modus Ponens tổng hợp (Generalized Modus Ponens)
 
-- Suy diễn tiến và lùi (Forward and backward chaining)
+- Suy diễn tiến và lùi (Chuỗi tiến và lùi)
 
 ---
-## Các phép chứng minh
+##  Bằng chứng được phép
 
-Suy diễn đúng đắn: tìm $
+Suy diễn đúng nền: tìm $
   pha$ sao cho $KB \models 
   pha$.
 
-Quá trình chứng minh là một quá trình <u>tìm kiếm</u>, các toán tử là các quy tắc suy diễn.
+Quá trình chứng minh là một quá trình <u>tìm kiếm</u>, các toán tử là quy tắc diễn đàn.
 
 Ví dụ, Modus Ponens (MP)
 \[\displaystyle
@@ -51,7 +834,7 @@ Ví dụ, Modus Ponens (MP)
 \frac{At(Joe,UCB) &nbsp;&nbsp;  At(Joe,UCB)\implies OK(Joe)}{OK(Joe)}
 \]
 
-Ví dụ, And-Introduction (AI)
+Ví dụ, Và-Giới thiệu (AI)
 \[\displaystyle
 \frac{
   pha  &nbsp;&nbsp;  \beta}{
@@ -59,14 +842,14 @@ Ví dụ, And-Introduction (AI)
 \frac{OK(Joe) &nbsp;&nbsp;  CSMajor(Joe)}{OK(Joe)\land CSMajor(Joe)}
 \]
 
-Ví dụ, Universal Elimination (UE)
+Ví dụ, Loại bỏ toàn cầu (UE)
 \[\displaystyle
 \frac{\All{x} 
   pha}{
   pha\{x/\tau\}}  &nbsp;&nbsp;&nbsp;&nbsp; 
 \frac{\All{x} At(x,UCB)\implies OK(x)}{At(Pat,UCB)\implies OK(Pat)}
 \]
-$\tau$ phải là một hạng thức cơ sở (ground term) (tức là, không có biến số)
+$\tau$ phải là một cơ sở dữ liệu hạng (thuật ngữ cơ bản) (tức là không có biến số)
 
 ---
 ## Ví dụ chứng minh
@@ -76,7 +859,7 @@ $\tau$ phải là một hạng thức cơ sở (ground term) (tức là, không 
 | Bob là một con trâu | 1. | $Buffalo(Bob)$ |
 | Pat là một con lợn | 2. | $Pig(Pat)$ |
 | Trâu chạy nhanh hơn lợn | 3. | $\All{x,y} Buffalo(x) \land Pig(y) \implies Faster(x,y)$ |
-| Bob chạy nhanh hơn Pat |  | \phantom{$Buffalo(Bob) \land Pig(Pat) \implies Faster(Bob,Pat)$} |
+| Bob chạy nhanh hơn Pat |  | \phantom{$Buffalo(Bob) \land Pig(Pat) \implies Faster(Bob,Pat)$ |
 | \phantom{UE 3, $\{x/Bob,y/Pat\}$} |  |  |
 
 ---
@@ -87,7 +870,7 @@ $\tau$ phải là một hạng thức cơ sở (ground term) (tức là, không 
 | \phantom{Bob là một con trâu} |  |  |
 | \phantom{UE 3, $\{x/Bob,y/Pat\}$} |  |  |
 | \phantom{Trâu chạy nhanh hơn lợn} |  |  |
-| \phantom{Bob chạy nhanh hơn Pat} |  | \phantom{$Buffalo(Bob) \land Pig(Pat) \implies Faster(Bob,Pat)$} |
+| \phantom{Bob chạy nhanh hơn Pat} |  | \phantom{$Buffalo(Bob) \land Pig(Pat) \implies Faster(Bob,Pat)$ |
 | AI 1 \ | 2 | 4. | $Buffalo(Bob) \land Pig(Pat)$ |
 
 ---
@@ -98,7 +881,7 @@ $\tau$ phải là một hạng thức cơ sở (ground term) (tức là, không 
 | \phantom{Bob là một con trâu} |  |  |
 | \phantom{Pat là một con lợn} |  |  |
 | \phantom{Trâu chạy nhanh hơn lợn} |  |  |
-| \phantom{Bob chạy nhanh hơn Pat} |  | \phantom{$Buffalo(Bob) \land Pig(Pat) \implies Faster(Bob,Pat)$} |
+| \phantom{Bob chạy nhanh hơn Pat} |  | \phantom{$Buffalo(Bob) \land Pig(Pat) \implies Faster(Bob,Pat)$ |
 | \phantom{AI 1 \ | 2} |  |  |
 | UE 3, $\{x/Bob,y/Pat\}$ | 5. | $Buffalo(Bob) \land Pig(Pat) \implies Faster(Bob,Pat)$ |
 
@@ -116,31 +899,31 @@ $\tau$ phải là một hạng thức cơ sở (ground term) (tức là, không 
 | MP 6 \ | 7 | 6. | $Faster(Bob,Pat)$ |
 
 ---
-## Tìm kiếm với các quy tắc suy diễn nguyên thủy
+## Tìm kiếm các quy tắc suy diễn nguyên thủy
 
 Các toán tử là các quy tắc suy diễn
 
-Các trạng thái là các tập hợp các câu
+Trạng thái là các tập hợp 
 
-Kiểm tra đích kiểm tra trạng thái để xem nó có chứa câu truy vấn hay không
+Kiểm tra trạng thái kiểm tra đích để xem nó có chứa câu hỏi hay không
 
+,3\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/naive-proof-tree.png)
  
 
 AI, UE, MP là một mẫu suy diễn phổ biến
 
-<u>Vấn đề</u>: hệ số phân nhánh khổng lồ, đặc biệt đối với UE
+<u>Vấn đề</u>: hệ thống phân nhánh, đặc biệt đối với UE
 
 <u>Ý tưởng</u>: tìm một phép thế làm cho tiền đề của quy tắc khớp với một số
 sự kiện đã biết
   
-$\Rightarrow$ một quy tắc suy diễn duy nhất, mạnh mẽ hơn
+$\Rightarrow$ một quy tắc suy diễn duy nhất,mạnh mẽ hơn
 
----
-## Sự hợp nhất (Unification)
+<u> Hợp nhất (Unification)</u>
 
-Một phép thế $\sigma$ hợp nhất các câu nguyên thủy $p$ và $q$ nếu
-<u>\u{$p\sigma = q\sigma$</u>}
+Một quyền thế $\sigma$ hợp nhất các câu nguyên thủy $p$ và $q$ if
+<u> \u{ $p\sigma = q\sigma$ </u> }
 \[\begin{array}{l|l|l}
 p & q & \sigma 
 
@@ -154,7 +937,7 @@ Knows(John,x) & Knows(y,Mother(y)& \phantom{\{y/John,x/Mother(John)\}}
 \end{array}\]
 
 ---
-## Sự hợp nhất
+## Hợp lý nhất
 
 .
 \[\begin{array}{l|l|l}
@@ -173,12 +956,12 @@ Knows(John,x) & Knows(y,Mother(y)& \phantom{\{y/John,x/Mother(John)\}}
 | &nbsp; | &nbsp; |
 |---|---|
 | Ví dụ, nếu chúng ta biết $q$ và | $Knows(John,x) \implies Likes(John,x)$ |
-| thì chúng ta kết luận | $Likes(John,Jane)$ |
+| thì chúng ta ta kết luận | $Likes(John,Jane)$ |
 |  | $Likes(John,OJ)$ |
 |  | $Likes(John,Mother(John))$ |
 
 ---
-## Modus Ponens tổng quát (Generalized Modus Ponens - GMP)
+## Modus Ponens tổng hợp (Generalized Modus Ponens - GMP)
 
 \[\frac{{p_1}', \;\; {p_2}', \; \ldots, \; {p_n}', \;\;
 ( p_1 \land p_2 \land \ldots \land p_n \Rightarrow q)}{q\sigma}
@@ -187,24 +970,24 @@ Knows(John,x) & Knows(y,Mother(y)& \phantom{\{y/John,x/Mother(John)\}}
 
 | &nbsp; | &nbsp; |
 |---|---|
-| Ví dụ ${p_1}'\eq$ | Faster(Bob,Pat) |
-| ${p_2}'\eq$ | Faster(Pat,Steve) |
+| Ví dụ ${p_1}'\eq$ | Nhanh hơn(Bob,Pat) |
+| ${p_2}'\eq$ | Nhanh hơn(Pat,Steve) |
 | $p_1 \land p_2 \implies q\ \eq$ | $Faster(x,y) \land Faster(y,z) \implies Faster(x,z)$ |
 | $\sigma\eq$ | $\{x/Bob,y/Pat,z/Steve\}$ |
 | $q\sigma\eq$ | $Faster(Bob,Steve)$ |
 
-GMP được sử dụng với KB của <u>các mệnh đề xác định (definite clauses)</u> (*chính xác* một literal khẳng định):
+GMP được sử dụng với KB của <u>các mệnh đề xác định (mệnh đề xác định)</u> (*chính xác* một khẳng định theo nghĩa đen):
 
-hoặc là một câu nguyên thủy đơn hoặc
+hoặc là một câu cá đơn hoặc 
     
-(phép hội của các câu nguyên thủy) $\Rightarrow$ (câu nguyên thủy)
+(phép hội của các nguyên thủy) $\Rightarrow$ (câu nguyên thủy)
 
-Tất cả các biến được giả định là có lượng từ phổ dụng
+Tất cả các biến được định nghĩa đều có giá trị từ phổ biến
 
 ---
-## Tính đúng đắn của GMP
+##  Tính đúng của GMP
 
-Cần phải chỉ ra rằng 
+Cần phải chỉ ra điều đó 
 \[{p_1}', \; \ldots, \; {p_n}', \;\;
 ( p_1 \land \ldots \land p_n \Rightarrow q) \models q\sigma\]
 với điều kiện là ${p_i}'\sigma \eq p_i\sigma$ với mọi $i$
@@ -222,26 +1005,26 @@ Bổ đề: Đối với bất kỳ mệnh đề xác định $p$ nào, ta có $
 3. Từ 1 và 2, $q\sigma$ được rút ra bằng MP đơn giản
 
 ---
-## Suy diễn tiến (Forward chaining)
+## Suy diễn tiến (Chuỗi chuyển tiếp)
 
 Khi một sự kiện mới $p$ được thêm vào KB
   
-   với mỗi quy tắc sao cho $p$ hợp nhất với một tiền đề
+   with each quy tắc sao cho $p$ hợp nhất với một tiền đề
     
-      nếu các tiền đề khác <u>đã biết</u>
+      if các tiền đề khác <u>đã biết</u>
     
-      thì thêm kết luận vào KB và tiếp tục suy diễn (chaining)
+      thì thêm phần thảo luận vào KB và tiếp tục suy diễn (chaining)
 
-Suy diễn tiến <u>được thúc đẩy bởi dữ liệu (data-driven)</u>
+Suy diễn tiến <u>được cung cấp bởi data (data-driven)</u>
     
-ví dụ, suy diễn các thuộc tính và loại từ các nhận thức
+ví dụ, suy diễn các thuộc tính và loại từ các biểu thức nhận biết
 
 ---
-## Ví dụ suy diễn tiến
+## Ví ngữ suy diễn tiến
 
-Lần lượt thêm các sự kiện 1, 2, 3, 4, 5, 7.
+Lượt xem thêm các sự kiện 1, 2, 3, 4, 5, 7.
 
-Số trong [] = literal hợp nhất; \tick\ chỉ ra quy tắc được kích hoạt
+Số trong [] = hợp lý nhất theo nghĩa đen; \tick\ ra quy tắc được kích hoạt
 
 <u>1.</u> $Buffalo(x) \land Pig(y) \implies Faster(x,y)$
 
@@ -251,13 +1034,13 @@ Số trong [] = literal hợp nhất; \tick\ chỉ ra quy tắc được kích h
 
 <u>4.</u> $Buffalo(Bob)$ <u>[1a,\cross]</u>
 
-<u>5.</u> $Pig(Pat)$ <u>[1b,\tick]</u> $\rightarrow$ <u>6.</u> $Faster(Bob,Pat)$ <u>[3a,\cross]</u>, <u>[3b,\cross]</u>
+<u>5.</u> $Pig(Pat)$ <u>[1b,\cross]</u> $\rightarrow$ <u>6.</u> $Faster(Bob,Pat)$ <u>[3a,\cross]</u>, <u> [3b, \cross] </u> 
 
 \phantom{<u>5.</u> $Pig(Pat)$} <u>[2a,\cross]</u>
 
-<u>7.</u> $Slug(Steve)$ <u>[2b,\tick]</u>
+<u>7.</u> $Slug(Steve)$ <u>[2b,\cross]</u>
   
-$\rightarrow$<u>8.</u> $Faster(Pat,Steve)$ <u>[3a,\cross]</u>, <u>[3b,\tick]</u>
+$\rightarrow$<u>8.</u> $Faster(Pat,Steve)$ <u>[3a,\cross]</u>, <u>[3b,\cross]</u>
     
 $\rightarrow$<u>9.</u> $Faster(Bob,Steve)$ <u>[3a,\cross]</u>, <u>[3b,\cross]</u>
 
@@ -266,22 +1049,22 @@ $\rightarrow$<u>9.</u> $Faster(Bob,Steve)$ <u>[3a,\cross]</u>, <u>[3b,\cross]</u
 
 Khi một truy vấn $q$ được hỏi
   
-   nếu một sự kiện khớp $q'$ đã được biết, trả về bộ hợp nhất
+   nếu đã biết một sự kiện trùng khớp $q'$, hãy trả về bộ hợp nhất 
   
-   với mỗi quy tắc mà hệ quả $q'$ của nó khớp với $q$
+   with each quy tắc mà hệ quả $q'$ của nó phù hợp với $q$
     
       cố gắng chứng minh từng tiền đề của quy tắc bằng suy diễn lùi
 
-(Có một số phức tạp được thêm vào trong việc theo dõi các bộ hợp nhất)
+(Có một số bộ phức hợp được thêm vào trong quá trình theo dõi bộ hợp nhất)
 
-(Nhiều phức tạp hơn giúp tránh các vòng lặp vô hạn)
+(Nhiều tạp hơn giúp tránh vô hạn vòng lặp)
 
-Hai phiên bản: tìm <u>bất kỳ</u> giải pháp nào, tìm <u>tất cả</u> các giải pháp
+Hai bản: tìm <u>bất kỳ </u> giải pháp nào, tìm <u>tất cả</u> giải pháp
 
-Suy diễn lùi là cơ sở cho <u>lập trình logic (logic programming)</u>, ví dụ: Prolog
+Suy diễn lùi là cơ sở cho <u>lập trình logic (lập trình logic)</u>, ví dụ: Prolog
 
 ---
-## Ví dụ suy diễn lùi
+## Ví phiên suy diễn lùi
 
 <u>1.</u> $Pig(y) \land Slug(z) \implies Faster(y,z)$
 
@@ -289,6 +1072,7 @@ Suy diễn lùi là cơ sở cho <u>lập trình logic (logic programming)</u>, 
 
 <u>3.</u> $Pig(Pat)$  &nbsp;&nbsp;&nbsp;&nbsp;  <u>4.</u> $Slimy(Steve)$  &nbsp;&nbsp;&nbsp;&nbsp;  <u>5.</u> $Creeps(Steve)$
 
+,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/slug-bc.png)
 
 \usepackage{aima-slides}
@@ -305,12 +1089,12 @@ Suy diễn lùi là cơ sở cho <u>lập trình logic (logic programming)</u>, 
 
 - Tính đầy đủ (Completeness)
 
-- Phân giải (Resolution)
+- Phân giải (Độ phân giải)
 
-- Lập trình logic (Logic programming)
+- Lập trình logic (Lập trình logic)
 
 ---
-## Tính đầy đủ trong FOL
+##  Tính đầy đủ trong FOL
 
 Thủ tục $i$ là đầy đủ khi và chỉ khi
 \[
@@ -320,24 +1104,24 @@ Thủ tục $i$ là đầy đủ khi và chỉ khi
 \]
 Suy diễn tiến và lùi là <u>đầy đủ cho KB Horn</u>
 
-nhưng không đầy đủ cho logic bậc một tổng quát
+Nhưng không đủ logic cho một bậc tổng hợp
 
 Ví dụ, từ
 \begin{formula}
-  PhD(x) \implies HighlyQualified(x) 
+  Tiến sĩ(x) \implies Trình độ chuyên môn cao(x) 
 
-  \lnot PhD(x) \implies EarlyEarnings(x)
+  \lkhông phải Tiến sĩ(x) \implies Thu nhập sớm(x)
 
-  HighlyQualified(x) \implies Rich(x)
+  Cao(x) \implies Giàu(x)
 
-  EarlyEarnings(x) \implies Rich(x)
+  Thu nhập sớm(x) \implies Giàu(x)
 \end{formula}
 lẽ ra phải có thể suy ra $Rich(Me)$, nhưng FC/BC sẽ không làm được điều đó
 
 Có tồn tại một thuật toán đầy đủ không?
 
 ---
-## Lịch sử tóm tắt của việc suy luận
+## Lịch sử sum họp của việc suy luận
 
 | &nbsp; | &nbsp; | &nbsp; |
 |---|---|---|
@@ -350,39 +1134,39 @@ Có tồn tại một thuật toán đầy đủ không?
 | 1930 | G\"odel | $\exists$ thuật toán đầy đủ cho FOL |
 | 1930 | Herbrand | thuật toán đầy đủ cho FOL (rút gọn về mệnh đề) |
 | 1931 | G\"odel | $\lnot\exists$ thuật toán đầy đủ cho số học |
-| 1960 | Davis/Putnam | thuật toán "thực tiễn" cho logic mệnh đề |
-| 1965 | Robinson | thuật toán "thực tiễn" cho FOL---phân giải |
+| 1960 | Davis/Putnam | thuật toán "thực tiễn" cho mệnh đề logic |
+| 1965 | Robinson | thuật toán "thực tiễn" cho FOL---giải phân tích |
 
 ---
-## Phân giải (Resolution)
+## Phân tích (Độ phân giải)
 
-Kéo theo trong logic bậc một chỉ là <u>nửa quyết định được (semidecidable)</u>:
+Kéo theo logic bậc một chỉ là <u>nửa quyết định (semicidable)</u>:
   
-có thể tìm thấy một chứng minh của $
-  pha$ nếu $KB \models 
+có thể tìm thấy bằng chứng của $
+  pha$ if $KB \models 
   pha$
   
-không thể luôn luôn chứng minh rằng $KB \not\models 
+không thể luôn chứng minh rằng $KB \not\models 
   pha$
 
-So sánh với Vấn đề dừng (Halting Problem): thủ tục chứng minh có thể sắp dừng
-với sự thành công hoặc thất bại, hoặc có thể diễn ra mãi mãi
+So sánh với vấn đề dừng (Vấn đề tạm dừng): thủ tục chứng minh có thể sắp xếp dừng
+với sự cố hoặc thất bại hoặc có thể diễn ra mãi mãi
 
-Phân giải là một thủ tục <u>bác bỏ (refutation)</u>:
+Phân tích là một thủ tục <u>bác bỏ (bác bỏ)</u>:
   
 để chứng minh $KB \models 
   pha$, chỉ ra rằng $KB\land\lnot
   pha$ là không thỏa mãn được
 
 Phân giải sử dụng $KB$, $\lnot
-  pha$ trong dạng chuẩn hội (CNF) (phép hội của các mệnh đề)
+  pha$ dưới dạng chuẩn hội (CNF) (phép hội của các mệnh đề)
 
-Quy tắc suy diễn phân giải kết hợp hai mệnh đề để tạo ra một mệnh đề mới:
+Quy tắc suy diễn phân giải hợp hai mệnh đề để tạo ra một mệnh đề mới:
 
 in
 ![Hình ảnh](../TaiLieu/slide_md/figures/resolve-clauses.png)
 
-Sự suy diễn tiếp tục cho đến khi một <u>mệnh đề rỗng (empty clause)</u> được suy ra (mâu thuẫn)
+Sự suy diễn tiếp continue cho đến khi một <u>mệnh đề trống (mệnh đề trống)</u> được suy ra (mâu mạnh)
 
 ---
 ## Quy tắc suy diễn phân giải
@@ -395,11 +1179,11 @@ Phiên bản mệnh đề cơ bản:
   pha \lor \gamma}
  &nbsp;&nbsp;&nbsp;&nbsp;  \mbox{hoặc tương đương}  &nbsp;&nbsp;&nbsp;&nbsp; 
 \frac{\lnot
-  pha \implies \beta,\;\; \beta \implies \gamma}{\lnot 
+  pha \implies \beta,\;\; \beta \implies \gamma}{\lkhông 
   pha \implies \gamma}
 }
 \end{formula}
-Phiên bản bậc một đầy đủ:
+Phiên bản đầy đủ cấp độ:
 \begin{formula}
 {\begin{array}{l} p_1\lor \ldots\ p_j\ \ldots \lor p_m,
 
@@ -417,39 +1201,39 @@ Ví dụ:
 \begin{formula}
 {\begin{array}{l} \lnot Rich(x) \lor Unhappy(x) 
 
-                  Rich(Me)
+                  Giàu (Tôi)
  \end{array}}
 \over
-{\begin{array}{l} Unhappy(Me)
+{\begin{array}{l} Không vui(Tôi)
  \end{array}}
 \end{formula}
 với $\sigma = \{x/Me\}$
 
 ---
-## Dạng chuẩn hội (Conjunctive Normal Form)
+## Dạng hội chuẩn (Conjunctive Normal Form)
 
-<u>Literal</u> = câu nguyên thủy (có thể bị phủ định), ví dụ: $\lnot Rich(Me)$
+<u>Literal</u> = câu nguyên thủy (có thể được phủ định), ví dụ: $\lnot Rich(Me)$
 
-<u>Mệnh đề (Clause)</u> = phép tuyển của các literal, ví dụ: $\lnot Rich(Me) \lor Unhappy(Me)$
+<u>Mệnh đề (Clause)</u> = phép tuyển các chữ, ví dụ: $\lnot Rich(Me) \lor Unhappy(Me)$
 
-KB là phép hội của các mệnh đề
+KB được phép của các mệnh đề
 
-Bất kỳ FOL KB nào cũng có thể được chuyển đổi thành CNF như sau:
+Bất kỳ KB FOL nào cũng có thể được chuyển đổi thành CNF như sau:
 
 1. Thay thế $P{\implies}Q$ bằng ${\lnot}P{\lor}Q$
 
-2. Di chuyển $\lnot$ vào trong, ví dụ: 
+2. Chuyển $\lnot$ vào trong, ví dụ: 
       $\lnot \forall x\,P$ trở thành $\exists x\,\lnot P$
 
-3. Chuẩn hóa biến tách biệt, ví dụ: 
+3. Chuẩn hóa các biến đổi, ví dụ: 
   $\forall x\,P \lor \exists x\,Q$ trở thành $\forall x\,P \lor \exists y\,Q$
 
-4. Di chuyển các lượng từ sang trái theo thứ tự, ví dụ:
+4. Chuyển lượng từ sang trái theo thứ tự, ví dụ:
   $\forall x\,P \lor \exists x\,Q$ trở thành $\forall x\exists y\,P \lor Q$
 
 5. Loại bỏ $\exists$ bằng phương pháp Skolemization (slide tiếp theo)
 
-6. Bỏ các lượng từ phổ dụng
+6. Bỏ các từ phổ dụng
 
 7. Phân phối $\land$ qua $\lor$, ví dụ:
     $(P \land Q) \lor R$ trở thành $(P\lor Q) \land (P\lor R)$
@@ -471,48 +1255,48 @@ Ví dụ: "Mọi người đều có một trái tim"
   
    $\All{x} Person(x) \implies Heart(H1) \land Has(x,H1)$
 
-<u>Đúng</u>:
+<u> Đúng</u>:
   
    $\All{x} Person(x) \implies Heart(H(x)) \land Has(x,H(x))$
 
 trong đó $H$ là một ký hiệu mới ("hàm Skolem")
 
-Các đối số của hàm Skolem: tất cả các biến lượng từ phổ dụng <u>bao quanh</u>
+Các đối số của hàm Skolem: Tất cả các biến số từ phổ dụng <u>bao quanh</u>
 
 ---
-## Chứng minh phân giải
+## Chứng minh phân giải 
 
 Để chứng minh $
   pha$:
   
--- phủ định nó
+-- định nghĩa nó
   
 -- chuyển đổi sang CNF
   
 -- thêm vào CNF KB
   
--- suy diễn ra mâu thuẫn
+-- suy diễn ra ổn định
 
 Ví dụ: để chứng minh $Rich(me)$, thêm $\lnot Rich(me)$ vào CNF KB
 \begin{formula}
-  \lnot PhD(x) \lor HighlyQualified(x) 
+  \lkhông phải Tiến sĩ(x) \lor Có trình độ cao(x) 
 
-  PhD(x) \lor EarlyEarnings(x)
+  Tiến sĩ(x) \lor Thu nhập sớm(x)
 
-  \lnot HighlyQualified(x) \lor Rich(x)
+  \lkhông đủ tiêu chuẩn cao(x) \lor Rich(x)
 
-  \lnot EarlyEarnings(x) \lor Rich(x)
+  \lkhông phải Thu nhập sớm(x) \lor Rich(x)
 \end{formula}
 
 ---
-## Chứng minh phân giải
+## Chứng minh phân giải 
 
 ![Hình ảnh](../TaiLieu/slide_md/figures/rich-proof.png)
 
 ---
-## Lập trình logic
+## Logic trình nhập
 
-Khẩu hiệu: tính toán là sự suy diễn trên các KB logic
+Khẩu hiệu: tính toán là suy diễn trên logic KB
 
 | &nbsp; | &nbsp; | &nbsp; |
 |---|---|---|
@@ -520,47 +1304,46 @@ Khẩu hiệu: tính toán là sự suy diễn trên các KB logic
 | 1. | Xác định vấn đề | Xác định vấn đề |
 | 2. | Thu thập thông tin | Thu thập thông tin |
 | 3. | Nghỉ giải lao | Tìm ra giải pháp |
-| 4. | Mã hóa thông tin vào KB | Lập trình giải pháp |
+| 4. | Mã hóa thông tin vào KB | Giải pháp lập trình |
 | 5. | Mã hóa ví dụ vấn đề thành sự kiện | Mã hóa ví dụ vấn đề thành dữ liệu |
 | 6. | Hỏi các truy vấn | Áp dụng chương trình vào dữ liệu |
-| 7. | Tìm các sự kiện sai | Gỡ lỗi các lỗi thủ tục |
+| 7. | Tìm các lỗi sự kiện | Loại bỏ các lỗi thủ tục |
 
-Nên dễ dàng gỡ lỗi $Capital(NewYork,US)$ hơn $x:= x+2$ !
+Tránh dễ dàng gỡ lỗi $Capital(NewYork,US)$ hơn $x:= x+2$ !
 
 ---
-## Hệ thống Prolog
+##  Hệ thống Prolog
 
-Cơ sở: suy diễn lùi với các mệnh đề Horn + các tính năng bổ sung (bells \& whistles)
+Cơ sở: suy diễn ngược với các mệnh đề Horn + các tính năng bổ sung (chuông \& còi)
 
 Được sử dụng rộng rãi ở Châu Âu, Nhật Bản (cơ sở của dự án Thế hệ thứ 5)
 
 Kỹ thuật biên dịch $\Rightarrow$ 10 triệu LIPS
 
-Chương trình = tập các mệnh đề = `head :- literal$_1$, $\ldots$ literal$_n$.`
+Chương trình = tập các mệnh đề = `head :- Literal$_1$, $\ldots$ Liter$_n$.
 
-Hợp nhất hiệu quả bằng <u>mã hóa mở (open coding)</u>
+Hợp chất hiệu quả nhất bằng <u>mã hóa mở (opencoding)`
 
-Truy xuất hiệu quả các mệnh đề khớp bằng liên kết trực tiếp
+Truy xuất hiệu quả các mệnh đề phù hợp bằng liên kết trực tiếp
 
-Suy diễn lùi từ trái sang phải, ưu tiên chiều sâu
+Suy diễn lùi từ trái sang phải, độ sâu ưu tiên
 
-Các vị từ tích hợp cho số học v.v., ví dụ: `X is Y*Z+3`
-
-Giả định thế giới đóng ("phủ định như là sự thất bại")
+Các từ tích hợp cho số học v.v., ví dụ: `X is Y*Z+3Ni1012]
+Giả định thế giới đóng ("phủ định như thất bại")
   
-   ví dụ: `not PhD(X)` thành công nếu `PhD(X)` thất bại
+   ví dụ: {\tt not PhD(X)` thành công nếu `PhD(X)` thất bại
 
 ---
-## Ví dụ Prolog
+## Ví dụ Prolog</u>
 
-Tìm kiếm ưu tiên chiều sâu từ trạng thái bắt đầu `X`:
+Tìm kiếm độ sâu ưu tiên từ trạng thái bắt đầu `X`:
 
 ```text
 dfs(X) :- goal(X).
 dfs(X) :- successor(X,S),dfs(S).
 ```
 
-Không cần lặp qua `S`: `successor` thành công với mỗi trường hợp
+Không cần lặp qua `S`: `next` thành công với mỗi trường hợp
 
 Nối hai danh sách để tạo ra danh sách thứ ba:
 
@@ -573,6 +1356,8 @@ answers: A=[]    B=[1,2]
          A=[1]   B=[2]
          A=[1,2] B=[]
 ```
+
+\end{huge
 
 
 

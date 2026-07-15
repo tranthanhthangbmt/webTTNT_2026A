@@ -1,0 +1,470 @@
+\documentclass{article}
+\usepackage{fleqn}
+\usepackage{epsf}
+\usepackage{aima2e-slides}
+
+\begin{document}
+
+\begin{huge}
+\titleslide{Bayesian networks}{Chapter 14.1--3}
+
+\sf
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Phác thảo}
+
+\blob Cú pháp
+
+\blob Ngữ nghĩa
+
+\blob Phân phối được tham số hóa
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Mạng Bayesian}
+
+Một ký hiệu đồ họa đơn giản cho các xác nhận độc lập có điều kiện\\
+và do đó cho đặc điểm kỹ thuật nhỏ gọn của phân phối chung đầy đủ
+
+Cú pháp:\al
+  một tập hợp các nút, mỗi nút một biến\al
+  một đồ thị có hướng, không theo chu kỳ (liên kết \mat{$\approx$} ``ảnh hưởng trực tiếp'')\al
+  phân phối có điều kiện cho mỗi nút dựa trên cha mẹ của nó:\nl
+    \mat{$\pv(X_i|\Parents(X_i))$}
+
+Trong trường hợp đơn giản nhất, phân phối có điều kiện được biểu thị dưới dạng \\
+một \defn{bảng xác suất có điều kiện} (CPT) đưa ra \\
+phân phối trên \mat{$X_i$} cho mỗi kết hợp giá trị gốc
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ}
+
+Cấu trúc liên kết của mạng mã hóa các xác nhận độc lập có điều kiện:
+
+\vspace*{0.3in}
+
+\epsfxsize=0,5\textwidth
+\fig{\file{figures}{dentist-network.ps}}
+
+\mat{$Weather$} độc lập với các biến khác
+
+\mat{$Toothache$} và \mat{$Catch$} độc lập có điều kiện với \mat{$Cavity$}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ}
+
+Tôi đang ở nơi làm việc, người hàng xóm John gọi điện báo rằng chuông báo thức của tôi đang đổ chuông, nhưng
+hàng xóm Mary không gọi. Đôi khi nó được đặt ra bởi trẻ vị thành niên
+động đất. Có trộm à?
+
+Biến: \mat{$Burglar$}, \mat{$Earthquake$}, \mat{$Alarm$}, \mat{$JohnCalls$}, \mat{$MaryCalls$}\\
+Cấu trúc liên kết mạng phản ánh kiến thức ``nhân quả'':\al
+ -- Một tên trộm có thể tắt báo động\al
+ -- Một trận động đất có thể tắt báo động\al
+ -- Báo thức có thể khiến Mary gọi \al
+ -- Chuông báo thức có thể khiến John phải gọi
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ tiếp theo.}
+
+\vspace*{0.3in}
+
+\epsfxsize=0,95\textwidth
+\fig{\file{figures}{burglary2.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Độ nhỏ gọn}
+
+CPT cho Boolean \mat{$X_i$} với \mat{$k$} cha mẹ Boolean có\hspace*{1.75in}\epsfxsize=1.5in\raisebox{-1.5in[0pt][0pt]{\epsffile{\file{figures}{burglary-small.ps}}\\
+\mat{$2^k$} hàng cho sự kết hợp của các giá trị gốc
+
+Mỗi hàng yêu cầu một số \mat{$p$} cho \mat{$X_i\eq true$}\\
+(số của \mat{$X_i\eq false$} chỉ là \mat{$1-p$})
+
+Nếu mỗi biến có không quá \mat{$k$} cha mẹ, \\
+mạng hoàn chỉnh yêu cầu số \mat{$O(n\cdot 2^k)$}
+
+Tức là, tăng tuyến tính với \mat{$n$}, so với ~\mat{$O(2^n)$} để phân phối chung đầy đủ
+
+Đối với mạng trộm, số \mat{$1 + 1 + 4 + 2 + 2 \eq 10$} (so với ~\mat{$2^5-1 = 31$})
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ngữ nghĩa toàn cầu}
+
+Ngữ nghĩa \defn{Global} xác định phân phối chung đầy đủ\hspace*{1.2in}\epsfxsize=1.5in\raisebox{-1.5in[0pt][0pt]{\epsffile{\file{figures}{burglary-small.ps}}\\
+là sản phẩm của phân phối có điều kiện cục bộ:
+\mat{\[
+  P(x_1,\ldots,x_n) = \myprod_{i\eq 1}^n P(x_i|\parents(X_i))
+\]}
+ví dụ: \mat{$P(j\land m\land a\land \lnot b \land \lnot e)$}
+\mat{\[
+  =
+\]}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ngữ nghĩa toàn cầu}
+
+Ngữ nghĩa ``Toàn cầu'' xác định phân phối chung đầy đủ\hspace*{1.2in}\epsfxsize=1.5in\raisebox{-1.5in[0pt][0pt]{\epsffile{\file{figures}{burglary-small.ps}}\\
+là sản phẩm của phân phối có điều kiện cục bộ:
+\mat{\[
+  P(x_1,\ldots,x_n) = \myprod_{i\eq 1}^n P(x_i|\parents(X_i))
+\]}
+ví dụ: \mat{$P(j\land m\land a\land \lnot b \land \lnot e)$} 
+\mat{\begin{eqnarray*}
+  &=& P(j|a) P(m|a) P(a|\lnot b, \lnot e) P(\lnot b) P(\lnot e)\\
+  &=& 0.9\stimes 0.7\stimes 0.001\stimes 0.999 \stimes 0.998\\
+  &\approx& 0.00063
+\end{eqnarray*}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ngữ nghĩa cục bộ}
+
+Ngữ nghĩa \defn{Local}: mỗi nút độc lập có điều kiện\\
+của những người không phải là hậu duệ của nó được trao cho cha mẹ của nó
+
+\vspace*{0.2in}
+
+\epsfxsize=0,55\textwidth
+\fig{\file{figures}{nondescendants.ps}}
+
+Định lý: \mat{Local semantics} \mat{$\lequiv$} \mat{global semantics}
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Chăn Markov}
+
+Mỗi nút độc lập có điều kiện với tất cả các nút khác dựa trên \\ của nó
+\defn{Chăn Markov}: cha mẹ + con cái + cha mẹ con cái
+
+\vspace*{0.3in}
+
+\epsfxsize=0,5\textwidth
+\fig{\file{figures}{markov-blanket.ps}}
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Xây dựng mạng Bayesian}
+
+Cần một phương pháp sao cho một loạt các xác nhận có thể kiểm tra cục bộ của \\
+tính độc lập có điều kiện đảm bảo ngữ nghĩa toàn cầu cần thiết
+
+1. Chọn thứ tự các biến \mat{$X_1,\ldots,X_n$}\\
+2. Với \mat{$i$} = 1 đến \mat{$n$}\al
+  thêm \mat{$X_i$} vào mạng \al
+  chọn cha mẹ từ \mat{$X_1,\ldots,X_{i-1}$} sao cho \nl
+    \mat{$ \pv(X_i|\Parents(X_i)) = \pv(X_i|X_1,\, \ldots,\, X_{i-1}) $}
+
+Sự lựa chọn này của cha mẹ đảm bảo ngữ nghĩa toàn cầu:
+\mat{\begin{eqnarray*}
+\pv(X_1,\ldots,X_n) &=& \myprod_{i\eq 1}^n \pv(X_i | X_1,\, \ldots,\, X_{i-1})
+\quad\bbox{(chain rule)}\\
+    &=& \myprod_{i\eq 1}^n \pv(X_i|\Parents(X_i))
+\quad\bbox{(by construction)}
+\end{eqnarray*}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ}
+
+Giả sử chúng ta chọn thứ tự \mat{$M$}, \mat{$J$}, \mat{$A$}, \mat{$B$}, \mat{$E$}
+
+\vspace*{0.1in}
+
+\epsfxsize=0,5\textwidth
+\fig{\sfile{figures}{burglary-make1.ps}}
+
+\vspace*{-0.65in}
+
+\mat{$P(J|M) = P(J)$}?
+
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{Ví dụ}
+
+\ptext{Giả sử chúng ta chọn thứ tự \mat{$M$}, \mat{$J$}, \mat{$A$}, \mat{$B$}, \mat{$E$}}
+
+\vspace*{0.1in}
+
+\epsfxsize=0,5\textwidth
+\fig{\sfile{figures}{burglary-make2.ps}}
+
+\vspace*{-0.65in}
+
+\ptext{\mat{$P(J|M) = P(J)$}?\quad Không\\
+\mat{$P(A|J,M) = P(A|J)$}? \mat{$P(A|J,M) = P(A)$}?
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{Ví dụ}
+
+\ptext{Giả sử chúng ta chọn thứ tự \mat{$M$}, \mat{$J$}, \mat{$A$}, \mat{$B$}, \mat{$E$}}
+
+\vspace*{0.1in}
+
+\epsfxsize=0,5\textwidth
+\fig{\sfile{figures}{burglary-make3.ps}}
+
+\vspace*{-0.65in}
+
+\ptext{\mat{$P(J|M) = P(J)$}?\quad Không\\
+\ptext{\mat{$P(A|J,M) = P(A|J)$}? \mat{$P(A|J,M) = P(A)$}?\quad Không\\
+\mat{$P(B|A,J,M) = P(B|A)$}?\\
+\mat{$P(B|A,J,M) = P(B)$}?
+
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{Ví dụ}
+
+\ptext{Giả sử chúng ta chọn thứ tự \mat{$M$}, \mat{$J$}, \mat{$A$}, \mat{$B$}, \mat{$E$}}
+
+\vspace*{0.1in}
+
+\epsfxsize=0,5\textwidth
+\fig{\sfile{figures}{burglary-make4.ps}}
+
+\vspace*{-0.65in}
+
+\ptext{\mat{$P(J|M) = P(J)$}?\quad Không\\
+\ptext{\mat{$P(A|J,M) = P(A|J)$}? \mat{$P(A|J,M) = P(A)$}?\quad Không\\
+\ptext{\mat{$P(B|A,J,M) = P(B|A)$}?\quad Có\\
+\ptext{\mat{$P(B|A,J,M) = P(B)$}?\quad Không\\
+\mat{$P(E|B,A,J,M) = P(E|A)$}?\\
+\mat{$P(E|B,A,J,M) = P(E|A,B)$}?
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{Ví dụ}
+
+\ptext{Giả sử chúng ta chọn thứ tự \mat{$M$}, \mat{$J$}, \mat{$A$}, \mat{$B$}, \mat{$E$}}
+
+\vspace*{0.1in}
+
+\epsfxsize=0,5\textwidth
+\fig{\sfile{figures}{burglary-make5.ps}}
+
+\vspace*{-0.65in}
+
+\ptext{\mat{$P(J|M) = P(J)$}?\quad Không\\
+\ptext{\mat{$P(A|J,M) = P(A|J)$}? \mat{$P(A|J,M) = P(A)$}?\quad Không\\
+\ptext{\mat{$P(B|A,J,M) = P(B|A)$}?\quad Có\\
+\ptext{\mat{$P(B|A,J,M) = P(B)$}?\quad Không\\
+\ptext{\mat{$P(E|B,A,J,M) = P(E|A)$}?\quad Không\\
+\ptext{\mat{$P(E|B,A,J,M) = P(E|A,B)$}?\quad Có
+
+%%[[13 numbers (vs.~10), and CPTs hard to assess---use \emph{causal} direction!!]]
+
+%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pheading{Ví dụ tiếp theo.}
+
+\vspace*{0.15in}
+
+\epsfxsize=0,5\textwidth
+\fig{\sfile{figures}{burglary-make5.ps}}
+
+\vspace*{-0.15in}
+
+Quyết định tính độc lập có điều kiện là khó theo hướng phi nhân quả
+
+(Các mô hình nhân quả và sự độc lập có điều kiện dường như đã được lập trình sẵn cho con người!)
+
+Đánh giá xác suất có điều kiện là khó theo hướng phi nhân quả
+
+Mạng kém gọn hơn: cần có số \mat{$1 + 2 + 4 + 2 + 4 \eq 13$}
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ: Chẩn đoán ô tô}
+
+Bằng chứng ban đầu: xe không nổ máy\\
+Các biến có thể kiểm tra (màu xanh lá cây), các biến `` bị hỏng, vì vậy hãy sửa nó '' (màu cam) \\
+Biến ẩn (màu xám) đảm bảo cấu trúc thưa thớt, giảm tham số
+
+\vspace*{0.1in}
+
+\epsfxsize=1.05\textwidth
+\fig{\file{figures}{car-net.ps}}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ: Bảo hiểm ô tô}
+
+\vspace*{0.1in}
+
+\epsfxsize=1.05\textwidth
+\fig{\file{figures}{insurance-net.ps}}
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Phân phối có điều kiện nhỏ gọn}
+
+CPT tăng theo cấp số nhân với số lượng cha mẹ\\
+CPT trở nên vô hạn với cha hoặc con có giá trị liên tục
+
+Giải pháp: Phân phối \defn{canonical} được xác định nhỏ gọn
+
+Các nút \defn{Xác định} là trường hợp đơn giản nhất:\al
+   \mat{$X = f(Parents(X))$} cho một số chức năng \mat{$f$}
+
+Ví dụ: hàm Boolean\al
+  \mat{$NorthAmerican \lequiv Canadian \lor US \lor Mexican$}
+
+Ví dụ: mối quan hệ số giữa các biến liên tục
+\mat{\[
+  \frac{\partial Level}{\partial t} = \mbox{ inflow + precipitation 
+                                            - outflow - evaporation}
+\]}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Phân phối có điều kiện thu gọn tiếp.}
+
+\defn{Noisy-OR} mô hình phân phối có nhiều nguyên nhân không tương tác\al
+  1) Cha mẹ \mat{$U_1\ldots U_k$} bao gồm tất cả các nguyên nhân (có thể thêm \defn{nút rò rỉ})\al
+  2) Xác suất hư hỏng độc lập \mat{$q_i$} cho riêng từng nguyên nhân \nl
+    \mat{${} \implies 
+     P(X|U_1\ldots U_j,\lnot U_{j+1}\ldots \lnot U_k)
+     = 1 - \myprod_{i\eq 1}^j q_i$}
+
+\begin{center}
+\begin{tabular}{|ccc|@{\ \ }l|@{\ \ }l|}
+\hline
+% .6      .2      .1
+\tabhead \makebox[72pt]{\mat{$Cold$}} & \makebox[72pt]{\mat{$Flu$}} & \makebox[72pt]{\mat{$Malaria$}} & \mat{$P(Fever)$} & \mat{$P(\lnot Fever)$} \\
+\hline
+\tabtop 
+F & F & F & \mat{$\mbf{0.0}$} & \mat{$1.0$} \\
+F & F & T & \mat{$0.9$} & \mat{$\mbf{0.1}$} \\
+F&T&F&\mat{$0.8$} & \mat{$\mbf{0.2}$}\\
+F&T&T&\mat{$0.98$} & \mat{$0.02 = 0.2 \times 0.1$}\\
+T & F & F & \mat{$0.4$} & \mat{$\mbf{0.6}$} \\
+T & F & T & \mat{$0.94$} & \mat{$0.06 = 0.6 \times 0.1$} \\
+T & T & F & \mat{$0.88$} & \mat{$0.12 = 0.6 \times 0.2$} \\
+\tabbot T & T & T & \mat{$0.988$} & \mat{$0.012 = 0.6 \times 0.2 \times 0.1$}\\
+\hline
+\end{tabular}
+\end{center}
+
+Số tham số \emph{tuyến tính} trong số cha mẹ
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Mạng lai (rời rạc+liên tục)}
+
+Rời rạc (\mat{$Subsidy?$} và \mat{$Buys?$});  liên tục (\mat{$Harvest$} và \mat{$Cost$})
+
+\vspace*{0.2in}
+
+\epsfxsize=0,42\textwidth
+\fig{\file{figures}{continuous-net.ps}}
+
+Tùy chọn 1: rời rạc---có thể có lỗi lớn, CPT lớn\\
+Tùy chọn 2: họ chính tắc được tham số hóa hữu hạn
+
+1) Biến liên tục, cha mẹ rời rạc+liên tục (ví dụ: \mat{$Cost$})\\
+2) Biến rời rạc, cha mẹ liên tục (ví dụ: \mat{$Buys?$})
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Biến con liên tục}
+
+Cần một hàm mật độ điều kiện \defn{} cho biến con đã cho
+cha mẹ liên tục, cho mỗi nhiệm vụ có thể có cho cha mẹ riêng biệt
+
+Phổ biến nhất là mô hình Gaussian tuyến tính \defn{}, ví dụ:
+\begin{eqnarray*}
+\lefteqn{P(Cost\eq c|Harvest\eq h,Subsidy?\eq true)}\\
+ & = & N(a_t h + b_t, \sigma_t)(c)\\
+ &=& \frac{1}{\sigma_t \sqrt{2\pi}}
+ exp\left(-\frac{1}{2} 
+          \left(\frac{c-(a_t h + b_t)}{\sigma_t}\right)^2
+    \right)
+\end{eqnarray*}
+
+Giá trị trung bình \mat{$Cost$} thay đổi tuyến tính với \mat{$Harvest$}, phương sai được cố định
+
+Sự thay đổi tuyến tính là không hợp lý trên toàn bộ phạm vi \al
+  nhưng hoạt động tốt nếu phạm vi \emph{có khả năng} của \mat{$Harvest$} hẹp
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Biến con liên tục}
+
+\vspace*{-0.4in}
+
+\epsfxsize=0,5\textwidth
+\fig{\file{graphs}{linear-gaussian-true.ps}}
+
+\vspace*{-0.4in}
+
+Mạng liên tục với các bản phân phối của LG\al
+  \mat{$\implies$} phân phối chung đầy đủ là Gaussian đa biến \al
+
+Mạng LG rời rạc+liên tục là mạng Gaussian có điều kiện \defn{}
+tức là, một Gaussian đa biến trên tất cả các biến liên tục
+cho mỗi sự kết hợp của các giá trị biến rời rạc
+
+
+
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Biến rời rạc với cha mẹ liên tục}
+
+Xác suất của \mat{$Buys?$} cho trước \mat{$Cost$} phải là ngưỡng ``mềm'':
+
+\epsfxsize=0,6\textwidth
+\fig{\file{graphs}{probit.ps}}
+
+Phân phối \defn{Probit} sử dụng tích phân của Gaussian:\al
+  \mat{$\Phi(x) = \int_{-\infty}^{x} N(0,1)(x) dx$}\al
+  \mat{$P(Buys?\eq true \given Cost \eq c) = \Phi((-c + \mu)/\sigma)$}\\
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tại sao lại là probit?}
+
+1. Nó có hình dạng phù hợp
+
+2. Có thể xem là ngưỡng cứng có vị trí bị nhiễu
+
+\epsfxsize=0,6\textwidth
+\fig{\file{figures}{noisy-threshold.ps}}
+
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Biến rời rạc tiếp theo.}
+
+Phân phối \defn{Sigmoid} (hoặc \defn{logit}) cũng được sử dụng trong mạng thần kinh:
+\mat{\[
+P(Buys?\eq true \given Cost \eq c) = \frac{1}{1+exp(-2\frac{-c+\mu}{\sigma})}
+\]}
+Sigmoid có hình dạng tương tự probit nhưng đuôi dài hơn nhiều:
+
+\epsfxsize=0,6\textwidth
+\fig{\file{graphs}{logit.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tóm tắt}
+
+Lưới Bayes cung cấp một biểu diễn tự nhiên cho (do nguyên nhân gây ra)\\
+độc lập có điều kiện
+
+Cấu trúc liên kết + CPT = biểu diễn nhỏ gọn của phân phối chung
+
+Nói chung là dễ dàng đối với các chuyên gia (không phải) chuyên gia để xây dựng
+
+Phân phối chuẩn (ví dụ: noise-OR) = biểu diễn nhỏ gọn của CPT
+
+Các biến liên tục $\implies$ phân phối được tham số hóa (ví dụ: tuyến tính
+Gaussian)
+
+
+
+\end{huge} 
+\end{document}

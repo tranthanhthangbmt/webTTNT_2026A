@@ -1,8 +1,8 @@
 %!PS-Adobe-2.0 EPSF-1.2
 %%Creator: idraw
-%%DocumentFonts: Times-Roman
+%%DocumentFonts: Helvetica-Bold
 %%Pages: 1
-%%BoundingBox: 71 600 230 755
+%%BoundingBox: 65 636 197 755
 %%EndComments
 
 %%BeginIdrawPrologue
@@ -77,8 +77,8 @@ end
 
 %%EndIdrawPrologue
 
-/arrowHeight 11 def
-/arrowWidth 5 def
+/arrowHeight 8 def
+/arrowWidth 4 def
 
 /IdrawDict 51 dict def
 IdrawDict begin
@@ -121,7 +121,7 @@ currentdict end definefont
 /otilde/odieresis/divide/oslash/ugrave/uacute/ucircumflex/udieresis
 /yacute/thorn/ydieresis
 ] def
-/Times-Roman reencodeISO def
+/Helvetica-Bold reencodeISO def
 
 /none null def
 /numGraphicParameters 17 def
@@ -210,6 +210,7 @@ end
 /Circ {
 newpath
 0 360 arc
+closepath
 patternNone not { ifill } if
 brushNone not { istroke } if
 } def
@@ -241,6 +242,7 @@ newpath
 translate
 scale
 0 0 1 0 360 arc
+closepath
 patternNone not { ifill } if
 brushNone not { istroke } if
 end
@@ -360,7 +362,7 @@ grestore
 gsave
 fgred fggreen fgblue setrgbcolor
 /fontDict printFont printSize scalefont dup setfont def
-/descender fontDict begin 0 [FontBBox] 1 get FontMatrix end
+/descender fontDict begin 0 /FontBBox load  1 get FontMatrix end
 transform exch pop def
 /vertoffset 1 printSize sub descender sub def {
 0 vertoffset moveto show
@@ -490,7 +492,7 @@ exch dup 3 1 roll 1 0 0 -1 0 6 -1 roll matrix astore
 
 %%EndProlog
 
-%I Idraw 10 Grid 8 8 
+%I Idraw 12 Grid 8 8 
 
 %%Page: 1 1
 
@@ -510,9 +512,10 @@ Begin %I Pict
 %I cbg u
 %I f u
 %I p u
-%I t u
+%I t
+[ 1 0 0 1 -5.15917 -4.40509 ] concat
 
-Begin %I Elli
+Begin %I Rect
 %I b 65535
 2 0 0 [] 0 SetB
 %I cfg Black
@@ -522,18 +525,18 @@ Begin %I Elli
 %I p
 1 SetP
 %I t
-[ 0.3 0 0 0.3 110.449 601.342 ] concat
+[ 0.550639 -0 -0 0.550639 -114.533 537.974 ] concat
 %I
-213 357 92 46 Elli
+443 368 551 421 Rect
 End
 
 Begin %I Text
 %I cfg Black
 0 0 0 SetCFg
-%I f -*-times-medium-r-normal-*-12-*-*-*-*-*-*-*
-Times-Roman 12 SetF
+%I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
+Helvetica-Bold 14 SetF
 %I t
-[ 1 0 0 1 159.349 712.942 ] concat
+[ 1 0 0 1 137.635 758.201 ] concat
 %I
 [
 (Buys?)
@@ -552,39 +555,7 @@ Begin %I Line
 %I p
 0 SetP
 %I t
-[ 0.434916 0 0 0.434916 -43.0566 481.886 ] concat
-%I
-358 826 492 719 Line
-%I 2
-End
-
-Begin %I Line
-%I b 65535
-1 0 1 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-0 SetP
-%I t
-[ 0.434916 0 0 0.434916 -43.0566 481.886 ] concat
-%I
-643 825 509 720 Line
-%I 2
-End
-
-Begin %I Line
-%I b 65535
-1 0 1 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-0 SetP
-%I t
-[ 0.434916 0 0 0.434916 -43.0566 481.886 ] concat
+[ 0.434916 0 0 0.434916 -63.4302 524.836 ] concat
 %I
 500 650 500 562 Line
 %I 2
@@ -608,7 +579,7 @@ Begin %I Elli
 %I p
 1 SetP
 %I t
-[ 0.3 0 0 0.3 172.333 747.671 ] concat
+[ 0.33 0 0 0.3 124.645 747.671 ] concat
 %I
 213 357 92 46 Elli
 End
@@ -616,10 +587,10 @@ End
 Begin %I Text
 %I cfg Black
 0 0 0 SetCFg
-%I f -*-times-medium-r-normal-*-12-*-*-*-*-*-*-*
-Times-Roman 12 SetF
+%I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
+Helvetica-Bold 14 SetF
 %I t
-[ 1 0 0 1 216.233 859.271 ] concat
+[ 1 0 0 1 168.935 857.771 ] concat
 %I
 [
 (Harvest)
@@ -634,9 +605,10 @@ Begin %I Pict
 %I cbg u
 %I f u
 %I p u
-%I t u
+%I t
+[ 1 0 0 1 7.1583 -3.12401 ] concat
 
-Begin %I Elli
+Begin %I Rect
 %I b 65535
 2 0 0 [] 0 SetB
 %I cfg Black
@@ -646,18 +618,18 @@ Begin %I Elli
 %I p
 1 SetP
 %I t
-[ 0.3 0 0 0.3 48.5644 747.671 ] concat
+[ 0.550639 -0 -0 0.550639 -114.533 537.974 ] concat
 %I
-213 357 92 46 Elli
+337 555 475 607 Rect
 End
 
 Begin %I Text
 %I cfg Black
 0 0 0 SetCFg
-%I f -*-times-medium-r-normal-*-12-*-*-*-*-*-*-*
-Times-Roman 12 SetF
+%I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
+Helvetica-Bold 14 SetF
 %I t
-[ 1 0 0 1 90.4644 859.271 ] concat
+[ 1 0 0 1 76.5264 860.895 ] concat
 %I
 [
 (Subsidy?)
@@ -684,7 +656,7 @@ Begin %I Elli
 %I p
 1 SetP
 %I t
-[ 0.3 0 0 0.3 110.449 671.017 ] concat
+[ 0.3 0 0 0.3 90.0754 694.694 ] concat
 %I
 213 357 92 46 Elli
 End
@@ -692,10 +664,10 @@ End
 Begin %I Text
 %I cfg Black
 0 0 0 SetCFg
-%I f -*-times-medium-r-normal-*-12-*-*-*-*-*-*-*
-Times-Roman 12 SetF
+%I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
+Helvetica-Bold 14 SetF
 %I t
-[ 1 0 0 1 162.849 782.617 ] concat
+[ 1 0 0 1 137.975 804.794 ] concat
 %I
 [
 (Cost)
@@ -703,6 +675,38 @@ Times-Roman 12 SetF
 End
 
 End %I eop
+
+Begin %I Line
+%I b 65535
+1 0 1 [] 0 SetB
+%I cfg Black
+0 0 0 SetCFg
+%I cbg White
+1 1 1 SetCBg
+%I p
+0 SetP
+%I t
+[ 0.550639 -0 -0 0.550639 -114.533 537.974 ] concat
+%I
+413 551 465 509 Line
+%I 2
+End
+
+Begin %I Line
+%I b 65535
+1 0 1 [] 0 SetB
+%I cfg Black
+0 0 0 SetCFg
+%I cbg White
+1 1 1 SetCBg
+%I p
+0 SetP
+%I t
+[ 0.550639 -0 -0 0.550639 -155.831 537.974 ] concat
+%I
+638 550 583 509 Line
+%I 2
+End
 
 End %I eop
 

@@ -77,8 +77,8 @@ end
 
 %%EndIdrawPrologue
 
-/arrowHeight 11 def
-/arrowWidth 5 def
+/arrowHeight 8 def
+/arrowWidth 4 def
 
 /IdrawDict 53 dict def
 IdrawDict begin
@@ -212,6 +212,7 @@ end
 /Circ {
 newpath
 0 360 arc
+closepath
 patternNone not { ifill } if
 brushNone not { istroke } if
 } def
@@ -243,6 +244,7 @@ newpath
 translate
 scale
 0 0 1 0 360 arc
+closepath
 patternNone not { ifill } if
 brushNone not { istroke } if
 end
@@ -362,7 +364,7 @@ grestore
 gsave
 fgred fggreen fgblue setrgbcolor
 /fontDict printFont printSize scalefont dup setfont def
-/descender fontDict begin 0 [FontBBox] 1 get FontMatrix end
+/descender fontDict begin 0 /FontBBox load  1 get FontMatrix end
 transform exch pop def
 /vertoffset 1 printSize sub descender sub def {
 0 vertoffset moveto show
@@ -492,7 +494,7 @@ exch dup 3 1 roll 1 0 0 -1 0 6 -1 roll matrix astore
 
 %%EndProlog
 
-%I Idraw 10 Grid 8 8 
+%I Idraw 12 Grid 8 8 
 
 %%Page: 1 1
 
@@ -874,16 +876,7 @@ Begin %I Pict
 %I f u
 %I p u
 %I t
-[ 0.77 0 0 0.77 -161.454 391.255 ] concat
-
-Begin %I Pict
-%I b u
-%I cfg u
-%I cbg u
-%I f u
-%I p u
-%I t
-[ 1 0 0 1 74.8553 0 ] concat
+[ 0.77 0 0 0.77 -103.815 391.255 ] concat
 
 Begin %I Rect
 %I b 65535
@@ -916,27 +909,17 @@ End
 End %I eop
 
 Begin %I Text
-%I cfg Black
-0 0 0 SetCFg
+%I cfg Blue
+0 0 1 SetCFg
 %I f -*-helvetica-medium-o-normal-*-14-*-*-*-*-*-*-*
 Helvetica-Oblique 14 SetF
 %I t
-[ 1.4535 0 0 1.4535 339.022 486.671 ] concat
+[ 1.11919 0 0 1.11919 99.5929 765.992 ] concat
 %I
 [
 (On\(C,A\) On\(A,Table\) Cl\(B\) On\(B,Table\) Cl\(C\))
 ] Text
 End
-
-End %I eop
-
-Begin %I Pict
-%I b u
-%I cfg u
-%I cbg u
-%I f u
-%I p u
-%I t u
 
 Begin %I Pict
 %I b u
@@ -972,21 +955,6 @@ Helvetica 12 SetF
 %I
 [
 (PutOn\(B,C\))
-] Text
-End
-
-End %I eop
-
-Begin %I Text
-%I cfg Black
-0 0 0 SetCFg
-%I f -*-helvetica-medium-o-normal-*-14-*-*-*-*-*-*-*
-Helvetica-Oblique 14 SetF
-%I t
-[ 1.11919 0 0 1.11919 313.256 589.647 ] concat
-%I
-[
-(Cl\(B\) On\(B,z\) Cl\(C\))
 ] Text
 End
 
@@ -1062,14 +1030,6 @@ Begin %I Pict
 %I cbg u
 %I f u
 %I p u
-%I t u
-
-Begin %I Pict
-%I b u
-%I cfg u
-%I cbg u
-%I f u
-%I p u
 %I t
 [ 1 0 0 1 1.12028 0 ] concat
 
@@ -1098,21 +1058,6 @@ Helvetica 12 SetF
 %I
 [
 (PutOn\(A,B\))
-] Text
-End
-
-End %I eop
-
-Begin %I Text
-%I cfg Black
-0 0 0 SetCFg
-%I f -*-helvetica-medium-o-normal-*-14-*-*-*-*-*-*-*
-Helvetica-Oblique 14 SetF
-%I t
-[ 1.11919 0 0 1.11919 136.691 570.029 ] concat
-%I
-[
-(Cl\(A\) On\(A,z\) Cl\(B\))
 ] Text
 End
 
@@ -1168,9 +1113,9 @@ End
 
 Begin %I Line
 %I b 65520
-2 0 1 [12 4] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
+3 0 1 [12 4] 0 SetB
+%I cfg Green
+0 1 0 SetCFg
 %I cbg White
 1 1 1 SetCBg
 %I p
@@ -1195,6 +1140,58 @@ Helvetica-Bold 14 SetF
 (clobbers Cl\(B\))
 (=> order after)
 (   PutOn\(B,C\))
+] Text
+End
+
+Begin %I Text
+%I cfg Black
+0 0 0 SetCFg
+%I f -*-helvetica-medium-o-normal-*-14-*-*-*-*-*-*-*
+Helvetica-Oblique 14 SetF
+%I t
+[ 1.11919 0 0 1.11919 186.368 570.029 ] concat
+%I
+[
+(On\(A,z\) Cl\(B\))
+] Text
+End
+
+Begin %I Text
+%I cfg Red
+1 0 0 SetCFg
+%I f -*-helvetica-medium-o-normal-*-14-*-*-*-*-*-*-*
+Helvetica-Oblique 14 SetF
+%I t
+[ 1.11919 0 0 1.11919 136.691 570.029 ] concat
+%I
+[
+(Cl\(A\))
+] Text
+End
+
+Begin %I Text
+%I cfg Black
+0 0 0 SetCFg
+%I f -*-helvetica-medium-o-normal-*-14-*-*-*-*-*-*-*
+Helvetica-Oblique 14 SetF
+%I t
+[ 1.11919 0 0 1.11919 362.933 589.647 ] concat
+%I
+[
+(On\(B,z\) Cl\(C\))
+] Text
+End
+
+Begin %I Text
+%I cfg Indigo
+0.746105 0 0.996109 SetCFg
+%I f -*-helvetica-medium-o-normal-*-14-*-*-*-*-*-*-*
+Helvetica-Oblique 14 SetF
+%I t
+[ 1.11919 0 0 1.11919 313.256 589.647 ] concat
+%I
+[
+(Cl\(B\))
 ] Text
 End
 

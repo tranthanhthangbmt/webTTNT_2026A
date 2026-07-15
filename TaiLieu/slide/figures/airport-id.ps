@@ -2,7 +2,7 @@
 %%Creator: idraw
 %%DocumentFonts: Helvetica
 %%Pages: 1
-%%BoundingBox: 104 376 378 594
+%%BoundingBox: 91 373 387 598
 %%EndComments
 
 %%BeginIdrawPrologue
@@ -77,8 +77,8 @@ end
 
 %%EndIdrawPrologue
 
-/arrowHeight 10 def
-/arrowWidth 5 def
+/arrowHeight 8 def
+/arrowWidth 4 def
 
 /IdrawDict 51 dict def
 IdrawDict begin
@@ -210,6 +210,7 @@ end
 /Circ {
 newpath
 0 360 arc
+closepath
 patternNone not { ifill } if
 brushNone not { istroke } if
 } def
@@ -241,6 +242,7 @@ newpath
 translate
 scale
 0 0 1 0 360 arc
+closepath
 patternNone not { ifill } if
 brushNone not { istroke } if
 end
@@ -332,7 +334,7 @@ bgred bggreen bgblue setrgbcolor
 eofill
 fgred fggreen fgblue setrgbcolor
 w 0 gt h 0 gt and {
-l b translate w h scale
+l w add b translate w neg h scale
 w h true [w 0 0 h neg 0 h] { patternproc } imagemask
 } if
 } ifelse
@@ -360,7 +362,7 @@ grestore
 gsave
 fgred fggreen fgblue setrgbcolor
 /fontDict printFont printSize scalefont dup setfont def
-/descender fontDict begin 0 [FontBBox] 1 get FontMatrix end
+/descender fontDict begin 0 /FontBBox load  1 get FontMatrix end
 transform exch pop def
 /vertoffset 1 printSize sub descender sub def {
 0 vertoffset moveto show
@@ -490,7 +492,7 @@ exch dup 3 1 roll 1 0 0 -1 0 6 -1 roll matrix astore
 
 %%EndProlog
 
-%I Idraw 10 Grid 8 8 
+%I Idraw 12 Grid 8 8 
 
 %%Page: 1 1
 
@@ -503,6 +505,38 @@ Begin
 %I t
 [ 0.86747 0 0 0.86747 0 0 ] concat
 /originalCTM matrix currentmatrix def
+
+Begin %I Line
+%I b 65535
+1 0 1 [] 0 SetB
+%I cfg Black
+0 0 0 SetCFg
+%I cbg White
+1 1 1 SetCBg
+%I p
+0 SetP
+%I t
+[ 0.550639 -0 -0 0.550639 20.9243 273.667 ] concat
+%I
+304 568 460 568 Line
+%I 2
+End
+
+Begin %I Line
+%I b 65535
+1 0 1 [] 0 SetB
+%I cfg Black
+0 0 0 SetCFg
+%I cbg White
+1 1 1 SetCBg
+%I p
+0 SetP
+%I t
+[ 0.550639 -0 -0 0.550639 20.9243 273.667 ] concat
+%I
+317 326 459 326 Line
+%I 2
+End
 
 Begin %I Line
 %I b 65535
@@ -562,7 +596,7 @@ Begin %I Line
 %I p
 0 SetP
 %I t
-[ 0.265661 0 0 0.265661 206.419 462.251 ] concat
+[ 0.265661 0 0 0.265661 206.419 463.87 ] concat
 %I
 536 220 711 220 Line
 %I 4
@@ -612,22 +646,6 @@ Begin %I Line
 %I t
 [ 0.265661 0 0 0.265661 175.868 436.747 ] concat
 %I
-74 61 386 67 Line
-%I 4
-End
-
-Begin %I Line
-%I b 65535
-1 0 1 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-0 SetP
-%I t
-[ 0.265661 0 0 0.265661 175.868 436.747 ] concat
-%I
 49 325 395 96 Line
 %I 4
 End
@@ -648,29 +666,14 @@ Begin %I Line
 %I 4
 End
 
-Begin %I Line
-%I b 65535
-1 0 1 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-0 SetP
-%I t
-[ 0.265661 0 0 0.265661 175.868 436.747 ] concat
-%I
-46 564 388 568 Line
-%I 4
-End
-
 Begin %I Pict
 %I b u
 %I cfg u
 %I cbg u
 %I f u
 %I p u
-%I t u
+%I t
+[ 1.2 0 0 1.2 -76.8033 -102.926 ] concat
 
 Begin %I Poly
 %I b 65535
@@ -706,14 +709,6 @@ End
 
 End %I eop
 
-Begin %I Pict
-%I b u
-%I cfg u
-%I cbg u
-%I f u
-%I p u
-%I t u
-
 Begin %I Poly
 %I b 65535
 1 0 0 [] 0 SetB
@@ -724,7 +719,7 @@ Begin %I Poly
 %I p
 1 SetP
 %I t
-[ 1.83019 0 0 1 86.9972 313.555 ] concat
+[ 2.19623 0 0 1.2 55.1519 243.055 ] concat
 %I 4
 64 334
 64 371
@@ -739,23 +734,13 @@ Begin %I Text
 %I f -*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*
 Helvetica 12 SetF
 %I t
-[ 1 0 0 1 214.724 672.055 ] concat
+[ 1.44 0 0 1.44 201.104 674.215 ] concat
 %I
 [
 (Airport Site)
 ] Text
 End
 
-End %I eop
-
-Begin %I Pict
-%I b u
-%I cfg u
-%I cbg u
-%I f u
-%I p u
-%I t u
-
 Begin %I Elli
 %I b 65535
 1 0 0 [] 0 SetB
@@ -766,7 +751,7 @@ Begin %I Elli
 %I p
 1 SetP
 %I t
-[ 1 0 0 1 153.833 235.2 ] concat
+[ 1.2 0 0 1.2 128.542 164.6 ] concat
 %I
 165 353 37 18 Elli
 End
@@ -777,23 +762,13 @@ Begin %I Text
 %I f -*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*
 Helvetica 12 SetF
 %I t
-[ 0.9 0 0 0.9 301.283 593.6 ] concat
+[ 1.296 0 0 1.296 301.378 595.544 ] concat
 %I
 [
 (Deaths)
 ] Text
 End
 
-End %I eop
-
-Begin %I Pict
-%I b u
-%I cfg u
-%I cbg u
-%I f u
-%I p u
-%I t u
-
 Begin %I Elli
 %I b 65535
 1 0 0 [] 0 SetB
@@ -804,7 +779,7 @@ Begin %I Elli
 %I p
 1 SetP
 %I t
-[ 1 0 0 1 152.942 169.316 ] concat
+[ 1.2 0 0 1.2 128.542 98.716 ] concat
 %I
 165 353 37 18 Elli
 End
@@ -815,23 +790,13 @@ Begin %I Text
 %I f -*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*
 Helvetica 12 SetF
 %I t
-[ 0.9 0 0 0.9 303.992 527.716 ] concat
+[ 1.296 0 0 1.296 306.454 529.66 ] concat
 %I
 [
 (Noise)
 ] Text
 End
 
-End %I eop
-
-Begin %I Pict
-%I b u
-%I cfg u
-%I cbg u
-%I f u
-%I p u
-%I t u
-
 Begin %I Elli
 %I b 65535
 1 0 0 [] 0 SetB
@@ -842,7 +807,7 @@ Begin %I Elli
 %I p
 1 SetP
 %I t
-[ 1 0 0 1 152.942 100.761 ] concat
+[ 1.2 0 0 1.2 128.542 30.161 ] concat
 %I
 165 353 37 18 Elli
 End
@@ -853,23 +818,13 @@ Begin %I Text
 %I f -*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*
 Helvetica 12 SetF
 %I t
-[ 0.9 0 0 0.9 306.692 459.161 ] concat
+[ 1.296 0 0 1.296 310.45 461.105 ] concat
 %I
 [
 (Cost)
 ] Text
 End
 
-End %I eop
-
-Begin %I Pict
-%I b u
-%I cfg u
-%I cbg u
-%I f u
-%I p u
-%I t u
-
 Begin %I Elli
 %I b 65535
 1 0 0 [] 0 SetB
@@ -880,7 +835,7 @@ Begin %I Elli
 %I p
 1 SetP
 %I t
-[ 1 0 0 1 -6.4259 168.426 ] concat
+[ 1.2 0 0 1.2 -37.6452 98.7159 ] concat
 %I
 165 353 37 18 Elli
 End
@@ -891,23 +846,13 @@ Begin %I Text
 %I f -*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*
 Helvetica 12 SetF
 %I t
-[ 0.9 0 0 0.9 135.624 526.826 ] concat
+[ 1.296 0 0 1.296 127.523 529.66 ] concat
 %I
 [
 (Litigation)
 ] Text
 End
 
-End %I eop
-
-Begin %I Pict
-%I b u
-%I cfg u
-%I cbg u
-%I f u
-%I p u
-%I t u
-
 Begin %I Elli
 %I b 65535
 1 0 0 [] 0 SetB
@@ -918,7 +863,7 @@ Begin %I Elli
 %I p
 1 SetP
 %I t
-[ 1 0 0 1 -1.97395 99.8708 ] concat
+[ 1.44 0 0 1.2 -77.2452 30.161 ] concat
 %I
 165 353 37 18 Elli
 End
@@ -929,23 +874,13 @@ Begin %I Text
 %I f -*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*
 Helvetica 12 SetF
 %I t
-[ 0.9 0 0 0.9 131.076 458.271 ] concat
+[ 1.296 0 0 1.296 114.563 461.105 ] concat
 %I
 [
 (Construction)
 ] Text
 End
 
-End %I eop
-
-Begin %I Pict
-%I b u
-%I cfg u
-%I cbg u
-%I f u
-%I p u
-%I t u
-
 Begin %I Elli
 %I b 65535
 1 0 0 [] 0 SetB
@@ -956,7 +891,7 @@ Begin %I Elli
 %I p
 1 SetP
 %I t
-[ 1 0 0 1 -4.64522 233.42 ] concat
+[ 1.2 0 0 1.2 -37.6452 164.6 ] concat
 %I
 165 353 37 18 Elli
 End
@@ -967,14 +902,12 @@ Begin %I Text
 %I f -*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*
 Helvetica 12 SetF
 %I t
-[ 0.9 0 0 0.9 136.505 591.82 ] concat
+[ 1.296 0 0 1.296 126.011 595.544 ] concat
 %I
 [
 (Air Traffic)
 ] Text
 End
-
-End %I eop
 
 End %I eop
 

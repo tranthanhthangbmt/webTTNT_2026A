@@ -1,8 +1,8 @@
 %!PS-Adobe-2.0 EPSF-1.2
 %%Creator: idraw
-%%DocumentFonts: Times-Bold Helvetica-Bold
+%%DocumentFonts: Helvetica-Bold Times-Bold
 %%Pages: 1
-%%BoundingBox: 85 493 538 720
+%%BoundingBox: 91 493 538 720
 %%EndComments
 
 %%BeginIdrawPrologue
@@ -77,7 +77,7 @@ end
 
 %%EndIdrawPrologue
 
-/arrowHeight 9 def
+/arrowHeight 8 def
 /arrowWidth 4 def
 
 /IdrawDict 52 dict def
@@ -121,8 +121,8 @@ currentdict end definefont
 /otilde/odieresis/divide/oslash/ugrave/uacute/ucircumflex/udieresis
 /yacute/thorn/ydieresis
 ] def
-/Times-Bold reencodeISO def
 /Helvetica-Bold reencodeISO def
+/Times-Bold reencodeISO def
 
 /none null def
 /numGraphicParameters 17 def
@@ -211,6 +211,7 @@ end
 /Circ {
 newpath
 0 360 arc
+closepath
 patternNone not { ifill } if
 brushNone not { istroke } if
 } def
@@ -242,6 +243,7 @@ newpath
 translate
 scale
 0 0 1 0 360 arc
+closepath
 patternNone not { ifill } if
 brushNone not { istroke } if
 end
@@ -333,7 +335,7 @@ bgred bggreen bgblue setrgbcolor
 eofill
 fgred fggreen fgblue setrgbcolor
 w 0 gt h 0 gt and {
-l b translate w h scale
+l w add b translate w neg h scale
 w h true [w 0 0 h neg 0 h] { patternproc } imagemask
 } if
 } ifelse
@@ -361,7 +363,7 @@ grestore
 gsave
 fgred fggreen fgblue setrgbcolor
 /fontDict printFont printSize scalefont dup setfont def
-/descender fontDict begin 0 [FontBBox] 1 get FontMatrix end
+/descender fontDict begin 0 /FontBBox load  1 get FontMatrix end
 transform exch pop def
 /vertoffset 1 printSize sub descender sub def {
 0 vertoffset moveto show
@@ -491,7 +493,7 @@ exch dup 3 1 roll 1 0 0 -1 0 6 -1 roll matrix astore
 
 %%EndProlog
 
-%I Idraw 10 Grid 8 8 
+%I Idraw 12 Grid 8 8 
 
 %%Page: 1 1
 
@@ -524,24 +526,14 @@ Begin %I Poly
 4 Poly
 End
 
-Begin %I Poly
-%I b 65535
-2 0 0 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-0.75 SetP
+Begin %I Pict
+%I b u
+%I cfg u
+%I cbg u
+%I f u
+%I p u
 %I t
-[ 1 0 0 1 40 88.5 ] concat
-%I 4
-55 483
-55 689
-261 689
-261 483
-4 Poly
-End
+[ 1 0 0 1 -0.250007 0 ] concat
 
 Begin %I Rect
 %I b 65535
@@ -553,10 +545,25 @@ Begin %I Rect
 %I p
 1 SetP
 %I t
-[ 0.5 0 0 0.5 426 365.5 ] concat
+[ 0.5 0 0 0.5 426 504 ] concat
 %I
 54 431 155 531 Rect
 End
+
+Begin %I Text
+%I cfg Black
+0 0 0 SetCFg
+%I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
+Helvetica-Bold 14 SetF
+%I t
+[ 1.8 0 0 1.8 471.95 753.5 ] concat
+%I
+[
+(2)
+] Text
+End
+
+End %I eop
 
 Begin %I Text
 %I cfg Black
@@ -582,81 +589,6 @@ Times-Bold 14 SetF
 [
 (Goal State)
 ] Text
-End
-
-Begin %I Rect
-%I b 65535
-1 0 0 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-1 SetP
-%I t
-[ 0.5 0 0 0.5 356 365.5 ] concat
-%I
-54 431 155 531 Rect
-End
-
-Begin %I Rect
-%I b 65535
-1 0 0 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-1 SetP
-%I t
-[ 0.5 0 0 0.5 494 365.5 ] concat
-%I
-54 431 155 531 Rect
-End
-
-Begin %I Rect
-%I b 65535
-1 0 0 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-1 SetP
-%I t
-[ 0.5 0 0 0.5 494.5 435 ] concat
-%I
-54 431 155 531 Rect
-End
-
-Begin %I Rect
-%I b 65535
-1 0 0 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-1 SetP
-%I t
-[ 0.5 0 0 0.5 357 435 ] concat
-%I
-54 431 155 531 Rect
-End
-
-Begin %I Rect
-%I b 65535
-1 0 0 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-1 SetP
-%I t
-[ 0.5 0 0 0.5 426 504 ] concat
-%I
-54 431 155 531 Rect
 End
 
 Begin %I Rect
@@ -758,181 +690,11 @@ Begin %I Text
 %I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
 Helvetica-Bold 14 SetF
 %I t
-[ 1.8 0 0 1.8 536.8 615.5 ] concat
-%I
-[
-(2)
-] Text
-End
-
-Begin %I Text
-%I cfg Black
-0 0 0 SetCFg
-%I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
-Helvetica-Bold 14 SetF
-%I t
-[ 1.8 0 0 1.8 470.8 755 ] concat
-%I
-[
-(4)
-] Text
-End
-
-Begin %I Text
-%I cfg Black
-0 0 0 SetCFg
-%I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
-Helvetica-Bold 14 SetF
-%I t
 [ 1.8 0 0 1.8 402.8 755 ] concat
 %I
 [
 (5)
 ] Text
-End
-
-Begin %I Text
-%I cfg Black
-0 0 0 SetCFg
-%I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
-Helvetica-Bold 14 SetF
-%I t
-[ 1.8 0 0 1.8 402.8 687 ] concat
-%I
-[
-(6)
-] Text
-End
-
-Begin %I Text
-%I cfg Black
-0 0 0 SetCFg
-%I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
-Helvetica-Bold 14 SetF
-%I t
-[ 1.8 0 0 1.8 402.3 615.5 ] concat
-%I
-[
-(7)
-] Text
-End
-
-Begin %I Text
-%I cfg Black
-0 0 0 SetCFg
-%I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
-Helvetica-Bold 14 SetF
-%I t
-[ 1.8 0 0 1.8 537.3 687 ] concat
-%I
-[
-(8)
-] Text
-End
-
-Begin %I Rect
-%I b 65535
-1 0 0 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-1 SetP
-%I t
-[ 0.5 0 0 0.5 356 365.5 ] concat
-%I
-54 431 155 531 Rect
-End
-
-Begin %I Rect
-%I b 65535
-1 0 0 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-1 SetP
-%I t
-[ 0.5 0 0 0.5 494 365.5 ] concat
-%I
-54 431 155 531 Rect
-End
-
-Begin %I Rect
-%I b 65535
-1 0 0 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-1 SetP
-%I t
-[ 0.5 0 0 0.5 494 503 ] concat
-%I
-54 431 155 531 Rect
-End
-
-Begin %I Rect
-%I b 65535
-1 0 0 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-1 SetP
-%I t
-[ 0.5 0 0 0.5 494.5 435 ] concat
-%I
-54 431 155 531 Rect
-End
-
-Begin %I Rect
-%I b 65535
-1 0 0 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-1 SetP
-%I t
-[ 0.5 0 0 0.5 357 435 ] concat
-%I
-54 431 155 531 Rect
-End
-
-Begin %I Rect
-%I b 65535
-1 0 0 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-1 SetP
-%I t
-[ 0.5 0 0 0.5 426 504 ] concat
-%I
-54 431 155 531 Rect
-End
-
-Begin %I Rect
-%I b 65535
-1 0 0 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-1 SetP
-%I t
-[ 0.5 0 0 0.5 357 504 ] concat
-%I
-54 431 155 531 Rect
 End
 
 Begin %I Line
@@ -995,6 +757,29 @@ none SetP %I p n
 %I 1
 End
 
+Begin %I Pict
+%I b u
+%I cfg u
+%I cbg u
+%I f u
+%I p u
+%I t u
+
+Begin %I Rect
+%I b 65535
+1 0 0 [] 0 SetB
+%I cfg Black
+0 0 0 SetCFg
+%I cbg White
+1 1 1 SetCBg
+%I p
+1 SetP
+%I t
+[ 0.5 0 0 0.5 357 504 ] concat
+%I
+54 431 155 531 Rect
+End
+
 Begin %I Text
 %I cfg Black
 0 0 0 SetCFg
@@ -1008,17 +793,30 @@ Helvetica-Bold 14 SetF
 ] Text
 End
 
-Begin %I Text
+End %I eop
+
+Begin %I Pict
+%I b u
+%I cfg u
+%I cbg u
+%I f u
+%I p u
+%I t
+[ 1 0 0 1 0 0.999901 ] concat
+
+Begin %I Rect
+%I b 65535
+1 0 0 [] 0 SetB
 %I cfg Black
 0 0 0 SetCFg
-%I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
-Helvetica-Bold 14 SetF
+%I cbg White
+1 1 1 SetCBg
+%I p
+1 SetP
 %I t
-[ 1.8 0 0 1.8 471.95 753.5 ] concat
+[ 0.5 0 0 0.5 494 503 ] concat
 %I
-[
-(2)
-] Text
+54 431 155 531 Rect
 End
 
 Begin %I Text
@@ -1034,6 +832,32 @@ Helvetica-Bold 14 SetF
 ] Text
 End
 
+End %I eop
+
+Begin %I Pict
+%I b u
+%I cfg u
+%I cbg u
+%I f u
+%I p u
+%I t
+[ 1 0 0 1 -137.5 0 ] concat
+
+Begin %I Rect
+%I b 65535
+1 0 0 [] 0 SetB
+%I cfg Black
+0 0 0 SetCFg
+%I cbg White
+1 1 1 SetCBg
+%I p
+1 SetP
+%I t
+[ 0.5 0 0 0.5 494.5 435 ] concat
+%I
+54 431 155 531 Rect
+End
+
 Begin %I Text
 %I cfg Black
 0 0 0 SetCFg
@@ -1045,6 +869,32 @@ Helvetica-Bold 14 SetF
 [
 (4)
 ] Text
+End
+
+End %I eop
+
+Begin %I Pict
+%I b u
+%I cfg u
+%I cbg u
+%I f u
+%I p u
+%I t
+[ 1 0 0 1 68 69.5 ] concat
+
+Begin %I Rect
+%I b 65535
+1 0 0 [] 0 SetB
+%I cfg Black
+0 0 0 SetCFg
+%I cbg White
+1 1 1 SetCBg
+%I p
+1 SetP
+%I t
+[ 0.5 0 0 0.5 426 365.5 ] concat
+%I
+54 431 155 531 Rect
 End
 
 Begin %I Text
@@ -1060,6 +910,32 @@ Helvetica-Bold 14 SetF
 ] Text
 End
 
+End %I eop
+
+Begin %I Pict
+%I b u
+%I cfg u
+%I cbg u
+%I f u
+%I p u
+%I t
+[ 1 0 0 1 0.999996 0 ] concat
+
+Begin %I Rect
+%I b 65535
+1 0 0 [] 0 SetB
+%I cfg Black
+0 0 0 SetCFg
+%I cbg White
+1 1 1 SetCBg
+%I p
+1 SetP
+%I t
+[ 0.5 0 0 0.5 356 365.5 ] concat
+%I
+54 431 155 531 Rect
+End
+
 Begin %I Text
 %I cfg Black
 0 0 0 SetCFg
@@ -1071,6 +947,32 @@ Helvetica-Bold 14 SetF
 [
 (7)
 ] Text
+End
+
+End %I eop
+
+Begin %I Pict
+%I b u
+%I cfg u
+%I cbg u
+%I f u
+%I p u
+%I t
+[ 1 0 0 1 68.75 -69.5 ] concat
+
+Begin %I Rect
+%I b 65535
+1 0 0 [] 0 SetB
+%I cfg Black
+0 0 0 SetCFg
+%I cbg White
+1 1 1 SetCBg
+%I p
+1 SetP
+%I t
+[ 0.5 0 0 0.5 357 435 ] concat
+%I
+54 431 155 531 Rect
 End
 
 Begin %I Text
@@ -1086,20 +988,16 @@ Helvetica-Bold 14 SetF
 ] Text
 End
 
-Begin %I Rect
-%I b 65535
-1 0 0 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-1 SetP
+End %I eop
+
+Begin %I Pict
+%I b u
+%I cfg u
+%I cbg u
+%I f u
+%I p u
 %I t
-[ 0.5 0 0 0.5 76 365.5 ] concat
-%I
-54 431 155 531 Rect
-End
+[ 1 0 0 1 -68.25 69.5 ] concat
 
 Begin %I Rect
 %I b 65535
@@ -1111,99 +1009,43 @@ Begin %I Rect
 %I p
 1 SetP
 %I t
-[ 0.5 0 0 0.5 214 365.5 ] concat
+[ 0.5 0 0 0.5 494 365.5 ] concat
 %I
 54 431 155 531 Rect
 End
 
-Begin %I Rect
+Begin %I Text
+%I cfg Black
+0 0 0 SetCFg
+%I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
+Helvetica-Bold 14 SetF
+%I t
+[ 1.8 0 0 1.8 539.95 615 ] concat
+%I
+[
+(5)
+] Text
+End
+
+End %I eop
+
+Begin %I Poly
 %I b 65535
-1 0 0 [] 0 SetB
+2 0 0 [] 0 SetB
 %I cfg Black
 0 0 0 SetCFg
 %I cbg White
 1 1 1 SetCBg
 %I p
-1 SetP
+0.75 SetP
 %I t
-[ 0.5 0 0 0.5 146 365.5 ] concat
-%I
-54 431 155 531 Rect
-End
-
-Begin %I Rect
-%I b 65535
-1 0 0 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-1 SetP
-%I t
-[ 0.5 0 0 0.5 214.5 435 ] concat
-%I
-54 431 155 531 Rect
-End
-
-Begin %I Rect
-%I b 65535
-1 0 0 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-1 SetP
-%I t
-[ 0.5 0 0 0.5 145.5 435 ] concat
-%I
-54 431 155 531 Rect
-End
-
-Begin %I Rect
-%I b 65535
-1 0 0 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-1 SetP
-%I t
-[ 0.5 0 0 0.5 77 435 ] concat
-%I
-54 431 155 531 Rect
-End
-
-Begin %I Rect
-%I b 65535
-1 0 0 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-1 SetP
-%I t
-[ 0.5 0 0 0.5 146 504 ] concat
-%I
-54 431 155 531 Rect
-End
-
-Begin %I Rect
-%I b 65535
-1 0 0 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-1 SetP
-%I t
-[ 0.5 0 0 0.5 77 504 ] concat
-%I
-54 431 155 531 Rect
+[ 1 0 0 1 46.3038 88.5 ] concat
+%I 4
+55 483
+55 689
+261 689
+261 483
+4 Poly
 End
 
 Begin %I Poly
@@ -1215,7 +1057,7 @@ Begin %I Poly
 1 1 1 SetCBg
 none SetP %I p n
 %I t
-[ 1 0 0 1 40 88.5 ] concat
+[ 1 0 0 1 46.3038 88.5 ] concat
 %I 4
 55 483
 55 689
@@ -1233,7 +1075,7 @@ Begin %I Line
 1 1 1 SetCBg
 none SetP %I p n
 %I t
-[ 1 0 0 1 40 89 ] concat
+[ 1 0 0 1 46.3038 89 ] concat
 %I
 56 621 261 621 Line
 %I 1
@@ -1248,7 +1090,7 @@ Begin %I Line
 1 1 1 SetCBg
 none SetP %I p n
 %I t
-[ 1 0 0 1 40 89 ] concat
+[ 1 0 0 1 46.3038 89 ] concat
 %I
 55 552 260 552 Line
 %I 1
@@ -1263,7 +1105,7 @@ Begin %I Line
 1 1 1 SetCBg
 none SetP %I p n
 %I t
-[ 1 0 0 1 40 89 ] concat
+[ 1 0 0 1 46.3038 89 ] concat
 %I
 123 689 123 483 Line
 %I 1
@@ -1278,234 +1120,10 @@ Begin %I Line
 1 1 1 SetCBg
 none SetP %I p n
 %I t
-[ 1 0 0 1 40 89 ] concat
+[ 1 0 0 1 46.3038 89 ] concat
 %I
-193 689 193 482 Line
+193 688 193 482 Line
 %I 1
-End
-
-Begin %I Text
-%I cfg Black
-0 0 0 SetCFg
-%I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
-Helvetica-Bold 14 SetF
-%I t
-[ 1.8 0 0 1.8 190.8 687 ] concat
-%I
-[
-(1)
-] Text
-End
-
-Begin %I Text
-%I cfg Black
-0 0 0 SetCFg
-%I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
-Helvetica-Bold 14 SetF
-%I t
-[ 1.8 0 0 1.8 256.8 615.5 ] concat
-%I
-[
-(2)
-] Text
-End
-
-Begin %I Text
-%I cfg Black
-0 0 0 SetCFg
-%I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
-Helvetica-Bold 14 SetF
-%I t
-[ 1.8 0 0 1.8 190.3 615.5 ] concat
-%I
-[
-(3)
-] Text
-End
-
-Begin %I Text
-%I cfg Black
-0 0 0 SetCFg
-%I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
-Helvetica-Bold 14 SetF
-%I t
-[ 1.8 0 0 1.8 190.8 755 ] concat
-%I
-[
-(4)
-] Text
-End
-
-Begin %I Text
-%I cfg Black
-0 0 0 SetCFg
-%I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
-Helvetica-Bold 14 SetF
-%I t
-[ 1.8 0 0 1.8 122.8 755 ] concat
-%I
-[
-(5)
-] Text
-End
-
-Begin %I Text
-%I cfg Black
-0 0 0 SetCFg
-%I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
-Helvetica-Bold 14 SetF
-%I t
-[ 1.8 0 0 1.8 122.8 687 ] concat
-%I
-[
-(6)
-] Text
-End
-
-Begin %I Text
-%I cfg Black
-0 0 0 SetCFg
-%I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
-Helvetica-Bold 14 SetF
-%I t
-[ 1.8 0 0 1.8 122.3 615.5 ] concat
-%I
-[
-(7)
-] Text
-End
-
-Begin %I Text
-%I cfg Black
-0 0 0 SetCFg
-%I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
-Helvetica-Bold 14 SetF
-%I t
-[ 1.8 0 0 1.8 257.3 687 ] concat
-%I
-[
-(8)
-] Text
-End
-
-Begin %I Rect
-%I b 65535
-1 0 0 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-1 SetP
-%I t
-[ 0.5 0 0 0.5 76 365.5 ] concat
-%I
-54 431 155 531 Rect
-End
-
-Begin %I Rect
-%I b 65535
-1 0 0 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-1 SetP
-%I t
-[ 0.5 0 0 0.5 214 365.5 ] concat
-%I
-54 431 155 531 Rect
-End
-
-Begin %I Rect
-%I b 65535
-1 0 0 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-1 SetP
-%I t
-[ 0.5 0 0 0.5 146 365.5 ] concat
-%I
-54 431 155 531 Rect
-End
-
-Begin %I Rect
-%I b 65535
-1 0 0 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-1 SetP
-%I t
-[ 0.5 0 0 0.5 214.5 435 ] concat
-%I
-54 431 155 531 Rect
-End
-
-Begin %I Rect
-%I b 65535
-1 0 0 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-1 SetP
-%I t
-[ 0.5 0 0 0.5 145.5 435 ] concat
-%I
-54 431 155 531 Rect
-End
-
-Begin %I Rect
-%I b 65535
-1 0 0 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-1 SetP
-%I t
-[ 0.5 0 0 0.5 77 435 ] concat
-%I
-54 431 155 531 Rect
-End
-
-Begin %I Rect
-%I b 65535
-1 0 0 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-1 SetP
-%I t
-[ 0.5 0 0 0.5 146 504 ] concat
-%I
-54 431 155 531 Rect
-End
-
-Begin %I Rect
-%I b 65535
-1 0 0 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-1 SetP
-%I t
-[ 0.5 0 0 0.5 77 504 ] concat
-%I
-54 431 155 531 Rect
 End
 
 Begin %I Line
@@ -1517,7 +1135,7 @@ Begin %I Line
 1 1 1 SetCBg
 none SetP %I p n
 %I t
-[ 1 0 0 1 40 89 ] concat
+[ 1 0 0 1 46.3038 89 ] concat
 %I
 55 621 261 621 Line
 %I 1
@@ -1532,7 +1150,7 @@ Begin %I Line
 1 1 1 SetCBg
 none SetP %I p n
 %I t
-[ 1 0 0 1 40 89 ] concat
+[ 1 0 0 1 46.3038 89 ] concat
 %I
 55 552 260 552 Line
 %I 1
@@ -1547,10 +1165,49 @@ Begin %I Line
 1 1 1 SetCBg
 none SetP %I p n
 %I t
-[ 1 0 0 1 40 89 ] concat
+[ 1 0 0 1 46.3038 89 ] concat
 %I
-123 688 123 483 Line
+123 689 123 482 Line
 %I 1
+End
+
+Begin %I Line
+%I b 65535
+2 0 0 [] 0 SetB
+%I cfg Black
+0 0 0 SetCFg
+%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%I t
+[ 1 0 0 1 46.3038 89 ] concat
+%I
+193 689 193 482 Line
+%I 1
+End
+
+Begin %I Pict
+%I b u
+%I cfg u
+%I cbg u
+%I f u
+%I p u
+%I t
+[ 1 0 0 1 -136.696 -138.5 ] concat
+
+Begin %I Rect
+%I b 65535
+1 0 0 [] 0 SetB
+%I cfg Black
+0 0 0 SetCFg
+%I cbg White
+1 1 1 SetCBg
+%I p
+1 SetP
+%I t
+[ 0.5 0 0 0.5 357 504 ] concat
+%I
+54 431 155 531 Rect
 End
 
 Begin %I Text
@@ -1559,63 +1216,154 @@ Begin %I Text
 %I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
 Helvetica-Bold 14 SetF
 %I t
-[ 1.8 0 0 1.8 191.45 684.5 ] concat
+[ 1.8 0 0 1.8 402.95 753.5 ] concat
 %I
 [
 (1)
 ] Text
 End
 
+End %I eop
+
+Begin %I Pict
+%I b u
+%I cfg u
+%I cbg u
+%I f u
+%I p u
+%I t
+[ 1 0 0 1 -273.946 0 ] concat
+
+Begin %I Rect
+%I b 65535
+1 0 0 [] 0 SetB
+%I cfg Black
+0 0 0 SetCFg
+%I cbg White
+1 1 1 SetCBg
+%I p
+1 SetP
+%I t
+[ 0.5 0 0 0.5 426 504 ] concat
+%I
+54 431 155 531 Rect
+End
+
 Begin %I Text
 %I cfg Black
 0 0 0 SetCFg
 %I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
 Helvetica-Bold 14 SetF
 %I t
-[ 1.8 0 0 1.8 259.95 615 ] concat
+[ 1.8 0 0 1.8 471.95 753.5 ] concat
 %I
 [
 (2)
 ] Text
 End
 
+End %I eop
+
+Begin %I Pict
+%I b u
+%I cfg u
+%I cbg u
+%I f u
+%I p u
+%I t
+[ 1 0 0 1 -341.946 -137.5 ] concat
+
+Begin %I Rect
+%I b 65535
+1 0 0 [] 0 SetB
+%I cfg Black
+0 0 0 SetCFg
+%I cbg White
+1 1 1 SetCBg
+%I p
+1 SetP
+%I t
+[ 0.5 0 0 0.5 494 503 ] concat
+%I
+54 431 155 531 Rect
+End
+
 Begin %I Text
 %I cfg Black
 0 0 0 SetCFg
 %I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
 Helvetica-Bold 14 SetF
 %I t
-[ 1.8 0 0 1.8 191.95 615 ] concat
+[ 1.8 0 0 1.8 539.95 752.5 ] concat
 %I
 [
 (3)
 ] Text
 End
 
+End %I eop
+
+Begin %I Pict
+%I b u
+%I cfg u
+%I cbg u
+%I f u
+%I p u
+%I t
+[ 1 0 0 1 -274.196 69 ] concat
+
+Begin %I Rect
+%I b 65535
+1 0 0 [] 0 SetB
+%I cfg Black
+0 0 0 SetCFg
+%I cbg White
+1 1 1 SetCBg
+%I p
+1 SetP
+%I t
+[ 0.5 0 0 0.5 494.5 435 ] concat
+%I
+54 431 155 531 Rect
+End
+
 Begin %I Text
 %I cfg Black
 0 0 0 SetCFg
 %I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
 Helvetica-Bold 14 SetF
 %I t
-[ 1.8 0 0 1.8 191.95 753.5 ] concat
+[ 1.8 0 0 1.8 540.45 684.5 ] concat
 %I
 [
 (4)
 ] Text
 End
 
-Begin %I Text
+End %I eop
+
+Begin %I Pict
+%I b u
+%I cfg u
+%I cbg u
+%I f u
+%I p u
+%I t
+[ 1 0 0 1 -205.696 69.5 ] concat
+
+Begin %I Rect
+%I b 65535
+1 0 0 [] 0 SetB
 %I cfg Black
 0 0 0 SetCFg
-%I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
-Helvetica-Bold 14 SetF
+%I cbg White
+1 1 1 SetCBg
+%I p
+1 SetP
 %I t
-[ 1.8 0 0 1.8 122.95 753.5 ] concat
+[ 0.5 0 0 0.5 426 365.5 ] concat
 %I
-[
-(5)
-] Text
+54 431 155 531 Rect
 End
 
 Begin %I Text
@@ -1624,24 +1372,37 @@ Begin %I Text
 %I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
 Helvetica-Bold 14 SetF
 %I t
-[ 1.8 0 0 1.8 122.95 684.5 ] concat
+[ 1.8 0 0 1.8 470.798 615 ] concat
 %I
 [
 (6)
 ] Text
 End
 
-Begin %I Text
+End %I eop
+
+Begin %I Pict
+%I b u
+%I cfg u
+%I cbg u
+%I f u
+%I p u
+%I t
+[ 1 0 0 1 -272.696 138.5 ] concat
+
+Begin %I Rect
+%I b 65535
+1 0 0 [] 0 SetB
 %I cfg Black
 0 0 0 SetCFg
-%I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
-Helvetica-Bold 14 SetF
+%I cbg White
+1 1 1 SetCBg
+%I p
+1 SetP
 %I t
-[ 1.8 0 0 1.8 121.95 615 ] concat
+[ 0.5 0 0 0.5 356 365.5 ] concat
 %I
-[
-(7)
-] Text
+54 431 155 531 Rect
 End
 
 Begin %I Text
@@ -1650,11 +1411,76 @@ Begin %I Text
 %I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
 Helvetica-Bold 14 SetF
 %I t
-[ 1.8 0 0 1.8 260.45 684.5 ] concat
+[ 1.8 0 0 1.8 401.95 615 ] concat
+%I
+[
+(7)
+] Text
+End
+
+End %I eop
+
+Begin %I Pict
+%I b u
+%I cfg u
+%I cbg u
+%I f u
+%I p u
+%I t
+[ 1 0 0 1 -273.696 -69.5 ] concat
+
+Begin %I Rect
+%I b 65535
+1 0 0 [] 0 SetB
+%I cfg Black
+0 0 0 SetCFg
+%I cbg White
+1 1 1 SetCBg
+%I p
+1 SetP
+%I t
+[ 0.5 0 0 0.5 357 435 ] concat
+%I
+54 431 155 531 Rect
+End
+
+Begin %I Text
+%I cfg Black
+0 0 0 SetCFg
+%I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
+Helvetica-Bold 14 SetF
+%I t
+[ 1.8 0 0 1.8 402.95 684.5 ] concat
 %I
 [
 (8)
 ] Text
+End
+
+End %I eop
+
+Begin %I Pict
+%I b u
+%I cfg u
+%I cbg u
+%I f u
+%I p u
+%I t
+[ 1 0 0 1 -410.696 69.5 ] concat
+
+Begin %I Rect
+%I b 65535
+1 0 0 [] 0 SetB
+%I cfg Black
+0 0 0 SetCFg
+%I cbg White
+1 1 1 SetCBg
+%I p
+1 SetP
+%I t
+[ 0.5 0 0 0.5 494 365.5 ] concat
+%I
+54 431 155 531 Rect
 End
 
 Begin %I Text
@@ -1669,6 +1495,8 @@ Helvetica-Bold 14 SetF
 (5)
 ] Text
 End
+
+End %I eop
 
 End %I eop
 

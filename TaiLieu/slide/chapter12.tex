@@ -1,0 +1,237 @@
+\documentclass{article}
+\usepackage{fleqn}
+\usepackage{epsf}
+\usepackage[dvips]{color}
+\usepackage{aima2e-slides}
+
+\newcommand{\condstep}[3]{\mbf{if}~#1~\mbf{then}~#2~\mbf{else}~#3}
+\newcommand{\whilestep}[2]{\mbf{while}~#1~\mbf{do}~#2}
+\newcommand{\noplan}{\emptylist}
+\begin{document}
+
+\begin{huge}
+\titleslide{Planning and Acting}{Chapter 13}
+
+\sf
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Phác thảo}
+
+\blob Thế giới thực
+
+\blob Lập kế hoạch có điều kiện
+
+\blob Giám sát và lập kế hoạch lại
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Thế giới thực}
+
+\vspace*{0.2in}
+
+\epsfxsize=0,5\textwidth
+\fig{\file{figures}{flat-tire-picture.ps}}
+
+\vspace*{0.4in}
+
+\epsfxsize=0,8\textwidth
+\fig{\file{figures}{flat-tire-model.ps}}
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Có vấn đề xảy ra}
+
+\txr{\em Thông tin chưa đầy đủ}\al
+  Điều kiện tiên quyết không xác định, ví dụ: $Intact(Spare)$?\al
+  Các hiệu ứng phân biệt, ví dụ: $Inflate(x)$ gây ra\nl
+    $Inflated(x) \lor SlowHiss(x) \lor Burst(x) \lor BrokenPump \lor \ldots$
+
+\txr{\em Thông tin không chính xác}\al
+  Trạng thái hiện tại không chính xác, ví dụ: dự phòng KHÔNG nguyên vẹn\al
+  Hậu điều kiện bị thiếu/không chính xác trong toán tử
+
+\txb{Vấn đề về trình độ chuyên môn}:\nl
+   không bao giờ có thể liệt kê xong tất cả các điều kiện tiên quyết bắt buộc và\nl
+   kết quả có điều kiện có thể có của hành động
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Giải pháp}
+
+\txb{Conformant} hoặc \txb{quy hoạch không có cảm biến}\nl
+   Đưa ra một kế hoạch có hiệu quả bất kể trạng thái hay kết quả\\
+\txr{\em Những kế hoạch như vậy có thể không tồn tại}
+
+\txb{Lập kế hoạch có điều kiện}\nl
+    Lập kế hoạch thu thập thông tin ({\bf hành động quan sát})\nl
+    Kế hoạch con cho từng trường hợp dự phòng, ví dụ:\nl
+    $[Check(Tire1),\condstep{Intact(Tire1)}{Inflate(Tire1)}{CallAAA}$\\
+\txr{\em Đắt vì nó lên kế hoạch cho nhiều trường hợp khó xảy ra}
+
+\txb{Giám sát/Lập kế hoạch lại}\nl
+    Giả sử trạng thái bình thường, kết quả\nl
+    Kiểm tra tiến trình \txr{\em trong khi thực hiện}, lập kế hoạch lại nếu cần thiết\\
+\txr{\em Kết quả không lường trước được có thể dẫn đến thất bại (ví dụ: không có thẻ AAA)}
+
+(Thực sự cần sự kết hợp; lên kế hoạch cho những tình huống có thể xảy ra/nghiêm trọng,\\
+đối phó với người khác khi họ phát sinh, vì cuối cùng họ phải làm vậy)
+
+
+       
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Lập kế hoạch phù hợp}
+
+Tìm kiếm trong không gian của \txb{trạng thái niềm tin} (tập hợp các trạng thái thực tế có thể có)
+
+\epsfxsize=0,65\textwidth
+\fig{\file{figures}{vacuum2-sets.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Lập kế hoạch có điều kiện}
+
+Nếu thế giới không xác định hoặc có thể quan sát được một phần\al
+  thì các nhận thức thường \txr{\em cung cấp thông tin}, \al
+  tức là, \txr{\em chia tách } trạng thái niềm tin
+
+\vspace*{0.2in}
+
+\epsfxsize=1.0\textwidth
+\fig{\file{figures}{contingent-percepts.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Lập kế hoạch có điều kiện tiếp theo.}
+
+Kiểm tra kế hoạch có điều kiện (bất kỳ hậu quả nào của KB +) nhận thức
+
+$[\ldots,\condstep{C}{Plan_A}{Plan_B},\ldots]$
+
+Thực thi: kiểm tra $C$ so với KB hiện tại, thực thi `` sau đó '' hoặc `` khác ''
+
+Cần \txr{\em một số } kế hoạch cho \txr{\em mọi } nhận thức có thể
+
+(Cf. chơi trò chơi: \txr{\em một số } phản hồi cho \txr{\em mỗi } nước đi của đối thủ)\\
+(Cf. xâu chuỗi ngược: \txr{\em some} quy tắc sao cho \txr{\em mọi tiền đề } đều thỏa mãn
+
+AND--OR tìm kiếm cây (rất giống với thuật toán xâu chuỗi ngược)
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ}
+
+Double Murphy: hút hoặc đến có thể làm bẩn một hình vuông sạch sẽ
+
+\vspace*{0.2in}
+
+\epsfxsize=1.0\textwidth
+\fig{\file{figures}{vacuum-cond-plan.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ}
+
+Triple Murphy: đôi khi cũng đứng yên thay vì di chuyển
+
+\vspace*{0.2in}
+
+\epsfxsize=0,8\textwidth
+\fig{\file{figures}{vacuum-loop-plan.ps}}
+
+$[L_1:\ Left, \condstep{AtR}{L_1}{[\condstep{CleanL}{\noplan}{Suck}]}]$
+
+hoặc $[\whilestep{AtR}{[Left]}, \condstep{CleanL}{\noplan}{Suck}]$
+
+``Vòng lặp vô hạn'' nhưng cuối cùng sẽ hoạt động trừ khi hành động luôn thất bại
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Giám sát thực thi}
+
+``Thất bại'' = các điều kiện tiên quyết của \txr{\em kế hoạch còn lại} không được đáp ứng
+
+Điều kiện tiên quyết của kế hoạch còn lại\nl
+= tất cả các điều kiện tiên quyết của các bước còn lại không đạt được bằng các bước còn lại\nl
+= tất cả các liên kết nhân quả \txr{\em băng qua } thời điểm hiện tại
+
+Khi thất bại, hãy tiếp tục POP để đạt được các điều kiện mở từ trạng thái hiện tại
+
+IPEM (Lập kế hoạch, thực thi và giám sát tích hợp):\nl
+  tiếp tục cập nhật $Start$ để phù hợp với trạng thái hiện tại \nl
+  liên kết từ các hành động được thay thế bằng liên kết từ $Start$ khi hoàn tất
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ}
+
+\vspace*{0.2in}
+
+\centerline{\raisebox{-0.9\textheight[0pt][0pt]{\epsfysize=0.95\textheight\epsffile{\file{figures}{plan-preconditions1.ps}}}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ}
+
+\vspace*{0.2in}
+
+\centerline{\raisebox{-0.9\textheight[0pt][0pt]{\epsfysize=0.95\textheight\epsffile{\file{figures}{plan-preconditions2.ps}}}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ}
+
+\vspace*{0.2in}
+
+\centerline{\raisebox{-0.9\textheight[0pt][0pt]{\epsfysize=0.95\textheight\epsffile{\file{figures}{plan-preconditions3.ps}}}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ}
+
+\vspace*{0.2in}
+
+\centerline{\raisebox{-0.9\textheight[0pt][0pt]{\epsfysize=0.95\textheight\epsffile{\file{figures}{plan-preconditions4.ps}}}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ}
+
+\vspace*{0.2in}
+
+\centerline{\raisebox{-0.9\textheight[0pt][0pt]{\epsfysize=0.95\textheight\epsffile{\file{figures}{plan-preconditions5.ps}}}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ}
+
+\vspace*{0.2in}
+
+\centerline{\raisebox{-0.9\textheight[0pt][0pt]{\epsfysize=0.95\textheight\epsffile{\file{figures}{plan-preconditions6.ps}}}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Hành vi mới nổi }
+
+\vspace*{0.2in}
+
+\epsfxsize=1.05\textwidth
+\fig{\file{figures}{replanning-paint2.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Hành vi mới nổi }
+
+\vspace*{0.2in}
+
+\epsfxsize=1.05\textwidth
+\fig{\file{figures}{replanning-paint3.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Hành vi mới nổi }
+
+\vspace*{0.2in}
+
+\epsfxsize=1.05\textwidth
+\fig{\file{figures}{replanning-paint3.ps}}
+
+Hành vi ``Lặp lại cho đến khi thành công'' \txr{\em xuất hiện} từ sự tương tác giữa 
+giám sát/lập kế hoạch lại thiết kế đại lý và môi trường không hợp tác
+
+
+\end{huge} 
+\end{document}

@@ -356,8 +356,26 @@
       fixed: true,
       lrcType: 0,
       theme: '#1a73e8', // Matches --theme-color
-      preload: 'none', // Prevent mass loading errors on mobile
+      preload: 'auto', // Đổi thành auto để trình duyệt buffer trước, tránh ngắt quãng giữa chừng
       audio: playlist
+    });
+
+    // Xử lý lỗi khi audio bị ngắt giữa chừng do mạng hoặc lỗi file
+    ap.audio.addEventListener('error', function() {
+      console.error('Lỗi phát audio:', ap.audio.error);
+      // Hiển thị thông báo nhỏ nếu có lỗi xảy ra
+      let errorMsg = 'Đã xảy ra lỗi khi tải audio. Vui lòng kiểm tra mạng và thử lại.';
+      if (ap.audio.error && ap.audio.error.code === 3) { // MEDIA_ERR_DECODE
+        errorMsg = 'Lỗi giải mã audio. File có thể bị hỏng hoặc mạng không ổn định.';
+      } else if (ap.audio.error && ap.audio.error.code === 4) { // MEDIA_ERR_SRC_NOT_SUPPORTED
+        errorMsg = 'Lỗi mạng hoặc không tìm thấy file audio.';
+      }
+      // Dùng toast của docsify hoặc alert
+      alert(errorMsg);
+    });
+
+    ap.audio.addEventListener('stalled', function() {
+      console.warn('Audio đang bị gián đoạn do mạng...');
     });
 
     // Docsify plugin to sync player with current chapter

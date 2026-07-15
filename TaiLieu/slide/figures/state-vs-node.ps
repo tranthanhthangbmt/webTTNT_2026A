@@ -2,7 +2,7 @@
 %%Creator: idraw
 %%DocumentFonts: Helvetica-Bold Times-Bold Helvetica
 %%Pages: 1
-%%BoundingBox: 0 521 694 821
+%%BoundingBox: 0 525 694 821
 %%EndComments
 
 %%BeginIdrawPrologue
@@ -77,8 +77,8 @@ end
 
 %%EndIdrawPrologue
 
-/arrowHeight 11 def
-/arrowWidth 5 def
+/arrowHeight 8 def
+/arrowWidth 4 def
 
 /IdrawDict 53 dict def
 IdrawDict begin
@@ -212,6 +212,7 @@ end
 /Circ {
 newpath
 0 360 arc
+closepath
 patternNone not { ifill } if
 brushNone not { istroke } if
 } def
@@ -243,6 +244,7 @@ newpath
 translate
 scale
 0 0 1 0 360 arc
+closepath
 patternNone not { ifill } if
 brushNone not { istroke } if
 end
@@ -362,7 +364,7 @@ grestore
 gsave
 fgred fggreen fgblue setrgbcolor
 /fontDict printFont printSize scalefont dup setfont def
-/descender fontDict begin 0 [FontBBox] 1 get FontMatrix end
+/descender fontDict begin 0 /FontBBox load  1 get FontMatrix end
 transform exch pop def
 /vertoffset 1 printSize sub descender sub def {
 0 vertoffset moveto show
@@ -492,7 +494,7 @@ exch dup 3 1 roll 1 0 0 -1 0 6 -1 roll matrix astore
 
 %%EndProlog
 
-%I Idraw 10 Grid 8 8 
+%I Idraw 12 Grid 8 8 
 
 %%Page: 1 1
 
@@ -1139,7 +1141,7 @@ End
 
 Begin %I Line
 %I b 65535
-2 0 1 [] 0 SetB
+2 1 0 [] 0 SetB
 %I cfg Black
 0 0 0 SetCFg
 %I cbg White
@@ -1151,19 +1153,6 @@ Begin %I Line
 %I
 896 868 896 780 Line
 %I 1
-End
-
-Begin %I Text
-%I cfg Black
-0 0 0 SetCFg
-%I f -*-helvetica-medium-r-normal-*-14-*-*-*-*-*-*-*
-Helvetica 14 SetF
-%I t
-[ 2 0 0 2 536.158 881.54 ] concat
-%I
-[
-(parent)
-] Text
 End
 
 Begin %I Text
@@ -1187,56 +1176,11 @@ Begin %I Text
 %I f -*-helvetica-medium-r-normal-*-14-*-*-*-*-*-*-*
 Helvetica 14 SetF
 %I t
-[ 2 0 0 2 524.158 593.382 ] concat
-%I
-[
-(children)
-] Text
-End
-
-Begin %I Text
-%I cfg Black
-0 0 0 SetCFg
-%I f -*-helvetica-medium-r-normal-*-14-*-*-*-*-*-*-*
-Helvetica 14 SetF
-%I t
 [ 1.95177 0.43658 -0.43658 1.95177 381.591 632.216 ] concat
 %I
 [
 (state)
 ] Text
-End
-
-Begin %I Line
-%I b 65535
-2 0 1 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-0.75 SetP
-%I t
-[ 0.817432 0 0 0.817432 -156.947 140.598 ] concat
-%I
-896 668 840 572 Line
-%I 1
-End
-
-Begin %I Line
-%I b 65535
-2 0 1 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-0.75 SetP
-%I t
-[ 0.817432 0 0 0.817432 -156.947 140.598 ] concat
-%I
-896 668 952 572 Line
-%I 1
 End
 
 Begin %I BSpl
@@ -1257,6 +1201,19 @@ Begin %I BSpl
 568 604
 4 BSpl
 %I 1
+End
+
+Begin %I Text
+%I cfg Black
+0 0 0 SetCFg
+%I f -*-helvetica-medium-r-normal-*-14-*-*-*-*-*-*-*
+Helvetica 14 SetF
+%I t
+[ 2 0 0 2 536.158 881.54 ] concat
+%I
+[
+(parent, action)
+] Text
 End
 
 End %I eop

@@ -2,7 +2,7 @@
 %%Creator: idraw
 %%DocumentFonts: Helvetica-Bold
 %%Pages: 1
-%%BoundingBox: 78 513 334 737
+%%BoundingBox: 76 513 334 737
 %%EndComments
 
 %%BeginIdrawPrologue
@@ -77,7 +77,7 @@ end
 
 %%EndIdrawPrologue
 
-/arrowHeight 9 def
+/arrowHeight 8 def
 /arrowWidth 4 def
 
 /IdrawDict 51 dict def
@@ -210,6 +210,7 @@ end
 /Circ {
 newpath
 0 360 arc
+closepath
 patternNone not { ifill } if
 brushNone not { istroke } if
 } def
@@ -241,6 +242,7 @@ newpath
 translate
 scale
 0 0 1 0 360 arc
+closepath
 patternNone not { ifill } if
 brushNone not { istroke } if
 end
@@ -332,7 +334,7 @@ bgred bggreen bgblue setrgbcolor
 eofill
 fgred fggreen fgblue setrgbcolor
 w 0 gt h 0 gt and {
-l b translate w h scale
+l w add b translate w neg h scale
 w h true [w 0 0 h neg 0 h] { patternproc } imagemask
 } if
 } ifelse
@@ -360,7 +362,7 @@ grestore
 gsave
 fgred fggreen fgblue setrgbcolor
 /fontDict printFont printSize scalefont dup setfont def
-/descender fontDict begin 0 [FontBBox] 1 get FontMatrix end
+/descender fontDict begin 0 /FontBBox load 1 get FontMatrix end
 transform exch pop def
 /vertoffset 1 printSize sub descender sub def {
 0 vertoffset moveto show
@@ -490,7 +492,7 @@ exch dup 3 1 roll 1 0 0 -1 0 6 -1 roll matrix astore
 
 %%EndProlog
 
-%I Idraw 10 Grid 8 8 
+%I Idraw 12 Grid 8 8 
 
 %%Page: 1 1
 
@@ -505,12 +507,12 @@ Begin
 /originalCTM matrix currentmatrix def
 
 Begin %I Text
-%I cfg Black
-0 0 0 SetCFg
+%I cfg Red
+1 0 0 SetCFg
 %I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
 Helvetica-Bold 14 SetF
 %I t
-[ 1 0 0 1 104 939.807 ] concat
+[ 1.5 0 0 1.5 102.25 942.307 ] concat
 %I
 [
 (1)
@@ -518,12 +520,12 @@ Helvetica-Bold 14 SetF
 End
 
 Begin %I Text
-%I cfg Black
-0 0 0 SetCFg
+%I cfg Red
+1 0 0 SetCFg
 %I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
 Helvetica-Bold 14 SetF
 %I t
-[ 1 0 0 1 296 939.807 ] concat
+[ 1.5 0 0 1.5 294.25 942.307 ] concat
 %I
 [
 (2)
@@ -531,12 +533,12 @@ Helvetica-Bold 14 SetF
 End
 
 Begin %I Text
-%I cfg Black
-0 0 0 SetCFg
+%I cfg Red
+1 0 0 SetCFg
 %I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
 Helvetica-Bold 14 SetF
 %I t
-[ 1 0 0 1 104 863.42 ] concat
+[ 1.5 0 0 1.5 102.25 865.92 ] concat
 %I
 [
 (3)
@@ -544,12 +546,12 @@ Helvetica-Bold 14 SetF
 End
 
 Begin %I Text
-%I cfg Black
-0 0 0 SetCFg
+%I cfg Red
+1 0 0 SetCFg
 %I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
 Helvetica-Bold 14 SetF
 %I t
-[ 1 0 0 1 296 863.42 ] concat
+[ 1.5 0 0 1.5 294.25 865.92 ] concat
 %I
 [
 (4)
@@ -557,12 +559,12 @@ Helvetica-Bold 14 SetF
 End
 
 Begin %I Text
-%I cfg Black
-0 0 0 SetCFg
+%I cfg Red
+1 0 0 SetCFg
 %I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
 Helvetica-Bold 14 SetF
 %I t
-[ 1 0 0 1 104 787.033 ] concat
+[ 1.5 0 0 1.5 102.25 789.533 ] concat
 %I
 [
 (5)
@@ -570,12 +572,12 @@ Helvetica-Bold 14 SetF
 End
 
 Begin %I Text
-%I cfg Black
-0 0 0 SetCFg
+%I cfg Red
+1 0 0 SetCFg
 %I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
 Helvetica-Bold 14 SetF
 %I t
-[ 1 0 0 1 296 787.033 ] concat
+[ 1.5 0 0 1.5 294.25 789.533 ] concat
 %I
 [
 (6)
@@ -583,12 +585,12 @@ Helvetica-Bold 14 SetF
 End
 
 Begin %I Text
-%I cfg Black
-0 0 0 SetCFg
+%I cfg Red
+1 0 0 SetCFg
 %I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
 Helvetica-Bold 14 SetF
 %I t
-[ 1 0 0 1 104 710.645 ] concat
+[ 1.5 0 0 1.5 102.25 713.145 ] concat
 %I
 [
 (7)
@@ -596,12 +598,12 @@ Helvetica-Bold 14 SetF
 End
 
 Begin %I Text
-%I cfg Black
-0 0 0 SetCFg
+%I cfg Red
+1 0 0 SetCFg
 %I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
 Helvetica-Bold 14 SetF
 %I t
-[ 1 0 0 1 296 710.645 ] concat
+[ 1.5 0 0 1.5 294.25 713.145 ] concat
 %I
 [
 (8)

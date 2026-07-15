@@ -14,55 +14,62 @@
 
 #### **Slide**
 
-\usepackage{aima-slides}
-\usepackage[utf8]{inputenc}
-\usepackage[T5]{fontenc}
-\usepackage{lmodern}
+\usepackage{fleqn}
+\usepackage{epsf}
+\usepackage[dvips]{color}
+\usepackage{aima2e-slides}
 
-# Giải quyết vấn đề và tìm kiếm
+# Problem solving and search
 
-## Chương 3, Phần 1--5
+## Chapter 3
 
 ---
-## Nội dung
+## Nhắc nhở
+
+*Bài tập 0 hạn nộp lúc 5 giờ chiều hôm nay*
+
+*Bài tập 1 đã đăng*, hạn nộp ngày 9/2
+
+\note{Phần 105 sẽ chuyển sang 9-10h sáng} bắt đầu từ tuần sau
+
+---
+## Phác thảo
 
 - Tác nhân giải quyết vấn đề
 
-- Các loại bài toán
+- Các loại sự cố
 
-- Khởi tạo bài toán
+- Xây dựng bài toán
 
-- Các bài toán ví dụ
+- Các vấn đề mẫu
 
-- Các thuật toán tìm kiếm cơ bản
+- Thuật toán tìm kiếm cơ bản
 
 ---
 ## Tác nhân giải quyết vấn đề
 
-Một dạng hạn chế của tác nhân tổng quát:
+Hình thức tổng đại lý bị hạn chế:
 
 ```text
-function Simple-Problem-Solving-Agent(p) returns an action
-      inputs: p, a percept
-      static: s, an action sequence, initially empty
+function Simple-Problem-Solving-Agent(percept) returns an action
+      static: seq, an action sequence, initially empty
       static: state, some description of the current world state
-      static: g, a goal, initially null
+      static: goal, a goal, initially null
       static: problem, a problem formulation
 
-    state <- Update-State(state, p)
-    if s is empty then 
-          g <- Formulate-Goal(state)
-          problem <- Formulate-Problem(state, g)
-          s <- Search(problem)
-    action <- Recommendation(s, state)
-    s <- Remainder(s, state)
+    state <- Update-State(state, percept)
+    if seq is empty then 
+          goal <- Formulate-Goal(state)
+          problem <- Formulate-Problem(state, goal)
+          seq <- Search(problem)
+    action <- Recommendation(seq, state)
+    seq <- Remainder(seq, state)
     return action
 ```
 
-Lưu ý: đây là giải quyết vấn đề *ngoại tuyến (offline)*.
+Lưu ý: đây là cách giải quyết vấn đề \note{ngoại tuyến}; giải pháp được thực thi " nhắm mắt lại."
 
-Giải quyết vấn đề *trực tuyến (online)* bao gồm việc hành động mà không có
-tri thức đầy đủ về bài toán và giải pháp.
+\note{Trực tuyến} giải quyết vấn đề liên quan đến hành động mà không có kiến thức đầy đủ.
 
 ---
 ## Ví dụ: Romania
@@ -71,197 +78,357 @@ tri thức đầy đủ về bài toán và giải pháp.
 
 Chuyến bay khởi hành vào ngày mai từ Bucharest
 
-<u>Định dạng mục tiêu</u>:
+\note{Xây dựng mục tiêu}:
     
-có mặt ở Bucharest
+ở Bucharest
 
-<u>Khởi tạo bài toán</u>:
+\note{Xây dựng bài toán}:
     
-*trạng thái*: các thành phố khác nhau
+\note{tiểu bang}: các thành phố khác nhau
     
-*toán tử*: lái xe giữa các thành phố
+\note{hành động}: lái xe giữa các thành phố
 
-<u>Tìm giải pháp</u>:
+\note{Tìm giải pháp}:
     
 chuỗi các thành phố, ví dụ: Arad, Sibiu, Fagaras, Bucharest
 
 ---
 ## Ví dụ: Romania
 
-![Hình ảnh](../TaiLieu/slide_md/figures/romania.png)
+![Hình ảnh](../TaiLieu/slide_md/figures/romania-distances.png)
 
 ---
-## Các loại bài toán
+## Các loại sự cố
 
-<u>Tất định, có thể truy cập</u> $\Longrightarrow$ *bài toán trạng thái đơn (single-state)*
-
-<u>Tất định, không thể truy cập</u> $\Longrightarrow$ *bài toán đa trạng thái (multiple-state)*
-
-<u>Không tất định, không thể truy cập</u> $\Longrightarrow$ *bài toán dự phòng (contingency)*
+\note{Có tính xác định, hoàn toàn có thể quan sát được} $\Longrightarrow$ \defn{vấn đề một trạng thái}
     
-phải sử dụng cảm biến trong quá trình thực thi 
-    
-giải pháp là một *cây* hoặc *chính sách* 
-    
-thường *đan xen* giữa tìm kiếm và thực thi
+    Đại lý biết chính xác nó sẽ ở trạng thái nào; giải pháp là một chuỗi
 
-<u>Không gian trạng thái chưa biết</u> $\Longrightarrow$ *bài toán khám phá* ("trực tuyến")
+\note{Không thể quan sát được} $\Longrightarrow$ \defn{vấn đề về tuân thủ}
+    
+    Đại lý có thể không biết nó ở đâu; nghiệm (nếu có) là dãy
+
+\note{Không xác định} và/hoặc \note{có thể quan sát được một phần} $\Longrightarrow$ \defn{vấn đề dự phòng}
+    
+nhận thức cung cấp thông tin *mới* về trạng thái hiện tại
+    
+giải pháp là \defn{kế hoạch dự phòng} hoặc \defn{chính sách} 
+    
+thường *xen kẽ* tìm kiếm, thực thi
+
+\note{Không gian trạng thái không xác định} $\Longrightarrow$ \defn{vấn đề khám phá} ("trực tuyến")
 
 ---
-## Ví dụ: thế giới máy hút bụi
+## Ví dụ: thế giới chân không
 
-<u>Trạng thái đơn</u>, bắt đầu ở \#5. <u>Giải pháp</u>?? 
-
-<u>Đa trạng thái</u>, bắt đầu ở $\{1,2,3,4,5,6,7,8\}$
-
-ví dụ: $Phải$ đi đến $\{2,4,6,8\}$. <u>Giải pháp</u>??
-
-<u>Dự phòng</u>, bắt đầu ở \#5
-
-Định luật Murphy: $Hút$ có thể làm bẩn một tấm thảm đang sạch
-
-Cảm biến cục bộ: chỉ biết có bụi và vị trí hiện tại.
-
-<u>Giải pháp</u>??
+\note{Trạng thái đơn}, bắt đầu bằng \#5. <u>Giải pháp</u>?? 
 
  
 
-![Hình ảnh](../TaiLieu/slide_md/figures/vacuum2-space.png)
+,4\maxfigwidth
+\raisebox{-0.35\maxfigwidth}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/vacuum2-space.png)}
 
 ---
-## Khởi tạo bài toán trạng thái đơn
+## Ví dụ: thế giới chân không
 
-Một *bài toán* được định nghĩa bởi bốn mục:
+\hbox{
+\note{Trạng thái đơn}, bắt đầu bằng \#5. <u>Giải pháp</u>?? 
 
-<u>*trạng thái ban đầu</u>*  &nbsp;&nbsp;  ví dụ: "ở Arad"
+\mat{$[Right,Suck]$}
 
-<u>*toán tử</u>* (hoặc *hàm kế tiếp* $S(x)$) 
-    
-ví dụ: Arad $\rightarrow$ Zerind  &nbsp;&nbsp;&nbsp;&nbsp;  Arad $\rightarrow$ Sibiu  &nbsp;&nbsp;&nbsp;&nbsp;  v.v.
+[0,5\baselineskip]
+\note{Conformant}, bắt đầu trong \mat{$\{1,2,3,4,5,6,7,8\}$}
 
-<u>*kiểm tra mục tiêu</u>*, có thể là
-    
-*tường minh*, ví dụ: $x$ = "ở Bucharest"
-    
-*ngầm định*, ví dụ: $NoDirt(x)$
+ví dụ: \mat{$Right$} chuyển đến \mat{$\{2,4,6,8\}$}. <u>Giải pháp</u>??
+}
+ 
 
-<u>*chi phí đường đi</u>* (cộng dồn)
-    
-ví dụ: tổng khoảng cách, số lượng toán tử đã thực thi, v.v.
-
-Một *giải pháp* là một chuỗi các toán tử
-
-dẫn từ trạng thái ban đầu đến một trạng thái mục tiêu
+,4\maxfigwidth
+\raisebox{-0.35\maxfigwidth}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/vacuum2-space.png)}
 
 ---
-## Chọn lựa một không gian trạng thái
+## Ví dụ: thế giới chân không
 
-Thế giới thực thì phức tạp một cách vô lý 
+\hbox{
+\note{Trạng thái đơn}, bắt đầu bằng \#5. <u>Giải pháp</u>?? 
+
+\mat{$[Right,Suck]$}
+
+[0,5\baselineskip]
+\note{Conformant}, bắt đầu trong \mat{$\{1,2,3,4,5,6,7,8\}$}
+
+ví dụ: \mat{$Right$} chuyển đến \mat{$\{2,4,6,8\}$}. <u>Giải pháp</u>??
+
+\mat{$[Right,Suck,Left,Suck]$}
+
+[0,5\baselineskip]
+\note{Dự phòng}, bắt đầu trong \#5
+
+Định luật Murphy: \mat{$Suck$} có thể làm bẩn một tấm thảm sạch
+
+Cảm biến cục bộ: bụi bẩn, chỉ vị trí.
+
+<u>Giải pháp</u>??
+}
+ 
+
+,4\maxfigwidth
+\raisebox{-0.35\maxfigwidth}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/vacuum2-space.png)}
+
+---
+## Ví dụ: thế giới chân không
+
+\hbox{
+\note{Trạng thái đơn}, bắt đầu bằng \#5. <u>Giải pháp</u>?? 
+
+\mat{$[Right,Suck]$}
+
+[0,5\baselineskip]
+\note{Conformant}, bắt đầu trong \mat{$\{1,2,3,4,5,6,7,8\}$}
+
+ví dụ: \mat{$Right$} chuyển đến \mat{$\{2,4,6,8\}$}. <u>Giải pháp</u>??
+
+\mat{$[Right,Suck,Left,Suck]$}
+
+[0,5\baselineskip]
+\note{Dự phòng}, bắt đầu trong \#5
+
+Định luật Murphy: \mat{$Suck$} có thể làm bẩn một tấm thảm sạch
+
+Cảm biến cục bộ: bụi bẩn, chỉ vị trí.
+
+<u>Giải pháp</u>??
+
+\mat{$[Right,\k{if}\ dirt\ \k{then}\ Suck]$}
+}
+ 
+
+,4\maxfigwidth
+\raisebox{-0.35\maxfigwidth}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/vacuum2-space.png)}
+
+---
+## Xây dựng bài toán trạng thái đơn
+
+Sự cố \defn{} được xác định bởi bốn mục:
+
+\defn{trạng thái ban đầu}  &nbsp;&nbsp;  ví dụ: "tại Arad"
+
+\defn{hàm kế tiếp} \mat{$S(x)$} = tập hợp các cặp hành động--trạng thái 
     
-$\Rightarrow$ không gian trạng thái phải được *trừu tượng hóa* để giải quyết bài toán
+ví dụ: \mat{$S(Arad) = \{\<Arad\rightarrow Zerind, Zerind\>, \ldots \}$}
 
-(Trừu tượng) trạng thái = tập hợp các trạng thái thực
+\defn{kiểm tra mục tiêu}, có thể là
+    
+\note{rõ ràng}, ví dụ: \mat{$x$} = "tại Bucharest"
+    
+\note{ẩn}, ví dụ: \mat{$NoDirt(x)$}
 
-(Trừu tượng) toán tử = kết hợp phức tạp của các hành động thực
+\defn{chi phí đường dẫn} (phụ gia)
+    
+ví dụ: tổng khoảng cách, số hành động được thực hiện, v.v.
+    
+\mat{$c(x,a,y)$} là \defn{chi phí bước}, giả định là \mat{$\geq 0$}
+
+Giải pháp \defn{} là một chuỗi hành động
+
+dẫn từ trạng thái ban đầu đến trạng thái mục tiêu
+
+---
+## Chọn không gian trạng thái
+
+Thế giới thực phức tạp đến mức ngớ ngẩn 
+    
+Không gian trạng thái $\Rightarrow$ phải được *trừu tượng* để giải quyết vấn đề
+
+(Tóm tắt) trạng thái = tập hợp các trạng thái thực
+
+(Tóm tắt) hành động = sự kết hợp phức tạp của các hành động thực tế
     
    ví dụ: "Arad $\rightarrow$ Zerind" đại diện cho một tập hợp phức tạp
       
-   các tuyến đường có thể, đường vòng, trạm dừng chân, v.v. 
+   về các tuyến đường có thể, đường vòng, điểm dừng nghỉ, v.v. 
 
-Để đảm bảo tính khả thi, <u>bất kỳ</u> trạng thái thực nào "ở Arad"
+Để đảm bảo khả năng thực hiện được, *bất kỳ* trạng thái thực " ở Arad"
   
-đều phải đi được đến *một* trạng thái thực nào đó "ở Zerind"
+phải đến \note{some} trạng thái thực " ở Zerind "
 
-(Trừu tượng) giải pháp = 
+(Tóm tắt) giải pháp = 
     
-   tập hợp các đường đi thực tế là giải pháp trong thế giới thực
+   tập hợp các đường dẫn thực sự là giải pháp trong thế giới thực
 
-Mỗi hành động trừu tượng phải "dễ dàng" hơn bài toán ban đầu!
+Mỗi hành động trừu tượng phải "dễ dàng hơn" so với vấn đề ban đầu!
 
 ---
-## Ví dụ: Câu đố 8 ô (8-puzzle)
+##  Ví dụ: đồ thị không gian trạng thái thế giới chân không 
 
-![Hình ảnh](../TaiLieu/slide_md/figures/8puzzle.png)
+,8\textwidth
+![Hình ảnh](../TaiLieu/slide_md/figures/vacuum2-paths.png)
 
 <u>trạng thái</u>??
 
-<u>toán tử</u>??
+<u>hành động</u>??
 
 <u>kiểm tra mục tiêu</u>??
 
 <u>chi phí đường đi</u>??
 
 ---
-## Ví dụ: Câu đố 8 ô (8-puzzle)
+##  Ví dụ: đồ thị không gian trạng thái thế giới chân không 
 
-![Hình ảnh](../TaiLieu/slide_md/figures/8puzzle.png)
+,8\textwidth
+![Hình ảnh](../TaiLieu/slide_md/figures/vacuum2-paths.png)
 
-<u>trạng thái</u>??: vị trí nguyên của các ô vuông (bỏ qua các vị trí trung gian)
+<u>state</u>??: số nguyên bụi bẩn và vị trí robot (bỏ qua bụi bẩn \note{số lượng}, v.v.)
 
-<u>toán tử</u>??: di chuyển ô trống sang trái, phải, lên, xuống (bỏ qua kẹt v.v.)
+<u>hành động</u>??
 
-<u>kiểm tra mục tiêu</u>??: = trạng thái mục tiêu (được cho trước)
+<u>kiểm tra mục tiêu</u>??
 
-<u>chi phí đường đi</u>??: 1 cho mỗi lần di chuyển
-
-[Lưu ý: giải pháp tối ưu của họ Câu đố $n$-ô là NP-khó]
+<u>chi phí đường dẫn</u>??
 
 ---
-## Ví dụ: đồ thị không gian trạng thái thế giới máy hút bụi
+##  Ví dụ: đồ thị không gian trạng thái thế giới chân không 
 
+,8\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/vacuum2-paths.png)
+
+<u>state</u>??: số nguyên bụi bẩn và vị trí robot (bỏ qua bụi bẩn \note{số lượng}, v.v.)
+
+<u>hành động</u>??: \mat{$Left$}, \mat{$Right$}, \mat{$Suck$}, \mat{$NoOp$}
+
+<u>kiểm tra mục tiêu</u>??
+
+<u>chi phí đường dẫn</u>??
+
+---
+##  Ví dụ: đồ thị không gian trạng thái thế giới chân không 
+
+,8\textwidth
+![Hình ảnh](../TaiLieu/slide_md/figures/vacuum2-paths.png)
+
+<u>state</u>??: số nguyên bụi bẩn và vị trí robot (bỏ qua bụi bẩn \note{số lượng}, v.v.)
+
+<u>hành động</u>??: \mat{$Left$}, \mat{$Right$}, \mat{$Suck$}, \mat{$NoOp$}
+
+<u>kiểm tra mục tiêu</u>??: không có bụi bẩn
+
+<u>chi phí đường dẫn</u>??
+
+---
+##  Ví dụ: đồ thị không gian trạng thái thế giới chân không 
+
+,8\textwidth
+![Hình ảnh](../TaiLieu/slide_md/figures/vacuum2-paths.png)
+
+<u>state</u>??: số nguyên bụi bẩn và vị trí robot (bỏ qua bụi bẩn \note{số lượng}, v.v.)
+
+<u>hành động</u>??: \mat{$Left$}, \mat{$Right$}, \mat{$Suck$}, \mat{$NoOp$}
+
+<u>kiểm tra mục tiêu</u>??: không có bụi bẩn
+
+<u>chi phí đường dẫn</u>??: 1 cho mỗi hành động (0 cho \mat{$NoOp$})
+
+---
+## Ví dụ: Câu đố 8 ô
+
+,6\textwidth
+![Hình ảnh](../TaiLieu/slide_md/figures/8puzzle.png)
 
 <u>trạng thái</u>??
 
-<u>toán tử</u>??
+<u>hành động</u>??
 
 <u>kiểm tra mục tiêu</u>??
 
 <u>chi phí đường đi</u>??
 
 ---
-## Ví dụ: đồ thị không gian trạng thái thế giới máy hút bụi
+## Ví dụ: Câu đố 8 ô
 
-![Hình ảnh](../TaiLieu/slide_md/figures/vacuum2-paths.png)
+,6\textwidth
+![Hình ảnh](../TaiLieu/slide_md/figures/8puzzle.png)
 
-<u>trạng thái</u>??: số nguyên biểu thị vị trí bụi và robot (bỏ qua *lượng* bụi)
+<u>state</u>??: vị trí số nguyên của các ô (bỏ qua các vị trí trung gian)
 
-<u>toán tử</u>??: $Trái$, $Phải$, $Hút$
+<u>hành động</u>??
 
-<u>kiểm tra mục tiêu</u>??: không còn bụi
+<u>kiểm tra mục tiêu</u>??
 
-<u>chi phí đường đi</u>??: 1 cho mỗi toán tử
+<u>chi phí đường đi</u>??
+
+---
+## Ví dụ: Câu đố 8 ô
+
+,6\textwidth
+![Hình ảnh](../TaiLieu/slide_md/figures/8puzzle.png)
+
+<u>state</u>??: vị trí số nguyên của các ô (bỏ qua các vị trí trung gian)
+
+<u>actions</u>??: di chuyển trống sang trái, phải, lên, xuống (bỏ qua việc gỡ nhiễu, v.v.)
+
+<u>kiểm tra mục tiêu</u>??
+
+<u>chi phí đường đi</u>??
+
+---
+## Ví dụ: Câu đố 8 ô
+
+,6\textwidth
+![Hình ảnh](../TaiLieu/slide_md/figures/8puzzle.png)
+
+<u>state</u>??: vị trí số nguyên của các ô (bỏ qua các vị trí trung gian)
+
+<u>actions</u>??: di chuyển trống sang trái, phải, lên, xuống (bỏ qua việc gỡ nhiễu, v.v.)
+
+<u>kiểm tra mục tiêu</u>??: = trạng thái mục tiêu (đã cho)
+
+<u>chi phí đường đi</u>??
+
+---
+## Ví dụ: Câu đố 8 ô
+
+,6\textwidth
+![Hình ảnh](../TaiLieu/slide_md/figures/8puzzle.png)
+
+<u>state</u>??: vị trí số nguyên của các ô (bỏ qua các vị trí trung gian)
+
+<u>actions</u>??: di chuyển trống sang trái, phải, lên, xuống (bỏ qua việc gỡ nhiễu, v.v.)
+
+<u>kiểm tra mục tiêu</u>??: = trạng thái mục tiêu (đã cho)
+
+<u>chi phí đường dẫn</u>??: 1 mỗi lần di chuyển
+
+[Lưu ý: giải pháp tối ưu của $n$-Puzzle là NP-hard]
 
 ---
 ## Ví dụ: lắp ráp robot
 
+,7\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/stanford-arm+blocks.png)
 
-<u>trạng thái</u>??: tọa độ giá trị thực của
+<u>state</u>??: tọa độ có giá trị thực của các góc khớp robot
     
-các khớp robot
-    
-các bộ phận của vật thể cần lắp ráp
+các bộ phận của đối tượng được lắp ráp
 
-<u>toán tử</u>??: chuyển động liên tục của các khớp robot
+<u>hành động</u>??: chuyển động liên tục của các khớp robot
 
-<u>kiểm tra mục tiêu</u>??: lắp ráp hoàn chỉnh *không tính robot!*
+<u>kiểm tra mục tiêu</u>??: lắp ráp hoàn chỉnh *không bao gồm robot!*
 
-<u>chi phí đường đi</u>??: thời gian thực thi
+<u>chi phí đường dẫn</u>??: thời gian thực hiện
 
 ---
-## Các thuật toán tìm kiếm
+## Thuật toán tìm kiếm cây
 
 Ý tưởng cơ bản:
   
-khám phá ngoại tuyến, mô phỏng không gian trạng thái
+ngoại tuyến, mô phỏng khám phá không gian trạng thái
   
-bằng cách sinh ra các trạng thái kế tiếp từ những trạng thái đã khám phá
+bằng cách tạo ra những trạng thái kế thừa đã được khám phá
       
-(còn gọi là *khai triển* trạng thái)
+(còn gọi là trạng thái  \defn{mở rộng })
 
 ```text
-function General-Search(problem, strategy) returns a solution, or failure
+function Tree-Search(problem, strategy) returns a solution, or failure
     initialize the search tree using the initial state of problem
     loop do
           if there are no candidates for expansion then return failure
@@ -272,362 +439,456 @@ function General-Search(problem, strategy) returns a solution, or failure
 ```
 
 ---
-## Ví dụ tìm kiếm tổng quát
+## Ví dụ tìm kiếm cây
 
-![Hình ảnh](../TaiLieu/slide_md/figures/general-romania1.png)
-
----
-## Ví dụ tìm kiếm tổng quát
-
-![Hình ảnh](../TaiLieu/slide_md/figures/general-romania2.png)
+![Hình ảnh](../TaiLieu/slide_md/figures/search-map1.png)
 
 ---
-## Ví dụ tìm kiếm tổng quát
+## Ví dụ tìm kiếm cây
 
-![Hình ảnh](../TaiLieu/slide_md/figures/general-romania3.png)
-
----
-## Ví dụ tìm kiếm tổng quát
-
-![Hình ảnh](../TaiLieu/slide_md/figures/general-romania4.png)
+![Hình ảnh](../TaiLieu/slide_md/figures/search-map2.png)
 
 ---
-## Cài đặt các thuật toán tìm kiếm
+## Ví dụ tìm kiếm cây
 
-```text
-function General-Search(problem, Queuing-Fn){một giải pháp, hoặc thất bại}
-
-    nodes <- Make-Queue(Make-Node(Initial-State[problem]))
-    loop do
-          if nodes trống then return thất bại
-          node <- Remove-Front(nodes)
-          if Goal-Test[problem] áp dụng cho State(node) thành công then return node
-          nodes <- Queuing-Fn(nodes, Expand(node, Operators[problem]))
-    end
-```
+![Hình ảnh](../TaiLieu/slide_md/figures/search-map3.png)
 
 ---
-## Cài đặt (tiếp theo): trạng thái (states) vs. nút (nodes)
+## Triển khai: trạng thái so với. nút
 
-Một *trạng thái* là một (biểu diễn của) cấu hình vật lý
+Trạng thái \defn{} là (biểu thị của) cấu hình vật lý
 
-Một *nút* là một cấu trúc dữ liệu tạo thành một phần của cây tìm kiếm
+Nút \defn{} là cấu trúc dữ liệu cấu thành một phần của cây tìm kiếm
     
-    bao gồm *nút cha*, *các nút con*, *độ sâu*, *chi phí đường đi* $g(x)$
+    bao gồm \note{parent}, \note{children}, \note{deep}, \note{path cost} \mat{$g(x)$}
 
-*Trạng thái* không có nút cha, nút con, độ sâu, hay chi phí đường đi!
+Hoa không có cha mẹ, con cái, độ sâu, hoặc chi phí đường đi!
 
+,65\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/state-vs-node.png)
 
-Hàm **Expand** (Khai triển) tạo ra các nút mới, điền vào các trường
-khác nhau và sử dụng **Operators** (Toán tử) (hoặc **SuccessorFn**) của
+Hàm **Expand** tạo các nút mới, điền vào các nút khác nhau
+các trường và sử dụng {\s SuccessorFn} của
 bài toán để tạo ra các trạng thái tương ứng.
 
 ---
-## Các chiến lược tìm kiếm
+## Thực hiện: tìm kiếm cây tổng quát
 
-Một chiến lược được xác định bằng cách chọn *thứ tự khai triển nút*
+```text
+function Tree-Search(problem, \var{fringe)}{a solution, or failure}
+    fringe <- Insert(Make-Node(Initial-State[problem]), fringe)
+    loop do
+          if fringe is empty then return failure
+          node <- Remove-Front(fringe)
+          if Goal-Test(problem, State(node)) then return node       
+          fringe <- InsertAll(Expand(node, problem), fringe)
 
-Các chiến lược được đánh giá dựa trên các khía cạnh sau:
-    
-<u>tính hoàn chỉnh (completeness)</u>---nó có luôn tìm ra giải pháp nếu giải pháp tồn tại không?
-    
-<u>độ phức tạp thời gian</u>---số lượng nút được tạo/khai triển
-    
-<u>độ phức tạp không gian</u>---số lượng nút tối đa lưu trong bộ nhớ
-    
-<u>tính tối ưu (optimality)</u>---nó có luôn tìm ra giải pháp có chi phí thấp nhất không?
-
-Độ phức tạp thời gian và không gian được đo lường thông qua
-    
-$b$---hệ số rẽ nhánh (branching factor) tối đa của cây tìm kiếm
-    
-$d$---độ sâu của giải pháp có chi phí thấp nhất
-    
-$m$---độ sâu tối đa của không gian trạng thái (có thể là $\infty$)
+\fnsep
+function Expand(node, \var{problem)}{a set of nodes}
+    successors <- the empty set
+    for each action, result in Successor-Fn(problem, State[node]) do
+          s <- a new Node
+          Parent-Node[s] <- node;  Action[s] <- action;  State[s] <- result
+          Path-Cost[s] <- Path-Cost[node] + Step-Cost(State[node], action, result)
+          Depth[s] <- Depth[node] + 1
+          add s to successors
+    return successors
+```
 
 ---
-## Các chiến lược tìm kiếm mù (Uninformed search)
+## Chiến lược tìm kiếm
 
-Chiến lược *tìm kiếm mù* chỉ sử dụng những thông tin có sẵn
+Chiến lược được xác định bằng cách chọn thứ tự *mở rộng nút*
 
-trong định nghĩa của bài toán
+Các chiến lược được đánh giá theo các khía cạnh sau:
+    
+\defn{tính đầy đủ}---nó có luôn tìm ra giải pháp nếu có không?
+    
+\defn{độ phức tạp về thời gian}---số lượng nút được tạo/mở rộng
+    
+\defn{Độ phức tạp của không gian}---số lượng nút tối đa trong bộ nhớ
+    
+\defn{optimality}---nó có luôn tìm ra giải pháp có chi phí thấp nhất không?
 
-Tìm kiếm theo chiều rộng (Breadth-first search)
+Độ phức tạp về thời gian và không gian được đo bằng 
+    
+\mat{$b$}---hệ số phân nhánh tối đa của cây tìm kiếm
+    
+\mat{$d$}---độ sâu của giải pháp chi phí thấp nhất
+    
+\mat{$m$}---độ sâu tối đa của không gian trạng thái (có thể là \mat{$\infty$})
 
-Tìm kiếm chi phí đồng nhất (Uniform-cost search)
+---
+## Chiến lược tìm kiếm không chính xác
 
-Tìm kiếm theo chiều sâu (Depth-first search)
+Chiến lược \defn{Uninformed} chỉ sử dụng thông tin có sẵn
 
-Tìm kiếm sâu hạn chế (Depth-limited search)
+trong định nghĩa vấn đề
 
-Tìm kiếm sâu lặp sâu dần (Iterative deepening search)
+Tìm kiếm theo chiều rộng
+
+Tìm kiếm chi phí thống nhất
+
+Tìm kiếm theo chiều sâu
+
+Tìm kiếm giới hạn độ sâu
+
+Tìm kiếm sâu hơn lặp đi lặp lại
 
 ---
 ## Tìm kiếm theo chiều rộng
 
-Khai triển nút chưa khai triển ở độ sâu nông nhất
+Mở rộng nút nông nhất chưa được mở rộng
 
-<u>Cài đặt</u>:
+*Triển khai*:
     
-**QueueingFn** (Hàm hàng đợi) = đặt các nút kế tiếp vào cuối hàng đợi
+\v{fringe} là một hàng đợi FIFO, tức là những người kế nhiệm mới sẽ ở cuối
 
-![Hình ảnh](../TaiLieu/slide_md/figures/bfs-romania1.png)
+,5\textwidth
+![Hình ảnh](../TaiLieu/slide_md/figures/bfs-progress1.png)
 
 ---
 ## Tìm kiếm theo chiều rộng
 
-.
+Mở rộng nút nông nhất chưa được mở rộng
 
-.
+*Triển khai*:
+    
+\v{fringe} là một hàng đợi FIFO, tức là những người kế nhiệm mới sẽ ở cuối
 
-.
-
-![Hình ảnh](../TaiLieu/slide_md/figures/bfs-romania2.png)
+,5\textwidth
+![Hình ảnh](../TaiLieu/slide_md/figures/bfs-progress2.png)
 
 ---
 ## Tìm kiếm theo chiều rộng
 
-.
+Mở rộng nút nông nhất chưa được mở rộng
 
-.
+*Triển khai*:
+    
+\v{fringe} là một hàng đợi FIFO, tức là những người kế nhiệm mới sẽ ở cuối
 
-.
-
-![Hình ảnh](../TaiLieu/slide_md/figures/bfs-romania3.png)
+,5\textwidth
+![Hình ảnh](../TaiLieu/slide_md/figures/bfs-progress3.png)
 
 ---
 ## Tìm kiếm theo chiều rộng
 
-.
+Mở rộng nút nông nhất chưa được mở rộng
 
-.
-
-.
-
-![Hình ảnh](../TaiLieu/slide_md/figures/bfs-romania4.png)
-
----
-## Các thuộc tính của tìm kiếm theo chiều rộng
-
-<u>Hoàn chỉnh</u>??
-
-<u>Thời gian</u>??
-
-<u>Không gian</u>??
-
-<u>Tối ưu</u>??
-
----
-## Các thuộc tính của tìm kiếm theo chiều rộng
-
-<u>Hoàn chỉnh</u>?? Có (nếu $b$ là hữu hạn)
-
-<u>Thời gian</u>?? $1+b+b^2+b^3+\ldots +b^d = O(b^d)$, tức là tăng theo hàm mũ của $d$
-
-<u>Không gian</u>?? $O(b^d)$ (lưu giữ mọi nút trong bộ nhớ)
-
-<u>Tối ưu</u>?? Có (nếu chi phí = 1 cho mỗi bước); thông thường thì không tối ưu
-
-*Không gian* là một vấn đề lớn; có thể dễ dàng tạo ra các nút ở mức 1MB/giây
+*Triển khai*:
     
-do đó 24 giờ = 86GB.
+\v{fringe} là một hàng đợi FIFO, tức là những người kế nhiệm mới sẽ ở cuối
+
+,5\textwidth
+![Hình ảnh](../TaiLieu/slide_md/figures/bfs-progress4.png)
 
 ---
-## Romania với chi phí bước tính bằng km
+## Thuộc tính tìm kiếm theo chiều rộng
 
-![Hình ảnh](../TaiLieu/slide_md/figures/romania2.png)
+<u>Hoàn thành</u>?? 
 
 ---
-## Tìm kiếm chi phí đồng nhất
+## Thuộc tính tìm kiếm theo chiều rộng
 
-Khai triển nút chưa khai triển có chi phí thấp nhất
+<u>Hoàn thành</u>?? Có (nếu \mat{$b$} là hữu hạn)
 
-<u>Cài đặt</u>:
+<u>Thời gian</u>?? 
+
+---
+## Thuộc tính tìm kiếm theo chiều rộng
+
+<u>Hoàn thành</u>?? Có (nếu \mat{$b$} là hữu hạn)
+
+<u>Thời gian</u>?? \mat{$1+b+b^2+b^3+\ldots +b^d + b(b^d-1)= O(b^{d+1})$}, tức là exp. in \mat{$d$}
+
+<u>Không gian</u>?? 
+
+---
+## Thuộc tính tìm kiếm theo chiều rộng
+
+<u>Hoàn thành</u>?? Có (nếu \mat{$b$} là hữu hạn)
+
+<u>Thời gian</u>?? \mat{$1+b+b^2+b^3+\ldots +b^d + b(b^d-1)= O(b^{d+1})$}, tức là exp. in \mat{$d$}
+
+<u>Space</u>?? \mat{$O(b^{d+1})$} (giữ mọi nút trong bộ nhớ)
+
+<u>Tối ưu</u>?? 
+
+---
+## Thuộc tính tìm kiếm theo chiều rộng
+
+<u>Hoàn thành</u>?? Có (nếu \mat{$b$} là hữu hạn)
+
+<u>Thời gian</u>?? \mat{$1+b+b^2+b^3+\ldots +b^d + b(b^d-1)= O(b^{d+1})$}, tức là exp. in \mat{$d$}
+
+<u>Space</u>?? \mat{$O(b^{d+1})$} (giữ mọi nút trong bộ nhớ)
+
+<u>Tối ưu</u>?? Có (nếu chi phí = 1 mỗi bước); nói chung là không tối ưu
+
+*Không gian* là vấn đề lớn; có thể dễ dàng tạo các nút ở tốc độ 100MB/giây
     
-**QueueingFn** = chèn theo thứ tự chi phí đường đi tăng dần
-
-![Hình ảnh](../TaiLieu/slide_md/figures/uc-romania1.png)
+vậy 24 giờ = 8640GB.
 
 ---
-## Tìm kiếm chi phí đồng nhất
+## Tìm kiếm chi phí thống nhất
 
-.
+Mở rộng nút chưa được mở rộng với chi phí thấp nhất
 
-.
+*Triển khai*:
+    
+\v{fringe} = hàng đợi được sắp xếp theo chi phí đường dẫn, thấp nhất trước
 
-.
+Tương đương với chiều rộng đầu tiên nếu chi phí bước đều bằng nhau
 
-![Hình ảnh](../TaiLieu/slide_md/figures/uc-romania2.png)
+<u>Hoàn thành</u>?? Có, nếu chi phí bước \mat{$\geq \epsilon$}
 
----
-## Tìm kiếm chi phí đồng nhất
+<u>Thời gian</u>?? \# nút có \mat{$g \leq {}$} chi phí cho giải pháp tối ưu, \mat{$O(b^{\ceiling{C^*/\epsilon}})$}
+  
+trong đó \mat{$C^*$} là chi phí của giải pháp tối ưu
 
-.
+<u>Không gian</u>?? \# nút có \mat{$g \leq {}$} chi phí của giải pháp tối ưu, \mat{$O(b^{\ceiling{C^*/\epsilon}})$}
 
-.
-
-.
-
-![Hình ảnh](../TaiLieu/slide_md/figures/uc-romania3.png)
-
----
-## Tìm kiếm chi phí đồng nhất
-
-.
-
-.
-
-.
-
-![Hình ảnh](../TaiLieu/slide_md/figures/uc-romania4.png)
-
----
-## Các thuộc tính của tìm kiếm chi phí đồng nhất
-
-<u>Hoàn chỉnh</u>?? Có, nếu chi phí mỗi bước $\geq \epsilon$
-
-<u>Thời gian</u>?? Số nút có $g \leq {}$ chi phí của giải pháp tối ưu
-
-<u>Không gian</u>?? Số nút có $g \leq {}$ chi phí của giải pháp tối ưu
-
-<u>Tối ưu</u>?? Có
+<u>Tối ưu</u>?? Có---các nút được mở rộng theo thứ tự tăng dần \mat{$g(n)$}
 
 ---
 ## Tìm kiếm theo chiều sâu
 
-Khai triển nút chưa khai triển ở độ sâu sâu nhất
+Mở rộng nút chưa được mở rộng sâu nhất
 
-<u>Cài đặt</u>:
+*Triển khai*:
     
-**QueueingFn** = chèn các nút kế tiếp vào đầu hàng đợi
+\v{fringe} = Hàng đợi LIFO, tức là đặt những người kế nhiệm lên hàng đầu
 
-![Hình ảnh](../TaiLieu/slide_md/figures/dfs-romania1.png)
-
----
-## Tìm kiếm theo chiều sâu
-
-.
-
-.
-
-.
-
-![Hình ảnh](../TaiLieu/slide_md/figures/dfs-romania2.png)
+,5\textwidth
+![Hình ảnh](../TaiLieu/slide_md/figures/dfs-progress01.png)
 
 ---
 ## Tìm kiếm theo chiều sâu
 
-.
+Mở rộng nút chưa được mở rộng sâu nhất
 
-.
-
-.
-
-![Hình ảnh](../TaiLieu/slide_md/figures/dfs-romania3.png)
-
----
-## Tìm kiếm theo chiều sâu
-
-.
-
-.
-
-.
-
-![Hình ảnh](../TaiLieu/slide_md/figures/dfs-romania4.png)
-
-Tức là, tìm kiếm theo chiều sâu có thể rơi vào các vòng lặp vô hạn
-
-Cần một không gian tìm kiếm hữu hạn, không có chu trình (hoặc phải kiểm tra trạng thái lặp lại)
-
----
-## Tìm kiếm theo chiều sâu trên cây nhị phân độ sâu 3
-
-![Hình ảnh](../TaiLieu/slide_md/figures/dfs-binary1.png)
-
----
-## Tìm kiếm theo chiều sâu trên cây nhị phân độ sâu 3
-
-![Hình ảnh](../TaiLieu/slide_md/figures/dfs-binary2.png)
-
----
-## Tìm kiếm theo chiều sâu trên cây nhị phân độ sâu 3
-
-![Hình ảnh](../TaiLieu/slide_md/figures/dfs-binary3.png)
-
----
-## Tìm kiếm theo chiều sâu trên cây nhị phân độ sâu 3
-
-![Hình ảnh](../TaiLieu/slide_md/figures/dfs-binary4.png)
-
----
-## Tìm kiếm theo chiều sâu trên cây nhị phân độ sâu 3
-
-![Hình ảnh](../TaiLieu/slide_md/figures/dfs-binary5.png)
-
----
-## Tìm kiếm theo chiều sâu trên cây nhị phân độ sâu 3 (tiếp)
-
-![Hình ảnh](../TaiLieu/slide_md/figures/dfs-binary6.png)
-
----
-## Tìm kiếm theo chiều sâu trên cây nhị phân độ sâu 3
-
-![Hình ảnh](../TaiLieu/slide_md/figures/dfs-binary7.png)
-
----
-## Tìm kiếm theo chiều sâu trên cây nhị phân độ sâu 3
-
-![Hình ảnh](../TaiLieu/slide_md/figures/dfs-binary8.png)
-
----
-## Tìm kiếm theo chiều sâu trên cây nhị phân độ sâu 3
-
-![Hình ảnh](../TaiLieu/slide_md/figures/dfs-binary9.png)
-
----
-## Các thuộc tính của tìm kiếm theo chiều sâu
-
-<u>Hoàn chỉnh</u>??
-
-<u>Thời gian</u>??
-
-<u>Không gian</u>??
-
-<u>Tối ưu</u>??
-
----
-## Các thuộc tính của tìm kiếm theo chiều sâu
-
-<u>Hoàn chỉnh</u>?? Không: thất bại trong không gian có độ sâu vô hạn, không gian có chu trình
+*Triển khai*:
     
-Sửa đổi để tránh lặp lại các trạng thái trên đường đi
+\v{fringe} = Hàng đợi LIFO, tức là đặt những người kế nhiệm lên hàng đầu
+
+,5\textwidth
+![Hình ảnh](../TaiLieu/slide_md/figures/dfs-progress02.png)
+
+---
+## Tìm kiếm theo chiều sâu
+
+Mở rộng nút chưa được mở rộng sâu nhất
+
+*Triển khai*:
+    
+\v{fringe} = Hàng đợi LIFO, tức là đặt những người kế nhiệm lên hàng đầu
+
+,5\textwidth
+![Hình ảnh](../TaiLieu/slide_md/figures/dfs-progress03.png)
+
+---
+## Tìm kiếm theo chiều sâu
+
+Mở rộng nút chưa được mở rộng sâu nhất
+
+*Triển khai*:
+    
+\v{fringe} = Hàng đợi LIFO, tức là đặt những người kế nhiệm lên hàng đầu
+
+,5\textwidth
+![Hình ảnh](../TaiLieu/slide_md/figures/dfs-progress04.png)
+
+---
+## Tìm kiếm theo chiều sâu
+
+Mở rộng nút chưa được mở rộng sâu nhất
+
+*Triển khai*:
+    
+\v{fringe} = Hàng đợi LIFO, tức là đặt những người kế nhiệm lên hàng đầu
+
+,5\textwidth
+![Hình ảnh](../TaiLieu/slide_md/figures/dfs-progress05.png)
+
+---
+## Tìm kiếm theo chiều sâu
+
+Mở rộng nút chưa được mở rộng sâu nhất
+
+*Triển khai*:
+    
+\v{fringe} = Hàng đợi LIFO, tức là đặt những người kế nhiệm lên hàng đầu
+
+,5\textwidth
+![Hình ảnh](../TaiLieu/slide_md/figures/dfs-progress06.png)
+
+---
+## Tìm kiếm theo chiều sâu
+
+Mở rộng nút chưa được mở rộng sâu nhất
+
+*Triển khai*:
+    
+\v{fringe} = Hàng đợi LIFO, tức là đặt những người kế nhiệm lên hàng đầu
+
+,5\textwidth
+![Hình ảnh](../TaiLieu/slide_md/figures/dfs-progress07.png)
+
+---
+## Tìm kiếm theo chiều sâu
+
+Mở rộng nút chưa được mở rộng sâu nhất
+
+*Triển khai*:
+    
+\v{fringe} = Hàng đợi LIFO, tức là đặt những người kế nhiệm lên hàng đầu
+
+,5\textwidth
+![Hình ảnh](../TaiLieu/slide_md/figures/dfs-progress08.png)
+
+---
+## Tìm kiếm theo chiều sâu
+
+Mở rộng nút chưa được mở rộng sâu nhất
+
+*Triển khai*:
+    
+\v{fringe} = Hàng đợi LIFO, tức là đặt những người kế nhiệm lên hàng đầu
+
+,5\textwidth
+![Hình ảnh](../TaiLieu/slide_md/figures/dfs-progress09.png)
+
+---
+## Tìm kiếm theo chiều sâu
+
+Mở rộng nút chưa được mở rộng sâu nhất
+
+*Triển khai*:
+    
+\v{fringe} = Hàng đợi LIFO, tức là đặt những người kế nhiệm lên hàng đầu
+
+,5\textwidth
+![Hình ảnh](../TaiLieu/slide_md/figures/dfs-progress10.png)
+
+---
+## Tìm kiếm theo chiều sâu
+
+Mở rộng nút chưa được mở rộng sâu nhất
+
+*Triển khai*:
+    
+\v{fringe} = Hàng đợi LIFO, tức là đặt những người kế nhiệm lên hàng đầu
+
+,5\textwidth
+![Hình ảnh](../TaiLieu/slide_md/figures/dfs-progress11.png)
+
+---
+## Tìm kiếm theo chiều sâu
+
+Mở rộng nút chưa được mở rộng sâu nhất
+
+*Triển khai*:
+    
+\v{fringe} = Hàng đợi LIFO, tức là đặt những người kế nhiệm lên hàng đầu
+
+,5\textwidth
+![Hình ảnh](../TaiLieu/slide_md/figures/dfs-progress12.png)
+
+---
+## Thuộc tính tìm kiếm theo chiều sâu
+
+<u>Hoàn thành</u>?? 
+
+---
+## Thuộc tính tìm kiếm theo chiều sâu
+
+<u>Hoàn thành</u>?? Không: thất bại trong không gian có độ sâu vô hạn, không gian có vòng lặp
+    
+Sửa đổi để tránh các trạng thái lặp lại dọc theo đường dẫn 
       
-$\Rightarrow$ hoàn chỉnh trong các không gian hữu hạn
+$\Rightarrow$ hoàn thành trong không gian hữu hạn
 
-<u>Thời gian</u>?? $O(b^m)$: rất tệ nếu $m$ lớn hơn nhiều so với $d$
+<u>Thời gian</u>?? 
+
+---
+## Thuộc tính tìm kiếm theo chiều sâu
+
+<u>Hoàn thành</u>?? Không: thất bại trong không gian có độ sâu vô hạn, không gian có vòng lặp
     
-        nhưng nếu các giải pháp dày đặc, có thể nhanh hơn nhiều so với tìm kiếm theo chiều rộng
+Sửa đổi để tránh các trạng thái lặp lại dọc theo đường dẫn 
+      
+$\Rightarrow$ hoàn thành trong không gian hữu hạn
 
-<u>Không gian</u>?? $O(bm)$, tức là không gian tuyến tính!
+<u>Thời gian</u>?? \mat{$O(b^m)$}: khủng khiếp nếu \mat{$m$} lớn hơn nhiều so với \mat{$d$}
+    
+        nhưng nếu các giải pháp dày đặc, có thể nhanh hơn nhiều so với chiều rộng đầu tiên
+
+<u>Không gian</u>??
+
+---
+## Thuộc tính tìm kiếm theo chiều sâu
+
+<u>Hoàn thành</u>?? Không: thất bại trong không gian có độ sâu vô hạn, không gian có vòng lặp
+    
+Sửa đổi để tránh các trạng thái lặp lại dọc theo đường dẫn 
+      
+$\Rightarrow$ hoàn thành trong không gian hữu hạn
+
+<u>Thời gian</u>?? \mat{$O(b^m)$}: khủng khiếp nếu \mat{$m$} lớn hơn nhiều so với \mat{$d$}
+    
+        nhưng nếu các giải pháp dày đặc, có thể nhanh hơn nhiều so với chiều rộng đầu tiên
+
+<u>Không gian</u>?? \mat{$O(bm)$}, tức là không gian tuyến tính!
+
+<u>Tối ưu</u>?? 
+
+---
+## Thuộc tính tìm kiếm theo chiều sâu
+
+<u>Hoàn thành</u>?? Không: thất bại trong không gian có độ sâu vô hạn, không gian có vòng lặp
+    
+Sửa đổi để tránh các trạng thái lặp lại dọc theo đường dẫn 
+      
+$\Rightarrow$ hoàn thành trong không gian hữu hạn
+
+<u>Thời gian</u>?? \mat{$O(b^m)$}: khủng khiếp nếu \mat{$m$} lớn hơn nhiều so với \mat{$d$}
+    
+        nhưng nếu các giải pháp dày đặc, có thể nhanh hơn nhiều so với chiều rộng đầu tiên
+
+<u>Không gian</u>?? \mat{$O(bm)$}, tức là không gian tuyến tính!
 
 <u>Tối ưu</u>?? Không
 
 ---
-## Tìm kiếm sâu hạn chế (Depth-limited search)
+## Tìm kiếm giới hạn độ sâu
 
-= tìm kiếm theo chiều sâu với giới hạn độ sâu là $l$
+= tìm kiếm theo chiều sâu với giới hạn độ sâu \mat{$l$},
 
-<u>Cài đặt</u>:
-    
-Các nút ở độ sâu $l$ không có nút con kế tiếp
+tức là các nút ở độ sâu \mat{$l$} không có nút kế thừa
 
----
-## Tìm kiếm sâu lặp sâu dần (Iterative deepening search)
+*Triển khai đệ quy*: 
 
 ```text
-function Iterative-Deepening-Search(problem) returns a solution sequence
+function Depth-Limited-Search(problem, limit) returns soln/fail/cutoff
+    Recursive-DLS(Make-Node(Initial-State[problem]), problem, limit)
+
+function Recursive-DLS(node, problem, limit) returns soln/fail/cutoff
+    cutoff-occurred? <- false
+    if Goal-Test(problem, State[node]) then return node
+    else if Depth[node] = limit then return cutoff
+    else for each successor in Expand(node, problem) do
+          result <- Recursive-DLS(successor, problem, limit)
+          if result = cutoff then cutoff-occurred? <- true
+          else if result != failure then return result
+    if cutoff-occurred? then return cutoff else return failure
+```
+
+---
+## Tìm kiếm chuyên sâu lặp lại
+
+```text
+function Iterative-Deepening-Search(problem) returns a solution
         inputs: problem, a problem
 
       for depth 0 to infinity do
@@ -637,80 +898,137 @@ function Iterative-Deepening-Search(problem) returns a solution sequence
 ```
 
 ---
-## Tìm kiếm sâu lặp sâu dần $l=0$
+## Tìm kiếm sâu lặp đi lặp lại \mat{$l=0$
+}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/ids-romania1.png)
-
----
-## Tìm kiếm sâu lặp sâu dần $l=1$
-
-![Hình ảnh](../TaiLieu/slide_md/figures/ids-romania1.png)
+![Hình ảnh](../TaiLieu/slide_md/figures/ids-progress1.png)
 
 ---
-## Tìm kiếm sâu lặp sâu dần $l=1$
+## Tìm kiếm sâu lặp đi lặp lại \mat{$l=1$
+}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/ids-romania2.png)
-
----
-## Tìm kiếm sâu lặp sâu dần $l=2$
-
-![Hình ảnh](../TaiLieu/slide_md/figures/ids-romania1.png)
+![Hình ảnh](../TaiLieu/slide_md/figures/ids-progress2.png)
 
 ---
-## Tìm kiếm sâu lặp sâu dần $l=2$
+## Tìm kiếm sâu lặp đi lặp lại \mat{$l=2$
+}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/ids-romania2.png)
-
----
-## Tìm kiếm sâu lặp sâu dần $l=2$
-
-![Hình ảnh](../TaiLieu/slide_md/figures/ids-romania3.png)
+![Hình ảnh](../TaiLieu/slide_md/figures/ids-progress3.png)
 
 ---
-## Tìm kiếm sâu lặp sâu dần $l=2$
+## Tìm kiếm sâu lặp đi lặp lại \mat{$l=3$
+}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/ids-romania4.png)
-
----
-## Tìm kiếm sâu lặp sâu dần $l=2$
-
-![Hình ảnh](../TaiLieu/slide_md/figures/ids-romania5.png)
+![Hình ảnh](../TaiLieu/slide_md/figures/ids-progress4.png)
 
 ---
-## Các thuộc tính của tìm kiếm sâu lặp sâu dần
+## Thuộc tính của tìm kiếm sâu lặp đi lặp lại
 
-<u>Hoàn chỉnh</u>??
-
-<u>Thời gian</u>??
-
-<u>Không gian</u>??
-
-<u>Tối ưu</u>??
+<u>Hoàn thành</u>?? 
 
 ---
-## Các thuộc tính của tìm kiếm sâu lặp sâu dần
+## Thuộc tính của tìm kiếm sâu lặp đi lặp lại
 
-<u>Hoàn chỉnh</u>?? Có
+<u>Hoàn thành</u>?? Có
 
-<u>Thời gian</u>?? $(d+1)b^0 + d b^1 + (d-1)b^2 + \ldots + b^d = O(b^d)$
+<u>Thời gian</u>?? 
 
-<u>Không gian</u>?? $O(bd)$
+---
+## Thuộc tính của tìm kiếm sâu lặp đi lặp lại
+
+<u>Hoàn thành</u>?? Có
+
+<u>Thời gian</u>?? \mat{$(d+1)b^0 + d b^1 + (d-1)b^2 + \ldots + b^d = O(b^d)$}
+
+<u>Không gian</u>?? 
+
+---
+## Thuộc tính của tìm kiếm sâu lặp đi lặp lại
+
+<u>Hoàn thành</u>?? Có
+
+<u>Thời gian</u>?? \mat{$(d+1)b^0 + d b^1 + (d-1)b^2 + \ldots + b^d = O(b^d)$}
+
+<u>Không gian</u>?? \mat{$O(bd)$}
+
+<u>Tối ưu</u>?? 
+
+---
+## Thuộc tính của tìm kiếm sâu lặp đi lặp lại
+
+<u>Hoàn thành</u>?? Có
+
+<u>Thời gian</u>?? \mat{$(d+1)b^0 + d b^1 + (d-1)b^2 + \ldots + b^d = O(b^d)$}
+
+<u>Không gian</u>?? \mat{$O(bd)$}
 
 <u>Tối ưu</u>?? Có, nếu chi phí bước = 1
     
-Có thể sửa đổi để khám phá trên cây chi phí đồng nhất
+Có thể được sửa đổi để khám phá cây chi phí thống nhất
+
+So sánh số cho \mat{$b=10$} và \mat{$d=5$}, giải pháp ở lá ngoài cùng bên phải:
+\mat{\begin{eqnarray*}
+N(\mbox{IDS}) &=& 50 + 400 + 3,000 + 20,000 + 100,000 = 123,450 
+
+N(\mbox{BFS}) &=& 10 + 100 + 1,000 + 10,000 + 100,000 + 999,990 = 1,111,100
+\end{eqnarray*}}
+
+IDS hoạt động tốt hơn vì các nút khác ở độ sâu \mat{$d$} không được mở rộng
+
+BFS có thể được sửa đổi để áp dụng kiểm tra mục tiêu khi một nút được tạo \emph{}
+
+---
+## Tóm tắt thuật toán
+
+| &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+|---|---|---|---|---|---|
+| \raisebox{-0.5\baselineskip}[0pt][0pt]{Criterion} | Breadth- | Uniform- | Depth- | Depth- | Iterative |
+|  | First | Cost | First | Limited | Deepening |
+| \rule{0pt}{3ex}Complete? | Yes$^*$ | Yes$^*$ | No | Yes, if $l \ge d$ | Yes |
+| Time | $b^{d+1}$ | $b^{\ceiling{C^*/\epsilon}}$ | $b^m$ | $b^l$ | $b^d$ |
+| Space | $b^{d+1}$ | $b^{\ceiling{C^*/\epsilon}}$ | $bm$ | $bl$ | $bd$ |
+| Optimal? | Yes$^*$ | Yes | No | No | Yes$^*$ |
+
+---
+## Trạng thái lặp lại
+
+Việc không phát hiện được các trạng thái lặp lại có thể biến một bài toán tuyến tính thành một bài toán
+số mũ!
+
+,7\maxfigwidth
+![Hình ảnh](../TaiLieu/slide_md/figures/ribbon-space.png)
+
+---
+## Tìm kiếm đồ thị
+
+```text
+function Graph-Search(problem, \var{fringe)}{a solution, or failure}
+
+    closed <- an empty set
+    fringe <- Insert(Make-Node(Initial-State[problem]), fringe)
+    loop do
+          if fringe is empty then return failure
+          node <- Remove-Front(fringe)
+          if Goal-Test(problem, State[node]) then return node       
+          if State[node] is not in closed then
+                add State[node] to closed
+                fringe <- InsertAll(Expand(node, problem), fringe)
+    end
+```
 
 ---
 ## Tóm tắt
 
-Khởi tạo bài toán thường yêu cầu trừu tượng hóa các chi tiết của thế giới thực
-để định nghĩa một không gian trạng thái có thể khả thi để khám phá
+Việc xây dựng vấn đề thường yêu cầu trừu tượng hóa các chi tiết trong thế giới thực
+để xác định một không gian trạng thái có thể được khám phá
 
-Nhiều chiến lược tìm kiếm mù khác nhau
+Sự đa dạng của các chiến lược tìm kiếm không chính xác
 
-Tìm kiếm sâu lặp sâu dần chỉ sử dụng không gian tuyến tính
+Tìm kiếm sâu hơn lặp lại chỉ sử dụng không gian tuyến tính
 
-và không tốn nhiều thời gian hơn các thuật toán tìm kiếm mù khác
+và không mất nhiều thời gian hơn các thuật toán chưa hiểu rõ khác
+
+Tìm kiếm đồ thị có thể hiệu quả hơn theo cấp số nhân so với tìm kiếm cây
 
 
 

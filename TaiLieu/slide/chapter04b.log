@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.24)  15 JUL 2026 00:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.24)  15 JUL 2026 15:09
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -8,16 +8,6 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
 Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\fleqn.clo
-File: fleqn.clo 2016/12/29 v1.2b Standard LaTeX option (flush left equations)
-\mathindent=\skip49
-Applying: [2015/01/01] Make \[ robust on input line 50.
-LaTeX Info: Redefining \[ on input line 51.
-Already applied: [0000/00/00] Make \[ robust on input line 62.
-Applying: [2015/01/01] Make \] robust on input line 74.
-LaTeX Info: Redefining \] on input line 75.
-Already applied: [0000/00/00] Make \] robust on input line 83.
-)
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
 File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
 )
@@ -29,128 +19,46 @@ File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
 \c@subparagraph=\count280
 \c@figure=\count281
 \c@table=\count282
-\abovecaptionskip=\skip50
-\belowcaptionskip=\skip51
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
 \bibindent=\dimen148
 )
-(aima-slides.sty
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/ulem\ulem.sty
-\UL@box=\box53
-\UL@hyphenbox=\box54
-\UL@skip=\skip52
-\UL@hook=\toks17
-\UL@height=\dimen149
-\UL@pe=\count283
-\UL@pixel=\dimen150
-\ULC@box=\box55
-Package: ulem 2019/11/18
-\ULdepth=\dimen151
-)
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
-Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\fleqn.sty
 
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
-Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
-\KV@toks@=\toks18
-)
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
-Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+LaTeX Warning: inputting `fleqn.clo' instead of obsolete `fleqn.sty'.
 
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
-Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
-)
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
-fg
-File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
-)
-Package graphics Info: Driver file: pdftex.def on input line 106.
-
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
-File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\fleqn.clo
+File: fleqn.clo 2016/12/29 v1.2b Standard LaTeX option (flush left equations)
+\mathindent=\skip51
+Applying: [2015/01/01] Make \[ robust on input line 50.
+LaTeX Info: Redefining \[ on input line 51.
+Already applied: [0000/00/00] Make \[ robust on input line 62.
+Applying: [2015/01/01] Make \] robust on input line 74.
+LaTeX Info: Redefining \] on input line 75.
+Already applied: [0000/00/00] Make \] robust on input line 83.
 ))
-\Gin@req@height=\dimen152
-\Gin@req@width=\dimen153
+(epsf.sty
+\epsffilein=\read2
+\epsfxsize=\dimen149
+\epsfysize=\dimen150
+\epsftsize=\dimen151
+\epsfrsize=\dimen152
+\epsftmp=\dimen153
+\pspoints=\dimen154
 )
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf.s
-ty
-Package: epstopdf 2020-01-24 v2.11 Conversion with epstopdf on the fly (HO)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
+Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
 
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.s
-ty
-Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
-) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/grfext\grfext.sty
-Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
-
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
-keys.sty
-Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-))
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
-Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
-Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
-Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
-))
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
-.sty
-Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
-)
- (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
-Package: iftex 2024/12/12 v1.0g TeX engine tests
-)
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
-)
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
-ase.sty
-Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-85.
-Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 504.
-
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
-fg
-File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
-)))
-Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
-G,.JBIG2,.JB2,.eps,.ps]
-(grfext)             \AppendGraphicsExtensions on input line 40.
-\epsfxsize=\skip53
-\epsfysize=\skip54
-\headingwidth=\skip55
-\backdrop=\skip56
-\backheight=\skip57
-\backwidth=\skip58
-\xborder=\skip59
-\yborder=\skip60
-\footheight=\dimen154
-\headtotal=\skip61
-\codewidth=\skip62
-\boxwidth=\skip63
-\boxheight=\skip64
-\skipwidth=\skip65
-\roomheight=\skip66
-\charheight=\skip67
-\marginlineskip=\skip68
-\marginwidth=\skip69
-\textplusmarginwidth=\skip70
-\maxfigwidth=\skip71
-\tablewidth=\skip72
-\captionskip=\skip73
-\tcaptionskip=\skip74
-)
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
-Package: inputenc 2024/02/08 v1.3d Input encoding file
-\inpenc@prehook=\toks19
-\inpenc@posthook=\toks20
-)
+Package color Info: Driver file: dvips.def on input line 149.
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\dvips.def
+File: dvips.def 2025/01/21 v3.2a Graphics/color driver for dvips
+) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\dvipsnam.def
+File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
+) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.lt
+x)) (aima2e-slides.sty
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
 
@@ -319,619 +227,717 @@ LaTeX Font Info:    Trying to load font information for T5+cmr on input line 11
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmr.fd
 File: t5cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 ))
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/lm\lmodern.sty
-Package: lmodern 2015/05/01 v1.6.1 Latin Modern Fonts
-LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
-LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
-(Font)                  OML/cmm/m/it --> OML/lmm/m/it on input line 23.
-LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
-(Font)                  OMS/cmsy/m/n --> OMS/lmsy/m/n on input line 24.
-LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 25.
-LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 26.
-LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
-(Font)                  OML/cmm/b/it --> OML/lmm/b/it on input line 27.
-LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/cmsy/b/n --> OMS/lmsy/b/n on input line 28.
-LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 29.
-LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 31.
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 32.
-LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/lmr/m/it on input line 33.
-LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 34.
-LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 35.
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 36.
-LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
-LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2024/02/08 v1.3d Input encoding file
+\inpenc@prehook=\toks17
+\inpenc@posthook=\toks18
 )
-LaTeX Font Info:    Trying to load font information for T5+lmr on input line 8.
-
-
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/lm\t5lmr.fd
-File: t5lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+Package color Info: Redefining color red on input line 7.
+Package color Info: Redefining color cyan on input line 14.
+\headingwidth=\skip52
+\backdrop=\skip53
+\backheight=\skip54
+\backwidth=\skip55
+\xborder=\skip56
+\yborder=\skip57
+\headtotal=\skip58
+\codewidth=\skip59
+\boxwidth=\skip60
+\boxheight=\skip61
+\skipwidth=\skip62
+\roomheight=\skip63
+\charheight=\skip64
+\marginlineskip=\skip65
+\marginwidth=\skip66
+\textplusmarginwidth=\skip67
+\maxfigwidth=\skip68
+\tablewidth=\skip69
+\captionskip=\skip70
+\tcaptionskip=\skip71
 )
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count284
+\l__color_backend_stack_int=\count283
 ) (chapter04b.aux)
 \openout1 = `chapter04b.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+ [1
+Non-PDF special ignored!
+<special> papersize=614.295pt,794.96999pt
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
 
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
-ii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count285
-\scratchdimen=\dimen155
-\scratchbox=\box56
-\nofMPsegments=\count286
-\nofMParguments=\count287
-\everyMPshowfont=\toks21
-\MPscratchCnt=\count288
-\MPscratchDim=\dimen156
-\MPnumerator=\count289
-\makeMPintoPDFobject=\count290
-\everyMPtoPDFconversion=\toks22
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+{C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+]
+LaTeX Font Info:    Trying to load font information for T5+cmss on input line 1
+2.
+ (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmss.fd
+File: t5cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
-1.
- (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
-File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <20.74> on input line 17.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 17.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 17.
+
+[2
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+]
+
+LaTeX Font Warning: Font shape `T5/cmss/m/it' in size <20.74> not available
+(Font)              Font shape `T5/cmss/m/sl' tried instead on input line 29.
+
+[3
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.5 0.0 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.5 0.0 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [4
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> PSfile=figures/tsp-sequence.ps llx=118 lly=607 urx=449 ury=732 rw...
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+]
+LaTeX Font Info:    Calculating math sizes for size <25> on input line 59.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <12.5> not available
+(Font)              size <12> substituted on input line 59.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <12.5> not available
+(Font)              size <12> substituted on input line 59.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <12.5> not available
+(Font)              size <12> substituted on input line 59.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <25> on input line 59.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <17.49992> on input line 59.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12.5> on input line 59.
+[5
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> PSfile=figures/4queens-iterative.ps llx=38 lly=639 urx=392 ury=74...
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] (algorithms/hill-climbing-algorithm.tex
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <17.28> on input line 13.
 )
-[1
-
-{C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/than
-h/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-t5.enc}{C:/Users/thanh/Ap
-pData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}]
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
-6.
-
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
-File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-6.
-
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
-File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-16.
-
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
-File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-16.
-
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
-File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <20.74> on input line 16.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 16.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 16.
- [2{C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.e
-nc}]
-[3{C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.en
-c}] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 54--55
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 56--57
-
- []
-
-Package epstopdf Info: Source file: <figures/4queens.ps>
-(epstopdf)                    date: 2026-07-14 21:56:01
-(epstopdf)                    size: 20164 bytes
-(epstopdf)             Output file: <figures/4queens-ps-converted-to.pdf>
-(epstopdf)                    date: 2026-07-15 00:46:17
-(epstopdf)                    size: 5362 bytes
-(epstopdf)             Command: <epstopdf figures/4queens.ps --outfile=figures/
-4queens-ps-converted-to.pdf>
-(epstopdf)             \includegraphics on input line 66.
-Package epstopdf Info: Output file is already uptodate.
-<figures/4queens-ps-converted-to.pdf, id=22, 89.33376pt x 106.3975pt>
-File: figures/4queens-ps-converted-to.pdf Graphic file (type pdf)
-<use figures/4queens-ps-converted-to.pdf>
-Package pdftex.def Info: figures/4queens-ps-converted-to.pdf  used on input lin
-e 66.
-(pdftex.def)             Requested size: 89.33353pt x 106.39723pt.
-[5{C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc} <
-./figures/4queens-ps-converted-to.pdf>]
-Package epstopdf Info: Source file: <figures/4queens-graph.ps>
-(epstopdf)                    date: 2026-07-14 21:55:59
-(epstopdf)                    size: 14218 bytes
-(epstopdf)             Output file: <figures/4queens-graph-ps-converted-to.pdf>
-
-(epstopdf)                    date: 2026-07-15 00:46:23
-(epstopdf)                    size: 4918 bytes
-(epstopdf)             Command: <epstopdf figures/4queens-graph.ps --outfile=fi
-gures/4queens-graph-ps-converted-to.pdf>
-(epstopdf)             \includegraphics on input line 87.
-Package epstopdf Info: Output file is already uptodate.
-<figures/4queens-graph-ps-converted-to.pdf, id=36, 106.3975pt x 101.37875pt>
-File: figures/4queens-graph-ps-converted-to.pdf Graphic file (type pdf)
-<use figures/4queens-graph-ps-converted-to.pdf>
-Package pdftex.def Info: figures/4queens-graph-ps-converted-to.pdf  used on inp
-ut line 87.
-(pdftex.def)             Requested size: 184.29036pt x 175.60712pt.
- [6 <./figures/4queens-graph-ps-converted-to.pdf>] [7]
-
-LaTeX Warning: Command \DJ invalid in math mode on input line 130.
-
-
-LaTeX Warning: Command \h invalid in math mode on input line 130.
-
-
-LaTeX Warning: Command \uhorn invalid in math mode on input line 130.
-
-
-LaTeX Warning: Command \ohorn invalid in math mode on input line 130.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 130.
-
-Package epstopdf Info: Source file: <figures/map-coloring.ps>
-(epstopdf)                    date: 2026-07-14 21:57:47
-(epstopdf)                    size: 14294 bytes
-(epstopdf)             Output file: <figures/map-coloring-ps-converted-to.pdf>
-(epstopdf)                    date: 2026-07-15 00:46:27
-(epstopdf)                    size: 4931 bytes
-(epstopdf)             Command: <epstopdf figures/map-coloring.ps --outfile=fig
-ures/map-coloring-ps-converted-to.pdf>
-(epstopdf)             \includegraphics on input line 138.
-Package epstopdf Info: Output file is already uptodate.
-<figures/map-coloring-ps-converted-to.pdf, id=52, 321.2pt x 239.89626pt>
-File: figures/map-coloring-ps-converted-to.pdf Graphic file (type pdf)
-<use figures/map-coloring-ps-converted-to.pdf>
-Package pdftex.def Info: figures/map-coloring-ps-converted-to.pdf  used on inpu
-t line 138.
-(pdftex.def)             Requested size: 195.12877pt x 145.73982pt.
-Package epstopdf Info: Source file: <figures/map-coloring-graph.ps>
-(epstopdf)                    date: 2026-07-14 21:57:45
-(epstopdf)                    size: 15636 bytes
-(epstopdf)             Output file: <figures/map-coloring-graph-ps-converted-to
-.pdf>
-(epstopdf)                    date: 2026-07-15 00:46:50
-(epstopdf)                    size: 5264 bytes
-(epstopdf)             Command: <epstopdf figures/map-coloring-graph.ps --outfi
-le=figures/map-coloring-graph-ps-converted-to.pdf>
-(epstopdf)             \includegraphics on input line 149.
-Package epstopdf Info: Output file is already uptodate.
-<figures/map-coloring-graph-ps-converted-to.pdf, id=53, 143.53625pt x 135.50626
-pt>
-File: figures/map-coloring-graph-ps-converted-to.pdf Graphic file (type pdf)
-<use figures/map-coloring-graph-ps-converted-to.pdf>
-Package pdftex.def Info: figures/map-coloring-graph-ps-converted-to.pdf  used o
-n input line 149.
-(pdftex.def)             Requested size: 180.67499pt x 170.57127pt.
-[8 <./figures/map-coloring-ps-converted-to.pdf> <./figures/map-coloring-graph-p
-s-converted-to.pdf>] [9] [10] [11] (algorithms/csp-datatypes-algorithm.tex
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 12.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 12.
-)
-Overfull \hbox (3.13329pt too wide) in paragraph at lines 1--203
+Overfull \hbox (3.55833pt too wide) in paragraph at lines 1--84
  []  
  []
 
-[12]
-Package epstopdf Info: Source file: <figures/map-coloring-tree.ps>
-(epstopdf)                    date: 2026-07-14 21:57:46
-(epstopdf)                    size: 16848 bytes
-(epstopdf)             Output file: <figures/map-coloring-tree-ps-converted-to.
-pdf>
-(epstopdf)                    date: 2026-07-15 00:46:55
-(epstopdf)                    size: 2468 bytes
-(epstopdf)             Command: <epstopdf figures/map-coloring-tree.ps --outfil
-e=figures/map-coloring-tree-ps-converted-to.pdf>
-(epstopdf)             \includegraphics on input line 216.
-Package epstopdf Info: Output file is already uptodate.
-<figures/map-coloring-tree-ps-converted-to.pdf, id=86, 568.1225pt x 162.6075pt>
-
-File: figures/map-coloring-tree-ps-converted-to.pdf Graphic file (type pdf)
-<use figures/map-coloring-tree-ps-converted-to.pdf>
-Package pdftex.def Info: figures/map-coloring-tree-ps-converted-to.pdf  used on
- input line 216.
-(pdftex.def)             Requested size: 614.295pt x 175.83926pt.
- [13 <./figures/map-coloring-tree-ps-converted-to.pdf>] [14]
-
-LaTeX Font Warning: Command \Huge invalid in math mode on input line 246.
-
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <24.88> on input line 246.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <17.28> on input line 246.
-[15] [16] [17]
-Package epstopdf Info: Source file: <figures/map-coloring2.ps>
-(epstopdf)                    date: 2026-07-14 21:57:47
-(epstopdf)                    size: 18264 bytes
-(epstopdf)             Output file: <figures/map-coloring2-ps-converted-to.pdf>
-
-(epstopdf)                    date: 2026-07-15 00:47:01
-(epstopdf)                    size: 4885 bytes
-(epstopdf)             Command: <epstopdf figures/map-coloring2.ps --outfile=fi
-gures/map-coloring2-ps-converted-to.pdf>
-(epstopdf)             \includegraphics on input line 300.
-Package epstopdf Info: Output file is already uptodate.
-<figures/map-coloring2-ps-converted-to.pdf, id=105, 277.035pt x 265.99374pt>
-File: figures/map-coloring2-ps-converted-to.pdf Graphic file (type pdf)
-<use figures/map-coloring2-ps-converted-to.pdf>
-Package pdftex.def Info: figures/map-coloring2-ps-converted-to.pdf  used on inp
-ut line 300.
-(pdftex.def)             Requested size: 195.12877pt x 187.35107pt.
- [18 <./figures/map-coloring2-ps-converted-to.pdf>] [19] [20]
-[21]
-
-LaTeX Warning: Command \DJ invalid in math mode on input line 405.
-
-
-LaTeX Warning: Command \h invalid in math mode on input line 405.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 405.
-
-
-LaTeX Warning: Command \DJ invalid in math mode on input line 405.
-
-
-LaTeX Warning: Command \h invalid in math mode on input line 405.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 405.
-
-
-LaTeX Warning: Command \DJ invalid in math mode on input line 405.
-
-
-LaTeX Warning: Command \h invalid in math mode on input line 405.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 405.
-
-
-LaTeX Warning: Command \DJ invalid in math mode on input line 405.
-
-
-LaTeX Warning: Command \h invalid in math mode on input line 405.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 405.
-
-
-LaTeX Warning: Command \DJ invalid in math mode on input line 408.
-
-
-LaTeX Warning: Command \h invalid in math mode on input line 408.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 408.
-
-
-LaTeX Warning: Command \DJ invalid in math mode on input line 408.
-
-
-LaTeX Warning: Command \h invalid in math mode on input line 408.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 408.
-
-
-LaTeX Warning: Command \DJ invalid in math mode on input line 408.
-
-
-LaTeX Warning: Command \h invalid in math mode on input line 408.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 408.
-
-
-LaTeX Warning: Command \DJ invalid in math mode on input line 408.
-
-
-LaTeX Warning: Command \h invalid in math mode on input line 408.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 408.
-
-Package epstopdf Info: Source file: <figures/map-coloring.ps>
-(epstopdf)                    date: 2026-07-14 21:57:47
-(epstopdf)                    size: 14294 bytes
-(epstopdf)             Output file: <figures/map-coloring-ps-converted-to.pdf>
-(epstopdf)                    date: 2026-07-15 00:46:27
-(epstopdf)                    size: 4931 bytes
-(epstopdf)             Command: <epstopdf figures/map-coloring.ps --outfile=fig
-ures/map-coloring-ps-converted-to.pdf>
-(epstopdf)             \includegraphics on input line 413.
-Package epstopdf Info: Output file is already uptodate.
-File: figures/map-coloring-ps-converted-to.pdf Graphic file (type pdf)
-<use figures/map-coloring-ps-converted-to.pdf>
-Package pdftex.def Info: figures/map-coloring-ps-converted-to.pdf  used on inpu
-t line 413.
-(pdftex.def)             Requested size: 195.12877pt x 145.73982pt.
-
-Overfull \hbox (34.83842pt too wide) in paragraph at lines 403--415
-[][]  
+[6
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.7 0.0 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [7
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> PSfile=figures/hill-climbing.ps llx=150 lly=505 urx=563 ury=733 r...
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> PSfile=figures/smiley.ps llx=334 lly=625 urx=470 ury=761 rwi=239
+Non-PDF special ignored!
+<special> PSfile=figures/frowny.ps llx=334 lly=625 urx=470 ury=761 rwi=239
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [8
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] (algorithms/simulated-annealing-algorithm.tex
+Overfull \hbox (3.55833pt too wide) in paragraph at lines 1--18
+ []  
  []
 
-[22]
-
-LaTeX Warning: Command \DJ invalid in math mode on input line 428.
-
-
-LaTeX Warning: Command \h invalid in math mode on input line 428.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 428.
-
-
-LaTeX Warning: Command \DJ invalid in math mode on input line 428.
-
-
-LaTeX Warning: Command \h invalid in math mode on input line 428.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 428.
-
-
-LaTeX Warning: Command \DJ invalid in math mode on input line 428.
-
-
-LaTeX Warning: Command \h invalid in math mode on input line 428.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 428.
-
-
-LaTeX Warning: Command \DJ invalid in math mode on input line 428.
-
-
-LaTeX Warning: Command \h invalid in math mode on input line 428.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 428.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 429.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 428--430
-[]$\OML/lmm/m/it/20.74 C[][]Xanh l\OT1/lmr/m/n/20.74 ¡$\T5/lmr/m/n/20.74 : \T5/
-lmr/m/it/20.74 gi¡-trà-r ng-buëc-½t-nh§t
- []
-
-
-LaTeX Warning: Command \DJ invalid in math mode on input line 431.
-
-
-LaTeX Warning: Command \h invalid in math mode on input line 431.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 431.
-
-
-LaTeX Warning: Command \DJ invalid in math mode on input line 431.
-
-
-LaTeX Warning: Command \h invalid in math mode on input line 431.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 431.
-
-
-LaTeX Warning: Command \DJ invalid in math mode on input line 431.
-
-
-LaTeX Warning: Command \h invalid in math mode on input line 431.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 431.
-
-
-LaTeX Warning: Command \DJ invalid in math mode on input line 431.
-
-
-LaTeX Warning: Command \h invalid in math mode on input line 431.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 431.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 431--433
-[]$\OML/lmm/m/it/20.74 C[]$\T5/lmr/m/n/20.74 : \T5/lmr/m/it/20.74 bi¸n-bà-r ng-
-buëc-nhi·u-nh§t (most-
- []
-
-Package epstopdf Info: Source file: <figures/map-coloring.ps>
-(epstopdf)                    date: 2026-07-14 21:57:47
-(epstopdf)                    size: 14294 bytes
-(epstopdf)             Output file: <figures/map-coloring-ps-converted-to.pdf>
-(epstopdf)                    date: 2026-07-15 00:46:27
-(epstopdf)                    size: 4931 bytes
-(epstopdf)             Command: <epstopdf figures/map-coloring.ps --outfile=fig
-ures/map-coloring-ps-converted-to.pdf>
-(epstopdf)             \includegraphics on input line 436.
-Package epstopdf Info: Output file is already uptodate.
-File: figures/map-coloring-ps-converted-to.pdf Graphic file (type pdf)
-<use figures/map-coloring-ps-converted-to.pdf>
-Package pdftex.def Info: figures/map-coloring-ps-converted-to.pdf  used on inpu
-t line 436.
-(pdftex.def)             Requested size: 195.12877pt x 145.73982pt.
-
-Overfull \hbox (34.83842pt too wide) in paragraph at lines 426--438
-[][]  
- []
-
-[23] [24]
-Package epstopdf Info: Source file: <figures/4queens-iterative.ps>
-(epstopdf)                    date: 2026-07-14 21:56:00
-(epstopdf)                    size: 53425 bytes
-(epstopdf)             Output file: <figures/4queens-iterative-ps-converted-to.
-pdf>
-(epstopdf)                    date: 2026-07-15 00:47:05
-(epstopdf)                    size: 7806 bytes
-(epstopdf)             Command: <epstopdf figures/4queens-iterative.ps --outfil
-e=figures/4queens-iterative-ps-converted-to.pdf>
-(epstopdf)             \includegraphics on input line 473.
-Package epstopdf Info: Output file is already uptodate.
-<figures/4queens-iterative-ps-converted-to.pdf, id=136, 355.3275pt x 108.405pt>
-
-File: figures/4queens-iterative-ps-converted-to.pdf Graphic file (type pdf)
-<use figures/4queens-iterative-ps-converted-to.pdf>
-Package pdftex.def Info: figures/4queens-iterative-ps-converted-to.pdf  used on
- input line 473.
-(pdftex.def)             Requested size: 430.00462pt x 131.19194pt.
- [25 <./figures/4queens-iterative-ps-converted-to.pdf>]
-Package epstopdf Info: Source file: <figures/random-csp-runtime.ps>
-(epstopdf)                    date: 2026-07-14 21:57:58
-(epstopdf)                    size: 11615 bytes
-(epstopdf)             Output file: <figures/random-csp-runtime-ps-converted-to
-.pdf>
-(epstopdf)                    date: 2026-07-15 00:47:09
-(epstopdf)                    size: 5411 bytes
-(epstopdf)             Command: <epstopdf figures/random-csp-runtime.ps --outfi
-le=figures/random-csp-runtime-ps-converted-to.pdf>
-(epstopdf)             \includegraphics on input line 490.
-Package epstopdf Info: Output file is already uptodate.
-<figures/random-csp-runtime-ps-converted-to.pdf, id=146, 468.75125pt x 253.9487
-5pt>
-File: figures/random-csp-runtime-ps-converted-to.pdf Graphic file (type pdf)
-<use figures/random-csp-runtime-ps-converted-to.pdf>
-Package pdftex.def Info: figures/random-csp-runtime-ps-converted-to.pdf  used o
-n input line 490.
-(pdftex.def)             Requested size: 368.58073pt x 199.67957pt.
- [26] [27 <./figures/random-csp-runtime-ps-converted-to.pdf>]
-Package epstopdf Info: Source file: <figures/abcdef-graph.ps>
-(epstopdf)                    date: 2026-07-14 21:56:05
-(epstopdf)                    size: 13867 bytes
-(epstopdf)             Output file: <figures/abcdef-graph-ps-converted-to.pdf>
-(epstopdf)                    date: 2026-07-15 00:47:13
-(epstopdf)                    size: 4577 bytes
-(epstopdf)             Command: <epstopdf figures/abcdef-graph.ps --outfile=fig
-ures/abcdef-graph-ps-converted-to.pdf>
-(epstopdf)             \includegraphics on input line 502.
-Package epstopdf Info: Output file is already uptodate.
-<figures/abcdef-graph-ps-converted-to.pdf, id=158, 185.69376pt x 77.28876pt>
-File: figures/abcdef-graph-ps-converted-to.pdf Graphic file (type pdf)
-<use figures/abcdef-graph-ps-converted-to.pdf>
-Package pdftex.def Info: figures/abcdef-graph-ps-converted-to.pdf  used on inpu
-t line 502.
-(pdftex.def)             Requested size: 307.14749pt x 127.84288pt.
- [28 <./figures/abcdef-graph-ps-converted-to.pdf>]
-
-LaTeX Font Warning: Command \sc invalid in math mode on input line 520.
-
-Package epstopdf Info: Source file: <figures/csp-filter.ps>
-(epstopdf)                    date: 2026-07-14 21:56:46
-(epstopdf)                    size: 13227 bytes
-(epstopdf)             Output file: <figures/csp-filter-ps-converted-to.pdf>
-(epstopdf)                    date: 2026-07-15 00:47:16
-(epstopdf)                    size: 6176 bytes
-(epstopdf)             Command: <epstopdf figures/csp-filter.ps --outfile=figur
-es/csp-filter-ps-converted-to.pdf>
-(epstopdf)             \includegraphics on input line 528.
-Package epstopdf Info: Output file is already uptodate.
-<figures/csp-filter-ps-converted-to.pdf, id=167, 225.84375pt x 98.3675pt>
-File: figures/csp-filter-ps-converted-to.pdf Graphic file (type pdf)
-<use figures/csp-filter-ps-converted-to.pdf>
-Package pdftex.def Info: figures/csp-filter-ps-converted-to.pdf  used on input 
-line 528.
-(pdftex.def)             Requested size: 399.288pt x 173.9348pt.
-[29 <./figures/csp-filter-ps-converted-to.pdf>]
-Package epstopdf Info: Source file: <figures/abcdef-graph.ps>
-(epstopdf)                    date: 2026-07-14 21:56:05
-(epstopdf)                    size: 13867 bytes
-(epstopdf)             Output file: <figures/abcdef-graph-ps-converted-to.pdf>
-(epstopdf)                    date: 2026-07-15 00:47:13
-(epstopdf)                    size: 4577 bytes
-(epstopdf)             Command: <epstopdf figures/abcdef-graph.ps --outfile=fig
-ures/abcdef-graph-ps-converted-to.pdf>
-(epstopdf)             \includegraphics on input line 537.
-Package epstopdf Info: Output file is already uptodate.
-File: figures/abcdef-graph-ps-converted-to.pdf Graphic file (type pdf)
-<use figures/abcdef-graph-ps-converted-to.pdf>
-Package pdftex.def Info: figures/abcdef-graph-ps-converted-to.pdf  used on inpu
-t line 537.
-(pdftex.def)             Requested size: 307.14749pt x 127.84288pt.
-Package epstopdf Info: Source file: <figures/abcdef-ordered.ps>
-(epstopdf)                    date: 2026-07-14 21:56:06
-(epstopdf)                    size: 13906 bytes
-(epstopdf)             Output file: <figures/abcdef-ordered-ps-converted-to.pdf
->
-(epstopdf)                    date: 2026-07-15 00:47:21
-(epstopdf)                    size: 4968 bytes
-(epstopdf)             Command: <epstopdf figures/abcdef-ordered.ps --outfile=f
-igures/abcdef-ordered-ps-converted-to.pdf>
-(epstopdf)             \includegraphics on input line 542.
-Package epstopdf Info: Output file is already uptodate.
-<figures/abcdef-ordered-ps-converted-to.pdf, id=179, 307.1475pt x 44.165pt>
-File: figures/abcdef-ordered-ps-converted-to.pdf Graphic file (type pdf)
-<use figures/abcdef-ordered-ps-converted-to.pdf>
-Package pdftex.def Info: figures/abcdef-ordered-ps-converted-to.pdf  used on in
-put line 542.
-(pdftex.def)             Requested size: 430.00462pt x 61.83458pt.
-
-
-LaTeX Font Warning: Command \sc invalid in math mode on input line 544.
-
-[30 <./figures/abcdef-ordered-ps-converted-to.pdf>] [31] [32] (chapter04b.aux)
+) [9
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.5 0.0 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [10
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.7 0.0 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [11
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 1 0 0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [12
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [13
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.5 0.0 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> PSfile=figures/genetic.ps llx=22 lly=448 urx=583 ury=618 rwi=6426
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [14
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.3 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.5 0.0 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> PSfile=figures/8queens-crossover.ps llx=42 lly=107 urx=756 ury=31...
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [15
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [16
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] (chapter04b.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
+
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 0.5pt have occurred.
+
  ) 
 Here is how much of TeX's memory you used:
- 3168 strings out of 467870
- 53593 string characters out of 5418355
- 442276 words of memory out of 5000000
- 31984 multiletter control sequences out of 15000+600000
- 713706 words of font info for 77 fonts, out of 8000000 for 9000
+ 1823 strings out of 467870
+ 26987 string characters out of 5418355
+ 438733 words of memory out of 5000000
+ 30711 multiletter control sequences out of 15000+600000
+ 646558 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,17n,79p,304b,373s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pf
-b><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.p
-fb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.p
-fb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pf
-b><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb
-><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><
-C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><
-C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb>
-Output written on chapter04b.pdf (32 pages, 296851 bytes).
+ 57i,6n,65p,221b,325s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmex10.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmmi12.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmr12.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/thanh/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/thanh/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/vntex/vnr/vnbx12.pfb><C:/Users/thanh/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/vntex/vnr/vncsc10.pfb><C:/Users/thanh/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/vntex/vnr/vnr8.pfb><C:/Users/thanh/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/vntex/vnr/vnss17.pfb><C:/Users/thanh/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/vntex/vnr/vnssbx10.pfb><C:/Users/thanh/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/vntex/vnr/vnti12.pfb>
+Output written on chapter04b.pdf (16 pages, 159658 bytes).
 PDF statistics:
- 240 PDF objects out of 1000 (max. 8388607)
+ 109 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 56 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

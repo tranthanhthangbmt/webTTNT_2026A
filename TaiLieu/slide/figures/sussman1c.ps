@@ -77,8 +77,8 @@ end
 
 %%EndIdrawPrologue
 
-/arrowHeight 11 def
-/arrowWidth 5 def
+/arrowHeight 8 def
+/arrowWidth 4 def
 
 /IdrawDict 53 dict def
 IdrawDict begin
@@ -212,6 +212,7 @@ end
 /Circ {
 newpath
 0 360 arc
+closepath
 patternNone not { ifill } if
 brushNone not { istroke } if
 } def
@@ -243,6 +244,7 @@ newpath
 translate
 scale
 0 0 1 0 360 arc
+closepath
 patternNone not { ifill } if
 brushNone not { istroke } if
 end
@@ -362,7 +364,7 @@ grestore
 gsave
 fgred fggreen fgblue setrgbcolor
 /fontDict printFont printSize scalefont dup setfont def
-/descender fontDict begin 0 [FontBBox] 1 get FontMatrix end
+/descender fontDict begin 0 /FontBBox load  1 get FontMatrix end
 transform exch pop def
 /vertoffset 1 printSize sub descender sub def {
 0 vertoffset moveto show
@@ -492,7 +494,7 @@ exch dup 3 1 roll 1 0 0 -1 0 6 -1 roll matrix astore
 
 %%EndProlog
 
-%I Idraw 10 Grid 8 8 
+%I Idraw 12 Grid 8 8 
 
 %%Page: 1 1
 
@@ -814,14 +816,6 @@ Begin %I Pict
 %I t
 [ 0.77 0 0 0.77 121.36 18.6621 ] concat
 
-Begin %I Pict
-%I b u
-%I cfg u
-%I cbg u
-%I f u
-%I p u
-%I t u
-
 Begin %I Rect
 %I b 65535
 1 0 0 [] 0 SetB
@@ -853,20 +847,18 @@ End
 End %I eop
 
 Begin %I Text
-%I cfg Black
-0 0 0 SetCFg
+%I cfg Red
+1 0 0 SetCFg
 %I f -*-helvetica-medium-o-normal-*-14-*-*-*-*-*-*-*
 Helvetica-Oblique 14 SetF
 %I t
-[ 1.4535 0 0 1.4535 96.3448 571.684 ] concat
+[ 1.11919 0 0 1.11919 195.546 458.859 ] concat
 %I
 [
 (On\(A,B\)     On\(B,C\))
 ] Text
 End
 
-End %I eop
-
 Begin %I Pict
 %I b u
 %I cfg u
@@ -874,16 +866,7 @@ Begin %I Pict
 %I f u
 %I p u
 %I t
-[ 0.77 0 0 0.77 -161.454 391.255 ] concat
-
-Begin %I Pict
-%I b u
-%I cfg u
-%I cbg u
-%I f u
-%I p u
-%I t
-[ 1 0 0 1 74.8553 0 ] concat
+[ 0.77 0 0 0.77 -103.815 391.255 ] concat
 
 Begin %I Rect
 %I b 65535
@@ -916,19 +899,17 @@ End
 End %I eop
 
 Begin %I Text
-%I cfg Black
-0 0 0 SetCFg
+%I cfg Blue
+0 0 1 SetCFg
 %I f -*-helvetica-medium-o-normal-*-14-*-*-*-*-*-*-*
 Helvetica-Oblique 14 SetF
 %I t
-[ 1.4535 0 0 1.4535 339.022 486.671 ] concat
+[ 1.11919 0 0 1.11919 99.5929 765.992 ] concat
 %I
 [
 (On\(C,A\) On\(A,Table\) Cl\(B\) On\(B,Table\) Cl\(C\))
 ] Text
 End
-
-End %I eop
 
 End %I eop
 

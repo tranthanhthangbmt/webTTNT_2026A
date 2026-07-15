@@ -1,0 +1,307 @@
+\documentclass{article}
+\usepackage{fleqn}
+\usepackage{epsf}
+\usepackage{aima2e-slides}
+
+\begin{document}
+
+\begin{huge}
+\titleslide{Complex decisions}{Chapter 17, Sections 1--3}
+
+\sf
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Phác thảo}
+
+\blob Các vấn đề về quyết định tuần tự
+
+\blob Lặp lại giá trị
+
+\blob Lặp lại chính sách
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Các vấn đề về quyết định tuần tự}
+
+\vspace*{0.3in}
+
+\epsfxsize=1.06\textwidth
+\fig{\file{figures}{decision-problems.ps}}
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ MDP}
+
+\epsffile{\file{figures}{sequential-decision-world.ps}}
+
+\centerline{%
+\epsfxsize=0,4\textwidth
+\epsffile{\file{figures}{sequential-decision-world.ps}} \hspace*{1in} $s \in S$
+\epsfxsize=0,2\textwidth
+$a \in A$}
+
+Kỳ $s \in S$, hành động $a \in A$
+
+\u{Mô hình} $T(s,a,s') \equiv P(s'|s,a)$ = xác suất $a$ trong $s$ dẫn đến $s'$
+
+\u{Chức năng thưởng} $R(s)$ (hoặc $R(s,a)$, $R(s,a,s')$)\nl
+   = $\left\{\begin{array}{ll} -0.04 & \mbox{ (small penalty) for nonterminal states}\\
+                               \pm 1 & \mbox{ for terminal states}\end{array}\right.$
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Giải quyết MDP}
+
+Trong các bài toán tìm kiếm, mục đích là tìm một chuỗi {\em} tối ưu
+
+Trong MDP, mục tiêu là tìm ra một {\em Policy} tối ưu $\pi(s)$\nl
+   tức là hành động tốt nhất cho mọi trạng thái có thể $s$ \nl
+   (vì không thể đoán trước được mình sẽ đi về đâu)\\
+Chính sách tối ưu tối đa hóa (giả sử) {\em tổng phần thưởng dự kiến}
+
+Chính sách tối ưu khi hình phạt của tiểu bang $R(s)$ là --0,04:
+
+\vspace*{0.2in}
+
+\epsfxsize=0,45\textwidth
+\fig{\file{figures}{sequential-decision-policy.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Rủi ro và phần thưởng}
+
+\vspace*{0.2in}
+
+\epsfxsize=0,75\textwidth
+\fig{\file{figures}{policy-flips4.ps}}
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tiện ích của chuỗi trạng thái}
+
+Cần hiểu các ưu tiên giữa {\em chuỗi} trạng thái
+
+Thường xem xét \u{tùy chọn cố định} trên chuỗi phần thưởng:
+\[
+  [r,r_0,r_1,r_2,\ldots]\pref [r,r'_0,r'_1,r'_2,\ldots]
+  \lequiv
+  [r_0,r_1,r_2,\ldots]\pref [r'_0,r'_1,r'_2,\ldots]
+\]  
+\u{Định lý}: chỉ có hai cách để kết hợp phần thưởng theo thời gian.\al
+  1) Hàm tiện ích {\em Additive}:\nl
+   $U([s_0,s_1,s_2,\ldots]) = R(s_0) + R(s_1) + R(s_2) + \cdots $\al
+  2) Hàm tiện ích {\em Giảm giá}:\nl
+   $U([s_0,s_1,s_2,\ldots]) = R(s_0) + \gamma R(s_1) + \gamma^2 R(s_2) + \cdots $\nl
+   trong đó $\gamma$ là \u{hệ số chiết khấu}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tiện ích của các trạng thái}
+
+Tiện ích của một {\em state} (hay còn gọi là {\em value}) được xác định là \nl
+$U(s) = {}$ \u{tổng số phần thưởng dự kiến (được chiết khấu) (cho đến khi chấm dứt)}\nl
+\phantom{$U(s) = {}$} \u{giả sử hành động tối ưu}
+
+Với những tiện ích của các bang, việc lựa chọn hành động tốt nhất chỉ là MEU:\al
+  tối đa hóa lợi ích mong đợi của những người kế nhiệm trực tiếp 
+
+\vspace*{0.2in}
+
+\twofig{\file{figures}{sequential-decision-values.ps}}{\file{figures}{sequential-decision-policy.ps}}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tiện ích tiếp theo.}
+
+Vấn đề: các tiện ích cộng thêm có thời gian sống vô hạn $\implies$ là vô hạn
+
+1) \u{Chân trời hữu hạn}: kết thúc tại một {\em thời gian cố định} $T$\al
+  Chính sách $\implies$ \u{không cố định}: $\pi(s)$ phụ thuộc vào thời gian còn lại
+
+2) \u{(Các) trạng thái hấp thụ}: w/ prob.~1, tác nhân cuối cùng `` chết '' đối với bất kỳ $\pi$\al
+  $\implies$ Tiện ích dự kiến của mọi trạng thái là hữu hạn
+
+3) Chiết khấu: giả sử $\gamma<1$, $R(s) \leq R_{{\rm max}}$,
+\[ U([s_0,\ldots s_{\infty}]) = \mysum_{t=0}^{\infty} \gamma^t R(s_t) \leq R_{{\rm max}}/(1-\gamma)\]
+Đường chân trời ngắn hơn $\gamma \Rightarrow {}$ nhỏ hơn
+
+4) Tối đa hóa \u{lợi ích hệ thống} = phần thưởng trung bình mỗi bước thời gian\\
+Định lý: chính sách tối ưu có mức tăng không đổi sau thoáng qua ban đầu\\
+Ví dụ: kế hoạch hàng ngày của tài xế taxi đưa đón hành khách
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Lập trình động: phương trình Bellman}
+
+Định nghĩa về tính hữu dụng của các trạng thái dẫn đến một mối quan hệ đơn giản giữa
+Tiện ích của các nước lân cận:
+
+\u{tổng số phần thưởng dự kiến}\al
+= \u{phần thưởng hiện tại}\nl
++ $\gamma \stimes{}$\u{tổng số phần thưởng dự kiến sau khi thực hiện hành động tốt nhất}
+
+Phương trình Bellman (1957):
+\[ U(s) = R(s) + \gamma\,\max_a \mysum_{s'} U(s') T(s,a,s')\]
+
+$U(1,1) = -0.04$\\
+\tab + $\gamma\,\max\{ 0.8 U(1,2) + 0.1 U(2,1) + 0.1 U(1,1),$\hfill{\em up\\
+\tab \phantom{+ \mbox{$\max\{$}}$0.9 U(1,1) + 0.1 U(1,2) $\hfill{\em left\\
+\tab \phantom{+ \mbox{$\max\{$}}$0.9 U(1,1) + 0.1 U(2,1) $\hfill{\em down\\
+\tab \phantom{+ \mbox{$\max\{$}$0.8 U(2,1) + 0.1 U(1,2) + 0.1 U(1,1) \}$\hfill{\em đúng}
+
+Một phương trình trên mỗi trạng thái = $n$ \u{phi tuyến } phương trình trong $n$ ẩn số
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Thuật toán lặp giá trị}
+
+\u{Idea}: Bắt đầu với các giá trị tiện ích tùy ý\nl
+          Cập nhật để làm cho chúng \u{nhất quán cục bộ} với Bellman eqn.\nl
+          Tối ưu toàn cầu nhất quán cục bộ $\Rightarrow$ ở mọi nơi
+
+Lặp lại đồng thời cho mọi $s$ cho đến khi ``không thay đổi''
+\[ U(s) \leftarrow R(s) + \gamma\,\max_a \mysum_{s'} U(s') T(s,a,s') \qquad \mbox{for all } s\]
+
+\epsfxsize=0,6\textwidth
+\fig{\file{graphs}{4x3-vi-curve.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Hội tụ}
+
+Xác định \u{max-norm} $||U|| = \max_s |U(s)|$,\\
+vì vậy $||U-V||$ = chênh lệch tối đa giữa $U$ và $V$
+
+Đặt $U^t$ và $U^{t+1}$ là các giá trị gần đúng liên tiếp của hữu dụng thực $U$
+
+\u{Định lý}: Đối với hai phép tính gần đúng bất kỳ $U^t$ và $V^t$
+\[ ||U^{t+1}-V^{t+1}|| \leq \gamma\, ||U^{t}-V^{t}|| \]
+Tức là, mọi phép tính gần đúng khác biệt đều phải tiến gần nhau hơn\\
+vì vậy, đặc biệt, bất kỳ phép tính gần đúng nào cũng phải tiến gần hơn đến giá trị thực $U$\\
+và sự lặp lại giá trị hội tụ thành một giải pháp duy nhất, ổn định, tối ưu
+
+\u{Định lý}: nếu $||U^{t+1} - U^t||<\epsilon$ thì $||U^{t+1} - U||<2\epsilon\gamma/(1-\gamma)$\\
+Tức là, khi thay đổi trong $U^t$ trở nên nhỏ, chúng ta gần như đã hoàn tất.
+
+Chính sách MEU sử dụng $U^t$ có thể tối ưu từ lâu trước khi hội tụ các giá trị
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Lặp lại chính sách}
+
+Howard, 1960: tìm kiếm đồng thời các giá trị chính sách và tiện ích tối ưu
+
+Thuật toán:\al
+  $\pi \leftarrow {}$ chính sách ban đầu tùy ý\al
+  lặp lại cho đến khi không có thay đổi nào trong $\pi$\nl
+    các tiện ích tính toán được cung cấp $\pi$ \nl
+    cập nhật $\pi$ như thể các tiện ích đã chính xác (tức là MEU cục bộ)
+
+Để tính toán các tiện ích được xác định giá trị $\pi$ (\u{} cố định):
+\[ U(s) = R(s) + \gamma\,\mysum_{s'} U(s') T(s,\pi(s),s')\qquad \mbox{for all } s \]
+tức là, $n$ phương trình \u{tuyến tính} đồng thời trong $n$ ẩn số,
+giải quyết trong $O(n^3)$
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{ Lặp lại chính sách đã sửa đổi }
+
+Việc lặp lại chính sách thường hội tụ trong một vài lần lặp, nhưng mỗi lần đều tốn kém
+
+Ý tưởng: sử dụng một vài bước lặp giá trị (nhưng đã sửa $\pi$) \\
+bắt đầu từ hàm giá trị được tạo lần trước \\
+để tạo ra bước xác định giá trị gần đúng.
+
+Thường hội tụ nhanh hơn nhiều so với VI hoặc PI thuần túy
+
+Dẫn đến các thuật toán tổng quát hơn trong đó cập nhật giá trị Bellman
+và cập nhật chính sách của Howard có thể được thực hiện cục bộ theo bất kỳ thứ tự nào
+
+Thuật toán \u{Học tăng cường} hoạt động bằng cách thực hiện như vậy
+cập nhật dựa trên các chuyển đổi được quan sát được thực hiện theo cách chưa biết ban đầu
+môi trường
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Khả năng quan sát một phần}
+
+POMDP có mô hình quan sát \u{} $O(s,e)$ xác định xác suất mà
+đại lý thu được bằng chứng $e$ khi ở trạng thái $s$
+
+Tác nhân không biết nó đang ở trạng thái nào \nl
+$\implies$ nói về chính sách thật vô nghĩa $\pi(s)$!!
+
+\u{Định lý} (Astrom, 1965): chính sách tối ưu trong POMDP là một hàm\nl
+  $\pi(b)$ trong đó $b$ là \u{trạng thái niềm tin} (phân bố xác suất trên các trạng thái)
+
+Có thể chuyển đổi POMDP thành MDP trong không gian trạng thái niềm tin, trong đó\nl
+  $T(b,a,b')$ là xác suất trạng thái niềm tin mới là $b'$\nl
+  cho rằng trạng thái niềm tin hiện tại là $b$ và tác nhân thực hiện $a$.\nl
+  Tức là về cơ bản là bước cập nhật lọc
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tiếp theo khả năng quan sát một phần }
+
+Giải pháp tự động bao gồm hành vi thu thập thông tin
+
+Nếu có trạng thái $n$ thì $b$ là một vectơ có giá trị thực theo chiều $n$\nl
+$\implies$ việc giải quyết POMDP rất (thực sự là PSPACE-) rất khó!
+
+Thế giới thực là một POMDP (ban đầu không xác định được $T$ và $O$)
+
+
+
+
+\end{huge}
+\end{document}
+
+
+
+
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Biến đổi bất biến}
+
+Hành vi không tuần tự bất biến dưới biến đổi tuyến tính:
+\[
+  U'(s) = k_1 U(s) + k_2 \quad\mbox{where } k_1 > 0
+\]
+Hành vi tuần tự với tiện ích phụ gia là bất biến\\
+bổ sung bất kỳ phần thưởng \u{dựa trên tiềm năng} nào:
+\[
+  R'(s,a,s') = R(s,a,s') + F(s,a,s')
+\]
+trong đó phần thưởng được thêm vào phải thỏa mãn
+\[
+\gamma \Phi(s') - \Phi(s)
+\]
+đối với một số \u{hàm tiềm năng } $\Phi$ ở các trạng thái
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Q-lặp }
+
+Xác định $Q(s,a)$ = giá trị mong đợi của việc thực hiện hành động $a$ ở trạng thái $s$\al
+  = $R(s) + \gamma\,\mysum_{s'} U(s') T(s,a,s')$\al
+  tức là $U(s) = \max_a Q(s,a)$
+
+Thuật toán Q-iteration: giống như phép lặp giá trị, nhưng thực hiện
+\[
+Q(s,a) \leftarrow R(s) + \gamma\,\mysum_{s'} T(s,a,s') \max_{a'} Q(s',a') \qquad \mbox{for all } s,a
+\]
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Vấn đề}
+
+Độ phức tạp: đa thời gian về số lượng trạng thái (bằng lập trình tuyến tính)\al
+  nhưng số lượng trạng thái là số mũ theo số lượng biến trạng thái\al
+  $\rightarrow$ Boutilier {\em et al}>: sử dụng cấu trúc trạng thái\al
+  $\rightarrow$ học tăng cường: mẫu $S$, xấp xỉ $U$\al
+  $\rightarrow$ phương pháp phân cấp trong xây dựng chính sách
+
+Khả năng quan sát một phần: không thể đảm nhận việc quan sát hoàn hảo trạng thái\al
+  $\implies$ duy trì \u{trạng thái niềm tin} (trạng thái sau)\nl
+  và giảm POMDP xuống MDP trong không gian trạng thái niềm tin (eek)\al
+  $\rightarrow$ Cassandra {\em et al}: Lặp lại giá trị POMDP\al
+  $\rightarrow$ Hansen: Chính sách POMDP dưới dạng DFA\al
+

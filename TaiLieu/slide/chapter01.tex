@@ -1,232 +1,426 @@
-\documentclass[fleqn]{article}
-
-\usepackage{aima-slides}
-\usepackage[utf8]{inputenc}
-\usepackage[T5]{fontenc}
-\usepackage{lmodern}
-\usepackage{epstopdf}
-\usepackage{url}
+\documentclass{article}
+\usepackage{fleqn}
+\usepackage{epsf}
+\usepackage[dvips]{color}
+\usepackage{aima2e-slides}
 
 \begin{document}
 
 \begin{huge}
-\titleslide{Trí tuệ nhân tạo}{Chương 1}
+\titleslide{Artificial Intelligence}{Chapter 1}
+
+\sf
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Nội dung}
+\heading{Phác thảo}
 
-\blob Tổng quan khóa học
+\blob AI là gì?
 
-\blob Trí tuệ nhân tạo (AI) là gì?
+\blob Sơ lược lịch sử
 
-\blob Lược sử phát triển
-
-\blob Tình hình hiện tại
-
-
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Thông tin hành chính}
-
-Trang chủ lớp học: \url{http://www-inst.eecs.berkeley.edu/~cs188}\\
-nơi chứa bài giảng, bài tập, đề thi, chấm điểm, giờ giải đáp, v.v.
-
-Bài tập 0 (ôn tập lisp) hạn nộp 8/31
-
-Sách giáo trình: Russell and Norvig \u{Trí tuệ nhân tạo: Cách tiếp cận hiện đại}\\
-Đọc Chương 1 và 2 cho tài liệu tuần này
-
-Code: bản cài đặt lisp tích hợp cho các thuật toán AIMA tại\\
-\url{http://www-inst.eecs.berkeley.edu/~cs188/code/}
-
-
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Tổng quan khóa học}
-
-\blob tác nhân thông minh (intelligent agents)\\
-\blob tìm kiếm và chơi trò chơi\\
-\blob các hệ thống logic\\
-\blob các hệ thống lập kế hoạch\\
-\blob độ bất định---xác suất và lý thuyết quyết định\\
-\blob học máy\\
-\blob ngôn ngữ\\
-\blob nhận thức\\
-\blob robot học\\
-\blob các vấn đề triết học
+\blob Hiện đại
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \heading{AI là gì?}
 
-\input{tables/ai-is-table}
+\vspace*{1in}
 
-Các quan điểm về AI được chia thành bốn loại:
+\centerline{ \input{tables/ai-is-table} }
 
-\begin{center}
-\begin{tabular}{|l|l|}
-\hline
-\tabhead  Suy nghĩ như người & Suy nghĩ hợp lý \\
-\hline
-\tabhead  Hành động như người & Hành động hợp lý \\
-\hline
-\end{tabular}
-\end{center}
-
-Khi xem xét những điều này, chúng ta sẽ nghiêng về hành động hợp lý (ở một mức độ nào đó)
- 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Hành động như người: Phép thử Turing}
+\heading{Hành động con người: Bài kiểm tra Turing}
 
-Turing (1950) ``Máy tính và trí thông minh'':\\
-\blob ``Máy móc có thể suy nghĩ không?'' $\longrightarrow$ ``Máy móc có thể hành xử thông minh không?''\\
-\blob Bài kiểm tra thực hành cho hành vi thông minh: Trò chơi bắt chước
+Turing (1950) `` Máy tính và trí thông minh '':\\
+\blob ``\txm{Máy móc có thể suy nghĩ}?'' $\longrightarrow$ ``\txg{Máy móc có thể hoạt động thông minh}?''\\
+\blob Bài kiểm tra vận hành hành vi thông minh: \defn{Trò chơi bắt chước}
 
-\vspace*{0.2in}
+\vspace*{0.05in}
 
-\epsfxsize=0.5\textwidth
+\epsfxsize=0,7\textwidth
 \fig{\file{figures}{turing.ps}}
 
-\blob Dự đoán rằng đến năm 2000, một cỗ máy có 30\% cơ hội\al
-     đánh lừa một người bình thường trong 5 phút\\
-\blob Dự đoán trước tất cả các lập luận chính chống lại AI trong 50 năm tiếp theo\\
-\blob Đề xuất các thành phần chính của AI: tri thức, lập luận, hiểu\al
-     ngôn ngữ, học máy\\[0.1in]
-Vấn đề: Phép thử Turing không có \u{tính lặp lại}, \u{tính kiến thiết}, hoặc\\
-phù hợp để \u{phân tích toán học}
+\vspace*{-0.2in}
+
+\blob Dự đoán rằng đến năm 2000, một chiếc máy có thể có 30\% khả năng \al
+     lừa gạt một người cư sĩ trong 5 phút\\
+\blob Dự đoán tất cả các lập luận chính chống lại AI trong 50 năm tới\\
+\blob Các thành phần chính được đề xuất của AI: kiến thức, lý luận, ngôn ngữ\al
+     hiểu biết, học tập\\[0,1in]
+Sự cố: Kiểm tra Turing không thể tái tạo \emph{}, \emph{mang tính xây dựng} hoặc \\
+tuân theo \emph{phân tích toán học}
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Suy nghĩ như người: Khoa học nhận thức}	
+\heading{Tư duy con người: Khoa học nhận thức}	
 
-Thập niên 1960 ``cách mạng nhận thức'': tâm lý học xử lý thông tin thay thế\\
-cho học thuyết hành vi đang thịnh hành
+Những năm 1960 ``\defn{cuộc cách mạng nhận thức}'': tâm lý xử lý thông tin thay thế\\
+tính chính thống thịnh hành của \defn{chủ nghĩa hành vi}
 
-Yêu cầu các lý thuyết khoa học về các hoạt động bên trong của não bộ\al
- -- Ở mức độ trừu tượng nào? ``Tri thức'' hay ``mạch điện''?\al
- -- Làm thế nào để kiểm chứng? Yêu cầu \nl
-    1) Dự đoán và kiểm tra hành vi của con người (từ trên xuống)\nl
+Đòi hỏi những lý thuyết khoa học về hoạt động bên trong của não bộ\al
+ -- Mức độ trừu tượng nào? ``\note{Kiến thức}'' hoặc ``\note{mạch}''?\al
+ -- Làm thế nào để xác nhận? Yêu cầu \nl
+    1) Dự đoán và kiểm tra hành vi của đối tượng con người (từ trên xuống)\nl
     hoặc 2) Nhận dạng trực tiếp từ dữ liệu thần kinh (từ dưới lên)
 
-Cả hai cách tiếp cận (nói chung là Khoa học nhận thức và Khoa học thần kinh nhận thức) \\
-hiện nay đều tách biệt với AI
+Cả hai cách tiếp cận (đại khái là \txm{Khoa học nhận thức} và \txb{Khoa học thần kinh nhận thức}) \\
+bây giờ đã khác biệt với AI
+
+Cả hai đều có chung đặc điểm sau với AI:\al
+   \emph{các lý thuyết hiện có không giải thích được (hoặc tạo ra)\al
+   bất cứ thứ gì giống với trí thông minh chung ở cấp độ con người }
+
+Do đó, cả ba lĩnh vực đều có chung một hướng chính!
 
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Suy nghĩ hợp lý: Các định luật của tư duy}
+\heading{Suy nghĩ hợp lý: Quy luật tư duy}
 
-\u{Chuẩn tắc} (hoặc \u{mô tả quy tắc}) hơn là \u{mô tả hiện tượng}
+\defn{Quy chuẩn} (hoặc \defn{quy định}) thay vì \note{mô tả}
 
-Aristotle: thế nào là quá trình lập luận/tư duy đúng đắn?
+Aristotle: lập luận/quá trình suy nghĩ đúng đắn là gì?
 
-Một số trường phái Hy Lạp đã phát triển nhiều dạng \u{logic}:\al
-   \u{ký hiệu} và \u{các quy tắc dẫn xuất} cho tư duy;\\
+Một số trường học ở Hy Lạp đã phát triển nhiều dạng \defn{logic}:\al
+   \emph{ký hiệu} và \emph{quy tắc đạo hàm} cho suy nghĩ;\\
 có thể đã hoặc chưa tiến tới ý tưởng cơ giới hóa
 
-Đường lối trực tiếp qua toán học và triết học dẫn đến AI hiện đại
+Đường truyền trực tiếp từ toán học và triết học tới AI hiện đại
 
-Vấn đề: \\
-1) Không phải tất cả hành vi thông minh đều được trung gian bởi sự suy ngẫm logic\\
-2) Mục đích của suy nghĩ là gì? Tôi nên có những suy nghĩ nào?
+Sự cố: \\
+1) Không phải tất cả hành vi thông minh đều được trung gian bởi sự cân nhắc logic\\
+2) \note{Mục đích của việc suy nghĩ} là gì? Tôi nên có những suy nghĩ gì \emph{} \al
+   trong số tất cả những suy nghĩ (hợp lý hay nói cách khác) mà tôi \emph{có thể có}?
+
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \heading{Hành động hợp lý}
 
-Hành vi \u{hợp lý}: làm điều đúng đắn
+\defn{Hành vi hợp lý}: làm điều đúng đắn
 
-Điều đúng đắn: điều được kỳ vọng sẽ tối đa hóa việc đạt được mục tiêu,\\
+Điều đúng: điều được mong đợi sẽ tối đa hóa thành tích mục tiêu,\\
 dựa trên thông tin có sẵn
 
-Không nhất thiết liên quan đến suy nghĩ---ví dụ: phản xạ chớp mắt---nhưng\\
+Không nhất thiết liên quan đến việc suy nghĩ---ví dụ: phản xạ chớp mắt---nhưng\\
 suy nghĩ nên phục vụ cho hành động hợp lý
 
 Aristotle (Đạo đức học Nicomachean):\al
-  {\em Mọi nghệ thuật và mọi sự tìm tòi, cũng như mọi hành động \al
-       và theo đuổi, đều được cho là hướng tới một điều tốt đẹp nào đó}
+  \emph{Mọi nghệ thuật và mọi yêu cầu, và tương tự như vậy mọi \al
+       hành động và theo đuổi, được cho là nhằm mục đích tốt đẹp nào đó}
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Tác nhân hợp lý}
+\heading{Các tác nhân hợp lý}
 
-Một \u{tác nhân} là một thực thể cảm nhận và hành động
+Một tác nhân \defn{} là một thực thể nhận thức và hành động
 
-Khóa học này xoay quanh việc thiết kế các tác nhân hợp lý
+Khóa học này nói về thiết kế \defn{các tác nhân hợp lý}
 
-Một cách trừu tượng, một tác nhân là một hàm từ lịch sử nhận thức đến các hành động:
+Tóm lại, một tác nhân là một chức năng từ lịch sử nhận thức đến hành động:
 \[f: {\cal P}^* \rightarrow {\cal A}\]
-Đối với bất kỳ lớp môi trường và tác vụ nào, chúng ta tìm kiếm\\
+Đối với bất kỳ loại môi trường và nhiệm vụ nhất định nào, chúng tôi tìm kiếm \\
 tác nhân (hoặc lớp tác nhân) có hiệu suất tốt nhất
 
-Lưu ý: những hạn chế về tính toán khiến cho sự hợp lý hoàn hảo không thể đạt được\\
-$\rightarrow$ thiết kế \u{chương trình} tốt nhất cho các tài nguyên máy móc nhất định
+Hãy cẩn thận: \emph{các hạn chế về tính toán khiến \nl
+\ \ tính hợp lý hoàn hảo không thể đạt được}\\
+$\rightarrow$ thiết kế chương trình \note{tốt nhất} cho các tài nguyên máy nhất định
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Tiền sử của AI}
+\heading{Thời tiền sử AI}
 
-\resizebox{\textwidth}{!}{
 \begin{tabular}{ll}
-Triết học & logic, các phương pháp lập luận\\
-           & tâm trí như một hệ thống vật lý\\
-\tabbot    & nền tảng của học máy, ngôn ngữ, tính hợp lý\\
-Toán học& biểu diễn và chứng minh hình thức\\
-           & thuật toán\\
-           & tính toán, tính (không) quyết định được, tính (không) giải được\\
-\tabbot    & xác suất\\
-Tâm lý học & sự thích nghi\\
-           & các hiện tượng nhận thức và kiểm soát vận động\\
-\tabbot    & các kỹ thuật thực nghiệm (tâm lý vật lý học, v.v.)\\
-Ngôn ngữ học& biểu diễn tri thức\\
-\tabbot    & ngữ pháp\\
-Khoa học thần kinh& cơ sở vật chất cho hoạt động tâm trí\\
-Lý thuyết điều khiển& các hệ thống cân bằng nội môi, tính ổn định\\
-           & các thiết kế tác nhân tối ưu đơn giản
+\defn{Triết học} & logic, phương pháp suy luận\\
+           & tâm trí như hệ thống vật chất\\
+\tabbot & nền tảng học tập, ngôn ngữ, tính hợp lý\\
+\defn{Toán học}& biểu diễn và chứng minh hình thức\\
+           & thuật toán, tính toán, khả năng quyết định (không), khả năng xử lý (trong)\\
+\tabbot & xác suất\\
+\defn{Tâm lý học} & thích ứng\\
+           & hiện tượng nhận thức và điều khiển vận động\\
+\tabbot & kỹ thuật thử nghiệm (tâm lý học, v.v.)\\
+\defn{Kinh tế học} & lý thuyết hình thức về các quyết định hợp lý\\
+\defn{Ngôn ngữ học}& biểu diễn tri thức\\
+\tabbot & ngữ pháp\\
+\defn{Khoa học thần kinh}& chất dẻo vật lý cho hoạt động trí óc\\
+\defn{Lý thuyết điều khiển}& hệ thống cân bằng nội môi, độ ổn định\\
+           & thiết kế đại lý tối ưu đơn giản
 \end{tabular}
-}
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Tóm tắt lịch sử AI}
+\heading{Lịch sử chậu cây AI}
 
-\resizebox{\textwidth}{!}{
+\vspace*{-0.1in}
+
 \begin{tabular}{ll}
-1943       & McCulloch \& Pitts: Mô hình mạch Boolean của não bộ\\
-1950       & ``Máy tính và trí thông minh'' của Turing\\
-1952--69   & Hãy nhìn này, không cần dùng tay! \\
-1950s      & Các chương trình AI sơ khai, bao gồm chương trình cờ đam của Samuel,\\
-           & Logic Theorist của Newell \& Simon, Geometry Engine của Gelernter\\
-1956       & Hội nghị Dartmouth: Thuật ngữ ``Trí tuệ nhân tạo'' được chấp nhận\\
-1965       & Thuật toán hoàn chỉnh của Robinson cho lập luận logic\\
-1966--74   & AI khám phá ra độ phức tạp tính toán\\
-           & Nghiên cứu mạng nơ-ron gần như biến mất\\
-1969--79   & Sự phát triển ban đầu của các hệ chuyên gia\\
-1980--88   & Ngành công nghiệp hệ chuyên gia bùng nổ\\
-1988--93   & Ngành công nghiệp hệ chuyên gia phá sản: ``Mùa đông AI''\\
-1985--95   & Mạng nơ-ron trở lại phổ biến\\
-1988--     & Sự trỗi dậy của các phương pháp xác suất và lý thuyết quyết định\\
-           & Sự gia tăng nhanh chóng về chiều sâu kỹ thuật của AI chính thống\\
-           & ``Nouvelle AI'': ALife, Thuật toán di truyền (GAs), tính toán mềm
+\note{1943} & McCulloch \& Pitts: Mô hình mạch Boolean của não\\
+\note{1950} & ``Máy tính và trí thông minh'' của Turing\\
+\note{1952--69} & Nhìn này, Mẹ, không có tay! \\
+\note{Những năm 1950} & Các chương trình AI thời kỳ đầu, bao gồm chương trình cờ đam của Samuel,\\
+           & Newell \& Nhà lý thuyết logic của Simon, Công cụ hình học của Gelernter\\
+\note{1956} & Cuộc họp ở Dartmouth: ``Trí tuệ nhân tạo'' được thông qua\\
+\note{1965} & Thuật toán hoàn chỉnh của Robinson cho suy luận logic\\
+\note{1966--74} & AI phát hiện ra độ phức tạp tính toán\\
+           & Nghiên cứu mạng lưới thần kinh gần như biến mất\\
+\note{1969--79} & Phát triển ban đầu các hệ thống dựa trên tri thức\\
+\note{1980--88} & Sự bùng nổ của ngành hệ thống chuyên gia\\
+\note{1988--93} & Sự phá sản của ngành hệ thống chuyên gia: ``AI Winter''\\
+\note{1985--95} & Mạng lưới thần kinh trở lại phổ biến\\
+\note{1988}-- & Sự trỗi dậy của xác suất; tăng chung về chiều sâu kỹ thuật\\
+           & ``Nouvelle AI'': ALife, GA, điện toán mềm\\
+\note{1995}-- & Đại lý, đại lý, khắp mọi nơi $\ldots$\\
+\note{2003}-- & AI cấp độ con người trở lại chương trình nghị sự
 \end{tabular}
-}
 
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Tình hình hiện tại}
+\heading{Hiện đại}
 
-Những điều nào sau đây có thể thực hiện được ở hiện tại?
+Hiện tại, điều nào sau đây có thể được thực hiện?
 
-\blob Chơi bóng bàn ở mức độ khá \\
-\blob Lái xe trên một con đường núi quanh co \\
-\blob Lái xe ở trung tâm Cairo \\
-\blob Chơi bài bridge ở mức độ khá \\
-\blob Khám phá và chứng minh một định lý toán học mới \\
-\blob Cố tình viết một câu chuyện hài hước \\
-\blob Đưa ra lời khuyên pháp lý có năng lực trong một lĩnh vực chuyên ngành\\
-\blob Dịch tiếng Anh nói sang tiếng Thụy Điển nói theo thời gian thực
+\blob {Chơi một ván bóng bàn tử tế} 
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Hiện đại}
+
+Hiện tại, điều nào sau đây có thể được thực hiện?
+
+\blob \txg{Chơi một ván bóng bàn tử tế} \\
+\blob {Lái xe an toàn trên đường núi quanh co} 
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Hiện đại}
+
+Hiện tại, điều nào sau đây có thể được thực hiện?
+
+\blob \txg{Chơi một ván bóng bàn tử tế} \\
+\blob \txg{Lái xe an toàn dọc theo con đường núi quanh co} \\
+\blob {Lái xe an toàn dọc theo Đại lộ Telegraph} 
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Hiện đại}
+
+Hiện tại, điều nào sau đây có thể được thực hiện?
+
+\blob \txg{Chơi một ván bóng bàn tử tế} \\
+\blob \txg{Lái xe an toàn dọc theo con đường núi quanh co} \\
+\blob \txr{Lái xe an toàn dọc theo Đại lộ Telegraph} \\
+\blob {Mua hàng tạp hóa trị giá một tuần trên web} 
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Hiện đại}
+
+Hiện tại, điều nào sau đây có thể được thực hiện?
+
+\blob \txg{Chơi một ván bóng bàn tử tế} \\
+\blob \txg{Lái xe an toàn dọc theo con đường núi quanh co} \\
+\blob \txr{Lái xe an toàn dọc theo Đại lộ Telegraph} \\
+\blob \txg{Mua hàng tạp hóa trị giá một tuần trên web} \\
+\blob {Mua hàng tạp hóa trị giá một tuần tại Berkeley Bowl} 
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Hiện đại}
+
+Hiện tại, điều nào sau đây có thể được thực hiện?
+
+\blob \txg{Chơi một ván bóng bàn tử tế} \\
+\blob \txg{Lái xe an toàn dọc theo con đường núi quanh co} \\
+\blob \txr{Lái xe an toàn dọc theo Đại lộ Telegraph} \\
+\blob \txg{Mua hàng tạp hóa trị giá một tuần trên web} \\
+\blob \txr{Mua hàng tạp hóa trị giá một tuần tại Berkeley Bowl} \\
+\blob {Chơi trò chơi cầu đàng hoàng} 
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Hiện đại}
+
+Hiện tại, điều nào sau đây có thể được thực hiện?
+
+\blob \txg{Chơi một ván bóng bàn tử tế} \\
+\blob \txg{Lái xe an toàn dọc theo con đường núi quanh co} \\
+\blob \txr{Lái xe an toàn dọc theo Đại lộ Telegraph} \\
+\blob \txg{Mua hàng tạp hóa trị giá một tuần trên web} \\
+\blob \txr{Mua hàng tạp hóa trị giá một tuần tại Berkeley Bowl} \\
+\blob \txg{Chơi bài bridge đàng hoàng} \\
+\blob {Khám phá và chứng minh một định lý toán học mới} 
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Hiện đại}
+
+Hiện tại, điều nào sau đây có thể được thực hiện?
+
+\blob \txg{Chơi một ván bóng bàn tử tế} \\
+\blob \txg{Lái xe an toàn dọc theo con đường núi quanh co} \\
+\blob \txr{Lái xe an toàn dọc theo Đại lộ Telegraph} \\
+\blob \txg{Mua hàng tạp hóa trị giá một tuần trên web} \\
+\blob \txr{Mua hàng tạp hóa trị giá một tuần tại Berkeley Bowl} \\
+\blob \txg{Chơi bài bridge đàng hoàng} \\
+\blob \txm{Khám phá và chứng minh một định lý toán học mới} \\
+\blob {Thiết kế và thực hiện chương trình nghiên cứu về sinh học phân tử}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Hiện đại}
+
+Hiện tại, điều nào sau đây có thể được thực hiện?
+
+\blob \txg{Chơi một ván bóng bàn tử tế} \\
+\blob \txg{Lái xe an toàn dọc theo con đường núi quanh co} \\
+\blob \txr{Lái xe an toàn dọc theo Đại lộ Telegraph} \\
+\blob \txg{Mua hàng tạp hóa trị giá một tuần trên web} \\
+\blob \txr{Mua hàng tạp hóa trị giá một tuần tại Berkeley Bowl} \\
+\blob \txg{Chơi bài bridge đàng hoàng} \\
+\blob \txm{Khám phá và chứng minh một định lý toán học mới} \\
+\blob \txm{Thiết kế và thực hiện chương trình nghiên cứu về sinh học phân tử}\\
+\blob {Viết một câu chuyện có chủ đích hài hước} 
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Hiện đại}
+
+Hiện tại, điều nào sau đây có thể được thực hiện?
+
+\blob \txg{Chơi một ván bóng bàn tử tế} \\
+\blob \txg{Lái xe an toàn dọc theo con đường núi quanh co} \\
+\blob \txr{Lái xe an toàn dọc theo Đại lộ Telegraph} \\
+\blob \txg{Mua hàng tạp hóa trị giá một tuần trên web} \\
+\blob \txr{Mua hàng tạp hóa trị giá một tuần tại Berkeley Bowl} \\
+\blob \txg{Chơi bài bridge đàng hoàng} \\
+\blob \txm{Khám phá và chứng minh một định lý toán học mới} \\
+\blob \txm{Thiết kế và thực hiện chương trình nghiên cứu về sinh học phân tử}\\
+\blob \txr{Viết truyện hài hước có chủ ý} \\
+\blob {Tư vấn pháp luật có thẩm quyền trong lĩnh vực pháp luật chuyên ngành}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Hiện đại}
+
+Hiện tại, điều nào sau đây có thể được thực hiện?
+
+\blob \txg{Chơi một ván bóng bàn tử tế} \\
+\blob \txg{Lái xe an toàn dọc theo con đường núi quanh co} \\
+\blob \txr{Lái xe an toàn dọc theo Đại lộ Telegraph} \\
+\blob \txg{Mua hàng tạp hóa trị giá một tuần trên web} \\
+\blob \txr{Mua hàng tạp hóa trị giá một tuần tại Berkeley Bowl} \\
+\blob \txg{Chơi bài bridge đàng hoàng} \\
+\blob \txm{Khám phá và chứng minh một định lý toán học mới} \\
+\blob \txm{Thiết kế và thực hiện chương trình nghiên cứu về sinh học phân tử}\\
+\blob \txr{Viết truyện hài hước có chủ ý} \\
+\blob \txg{Tư vấn pháp luật có thẩm quyền trong lĩnh vực luật chuyên ngành}\\
+\blob {Dịch nói tiếng Anh sang tiếng Thụy Điển trong thời gian thực}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Hiện đại}
+
+Hiện tại, điều nào sau đây có thể được thực hiện?
+
+\blob \txg{Chơi một ván bóng bàn tử tế} \\
+\blob \txg{Lái xe an toàn dọc theo con đường núi quanh co} \\
+\blob \txr{Lái xe an toàn dọc theo Đại lộ Telegraph} \\
+\blob \txg{Mua hàng tạp hóa trị giá một tuần trên web} \\
+\blob \txr{Mua hàng tạp hóa trị giá một tuần tại Berkeley Bowl} \\
+\blob \txg{Chơi bài bridge đàng hoàng} \\
+\blob \txm{Khám phá và chứng minh một định lý toán học mới} \\
+\blob \txm{Thiết kế và thực hiện chương trình nghiên cứu về sinh học phân tử}\\
+\blob \txr{Viết truyện hài hước có chủ ý} \\
+\blob \txg{Tư vấn pháp luật có thẩm quyền trong lĩnh vực luật chuyên ngành}\\
+\blob \txg{Dịch giọng nói tiếng Anh sang tiếng Thụy Điển nói trong thời gian thực}\\
+\blob {Trò chuyện thành công với người khác trong một giờ}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Hiện đại}
+
+Hiện tại, điều nào sau đây có thể được thực hiện?
+
+\blob \txg{Chơi một ván bóng bàn tử tế} \\
+\blob \txg{Lái xe an toàn dọc theo con đường núi quanh co} \\
+\blob \txr{Lái xe an toàn dọc theo Đại lộ Telegraph} \\
+\blob \txg{Mua hàng tạp hóa trị giá một tuần trên web} \\
+\blob \txr{Mua hàng tạp hóa trị giá một tuần tại Berkeley Bowl} \\
+\blob \txg{Chơi bài bridge đàng hoàng} \\
+\blob \txm{Khám phá và chứng minh một định lý toán học mới} \\
+\blob \txm{Thiết kế và thực hiện chương trình nghiên cứu về sinh học phân tử}\\
+\blob \txr{Viết truyện hài hước có chủ ý} \\
+\blob \txg{Tư vấn pháp luật có thẩm quyền trong lĩnh vực luật chuyên ngành}\\
+\blob \txg{Dịch giọng nói tiếng Anh sang tiếng Thụy Điển nói trong thời gian thực}\\
+\blob \txr{Trò chuyện thành công với người khác trong một giờ}\\
+\blob {Thực hiện một ca phẫu thuật phức tạp}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Hiện đại}
+
+Hiện tại, điều nào sau đây có thể được thực hiện?
+
+\blob \txg{Chơi một ván bóng bàn tử tế} \\
+\blob \txg{Lái xe an toàn dọc theo con đường núi quanh co} \\
+\blob \txr{Lái xe an toàn dọc theo Đại lộ Telegraph} \\
+\blob \txg{Mua hàng tạp hóa trị giá một tuần trên web} \\
+\blob \txr{Mua hàng tạp hóa trị giá một tuần tại Berkeley Bowl} \\
+\blob \txg{Chơi bài bridge đàng hoàng} \\
+\blob \txm{Khám phá và chứng minh một định lý toán học mới} \\
+\blob \txm{Thiết kế và thực hiện chương trình nghiên cứu về sinh học phân tử}\\
+\blob \txr{Viết truyện hài hước có chủ ý} \\
+\blob \txg{Tư vấn pháp luật có thẩm quyền trong lĩnh vực luật chuyên ngành}\\
+\blob \txg{Dịch giọng nói tiếng Anh sang tiếng Thụy Điển nói trong thời gian thực}\\
+\blob \txr{Trò chuyện thành công với người khác trong một giờ}\\
+\blob \txm{Thực hiện một ca phẫu thuật phức tạp}\\
+\blob {Dỡ bất kỳ máy rửa chén nào và cất mọi thứ đi}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Hiện đại}
+
+Hiện tại, điều nào sau đây có thể được thực hiện?
+
+\blob \txg{Chơi một ván bóng bàn tử tế} \\
+\blob \txg{Lái xe an toàn dọc theo con đường núi quanh co} \\
+\blob \txr{Lái xe an toàn dọc theo Đại lộ Telegraph} \\
+\blob \txg{Mua hàng tạp hóa trị giá một tuần trên web} \\
+\blob \txr{Mua hàng tạp hóa trị giá một tuần tại Berkeley Bowl} \\
+\blob \txg{Chơi bài bridge đàng hoàng} \\
+\blob \txm{Khám phá và chứng minh một định lý toán học mới} \\
+\blob \txm{Thiết kế và thực hiện chương trình nghiên cứu về sinh học phân tử}\\
+\blob \txr{Viết truyện hài hước có chủ ý} \\
+\blob \txg{Tư vấn pháp luật có thẩm quyền trong lĩnh vực luật chuyên ngành}\\
+\blob \txg{Dịch giọng nói tiếng Anh sang tiếng Thụy Điển nói trong thời gian thực}\\
+\blob \txr{Trò chuyện thành công với người khác trong một giờ}\\
+\blob \txm{Thực hiện một ca phẫu thuật phức tạp}\\
+\blob \txr{Dỡ bất kỳ máy rửa bát nào ra và cất mọi thứ đi}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Những câu chuyện vô tình hài hước}
 
 
+Một ngày nọ, Joe Bear đói. Anh ấy hỏi người bạn Irving Bird của mình xem một số
+mật ong đã. Irving nói với anh rằng có một tổ ong trên cây sồi. Joe đe dọa
+để đánh Irving nếu anh ta không nói cho anh ta biết mật ong ở đâu. Sự kết thúc.
+
+Henry Squirrel khát nước. Anh bước tới bờ sông nơi anh
+người bạn tốt Bill Bird đang ngồi. Henry trượt chân và ngã trong
+sông. Trọng lực bị nhấn chìm. Sự kết thúc.
+
+Ngày xửa ngày xưa có một con cáo gian dối và một con quạ kiêu ngạo. Một ngày nọ
+con quạ đang ngồi trên cây, ngậm một miếng pho mát trong miệng. Anh ấy
+nhận thấy rằng anh ta đang cầm miếng pho mát. Anh ấy trở nên đói và
+nuốt miếng phô mai. Con cáo bước tới chỗ con quạ. Sự kết thúc.
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Những câu chuyện vô tình hài hước}
+
+Joe Bear đang đói. Anh ấy hỏi Irving Bird mật ong ở đâu. Irving
+từ chối nói cho anh ta biết nên Joe đề nghị mang cho anh ta một con sâu nếu anh ta kể.
+anh ta có một ít mật ong ở đâu.  Irving đồng ý. Nhưng Joe không biết ở đâu
+có con sâu nào không, vì vậy anh ấy hỏi Irving, người từ chối nói. Thế là Joe đề nghị
+mang cho anh ta một con sâu nếu anh ta nói cho anh ta biết con sâu ở đâu.  Irving
+đồng ý. Nhưng Joe không biết sâu ở đâu nên anh ấy hỏi Irving,
+người từ chối nói. Vì vậy Joe đề nghị mang cho anh ta một con sâu nếu anh ta nói
+anh ta có một con sâu $\ldots$ 
 
 
 \end{huge}
 \end{document}
+
+
+
+
+
+
+

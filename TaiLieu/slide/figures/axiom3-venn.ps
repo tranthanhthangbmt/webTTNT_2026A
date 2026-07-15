@@ -2,7 +2,7 @@
 %%Creator: idraw
 %%DocumentFonts: Symbol Helvetica
 %%Pages: 1
-%%BoundingBox: 85 514 481 776
+%%BoundingBox: 84 514 481 776
 %%EndComments
 
 %%BeginIdrawPrologue
@@ -211,6 +211,7 @@ end
 /Circ {
 newpath
 0 360 arc
+closepath
 patternNone not { ifill } if
 brushNone not { istroke } if
 } def
@@ -242,6 +243,7 @@ newpath
 translate
 scale
 0 0 1 0 360 arc
+closepath
 patternNone not { ifill } if
 brushNone not { istroke } if
 end
@@ -361,7 +363,7 @@ grestore
 gsave
 fgred fggreen fgblue setrgbcolor
 /fontDict printFont printSize scalefont dup setfont def
-/descender fontDict begin 0 [FontBBox] 1 get FontMatrix end
+/descender fontDict begin 0 /FontBBox load  1 get FontMatrix end
 transform exch pop def
 /vertoffset 1 printSize sub descender sub def {
 0 vertoffset moveto show
@@ -491,7 +493,7 @@ exch dup 3 1 roll 1 0 0 -1 0 6 -1 roll matrix astore
 
 %%EndProlog
 
-%I Idraw 10 Grid 8 8 
+%I Idraw 12 Grid 8 8 
 
 %%Page: 1 1
 
@@ -524,7 +526,7 @@ Begin %I Text
 %I f -*-helvetica-medium-r-normal-*-14-*-*-*-*-*-*-*
 Helvetica 14 SetF
 %I t
-[ 1.7 0 0 1.7 335.769 935.395 ] concat
+[ 1.728 0 0 1.728 335.223 935.535 ] concat
 %I
 [
 (A     B)
@@ -537,7 +539,7 @@ Begin %I Text
 %I f -*-helvetica-medium-r-normal-*-14-*-*-*-*-*-*-*
 Helvetica 14 SetF
 %I t
-[ 1.7 0 0 1.7 112.786 997.5 ] concat
+[ 1.728 0 0 1.728 112.38 997.64 ] concat
 %I
 [
 (True)
@@ -565,7 +567,7 @@ Begin %I Text
 %I f -*-helvetica-medium-r-normal-*-14-*-*-*-*-*-*-*
 Helvetica 14 SetF
 %I t
-[ 1.7 0 0 1.7 244.436 943.5 ] concat
+[ 1.728 0 0 1.728 244.296 943.64 ] concat
 %I
 [
 (A)
@@ -578,7 +580,7 @@ Begin %I Text
 %I f -*-helvetica-medium-r-normal-*-14-*-*-*-*-*-*-*
 Helvetica 14 SetF
 %I t
-[ 1.7 0 0 1.7 474.974 943.5 ] concat
+[ 1.728 0 0 1.728 474.862 943.64 ] concat
 %I
 [
 (B)

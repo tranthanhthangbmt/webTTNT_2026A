@@ -1,0 +1,347 @@
+\documentclass{article}
+\usepackage{fleqn}
+\usepackage{epsf}
+\usepackage{aima2e-slides}
+
+\begin{document}
+
+\begin{huge}
+\titleslide{Robotics}{Chapter 25}
+
+\sf
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Phác thảo}
+
+Robot, Cơ quan tác động và Cảm biến
+
+Bản địa hóa và lập bản đồ
+
+Lập kế hoạch chuyển động
+
+Điều khiển động cơ
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Robot di động}
+
+\centerline{ \epsffile{figures/raibert-1leg.eps} \qquad \epsffile{figures/robocup.eps} }
+
+\centerline{ \epsffile{figures/raibert-1leg.eps} \qquad \epsffile{figures/robocup.eps} }
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Bộ điều khiển }
+
+\vspace*{0.2in}
+
+\epsfxsize=0,7\textwidth
+\fig{figures/stanford-arm.eps}
+
+Cấu hình của robot được xác định bởi 6 số\al
+$\implies$ 6 \defn{bậc tự do} (DOF)
+
+6 là số lượng tối thiểu cần thiết để định vị bộ phận tác động cuối một cách tùy ý.\\
+Đối với các hệ thống động lực, hãy thêm vận tốc cho mỗi DOF.
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Robot không ba chiều}
+
+\vspace*{0.2in}
+
+\epsfxsize=0,4\textwidth
+\fig{figures/car-like.eps}
+
+Một chiếc ô tô có nhiều DOF (3) hơn điều khiển (2), nên \defn{non-holonomic};\\
+nói chung không thể chuyển đổi giữa hai cấu hình cực kỳ gần nhau
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Cảm biến}
+
+\defn{Công cụ tìm phạm vi}: sonar (trên cạn, dưới nước), công cụ tìm phạm vi laser, radar (máy bay),\epsffile{figures/robot0124bw.eps}
+cảm biến xúc giác, GPS
+
+\vspace*{0.2in}
+
+\centerline{ \epsffile{figures/sick.eps} \qquad \epsffile{figures/robot0124bw.eps} }
+
+\defn{Cảm biến hình ảnh}: camera (hình ảnh, hồng ngoại)\\
+\defn{ Cảm biến bản quyền }: bộ giải mã trục (khớp, bánh xe), cảm biến quán tính, \\
+cảm biến lực, cảm biến mô-men xoắn
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Bản địa hóa---Tôi đang ở đâu?}
+
+Tính toán vị trí và hướng hiện tại (\defn{pose}) dựa trên các quan sát:
+
+\vspace*{0.2in}
+
+\epsfxsize=0,7\textwidth
+\fig{figures/robotics-ddn.eps}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tiếp theo bản địa hóa}
+
+\vspace*{0.2in}
+
+\twofig{figures/robotics-pic2.eps}{figures/range-scan-model.eps}
+
+Giả sử nhiễu Gaussian trong dự đoán chuyển động, đo phạm vi cảm biến
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tiếp theo bản địa hóa}
+
+Có thể sử dụng tính năng lọc hạt để tạo ra ước tính vị trí gần đúng
+
+\vspace*{0.2in}
+
+\threefig{figures/first.ps}{figures/second.ps}{figures/third.ps}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tiếp theo bản địa hóa}
+
+Cũng có thể sử dụng bộ lọc Kalman mở rộng \defn{} cho các trường hợp đơn giản:
+
+\vspace*{0.2in}
+
+\epsfxsize=0,75\textwidth
+\fig{figures/robotics-pic6.eps}
+
+Giả sử rằng các điểm mốc là {\em có thể nhận dạng được}---nếu không,
+sau là đa phương thức
+
+
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ánh xạ}
+
+Bản địa hóa: bản đồ đã cho và các mốc quan sát, cập nhật phân bổ tư thế
+
+Lập bản đồ: tư thế đã cho và các mốc quan sát, cập nhật phân bổ bản đồ
+
+SLAM: đưa ra các mốc quan sát, cập nhật tư thế và phân bổ bản đồ
+
+Công thức xác suất của SLAM: \al
+ thêm các vị trí mốc $L_1,\ldots,L_k$ vào vectơ trạng thái,\al
+ tiến hành như đối với việc bản địa hóa
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tiếp theo ánh xạ }
+
+\qquad
+
+\centerline{\epsfysize=0,37\textheight\epsffile{figures/arena033.ps}\qquad\epsfysize=0,37\textheight\epsffile{figures/arena034.ps}}
+\centerline{\epsfysize=0,37\textheight\epsffile{figures/arena033.ps}\qquad\epsfysize=0,37\textheight\epsffile{figures/arena034.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ về bản đồ 3D}
+
+\vspace*{0.2in}
+
+\twofig{figures/mine-robot.eps}{figures/mine-data.eps}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Lập kế hoạch chuyển động}
+
+Ý tưởng: sơ đồ trong không gian cấu hình \defn{} được xác định bởi DOF của robot
+
+\epsffile{figures/armExampleConfSpace.eps}
+
+\centerline{ \epsffile{figures/armExampleWorkSpace.eps} \qquad \epsffile{figures/armExampleConfSpace.eps} }
+
+Giải là quỹ đạo điểm trong không gian C tự do
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Quy hoạch không gian cấu hình}
+
+Vấn đề cơ bản: $\infty^d$ khẳng định! Chuyển đổi sang không gian trạng thái \emph{hữu hạn}.
+
+\defn{Phân hủy tế bào}:\al
+  chia không gian thành các ô \defn{đơn giản}, \al
+  mỗi trong số đó có thể được duyệt qua một cách “dễ dàng” (ví dụ: lồi)
+
+\defn{ Khung xương }: \al
+  xác định số lượng hữu hạn các điểm/đường được kết nối dễ dàng\al
+  tạo thành một biểu đồ sao cho hai điểm bất kỳ được kết nối\al
+  bởi một đường dẫn trên đồ thị
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ về phân hủy ô}
+
+\qquad
+
+\centerline{ \epsffile{figures/armDPwithoutPotentialWorkspaceCoarse.eps} \qquad \epsffile{figures/armDPwithoutPotentialCoarse.eps} }
+
+Sự cố: có thể không có đường dẫn trong các ô không gian trống thuần túy\\
+Giải pháp: phân rã đệ quy các ô hỗn hợp (tự do + chướng ngại vật)
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Skeletonization: Sơ đồ Voronoi}
+
+Sơ đồ Voronoi: quỹ tích các điểm cách đều chướng ngại vật
+
+\vspace*{0.2in}
+
+\epsfxsize=0,44\textwidth
+\fig{figures/armVoronoi.eps}
+
+Vấn đề: không mở rộng tốt sang các kích thước cao hơn
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Skeletonization: Lộ trình xác suất}
+
+Lộ trình xác suất được tạo bằng cách tạo các điểm ngẫu nhiên trong
+C-space và giữ chúng trong không gian tự do; tạo biểu đồ bằng cách tham gia
+cặp theo đường thẳng
+
+\vspace*{0.2in}
+
+\epsfxsize=0,44\textwidth
+\fig{figures/armRoadmap.eps}
+
+Vấn đề: cần tạo đủ điểm để đảm bảo rằng mọi
+cặp điểm bắt đầu/mục tiêu được kết nối thông qua biểu đồ
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Điều khiển động cơ}
+
+Có thể xem vấn đề điều khiển động cơ dưới dạng vấn đề tìm kiếm\\
+trong không gian trạng thái \note{dynamic} thay vì \note{kinematic}:\al
+-- không gian trạng thái được xác định bởi $x_1,x_2,\ldots,\dot{x_1},\dot{x_2},\ldots$\al
+-- liên tục, đa chiều (Sarcos hình người: 162 chiều)
+
+Kiểm soát xác định: nhiều vấn đề có thể giải quyết chính xác\\
+đặc biệt~nếu tuyến tính, ít chiều, được biết chính xác, có thể quan sát được
+
+Luật điều khiển \defn{đơn giản} có hiệu lực đối với các chuyển động cụ thể
+
+Stochastic \defn{điều khiển tối ưu}: rất ít vấn đề có thể giải được chính xác\al
+$\implies$ phương pháp gần đúng/thích ứng
+
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Điều khiển động cơ sinh học}
+
+Hệ thống điều khiển động cơ được đặc trưng bởi sự dư thừa lớn
+
+Vô số quỹ đạo đạt được bất kỳ nhiệm vụ nhất định nào
+
+Ví dụ: cánh tay 3 liên kết di chuyển trong mặt phẳng ném vào mục tiêu\nl
+  bộ điều khiển 12 tham số đơn giản, một bậc tự do tại mục tiêu\nl
+  Không gian liên tục 11 chiều của bộ điều khiển tối ưu
+
+Ý tưởng: nếu cánh tay ồn ào, chỉ có chính sách tối ưu `` một ''
+giảm thiểu sai sót ở mục tiêu
+
+Tức là, khả năng chịu tiếng ồn có thể giải thích hành vi vận động thực tế
+
+Harris \& Wolpert ({\em Nature}, 1998): nhiễu phụ thuộc vào tín hiệu\\
+giải thích hồ sơ vận tốc mắt chớp một cách hoàn hảo
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Cài đặt}
+
+Giả sử một bộ điều khiển có các tham số điều khiển ``dự kiến'' $\theta_0$\\
+bị hỏng do nhiễu, tạo ra $\theta$ được rút ra từ $P_{\theta_0}$
+
+Đầu ra (ví dụ: khoảng cách từ mục tiêu) $y = F(\theta)$; 
+
+
+\epsfxsize=0,7\maxfigwidth
+\fig{figures/arm-setup.ps}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Thuật toán học đơn giản: Độ dốc ngẫu nhiên}
+
+Giảm thiểu $E_{\theta}[y^2]$ bằng cách giảm độ dốc:
+\begin{eqnarray*}
+\nabla_{\theta_0} E_{\theta}[y^2]
+  &=&  \nabla_{\theta_0} \int P_{\theta_0}(\theta)F(\theta)^2 d\theta \\
+  &=&  \int \frac{\nabla_{\theta_0} P_{\theta_0}(\theta)}{P_{\theta_0}(\theta)}
+            F(\theta)^2 P_{\theta_0}(\theta)d\theta \\
+  &=&  E_{\theta}[\frac{\nabla_{\theta_0} P_{\theta_0}(\theta)}
+                       {P_{\theta_0}(\theta)}
+                  y^2]
+\end{eqnarray*}
+Cho mẫu $(\theta_j,y_j)$, $j=1,\ldots,N$, ta có
+\[
+  \hat{\nabla_{\theta_0} E_{\theta}[y^2]} =
+  \frac{1}{N}\sum_{j=1}^N
+     \frac{\nabla_{\theta_0} P_{\theta_0}(\theta_j)}
+                       {P_{\theta_0}(\theta_j)}
+                  y_j^2
+\]
+Đối với nhiễu Gaussian có hiệp phương sai $\Sigma$, tức là
+$P_{\theta_0}(\theta) = N(\theta_0,\Sigma)$, chúng tôi thu được
+\[
+  \hat{\nabla_{\theta_0} E_{\theta}[y^2]} =
+  \frac{1}{N}\sum_{j=1}^N \Sigma^{-1}(\theta_j - \theta_0) y_j^2
+\]
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Thuật toán đang làm gì}
+
+\vspace*{0.3in}
+
+\epsfxsize=0,7\maxfigwidth
+\fig{figures/control-noise-distort.ps}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Kết quả cho bộ điều khiển 2--D}
+
+\vspace*{0.3in}
+
+\epsfxsize=0,75\textwidth
+\centerline{ \epsffile{figures/progress3-theta.ps} }
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Kết quả cho bộ điều khiển 2--D}
+
+\vspace*{0.3in}
+
+\epsfxsize=0,75\textwidth
+\centerline{ \epsffile{figures/progress3-theta-zoom.ps} }
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Kết quả cho bộ điều khiển 2--D}
+
+\vspace*{0.3in}
+
+\epsfxsize=0,75\textwidth
+\centerline{ \epsffile{figures/progress3-score.ps} }
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tóm tắt}
+
+Cao su rơi xuống đường
+
+Robot di động và người thao tác
+
+Bậc tự do xác định cấu hình robot
+
+Bản địa hóa và ánh xạ dưới dạng các vấn đề suy luận xác suất\al
+  (yêu cầu mô hình cảm biến và chuyển động tốt)
+
+Lập kế hoạch chuyển động trong không gian cấu hình\al
+  yêu cầu một số phương pháp để hoàn thiện
+
+
+
+\end{huge}
+\end{document}
+
+

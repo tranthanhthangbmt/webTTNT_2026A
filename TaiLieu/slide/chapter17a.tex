@@ -11,17 +11,17 @@
 \titleslide{Complex decisions}{Chapter 17, Sections 1--3}
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Outline}
+\heading{Phác thảo}
 
-\blob Decision problems
+\blob Vấn đề về quyết định
 
-\blob Value iteration
+\blob Lặp lại giá trị
 
-\blob Policy iteration
+\blob Lặp lại chính sách
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Sequential decision problems}
+\heading{Các vấn đề về quyết định tuần tự}
 
 \vspace*{0.3in}
 
@@ -31,35 +31,35 @@
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Example MDP}
+\heading{Ví dụ MDP}
 
-\vspace*{0.3in}
+\epsffile{\file{figures}{sequential-decision-world.ps}}
 
 \centerline{%
-\epsfxsize=0.4\textwidth
-\epsffile{\file{figures}{sequential-decision-world.ps}}\hspace*{1in}%
-\epsfxsize=0.2\textwidth
-\epsffile{\file{figures}{sequential-decision-model.ps}}}
+\epsfxsize=0,4\textwidth
+\epsffile{\file{figures}{sequential-decision-world.ps}} \hspace*{1in} $M_{ij}^a \equiv P(j|i,a)$
+\epsfxsize=0,2\textwidth
+$a$}
 
-Model $M_{ij}^a \equiv P(j|i,a)$ = probability that doing $a$ in $i$ leads to $j$
+Mô hình $M_{ij}^a \equiv P(j|i,a)$ = xác suất thực hiện $a$ trong $i$ dẫn đến $j$
 
 
 
-Each state has a {\em reward} $R(i)$\nl
-   = -0.04 (small penalty) for nonterminal states\nl
-   = $\pm 1$ for terminal states
+Mỗi tiểu bang có một {\em bonus} $R(i)$\nl
+   = -0,04 (hình phạt nhỏ) đối với các trạng thái không kết thúc\nl
+   = $\pm 1$ cho trạng thái đầu cuối
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Solving MDPs}
+\heading{Giải quyết MDP}
 
-In search problems, aim is to find an optimal {\em sequence}
+Trong các bài toán tìm kiếm, mục đích là tìm một chuỗi {\em} tối ưu
 
-In MDPs, aim is to find an optimal {\em policy}\nl
-   i.e., best action for every possible state\nl
-   (because can't predict where one will end up)
+Trong MDP, mục đích là tìm ra một {\em chính sách\nl tối ưu
+   tức là hành động tốt nhất cho mọi trạng thái có thể\nl
+   (vì không thể đoán trước được mình sẽ đi về đâu)
 
-Optimal policy and state values for the given $R(i)$:
+Các giá trị trạng thái và chính sách tối ưu cho $R(i)$ đã cho:
 
 \vspace*{0.2in}
 
@@ -67,92 +67,92 @@ Optimal policy and state values for the given $R(i)$:
 {\file{figures}{sequential-decision-values.ps}}
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Utility}
+\heading{Tiện ích}
 
-In {\em sequential} decision problems, preferences are expressed\\
-between {\em sequences} of states
+Trong các bài toán quyết định {\em tuần tự}, các ưu tiên được thể hiện\\
+giữa {\em chuỗi} trạng thái
 
-Usually use an {\em additive} utility function:\nl
+Thường sử dụng hàm tiện ích {\em addd}:\nl
 $U([s_1,s_2,s_3,\ldots,s_n]) = R(s_1) + R(s_2) + R(s_3) + \cdots + R(s_n)$\\
-(cf. path cost in search problems)
+(xem chi phí đường dẫn trong các vấn đề tìm kiếm)
 
-Utility of a {\em state} (a.k.a. its {\em value}) is defined to be\nl
-$U(s_i) = {}$ \u{expected sum of rewards until termination}\nl
-\phantom{$U(s_i) = {}$} \u{assuming optimal actions}
+Tiện ích của một {\em state} (còn gọi là {\em value}) của nó) được xác định là \nl
+$U(s_i) = {}$ \u{tổng số phần thưởng dự kiến cho đến khi chấm dứt}\nl
+\phantom{$U(s_i) = {}$} \u{giả sử hành động tối ưu}
 
-Given the utilities of the states, choosing the
-best action is just MEU: choose the action such that the
-expected utility of the immediate successors is highest.
+Với những lợi ích của các bang, việc lựa chọn
+hành động tốt nhất chỉ là MEU: chọn hành động sao cho
+ích lợi mong đợi của những người kế nhiệm trực tiếp là cao nhất.
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Bellman equation}
+\heading{Phương trình Bellman}
 
-Definition of utility of states leads to a simple relationship among
-utilities of neighboring states:
+Định nghĩa về tính hữu dụng của các trạng thái dẫn đến một mối quan hệ đơn giản giữa
+Tiện ích của các nước lân cận:
 
-\u{expected sum of rewards}\al
-= \u{current reward}\nl
-+ \u{expected sum of rewards after taking best action}
+\u{tổng số phần thưởng dự kiến}\al
+= \u{phần thưởng hiện tại}\nl
++ \u{tổng số phần thưởng dự kiến sau khi thực hiện hành động tốt nhất}
 
-Bellman equation (1957):
+Phương trình Bellman (1957):
 \[ U(i) = R(i) + \max_a \mysum_j U(j) M_{ij}^a\]
 
 $U(1,1) = -0.04$\\
-\tab + $\max\{ 0.8 U(1,2) + 0.1 U(2,1) + 0.1 U(1,1),$\hfill{\em up}\\
-\tab \phantom{+ \mbox{$\max\{$}}$0.9 U(1,1) + 0.1 U(1,2) $\hfill{\em left}\\
-\tab \phantom{+ \mbox{$\max\{$}}$0.9 U(1,1) + 0.1 U(2,1) $\hfill{\em down}\\
-\tab \phantom{+ \mbox{$\max\{$}}$0.8 U(2,1) + 0.1 U(1,2) + 0.1 U(1,1) \}$\hfill{\em right}
+\tab + $\max\{ 0.8 U(1,2) + 0.1 U(2,1) + 0.1 U(1,1),$\hfill{\em up\\
+\tab \phantom{+ \mbox{$\max\{$}}$0.9 U(1,1) + 0.1 U(1,2) $\hfill{\em left\\
+\tab \phantom{+ \mbox{$\max\{$}}$0.9 U(1,1) + 0.1 U(2,1) $\hfill{\em down\\
+\tab \phantom{+ \mbox{$\max\{$}$0.8 U(2,1) + 0.1 U(1,2) + 0.1 U(1,1) \}$\hfill{\em đúng}
 
-One equation per state = $n$ \u{nonlinear} equations in $n$ unknowns
+Một phương trình trên mỗi trạng thái = $n$ \u{phi tuyến } phương trình trong $n$ ẩn số
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Value iteration algorithm}
+\heading{Thuật toán lặp giá trị}
 
-\u{Idea}: Start with arbitrary utility values\nl
-          Update to make them \u{locally consistent} with Bellman eqn.\nl
-          Everywhere locally consistent $\Rightarrow$ global optimality
+\u{Idea}: Bắt đầu với các giá trị tiện ích tùy ý\nl
+          Cập nhật để làm cho chúng \u{nhất quán cục bộ} với Bellman eqn.\nl
+          Tối ưu toàn cầu nhất quán cục bộ $\Rightarrow$ ở mọi nơi
 
-repeat until ``no change''
+lặp lại cho đến khi ``không thay đổi''
 \[ U(i) \leftarrow R(i) + \max_a \mysum_j U(j) M_{ij}^a \qquad \mbox{for all } i\]
 
-\epsfxsize=0.6\textwidth
+\epsfxsize=0,6\textwidth
 \fig{\file{graphs}{4x3-vi-curve.ps}}
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Policy iteration (Howard, 1960)}
+\heading{ Lặp lại chính sách (Howard, 1960)}
 
-Idea: search for optimal policy and utility values simultaneously
+Ý tưởng: tìm kiếm đồng thời các giá trị chính sách và tiện ích tối ưu
 
-Algorithm:\al
-  $\pi \leftarrow {}$ an arbitrary initial policy\al
-  repeat until no change in $\pi$\nl
-    compute utilities given $\pi$\nl
-    update $\pi$ as if utilities were correct (i.e., local MEU)
+Thuật toán:\al
+  $\pi \leftarrow {}$ chính sách ban đầu tùy ý\al
+  lặp lại cho đến khi không có thay đổi nào trong $\pi$\nl
+    các tiện ích tính toán được cung cấp $\pi$ \nl
+    cập nhật $\pi$ như thể các tiện ích đã chính xác (tức là MEU cục bộ)
 
-To compute utilities given a fixed $\pi$:
+Để tính toán các tiện ích đã cho $\pi$ cố định:
 \[ U(i) = R(i) + \mysum_j U(j) M_{ij}^{\pi(i)}\qquad \mbox{for all } i \]
-i.e., $n$ simultaneous \u{linear} equations in $n$ unknowns,
-solve in $O(n^3)$
+tức là, $n$ phương trình \u{tuyến tính} đồng thời trong $n$ ẩn số,
+giải quyết trong $O(n^3)$
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{What if I live forever? (digression)}
+\heading{Nếu tôi sống mãi mãi thì sao? (lạc đề)}
 
-Using the additive definition of utilities, $U(i)$s are infinite!\\
-Moreover, value iteration fails to terminate\\
-How should we compare two infinite lifetimes?
+Sử dụng định nghĩa cộng của tiện ích, $U(i)$ là vô hạn!\\
+Hơn nữa, việc lặp lại giá trị không kết thúc \\
+Chúng ta nên so sánh hai kiếp sống vô tận như thế nào?
 
-1) Discounting: future rewards are discounted at rate $\gamma \leq 1$
+1) Chiết khấu: phần thưởng trong tương lai được chiết khấu theo tỷ lệ $\gamma \leq 1$
 \[ U([s_0,\ldots s_{\infty}]) = \mysum_{t=0}^{\infty} \gamma^t R(s_t)\]
-Maximum utility bounded above by $R_{{\rm max}}/(1-\gamma)$\\
-Smaller $\gamma \Rightarrow {}$ shorter horizon
+Tiện ích tối đa được giới hạn ở trên bởi $R_{{\rm max}}/(1-\gamma)$ \\
+Đường chân trời ngắn hơn $\gamma \Rightarrow {}$ nhỏ hơn
 
-2) Maximize \u{system gain} = average reward per time step\\
-Theorem: optimal policy has constant gain after initial transient\\
-E.g., taxi driver's daily scheme cruising for passengers
+2) Tối đa hóa \u{lợi ích hệ thống} = phần thưởng trung bình mỗi bước thời gian\\
+Định lý: chính sách tối ưu có mức tăng không đổi sau thoáng qua ban đầu\\
+Ví dụ: kế hoạch hàng ngày của tài xế taxi đưa đón hành khách
 
 
 

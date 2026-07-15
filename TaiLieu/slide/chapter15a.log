@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=latex 2026.7.14)  15 JUL 2026 01:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.24)  15 JUL 2026 15:10
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **./chapter15a.tex
 (chapter15a.tex
@@ -8,16 +8,6 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
 Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\fleqn.clo
-File: fleqn.clo 2016/12/29 v1.2b Standard LaTeX option (flush left equations)
-\mathindent=\skip49
-Applying: [2015/01/01] Make \[ robust on input line 50.
-LaTeX Info: Redefining \[ on input line 51.
-Already applied: [0000/00/00] Make \[ robust on input line 62.
-Applying: [2015/01/01] Make \] robust on input line 74.
-LaTeX Info: Redefining \] on input line 75.
-Already applied: [0000/00/00] Make \] robust on input line 83.
-)
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
 File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
 )
@@ -29,162 +19,33 @@ File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
 \c@subparagraph=\count280
 \c@figure=\count281
 \c@table=\count282
-\abovecaptionskip=\skip50
-\belowcaptionskip=\skip51
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
 \bibindent=\dimen148
 )
-(aima-slides.sty
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/ulem\ulem.sty
-\UL@box=\box53
-\UL@hyphenbox=\box54
-\UL@skip=\skip52
-\UL@hook=\toks17
-\UL@height=\dimen149
-\UL@pe=\count283
-\UL@pixel=\dimen150
-\ULC@box=\box55
-Package: ulem 2019/11/18
-\ULdepth=\dimen151
-)
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
-Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\fleqn.sty
 
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
-Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
-\KV@toks@=\toks18
-)
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
-Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+LaTeX Warning: inputting `fleqn.clo' instead of obsolete `fleqn.sty'.
 
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
-Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
-)
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
-fg
-File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
-)
-Package graphics Info: Driver file: dvips.def on input line 106.
-
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\dvips.def
-File: dvips.def 2025/01/21 v3.2a Graphics/color driver for dvips
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\fleqn.clo
+File: fleqn.clo 2016/12/29 v1.2b Standard LaTeX option (flush left equations)
+\mathindent=\skip51
+Applying: [2015/01/01] Make \[ robust on input line 50.
+LaTeX Info: Redefining \[ on input line 51.
+Already applied: [0000/00/00] Make \[ robust on input line 62.
+Applying: [2015/01/01] Make \] robust on input line 74.
+LaTeX Info: Redefining \] on input line 75.
+Already applied: [0000/00/00] Make \] robust on input line 83.
 ))
-\Gin@req@height=\dimen152
-\Gin@req@width=\dimen153
-)
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf.s
-ty
-Package: epstopdf 2020-01-24 v2.11 Conversion with epstopdf on the fly (HO)
-
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.s
-ty
-Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
-) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/grfext\grfext.sty
-Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
-
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
-keys.sty
-Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-))
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
-Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
-Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
-)
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
-Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
-))
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
-.sty
-Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
-)
- (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
-Package: iftex 2024/12/12 v1.0g TeX engine tests
-)
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode is ignored in DVI mode.
-)
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
-ase.sty
-Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-
-
-Package epstopdf Warning: Drivers other than `pdftex' and `luatex' are not supp
-orted.
-
-))
-! Undefined control sequence.
-<recently read> \epstopdfDeclareGraphicsRule 
-                                             
-l.39 \epstopdfDeclareGraphicsRule
-                                 {.ps}{pdf}{.pdf}{epstopdf #1 --outfile=\Out...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-! LaTeX Error: Missing \begin{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.39 \epstopdfDeclareGraphicsRule{.
-                                   ps}{pdf}{.pdf}{epstopdf #1 --outfile=\Out...
-
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-! You can't use `macro parameter character #' in horizontal mode.
-l.39 ...areGraphicsRule{.ps}{pdf}{.pdf}{epstopdf #
-                                                  1 --outfile=\OutputFile}
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-! Undefined control sequence.
-l.39 ...f}{.pdf}{epstopdf #1 --outfile=\OutputFile
-                                                  }
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-Package grfext Info: Graphics extension search list:
-(grfext)             [.eps,.eps.gz,.ps.gz,.eps.Z,.mps,.ps]
-(grfext)             \AppendGraphicsExtensions on input line 40.
-\epsfxsize=\skip53
-\epsfysize=\skip54
-\headingwidth=\skip55
-\backdrop=\skip56
-\backheight=\skip57
-\backwidth=\skip58
-\xborder=\skip59
-\yborder=\skip60
-\footheight=\dimen154
-\headtotal=\skip61
-\codewidth=\skip62
-\boxwidth=\skip63
-\boxheight=\skip64
-\skipwidth=\skip65
-\roomheight=\skip66
-\charheight=\skip67
-\marginlineskip=\skip68
-\marginwidth=\skip69
-\textplusmarginwidth=\skip70
-\maxfigwidth=\skip71
-\tablewidth=\skip72
-\captionskip=\skip73
-\tcaptionskip=\skip74
-) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
-Package: inputenc 2024/02/08 v1.3d Input encoding file
-\inpenc@prehook=\toks19
-\inpenc@posthook=\toks20
-)
+(epsf.sty
+\epsffilein=\read2
+\epsfxsize=\dimen149
+\epsfysize=\dimen150
+\epsftsize=\dimen151
+\epsfrsize=\dimen152
+\epsftmp=\dimen153
+\pspoints=\dimen154
+) (aima2e-slides.sty
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
 
@@ -353,195 +214,1519 @@ LaTeX Font Info:    Trying to load font information for T5+cmr on input line 11
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmr.fd
 File: t5cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 ))
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/lm\lmodern.sty
-Package: lmodern 2015/05/01 v1.6.1 Latin Modern Fonts
-LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
-LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
-(Font)                  OML/cmm/m/it --> OML/lmm/m/it on input line 23.
-LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
-(Font)                  OMS/cmsy/m/n --> OMS/lmsy/m/n on input line 24.
-LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 25.
-LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 26.
-LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
-(Font)                  OML/cmm/b/it --> OML/lmm/b/it on input line 27.
-LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/cmsy/b/n --> OMS/lmsy/b/n on input line 28.
-LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 29.
-LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 31.
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 32.
-LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/lmr/m/it on input line 33.
-LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 34.
-LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 35.
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 36.
-LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
-LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2024/02/08 v1.3d Input encoding file
+\inpenc@prehook=\toks17
+\inpenc@posthook=\toks18
 )
-LaTeX Font Info:    Trying to load font information for T5+lmr on input line 8.
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
+Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
 
-
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/lm\t5lmr.fd
-File: t5lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-dvi
-ps.def
-File: l3backend-dvips.def 2025-10-09 L3 backend support: dvips
-\l__pdfannot_backend_content_box=\box56
-\l__pdfannot_backend_model_box=\box57
-\g__pdfannot_backend_int=\count284
-\g__pdfannot_backend_link_int=\count285
-\g__pdfannot_backend_link_sf_int=\count286
+Package color Info: Driver file: dvips.def on input line 149.
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\dvips.def
+File: dvips.def 2025/01/21 v3.2a Graphics/color driver for dvips
+) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\dvipsnam.def
+File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
+) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.lt
+x))
+Package color Info: Redefining color red on input line 7.
+Package color Info: Redefining color cyan on input line 14.
+\headingwidth=\skip52
+\backdrop=\skip53
+\backheight=\skip54
+\backwidth=\skip55
+\xborder=\skip56
+\yborder=\skip57
+\headtotal=\skip58
+\codewidth=\skip59
+\boxwidth=\skip60
+\boxheight=\skip61
+\skipwidth=\skip62
+\roomheight=\skip63
+\charheight=\skip64
+\marginlineskip=\skip65
+\marginwidth=\skip66
+\textplusmarginwidth=\skip67
+\maxfigwidth=\skip68
+\tablewidth=\skip69
+\captionskip=\skip70
+\tcaptionskip=\skip71
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
+tex.def
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count283
 ) (chapter15a.aux)
 \openout1 = `chapter15a.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
-1.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+ [1
+Non-PDF special ignored!
+<special> papersize=614.295pt,794.96999pt
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
 
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
-File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [1
-
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+{C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
 ]
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
-6.
-
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
-File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+LaTeX Font Info:    Trying to load font information for T5+cmss on input line 1
+1.
+ (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmss.fd
+File: t5cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-6.
-
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
-File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-16.
-
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
-File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-16.
-
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
-File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    External font `lmex10' loaded for size
+LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <20.74> on input line 16.
-LaTeX Font Info:    External font `lmex10' loaded for size
+LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <14.4> on input line 16.
-LaTeX Font Info:    External font `lmex10' loaded for size
+LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 16.
- [2]
 
-LaTeX Font Warning: Command \Huge invalid in math mode on input line 36.
+[2
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+]
 
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <24.88> on input line 36.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <17.28> on input line 36.
-[3] [4] [5]
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 81.
- [6] [7] [8] [9]
-File: figures/burglary2.ps Graphic file (type eps)
- <figures/burglary2.ps> [10]
+LaTeX Font Warning: Font shape `T5/cmss/m/it' in size <20.74> not available
+(Font)              Font shape `T5/cmss/m/sl' tried instead on input line 44.
 
-LaTeX Font Warning: Command \Huge invalid in math mode on input line 139.
+[3
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.5 0.0 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [4
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [5
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.5 0.0 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> PSfile=figures/markov-processes.ps llx=-47 lly=631 urx=561 ury=76...
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [6
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> PSfile=figures/umbrella-dbn.ps llx=51 lly=646 urx=476 ury=804 rwi...
+Non-PDF special ignored!
+<special> color push rgb 0.5 0.0 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.5 0.0 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [7
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [8
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [9
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+]
 
-[11]
+LaTeX Font Warning: Command \Huge invalid in math mode on input line 124.
 
-LaTeX Font Warning: Command \Huge invalid in math mode on input line 151.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <24.88> on input line 124.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <17.28> on input line 124.
 
-[12]
-File: figures/markov-blanket.ps Graphic file (type eps)
- <figures/markov-blanket.ps> [13]
+LaTeX Font Warning: Command \Huge invalid in math mode on input line 124.
 
-LaTeX Font Warning: Command \Huge invalid in math mode on input line 189.
+[10
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.5 0.0 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.5 0.0 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [11
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> PSfile=figures/umbrella-filter.ps llx=42 lly=601 urx=462 ury=864 ...
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+]
 
-[14]
-
-LaTeX Font Warning: Command \Huge invalid in math mode on input line 190.
-
-[15]
-File: figures/burglary-make1o.ps Graphic file (type eps)
- <figures/burglary-make1o.ps> [16]
-File: figures/burglary-make2o.ps Graphic file (type eps)
- <figures/burglary-make2o.ps> [17]
-File: figures/burglary-make3o.ps Graphic file (type eps)
-
-<figures/burglary-make3o.ps> [18]
-File: figures/burglary-make4o.ps Graphic file (type eps)
- <figures/burglary-make4o.ps> [19]
-File: figures/burglary-make5o.ps Graphic file (type eps)
-
-<figures/burglary-make5o.ps> [20]
-File: figures/car-net.ps Graphic file (type eps)
- <figures/car-net.ps> [21]
-File: figures/insurance-net.ps Graphic file (type eps)
-
-<figures/insurance-net.ps> [22] [23]
-
-LaTeX Font Warning: Command \Huge invalid in math mode on input line 326.
-
-[24] [25]
-File: figures/continuous-net.ps Graphic file (type eps)
- <figures/continuous-net.ps> [26] [27]
-File: graphs/linear-gaussian-true.ps Graphic file (type eps)
-
-<graphs/linear-gaussian-true.ps>
-File: graphs/linear-gaussian-false.ps Graphic file (type eps)
- <graphs/linear-gaussian-false.ps>
-File: graphs/linear-gaussian-average.ps Graphic file (type eps)
-
-<graphs/linear-gaussian-average.ps> [28]
-Overfull \vbox (66.48863pt too high) has occurred while \output is active []
+LaTeX Font Warning: Command \Huge invalid in math mode on input line 171.
 
 
-[29] [30]
-File: graphs/probit.ps Graphic file (type eps)
- <graphs/probit.ps> [31] [32]
-File: graphs/logit.ps Graphic file (type eps)
- <graphs/logit.ps> [33] (chapter15a.aux)
+LaTeX Font Warning: Command \Huge invalid in math mode on input line 171.
+
+
+LaTeX Font Warning: Command \Huge invalid in math mode on input line 171.
+
+[12
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> PSfile=figures/smoothing-dbn.ps llx=8 lly=631 urx=560 ury=769 rwi...
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [13
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [14
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> PSfile=figures/umbrella-smooth.ps llx=63 lly=601 urx=511 ury=955 ...
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [15
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [16
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.5 0.0 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [17
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [18
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> PSfile=figures/umbrella-paths.ps llx=26 lly=547 urx=423 ury=765 r...
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [19
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [20
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> PSfile=figures/country-dance01c.ps llx=82 lly=667 urx=328 ury=744...
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [21
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> PSfile=figures/country-dance02c.ps llx=82 lly=667 urx=328 ury=744...
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [22
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> PSfile=figures/country-dance03c.ps llx=82 lly=667 urx=328 ury=744...
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [23
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> PSfile=figures/country-dance04c.ps llx=82 lly=667 urx=328 ury=744...
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [24
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> PSfile=figures/country-dance05c.ps llx=82 lly=667 urx=328 ury=744...
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [25
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> PSfile=figures/country-dance06c.ps llx=82 lly=667 urx=328 ury=744...
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [26
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> PSfile=figures/country-dance07c.ps llx=82 lly=667 urx=328 ury=744...
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [27
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> PSfile=figures/country-dance08c.ps llx=82 lly=667 urx=328 ury=744...
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [28
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> PSfile=figures/country-dance09c.ps llx=82 lly=667 urx=328 ury=744...
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [29
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> PSfile=figures/country-dance10c.ps llx=82 lly=667 urx=328 ury=744...
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [30
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> PSfile=figures/kalman-network.ps llx=253 lly=500 urx=478 ury=652 ...
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [31
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [32
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.5 0.0 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [33
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [34
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> PSfile=graphs/kalman-one-step.ps llx=50 lly=50 urx=554 ury=410 rw...
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [35
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [36
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [37
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> PSfile=figures/kalman-filtering.ps llx=64 lly=201 urx=548 ury=600...
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [38
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [39
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> PSfile=figures/kalman-smoothing.ps llx=64 lly=201 urx=548 ury=600...
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [40
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.5 0.0 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> PSfile=figures/kalman-bird1.ps llx=-116 lly=474 urx=430 ury=973 r...
+Non-PDF special ignored!
+<special> PSfile=figures/kalman-bird2.ps llx=-116 lly=474 urx=430 ury=973 r...
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [41
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> PSfile=figures/umbrella-1slice.ps llx=64 lly=601 urx=352 ury=841 ...
+Non-PDF special ignored!
+<special> PSfile=figures/robot-dbn1.ps llx=154 lly=529 urx=442 ury=769 rwi=...
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [42
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> PSfile=figures/dbn-vs-hmm.ps llx=76 lly=571 urx=484 ury=750 rwi=4...
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+]
+! I couldn't open graphs/pin8.ps, will ignore it.
+\epsfgetbb ...{I couldn't open #1, will ignore it}
+                                                  \else {\epsffileoktrue \ch...
+l.571 ...bot-full-dbn.ps}}{\file{graphs}{pin8.ps}}
+                                                  
+This error message was generated by an \errmessage
+command, so I can't give any explicit help.
+Pretend that you're Hercule Poirot: Examine all clues,
+and deduce the truth by order and method.
+
+[43
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [44
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> PSfile=figures/robot-full-dbn.ps llx=154 lly=529 urx=442 ury=824 ...
+Non-PDF special ignored!
+<special> PSfile=graphs/pin8.ps llx=72 lly=72 urx=540 ury=720 rwi=2937
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [45
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> PSfile=figures/dbn-unrolling.ps llx=49 lly=678 urx=510 ury=750 rw...
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.0 0.0 0.5
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+]
+LaTeX Font Info:    Calculating math sizes for size <25> on input line 595.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <12.5> not available
+(Font)              size <12> substituted on input line 595.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <12.5> not available
+(Font)              size <12> substituted on input line 595.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <12.5> not available
+(Font)              size <12> substituted on input line 595.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <25> on input line 595.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <17.49992> on input line 595.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12.5> on input line 595.
+[46
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> PSfile=figures/umbrella5.ps llx=179 lly=688 urx=419 ury=728 rwi=3...
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [47
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> PSfile=graphs/umbrella-lw.ps llx=50 lly=50 urx=770 ury=554 rwi=24...
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [48
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> PSfile=figures/umbrella-particle.ps llx=59 lly=460 urx=411 ury=58...
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [49
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+]
+
+LaTeX Font Warning: Command \Huge invalid in math mode on input line 642.
+
+
+LaTeX Font Warning: Command \Huge invalid in math mode on input line 656.
+
+
+LaTeX Font Warning: Command \Huge invalid in math mode on input line 656.
+
+[50
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [51
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> PSfile=graphs/comparison-lw-ersof.ps llx=50 lly=50 urx=770 ury=55...
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [52
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push rgb 0.5 0.0 0.0
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push cmyk 0 0.6 0 0.4
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] [53
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+Non-PDF special ignored!
+<special> color push  Black
+Non-PDF special ignored!
+<special> color pop
+] (chapter15a.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
+
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 0.5pt have occurred.
+
  ) 
 Here is how much of TeX's memory you used:
- 2744 strings out of 467871
- 46487 string characters out of 5418381
- 440730 words of memory out of 5000000
- 31567 multiletter control sequences out of 15000+600000
- 698764 words of font info for 72 fonts, out of 8000000 for 9000
+ 1844 strings out of 467870
+ 26493 string characters out of 5418355
+ 440733 words of memory out of 5000000
+ 30710 multiletter control sequences out of 15000+600000
+ 646674 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,9n,79p,296b,322s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,10n,65p,221b,337s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmbx12.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmex10.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmmi12.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/font
+s/type1/public/amsfonts/cm/cmmib10.pfb><C:/Users/thanh/AppData/Local/Programs/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/thanh/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/thanh/AppData/
+Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/thanh
+/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnbx12.pfb><C:/Users/thanh
+/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vncsc10.pfb><C:/Users/than
+h/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnr8.pfb><C:/Users/thanh/
+AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnss17.pfb><C:/Users/thanh/
+AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnssbx10.pfb>
+Output written on chapter15a.pdf (53 pages, 217663 bytes).
+PDF statistics:
+ 233 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
-Output written on chapter15a.dvi (33 pages, 27248 bytes).

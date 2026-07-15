@@ -12,12 +12,12 @@
 
 - Tính đầy đủ (Completeness)
 
-- Phân giải (Resolution)
+- Phân giải (Độ phân giải)
 
-- Lập trình logic (Logic programming)
+- Lập trình logic (Lập trình logic)
 
 ---
-## Tính đầy đủ trong FOL
+##  Tính đầy đủ trong FOL
 
 Thủ tục $i$ là đầy đủ khi và chỉ khi
 \[
@@ -27,24 +27,24 @@ Thủ tục $i$ là đầy đủ khi và chỉ khi
 \]
 Suy diễn tiến và lùi là <u>đầy đủ cho KB Horn</u>
 
-nhưng không đầy đủ cho logic bậc một tổng quát
+Nhưng không đủ logic cho một bậc tổng hợp
 
 Ví dụ, từ
 \begin{formula}
-  PhD(x) \implies HighlyQualified(x) 
+  Tiến sĩ(x) \implies Trình độ chuyên môn cao(x) 
 
-  \lnot PhD(x) \implies EarlyEarnings(x)
+  \lkhông phải Tiến sĩ(x) \implies Thu nhập sớm(x)
 
-  HighlyQualified(x) \implies Rich(x)
+  Cao(x) \implies Giàu(x)
 
-  EarlyEarnings(x) \implies Rich(x)
+  Thu nhập sớm(x) \implies Giàu(x)
 \end{formula}
 lẽ ra phải có thể suy ra $Rich(Me)$, nhưng FC/BC sẽ không làm được điều đó
 
 Có tồn tại một thuật toán đầy đủ không?
 
 ---
-## Lịch sử tóm tắt của việc suy luận
+## Lịch sử sum họp của việc suy luận
 
 | &nbsp; | &nbsp; | &nbsp; |
 |---|---|---|
@@ -57,39 +57,39 @@ Có tồn tại một thuật toán đầy đủ không?
 | 1930 | G\"odel | $\exists$ thuật toán đầy đủ cho FOL |
 | 1930 | Herbrand | thuật toán đầy đủ cho FOL (rút gọn về mệnh đề) |
 | 1931 | G\"odel | $\lnot\exists$ thuật toán đầy đủ cho số học |
-| 1960 | Davis/Putnam | thuật toán "thực tiễn" cho logic mệnh đề |
-| 1965 | Robinson | thuật toán "thực tiễn" cho FOL---phân giải |
+| 1960 | Davis/Putnam | thuật toán "thực tiễn" cho mệnh đề logic |
+| 1965 | Robinson | thuật toán "thực tiễn" cho FOL---giải phân tích |
 
 ---
-## Phân giải (Resolution)
+## Phân tích (Độ phân giải)
 
-Kéo theo trong logic bậc một chỉ là <u>nửa quyết định được (semidecidable)</u>:
+Kéo theo logic bậc một chỉ là <u>nửa quyết định (semicidable)</u>:
   
-có thể tìm thấy một chứng minh của $
-  pha$ nếu $KB \models 
+có thể tìm thấy bằng chứng của $
+  pha$ if $KB \models 
   pha$
   
-không thể luôn luôn chứng minh rằng $KB \not\models 
+không thể luôn chứng minh rằng $KB \not\models 
   pha$
 
-So sánh với Vấn đề dừng (Halting Problem): thủ tục chứng minh có thể sắp dừng
-với sự thành công hoặc thất bại, hoặc có thể diễn ra mãi mãi
+So sánh với vấn đề dừng (Vấn đề tạm dừng): thủ tục chứng minh có thể sắp xếp dừng
+với sự cố hoặc thất bại hoặc có thể diễn ra mãi mãi
 
-Phân giải là một thủ tục <u>bác bỏ (refutation)</u>:
+Phân tích là một thủ tục <u>bác bỏ (bác bỏ)</u>:
   
 để chứng minh $KB \models 
   pha$, chỉ ra rằng $KB\land\lnot
   pha$ là không thỏa mãn được
 
 Phân giải sử dụng $KB$, $\lnot
-  pha$ trong dạng chuẩn hội (CNF) (phép hội của các mệnh đề)
+  pha$ dưới dạng chuẩn hội (CNF) (phép hội của các mệnh đề)
 
-Quy tắc suy diễn phân giải kết hợp hai mệnh đề để tạo ra một mệnh đề mới:
+Quy tắc suy diễn phân giải hợp hai mệnh đề để tạo ra một mệnh đề mới:
 
 in
 ![Hình ảnh](../TaiLieu/slide_md/figures/resolve-clauses.png)
 
-Sự suy diễn tiếp tục cho đến khi một <u>mệnh đề rỗng (empty clause)</u> được suy ra (mâu thuẫn)
+Sự suy diễn tiếp continue cho đến khi một <u>mệnh đề trống (mệnh đề trống)</u> được suy ra (mâu mạnh)
 
 ---
 ## Quy tắc suy diễn phân giải
@@ -102,11 +102,11 @@ Phiên bản mệnh đề cơ bản:
   pha \lor \gamma}
  &nbsp;&nbsp;&nbsp;&nbsp;  \mbox{hoặc tương đương}  &nbsp;&nbsp;&nbsp;&nbsp; 
 \frac{\lnot
-  pha \implies \beta,\;\; \beta \implies \gamma}{\lnot 
+  pha \implies \beta,\;\; \beta \implies \gamma}{\lkhông 
   pha \implies \gamma}
 }
 \end{formula}
-Phiên bản bậc một đầy đủ:
+Phiên bản đầy đủ cấp độ:
 \begin{formula}
 {\begin{array}{l} p_1\lor \ldots\ p_j\ \ldots \lor p_m,
 
@@ -124,39 +124,39 @@ Ví dụ:
 \begin{formula}
 {\begin{array}{l} \lnot Rich(x) \lor Unhappy(x) 
 
-                  Rich(Me)
+                  Giàu (Tôi)
  \end{array}}
 \over
-{\begin{array}{l} Unhappy(Me)
+{\begin{array}{l} Không vui(Tôi)
  \end{array}}
 \end{formula}
 với $\sigma = \{x/Me\}$
 
 ---
-## Dạng chuẩn hội (Conjunctive Normal Form)
+## Dạng hội chuẩn (Conjunctive Normal Form)
 
-<u>Literal</u> = câu nguyên thủy (có thể bị phủ định), ví dụ: $\lnot Rich(Me)$
+<u>Literal</u> = câu nguyên thủy (có thể được phủ định), ví dụ: $\lnot Rich(Me)$
 
-<u>Mệnh đề (Clause)</u> = phép tuyển của các literal, ví dụ: $\lnot Rich(Me) \lor Unhappy(Me)$
+<u>Mệnh đề (Clause)</u> = phép tuyển các chữ, ví dụ: $\lnot Rich(Me) \lor Unhappy(Me)$
 
-KB là phép hội của các mệnh đề
+KB được phép của các mệnh đề
 
-Bất kỳ FOL KB nào cũng có thể được chuyển đổi thành CNF như sau:
+Bất kỳ KB FOL nào cũng có thể được chuyển đổi thành CNF như sau:
 
 1. Thay thế $P{\implies}Q$ bằng ${\lnot}P{\lor}Q$
 
-2. Di chuyển $\lnot$ vào trong, ví dụ: 
+2. Chuyển $\lnot$ vào trong, ví dụ: 
       $\lnot \forall x\,P$ trở thành $\exists x\,\lnot P$
 
-3. Chuẩn hóa biến tách biệt, ví dụ: 
+3. Chuẩn hóa các biến đổi, ví dụ: 
   $\forall x\,P \lor \exists x\,Q$ trở thành $\forall x\,P \lor \exists y\,Q$
 
-4. Di chuyển các lượng từ sang trái theo thứ tự, ví dụ:
+4. Chuyển lượng từ sang trái theo thứ tự, ví dụ:
   $\forall x\,P \lor \exists x\,Q$ trở thành $\forall x\exists y\,P \lor Q$
 
 5. Loại bỏ $\exists$ bằng phương pháp Skolemization (slide tiếp theo)
 
-6. Bỏ các lượng từ phổ dụng
+6. Bỏ các từ phổ dụng
 
 7. Phân phối $\land$ qua $\lor$, ví dụ:
     $(P \land Q) \lor R$ trở thành $(P\lor Q) \land (P\lor R)$
@@ -178,48 +178,48 @@ Ví dụ: "Mọi người đều có một trái tim"
   
    $\All{x} Person(x) \implies Heart(H1) \land Has(x,H1)$
 
-<u>Đúng</u>:
+<u> Đúng</u>:
   
    $\All{x} Person(x) \implies Heart(H(x)) \land Has(x,H(x))$
 
 trong đó $H$ là một ký hiệu mới ("hàm Skolem")
 
-Các đối số của hàm Skolem: tất cả các biến lượng từ phổ dụng <u>bao quanh</u>
+Các đối số của hàm Skolem: Tất cả các biến số từ phổ dụng <u>bao quanh</u>
 
 ---
-## Chứng minh phân giải
+## Chứng minh phân giải 
 
 Để chứng minh $
   pha$:
   
--- phủ định nó
+-- định nghĩa nó
   
 -- chuyển đổi sang CNF
   
 -- thêm vào CNF KB
   
--- suy diễn ra mâu thuẫn
+-- suy diễn ra ổn định
 
 Ví dụ: để chứng minh $Rich(me)$, thêm $\lnot Rich(me)$ vào CNF KB
 \begin{formula}
-  \lnot PhD(x) \lor HighlyQualified(x) 
+  \lkhông phải Tiến sĩ(x) \lor Có trình độ cao(x) 
 
-  PhD(x) \lor EarlyEarnings(x)
+  Tiến sĩ(x) \lor Thu nhập sớm(x)
 
-  \lnot HighlyQualified(x) \lor Rich(x)
+  \lkhông đủ tiêu chuẩn cao(x) \lor Rich(x)
 
-  \lnot EarlyEarnings(x) \lor Rich(x)
+  \lkhông phải Thu nhập sớm(x) \lor Rich(x)
 \end{formula}
 
 ---
-## Chứng minh phân giải
+## Chứng minh phân giải 
 
 ![Hình ảnh](../TaiLieu/slide_md/figures/rich-proof.png)
 
 ---
-## Lập trình logic
+## Logic trình nhập
 
-Khẩu hiệu: tính toán là sự suy diễn trên các KB logic
+Khẩu hiệu: tính toán là suy diễn trên logic KB
 
 | &nbsp; | &nbsp; | &nbsp; |
 |---|---|---|
@@ -227,47 +227,46 @@ Khẩu hiệu: tính toán là sự suy diễn trên các KB logic
 | 1. | Xác định vấn đề | Xác định vấn đề |
 | 2. | Thu thập thông tin | Thu thập thông tin |
 | 3. | Nghỉ giải lao | Tìm ra giải pháp |
-| 4. | Mã hóa thông tin vào KB | Lập trình giải pháp |
+| 4. | Mã hóa thông tin vào KB | Giải pháp lập trình |
 | 5. | Mã hóa ví dụ vấn đề thành sự kiện | Mã hóa ví dụ vấn đề thành dữ liệu |
 | 6. | Hỏi các truy vấn | Áp dụng chương trình vào dữ liệu |
-| 7. | Tìm các sự kiện sai | Gỡ lỗi các lỗi thủ tục |
+| 7. | Tìm các lỗi sự kiện | Loại bỏ các lỗi thủ tục |
 
-Nên dễ dàng gỡ lỗi $Capital(NewYork,US)$ hơn $x:= x+2$ !
+Tránh dễ dàng gỡ lỗi $Capital(NewYork,US)$ hơn $x:= x+2$ !
 
 ---
-## Hệ thống Prolog
+##  Hệ thống Prolog
 
-Cơ sở: suy diễn lùi với các mệnh đề Horn + các tính năng bổ sung (bells \& whistles)
+Cơ sở: suy diễn ngược với các mệnh đề Horn + các tính năng bổ sung (chuông \& còi)
 
 Được sử dụng rộng rãi ở Châu Âu, Nhật Bản (cơ sở của dự án Thế hệ thứ 5)
 
 Kỹ thuật biên dịch $\Rightarrow$ 10 triệu LIPS
 
-Chương trình = tập các mệnh đề = `head :- literal$_1$, $\ldots$ literal$_n$.`
+Chương trình = tập các mệnh đề = `head :- Literal$_1$, $\ldots$ Liter$_n$.
 
-Hợp nhất hiệu quả bằng <u>mã hóa mở (open coding)</u>
+Hợp chất hiệu quả nhất bằng <u>mã hóa mở (opencoding)`
 
-Truy xuất hiệu quả các mệnh đề khớp bằng liên kết trực tiếp
+Truy xuất hiệu quả các mệnh đề phù hợp bằng liên kết trực tiếp
 
-Suy diễn lùi từ trái sang phải, ưu tiên chiều sâu
+Suy diễn lùi từ trái sang phải, độ sâu ưu tiên
 
-Các vị từ tích hợp cho số học v.v., ví dụ: `X is Y*Z+3`
-
-Giả định thế giới đóng ("phủ định như là sự thất bại")
+Các từ tích hợp cho số học v.v., ví dụ: `X is Y*Z+3Ni1012]
+Giả định thế giới đóng ("phủ định như thất bại")
   
-   ví dụ: `not PhD(X)` thành công nếu `PhD(X)` thất bại
+   ví dụ: {\tt not PhD(X)` thành công nếu `PhD(X)` thất bại
 
 ---
-## Ví dụ Prolog
+## Ví dụ Prolog</u>
 
-Tìm kiếm ưu tiên chiều sâu từ trạng thái bắt đầu `X`:
+Tìm kiếm độ sâu ưu tiên từ trạng thái bắt đầu `X`:
 
 ```text
 dfs(X) :- goal(X).
 dfs(X) :- successor(X,S),dfs(S).
 ```
 
-Không cần lặp qua `S`: `successor` thành công với mỗi trường hợp
+Không cần lặp qua `S`: `next` thành công với mỗi trường hợp
 
 Nối hai danh sách để tạo ra danh sách thứ ba:
 
@@ -280,3 +279,5 @@ answers: A=[]    B=[1,2]
          A=[1]   B=[2]
          A=[1,2] B=[]
 ```
+
+\end{huge

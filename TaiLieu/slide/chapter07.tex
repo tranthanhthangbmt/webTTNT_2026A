@@ -1,394 +1,881 @@
-\documentclass[fleqn]{article}
-
-\usepackage{aima-slides}
-\usepackage[utf8]{inputenc}
-\usepackage[T5]{fontenc}
-\usepackage{lmodern}
+\documentclass{article}
+\usepackage{fleqn}
+\usepackage{epsf}
+\usepackage[dvips]{color}
+\usepackage{aima2e-slides}
 
 \begin{document}
 
 \begin{huge}
-\titleslide{Logic bậc một (First-order logic)}{Chương 7}
+\titleslide{Logical agents}{Chapter 7}
+
+\sf
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Nội dung}
+\heading{Phác thảo}
 
-\blob Cú pháp và ngữ nghĩa của FOL
+\blob Tác nhân dựa trên tri thức
 
-\blob Vui với các câu
+\blob Thế giới Wumpus
 
-\blob Thế giới Wumpus trong FOL
+\blob Logic nói chung---mô hình và sự kế thừa
+
+\blob Logic mệnh đề (Boolean)
+
+\blob Tính tương đương, giá trị, sự thỏa mãn
+
+\blob Quy tắc suy luận và chứng minh định lý\nl
+ -- xâu chuỗi về phía trước \nl
+ -- xâu chuỗi ngược\nl
+ -- độ phân giải
+
+%\blob Model checking
+%
+%\blob Propositional knowledge-based agents
+%
+%\blob Boolean circuit agents
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Cú pháp của FOL: Các phần tử cơ bản}
+\heading{Cơ sở kiến thức}
 
-\begin{tabular}{ll}
-Hằng số (Constants) & $KingJohn,\ 2,\ UCB,\ldots$ \\
-Vị từ (Predicates) & $Brother,\ >,\ldots$ \\
-Hàm số (Functions) & $Sqrt,\ LeftLegOf,\ldots$ \\
-Biến (Variables) & $x,\ y,\ a,\ b,\ldots$ \\
-Ký hiệu nối (Connectives) & $\land\ \lor\ \lnot\ \implies\ \lequiv$ \\
-Bằng nhau (Equality) & $=$ \\
-Lượng từ (Quantifiers) & $\forall\ \exists$ \\
+
+\epsfxsize=0.8\maxfigwidth
+\fig{\file{figures}{kbs.ps}}
+
+\defn{Cơ sở kiến thức} = tập hợp \defn{câu} trong ngôn ngữ \emph{trang trọng}
+
+\defn{Cách tiếp cận khai báo} để xây dựng tác nhân (hoặc hệ thống khác):\nl
+   \defprog{Nói cho nó biết điều nó cần biết
+
+Sau đó, nó có thể tự \defprog{Hỏi} phải làm gì---các câu trả lời sẽ được đưa ra từ KB
+
+Đại lý có thể được xem ở cấp độ kiến ​​thức \defn{} \nl
+   tức là, \emph{những gì họ biết}, bất kể được triển khai như thế nào
+
+Hoặc ở cấp độ triển khai \defn{}\nl
+   tức là cấu trúc dữ liệu trong KB và các thuật toán thao tác chúng
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Một tác nhân dựa trên kiến thức đơn giản}
+
+\input{\file{algorithms}{logical-agent-algorithm}}
+
+Đại lý phải có khả năng:\al
+Đại diện cho các trạng thái, hành động, v.v.\al
+Kết hợp các nhận thức mới\al
+Cập nhật các biểu diễn nội bộ của thế giới\al
+Suy ra những thuộc tính ẩn giấu của thế giới\al
+Suy ra những hành động phù hợp
+
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Mô tả Wumpus World PEAS}
+
+\begin{tabular}{lr}
+\hbox{\begin{minipage}[b]{0.65\textwidth}
+\note{Thước đo hiệu suất} \al
+  vàng +1000, chết -1000\al
+  -1 mỗi bước, -10 khi sử dụng mũi tên
+
+\note{Môi trường}\al
+Các ô vuông cạnh wumpus có mùi hôi\al
+Ô vuông cạnh hố thoáng mát\al
+Vàng lấp lánh nằm trong cùng một ô vuông\al
+Bắn giết wumpus nếu bạn đang đối mặt với nó\al
+Việc bắn súng sử dụng hết mũi tên duy nhất\al
+Nắm lấy vàng nếu ở cùng một ô vuông\al
+Thả vàng rơi vào cùng một ô vuông
+\end{minipage}}
+&
+\epsfxsize=0,34\textwidth
+\epsffile{\file{figures}{wumpus-world.ps}}
+\end{tabular}
+
+\note{Thiết bị truyền động} Rẽ trái, Rẽ phải,\nl
+    Tiến, nắm, thả, bắn
+
+\note{Cảm biến} Gió, Long lanh, Mùi
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Đặc điểm thế giới Wumpus}
+
+\q{Có thể quan sát được} 
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Đặc điểm thế giới Wumpus}
+
+\q{Có thể quan sát được} Không---chỉ nhận thức \note{cục bộ}
+
+\q{Xác định} 
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Đặc điểm thế giới Wumpus}
+
+\q{Có thể quan sát được} Không---chỉ nhận thức \note{cục bộ}
+
+\q{Xác định} Có---kết quả được chỉ định chính xác
+
+\q{Tập } 
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Đặc điểm thế giới Wumpus}
+
+\q{Có thể quan sát được} Không---chỉ nhận thức \note{cục bộ}
+
+\q{Xác định} Có---kết quả được chỉ định chính xác
+
+\q{Theo từng tập} Không---tuần tự ở cấp độ hành động
+
+\q{Tĩnh}  
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Đặc điểm thế giới Wumpus}
+
+\q{Có thể quan sát được} Không---chỉ nhận thức \note{cục bộ}
+
+\q{Xác định} Có---kết quả được chỉ định chính xác
+
+\q{Theo từng tập} Không---tuần tự ở cấp độ hành động
+
+\q{Tĩnh} Có---Wumpus và Pits không di chuyển
+
+\q{Rời rạc} 
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Đặc điểm thế giới Wumpus}
+
+\q{Có thể quan sát được} Không---chỉ nhận thức \note{cục bộ}
+
+\q{Xác định} Có---kết quả được chỉ định chính xác
+
+\q{Theo từng tập} Không---tuần tự ở cấp độ hành động
+
+\q{Tĩnh} Có---Wumpus và Pits không di chuyển
+
+\q{Rời rạc} Có
+
+\q{Đại lý đơn lẻ} 
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Đặc điểm thế giới Wumpus}
+
+\q{Có thể quan sát được} Không---chỉ nhận thức \note{cục bộ}
+
+\q{Xác định} Có---kết quả được chỉ định chính xác
+
+\q{Theo từng tập} Không---tuần tự ở cấp độ hành động
+
+\q{Tĩnh} Có---Wumpus và Pits không di chuyển
+
+\q{Rời rạc} Có
+
+\q{Single-agent} Có---Wumpus về cơ bản là một tính năng tự nhiên
+
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Khám phá thế giới wumpus}
+
+\vspace*{0.4in}
+
+\epsfxsize=0,6\textwidth
+\fig{\sfile{figures}{wumpus-seq0.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Khám phá thế giới wumpus}
+
+\vspace*{0.4in}
+
+\epsfxsize=0,6\textwidth
+\fig{\sfile{figures}{wumpus-seq1.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Khám phá thế giới wumpus}
+
+\vspace*{0.4in}
+
+\epsfxsize=0,6\textwidth
+\fig{\sfile{figures}{wumpus-seq2.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Khám phá thế giới wumpus}
+
+\vspace*{0.4in}
+
+\epsfxsize=0,6\textwidth
+\fig{\sfile{figures}{wumpus-seq3.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Khám phá thế giới wumpus}
+
+\vspace*{0.4in}
+
+\epsfxsize=0,6\textwidth
+\fig{\sfile{figures}{wumpus-seq4.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Khám phá thế giới wumpus}
+
+\vspace*{0.4in}
+
+\epsfxsize=0,6\textwidth
+\fig{\sfile{figures}{wumpus-seq5.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Khám phá thế giới wumpus}
+
+\vspace*{0.4in}
+
+\epsfxsize=0,6\textwidth
+\fig{\sfile{figures}{wumpus-seq6.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Khám phá thế giới wumpus}
+
+\vspace*{0.4in}
+
+\epsfxsize=0,6\textwidth
+\fig{\sfile{figures}{wumpus-seq7.ps}}
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Các điểm chật khác}
+
+\begin{tabular}{lr}
+\epsfxsize=2,7in
+\raisebox{-0.5in[2.5in]{\epsffile{\file{figures}{wumpus-bb.ps}}}
+&
+\hbox{\begin{minipage}[b]{0.5\textwidth}
+Gió vào (1,2) và (2,1)\al
+$\implies$ không có hành động an toàn\\
+
+Giả sử các hố phân bố đồng đều,\\
+(2,2) có điểm thấp với thăm dò 0,86, so với ~ 0,31
+
+\end{minipage}}
+\\
+   & \\
+\epsfxsize=1,8in
+\epsffile{\file{figures}{wumpus-s.ps}}
+&
+\hbox{\begin{minipage}[b]{0.65\textwidth}
+Mùi trong (1,1) \al
+$\implies$ không thể di chuyển
+
+Có thể sử dụng chiến lược \defn{ép buộc}:\al
+  bắn thẳng về phía trước\al
+  wumpus đã ở đó $\implies$ đã chết $\implies$ an toàn \al
+  wumpus không có ở đó $\implies$ an toàn\al
+
+\end{minipage}}
 \end{tabular}
 
 
 
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Câu nguyên thủy (Atomic sentences)}
 
-\begin{tabular}{rcl}
-Câu nguyên thủy & = & $predicate(term_1,\ldots,term_n)$ \\
-                &   & hoặc $term_1 = term_2$ \\
-                &   & \\
-Hạng thức (Term)& = & $function(term_1,\ldots,term_n)$ \\
-                &   & hoặc $constant$ hoặc $variable$ \\
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Logic nói chung}
+
+\defn{Logic} là ngôn ngữ hình thức để biểu diễn thông tin\al
+   để có thể rút ra kết luận
+
+\defn{Cú pháp} xác định các câu trong ngôn ngữ
+
+\defn{Ngữ nghĩa} xác định ``ý nghĩa'' của câu;\al
+   tức là xác định \defn{sự thật} của một câu trong một thế giới
+
+Ví dụ, ngôn ngữ của số học
+
+\mat{$x+2 \geq y$} là một câu; \mat{$x2+y>{}$} không phải là một câu
+
+\mat{$x+2 \geq y$} đúng nếu số \mat{$x+2$} không nhỏ hơn
+hơn số \mat{$y$}
+
+\mat{$x+2 \geq y$} đúng trong một thế giới nơi \mat{$x\eq 7,\ y\eq 1$}\\
+\mat{$x+2 \geq y$} là sai trong một thế giới nơi \mat{$x\eq 0,\ y\eq 6$}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Yêu cầu}
+
+\defn{Entailment} có nghĩa là một thứ \emph{tiếp nối từ} một thứ khác:
+\mat{\[KB \models \alpha\]}
+
+Cơ sở tri thức \mat{$KB$} bao gồm câu \mat{$\alpha$}\nl
+   nếu và chỉ khi\\
+\mat{$\alpha$} đúng ở mọi thế giới nơi \mat{$KB$} đúng
+
+Ví dụ: KB chứa `` the Giants won '' và `` The Reds won ''\\
+đòi hỏi ''Hoặc Người khổng lồ thắng hoặc Quỷ đỏ thắng''
+
+Ví dụ: \mat{$x+y\eq 4$} đòi hỏi \mat{$4\eq x+y$}
+
+Yêu cầu là mối quan hệ giữa các câu (tức là \emph{cú pháp})\\
+dựa trên \emph{ngữ nghĩa}
+
+Lưu ý: bộ não xử lý cú pháp \emph{cú pháp } (thuộc loại nào đó)
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Mẫu }
+
+Các nhà logic học thường nghĩ theo các mô hình \defn{}, chính thức là \\
+thế giới có cấu trúc mà sự thật có thể được đánh giá
+
+Ta nói \mat{$m$} \note{ là mô hình của } một câu \mat{$\alpha$}
+nếu \mat{$\alpha$} đúng trong \mat{$m$}
+
+\mat{$M(\alpha)$} là tập hợp tất cả các model của \mat{$\alpha$}
+
+Khi đó \mat{$KB \models \alpha$} khi và chỉ khi \mat{$M(KB) \subseteq M(\alpha)$}
+
+\begin{tabular}{lr}
+\hbox{\begin{minipage}[b]{0.6\textwidth}
+Ví dụ: \mat{$KB$} = Người khổng lồ thắng và Quỷ đỏ thắng\nl
+     \mat{$\alpha$} = Người khổng lồ đã thắng
+\end{minipage}}
+&
+\epsfxsize=3,2in
+\raisebox{-2in[0in]{\epsffile{\file{figures}{model-inclusion.ps}}}
 \end{tabular}
 
-\begin{tabular}{ll}
-Ví dụ: & $Brother(KingJohn,RichardTheLionheart)$\\
-      & $>(Length(LeftLegOf(Richard)),Length(LeftLegOf(KingJohn)))$\\
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Sự đòi hỏi trong thế giới wumpus}
+
+\begin{tabular}{lr}
+\hbox{\begin{minipage}[b]{0.55\textwidth}
+Tình huống sau khi không phát hiện được gì trong [1,1],\\
+di chuyển sang phải, gió thổi vào [2,1] \\
+\\
+
+Xem xét các mô hình có thể có cho ?s\\
+giả sử chỉ có hố 
+\end{minipage}}
+&
+\epsfxsize=0,4\textwidth
+\epsffile{\file{figures}{wumpus-seq1c-alt.ps}}
 \end{tabular}
 
+3 lựa chọn Boolean $\implies$ 8 mô hình có thể
+
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Câu phức hợp (Complex sentences)}
+\heading{Mẫu Wumpus}
 
-Các câu phức hợp được tạo từ các câu nguyên thủy bằng cách sử dụng các ký hiệu nối
-\[
-\lnot S,\quad S_1\land S_2,\quad S_1 \lor S_2,\quad 
-S_1 \implies S_2,\quad S_1 \lequiv S_2
-\]
+\epsfxsize=0,75\textwidth
+\fig{\file{figures}{wumpus-models1.ps}}
 
-\begin{tabular}{ll}
-Ví dụ: & $Sibling(KingJohn,Richard) \implies Sibling(Richard,KingJohn)$ \\
-     & ${>}(1,2) \lor {\leq}(1,2)$ \\
-     & ${>}(1,2) \land \lnot {>}(1,2)$ \\
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Mẫu Wumpus}
+
+\epsfxsize=0,75\textwidth
+\fig{\file{figures}{wumpus-models2.ps}}
+
+\mat{$KB$} = quy tắc của thế giới wumpus + quan sát
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Mẫu Wumpus}
+
+\epsfxsize=0,75\textwidth
+\fig{\file{figures}{wumpus-models3.ps}}
+
+\mat{$KB$} = quy tắc của thế giới wumpus + quan sát
+
+\mat{$\alpha_1$} = ``[1,2] là an toàn'', \mat{$KB \models \alpha_1$}, được chứng minh bằng \defn{kiểm tra mô hình}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Mẫu Wumpus}
+
+\epsfxsize=0,75\textwidth
+\fig{\file{figures}{wumpus-models2.ps}}
+
+\mat{$KB$} = quy tắc của thế giới wumpus + quan sát
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Mẫu Wumpus}
+
+\epsfxsize=0,75\textwidth
+\fig{\file{figures}{wumpus-models4.ps}}
+
+\mat{$KB$} = quy tắc của thế giới wumpus + quan sát
+
+\mat{$\alpha_2$} = ``[2,2] an toàn'', \mat{$KB  \not\models \alpha_2$}
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Suy luận}
+
+\mat{$KB\vdash_i\alpha$} = câu \mat{$\alpha$} có thể được suy ra từ \mat{$KB$} bằng thủ tục \mat{$i$}
+
+Hậu quả của \mat{$KB$} là đống cỏ khô; \mat{$\alpha$} là một cây kim.\\
+Đòi hỏi = kim đáy bể; suy luận = tìm ra nó
+
+\defn{Âm thanh}: \mat{$i$} là âm thanh nếu\nl
+bất cứ khi nào \mat{$KB\vdash_i\alpha$}, thì cũng đúng là \mat{$KB\models\alpha$}
+
+\defn{Tính đầy đủ}: \mat{$i$} hoàn tất nếu\nl
+bất cứ khi nào \mat{$KB\models\alpha$}, thì cũng đúng là \mat{$KB\vdash_i\alpha$}
+
+Xem trước: chúng ta sẽ định nghĩa một logic (logic bậc nhất)
+đủ biểu cảm để nói lên hầu hết mọi điều đáng quan tâm, và để làm được điều đó
+tồn tại một thủ tục suy luận hợp lý và đầy đủ.
+
+Nghĩa là, quy trình sẽ trả lời bất kỳ câu hỏi nào có câu trả lời sau
+từ những gì được biết bởi \mat{$KB$}.
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Logic mệnh đề: Cú pháp}
+
+Logic mệnh đề là logic đơn giản nhất---minh họa những ý tưởng cơ bản
+
+Các ký hiệu mệnh đề \mat{$P_1$}, \mat{$P_2$} v.v. là các câu
+
+Nếu \mat{$S$} là một câu thì \mat{$\lnot S$} là một câu (\defn{phủ định})
+
+Nếu \mat{$S_1$} và \mat{$S_2$} là câu thì \mat{$S_1 \land S_2$} là một câu (\defn{liên từ})
+ 
+Nếu \mat{$S_1$} và \mat{$S_2$} là câu thì \mat{$S_1 \lor S_2$} là câu (\defn{phân cách})
+
+Nếu \mat{$S_1$} và \mat{$S_2$} là câu thì \mat{$S_1 \implies S_2$} là một câu (\defn{ngụ ý})
+
+Nếu \mat{$S_1$} và \mat{$S_2$} là câu thì \mat{$S_1 \lequiv S_2$} là câu (\defn{hai điều kiện})
+
+
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Logic mệnh đề: Ngữ nghĩa}
+
+Mỗi mô hình chỉ định đúng/sai cho từng ký hiệu mệnh đề
+
+\begin{tabular}{lccc}
+Ví dụ: & \mat{$P_{1,2}$} & \mat{$P_{2,2}$} & \mat{$P_{3,1}$}\\
+     & \mat{$true$} & \mat{$true$} & \mat{$false$}
 \end{tabular}
 
+(Với những ký hiệu này, 8 mẫu có thể được liệt kê tự động.)
 
+Quy tắc đánh giá sự thật đối với một mô hình \mat{$m$}:
 
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Tính chân lý trong logic bậc một}
-
-Các câu là đúng đối với một \u{mô hình (model)} và một \u{diễn dịch (interpretation)}
-
-Mô hình chứa các đối tượng và các quan hệ giữa chúng
-
-Diễn dịch chỉ định các vật sở chỉ (referents) cho\al
-{\em các ký hiệu hằng} $\rightarrow$ \u{các đối tượng}\al
-{\em các ký hiệu vị từ} $\rightarrow$ \u{các quan hệ}\al
-{\em các ký hiệu hàm} $\rightarrow$ \u{các quan hệ hàm}
-
-Một câu nguyên thủy $predicate(term_1,\ldots,term_n)$ là đúng\\
-khi và chỉ khi các \u{đối tượng} được chỉ tới bởi $term_1,\ldots,term_n$\\
-nằm trong \u{quan hệ} được chỉ tới bởi $predicate$
-
-
-
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Các mô hình cho FOL: Ví dụ}
-
-\vspace*{0.3in}
-
-\epsfxsize=0.75\textwidth
-\fig{\file{figures}{fol-models.ps}}
-
-
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Lượng từ phổ dụng (Universal quantification)}
-
-$\All{\<variables\>} \<sentence\>$
-
-Mọi người ở Berkeley đều thông minh:\\
-$\All{x} At(x,Berkeley) \implies Smart(x)$
-
-
-$\All{x} P$\quad tương đương với \u{phép hội} của các \u{thực thể hóa (instantiations)} của $P$
-\[
-\begin{array}{rl}
-     & At(KingJohn,Berkeley) \implies Smart(KingJohn) \\
-\land& At(Richard,Berkeley) \implies Smart(Richard) \\
-\land& At(Berkeley,Berkeley) \implies Smart(Berkeley) \\
-\land& \ldots
-\end{array}\]
-Thông thường, $\implies$ là ký hiệu nối chính với $\forall$.\\
-Lỗi phổ biến: sử dụng $\land$ làm ký hiệu nối chính với $\forall$:
-\[\All{x} At(x,Berkeley) \land Smart(x)\]
-có nghĩa là ``Tất cả mọi người đều ở Berkeley và tất cả mọi người đều thông minh''
-
-
-
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Lượng từ tồn tại (Existential quantification)}
-
-$\Exi{\<variables\>} \<sentence\>$
-
-Một ai đó ở Stanford rất thông minh:\\
-$\Exi{x} At(x,Stanford) \land Smart(x)$
-
-$\Exi{x} P$\quad tương đương với \u{phép tuyển} của các \u{thực thể hóa} của $P$
-\[
-\begin{array}{rl}
-     & At(KingJohn,Stanford) \land Smart(KingJohn) \\
-\lor& At(Richard,Stanford) \land Smart(Richard) \\
-\lor& At(Stanford,Stanford) \land Smart(Stanford) \\
-\lor& \ldots
-\end{array}\]
-Thông thường, $\land$ là ký hiệu nối chính với $\exists$.\\
-Lỗi phổ biến: sử dụng $\implies$ làm ký hiệu nối chính với $\exists$:
-\[\Exi{x} At(x,Stanford) \implies Smart(x)\]
-là đúng nếu có bất kỳ ai đó \textbf{không} ở Stanford!
-
-
-
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Đặc tính của các lượng từ}
-
-$\All{x}\All{y}$ giống với $\All{y}\All{x}$ (\q{tại sao?})
-
-$\Exi{x}\Exi{y}$ giống với $\Exi{y}\Exi{x}$ (\q{tại sao?})
-
-$\Exi{x}\All{y}$ \u{không} giống với $\All{y}\Exi{x}$
-
-$\Exi{x}\All{y} Loves(x,y)$\\
-``Có một người yêu thương mọi người trên thế giới''
-
-$\All{y}\Exi{x} Loves(x,y)$\\
-``Mọi người trên thế giới đều được ít nhất một người yêu thương''
-
-\u{Tính đối ngẫu của lượng từ}: mỗi cái có thể được biểu diễn bằng cách sử dụng cái kia
-
-$\All{x} Likes(x,IceCream)$ \qquad $\lnot \Exi{x} \lnot Likes(x,IceCream)$ 
-
-$\Exi{x} Likes(x,Broccoli)$ \qquad $\lnot \All{x} \lnot Likes(x,Broccoli)$ 
-
-
-
-
-
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Vui với các câu}
-
-Anh em trai là anh em ruột (siblings)
-
-.
-
-``Anh em ruột'' có tính phản xạ
-
-.
-
-Mẹ của một người là cha mẹ nữ của người đó
-
-.
-
-Anh em họ thứ nhất là con của anh em ruột của cha mẹ
-
-.
-
-%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pheading{Vui với các câu}
-
-.
-
-$\All{x,y} Brother(x,y) \lequiv Sibling(x,y)$.
-
-.
-
-$\All{x,y} Sibling(x,y) \lequiv Sibling(y,x)$
-
-.
-
-$\All{x,y} Mother(x,y) \lequiv (Female(x) \land Parent(x,y))$
-
-.
-
-$\All{x,y} FirstCousin(x,y) \lequiv 
-\Exi{p,ps} Parent(p,x) \land Sibling(ps,p) \land Parent(ps,y)$
-
-
-
-
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Sự bằng nhau (Equality)}
-
-$term_1 = term_2$ là đúng dưới một diễn dịch đã cho\\
-khi và chỉ khi $term_1$ và $term_2$ cùng chỉ một đối tượng
-
-\begin{tabular}{ll}
-Ví dụ: & $1=2$ và $\All{x} {\times}(Sqrt(x),Sqrt(x)) = x$ là thỏa mãn được\\
-      & $2=2$ là hợp lệ
+\begin{tabular}{rcclcl}
+\mat{$\lnot S$} & đúng iff & \mat{$S$} & sai & & \\
+\mat{$S_1 \land S_2$} & là đúng iff & \mat{$S_1$} & là đúng \emph{và} & \mat{$S_2$} & là đúng\\
+\mat{$S_1 \lor S_2$} & là đúng iff & \mat{$S_1$} & là đúng \emph{ hoặc } & \mat{$S_2$} & là đúng \\
+\mat{$S_1 \implies S_2$} & là đúng iff& \mat{$S_1$} & là sai \emph{ hoặc } & \mat{$S_2$} & là đúng \\
+\qquad tức là & sai iff& \mat{$S_1$} & đúng \emph{ và } & \mat{$S_2$} & là sai \\
+\mat{$S_1 \lequiv S_2$} & là đúng iff& \mat{$S_1\implies S_2$} & là đúng \emph{ và } & \mat{$S_2\implies S_1$} & là đúng
 \end{tabular}
 
-Ví dụ: định nghĩa (đầy đủ) của $Sibling$ (anh em ruột) theo $Parent$ (cha mẹ):\al
-$\All{x,y} Sibling(x,y) \lequiv [\lnot(x\eq y) \land \Exi{m,f} \lnot(m\eq f) \land {}$\nl
-$Parent(m,x) \land Parent(f,x) \land Parent(m,y) \land Parent(f,y)]$
+Quá trình đệ quy đơn giản đánh giá một câu tùy ý, ví dụ:\\
+\mat{$\lnot P_{1,2}\land (P_{2,2}\lor P_{3,1})$} = \mat{$true\land (false \lor true)\eq true\land
+true \eq true$}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Bảng chân lý cho liên từ}
+
+\begin{center}
+\input{\file{tables}{truth-tables-table}}
+\end{center}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Câu thế giới Wumpus}
+
+Giả sử \mat{$P_{i,j}$} là đúng nếu có một hố trong \mat{$[i,j]$}.\\
+Giả sử \mat{$B_{i,j}$} là đúng nếu có gió trong \mat{$[i,j]$}.
+\mat{\begin{eqnarray*}
+ \lnot P_{1,1}\\
+ \lnot B_{1,1}\\
+ B_{2,1}
+\end{eqnarray*}}
+``Hố gây gió ở ô liền kề''
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Câu thế giới Wumpus}
+
+Giả sử \mat{$P_{i,j}$} là đúng nếu có một hố trong \mat{$[i,j]$}.\\
+Giả sử \mat{$B_{i,j}$} là đúng nếu có gió trong \mat{$[i,j]$}.
+\mat{\begin{eqnarray*}
+ \lnot P_{1,1}\\
+ \lnot B_{1,1}\\
+ B_{2,1}
+\end{eqnarray*}}
+``Hố gây gió ở ô liền kề''
+\mat{\begin{eqnarray*}
+ B_{1,1} &\lequiv& (P_{1,2} \lor P_{2,1})\\
+ B_{2,1} &\lequiv& (P_{1,1} \lor P_{2,2}\lor P_{3,1})
+\end{eqnarray*}}
+``Một hình vuông sẽ mát mẻ \emph{nếu và chỉ khi} có một cái hố liền kề''
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Bảng chân lý cho suy luận}
+
+\begin{LARGE}
+\begin{center}
+\input{\file{tables}{wumpus-model-table}}
+\end{center}
+\end{LARGE}
+
+Liệt kê các hàng (các phép gán khác nhau cho các ký hiệu),\\
+nếu \mat{KB} đúng trong hàng, hãy kiểm tra xem \mat{$\alpha$} có đúng không
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Suy luận bằng phép liệt kê}
+
+Việc liệt kê theo chiều sâu của tất cả các mô hình là hợp lý và đầy đủ 
+
+\input{\file{algorithms}{tt-entails-algorithm}}
+
+\mat{$O(2^n)$} cho ký hiệu \mat{$n$}; vấn đề là \emph{co-NP-complete}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tương đương logic}
+
+Hai câu \defn{tương đương về mặt logic} nếu đúng trong cùng một mô hình:\al
+\mat{$\alpha\equiv\beta$} khi và chỉ khi \mat{$\alpha\models\beta$} 
+và \mat{$\beta\models\alpha$}
+
+\input{\file{tables}{logical-equivalence-table}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tính hợp lệ và sự thỏa mãn}
+
+Một câu là \defn{valid} nếu nó đúng trong các mô hình \emph{all},\nl
+ví dụ: \mat{$True$},\quad \mat{$A \lor \lnot A$}, \quad \mat{$A \implies A$}, \quad 
+      \mat{$(A \land (A \implies B)) \implies B$}
+
+Hiệu lực được kết nối với suy luận thông qua \defn{Định lý suy diễn}:\nl
+      \mat{$KB \models \alpha$} khi và chỉ khi \mat{$(KB \implies \alpha)$} hợp lệ
+
+Một câu là \defn{satisfiable} nếu nó đúng trong \emph{some} model\nl
+ví dụ: \mat{$A\lor B$},\qquad \mat{$C$}
+
+Một câu là \defn{unsatisfiable} nếu nó đúng trong \emph{no} models\nl
+ví dụ: \mat{$A\land \lnot A$}
+
+Sự thỏa mãn được kết nối với suy luận thông qua:\nl
+      \mat{$KB \models \alpha$} khi và chỉ nếu \mat{$(KB \land \lnot \alpha)$} không thỏa mãn\\
+tức là chứng minh \mat{$\alpha$} bằng \note{{\it reductio ad vô lý}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Phương pháp chứng minh}
+
+Các phương pháp chứng minh chia thành (đại khái) hai loại:\al
+
+\note{Ứng dụng quy tắc suy luận}\al
+    -- Tạo câu mới (âm thanh) hợp pháp từ câu cũ\al
+    -- \defn{Proof} = một chuỗi các ứng dụng quy tắc suy luận\nl
+       Có thể sử dụng các quy tắc suy luận làm toán tử trong một thuật toán tìm kiếm tiêu chuẩn.\al
+    -- Thông thường yêu cầu dịch câu sang dạng \defn{dạng thông thường}
+
+\note{Kiểm tra mô hình}\al
+    liệt kê bảng chân lý (luôn theo cấp số nhân trong \mat{$n$})\al
+    việc quay lui được cải tiến, ví dụ: Davis--Putnam--Logemann--Loveland\al
+    tìm kiếm heuristic trong không gian mô hình (âm thanh nhưng không đầy đủ)\nl
+       ví dụ: thuật toán leo đồi giống như xung đột tối thiểu
+
 
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Tương tác với KB của FOL}
+\heading{Xích tiến và lùi}
 
-Giả sử một tác tử thế giới wumpus đang sử dụng một KB của FOL\\
-và nhận thấy một mùi và một luồng gió (nhưng không lấp lánh) tại $t=5$:
+\defn{Dạng sừng} (bị hạn chế)\nl
+    KB = \emph{liên từ} của \emph{Mệnh đề Horn}\al
+    Mệnh đề Horn = \nl
+     \blob ký hiệu mệnh đề;  hoặc \nl
+     \blob (kết hợp các ký hiệu) \mat{$\implies$} ký hiệu\al
+    Ví dụ: \mat{$C \land (B \implies A) \land (C \land D \implies B)$}
 
-${\sc Tell}(KB,Percept([Smell,Breeze,None],5))$\\
-${\sc Ask}(KB,\Exi{a} Action(a,5))$
+\defn{Modus Ponens} (dành cho dạng Horn): hoàn thành cho KB Horn
+\mat{\[\frac{\alpha_1,\ldots,\alpha_n,\qquad \alpha_1\land \cdots \land \alpha_n\implies \beta}{\beta} 
+\]}
+Có thể được sử dụng với \defn{xâu chuỗi thuận} hoặc \defn{xâu chuỗi lùi}.\\
+Các thuật toán này rất tự nhiên và chạy trong thời gian \emph{tuyến tính}
 
-Nghĩa là, liệu KB có kéo theo bất kỳ hành động cụ thể nào tại $t=5$ không?
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Chuyển tiếp }
 
-Trả lời: $Có,\ \{a/Shoot\}$\qquad $\leftarrow$ \u{phép thế (substitution)} (danh sách ràng buộc)
+Ý tưởng: kích hoạt bất kỳ quy tắc nào có tiền đề được thỏa mãn trong \mat{$KB$},\nl
+   thêm kết luận của nó vào \mat{$KB$}, cho đến khi tìm thấy truy vấn
 
-Cho một câu $S$ và một phép thế $\sigma$,\\
-$S\sigma$ biểu thị kết quả của việc áp dụng $\sigma$ vào $S$; ví dụ:\\
-$S = Smarter(x,y)$\\
-$\sigma = \{x/Hillary,y/Bill\}$\\
-$S\sigma = Smarter(Hillary,Bill)$
+\begin{minipage}{0.48\maxfigwidth}
+\input{tables/fc-example-table}
+\end{minipage}\hfill
+\begin{minipage}{0.48\maxfigwidth}
+\epsfxsize=0,25\maxfigwidth
+\centerline{ \epsffile{\file{figures}{pl-horn-example.ps}} }
+\end{minipage}
 
-${\sc Ask(KB,S)}$ trả về một số/tất cả $\sigma$ sao cho $KB \models S\sigma$
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Thuật toán chuỗi chuyển tiếp}
 
+\input{\file{algorithms}{pl-fc-algorithm}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{ Ví dụ về chuỗi chuyển tiếp }
+
+\epsfxsize=0,45\maxfigwidth
+\fig{\file{figures}{fc-horn-example01c.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{ Ví dụ về chuỗi chuyển tiếp }
+
+\epsfxsize=0,45\maxfigwidth
+\fig{\file{figures}{fc-horn-example02c.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{ Ví dụ về chuỗi chuyển tiếp }
+
+\epsfxsize=0,45\maxfigwidth
+\fig{\file{figures}{fc-horn-example03c.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{ Ví dụ về chuỗi chuyển tiếp }
+
+\epsfxsize=0,45\maxfigwidth
+\fig{\file{figures}{fc-horn-example04c.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{ Ví dụ về chuỗi chuyển tiếp }
+
+\epsfxsize=0,45\maxfigwidth
+\fig{\file{figures}{fc-horn-example05c.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{ Ví dụ về chuỗi chuyển tiếp }
+
+\epsfxsize=0,45\maxfigwidth
+\fig{\file{figures}{fc-horn-example06c.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{ Ví dụ về chuỗi chuyển tiếp }
+
+\epsfxsize=0,45\maxfigwidth
+\fig{\file{figures}{fc-horn-example07c.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{ Ví dụ về chuỗi chuyển tiếp }
+
+\epsfxsize=0,45\maxfigwidth
+\fig{\file{figures}{fc-horn-example08c.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Bằng chứng về tính đầy đủ}
+
+FC rút ra mọi câu nguyên tử được yêu cầu bởi \mat{$KB$}
+
+1. FC đạt đến \defn{điểm cố định} nơi không có câu nguyên tử mới nào được dẫn xuất
+
+2. Xem trạng thái cuối cùng dưới dạng mô hình \mat{$m$}, gán đúng/sai cho các ký hiệu
+
+3. Mọi mệnh đề trong bản gốc \mat{$KB$} đều đúng trong \mat{$m$}\al
+   \emph{Bằng chứng}: Giả sử mệnh đề \mat{$a_1\land\ldots\land a_k\textimplies b$} sai trong \mat{$m$}\al
+   Khi đó \mat{$a_1\land\ldots\land a_k$} đúng trong \mat{$m$} và \mat{$b$} sai trong \mat{$m$}\al
+   Do đó thuật toán chưa đạt đến điểm cố định!
+
+4. Do đó \mat{$m$} là mô hình của \mat{$KB$}
+
+5. Nếu \mat{$KB\models q$}, \mat{$q$} đúng trong \emph{mọi mẫu } của \mat{$KB$}, bao gồm \mat{$m$}
+
+\note{Ý tưởng chung}: xây dựng bất kỳ mô hình nào của \mat{$KB$} bằng suy luận âm thanh, kiểm tra \mat{$\alpha$}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Xích ngược}
+
+Ý tưởng: làm ngược lại từ truy vấn \mat{$q$}:\al
+   để chứng minh \mat{$q$} bởi BC,\nl
+      kiểm tra xem \mat{$q$} đã được biết chưa, hoặc \nl
+      chứng minh bằng BC tất cả các tiền đề của một số quy tắc kết luận \mat{$q$}
+
+Tránh vòng lặp: kiểm tra xem mục tiêu phụ mới đã có trong ngăn xếp mục tiêu chưa
+
+Tránh làm việc lặp lại: kiểm tra xem mục tiêu phụ mới \al
+  1) đã được chứng minh là đúng, hoặc\al
+  2) đã thất bại
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ về chuỗi ngược}
+
+\epsfxsize=0,45\maxfigwidth
+\fig{\file{figures}{bc-horn-example01c.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ về chuỗi ngược}
+
+\epsfxsize=0,45\maxfigwidth
+\fig{\file{figures}{bc-horn-example02c.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ về chuỗi ngược}
+
+\epsfxsize=0,45\maxfigwidth
+\fig{\file{figures}{bc-horn-example03c.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ về chuỗi ngược}
+
+\epsfxsize=0,45\maxfigwidth
+\fig{\file{figures}{bc-horn-example04c.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ về chuỗi ngược}
+
+\epsfxsize=0,45\maxfigwidth
+\fig{\file{figures}{bc-horn-example03c.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ về chuỗi ngược}
+
+\epsfxsize=0,45\maxfigwidth
+\fig{\file{figures}{bc-horn-example05c.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ về chuỗi ngược}
+
+\epsfxsize=0,45\maxfigwidth
+\fig{\file{figures}{bc-horn-example06c.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ về chuỗi ngược}
+
+\epsfxsize=0,45\maxfigwidth
+\fig{\file{figures}{bc-horn-example07c.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ về chuỗi ngược}
+
+\epsfxsize=0,45\maxfigwidth
+\fig{\file{figures}{bc-horn-example08c.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ về chuỗi ngược}
+
+\epsfxsize=0,45\maxfigwidth
+\fig{\file{figures}{bc-horn-example09c.ps}}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ về chuỗi ngược}
+
+\epsfxsize=0,45\maxfigwidth
+\fig{\file{figures}{bc-horn-example10c.ps}}
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Cơ sở tri thức cho thế giới wumpus}
+\heading{Xâu chuỗi tiến và ~lùi }
 
-\u{``Nhận thức (Perception)''}\\
-$\All{b,g,t} Percept([Smell,b,g],t) \implies Smelt(t)$\\
-$\All{s,b,t} Percept([s,b,Glitter],t) \implies AtGold(t)$
+FC là \defn{dựa trên dữ liệu}, cf. xử lý tự động, vô thức,\nl
+ví dụ: nhận dạng đối tượng, các quyết định thông thường
 
-\u{Phản xạ (Reflex)}: $\All{t} AtGold(t) \implies Action(Grab,t)$
+Có thể làm nhiều việc không liên quan đến mục tiêu
 
-\u{Phản xạ với trạng thái nội bộ (Reflex with internal state)}: chúng ta đã có vàng chưa?\\
-$\All{t} AtGold(t) \land \lnot Holding(Gold,t) \implies Action(Grab,t)$
+BC là \defn{định hướng theo mục tiêu}, thích hợp để giải quyết vấn đề,\nl
+ví dụ: Chìa khóa của tôi đâu? Làm thế nào để tôi vào được chương trình tiến sĩ?
 
-$Holding(Gold,t)$ không thể quan sát được\nl
-$\Rightarrow$ việc theo dõi sự thay đổi là cần thiết
+Độ phức tạp của BC có thể \emph{nhỏ hơn nhiều} so với kích thước tuyến tính của KB
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Suy diễn các thuộc tính ẩn}
+\heading{Độ phân giải}
 
-Các thuộc tính của vị trí:\\
-$\All{l,t} At(Agent,l,t) \land Smelt(t) \implies Smelly(l)$\\
-$\All{l,t} At(Agent,l,t) \land Breeze(t) \implies Breezy(l)$
+\defn{Dạng liên hợp thông thường} (CNF---phổ thông)\nl
+    \emph{liên hợp} của $\underbrace{\mbox{\emph{disjunctions} of \emph{literals}}}$\nl
+    \phantom{\emph{liên từ} của \emph{disjuncti}\emph{mệnh đề}\nl
+    Ví dụ: \mat{$(A \lor \lnot B) \land (B \lor \lnot C \lor \lnot D)$}
 
-Các ô gần hố thì có gió nhẹ:
-
-\u{Quy tắc chẩn đoán (Diagnostic rule)}---suy diễn nguyên nhân từ kết quả\nl
-      $\All{y} Breezy(y) \implies \Exi{x} Pit(x) \land Adjacent(x,y)$
-
-\u{Quy tắc nhân quả (Causal rule)}---suy diễn kết quả từ nguyên nhân\nl
-      $\All{x,y} Pit(x) \land Adjacent(x,y) \implies Breezy(y)$
-
-Không có quy tắc nào trong số này là đầy đủ---ví dụ, quy tắc nhân quả không nói
-rằng liệu các ô ở xa hố có gió nhẹ hay không
-
-\u{Định nghĩa (Definition)} cho vị từ $Breezy$:\nl
-      $\All{y}  Breezy(y)  \lequiv [\Exi{x} Pit(x) \land Adjacent(x,y)]$
-
-
+\defn{Quy tắc suy luận Độ phân giải} (dành cho CNF): hoàn thành cho logic mệnh đề
+\mat{\[\frac {\ell_1 \lor \cdots\lor \ell_k,\qquad m_1 \lor \cdots\lor m_n}
+        {\ell_1 \lor \cdots\lor \ell_{i-1}\lor \ell_{i+1}\lor\cdots\lor \ell_k
+        \lor m_1 \lor \cdots \lor m_{j-1}\lor m_{j+1}\lor\cdots\lor m_n}
+\]}
+trong đó \mat{$\ell_i$} và \mat{$m_j$} là các chữ bổ sung. Ví dụ:\hfill\epsfxsize=1.75in\raisebox{-1.5in[0pt][0pt]{\epsffile{\file{figures}{wumpus-seq5c.ps}}}
+\mat{\[
+   \frac{P_{1,3} \lor P_{2,2},\qquad\lnot P_{2,2}}
+       {P_{1,3}}
+\]}
+Độ phân giải hợp lý và đầy đủ cho logic mệnh đề
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Theo dõi sự thay đổi}
+\heading{Chuyển đổi sang CNF}
 
-Các sự kiện (Facts) diễn ra trong các \u{tình huống (situations)}, thay vì vĩnh viễn\\
-Ví dụ, $Holding(Gold,Now)$ thay vì chỉ $Holding(Gold)$
+\mat{$B_{1,1} \textlequiv (P_{1,2} \lor P_{2,1})$}
 
-\u{Phép tính tình huống (Situation calculus)} là một cách để biểu diễn sự thay đổi trong FOL:\nl
-   Thêm một đối số tình huống vào mỗi vị từ không vĩnh viễn\nl
-   Ví dụ, $Now$ trong $Holding(Gold,Now)$ biểu thị một tình huống
-
-Các tình huống được kết nối bởi hàm $Result$\\
-$Result(a,s)$ là tình huống sinh ra từ việc thực hiện $a$ trong $s$
-
-\epsfxsize=0.3\textwidth
-\fig{\file{figures}{situations2.ps}}
-
-
-
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Mô tả các hành động I}
-
-Tiên đề ``Kết quả (Effect)''---mô tả các thay đổi do hành động\\
-$\All{s} AtGold(s) \implies Holding(Gold,Result(Grab,s))$
-
-Tiên đề ``Khung (Frame)''---mô tả \u{không thay đổi} do hành động\\
-$\All{s} HaveArrow(s) \implies HaveArrow(Result(Grab,s))$
-
-\u{Vấn đề khung (Frame problem)}: tìm một cách thanh lịch để xử lý sự không thay đổi\nl
-   (a) biểu diễn---tránh các tiên đề khung\nl
-   (b) suy diễn---tránh ``sao chép qua (copy-overs)'' liên tục để theo dõi trạng thái
-
-\u{Vấn đề ngoại lệ (Qualification problem)}: mô tả đúng về các hành động thực tế đòi hỏi vô số các ngoại lệ---điều gì xảy ra nếu vàng bị trơn trượt hoặc bị đóng đinh hoặc $\ldots$
-
-\u{Vấn đề hệ quả (Ramification problem)}: các hành động thực tế có nhiều hệ quả phụ---thế còn bụi trên vàng, hao mòn trên găng tay, $\ldots$
-
+1. Loại bỏ \mat{$\lequivsymbol$}, thay thế \mat{$\alpha\textlequiv \beta$} bằng \mat{$(\alpha\implies
+\beta)\land (\beta\implies \alpha)$}.
+\mat{\[
+   (B_{1,1} \implies (P_{1,2} \lor P_{2,1})) \land 
+   ((P_{1,2} \lor P_{2,1})\implies B_{1,1})
+\]}
+2. Loại bỏ \mat{$\impliessymbol$}, thay thế \mat{$\alpha\textimplies \beta$} bằng \mat{$\lnot
+\alpha\lor \beta$}.
+\mat{\[
+   (\lnot B_{1,1} \lor P_{1,2} \lor P_{2,1}) \land 
+   (\lnot(P_{1,2} \lor P_{2,1})\lor B_{1,1})
+\]}
+3. Di chuyển \mat{$\lnot$} vào trong bằng cách sử dụng quy tắc de Morgan và phủ định kép:
+\mat{\[
+   (\lnot B_{1,1} \lor P_{1,2} \lor P_{2,1}) \land 
+   ((\lnot P_{1,2} \land \lnot P_{2,1})\lor B_{1,1})
+\]}
+4. Áp dụng luật phân phối (\mat{${\lor}$} trên \mat{${\land}$}) và làm phẳng:
+\mat{\[
+   (\lnot B_{1,1} \lor P_{1,2} \lor P_{2,1}) \land 
+   (\lnot P_{1,2} \lor B_{1,1}) \land (\lnot P_{2,1} \lor B_{1,1})
+\]}
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Mô tả các hành động II}
+\heading{Thuật toán độ phân giải}
 
-\u{Các tiên đề trạng thái kế tiếp (Successor-state axioms)} giải quyết vấn đề khung biểu diễn
+Chứng minh bằng phản chứng, tức là chỉ ra \mat{$KB\land\lnot\alpha$} không thỏa mãn
 
-Mỗi tiên đề nói ``về'' một \u{vị từ} (không phải bản thân một hành động):
-\begin{eqnarray*}
-\mbox{P đúng sau đó}&\lequiv& [\mbox{một hành động làm P đúng}\\
-                      &\lor   & \mbox{P đã đúng và không có hành động nào
-                                  làm P sai}]
-\end{eqnarray*}
-
-Để cầm được vàng:\al
-   $\All{a,s} Holding(Gold,Result(a,s)) \lequiv {}$\nl
-      $[(a\eq Grab \land AtGold(s))$\nl
-      ${}\lor (Holding(Gold,s) \land a\neq Release)]$
-
+\input{\file{algorithms}{pl-resolution-algorithm}}
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Lập kế hoạch}
+\heading{Ví dụ về độ phân giải}
 
-Điều kiện ban đầu trong KB:\nl
-   $At(Agent,[1,1],S_0)$\nl
-   $At(Gold,[1,2],S_0)$
+\mat{$KB = (B_{1,1} \lequiv (P_{1,2} \lor P_{2,1})) \land \lnot B_{1,1}$}
+\mat{$\alpha = \lnot P_{1,2}$}
 
-Truy vấn: ${\sc Ask}(KB,\Exi{s} Holding(Gold,s))$\nl
-   nghĩa là, trong tình huống nào tôi sẽ cầm vàng?
+\vspace*{0.5in}
 
-Trả lời: $\{s/Result(Grab,Result(Forward,S_0))\}$\nl
-   nghĩa là, đi tới và sau đó nhặt vàng
+\epsfxsize=1.1\textwidth
+\fig{\file{figures}{wumpus-resolution.ps}}
 
-Điều này giả định rằng tác tử quan tâm đến các kế hoạch bắt đầu tại $S_0$
-và rằng $S_0$ là tình huống duy nhất được mô tả trong KB
-
-
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Lập kế hoạch: Một cách tốt hơn}
-
-Biểu diễn \u{các kế hoạch (plans)} dưới dạng các chuỗi hành động $[a_1,a_2,\ldots,a_n]$
-
-$PlanResult(p,s)$ là kết quả của việc thực thi $p$ trong $s$
-
-Sau đó truy vấn ${\sc Ask}(KB,\Exi{p} Holding(Gold,PlanResult(p,S_0)))$\\
-có giải pháp là $\{p/[Forward,Grab]\}$
-
-Định nghĩa của $PlanResult$ theo $Result$:\al
-   $\All{s} PlanResult([],s) = s$\al
-   $\All{a,p,s} PlanResult([a|p],s) = PlanResult(p,Result(a,s))$
-
-\u{Hệ thống lập kế hoạch (Planning systems)} là các công cụ suy diễn có mục đích đặc biệt được thiết kế để thực hiện
-loại suy diễn này hiệu quả hơn công cụ suy diễn mục đích chung
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \heading{Tóm tắt}
 
-Logic bậc một: \al
--- các đối tượng và quan hệ là các nguyên thủy ngữ nghĩa\al
--- cú pháp: hằng số, hàm số, vị từ, bằng nhau, lượng từ
+Các tác nhân logic áp dụng \defn{suy luận} cho cơ sở tri thức \defn{}\al
+để thu thập thông tin mới và đưa ra quyết định
 
-Tăng sức mạnh biểu đạt: đủ để định nghĩa thế giới wumpus
+Các khái niệm cơ bản về logic:\al
+-- \defn{cú pháp}: cấu trúc hình thức của \defn{câu}\al
+-- \defn{ngữ nghĩa}: \defn{sự thật} của câu wrt \defn{models}\al
+-- \defn{đòi hỏi}: sự thật cần thiết của câu này cho câu khác\al
+-- \defn{suy luận}: suy ra câu từ các câu khác\al
+-- \defn{soundess}: dẫn xuất chỉ tạo ra các câu kéo theo\al
+-- \defn{tính đầy đủ}: dẫn xuất có thể tạo ra tất cả các câu kéo theo
 
-Phép tính tình huống:\al
--- các quy ước để mô tả các hành động và thay đổi trong FOL\al
--- có thể diễn đạt việc lập kế hoạch như sự suy diễn trên một KB phép tính tình huống
+Thế giới Wumpus đòi hỏi khả năng thể hiện một phần
+và thông tin phủ định, lý do theo trường hợp, v.v.
+
+Chuỗi tiến, lùi là thời gian tuyến tính, hoàn chỉnh cho mệnh đề Horn\\
+Độ phân giải hoàn tất cho logic mệnh đề
+
+Logic mệnh đề thiếu sức mạnh diễn đạt
 
 
 \end{huge} 

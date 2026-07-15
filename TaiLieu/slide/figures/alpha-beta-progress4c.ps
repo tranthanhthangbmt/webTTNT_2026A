@@ -77,8 +77,8 @@ end
 
 %%EndIdrawPrologue
 
-/arrowHeight 11 def
-/arrowWidth 5 def
+/arrowHeight 8 def
+/arrowWidth 4 def
 
 /IdrawDict 52 dict def
 IdrawDict begin
@@ -211,6 +211,7 @@ end
 /Circ {
 newpath
 0 360 arc
+closepath
 patternNone not { ifill } if
 brushNone not { istroke } if
 } def
@@ -242,6 +243,7 @@ newpath
 translate
 scale
 0 0 1 0 360 arc
+closepath
 patternNone not { ifill } if
 brushNone not { istroke } if
 end
@@ -361,7 +363,7 @@ grestore
 gsave
 fgred fggreen fgblue setrgbcolor
 /fontDict printFont printSize scalefont dup setfont def
-/descender fontDict begin 0 [FontBBox] 1 get FontMatrix end
+/descender fontDict begin 0 /FontBBox load  1 get FontMatrix end
 transform exch pop def
 /vertoffset 1 printSize sub descender sub def {
 0 vertoffset moveto show
@@ -491,7 +493,7 @@ exch dup 3 1 roll 1 0 0 -1 0 6 -1 roll matrix astore
 
 %%EndProlog
 
-%I Idraw 10 Grid 8 8 
+%I Idraw 12 Grid 8 8 
 
 %%Page: 1 1
 
@@ -863,36 +865,18 @@ Begin %I Poly
 4 Poly
 End
 
-Begin %I Pict
-%I b u
-%I cfg u
-%I cbg u
-%I f u
-%I p u
-%I t
-[ 1 0 0 1 0 -2.04358 ] concat
-
 Begin %I Text
 %I cfg Black
 0 0 0 SetCFg
 %I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
 Helvetica-Bold 14 SetF
 %I t
-[ 1.04 0 0 1.04 311.352 728.627 ] concat
+[ 1.04 0 0 1.04 311.352 726.583 ] concat
 %I
 [
 (2)
 ] Text
 End
-
-Begin %I Pict
-%I b u
-%I cfg u
-%I cbg u
-%I f u
-%I p u
-%I t
-[ 0.384 0 0 0.32 224.983 434.874 ] concat
 
 Begin %I Line
 %I b 65535
@@ -904,7 +888,7 @@ Begin %I Line
 %I p
 1 SetP
 %I t
-[ 0.817432 0 0 0.817432 -156.947 236.238 ] concat
+[ 0.313894 0 0 0.261578 164.715 508.427 ] concat
 %I
 432 815 456 831 Line
 %I 1
@@ -920,7 +904,7 @@ Begin %I Line
 %I p
 1 SetP
 %I t
-[ 0.817432 0 0 0.817432 -156.947 236.238 ] concat
+[ 0.313894 0 0 0.261578 164.715 508.427 ] concat
 %I
 432 815 456 799 Line
 %I 1
@@ -936,15 +920,11 @@ Begin %I Line
 %I p
 1 SetP
 %I t
-[ 0.817432 0 0 0.817432 -156.947 236.238 ] concat
+[ 0.313894 0 0 0.261578 163.68 507.65 ] concat
 %I
 432 807 456 791 Line
 %I 1
 End
-
-End %I eop
-
-End %I eop
 
 Begin %I Text
 %I cfg Black
@@ -1182,15 +1162,6 @@ Begin %I Poly
 4 Poly
 End
 
-Begin %I Pict
-%I b u
-%I cfg u
-%I cbg u
-%I f u
-%I p u
-%I t
-[ 0.384 0 0 0.32 349.232 432.83 ] concat
-
 Begin %I Line
 %I b 65535
 2 0 0 [] 0 SetB
@@ -1201,7 +1172,7 @@ Begin %I Line
 %I p
 1 SetP
 %I t
-[ 0.817432 0 0 0.817432 -156.947 236.238 ] concat
+[ 0.313894 0 0 0.261578 288.964 508.426 ] concat
 %I
 432 815 456 831 Line
 %I 1
@@ -1217,7 +1188,7 @@ Begin %I Line
 %I p
 1 SetP
 %I t
-[ 0.817432 0 0 0.817432 -156.947 236.238 ] concat
+[ 0.313894 0 0 0.261578 288.964 508.426 ] concat
 %I
 432 815 456 799 Line
 %I 1
@@ -1233,13 +1204,11 @@ Begin %I Line
 %I p
 1 SetP
 %I t
-[ 0.817432 0 0 0.817432 -156.947 236.238 ] concat
+[ 0.313894 0 0 0.261578 288.706 507.132 ] concat
 %I
 432 807 456 791 Line
 %I 1
 End
-
-End %I eop
 
 Begin %I Text
 %I cfg Black
@@ -1297,24 +1266,6 @@ End
 
 End %I eop
 
-Begin %I Pict
-%I b u
-%I cfg u
-%I cbg u
-%I f u
-%I p u
-%I t
-[ 1 0 0 1 -4.49588 56.8115 ] concat
-
-Begin %I Pict
-%I b u
-%I cfg u
-%I cbg u
-%I f u
-%I p u
-%I t
-[ -0.384 0 0 0.32 383.185 432.83 ] concat
-
 Begin %I Line
 %I b 65535
 2 0 0 [] 0 SetB
@@ -1325,7 +1276,7 @@ Begin %I Line
 %I p
 1 SetP
 %I t
-[ 0.817432 0 0 0.817432 -156.947 236.238 ] concat
+[ -0.313894 0 0 0.261578 438.957 565.238 ] concat
 %I
 432 815 456 831 Line
 %I 1
@@ -1341,7 +1292,7 @@ Begin %I Line
 %I p
 1 SetP
 %I t
-[ 0.817432 0 0 0.817432 -156.947 236.238 ] concat
+[ -0.313894 0 0 0.261578 438.957 565.238 ] concat
 %I
 432 815 456 799 Line
 %I 1
@@ -1357,13 +1308,11 @@ Begin %I Line
 %I p
 1 SetP
 %I t
-[ 0.817432 0 0 0.817432 -156.947 236.238 ] concat
+[ -0.313894 0 0 0.261578 439.604 564.332 ] concat
 %I
 432 807 456 791 Line
 %I 1
 End
-
-End %I eop
 
 Begin %I Text
 %I cfg Black
@@ -1371,14 +1320,12 @@ Begin %I Text
 %I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
 Helvetica-Bold 14 SetF
 %I t
-[ 1.04 0 0 1.04 311.352 726.583 ] concat
+[ 1.04 0 0 1.04 306.856 783.395 ] concat
 %I
 [
 (3)
 ] Text
 End
-
-End %I eop
 
 End %I eop
 

@@ -1,20 +1,20 @@
 \code{
 \proc{Choose-Operator}{\var{plan{\ac}operators{\ac}$S_{need}${\ac}c}}
 \bodysep
-    \key{choose} chọn một bước $S_{add}$ từ \var{operators} hoặc \noprog{Steps}({\ts}\var{plan}) có hiệu ứng là $c$
-    \key{if} nếu không có bước như vậy \key{then fail} 
-    thêm liên kết nhân quả $\cl{S_{add}}{c}{S_{need}}$ vào \noprog{Links}({\ts}\var{plan})
-    thêm ràng buộc thứ tự $S_{add} \before S_{need}$ vào \noprog{Orderings}({\ts}\var{plan})
-    \key{if} nếu $S_{add}$ là một bước mới được thêm từ \var{operators} \key{then}
-          thêm $S_{add}$ vào \noprog{Steps}({\ts}\var{plan})
-          thêm $Start \before S_{add} \before Finish$ vào \noprog{Orderings}({\ts}\var{plan})
+    \key{choose} a step $S_{add}$ from \var{operators} or \noprog{Steps}({\ts}\var{plan}) that has $c$ as an effect
+    \key{if} there is no such step \key{then fail} 
+    add the causal link $\cl{S_{add}}{c}{S_{need}}$ to \noprog{Links}({\ts}\var{plan})
+    add the ordering constraint $S_{add} \before S_{need}$ to \noprog{Orderings}({\ts}\var{plan})
+    \key{if} $S_{add}$ is a newly added step from \var{operators} \key{then}
+          add $S_{add}$ to \noprog{Steps}({\ts}\var{plan})
+          add $Start \before S_{add} \before Finish$ to \noprog{Orderings}({\ts}\var{plan})
 \fnsep
 \proc{Resolve-Threats}{\var{plan}}
 \bodysep
-    \key{for each} với mỗi $S_{threat}$ đe dọa liên kết $\cl{S_i}{c}{S_j}$ trong \noprog{Links}({\ts}\var{plan}) \key{do}
-          \key{choose} chọn hoặc
-                {\it Hạ hạng (Demotion):} Thêm $S_{threat}\before S_i$ vào \noprog{Orderings}({\ts}\var{plan})
-                {\it Thăng hạng (Promotion):} Thêm $S_j \before S_{threat}$ vào \noprog{Orderings}({\ts}\var{plan})
-          \key{if not} nếu không \prog{Consistent}({\ts}\var{plan}) \key{then fail}
+    \key{for each} $S_{threat}$ that threatens a link $\cl{S_i}{c}{S_j}$ in \noprog{Links}({\ts}\var{plan}) \key{do}
+          \key{choose} either
+                {\it Demotion:} Add $S_{threat}\before S_i$ to \noprog{Orderings}({\ts}\var{plan})
+                {\it Promotion:} Add $S_j \before S_{threat}$ to \noprog{Orderings}({\ts}\var{plan})
+          \key{if not} \prog{Consistent}({\ts}\var{plan}) \key{then fail}
     \key{end}
 }

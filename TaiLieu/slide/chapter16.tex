@@ -1,190 +1,190 @@
-\documentclass[fleqn]{article}
-
-\usepackage{aima-slides}
-\usepackage[utf8]{inputenc}
-\usepackage[T5]{fontenc}
-\usepackage{lmodern}
+\documentclass{article}
+\usepackage{fleqn}
+\usepackage{epsf}
+\usepackage{aima2e-slides}
 
 \begin{document}
 
 \begin{huge}
 \titleslide{Rational decisions}{Chapter 16}
 
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Outline}
-
-\blob Rational preferences
-
-\blob Utilities
-
-\blob Money
-
-\blob Multiattribute utilities
-
-\blob Decision networks
-
-\blob Value of information
-
-
+\sf
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Preferences}
+\heading{Phác thảo}
 
-An agent chooses among \u{prizes} ($A$, $B$, etc.) and 
-\u{lotteries}, i.e., situations with uncertain prizes
+\blob Sở thích hợp lý
+
+\blob Tiện ích
+
+\blob Tiền
+
+\blob Tiện ích đa thuộc tính
+
+\blob Mạng quyết định
+
+\blob Giá trị của thông tin
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tùy chọn}
+
+Đại lý chọn trong số \defn{giải thưởng} (\mat{$A$}, \mat{$B$}, v.v.) và 
+\defn{xổ số}, tức là các tình huống có giải thưởng không chắc chắn
 
 \begin{tabular}{lr}
 \hbox{\begin{minipage}[b]{0.6\textwidth}
 \vspace*{0.3in}
 
-Lottery $L = [p,A;\ (1-p),B]$
+Xổ số \mat{$L = [p,A;\ (1-p),B]$}
 
 \vspace*{0.3in}
 
 \end{minipage}}
 &
-\epsfxsize=0.3\textwidth
+\epsfxsize=0,3\textwidth
 \epsffile{\file{figures}{lottery.ps}}
 \end{tabular}
 
-Notation:\al
-$A \pref B$ \qquad $A$ preferred to $B$\al
-$A \indiff B$ \qquad indifference between $A$ and $B$\al
-$A \prefeq B$ \qquad $B$ not preferred to $A$
+Ký hiệu:\al
+\mat{$A \pref B$} \qquad \mat{$A$} được ưu tiên hơn \mat{$B$}\al
+\mat{$A \indiff B$} \qquad sự thờ ơ giữa \mat{$A$} và \mat{$B$} \al
+\mat{$A \prefeq B$} \qquad \mat{$B$} không được ưu tiên hơn \mat{$A$}
 
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Rational preferences}
+\heading{Tùy chọn hợp lý}
 
-Idea: preferences of a rational agent must obey constraints.\\
-Rational preferences $\implies$ \nl
-   behavior describable as maximization of expected utility
+Ý tưởng: sở thích của một tác nhân hợp lý phải tuân theo các ràng buộc.\\
+Sở thích hợp lý \mat{$\implies$} \nl
+   hành vi có thể được mô tả là tối đa hóa tiện ích dự kiến
 
-Constraints:\al
-\underline{Orderability}\nl
-$(A \pref B) \lor (B \pref A) \lor (A \indiff B)$\al
-\underline{Transitivity}\nl
-$(A \pref B) \land (B \pref C) \implies (A \pref C)$\al
-\underline{Continuity}\nl
-$A \pref B \pref C \implies \Exi{p} [p,A;\ 1-p,C] \indiff B$\al
-\underline{Substitutability}\nl
-$A \indiff B \implies [p,A;\ 1-p,C] \indiff [p,B; 1-p,C]$\al
-\underline{Monotonicity}\nl
-$A \pref B \implies (p \geq q \lequiv [p,A;\ 1-p,B] \prefeq [q,A;\ 1-q,B])$
+Các ràng buộc:\al
+\underline{Khả năng đặt hàng}\nl
+\mat{$(A \pref B) \lor (B \pref A) \lor (A \indiff B)$}\al
+\underline{Độ chuyển tiếp}\nl
+\mat{$(A \pref B) \land (B \pref C) \implies (A \pref C)$}\al
+\underline{Tính liên tục}\nl
+\mat{$A \pref B \pref C \implies \Exi{p} [p,A;\ 1-p,C] \indiff B$}\al
+\underline{Khả năng thay thế}\nl
+\mat{$A \indiff B \implies [p,A;\ 1-p,C] \indiff [p,B; 1-p,C]$}\al
+\underline{Tính đơn điệu}\nl
+\mat{$A \pref B \implies (p \geq q \lequiv [p,A;\ 1-p,B] \prefeq [q,A;\ 1-q,B])$}
 
 
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Rational preferences contd.}
+\heading{Tiếp theo là sở thích hợp lý.}
 
-Violating the constraints leads to self-evident irrationality
+Vi phạm các ràng buộc dẫn đến sự phi lý hiển nhiên
 
-For example: an agent with intransitive preferences
-can be induced to give away all its money
+Ví dụ: một tác nhân có các ưu tiên nội động
+có thể bị xúi giục cho đi tất cả số tiền của mình
 
 \begin{tabular}{lr}
 \hbox{\begin{minipage}[b]{0.5\textwidth}
 
-If $B \pref C$, then an agent who has $C$
-would pay (say) 1 cent to get $B$
+Nếu \mat{$B \pref C$} thì đại lý có \mat{$C$}
+sẽ trả (giả sử) 1 xu để có được \mat{$B$}
 
 \vspace*{0.2in}
 
-If $A \pref B$, then an agent who has $B$
-would pay (say) 1 cent to get $A$
+Nếu \mat{$A \pref B$} thì đại lý có \mat{$B$}
+sẽ trả (giả sử) 1 xu để có được \mat{$A$}
 
 \vspace*{0.2in}
 
-If $C \pref A$, then an agent who has $A$
-would pay (say) 1 cent to get $C$
+Nếu \mat{$C \pref A$} thì đại lý có \mat{$A$}
+sẽ trả (giả sử) 1 xu để có được \mat{$C$}
 
 
 \end{minipage}}
 &
-\epsfxsize=0.3\textwidth
-\ \qquad\qquad\epsffile{\file{figures}{cash-machine.ps}}
+\epsfxsize=0,3\textwidth
+\ \qquad \qquad \epsffile{\file{figures}{cash-machine.ps}}
 \end{tabular}
 
 
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Maximizing expected utility}
+\heading{Tối đa hóa tiện ích mong đợi}
 
-\u{Theorem} (Ramsey, 1931; von Neumann and Morgenstern, 1944):\\
-Given preferences satisfying the constraints\\
-there exists a real-valued function $U$ such that\nl
-    $U(A) \geq U(B)\ \lequiv \ A\prefeq B$\nl
-    $U([p_1,S_1;\ \ldots\ ;\ p_n,S_n]) = \mysum_i\ p_i U(S_i)$
+\emph{Định lý} (Ramsey, 1931; von Neumann và Morgenstern, 1944):\\
+Đưa ra các ưu tiên thỏa mãn các ràng buộc\\
+tồn tại hàm có giá trị thực \mat{$U$} sao cho \nl
+    \mat{$U(A) \geq U(B)\ \lequiv \ A\prefeq B$}\nl
+    \mat{$U([p_1,S_1;\ \ldots\ ;\ p_n,S_n]) = \mysum_i\ p_i U(S_i)$}
 
-\u{MEU principle}:\al
-Choose the action that maximizes expected utility
+\defn{Nguyên tắc MEU}:\al
+Chọn hành động tối đa hóa hữu dụng mong đợi
 
-Note: an agent can be entirely rational (consistent with MEU)\\
-without ever representing or manipulating utilities and probabilities
+Lưu ý: một tác nhân có thể hoàn toàn hợp lý (phù hợp với MEU)\\
+mà không bao giờ đại diện hay thao túng các tiện ích và xác suất
 
-E.g., a lookup table for perfect tictactoe
+Ví dụ: bảng tra cứu tictactoe hoàn hảo
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Utilities}
+\heading{Tiện ích}
 
-Utilities map states to real numbers. Which numbers?
+Tiện ích ánh xạ trạng thái thành số thực. Những con số nào?
 
-Standard approach to assessment of human utilities:\al
-  compare a given state $A$ to a \u{standard lottery} $L_p$ that has\nl
-    ``best possible prize'' $\ubest$ with probability $p$\nl
-    ``worst possible catastrophe'' $\uworst$ with probability $(1-p)$\al
-  adjust lottery probability $p$ until $A \indiff L_p$
+Cách tiếp cận tiêu chuẩn để đánh giá tiện ích con người:\al
+  so sánh trạng thái nhất định \mat{$A$} với xổ số tiêu chuẩn \defn{} \mat{$L_p$} có \nl
+    ``giải thưởng tốt nhất có thể'' \mat{$\ubest$} với xác suất \mat{$p$}\nl
+    ``thảm họa tồi tệ nhất có thể xảy ra'' \mat{$\uworst$} với xác suất \mat{$(1-p)$}\al
+  điều chỉnh xác suất xổ số \mat{$p$} cho đến \mat{$A \indiff L_p$}
 
 \vspace*{0.4in}
 
-\epsfxsize=0.85\textwidth
+\epsfxsize=0,85\textwidth
 \fig{\file{figures}{micromort.ps}}
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Utility scales}
+\heading{Cân tiện ích}
 
-\u{Normalized utilities}: $\ubest = 1.0$, $\uworst = 0.0$
+\defn{Tiện ích chuẩn hóa}: \mat{$\ubest = 1.0$}, \mat{$\uworst = 0.0$}
 
-\u{Micromorts}: one-millionth chance of death\al
-  useful for Russian roulette, paying to reduce product risks, etc.
+\defn{Micromorts}: khả năng tử vong một phần triệu\al
+  hữu ích cho roulette Nga, trả tiền để giảm rủi ro sản phẩm, v.v.
 
-\u{QALYs}: quality-adjusted life years\al
-  useful for medical decisions involving substantial risk
+\defn{QALYs}: số năm sống được điều chỉnh theo chất lượng\al
+  hữu ích cho các quyết định y tế liên quan đến rủi ro đáng kể
 
-Note: behavior is \u{invariant} w.r.t. +ve linear transformation
-\[
+Lưu ý: hành vi là \emph{bất biến} w.r.t. +ve phép biến đổi tuyến tính
+\mat{\[
   U'(x) = k_1 U(x) + k_2 \quad\mbox{where } k_1 > 0
-\]
-With deterministic prizes only (no lottery choices), only\\
-\u{ordinal utility} can be determined, i.e., total order on prizes
+\]}
+Chỉ với các giải thưởng xác định (không có lựa chọn xổ số), chỉ\\
+\defn{Tiện ích thứ tự} có thể được xác định, tức là tổng thứ tự các giải thưởng
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Money}
+\heading{Tiền}
 
-Money does \u{not} behave as a utility function
+Tiền không \emph{không} hoạt động như một chức năng tiện ích
 
-Given a lottery $L$ with expected monetary value $EMV(L)$,\\
-usually $U(L) < U(EMV(L))$, i.e., people are \u{risk-averse}
+Cho một xổ số \mat{$L$} với giá trị tiền tệ dự kiến \mat{$EMV(L)$},\\
+thường \mat{$U(L) < U(EMV(L))$}, tức là mọi người \defn{không thích rủi ro}
 
-Utility curve: for what probability $p$ am I indifferent between\
-a fixed prize $x$ and a lottery $[p,\$M;\ (1-p),\$0]$ for large $M$?
+Đường cong hữu dụng: với xác suất \mat{$p$} tôi bàng quan giữa\
+giải thưởng \mat{$x$} và xổ số \mat{$[p,{\DollarSign}M;\ (1-p),{\DollarSign}0]$} lớn \mat{$M$}?
 
-Typical empirical data, extrapolated with \u{risk-prone} behavior:
+Dữ liệu thực nghiệm điển hình, được ngoại suy với hành vi \defn{dễ xảy ra rủi ro}:
 
 \vspace*{0.2in}
 
-\epsfxsize=0.55\textwidth
+\epsfxsize=0,55\textwidth
 \fig{\file{figures}{beard-utility.ps}}
 
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Student group utility}
+\heading{Tiện ích nhóm sinh viên}
 
-For each $x$, adjust $p$ until half the class votes for lottery (M=10,000)
+Với mỗi \mat{$x$}, điều chỉnh \mat{$p$} cho đến khi một nửa lớp bỏ phiếu xổ số (M=10.000)
 
 \vspace*{0.2in}
 
@@ -194,208 +194,253 @@ For each $x$, adjust $p$ until half the class votes for lottery (M=10,000)
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Decision networks}
+\heading{Mạng quyết định}
 
-Add \u{action nodes} and \u{utility} nodes to belief networks\\
-to enable rational decision making
+Thêm \defn{nút hành động} và \defn{nút tiện ích} vào mạng niềm tin\\
+để cho phép đưa ra quyết định hợp lý
 
 \vspace*{0.2in}
 
-\epsfxsize=0.48\textwidth
+\epsfxsize=0,52\textwidth
 \fig{\file{figures}{airport-id.ps}}
 
-Algorithm:\al
-  For each value of action node\nl
-    compute expected value of utility node given action, evidence\al
-  Return MEU action
+\vspace*{-0.4in}
+
+Thuật toán:\al
+  Đối với mỗi giá trị của nút hành động \nl
+    tính toán giá trị kỳ vọng của nút tiện ích cho trước hành động, bằng chứng\al
+  Trả lại hành động MEU
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Multiattribute utility}
+\heading{Tiện ích đa thuộc tính}
 
-How can we handle utility functions of many variables $X_1\ldots X_n$?\\
-E.g., what is $U(Deaths,Noise,Cost)$?
+Làm cách nào chúng ta có thể xử lý các hàm tiện ích của nhiều biến \mat{$X_1\ldots X_n$}?\\
+Ví dụ: \mat{$U(Deaths,Noise,Cost)$} là gì?
 
-How can complex utility functions be assessed from \\
-preference behaviour?
+Làm thế nào có thể đánh giá các chức năng tiện ích phức tạp từ \\
+hành vi ưu tiên?
 
-Idea 1: identify conditions under which decisions can be made without
-complete identification of $U(x_1,\ldots,x_n)$
+Ý tưởng 1: xác định các điều kiện theo đó các quyết định có thể được đưa ra mà không cần
+nhận dạng đầy đủ của \mat{$U(x_1,\ldots,x_n)$}
 
-Idea 2: identify various types of \u{independence} in preferences\\
-and derive consequent canonical forms for $U(x_1,\ldots,x_n)$
+Ý tưởng 2: xác định các loại \emph{độc lập} trong preferences\\
+và rút ra các dạng kinh điển cho \mat{$U(x_1,\ldots,x_n)$}
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Strict dominance}
+\heading{Sự thống trị nghiêm ngặt}
 
-Typically define attributes such that $U$ is \u{monotonic} in each
+Thông thường xác định các thuộc tính sao cho \mat{$U$} là \defn{đơn điệu} trong mỗi thuộc tính
 
-\u{Strict dominance}: choice $B$ strictly dominates choice $A$ iff\nl
-$\All{i} X_i(B) \geq X_i(A)$ \quad (and hence $U(B) \geq U(A)$)
+\defn{Sự thống trị nghiêm ngặt}: sự lựa chọn \mat{$B$} sự thống trị nghiêm ngặt sự lựa chọn \mat{$A$} iff\nl
+\mat{$\All{i} X_i(B) \geq X_i(A)$} \quad (và do đó \mat{$U(B) \geq U(A)$})
 
 \vspace*{0.2in}
 
-\epsfxsize=0.8\textwidth
+\epsfxsize=0.9\textwidth
 \fig{\file{figures}{strict-dominance.ps}}
 
-Strict dominance seldom holds in practice
+Sự thống trị chặt chẽ hiếm khi được áp dụng trong thực tế
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Stochastic dominance}
+\heading{Sự thống trị ngẫu nhiên}
 
 \twograph{\file{graphs}{dominance-density.ps}}{\file{graphs}{dominance-cumulative.ps}}
 
-Distribution $p_1$ \u{stochastically dominates} distribution $p_2$ iff\nl
-  $\displaystyle\All{t} \int_{-\infty}^t p_1(x)dx \leq \int_{-\infty}^t p_2(t)dt$
+Phân phối \mat{$p_1$} \defn{chi phối ngẫu nhiên} phân phối \mat{$p_2$} iff\nl
+  \mat{$\displaystyle\All{t} \int_{-\infty}^t p_1(x)dx \leq \int_{-\infty}^t p_2(t)dt$}
 
-If $U$ is monotonic in $x$, then $A_1$ with outcome distribution $p_1$\\
-stochastically dominates $A_2$ with outcome distribution $p_2$:\nl
-  $\displaystyle\int_{-\infty}^{\infty} p_1(x) U(x)dx \geq \int_{-\infty}^{\infty} p_2(x) U(x)dx $\\
-Multiattribute case: stochastic dominance on all attributes $\implies$ optimal
+Nếu \mat{$U$} đơn điệu trong \mat{$x$} thì \mat{$A_1$} với phân phối kết quả \mat{$p_1$}\\
+chiếm ưu thế một cách ngẫu nhiên \mat{$A_2$} với phân phối kết quả \mat{$p_2$}:\nl
+  \mat{$\displaystyle\int_{-\infty}^{\infty} p_1(x) U(x)dx \geq \int_{-\infty}^{\infty} p_2(x) U(x)dx $}\\
+Trường hợp đa thuộc tính: sự thống trị ngẫu nhiên trên tất cả các thuộc tính \mat{$\implies$} tối ưu
 
-
-
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Stochastic dominance contd.}
-
-Stochastic dominance can often be determined without\\
-exact distributions using \u{qualitative} reasoning
-
-E.q., construction cost increases with distance from city\nl
-      $S_2$ is further from the city than $S_1$\al
-  $\implies$ $S_1$ stochastically dominates $S_2$ on cost
-
-E.g., injury increases with collision speed
-
-Can annotate belief networks with stochastic dominance information:\al
-  $X \qplus Y$ ($X$ positively influences $Y$) means that\al
-  For every value $\mbf{z}$ of $Y$'s other parents $\mbf{Z}$\nl
-    $\All{x_1,x_2} x_1 \geq x_2 \implies
-      \pv(Y|x_1,\mbf{z})$ stochastically dominates $ \pv(Y|x_2,\mbf{z})$
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Example: car insurance}
+\heading{Tiếp theo sự thống trị ngẫu nhiên.}
 
-Which arcs are positive or negative influences?
+Sự thống trị ngẫu nhiên thường có thể được xác định mà không cần \\
+phân phối chính xác bằng cách sử dụng lý luận \emph{định tính}
 
-\vspace*{0.2in}
+Ví dụ: chi phí xây dựng tăng theo khoảng cách từ thành phố\nl
+      \mat{$S_1$} gần thành phố hơn \mat{$S_2$}\al
+  \mat{$\implies$} \mat{$S_1$} chiếm ưu thế một cách ngẫu nhiên \mat{$S_2$} về chi phí
 
-\epsfxsize=0.95\textwidth
-\fig{\file{figures}{insurance-net.ps}}
+Ví dụ: thương tích tăng theo tốc độ va chạm
+
+Có thể chú thích mạng lưới niềm tin với thông tin thống trị ngẫu nhiên:\al
+  \mat{$X \qplus Y$} (\mat{$X$} ảnh hưởng tích cực đến \mat{$Y$}) có nghĩa là \al
+  Đối với mọi giá trị \mat{$\mbf{z}$} của cha mẹ khác của \mat{$Y$} \mat{$\mbf{Z}$} \nl
+    \mat{$\All{x_1,x_2} x_1 \geq x_2 \implies
+      \pv(Y|x_1,\mbf{z})$} chiếm ưu thế ngẫu nhiên \mat{$ \pv(Y|x_2,\mbf{z})$}
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Preference structure: Deterministic}
+\heading{Gán nhãn các cung + hoặc --}
 
-$X_1$ and $X_2$ \u{preferentially independent} of $X_3$ iff\al
-  preference between $\< x_1,x_2,x_3 \>$ and $\< x_1',x_2',x_3 \>$\al
-  does not depend on $x_3$
+\vspace*{0.1in}
 
-E.g., $\<Noise,Cost,Safety\>$:\al
-  $\<$20,000 suffer, \$4.6 billion, 0.06 deaths/mpm$\>$ vs.\al
-  $\<$70,000 suffer, \$4.2 billion, 0.06 deaths/mpm$\>$
+\epsfxsize=1.05\textwidth
+\fig{\sfile{figures}{insurance-qpn01.ps}}
 
-\u{Theorem} (Leontief, 1947): if every pair of attributes is P.I. of its complement,
-then every subset of attributes is P.I of its complement: \u{mutual P.I.}.
 
-\u{Theorem} (Debreu, 1960): mutual P.I. $\implies$ $\exists$ \u{additive} value function:
-\[
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Gán nhãn các cung + hoặc --}
+
+\vspace*{0.1in}
+
+\epsfxsize=1.05\textwidth
+\fig{\sfile{figures}{insurance-qpn02.ps}}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Gán nhãn các cung + hoặc --}
+
+\vspace*{0.1in}
+
+\epsfxsize=1.05\textwidth
+\fig{\sfile{figures}{insurance-qpn03.ps}}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Gán nhãn các cung + hoặc --}
+
+\vspace*{0.1in}
+
+\epsfxsize=1.05\textwidth
+\fig{\sfile{figures}{insurance-qpn04.ps}}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Gán nhãn các cung + hoặc --}
+
+\vspace*{0.1in}
+
+\epsfxsize=1.05\textwidth
+\fig{\sfile{figures}{insurance-qpn05.ps}}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Gán nhãn các cung + hoặc --}
+
+\vspace*{0.1in}
+
+\epsfxsize=1.05\textwidth
+\fig{\sfile{figures}{insurance-qpn06.ps}}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Cấu trúc ưu tiên: Xác định}
+
+\mat{$X_1$} và \mat{$X_2$} \defn{tốt nhất là độc lập} của \mat{$X_3$} iff\al
+  ưu tiên giữa \mat{$\< x_1,x_2,x_3 \>$} và \mat{$\< x_1',x_2',x_3 \>$}\al
+  không phụ thuộc vào \mat{$x_3$}
+
+Ví dụ: \mat{$\<Noise,Cost,Safety\>$}:\al
+  \mat{$\<$}20.000 người bị ảnh hưởng, {\DollarSign}4,6 tỷ, 0,06 người chết/mpm\mat{$\>$} so với\al
+  \mat{$\<$}70.000 người bị ảnh hưởng, {\DollarSign}4,2 tỷ, 0,06 người chết/mpm\mat{$\>$}
+
+\emph{Định lý} (Leontief, 1947): nếu mọi cặp thuộc tính là P.I. phần bổ sung của nó,
+thì mọi tập hợp con của các thuộc tính là P.I của phần bù của nó: \defn{P.I tương hỗ }.
+
+\emph{Định lý} (Debreu, 1960): P.I. Hàm giá trị \mat{$\implies$} \mat{$\exists$} \defn{additive}:
+\mat{\[
   V(S) = \mysum_i V_i(X_i(S))
-\]
-Hence assess $n$ single-attribute functions; often a good approximation
+\]}
+Do đó đánh giá các hàm thuộc tính đơn \mat{$n$}; thường là một xấp xỉ tốt
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Preference structure: Stochastic}
+\heading{Cấu trúc ưu tiên: Stochastic}
 
-Need to consider preferences over lotteries:\\
-$\mbf{X}$ is \u{utility-independent} of $\mbf{Y}$ iff\al
-  preferences over lotteries $\mbf{X}$ do not depend on $\mbf{y}$
+Cần cân nhắc ưu tiên so với xổ số:\\
+\mat{$\mbf{X}$} là \defn{không phụ thuộc vào tiện ích} của \mat{$\mbf{Y}$} iff\al
+  sở thích về xổ số trong \mat{$\mbf{X}$} không phụ thuộc vào \mat{$\mbf{y}$}
 
-Mutual U.I.: each subset is U.I of its complement\\
-$\implies$ $\exists$ \u{multiplicative} utility function:\al
-$U  =  k_1U_1 + k_2U_2 + k_3U_3$\nl
- + $k_1k_2U_1U_2 + k_2k_3U_2U_3 + k_3k_1U_3U_1$\nl
- + $k_1k_2k_3U_1U_2U_3$
+Giao diện người dùng tương hỗ: mỗi tập hợp con là giao diện người dùng của phần bổ sung của nó\\
+\mat{$\implies$} \mat{$\exists$} \defn{hàm tiện ích nhân }: \al
+\mat{$U  =  k_1U_1 + k_2U_2 + k_3U_3$}\nl
+ + \mat{$k_1k_2U_1U_2 + k_2k_3U_2U_3 + k_3k_1U_3U_1$}\nl
+ + \mat{$k_1k_2k_3U_1U_2U_3$}
 
-Routine procedures and software packages for generating preference
-tests to identify various canonical families of utility functions
+Các thủ tục thông thường và gói phần mềm để tạo ưu tiên
+kiểm tra để xác định các họ chức năng tiện ích chính tắc khác nhau
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Value of information}
+\heading{Giá trị của thông tin}
 
-Idea: compute value of acquiring each possible piece of evidence\\
-Can be done \u{directly from decision network}
+Ý tưởng: tính toán giá trị của việc thu thập từng bằng chứng có thể có \\
+Có thể được thực hiện \emph{trực tiếp từ mạng quyết định}
 
-Example: buying oil drilling rights\al
-  Two blocks $A$ and $B$, exactly one has oil, worth $k$\al
-  Prior probabilities 0.5 each, mutually exclusive\al
-  Current price of each block is $k/2$\al
-  Consultant offers accurate survey of $A$. Fair price?
+Ví dụ: mua quyền khoan dầu\al
+  Hai khối \mat{$A$} và \mat{$B$}, đúng một khối có dầu, trị giá \mat{$k$}\al
+  Xác suất trước 0,5 mỗi xác suất, loại trừ lẫn nhau\al
+  Giá hiện tại mỗi block là \mat{$k/2$}\al
+  ``Tư vấn'' đưa ra khảo sát chính xác về \mat{$A$}. Giá hợp lý?
 
-Solution: compute expected value of information\al
-  = expected value of best action given the information\nl
-    minus expected value of best action without information\\
-Survey may say ``oil in A'' or ``no oil in A'', prob. 0.5 each\al
-  = [$0.5 \times {}$ value of ``buy A'' given ``oil in A''\nl
-    + $0.5 \times {}$ value of ``buy B'' given ``no oil in A'']\nl
+Giải pháp: tính giá trị dự kiến của thông tin\al
+  = giá trị mong đợi của hành động tốt nhất dựa trên thông tin\nl
+    trừ giá trị mong đợi của hành động tốt nhất không có thông tin\\
+Khảo sát có thể cho biết `` dầu ở A '' hoặc '' không có dầu ở A '', \emph{vấn đề. 0,5 mỗi cái} (đã cho!)\al
+  = [\mat{$0.5 \times {}$} giá trị của ``mua A'' cho ``dầu ở A''\nl
+    + \mat{$0.5 \times {}$} giá trị ``mua B'' cho ``không có dầu ở A'']\nl
     -- 0\al
-  = $(0.5 \times k/2) + (0.5 \times k/2) - 0 = k/2$
+  = \mat{$(0.5 \times k/2) + (0.5 \times k/2) - 0 = k/2$}
 
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{General formula}
+\heading{Công thức tổng quát}
 
-Current evidence $E$, current best action $\alpha$\\
-Possible action outcomes $S_i$, potential new evidence $E_j$
-\[
+Bằng chứng hiện tại \mat{$E$}, hành động tốt nhất hiện tại \mat{$\alpha$} \\
+Kết quả hành động có thể xảy ra \mat{$S_i$}, bằng chứng mới tiềm năng \mat{$E_j$}
+\mat{\[
   EU(\alpha|E) = \max_{a} \mysum_i\ U(S_i)\;P(S_i|E,a)
-\]
-Suppose we knew $E_j \eq e_{jk}$, then we would choose $\alpha_{e_{jk}}$ s.t.
-\[
+\]}
+Giả sử chúng ta biết \mat{$E_j \eq e_{jk}$} thì chúng ta sẽ chọn \mat{$\alpha_{e_{jk}}$} s.t.
+\mat{\[
   EU(\alpha_{e_{jk}}|E,E_j \eq e_{jk}) = \max_a \mysum_i\ U(S_i)\;P(S_i|E,a,E_j \eq e_{jk})
-\]
-$E_j$ is a random variable whose value is {\it currently} unknown\\
-$\implies$ must compute expected gain over all possible values:
-\[
+\]}
+\mat{$E_j$} là một biến ngẫu nhiên có giá trị là {\it now} known\\
+\mat{$\implies$} phải tính toán mức tăng dự kiến trên tất cả các giá trị có thể có:
+\mat{\[
 VPI_{E}(E_j) = \left(\mysum_k\ P(E_j \eq e_{jk}|E)
 EU(\alpha_{e_{jk}}|E,E_j \eq e_{jk})\right) - EU(\alpha|E) 
-\]
-(VPI = value of perfect information)
+\]}
+(VPI = giá trị thông tin hoàn hảo)
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Properties of VPI}
+\heading{Tính chất của VPI}
 
-\u{Nonnegative}---in {\em expectation}, not {\em post hoc}
-\[
+\emph{Không âm}---trong \emph{kỳ vọng}, không phải \emph{post hoc}
+\mat{\[
 \All{j,E} VPI_{E}(E_j)\geq 0\
-\]
-\u{Nonadditive}---consider, e.g., obtaining $E_j$ twice
-\[
+\]}
+\emph{Không phụ gia}---xem xét, ví dụ: nhận được \mat{$E_j$} hai lần
+\mat{\[
 VPI_{E}(E_j,E_k) \not= VPI_{E}(E_j) + VPI_{E}(E_k)
-\]
-\u{Order-independent}
-\[
+\]}
+\emph{Không phụ thuộc vào đơn hàng}
+\mat{\[
 VPI_{E}(E_j,E_k) = VPI_{E}(E_j) + VPI_{E,E_j}(E_k)
                    = VPI_{E}(E_k) + VPI_{E,E_k}(E_j) 
-\]
-Note: when more than one piece of evidence can be gathered,\\
-maximizing VPI for each to select one is not always optimal\\
-$\implies$ evidence-gathering becomes a \u{sequential} decision problem
+\]}
+Lưu ý: khi có thể thu thập được nhiều bằng chứng,\\
+tối đa hóa VPI cho mỗi người chọn một không phải lúc nào cũng tối ưu\\
+\mat{$\implies$} thu thập bằng chứng trở thành vấn đề quyết định \emph{tuần tự}
 
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Qualitative behaviors}
+\heading{Hành vi định tính}
 
-a) Choice is obvious, information worth little\\
-b) Choice is nonobvious, information worth a lot\\
-c) Choice is nonobvious, information worth little
+a) Sự lựa chọn là hiển nhiên, thông tin có giá trị rất ít\\
+b) Sự lựa chọn là không rõ ràng, thông tin có giá trị rất nhiều\\
+c) Sự lựa chọn không rõ ràng, thông tin ít có giá trị
 
 \vspace*{-0.2in} %% the following figure's bounding box includes whitespace
 

@@ -77,7 +77,7 @@ end
 
 %%EndIdrawPrologue
 
-/arrowHeight 11 def
+/arrowHeight 9 def
 /arrowWidth 5 def
 
 /IdrawDict 53 dict def
@@ -212,6 +212,7 @@ end
 /Circ {
 newpath
 0 360 arc
+closepath
 patternNone not { ifill } if
 brushNone not { istroke } if
 } def
@@ -243,6 +244,7 @@ newpath
 translate
 scale
 0 0 1 0 360 arc
+closepath
 patternNone not { ifill } if
 brushNone not { istroke } if
 end
@@ -362,7 +364,7 @@ grestore
 gsave
 fgred fggreen fgblue setrgbcolor
 /fontDict printFont printSize scalefont dup setfont def
-/descender fontDict begin 0 [FontBBox] 1 get FontMatrix end
+/descender fontDict begin 0 /FontBBox load  1 get FontMatrix end
 transform exch pop def
 /vertoffset 1 printSize sub descender sub def {
 0 vertoffset moveto show
@@ -492,7 +494,7 @@ exch dup 3 1 roll 1 0 0 -1 0 6 -1 roll matrix astore
 
 %%EndProlog
 
-%I Idraw 10 Grid 2 2 
+%I Idraw 12 Grid 2 2 
 
 %%Page: 1 1
 
@@ -505,6 +507,26 @@ Begin
 %I t
 [ 0.86747 0 0 0.86747 0 0 ] concat
 /originalCTM matrix currentmatrix def
+
+Begin %I BSpl
+%I b 65535
+3 0 1 [] 0 SetB
+%I cfg Black
+0 0 0 SetCFg
+%I cbg White
+1 1 1 SetCBg
+%I p
+0 SetP
+%I t
+[ 1.01989 -0 -0 1.01989 -268.231 -8.15912 ] concat
+%I 4
+455 529
+532 502
+605 415
+564 285
+4 BSpl
+%I 1
+End
 
 Begin %I BSpl
 %I b 65535
@@ -581,47 +603,11 @@ Begin %I BSpl
 0 SetP
 %I t
 [ 0.890325 0 0 0.890325 -44.5163 170.052 ] concat
-%I 4
-270 406
-358 375
-440 283
-377 122
-4 BSpl
-%I 1
-End
-
-Begin %I BSpl
-%I b 65535
-3 0 1 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-0 SetP
-%I t
-[ 0.890325 0 0 0.890325 -44.5163 170.052 ] concat
 %I 3
 224 325
 191 308
 124 287
 3 BSpl
-%I 1
-End
-
-Begin %I Line
-%I b 65535
-3 0 1 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-%I p
-0 SetP
-%I t
-[ 0.890325 0 0 0.890325 -44.5163 170.052 ] concat
-%I
-322 231 303 126 Line
 %I 1
 End
 
@@ -652,8 +638,8 @@ Helvetica-Oblique 12 SetF
 End
 
 Begin %I Text
-%I cfg Black
-0 0 0 SetCFg
+%I cfg Red
+1 0 0 SetCFg
 %I f -*-helvetica-medium-o-*-*-12-*-*-*-*-*-*-*
 Helvetica-Oblique 12 SetF
 %I t
@@ -664,24 +650,11 @@ Helvetica-Oblique 12 SetF
 ] Text
 End
 
-Begin %I Text
-%I cfg Black
-0 0 0 SetCFg
-%I f -*-helvetica-medium-o-*-*-12-*-*-*-*-*-*-*
-Helvetica-Oblique 12 SetF
-%I t
-[ 1 0 0 1 61.7887 268 ] concat
-%I
-[
-(Have\(Milk\)  At\(Home\)  Have\(Ban.\)  Have\(Drill\))
-] Text
-End
-
 Begin %I Line
-%I b 65535
-1 0 1 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
+%I b 65520
+3 0 1 [12 4] 0 SetB
+%I cfg Green
+0 1 0 SetCFg
 %I cbg White
 1 1 1 SetCBg
 %I p
@@ -694,10 +667,10 @@ Begin %I Line
 End
 
 Begin %I Line
-%I b 65535
-1 0 1 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
+%I b 65520
+3 0 1 [12 4] 0 SetB
+%I cfg Green
+0 1 0 SetCFg
 %I cbg White
 1 1 1 SetCBg
 %I p
@@ -710,10 +683,10 @@ Begin %I Line
 End
 
 Begin %I Line
-%I b 65535
-1 0 1 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
+%I b 65520
+3 0 1 [12 4] 0 SetB
+%I cfg Green
+0 1 0 SetCFg
 %I cbg White
 1 1 1 SetCBg
 %I p
@@ -1104,50 +1077,11 @@ End
 
 End %I eop
 
-Begin %I Text
-%I cfg Black
-0 0 0 SetCFg
-%I f -*-helvetica-medium-o-*-*-12-*-*-*-*-*-*-*
-Helvetica-Oblique 12 SetF
-%I t
-[ 1 0 0 1 105.036 567.141 ] concat
-%I
-[
-(At\(HWS\)  Sells\(HWS,Drill\))
-] Text
-End
-
-Begin %I Text
-%I cfg Black
-0 0 0 SetCFg
-%I f -*-helvetica-medium-o-*-*-12-*-*-*-*-*-*-*
-Helvetica-Oblique 12 SetF
-%I t
-[ 1 0 0 1 38.3858 418.36 ] concat
-%I
-[
-(At\(SM\)  Sells\(SM,Milk\))
-] Text
-End
-
-Begin %I Text
-%I cfg Black
-0 0 0 SetCFg
-%I f -*-helvetica-medium-o-*-*-12-*-*-*-*-*-*-*
-Helvetica-Oblique 12 SetF
-%I t
-[ 1 0 0 1 183.158 417.47 ] concat
-%I
-[
-(At\(SM\)  Sells\(SM,Ban.\))
-] Text
-End
-
 Begin %I Line
 %I b 65520
 3 0 0 [12 4] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
+%I cfg Red
+1 0 0 SetCFg
 %I cbg White
 1 1 1 SetCBg
 %I p
@@ -1160,15 +1094,54 @@ Begin %I Line
 End
 
 Begin %I Text
-%I cfg Black
-0 0 0 SetCFg
+%I cfg Brown
+0.647059 0.164706 0.164706 SetCFg
 %I f -*-helvetica-medium-o-*-*-12-*-*-*-*-*-*-*
 Helvetica-Oblique 12 SetF
 %I t
-[ 1.2 0 0 1.2 413.858 502.853 ] concat
+[ 1.44 0 0 1.44 407.978 503.813 ] concat
 %I
 [
 (At\(HWS\))
+] Text
+End
+
+Begin %I Text
+%I cfg Brown
+0.647059 0.164706 0.164706 SetCFg
+%I f -*-helvetica-medium-o-*-*-12-*-*-*-*-*-*-*
+Helvetica-Oblique 12 SetF
+%I t
+[ 1.44 0 0 1.44 405.998 483.738 ] concat
+%I
+[
+(Have\(Drill\))
+] Text
+End
+
+Begin %I Text
+%I cfg Brown
+0.647059 0.164706 0.164706 SetCFg
+%I f -*-helvetica-medium-o-*-*-12-*-*-*-*-*-*-*
+Helvetica-Oblique 12 SetF
+%I t
+[ 1.44 0 0 1.44 400.938 464.461 ] concat
+%I
+[
+(Sells\(SM,Ban.\))
+] Text
+End
+
+Begin %I Text
+%I cfg Brown
+0.647059 0.164706 0.164706 SetCFg
+%I f -*-helvetica-medium-o-*-*-12-*-*-*-*-*-*-*
+Helvetica-Oblique 12 SetF
+%I t
+[ 1.44 0 0 1.44 401.158 444.475 ] concat
+%I
+[
+(Sells\(SM,Milk\))
 ] Text
 End
 
@@ -1178,7 +1151,33 @@ Begin %I Text
 %I f -*-helvetica-medium-o-*-*-12-*-*-*-*-*-*-*
 Helvetica-Oblique 12 SetF
 %I t
-[ 1.2 0 0 1.2 412.958 482.778 ] concat
+[ 1 0 0 1 146.44 268 ] concat
+%I
+[
+(At\(Home\))
+] Text
+End
+
+Begin %I Text
+%I cfg Black
+0 0 0 SetCFg
+%I f -*-helvetica-medium-o-*-*-12-*-*-*-*-*-*-*
+Helvetica-Oblique 12 SetF
+%I t
+[ 1 0 0 1 207.633 268 ] concat
+%I
+[
+(Have\(Ban.\))
+] Text
+End
+
+Begin %I Text
+%I cfg Red
+1 0 0 SetCFg
+%I f -*-helvetica-medium-o-*-*-12-*-*-*-*-*-*-*
+Helvetica-Oblique 12 SetF
+%I t
+[ 1 0 0 1 278.005 268 ] concat
 %I
 [
 (Have\(Drill\))
@@ -1191,7 +1190,62 @@ Begin %I Text
 %I f -*-helvetica-medium-o-*-*-12-*-*-*-*-*-*-*
 Helvetica-Oblique 12 SetF
 %I t
-[ 1.2 0 0 1.2 410.658 463.501 ] concat
+[ 1 0 0 1 61.7887 268 ] concat
+%I
+[
+(Have\(Milk\))
+] Text
+End
+
+Begin %I Line
+%I b 65535
+3 0 1 [] 0 SetB
+%I cfg Black
+0 0 0 SetCFg
+%I cbg White
+1 1 1 SetCBg
+%I p
+0 SetP
+%I t
+[ 1.01989 -0 -0 1.01989 -268.231 -8.15912 ] concat
+%I
+500 376 493 287 Line
+%I 1
+End
+
+Begin %I Text
+%I cfg Red
+1 0 0 SetCFg
+%I f -*-helvetica-medium-o-*-*-12-*-*-*-*-*-*-*
+Helvetica-Oblique 12 SetF
+%I t
+[ 1 0 0 1 87.3405 418.36 ] concat
+%I
+[
+(Sells\(SM,Milk\))
+] Text
+End
+
+Begin %I Text
+%I cfg Black
+0 0 0 SetCFg
+%I f -*-helvetica-medium-o-*-*-12-*-*-*-*-*-*-*
+Helvetica-Oblique 12 SetF
+%I t
+[ 1 0 0 1 38.3858 418.36 ] concat
+%I
+[
+(At\(SM\))
+] Text
+End
+
+Begin %I Text
+%I cfg Red
+1 0 0 SetCFg
+%I f -*-helvetica-medium-o-*-*-12-*-*-*-*-*-*-*
+Helvetica-Oblique 12 SetF
+%I t
+[ 1 0 0 1 229.053 417.47 ] concat
 %I
 [
 (Sells\(SM,Ban.\))
@@ -1204,10 +1258,36 @@ Begin %I Text
 %I f -*-helvetica-medium-o-*-*-12-*-*-*-*-*-*-*
 Helvetica-Oblique 12 SetF
 %I t
-[ 1.2 0 0 1.2 410.758 443.515 ] concat
+[ 1 0 0 1 183.158 417.47 ] concat
 %I
 [
-(Sells\(SM,Milk\))
+(At\(SM\))
+] Text
+End
+
+Begin %I Text
+%I cfg Black
+0 0 0 SetCFg
+%I f -*-helvetica-medium-o-*-*-12-*-*-*-*-*-*-*
+Helvetica-Oblique 12 SetF
+%I t
+[ 1 0 0 1 168.269 567.141 ] concat
+%I
+[
+(Sells\(HWS,Drill\))
+] Text
+End
+
+Begin %I Text
+%I cfg Black
+0 0 0 SetCFg
+%I f -*-helvetica-medium-o-*-*-12-*-*-*-*-*-*-*
+Helvetica-Oblique 12 SetF
+%I t
+[ 1 0 0 1 105.036 567.141 ] concat
+%I
+[
+(At\(HWS\))
 ] Text
 End
 

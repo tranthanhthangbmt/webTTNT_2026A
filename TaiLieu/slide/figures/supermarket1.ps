@@ -2,7 +2,7 @@
 %%Creator: idraw
 %%DocumentFonts: Helvetica Helvetica-Bold
 %%Pages: 1
-%%BoundingBox: 47 243 543 551
+%%BoundingBox: 47 243 543 552
 %%EndComments
 
 %%BeginIdrawPrologue
@@ -77,8 +77,8 @@ end
 
 %%EndIdrawPrologue
 
-/arrowHeight 9 def
-/arrowWidth 4 def
+/arrowHeight 11 def
+/arrowWidth 6 def
 
 /IdrawDict 52 dict def
 IdrawDict begin
@@ -211,6 +211,7 @@ end
 /Circ {
 newpath
 0 360 arc
+closepath
 patternNone not { ifill } if
 brushNone not { istroke } if
 } def
@@ -242,6 +243,7 @@ newpath
 translate
 scale
 0 0 1 0 360 arc
+closepath
 patternNone not { ifill } if
 brushNone not { istroke } if
 end
@@ -333,7 +335,7 @@ bgred bggreen bgblue setrgbcolor
 eofill
 fgred fggreen fgblue setrgbcolor
 w 0 gt h 0 gt and {
-l b translate w h scale
+l w add b translate w neg h scale
 w h true [w 0 0 h neg 0 h] { patternproc } imagemask
 } if
 } ifelse
@@ -361,7 +363,7 @@ grestore
 gsave
 fgred fggreen fgblue setrgbcolor
 /fontDict printFont printSize scalefont dup setfont def
-/descender fontDict begin 0 [FontBBox] 1 get FontMatrix end
+/descender fontDict begin 0 /FontBBox load  1 get FontMatrix end
 transform exch pop def
 /vertoffset 1 printSize sub descender sub def {
 0 vertoffset moveto show
@@ -491,7 +493,7 @@ exch dup 3 1 roll 1 0 0 -1 0 6 -1 roll matrix astore
 
 %%EndProlog
 
-%I Idraw 10 Grid 8 8 
+%I Idraw 12 Grid 8 8 
 
 %%Page: 1 1
 
@@ -670,7 +672,7 @@ Begin %I Text
 %I f -*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*
 Helvetica 12 SetF
 %I t
-[ 1 0 0 1 343.22 493.343 ] concat
+[ 1.15 0 0 1.15 337.145 493.943 ] concat
 %I
 [
 (Buy Tuna Fish)
@@ -683,7 +685,7 @@ Begin %I Text
 %I f -*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*
 Helvetica 12 SetF
 %I t
-[ 1 0 0 1 343.22 447.343 ] concat
+[ 1.15 0 0 1.15 338.045 447.943 ] concat
 %I
 [
 (Buy Arugula)
@@ -696,7 +698,7 @@ Begin %I Text
 %I f -*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*
 Helvetica 12 SetF
 %I t
-[ 1 0 0 1 343.22 401.343 ] concat
+[ 1.15 0 0 1.15 339.62 401.943 ] concat
 %I
 [
 (Buy Milk)
@@ -709,7 +711,7 @@ Begin %I Text
 %I f -*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*
 Helvetica 12 SetF
 %I t
-[ 1 0 0 1 343.22 539.343 ] concat
+[ 1.15 0 0 1.15 338.12 539.943 ] concat
 %I
 [
 (Go To Class)
@@ -722,7 +724,7 @@ Begin %I Text
 %I f -*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*
 Helvetica 12 SetF
 %I t
-[ 1 0 0 1 343.22 585.343 ] concat
+[ 1.15 0 0 1.15 338.795 585.943 ] concat
 %I
 [
 (Buy a Dog)
@@ -735,7 +737,7 @@ Begin %I Text
 %I f -*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*
 Helvetica 12 SetF
 %I t
-[ 1 0 0 1 343.22 631.343 ] concat
+[ 1.15 0 0 1.15 337.745 631.943 ] concat
 %I
 [
 (Talk to Parrot)
@@ -748,7 +750,7 @@ Begin %I Text
 %I f -*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*
 Helvetica 12 SetF
 %I t
-[ 1 0 0 1 343.22 355.343 ] concat
+[ 1.15 0 0 1.15 337.145 355.943 ] concat
 %I
 [
 (Sit Some More)
@@ -761,7 +763,7 @@ Begin %I Text
 %I f -*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*
 Helvetica 12 SetF
 %I t
-[ 1 0 0 1 343.22 309.343 ] concat
+[ 1.15 0 0 1.15 337.745 309.943 ] concat
 %I
 [
 (Read A Book)
@@ -811,20 +813,6 @@ Begin %I Line
 %I
 511 226 548 226 Line
 %I 1
-End
-
-Begin %I Rect
-%I b 65535
-1 0 0 [] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
-%I cbg White
-1 1 1 SetCBg
-none SetP %I p n
-%I t
-[ 1 0 0 1 566.456 61.5 ] concat
-%I
-14 311 59 338 Rect
 End
 
 Begin %I Rect
@@ -1097,7 +1085,7 @@ Begin %I Text
 %I f -*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*
 Helvetica 12 SetF
 %I t
-[ 1 0 0 1 136.905 496 ] concat
+[ 1.15 0 0 1.15 128.955 496.6 ] concat
 %I
 [
 (Go To Supermarket)
@@ -1110,7 +1098,7 @@ Begin %I Text
 %I f -*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*
 Helvetica 12 SetF
 %I t
-[ 1 0 0 1 136.905 450 ] concat
+[ 1.15 0 0 1.15 131.73 450.6 ] concat
 %I
 [
 (Go To Sleep)
@@ -1123,7 +1111,7 @@ Begin %I Text
 %I f -*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*
 Helvetica 12 SetF
 %I t
-[ 1 0 0 1 136.905 404 ] concat
+[ 1.15 0 0 1.15 131.43 404.6 ] concat
 %I
 [
 (Read A Book)
@@ -1136,7 +1124,7 @@ Begin %I Text
 %I f -*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*
 Helvetica 12 SetF
 %I t
-[ 1 0 0 1 136.905 542 ] concat
+[ 1.15 0 0 1.15 131.205 542.6 ] concat
 %I
 [
 (Go To School)
@@ -1149,7 +1137,7 @@ Begin %I Text
 %I f -*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*
 Helvetica 12 SetF
 %I t
-[ 1 0 0 1 136.905 588 ] concat
+[ 1.15 0 0 1.15 130.305 588.6 ] concat
 %I
 [
 (Go To Pet Store)
@@ -1162,7 +1150,7 @@ Begin %I Text
 %I f -*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*
 Helvetica 12 SetF
 %I t
-[ 1 0 0 1 136.905 312 ] concat
+[ 1.15 0 0 1.15 132.555 312.6 ] concat
 %I
 [
 (Etc. Etc. ...)
@@ -1175,7 +1163,7 @@ Begin %I Text
 %I f -*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*
 Helvetica 12 SetF
 %I t
-[ 1 0 0 1 136.905 358 ] concat
+[ 1.15 0 0 1.15 132.33 358.6 ] concat
 %I
 [
 (Sit in Chair)
@@ -1258,6 +1246,14 @@ Begin %I MLine
 %I 2
 End
 
+Begin %I Pict
+%I b u
+%I cfg u
+%I cbg u
+%I f u
+%I p u
+%I t u
+
 Begin %I Rect
 %I b 65535
 1 0 0 [] 0 SetB
@@ -1279,11 +1275,35 @@ Begin %I Text
 %I f -*-helvetica-bold-r-*-*-12-*-*-*-*-*-*-*
 Helvetica-Bold 12 SetF
 %I t
-[ 1 0 0 1 62.9664 489.5 ] concat
+[ 1 0 0 1 62.9664 487.5 ] concat
 %I
 [
 (Start)
 ] Text
+End
+
+End %I eop
+
+Begin %I Pict
+%I b u
+%I cfg u
+%I cbg u
+%I f u
+%I p u
+%I t u
+
+Begin %I Rect
+%I b 65535
+1 0 0 [] 0 SetB
+%I cfg Black
+0 0 0 SetCFg
+%I cbg White
+1 1 1 SetCBg
+none SetP %I p n
+%I t
+[ 1 0 0 1 566.456 61.5 ] concat
+%I
+14 311 59 338 Rect
 End
 
 Begin %I Text
@@ -1298,6 +1318,8 @@ Helvetica-Bold 12 SetF
 (Finish)
 ] Text
 End
+
+End %I eop
 
 End %I eop
 

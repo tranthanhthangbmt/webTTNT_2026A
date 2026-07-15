@@ -1,520 +1,618 @@
-\usepackage{aima-slides}
-\usepackage[utf8]{inputenc}
-\usepackage[T5]{fontenc}
-\usepackage{lmodern}
+\usepackage{fleqn}
+\usepackage{epsf}
+\usepackage[dvips]{color}
+\usepackage{aima2e-slides}
 
-# Tác tử logic (Logical agents)
+# Game playing
 
-## Chương 6
-
----
-## Nội dung
-
-- Cơ sở tri thức (Knowledge bases)
-
-- Thế giới Wumpus
-
-- Logic nói chung
-
-- Logic mệnh đề (Logic Boolean)
-
-- Các dạng chuẩn (Normal forms)
-
-- Các quy tắc suy diễn (Inference rules)
+## Chapter 6
 
 ---
-## Cơ sở tri thức
+## Phác thảo
 
-![Hình ảnh](../TaiLieu/slide_md/figures/kbs.png)
+- Trò chơi
 
-Cơ sở tri thức = tập hợp các <u>câu</u> trong một ngôn ngữ <u>hình thức</u>
-
-Cách tiếp cận <u>Khai báo (Declarative)</u> để xây dựng một tác tử (hoặc hệ thống khác):
+- Lối chơi hoàn hảo
     
-   **Tell** (Cho biết) những gì nó cần biết
-
-Sau đó nó có thể tự **Ask** (Hỏi) xem cần phải làm gì---câu trả lời phải được suy ra từ KB (cơ sở tri thức)
-
-Các tác tử có thể được xem xét ở <u>cấp độ tri thức</u>
+-- quyết định tối đa 
     
-   tức là, chúng biết gì, bất kể việc được cài đặt như thế nào
+-- $
+  pha$--$\beta$ cắt tỉa
 
-Hoặc ở <u>cấp độ cài đặt</u>
-    
-   tức là, cấu trúc dữ liệu trong KB và các thuật toán thao tác trên chúng
+- Giới hạn tài nguyên và đánh giá gần đúng
+
+- Trò chơi may rủi
+
+- Trò chơi thông tin không hoàn hảo
 
 ---
-## Một tác tử dựa trên tri thức đơn giản
+## Trò chơi và  vấn đề tìm kiếm
+
+Giải pháp "Không thể đoán trước" đối thủ $\Rightarrow$ là \note{chiến lược}
+
+chỉ định một nước đi cho mọi câu trả lời có thể có của đối thủ
+
+Giới hạn thời gian $\Rightarrow$ khó có thể tìm được mục tiêu, phải xấp xỉ
+
+Kế hoạch tấn công:
+\begin{itemize}
+\item Máy tính xem xét các lối chơi có thể có (Babbage, 1846)
+\item Thuật toán chơi hoàn hảo (Zermelo, 1912; Von Neumann, 1944)
+\item Chân trời hữu hạn, đánh giá gần đúng (Zuse, 1945; Wiener, 1948; 
+
+      Shannon, 1950)
+\item Chương trình cờ vua đầu tiên (Turing, 1951)
+\item Học máy để nâng cao độ chính xác trong đánh giá (Samuel, 1952--57)
+\item Cắt tỉa để cho phép tìm kiếm sâu hơn (McCarthy, 1956)
+\end{itemize}
+
+---
+## Các loại trò chơi
+
+![Hình ảnh](../TaiLieu/slide_md/figures/game-types.png)
+
+---
+## Cây trò chơi (2 người chơi, xác định, lượt)
+
+![Hình ảnh](../TaiLieu/slide_md/figures/tictactoe.png)
+
+---
+## Cực tiểu
+
+Chơi hoàn hảo cho các trò chơi xác định, thông tin hoàn hảo
+
+Ý tưởng: chọn di chuyển đến vị trí có giá trị \defn{minimax cao nhất}
+    
+= phần thưởng tốt nhất có thể đạt được khi chơi tốt nhất
+
+Ví dụ: trò chơi 2 lớp:
+
+,8\textwidth
+![Hình ảnh](../TaiLieu/slide_md/figures/minimax.png)
+
+---
+## Thuật toán Minimax
 
 ```text
-function KB-Agent(percept) returns một hành động (action)
-      static: KB, một cơ sở tri thức (knowledge base)
-      static: t, bộ đếm, ban đầu là 0, chỉ báo thời gian
+function Minimax-Decision(state) returns an action
+      inputs: state, current state in game
 
-    Tell(KB, Make-Percept-Sentence(percept, t))
-    action <- Ask(KB, Make-Action-Query(t))
-    Tell(KB, Make-Action-Sentence(action, t))
-    t <- t + 1
-    return action
+    return the a in Actions(state) maximizing Min-Value(Result(a, state))
+\fnsep
+function Max-Value(state) returns a utility value
+    if Terminal-Test(state) then return Utility(state)
+    v <- \(-infinity\)
+    for a, s in Successors(state) do v <- Max(v, Min-Value(s))
+    return v
+\fnsep
+function Min-Value(state) returns a utility value
+    if Terminal-Test(state) then return Utility(state)
+    v <- \(infinity\)
+    for a, s in Successors(state) do v <- Min(v, Max-Value(s))
+    return v
 ```
 
-Tác tử phải có khả năng:
-  
-Biểu diễn các trạng thái, hành động, v.v.
-  
-Kết hợp các nhận thức mới
-  
-Cập nhật các biểu diễn nội bộ của thế giới
-  
-Suy diễn các thuộc tính ẩn của thế giới
-  
-Suy diễn các hành động phù hợp
+---
+## Tính chất của minimax
+
+<u>Hoàn thành</u>?? 
 
 ---
-## Mô tả PAGE cho Thế giới Wumpus
+## Tính chất của minimax
 
-<u>Nhận thức</u> Gió nhẹ (Breeze), Lấp lánh (Glitter), Mùi (Smell)
-
-<u>Hành động</u> Rẽ trái (Left turn), Rẽ phải (Right turn),
+<u>Hoàn thành</u>?? Chỉ khi cây là hữu hạn (cờ vua có các quy tắc cụ thể cho việc này).
     
-    Đi tới (Forward), Lấy (Grab), Thả (Release), Bắn (Shoot)
+NB một chiến lược hữu hạn có thể tồn tại ngay cả trong một cây vô hạn!
 
-<u>Đích</u> Mang vàng trở lại điểm xuất phát
-
-mà không rơi vào hố hoặc ô có Wumpus
-
- 
-
-![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-world.png)
-
-<u>Môi trường</u>
-  
-Các ô kề với wumpus có mùi
-  
-Các ô kề với hố có gió nhẹ
-  
-Lấp lánh khi và chỉ khi vàng ở trong cùng ô đó
-  
-Bắn sẽ giết wumpus nếu bạn đang đối mặt với nó
-  
-Bắn sẽ làm tiêu hao mũi tên duy nhất
-  
-Lấy sẽ nhặt vàng nếu ở cùng ô đó
-  
-Thả sẽ đánh rơi vàng trong cùng ô đó
+<u>Tối ưu</u>?? 
 
 ---
-## Đặc điểm thế giới Wumpus
+## Tính chất của minimax
 
-<u>Thế giới có tất định không?</u>??
+<u>Complete</u>?? Có, nếu cây hữu hạn (cờ vua có các quy tắc cụ thể cho việc này)
 
-<u>Thế giới có thể truy cập đầy đủ không?</u>??
+<u>Tối ưu</u>?? Có, chống lại đối thủ tối ưu. Nếu không thì??
 
-<u>Thế giới có tĩnh không?</u>??
-
-<u>Thế giới có rời rạc không?</u>??
+<u>Độ phức tạp về thời gian</u>?? 
 
 ---
-## Đặc điểm thế giới Wumpus
+## Tính chất của minimax
 
-<u>Thế giới có tất định không?</u>?? Có---kết quả được xác định chính xác
+<u>Complete</u>?? Có, nếu cây hữu hạn (cờ vua có các quy tắc cụ thể cho việc này)
 
-<u>Thế giới có thể truy cập đầy đủ không?</u>?? Không---chỉ nhận thức <u>cục bộ</u>
+<u>Tối ưu</u>?? Có, chống lại đối thủ tối ưu. Nếu không thì??
 
-<u>Thế giới có tĩnh không?</u>?? Có---Wumpus và các hố không di chuyển
+<u>Độ phức tạp về thời gian</u>?? \mat{$O(b^m)$}
 
-<u>Thế giới có rời rạc không?</u>?? Có
-
----
-## Khám phá một thế giới wumpus
-
-![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-seq0.png)
-
-\pheading{}
-
-![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-seq1.png)
-
-\pheading{}
-
-![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-seq2.png)
-
-\pheading{}
-
-![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-seq3.png)
-
-\pheading{}
-
-![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-seq4.png)
-
-\pheading{}
-
-![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-seq5.png)
-
-\pheading{}
-
-![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-seq6.png)
-
-\pheading{}
-
-![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-seq7.png)
+<u>Độ phức tạp của không gian</u>?? 
 
 ---
-## Các tình huống khó khăn khác
+## Tính chất của minimax
 
-in
-\raisebox{-0.5in}[2.5in]{![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-bb.png)}
- 
+<u>Complete</u>?? Có, nếu cây hữu hạn (cờ vua có các quy tắc cụ thể cho việc này)
 
-Gió nhẹ ở (1,2) và (2,1)
-  
-$\Rightarrow$ không có hành động nào an toàn
+<u>Tối ưu</u>?? Có, chống lại đối thủ tối ưu. Nếu không thì??
 
-Giả sử các hố được phân bố đều,
+<u>Độ phức tạp về thời gian</u>?? \mat{$O(b^m)$}
 
-(2,2) có khả năng có hố nhất
+<u>Độ phức tạp của không gian</u>?? \mat{$O(bm)$} (khám phá theo chiều sâu)
 
-     
-
-in
-![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-s.png)
- 
-
-Mùi ở (1,1) 
-  
-$\Rightarrow$ không thể di chuyển
-
-Có thể sử dụng chiến lược <u>ép buộc (coercion)</u>:
-  
-  bắn thẳng về phía trước
-  
-  nếu có wumpus ở đó $\Rightarrow$ chết $\Rightarrow$ an toàn
-  
-  nếu wumpus không ở đó $\Rightarrow$ an toàn
-  
-
----
-## Logic nói chung
-
-<u>Các logic</u> là các ngôn ngữ hình thức để biểu diễn thông tin
-  
-   sao cho có thể rút ra các kết luận
-
-<u>Cú pháp (Syntax)</u> xác định các câu trong ngôn ngữ
-
-<u>Ngữ nghĩa (Semantics)</u> định nghĩa "ý nghĩa" của các câu;
-  
-   tức là, định nghĩa <u>sự thật (truth)</u> của một câu trong một thế giới
-
-Ví dụ, ngôn ngữ của số học
-
-$x+2 \geq y$ là một câu; $x2+y>{}$ không phải là một câu
-
-$x+2 \geq y$ là đúng khi và chỉ khi số $x+2$ không nhỏ hơn
-số $y$
-
-$x+2 \geq y$ là đúng trong một thế giới mà $x\eq 7,\ y\eq 1$
-
-$x+2 \geq y$ là sai trong một thế giới mà $x\eq 0,\ y\eq 6$
-
----
-## Các loại logic
-
-Các logic được đặc trưng bởi những gì chúng cam kết là "nguyên thủy"
-
-Cam kết bản thể học (Ontological commitment): điều gì tồn tại---sự kiện? đối tượng? thời gian? niềm tin?
-
-Cam kết nhận thức học (Epistemological commitment): các trạng thái tri thức là gì?
-
-| &nbsp; | &nbsp; | &nbsp; |
-|---|---|---|
-| {\tf Ngôn ngữ (Language)} | {\tf Cam kết Bản thể học (Ontological Commitment)} | {\tf Cam kết Nhận thức học (Epistemological Commitment)} |
-| Logic mệnh đề (Propositional logic) | sự kiện | đúng/sai/không biết |
-| Logic bậc một (First-order logic) | sự kiện, đối tượng, quan hệ | đúng/sai/không biết |
-| Logic thời gian (Temporal logic) | sự kiện, đối tượng, quan hệ, thời gian | đúng/sai/không biết |
-| Lý thuyết xác suất (Probability theory) | sự kiện | mức độ tin tưởng 0\ldots 1 |
-| Logic mờ (Fuzzy logic) | mức độ đúng đắn | mức độ tin tưởng 0\ldots 1 |
-
----
-## Kéo theo (Entailment)
-
-\[KB \models 
-  pha\]
-
-Cơ sở tri thức $KB$ <u>kéo theo (entails)</u> câu $
-  pha$
+Đối với cờ vua, \mat{$b\approx 35$}, \mat{$m \approx 100$} dành cho các trò chơi "hợp lý"
     
-   khi và chỉ khi
+$\Rightarrow$ giải pháp chính xác hoàn toàn không khả thi
+
+Nhưng chúng ta có cần khám phá mọi con đường không?
+
+---
+## $
+  pha$--$\beta$ ví dụ về cắt tỉa
+
+$\beta$
+
+![Hình ảnh](../TaiLieu/slide_md/figures/alpha-beta-progress1.png)
+
+---
+## $
+  pha$--$\beta$ ví dụ về cắt tỉa
+
+![Hình ảnh](../TaiLieu/slide_md/figures/alpha-beta-progress2.png)
+
+---
+## $
+  pha$--$\beta$ ví dụ về cắt tỉa
+
+![Hình ảnh](../TaiLieu/slide_md/figures/alpha-beta-progress3.png)
+
+---
+## $
+  pha$--$\beta$ ví dụ về cắt tỉa
+
+![Hình ảnh](../TaiLieu/slide_md/figures/alpha-beta-progress4.png)
+
+---
+## $
+  pha$--$\beta$ ví dụ về cắt tỉa
+
+![Hình ảnh](../TaiLieu/slide_md/figures/alpha-beta-progress5.png)
+
+---
+## Tại sao lại gọi là $
+  pha$--
+
+,4\textwidth
+![Hình ảnh](../TaiLieu/slide_md/figures/alpha-beta-general.png)
+
+\mat{$
+  pha$} là giá trị tốt nhất (đến **max**) được tìm thấy ở xa đường dẫn hiện tại
+
+Nếu \mat{$V$} tệ hơn \mat{$
+  pha$}, **max** sẽ tránh được
+$\Rightarrow$ Tỉa cành đó đi
+
+Xác định \mat{$\beta$} tương tự cho **min**
+
+---
+## Thuật toán $
+  pha$--
+
+```text
+function Alpha-Beta-Decision(state) returns an action
+    return the a in Actions(state) maximizing Min-Value(Result(a, state))
+\fnsep
+function Max-Value(state, \(
+  pha\), \(\beta\)) returns a utility value
+      inputs: state, current state in game
+      inputs: \(
+  pha\), the value of the best alternative for **max along the path to state**
+      inputs: \(\beta\), the value of the best alternative for **min along the path to state**
+
+    if Terminal-Test(state) then return Utility(state)
+    v <- \(-infinity\)
+    for a, s in Successors(state) do
+        v <- Max(v, Min-Value(s, \(
+  pha\), \(\beta\)))
+        if \(v \ge \beta\) then return v
+        \(
+  pha\) <- Max(\(
+  pha\), v)
+    return v
+\fnsep
+function Min-Value(state, \(
+  pha\), \(\beta\)) returns a utility value
+    same as Max-Value but with roles of \(
+  pha\), \(\beta\) reversed
+```
+
+---
+## Thuộc tính của $
+  pha$--$\beta$
+
+Cắt tỉa *không * ảnh hưởng đến kết quả cuối cùng
+
+Thứ tự di chuyển tốt sẽ nâng cao hiệu quả của việc cắt tỉa
+
+Với "thứ tự hoàn hảo", độ phức tạp về thời gian = \mat{$O(b^{m/2})$}
+    
+$\Rightarrow$ *tăng gấp đôi* độ sâu có thể giải được
+
+Một ví dụ đơn giản về giá trị của lý luận về điều gì 
+các tính toán có liên quan (một dạng \note{siêu lý luận})
+
+Thật không may, \mat{$35^{50}$} vẫn không thể thực hiện được!
+
+---
+## Giới hạn tài nguyên
+
+Cách tiếp cận tiêu chuẩn:
+\begin{itemize}
+\item Sử dụng **Cutoff-Test** thay vì **Terminal-Test
+    
+ví dụ: giới hạn độ sâu (có thể thêm \defn{tìm kiếm tĩnh **)
+\item Sử dụng **Eval** thay vì **Utility
+    
+tức là, \defn{hàm đánh giá ** ước tính mức độ mong muốn của vị trí
+\end{itemize}
+
+Giả sử chúng ta có \mat{$100$} giây, hãy khám phá \mat{$10^4$} nút/giây
+    
+$\Rightarrow$ \mat{$10^6$} nút mỗi lần di chuyển $\approx$ \mat{$35^{8/2}$}
+    
+$\Rightarrow$ $
+  pha$--$\beta$ đạt độ sâu 8 $\Rightarrow$ chương trình cờ vua khá hay
+
+---
+## Chức năng đánh giá
+
+,95\textwidth
+![Hình ảnh](../TaiLieu/slide_md/figures/chess-evaluation-bc.png)
+
+Đối với cờ vua, thường là tổng trọng số \note{tuyến tính} của \defn{features}
+\mat{\[
+**Eval**(s) = w_1 f_1(s) + w_2 f_2(s) + \ldots + w_n f_n(s)
+\]}
+ví dụ: \mat{$w_1 = 9$} với 
+
+\mat{$f_1(s)$} = (số quân hậu trắng) -- (số quân hậu đen),\ \ v.v.
+
+---
+## Lạc đề: Giá trị chính xác không quan trọng
+
+![Hình ảnh](../TaiLieu/slide_md/figures/ordinal-utility.png)
+
+Hành vi được bảo toàn dưới bất kỳ phép biến đổi *đơn điệu* nào của
+**Đánh giá**
+
+Chỉ có thứ tự là quan trọng:
+    
+phần thưởng trong trò chơi xác định đóng vai trò như một hàm \defn{tiện ích thứ tự}
+
+---
+## Trò chơi xác định trong thực tế
+
+Cờ đam: Chinook chấm dứt 40 năm thống trị của nhà vô địch thế giới loài người Marion
+Tinsley vào năm 1994. Đã sử dụng cơ sở dữ liệu tàn cuộc để xác định cách chơi hoàn hảo cho
+tất cả các vị trí liên quan đến 8 quân cờ trở xuống trên bàn cờ, tổng cộng
+443.748.401.247 vị trí.
+
+Cờ vua: Deep Blue đánh bại nhà vô địch thế giới loài người Gary Kasparov
+trong một trận đấu sáu ván vào năm 1997. Deep Blue tìm kiếm 200 triệu vị trí
+mỗi giây, sử dụng sự đánh giá rất phức tạp và các phương pháp chưa được tiết lộ để
+mở rộng một số dòng tìm kiếm lên tới 40 lớp.
+
+Othello: những nhà vô địch của con người từ chối cạnh tranh với máy tính, những kẻ
+quá tốt.
+
+Đi: những nhà vô địch của con người từ chối cạnh tranh với máy tính, những người cũng vậy
+tệ. Trong go, $b > 300$, vì vậy hầu hết các chương trình đều sử dụng cơ sở kiến thức mẫu để
+đề xuất những động thái hợp lý.
+
+---
+## Trò chơi không xác định: cờ thỏ cáo
+
+,65\maxfigwidth
+![Hình ảnh](../TaiLieu/slide_md/figures/backgammon-position.png)
+
+---
+## Trò chơi không xác định nói chung
+
+Trong các trò chơi không xác định, cơ hội được tạo ra bởi xúc xắc, xáo bài
+
+Ví dụ đơn giản hóa với việc lật đồng xu:
+
+,65\textwidth
+![Hình ảnh](../TaiLieu/slide_md/figures/expectiminimax-simple.png)
+
+---
+## Thuật toán cho trò chơi không xác định
+
+**Expectiminimax** chơi hoàn hảo
+
+Giống như **Minimax**, ngoại trừ việc chúng ta cũng phải xử lý các nút ngẫu nhiên:
+
+$\ldots$
+
+\key{if} \var{state} là một nút **Max** \key{then
+    
+   \key{return} **ExpectiMinimax-Value** cao nhất trong số **Successors**(\var{state})
+
+\key{if} \var{state} là một nút **Min** \key{then
+    
+   \key{return} **ExpectiMinimax-Value** thấp nhất của **Successors**(\var{state})
+
+\key{if} \var{state} là một nút cơ hội \key{then
+    
+   \key{return} trung bình của **ExpectiMinimax-Value** của **Successors**(\var{state})
+
+$\ldots$
+
+---
+## Trò chơi bất định trong thực tế
+
+Tăng xúc xắc $b$: 21 lần tung xúc xắc có thể có 2 xúc xắc
+
+Backgammon $\approx$ 20 nước đi hợp pháp (có thể là 6.000 với 1-1 lần tung)
+\[
+{\rm depth}\ 4 = 20 \times (21 \times 20)^3 \approx 1.2\times 10^9
+\]
+
+Khi độ sâu tăng lên, xác suất tiếp cận một nút nhất định sẽ giảm 
+    
+$\Rightarrow$ giá trị của lookahead bị giảm đi
 
 $
-  pha$ đúng trong tất cả các thế giới mà $KB$ đúng
+  pha$--$\beta$ việc cắt tỉa kém hiệu quả hơn nhiều
 
-Ví dụ, KB chứa "đội Giants thắng" và "đội Reds thắng"
-
-kéo theo "Hoặc đội Giants thắng hoặc đội Reds thắng"
+**TDGammon** sử dụng tìm kiếm theo độ sâu 2 + rất tốt **Eval
+    
+$\approx$ cấp độ vô địch thế giới
 
 ---
-## Mô hình (Models)
+## Lạc đề: Giá trị chính xác DO quan trọng**
 
-Các nhà logic học thường suy nghĩ dưới dạng các <u>mô hình (models)</u>, là các thế giới có cấu trúc
+ của
+**Đánh giá**
 
-hình thức mà theo đó chân lý có thể được đánh giá
-
-Ta nói $m$ là một <u>mô hình</u> của câu $
-  pha$
-nếu $
-  pha$ là đúng trong $m$
-
-$M(
-  pha)$ là tập hợp tất cả các mô hình của $
-  pha$
-
-Khi đó $KB \models 
-  pha$ khi và chỉ khi $M(KB) \subseteq M(
-  pha)$
-
-Ví dụ: $KB$ = Giants thắng và Reds thắng
-    
-     $
-  pha$ = Giants thắng
-
- 
-in
-\raisebox{-2in}[0in]{![Hình ảnh](../TaiLieu/slide_md/figures/model-inclusion.png)}
+Do đó **Eval** phải tỷ lệ thuận với mức hoàn trả dự kiến
 
 ---
-## Suy diễn (Inference)
+## Trò chơi thông tin không hoàn hảo
 
-$KB\vdash_i
-  pha$ = câu $
-  pha$ có thể được dẫn xuất từ $KB$ bằng thủ tục $i$
+Ví dụ: trò chơi bài, trong đó quân bài đầu tiên của đối thủ không xác định được
 
-<u>Tính đúng đắn (Soundness)</u>: $i$ là đúng đắn nếu
+Thông thường chúng ta có thể tính toán xác suất cho mỗi giao dịch có thể xảy ra
+
+Có vẻ giống như có một lần tung xúc xắc lớn vào đầu trò chơi\mat{$^*$}
+
+\note{Idea}: tính giá trị tối thiểu của từng hành động trong mỗi giao dịch,
     
-bất cứ khi nào $KB\vdash_i
-  pha$, thì nó cũng đúng là $KB\models
-  pha$
+   sau đó chọn hành động có giá trị mong đợi cao nhất trong tất cả các giao dịch\mat{$^*$}
 
-<u>Tính đầy đủ (Completeness)</u>: $i$ là đầy đủ nếu
-    
-bất cứ khi nào $KB\models
-  pha$, thì nó cũng đúng là $KB\vdash_i
-  pha$
+Trường hợp đặc biệt: nếu một hành động là tối ưu cho tất cả các giao dịch thì đó là hành động tối ưu.\mat{$^*$}
 
-Xem trước: chúng ta sẽ định nghĩa một logic (logic bậc một) mà đủ
-biểu đạt để nói hầu hết những điều quan tâm, và với nó
-có tồn tại một thủ tục suy diễn đúng đắn và đầy đủ.
-
-Nghĩa là, thủ tục sẽ trả lời mọi câu hỏi mà câu trả lời có thể được rút ra
-từ những gì mà $KB$ đã biết.
-
----
-## Logic mệnh đề: Cú pháp
-
-Logic mệnh đề là logic đơn giản nhất---minh họa các ý tưởng cơ bản
-
-Các ký hiệu mệnh đề $P_1$, $P_2$, v.v. là các câu
-
-Nếu $S$ là một câu, $\lnot S$ là một câu
-
-Nếu $S_1$ và $S_2$ là câu, $S_1 \land S_2$ là một câu
-
-Nếu $S_1$ và $S_2$ là câu, $S_1 \lor S_2$ là một câu
-
-Nếu $S_1$ và $S_2$ là câu, $S_1 \implies S_2$ là một câu
-
-Nếu $S_1$ và $S_2$ là câu, $S_1 \lequiv S_2$ là một câu
-
----
-## Logic mệnh đề: Ngữ nghĩa
-
-Mỗi mô hình chỉ định đúng/sai cho từng ký hiệu mệnh đề
-
-| &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-|---|---|---|---|
-| Ví dụ: | $A$ | $B$ | $C$ |
-|  | $Đúng$ | $Đúng$ | $Sai$ |
-
-Các quy tắc đánh giá chân lý đối với mô hình $m$:
-
-| &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-|---|---|---|---|---|---|
-| $\lnot S$ | đúng khi và chỉ khi | $S$ | sai |  |  |
-| $S_1 \land S_2$ | đúng khi và chỉ khi | $S_1$ | đúng <u>và</u> | $S_2$ | đúng |
-| $S_1 \lor S_2$ | đúng khi và chỉ khi | $S_1$ | đúng <u>hoặc</u> | $S_2$ | đúng |
-| $S_1 \implies S_2$ | đúng khi và chỉ khi | $S_1$ | sai <u>hoặc</u> | $S_2$ | đúng |
-|  &nbsp;&nbsp;&nbsp;&nbsp;  tức là, | sai khi và chỉ khi | $S_1$ | đúng <u>và</u> | $S_2$ | sai |
-| $S_1 \lequiv S_2$ | đúng khi và chỉ khi | $S_1\implies S_2$ | đúng <u>và</u> | $S_2\implies S_1$ | đúng |
-
----
-## Suy diễn mệnh đề: Phương pháp liệt kê
-
-Cho $
-  pha = A \lor B$ và $KB = (A\lor C) \land (B \lor \lnot C)$
-
-Liệu có trường hợp $KB\models
-  pha$ không? 
-
-Kiểm tra mọi mô hình có thể---$
-  pha$ phải đúng ở mọi nơi mà $KB$ đúng
-
-| &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-|---|---|---|---|---|---|---|
-| $A$ | $B$ | $C$ | \ $A\lor C$\ | $B \lor \lnot C$ | \ \ \ $KB$\ \ \ | \ \ \ \ $
-  pha$\ \ \ \ |
-| $Sai$ | $Sai$ | $Sai$ |  |  |  |  |
-| $Sai$ | $Sai$ | $Đúng$ |  |  |  |  |
-| $Sai$ | $Đúng$ | $Sai$ |  |  |  |  |
-| $Sai$ | $Đúng$ | $Đúng$ |  |  |  |  |
-| $Đúng$ | $Sai$ | $Sai$ |  |  |  |  |
-| $Đúng$ | $Sai$ | $Đúng$ |  |  |  |  |
-| $Đúng$ | $Đúng$ | $Sai$ |  |  |  |  |
-| $Đúng$ | $Đúng$ | $Đúng$ |  |  |  |  |
-
----
-## Suy diễn mệnh đề: Giải pháp
-
-| &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-|---|---|---|---|---|---|---|
-| $A$ | $B$ | $C$ | \ $A\lor C$\ | $B \lor \lnot C$ | \ \ \ $KB$\ \ \ | \ \ \ \ $
-  pha$\ \ \ \ |
-| $Sai$ | $Sai$ | $Sai$ | $Sai$ | $Đúng$ | $Sai$ | $Sai$ |
-| $Sai$ | $Sai$ | $Đúng$ | $Đúng$ | $Sai$ | $Sai$ | $Sai$ |
-| $Sai$ | $Đúng$ | $Sai$ | $Sai$ | $Đúng$ | $Sai$ | $Đúng$ |
-| $Sai$ | $Đúng$ | $Đúng$ | $Đúng$ | $Đúng$ | $Đúng$ | $Đúng$ |
-| $Đúng$ | $Sai$ | $Sai$ | $Đúng$ | $Đúng$ | $Đúng$ | $Đúng$ |
-| $Đúng$ | $Sai$ | $Đúng$ | $Đúng$ | $Sai$ | $Sai$ | $Đúng$ |
-| $Đúng$ | $Đúng$ | $Sai$ | $Đúng$ | $Đúng$ | $Đúng$ | $Đúng$ |
-| $Đúng$ | $Đúng$ | $Đúng$ | $Đúng$ | $Đúng$ | $Đúng$ | $Đúng$ |
-
----
-## Các dạng chuẩn (Normal forms)
-
-Các phương pháp tiếp cận khác đối với việc suy diễn sử dụng các thao tác cú pháp
-trên câu, thường được thể hiện ở dạng chuẩn
-
-<u>Dạng chuẩn hội (Conjunctive Normal Form - CNF)</u> (phổ quát)
-    
-    *phép hội* của $\underbrace{\mbox{các *phép tuyển* của các *literal*}}$
-    
-    \phantom{*phép hội* của các *phép t*}*các mệnh đề*
-    
-    Ví dụ: $(A \lor \lnot B) \land (B \lor \lnot C \lor \lnot D)$
-
-<u>Dạng chuẩn tuyển (Disjunctive Normal Form - DNF)</u> (phổ quát)
-    
-    *phép tuyển* của $\underbrace{\mbox{các *phép hội* của các *literal*}}$
-    
-    \phantom{*phép tuyển* của các *phép h*}*các số hạng*
-    
-    Ví dụ: $(A\land B) \lor (A \land \lnot C) \lor (A \land \lnot D)
-           \lor (\lnot B \land \lnot C) \lor (\lnot B \land \lnot D)$
-
-<u>Dạng Horn (Horn Form)</u> (bị hạn chế)
-    
-    *phép hội* của các *mệnh đề Horn* (các mệnh đề có $\leq 1$ literal khẳng định)
-    
-    Ví dụ: $(A \lor \lnot B) \land (B \lor \lnot C \lor \lnot D)$
-    
-    Thường được viết dưới dạng tập hợp các phép kéo theo:
-    
-    $B \implies A$ và $(C \land D) \implies B$
-
----
-## Tính hợp lệ và Tính thỏa mãn được
-
-Một câu là <u>hợp lệ (valid)</u> nếu nó đúng trong <u>tất cả</u> các mô hình
-    
-ví dụ, $A \lor \lnot A$,  &nbsp;&nbsp;&nbsp;&nbsp;  $A \implies A$,  &nbsp;&nbsp;&nbsp;&nbsp;  
-      $(A \land (A \implies B)) \implies B$
-
-Tính hợp lệ được liên kết với suy diễn qua <u>Định lý suy diễn (Deduction Theorem)</u>:
-    
-      $KB \models 
-  pha$ khi và chỉ khi $(KB \implies 
-  pha)$ là hợp lệ
-
-Một câu là <u>thỏa mãn được (satisfiable)</u> nếu nó đúng trong <u>một số</u> mô hình
-    
-ví dụ, $A\lor B$, &nbsp;&nbsp;&nbsp;&nbsp;  $C$
-
-Một câu là <u>không thỏa mãn được (unsatisfiable)</u> nếu nó không đúng trong <u>bất kỳ</u> mô hình nào
-    
-ví dụ, $A\land \lnot A$
-
-Tính thỏa mãn được liên kết với suy diễn thông qua điều sau:
-    
-      $KB \models 
-  pha$ khi và chỉ khi $(KB \land \lnot 
-  pha)$ là không thỏa mãn được
-
-tức là, chứng minh $
-  pha$ bằng phương pháp *phản chứng (reductio ad absurdum)*
-
----
-## Các phương pháp chứng minh
-
-Các phương pháp chứng minh chia thành (khoảng) hai loại:
+GIB, chương trình cầu nối tốt nhất hiện nay, gần đúng với ý tưởng này bằng 
   
-
-<u>Kiểm tra mô hình (Model checking)</u>
+1) tạo 100 giao dịch phù hợp với thông tin đấu thầu
   
-    liệt kê bảng chân lý (đúng đắn và đầy đủ cho logic mệnh đề)
-  
-    tìm kiếm heuristic trong không gian mô hình (đúng đắn nhưng không đầy đủ)
-    
-       ví dụ, thuật toán GSAT (Bài tập 6.15)
-
-<u>Áp dụng các quy tắc suy diễn (Application of inference rules)</u>
-  
-    Sinh (đúng đắn) hợp pháp các câu mới từ những câu cũ
-  
-    <u>Chứng minh (Proof)</u> = một chuỗi các ứng dụng quy tắc suy diễn
-    
-       Có thể sử dụng các quy tắc suy diễn như các toán tử trong một thuật toán tìm kiếm tiêu chuẩn.
+2) chọn hành động thắng trung bình hầu hết các thủ thuật 
 
 ---
-## Các quy tắc suy diễn cho logic mệnh đề
+## Ví dụ
 
-<u>Hợp giải (Resolution)</u> (đối với dạng CNF): đầy đủ cho logic mệnh đề
-\[
-\frac{
-  pha \lor \beta, &nbsp;&nbsp;&nbsp;&nbsp;  \lnot \beta \lor \gamma}{
-  pha \lor \gamma}
-\]
+Bài bốn lá bài/tay bài huýt sáo/trái tim, **Max** chơi trước
 
-<u>Modus Ponens</u> (đối với dạng Horn): đầy đủ cho KB Horn
-\[\frac{
-  pha_1,\ldots,
-  pha_n, &nbsp;&nbsp;&nbsp;&nbsp;  
-  pha_1\land \cdots \land 
-  pha_n\implies \beta}{\beta} 
-\]
-Có thể được sử dụng với <u>suy diễn tiến (forward chaining)</u> hoặc <u>suy diễn lùi (backward chaining)</u>
+![Hình ảnh](../TaiLieu/slide_md/figures/card-tree1.png)
+
+---
+## Ví dụ
+
+Bài bốn lá bài/tay bài huýt sáo/trái tim, **Max** chơi trước
+
+![Hình ảnh](../TaiLieu/slide_md/figures/card-tree2.png)
+
+---
+## Ví dụ
+
+Bài bốn lá bài/tay bài huýt sáo/trái tim, **Max** chơi trước
+
+![Hình ảnh](../TaiLieu/slide_md/figures/card-tree3.png)
+
+---
+## Ví dụ thông thường
+
+Đường A dẫn tới một đống vàng nhỏ
+
+Đường B dẫn tới một ngã ba:
+    
+   rẽ trái và bạn sẽ tìm thấy một đống đá quý;
+    
+   rẽ phải và bạn sẽ bị xe buýt cán qua.
+
+---
+## Ví dụ thông thường
+
+Đường A dẫn tới một đống vàng nhỏ
+
+Đường B dẫn tới một ngã ba:
+    
+   rẽ trái và bạn sẽ tìm thấy một đống đá quý;
+    
+   rẽ phải và bạn sẽ bị xe buýt cán qua.
+
+Đường A dẫn tới một đống vàng nhỏ
+
+Đường B dẫn tới một ngã ba:
+    
+   rẽ trái và bạn sẽ bị xe buýt cán qua;
+    
+   lấy cái nĩa bên phải và bạn sẽ tìm thấy một đống đồ trang sức.
+
+---
+## Ví dụ thông thường
+
+Đường A dẫn tới một đống vàng nhỏ
+
+Đường B dẫn tới một ngã ba:
+    
+   rẽ trái và bạn sẽ tìm thấy một đống đá quý;
+    
+   rẽ phải và bạn sẽ bị xe buýt cán qua.
+
+Đường A dẫn tới một đống vàng nhỏ
+
+Đường B dẫn tới một ngã ba:
+    
+   rẽ trái và bạn sẽ bị xe buýt cán qua;
+    
+   lấy cái nĩa bên phải và bạn sẽ tìm thấy một đống đồ trang sức.
+
+Đường A dẫn tới một đống vàng nhỏ
+
+Đường B dẫn tới một ngã ba:
+    
+   đoán đúng và bạn sẽ tìm thấy một đống ngọc;
+    
+   đoán sai và bạn sẽ bị xe buýt cán qua.
+
+---
+## Phân tích thích hợp
+
+\mat{*} Trực giác rằng giá trị của một hành động là trung bình của các giá trị của nó
+
+ở tất cả các trạng thái thực tế là *WRONG*
+
+Với khả năng quan sát một phần, giá trị của một hành động phụ thuộc vào 
+
+\defn{trạng thái thông tin} hoặc \defn{trạng thái niềm tin} tác nhân đang ở
+
+Có thể tạo và tìm kiếm một cây trạng thái thông tin
+
+Dẫn đến những hành vi hợp lý như 
+  
+- Hành động để lấy thông tin
+  
+- Ra hiệu cho đồng đội
+  
+- Hành động ngẫu nhiên để giảm thiểu tiết lộ thông tin
 
 ---
 ## Tóm tắt
 
-Các tác tử logic áp dụng <u>suy diễn (inference)</u> vào <u>cơ sở tri thức (knowledge base)</u>
-  
-để rút ra thông tin mới và đưa ra quyết định
+Trò chơi rất thú vị để làm việc! (và nguy hiểm)
 
-Các khái niệm cơ bản của logic:
-  
--- <u>cú pháp (syntax)</u>: cấu trúc hình thức của <u>các câu</u>
-  
--- <u>ngữ nghĩa (semantics)</u>: <u>chân lý</u> của các câu so với <u>mô hình</u>
-  
--- <u>kéo theo (entailment)</u>: tính chân lý tất yếu của một câu khi cho trước một câu khác
-  
--- <u>suy diễn (inference)</u>: dẫn xuất ra các câu từ các câu khác
-  
--- <u>tính đúng đắn (soundness)</u>: các dẫn xuất chỉ tạo ra các câu kéo theo
-  
--- <u>tính đầy đủ (completeness)</u>: các dẫn xuất có thể tạo ra tất cả các câu kéo theo
+Chúng minh họa một số điểm quan trọng về AI
 
-Thế giới wumpus đòi hỏi khả năng biểu diễn thông tin
-từng phần và bị phủ định, lập luận theo các trường hợp, v.v.
+- sự hoàn hảo là không thể đạt được $\Rightarrow$ phải gần đúng
 
-Logic mệnh đề đủ cho một số nhiệm vụ này
+- suy nghĩ về điều cần suy nghĩ là một ý tưởng hay
 
-Phương pháp bảng chân lý là đúng đắn và đầy đủ đối với logic mệnh đề
+- sự không chắc chắn hạn chế việc gán giá trị cho các trạng thái
+
+- quyết định tối ưu phụ thuộc vào trạng thái thông tin, không phải trạng thái thực
+
+Trò chơi dành cho AI cũng như giải đua xe lớn dành cho thiết kế ô tô
+
+---
+## Cắt tỉa cây trò chơi không xác định
+
+Có thể sử dụng phiên bản cắt tỉa $
+  pha$-$\beta$:
+
+![Hình ảnh](../TaiLieu/slide_md/figures/expectiminimax-pruning1.png)
+
+---
+## Cắt tỉa cây trò chơi không xác định
+
+Có thể sử dụng phiên bản cắt tỉa $
+  pha$-$\beta$:
+
+![Hình ảnh](../TaiLieu/slide_md/figures/expectiminimax-pruning2.png)
+
+---
+## Cắt tỉa cây trò chơi không xác định
+
+Có thể sử dụng phiên bản cắt tỉa $
+  pha$-$\beta$:
+
+![Hình ảnh](../TaiLieu/slide_md/figures/expectiminimax-pruning3.png)
+
+---
+## Cắt tỉa cây trò chơi không xác định
+
+Có thể sử dụng phiên bản cắt tỉa $
+  pha$-$\beta$:
+
+![Hình ảnh](../TaiLieu/slide_md/figures/expectiminimax-pruning4.png)
+
+---
+## Cắt tỉa cây trò chơi không xác định
+
+Có thể sử dụng phiên bản cắt tỉa $
+  pha$-$\beta$:
+
+![Hình ảnh](../TaiLieu/slide_md/figures/expectiminimax-pruning5.png)
+
+---
+## Cắt tỉa cây trò chơi không xác định
+
+Có thể sử dụng phiên bản cắt tỉa $
+  pha$-$\beta$:
+
+![Hình ảnh](../TaiLieu/slide_md/figures/expectiminimax-pruning6.png)
+
+---
+## Cắt tỉa cây trò chơi không xác định
+
+Có thể sử dụng phiên bản cắt tỉa $
+  pha$-$\beta$:
+
+![Hình ảnh](../TaiLieu/slide_md/figures/expectiminimax-pruning7.png)
+
+---
+## Cắt tỉa cây trò chơi không xác định
+
+Có thể sử dụng phiên bản cắt tỉa $
+  pha$-$\beta$:
+
+![Hình ảnh](../TaiLieu/slide_md/figures/expectiminimax-pruning8.png)
+
+---
+## Tiếp tục cắt tỉa
+
+Việc cắt tỉa xảy ra nhiều hơn nếu chúng ta có thể ràng buộc các giá trị lá
+
+![Hình ảnh](../TaiLieu/slide_md/figures/expectiminimax-bounded1.png)
+
+---
+## Tiếp tục cắt tỉa
+
+Việc cắt tỉa xảy ra nhiều hơn nếu chúng ta có thể ràng buộc các giá trị lá
+
+![Hình ảnh](../TaiLieu/slide_md/figures/expectiminimax-bounded2.png)
+
+---
+## Tiếp tục cắt tỉa
+
+Việc cắt tỉa xảy ra nhiều hơn nếu chúng ta có thể ràng buộc các giá trị lá
+
+![Hình ảnh](../TaiLieu/slide_md/figures/expectiminimax-bounded3.png)
+
+---
+## Tiếp tục cắt tỉa
+
+Việc cắt tỉa xảy ra nhiều hơn nếu chúng ta có thể ràng buộc các giá trị lá
+
+![Hình ảnh](../TaiLieu/slide_md/figures/expectiminimax-bounded4.png)
+
+---
+## Tiếp tục cắt tỉa
+
+Việc cắt tỉa xảy ra nhiều hơn nếu chúng ta có thể ràng buộc các giá trị lá
+
+![Hình ảnh](../TaiLieu/slide_md/figures/expectiminimax-bounded5.png)
+
+---
+## Tiếp tục cắt tỉa
+
+Việc cắt tỉa xảy ra nhiều hơn nếu chúng ta có thể ràng buộc các giá trị lá
+
+![Hình ảnh](../TaiLieu/slide_md/figures/expectiminimax-bounded6.png)

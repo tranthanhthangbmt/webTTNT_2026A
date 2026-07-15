@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1784051846.28233 "chapter09a.tex" "chapter09a.pdf" "chapter09a" 1784051863.30699 0
+["pdflatex"] 1784102993.18725 "chapter09a.tex" "chapter09a.pdf" "chapter09a" 1784102995.1371 2
   "C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1784049722 89969 e95579120a3aa0ebc21d2737ca2ba701 ""
   "C:/Users/thanh/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1782268607 13333528 ce7767b4b1864107ed4ad937a79bf98c ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc" 1256929440 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -65,13 +65,13 @@
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/vntex/t5cmr.fd" 1368738347 1333 ab1c3d512aa3d88df568aed3641db58f ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/vntex/t5enc.def" 1368738347 21986 ccb3b8f7cc27fbd61b3daabbbb82ad3f ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/vntex/t5enc.dfu" 1368738347 13949 387dd4fa58aea5f873839c93430fffed ""
-  "aima-slides.sty" 1784049698 14136 1351017c1f3c43cd12064163a27165d1 ""
-  "chapter09a.aux" 1784051861 33 dca2c25acf2dd0fcc68a5b8e6d3e57b9 "pdflatex"
-  "chapter09a.tex" 1784051772 10125 e066757e4cf984c34235eb0900f2b91b ""
-  "figures/naive-proof-tree-ps-converted-to.pdf" 1784051853 4500 4650338c10a0be19bc497722b84c5d8a ""
-  "figures/naive-proof-tree.ps" 1784041071 16713 b041328a83773ce812a7a4c8c8eb194d ""
-  "figures/slug-bc-ps-converted-to.pdf" 1784051861 9748 06e0cb7f956f2f8ddf43747bff326815 ""
-  "figures/slug-bc.ps" 1784041087 17485 607dd680361a68c93691874ea4e54755 ""
+  "aima-slides.sty" 1784080572 14189 6be9220f5305bbd3e1f55f538ba3d73e ""
+  "chapter09a.aux" 1784102994 32 c81c40425fbb5e93b90fba65da0b5e61 "pdflatex"
+  "chapter09a.tex" 1784102125 10139 ea81ecdc23c20cad5594f85688213401 ""
+  "figures/naive-proof-tree-ps-converted-to.pdf" 1784083308 7146 436f7f305e17921dfd57afc96dd753e8 ""
+  "figures/naive-proof-tree.ps" 1784078105 16718 c552b4171a87a05e846b61a9eb68fea9 ""
+  "figures/slug-bc-ps-converted-to.pdf" 1784083310 9750 dbe0722518fd1e12d50670cfc11b5ec8 ""
+  "figures/slug-bc.ps" 1784078106 17490 11a068df6a878945a0d8d571ab68efe4 ""
   (generated)
   "chapter09a.aux"
   "chapter09a.log"

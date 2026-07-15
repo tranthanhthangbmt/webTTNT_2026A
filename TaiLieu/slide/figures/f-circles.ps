@@ -1,6 +1,6 @@
 %!PS-Adobe-2.0 EPSF-1.2
 %%Creator: idraw
-%%DocumentFonts: Helvetica-Bold
+%%DocumentFonts: Helvetica-Bold Times-Roman
 %%Pages: 1
 %%BoundingBox: 52 254 564 578
 %%EndComments
@@ -77,10 +77,10 @@ end
 
 %%EndIdrawPrologue
 
-/arrowHeight 11 def
-/arrowWidth 5 def
+/arrowHeight 8 def
+/arrowWidth 4 def
 
-/IdrawDict 51 dict def
+/IdrawDict 52 dict def
 IdrawDict begin
 
 /reencodeISO {
@@ -122,6 +122,7 @@ currentdict end definefont
 /yacute/thorn/ydieresis
 ] def
 /Helvetica-Bold reencodeISO def
+/Times-Roman reencodeISO def
 
 /none null def
 /numGraphicParameters 17 def
@@ -210,6 +211,7 @@ end
 /Circ {
 newpath
 0 360 arc
+closepath
 patternNone not { ifill } if
 brushNone not { istroke } if
 } def
@@ -241,6 +243,7 @@ newpath
 translate
 scale
 0 0 1 0 360 arc
+closepath
 patternNone not { ifill } if
 brushNone not { istroke } if
 end
@@ -360,7 +363,7 @@ grestore
 gsave
 fgred fggreen fgblue setrgbcolor
 /fontDict printFont printSize scalefont dup setfont def
-/descender fontDict begin 0 [FontBBox] 1 get FontMatrix end
+/descender fontDict begin 0 /FontBBox load  1 get FontMatrix end
 transform exch pop def
 /vertoffset 1 printSize sub descender sub def {
 0 vertoffset moveto show
@@ -490,7 +493,7 @@ exch dup 3 1 roll 1 0 0 -1 0 6 -1 roll matrix astore
 
 %%EndProlog
 
-%I Idraw 10 Grid 8 8 
+%I Idraw 12 Grid 8 8 
 
 %%Page: 1 1
 
@@ -754,8 +757,8 @@ End
 Begin %I Elli
 %I b 65520
 2 0 0 [12 4] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
+%I cfg Red
+1 0 0 SetCFg
 %I cbg White
 1 1 1 SetCBg
 none SetP %I p n
@@ -768,10 +771,10 @@ End
 Begin %I Text
 %I cfg Black
 0 0 0 SetCFg
-%I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
-Helvetica-Bold 14 SetF
+%I f -*-times-medium-r-normal-*-12-*-*-*-*-*-*-*
+Times-Roman 12 SetF
 %I t
-[ 1.1 0 0 1.1 122.337 548.27 ] concat
+[ 1.1 0 0 1.1 122.337 543.87 ] concat
 %I
 [
 (380)
@@ -781,10 +784,10 @@ End
 Begin %I Text
 %I cfg Black
 0 0 0 SetCFg
-%I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
-Helvetica-Bold 14 SetF
+%I f -*-times-medium-r-normal-*-12-*-*-*-*-*-*-*
+Times-Roman 12 SetF
 %I t
-[ 1.1 0 0 1.1 204.165 499.222 ] concat
+[ 1.1 0 0 1.1 204.165 494.822 ] concat
 %I
 [
 (400)
@@ -794,10 +797,10 @@ End
 Begin %I Text
 %I cfg Black
 0 0 0 SetCFg
-%I f -*-helvetica-bold-r-normal-*-14-*-*-*-*-*-*-*
-Helvetica-Bold 14 SetF
+%I f -*-times-medium-r-normal-*-12-*-*-*-*-*-*-*
+Times-Roman 12 SetF
 %I t
-[ 1.1 0 0 1.1 371.354 361.004 ] concat
+[ 1.1 0 0 1.1 371.354 356.604 ] concat
 %I
 [
 (420)
@@ -1165,8 +1168,8 @@ End
 Begin %I CBSpl
 %I b 65520
 2 0 0 [12 4] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
+%I cfg Red
+1 0 0 SetCFg
 %I cbg White
 1 1 1 SetCBg
 none SetP %I p n
@@ -1191,8 +1194,8 @@ End
 Begin %I CBSpl
 %I b 65520
 2 0 0 [12 4] 0 SetB
-%I cfg Black
-0 0 0 SetCFg
+%I cfg Red
+1 0 0 SetCFg
 %I cbg White
 1 1 1 SetCBg
 none SetP %I p n

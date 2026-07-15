@@ -1,55 +1,53 @@
-\documentclass[fleqn]{article}
-
-\usepackage{aima-slides}
-\usepackage[utf8]{inputenc}
-\usepackage[T5]{fontenc}
-\usepackage{lmodern}
-
+\documentclass{article}
+\usepackage{fleqn}
+\usepackage{epsf}
+\usepackage[dvips]{color}
+\usepackage{aima2e-slides}
+\def\Astar{A$^*$}
 \begin{document}
 
 \begin{huge}
-\titleslide{Các thuật toán tìm kiếm có thông tin (Informed search)}{Chương 4, Phần 1--2, 4}
+\titleslide{Informed search algorithms}{Chapter 4, Sections 1--2}
+
+\sf
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Nội dung}
+\heading{Phác thảo}
 
-\blob Tìm kiếm tốt nhất đầu tiên (Best-first search)
+\blob Tìm kiếm đầu tiên tốt nhất
 
-\blob Tìm kiếm A$^*$
+\blob tìm kiếm {\Astar}
 
-\blob Hàm Heuristic
-
-\blob Leo đồi (Hill-climbing)
-
-\blob Luyện kim mô phỏng (Simulated annealing)
-
+\blob Chẩn đoán
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Ôn tập: Tìm kiếm tổng quát}
+\heading{Đánh giá: Tìm kiếm cây}
 
-\input{\file{algorithms}{general-search-algorithm}}
+\input{\file{algorithms}{tree-search-short-algorithm}}
 
-Một chiến lược được xác định bằng cách chọn {\em thứ tự phát triển nút}
+Chiến lược được xác định bằng cách chọn thứ tự \emph{mở rộng nút}
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Tìm kiếm tốt nhất đầu tiên (Best-first search)}
+\heading{Tìm kiếm đầu tiên tốt nhất}
 
-Ý tưởng: sử dụng một {\em hàm đánh giá} cho mỗi nút\nl
--- ước tính mức độ ``đáng mong muốn''
+\note{Idea}: sử dụng hàm đánh giá \defn{} cho mỗi nút\nl
+-- ước tính về ''sự mong muốn''
 
-$\Rightarrow$ Phát triển nút chưa được phát triển có mức độ mong muốn cao nhất
+$\Rightarrow$ Mở rộng nút chưa được mở rộng mong muốn nhất
 
-\u{Cài đặt}:\\
-{\sc QueueingFn} = chèn các trạng thái kế tiếp theo thứ tự giảm dần của mức độ mong muốn
+\note{Triển khai}:\\
+\v{fringe} là hàng đợi được sắp xếp theo thứ tự mong muốn giảm dần
 
 Các trường hợp đặc biệt:\nl
-tìm kiếm tham lam (greedy search)\nl
-tìm kiếm A$^*$
+tìm kiếm tham lam \nl
+tìm kiếm {\Astar}
+
+
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Bản đồ Romania với chi phí bước tính bằng km}
+\heading{Romania với chi phí bước tính bằng km}
 
 \vspace*{0.3in}
 
@@ -58,392 +56,400 @@ tìm kiếm A$^*$
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Tìm kiếm tham lam (Greedy search)}
+\heading{Tham lam tìm kiếm}
 
-Hàm đánh giá $h(n)$ (hàm k\u{h}ám phá - \u{h}euristic)\nl
-= ước lượng chi phí từ $n$ đến \emph{đích} ($goal$)
+Hàm đánh giá \mat{$h(n)$} (\emph{h}euristic)\nl
+= ước tính chi phí từ \mat{$n$} đến mục tiêu gần nhất
 
-Ví dụ, $h_{{\rm SLD}}(n)$ = khoảng cách đường chim bay từ $n$ đến Bucharest
+Ví dụ: \mat{$h_{{\rm SLD}}(n)$} = khoảng cách đường thẳng từ \mat{$n$} đến Bucharest
 
-Tìm kiếm tham lam phát triển nút {\em có vẻ} gần đích nhất
+Tìm kiếm tham lam mở rộng nút \emph{xuất hiện} gần mục tiêu nhất
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Ví dụ tìm kiếm tham lam}
+\heading{Ví dụ về tìm kiếm tham lam}
 
 \vspace*{0.3in}
 
-\epsfxsize=0.75\textwidth
-\fig{\sfile{figures}{greedy-romania1.ps}}
+\epsfxsize=1.1\textwidth
+\fig{\sfile{figures}{greedy-progress01.ps}}
 
 
-
-
-%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pheading{Ví dụ tìm kiếm tham lam}
-
-\vspace*{0.3in}
-
-\epsfxsize=0.75\textwidth
-\fig{\sfile{figures}{greedy-romania2.ps}}
-
-
-%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pheading{Ví dụ tìm kiếm tham lam}
-
-\vspace*{0.3in}
-
-\epsfxsize=0.75\textwidth
-\fig{\sfile{figures}{greedy-romania3.ps}}
-
-
-%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pheading{Ví dụ tìm kiếm tham lam}
-
-\vspace*{0.3in}
-
-\epsfxsize=0.75\textwidth
-\fig{\sfile{figures}{greedy-romania4.ps}}
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Thuộc tính của tìm kiếm tham lam}
+\heading{Ví dụ về tìm kiếm tham lam}
 
-\q{Đầy đủ (Complete)}
+\vspace*{0.3in}
 
-\q{Thời gian (Time)}
+\epsfxsize=1.1\textwidth
+\fig{\sfile{figures}{greedy-progress02.ps}}
 
-\q{Không gian bộ nhớ (Space)}
 
-\q{Tối ưu (Optimal)}
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Thuộc tính của tìm kiếm tham lam}
+\heading{Ví dụ về tìm kiếm tham lam}
 
-\q{Đầy đủ} Không -- có thể bị mắc kẹt trong các vòng lặp, ví dụ:\nl
+\vspace*{0.3in}
+
+\epsfxsize=1.1\textwidth
+\fig{\sfile{figures}{greedy-progress03.ps}}
+
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Ví dụ về tìm kiếm tham lam}
+
+\vspace*{0.3in}
+
+\epsfxsize=1.1\textwidth
+\fig{\sfile{figures}{greedy-progress04.ps}}
+
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Thuộc tính tìm kiếm tham lam}
+
+\q{Hoàn thành}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Thuộc tính tìm kiếm tham lam}
+
+\q{Hoàn thành} Không--có thể bị mắc kẹt trong các vòng lặp, ví dụ: với Oradea làm mục tiêu,\nl
 Iasi $\rightarrow$ Neamt $\rightarrow$ Iasi $\rightarrow$ Neamt $\rightarrow$\\
-Sẽ đầy đủ trong không gian hữu hạn nếu có kiểm tra trạng thái lặp
+Hoàn thành trong không gian hữu hạn với việc kiểm tra trạng thái lặp lại
 
-\q{Thời gian} $O(b^m)$, nhưng một heuristic tốt có thể cải thiện đáng kể
+\q{Thời gian}
 
-\q{Không gian} $O(b^m)$ --- giữ tất cả các nút trong bộ nhớ
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Thuộc tính tìm kiếm tham lam}
+
+\q{Hoàn thành} Không--có thể bị mắc kẹt trong các vòng lặp, ví dụ:\nl
+Iasi $\rightarrow$ Neamt $\rightarrow$ Iasi $\rightarrow$ Neamt $\rightarrow$\\
+Hoàn thành trong không gian hữu hạn với việc kiểm tra trạng thái lặp lại
+
+\q{Thời gian} \mat{$O(b^m)$}, nhưng phương pháp phỏng đoán tốt có thể mang lại sự cải thiện đáng kể
+
+\q{Không gian}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Thuộc tính tìm kiếm tham lam}
+
+\q{Hoàn thành} Không--có thể bị mắc kẹt trong các vòng lặp, ví dụ:\nl
+Iasi $\rightarrow$ Neamt $\rightarrow$ Iasi $\rightarrow$ Neamt $\rightarrow$\\
+Hoàn thành trong không gian hữu hạn với việc kiểm tra trạng thái lặp lại
+
+\q{Thời gian} \mat{$O(b^m)$}, nhưng phương pháp phỏng đoán tốt có thể mang lại sự cải thiện đáng kể
+
+\q{Space} \mat{$O(b^m)$}---giữ tất cả các nút trong bộ nhớ
+
+\q{Tối ưu}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Thuộc tính tìm kiếm tham lam}
+
+\q{Hoàn thành} Không--có thể bị mắc kẹt trong các vòng lặp, ví dụ:\nl
+Iasi $\rightarrow$ Neamt $\rightarrow$ Iasi $\rightarrow$ Neamt $\rightarrow$\\
+Hoàn thành trong không gian hữu hạn với việc kiểm tra trạng thái lặp lại
+
+\q{Thời gian} \mat{$O(b^m)$}, nhưng phương pháp phỏng đoán tốt có thể mang lại sự cải thiện đáng kể
+
+\q{Space} \mat{$O(b^m)$}---giữ tất cả các nút trong bộ nhớ
 
 \q{Tối ưu} Không
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Tìm kiếm A$^*$}
+\heading{{\Astar} tìm kiếm}
 
-Ý tưởng: tránh phát triển các đường đi đã tốn kém
+\note{Ý tưởng}: tránh mở rộng những con đường vốn đã tốn kém
 
-Hàm đánh giá $f(n) = g(n) + h(n)$
+Hàm đánh giá \mat{$f(n) = g(n) + h(n)$}
 
-$g(n)$ = chi phí tính đến hiện tại để đạt đến $n$\\
-$h(n)$ = chi phí ước tính đến đích từ $n$\\
-$f(n)$ = tổng chi phí ước tính của đường đi qua $n$ đến đích
+\mat{$g(n)$} = chi phí cho đến nay để đạt được \mat{$n$}\\
+\mat{$h(n)$} = chi phí ước tính cho mục tiêu từ \mat{$n$}\\
+\mat{$f(n)$} = tổng chi phí ước tính của đường đi qua \mat{$n$} tới mục tiêu
 
-Tìm kiếm A$^*$ sử dụng một heuristic {\em chấp nhận được} (admissible)\\
-nghĩa là, $h(n) \leq h^*(n)$ trong đó $h^*(n)$ là chi phí {\em thực tế} từ $n$.
+Tìm kiếm {\Astar} sử dụng phương pháp phỏng đoán \defn{admissible}\\
+tức là, \mat{$h(n) \leq h^*(n)$} trong đó \mat{$h^*(n)$} là chi phí \emph{true} từ \mat{$n$}.\\
+(Cũng yêu cầu \mat{$h(n)\geq 0$}, vì vậy \mat{$h(G)=0$} cho bất kỳ mục tiêu nào \mat{$G$}.)
 
-Ví dụ, $h_{{\rm SLD}}(n)$ không bao giờ đánh giá quá cao khoảng cách đường bộ thực tế
+Ví dụ: \mat{$h_{{\rm SLD}}(n)$} không bao giờ đánh giá quá cao khoảng cách đường thực tế
 
-\u{Định lý}: Tìm kiếm A$^*$ là tối ưu
-
-
-
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Ví dụ tìm kiếm A$^*$}
-
-\vspace*{0.3in}
-
-\epsfxsize=1.1\textwidth
-\fig{\sfile{figures}{astar-romania1.ps}}
-
-
-%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pheading{Ví dụ tìm kiếm A$^*$}
-
-\vspace*{0.3in}
-
-\epsfxsize=1.1\textwidth
-\fig{\sfile{figures}{astar-romania2.ps}}
-
-
-%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pheading{Ví dụ tìm kiếm A$^*$}
-
-\vspace*{0.3in}
-
-\epsfxsize=1.1\textwidth
-\fig{\sfile{figures}{astar-romania3.ps}}
-
-
-%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pheading{Ví dụ tìm kiếm A$^*$}
-
-\vspace*{0.3in}
-
-\epsfxsize=1.1\textwidth
-\fig{\sfile{figures}{astar-romania4.ps}}
-
-
-%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pheading{Ví dụ tìm kiếm A$^*$}
-
-\vspace*{0.3in}
-
-\epsfxsize=1.1\textwidth
-\fig{\sfile{figures}{astar-romania5.ps}}
-
-
-%%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pheading{Ví dụ tìm kiếm A$^*$}
-
-\vspace*{0.3in}
-
-\epsfxsize=1.1\textwidth
-\fig{\sfile{figures}{astar-romania6.ps}}
-
+\note{Định lý}: tìm kiếm {\Astar} là tối ưu
 
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Tính tối ưu của A$^*$ (chứng minh tiêu chuẩn)}
+\heading{{\Astar} ví dụ tìm kiếm}
 
-Giả sử một nút đích không tối ưu $G_2$ đã được sinh ra
-và đang ở trong hàng đợi. Gọi $n$ là một nút chưa được phát triển
-nằm trên đường đi ngắn nhất đến đích tối ưu $G_1$.
+\vspace*{0.3in}
 
-\epsfxsize=0.5\textwidth
+\epsfxsize=1.1\textwidth
+\fig{\sfile{figures}{astar-progress01.ps}}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{{\Astar} ví dụ tìm kiếm}
+
+\vspace*{0.3in}
+
+\epsfxsize=1.1\textwidth
+\fig{\sfile{figures}{astar-progress02.ps}}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{{\Astar} ví dụ tìm kiếm}
+
+\vspace*{0.3in}
+
+\epsfxsize=1.1\textwidth
+\fig{\sfile{figures}{astar-progress03.ps}}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{{\Astar} ví dụ tìm kiếm}
+
+\vspace*{0.3in}
+
+\epsfxsize=1.1\textwidth
+\fig{\sfile{figures}{astar-progress04.ps}}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{{\Astar} ví dụ tìm kiếm}
+
+\vspace*{0.3in}
+
+\epsfxsize=1.1\textwidth
+\fig{\sfile{figures}{astar-progress05.ps}}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{{\Astar} ví dụ tìm kiếm}
+
+\vspace*{0.3in}
+
+\epsfxsize=1.1\textwidth
+\fig{\sfile{figures}{astar-progress06.ps}}
+
+
+
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Tính tối ưu của {\Astar} (bằng chứng tiêu chuẩn)}
+
+Giả sử một số mục tiêu dưới mức tối ưu \mat{$G_2$} đã được tạo
+và đang trong hàng đợi. Đặt \mat{$n$} là một nút chưa được mở rộng
+trên con đường ngắn nhất tới mục tiêu tối ưu \mat{$G_1$}.
+
+\epsfxsize=0,5\textwidth
 \fig{\file{figures}{astar-proof.ps}}
 
 \begin{eqnarray*}
-f(G_2) & = &  g(G_2)\qquad \mbox{vì } h(G_2) = 0 \\
-       & > &  g(G_1)\qquad \mbox{vì } G_2 \mbox{ là không tối ưu} \\
-      &\geq& f(n)   \qquad \mbox{vì } h \mbox{ là chấp nhận được} 
+f(G_2) & = &  g(G_2)\qquad {\rm since\ }h(G_2) = 0 \\
+       & > &  g(G_1)\qquad {\rm since\ }G_2 {\rm\ is\ suboptimal} \\
+      &\geq& f(n)   \qquad {\rm since\ }h {\rm\ is\ admissible} 
 \end{eqnarray*}
 
-Vì $f(G_2) > f(n)$, A$^*$ sẽ không bao giờ chọn $G_2$ để phát triển
+Vì \mat{$f(G_2) > f(n)$}, {\Astar} sẽ không bao giờ chọn \mat{$G_2$} để mở rộng
 
 
 
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Tính tối ưu của A$^*$ (hữu ích hơn)}
+\heading{Tính tối ưu của {\Astar} (hữu ích hơn)}
 
-\u{Bổ đề}: A$^*$ phát triển các nút theo thứ tự giá trị $f$ tăng dần
+\note{ Bổ đề}: {\Astar} mở rộng các nút theo thứ tự tăng dần giá trị \mat{$f$}$^*$
 
-Từ từ thêm các ``đường đồng mức $f$'' của các nút (so sánh với tìm kiếm chiều rộng thêm các lớp)\\
-Đường đồng mức $i$ chứa tất cả các nút có $f=f_i$, trong đó $f_i < f_{i+1}$
+Dần dần thêm ``\mat{$f$}-contours'' của các nút (xem thêm các lớp theo chiều rộng đầu tiên)\\
+Đường viền \mat{$i$} có tất cả các nút có \mat{$f=f_i$}, trong đó \mat{$f_i < f_{i+1}$}
 
 \vspace*{0.3in}
 
-\epsfxsize=0.75\textwidth
+\epsfxsize=0,75\textwidth
 \fig{\file{figures}{f-circles.ps}}
 
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Thuộc tính của A$^*$}
+\heading{Thuộc tính của {\Astar}
 
-\q{Đầy đủ} Có, trừ khi có vô số nút với $f \leq f(G)$
+\q{Hoàn thành}
 
-\q{Thời gian} Hàm mũ theo [sai số tương đối của $h$ $\times$ chiều dài của giải pháp]
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Thuộc tính của {\Astar}
 
-\q{Không gian} Giữ tất cả các nút trong bộ nhớ
+\q{Hoàn thành} Có, trừ khi có vô số nút có \mat{$f \leq f(G)$}
 
-\q{Tối ưu} Có --- không thể phát triển $f_{i+1}$ cho đến khi $f_i$ hoàn tất
+\q{Thời gian}
 
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Thuộc tính của {\Astar}
+
+\q{Hoàn thành} Có, trừ khi có vô số nút có \mat{$f \leq f(G)$}
+
+\q{Thời gian} Hàm mũ theo [lỗi tương đối trong \mat{$h$} $\times$ độ dài của soln.]
+
+\q{Không gian}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Thuộc tính của {\Astar}
+
+\q{Hoàn thành} Có, trừ khi có vô số nút có \mat{$f \leq f(G)$}
+
+\q{Thời gian} Hàm mũ theo [lỗi tương đối trong \mat{$h$} $\times$ độ dài của soln.]
+
+\q{Space} Giữ tất cả các nút trong bộ nhớ
+
+\q{Tối ưu}
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Thuộc tính của {\Astar}
+
+\q{Hoàn thành} Có, trừ khi có vô số nút có \mat{$f \leq f(G)$}
+
+\q{Thời gian} Hàm mũ theo [lỗi tương đối trong \mat{$h$} $\times$ độ dài của soln.]
+
+\q{Space} Giữ tất cả các nút trong bộ nhớ
+
+\q{Tối ưu} Có---không thể mở rộng \mat{$f_{i+1}$} cho đến khi \mat{$f_i$} kết thúc
+
+{\Astar} mở rộng tất cả các nút bằng \mat{$f(n) < C^*$}\\
+{\Astar} mở rộng một số nút bằng \mat{$f(n) = C^*$}\\
+{\Astar} không mở rộng nút nào với \mat{$f(n) > C^*$}
+
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Chứng minh bổ đề: Tính nhất quán}
+
+Một phương pháp phỏng đoán là \defn{nhất quán} nếu \hfill\raisebox{-0.35\textwidth[0pt][0pt]{\epsfxsize=0.3\textwidth\epsffile{\file{figures}{consistency.ps}}}
+\[
+  h(n) \leq c(n,a,n') + h(n')
+\]
+Nếu \mat{$h$} nhất quán, chúng ta có\
+\mat{\begin{eqnarray*}
+f(n') &=& g(n') + h(n') \\
+      &=& g(n) + c(n,a,n') + h(n') \\
+      &\geq& g(n) + h(n) \\
+      &=& f(n)
+\end{eqnarray*}}
+Tức là, \mat{$f(n)$} không giảm dọc theo bất kỳ đường dẫn nào.
 
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Chứng minh bổ đề: Pathmax}
+\heading{Các phương pháp phỏng đoán được chấp nhận}
 
-Đối với một số heuristic chấp nhận được, $f$ có thể {\em giảm} dọc theo một đường đi
+Ví dụ: đối với câu đố 8:
 
-Ví dụ, giả sử $n'$ là một nút kế tiếp của $n$
+\mat{$h_1(n)$} = số ô bị đặt sai vị trí\\
+\mat{$h_2(n)$} = tổng khoảng cách \defn{Manhattan} \nl
+(tức là số ô vuông từ vị trí mong muốn của mỗi ô)
 
-\vspace*{0.2in}
-
-\epsfxsize=0.35\textwidth
-\fig{\file{figures}{pathmax-example.ps}}
-
-Nhưng điều này ném bỏ thông tin!\\
-$f(n)=9 \Rightarrow$ chi phí thực sự của đường đi qua $n$ là $\geq 9$\\
-Do đó chi phí thực sự của đường đi qua $n'$ cũng $\geq 9$
-
-Điều chỉnh Pathmax cho A$^*$:\\
-Thay vì $f(n') = g(n') + h(n')$, sử dụng $f(n') = max(g(n') + h(n'), f(n))$
-
-Với pathmax, $f$ luôn không giảm dọc theo bất kỳ đường đi nào
-
-
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Các heuristic chấp nhận được}
-
-Ví dụ, cho bài toán 8-puzzle (trò chơi xếp số 8 ô):
-
-$h_1(n)$ = số ô đặt sai vị trí\\
-$h_2(n)$ = tổng khoảng cách \u{Manhattan}\nl
-(tức là tổng số ô vuông từ vị trí hiện tại đến vị trí mong muốn của mỗi ô)
-
-\epsfxsize=0.5\textwidth
+\epsfxsize=0,5\textwidth
 \fig{\file{figures}{8puzzle.ps}}
 
-\q{$h_1(S)$ =} \\
+\q{$h_2(S)$ =} \\
 \q{$h_2(S)$ =} 
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Các heuristic chấp nhận được}
+\heading{Các phương pháp phỏng đoán được chấp nhận}
 
-Ví dụ, cho bài toán 8-puzzle:
+Ví dụ: đối với câu đố 8:
 
-$h_1(n)$ = số ô đặt sai vị trí\\
-$h_2(n)$ = tổng khoảng cách \u{Manhattan}\nl
-(tức là tổng số ô vuông từ vị trí hiện tại đến vị trí mong muốn của mỗi ô)
+\mat{$h_1(n)$} = số ô bị đặt sai vị trí\\
+\mat{$h_2(n)$} = tổng khoảng cách \defn{Manhattan} \nl
+(tức là số ô vuông từ vị trí mong muốn của mỗi ô)
 
-\epsfxsize=0.5\textwidth
+\epsfxsize=0,5\textwidth
 \fig{\file{figures}{8puzzle.ps}}
 
-\q{$h_1(S)$ =} 7\\
-\q{$h_2(S)$ =} 2+3+3+2+4+2+0+2 = 18
-
+\q{$h_2(S)$ =} 6\\
+\q{$h_2(S)$ =} 4+0+3+3+1+0+2+1 = {14}
 
 
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Sự vượt trội (Dominance)}
+\heading{Sự thống trị}
 
-Nếu $h_2(n) \geq h_1(n)$ với mọi $n$ (cả hai đều chấp nhận được)\\
-thì $h_2$ {\em vượt trội} $h_1$ và tốt hơn cho quá trình tìm kiếm
+Nếu \mat{$h_2(n) \geq h_1(n)$} cho tất cả \mat{$n$} (cả hai đều được chấp nhận)\\
+thì \mat{$h_2$} \defn{chiếm ưu thế} \mat{$h_1$} và tốt hơn cho tìm kiếm
 
 Chi phí tìm kiếm điển hình:
 
 \begin{tabular}{ll}
-$d=14$ & IDS = 3,473,941 nút \\
+$d=14$ & IDS = 3.473.941 nút \\
        & A$^*(h_1)$ = 539 nút \\
        & A$^*(h_2)$ = 113 nút \\
-$d=14$ & IDS = quá nhiều nút \\
-       & A$^*(h_1)$ = 39,135 nút \\
-       & A$^*(h_2)$ = 1,641 nút 
+$d=24$ & IDS $\approx$ 54.000.000.000 nút \\
+       & A$^*(h_1)$ = 39.135 nút \\
+       & A$^*(h_2)$ = 1.641 nút 
 \end{tabular}
 
-
-
-
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Bài toán nới lỏng (Relaxed problems)}
-
-Các heuristic chấp nhận được có thể được suy ra từ chi phí giải pháp\\
-{\em chính xác} của phiên bản {\em nới lỏng} của bài toán
-
-Nếu các quy tắc của bài toán 8-puzzle được nới lỏng để một ô có thể di chuyển
-{\em bất cứ nơi đâu}, thì $h_1(n)$ cho ta giải pháp ngắn nhất
-
-Nếu các quy tắc được nới lỏng để một ô có thể di chuyển đến {\em bất kỳ ô
-kề cạnh nào}, thì $h_2(n)$ cho ta giải pháp ngắn nhất
-
-Đối với bài toán Người giao hàng (TSP): gọi đường đi là {\em bất kỳ} cấu trúc nào nối tất cả các thành phố\nl
-$\Longrightarrow$ heuristic là cây khung nhỏ nhất (minimum spanning tree)
-
-
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Thuật toán cải tiến lặp (Iterative improvement algorithms)}
-
-Trong nhiều bài toán tối ưu hóa, {\em đường đi} không quan trọng;\\
-bản thân trạng thái đích chính là giải pháp
-
-Khi đó, không gian trạng thái = tập các cấu hình ``đầy đủ'';\nl
-tìm cấu hình {\em tối ưu}, ví dụ TSP\nl
-hoặc tìm cấu hình thỏa mãn ràng buộc, ví dụ n-quân hậu
-
-Trong những trường hợp này, có thể sử dụng các thuật toán {\em cải tiến lặp};\\
-giữ một trạng thái ``hiện tại'' duy nhất, và cố gắng cải thiện nó
-
-Không gian bộ nhớ không đổi, thích hợp cho cả tìm kiếm trực tuyến và ngoại tuyến
+Với bất kỳ phương pháp phỏng đoán được chấp nhận nào \mat{$h_a$}, \mat{$h_b$},
+\mat{\[
+  h(n) = \max(h_a(n),h_b(n))
+\]}
+cũng được chấp nhận và chiếm ưu thế \mat{$h_a$}, \mat{$h_b$}
 
 
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Ví dụ: Bài toán Người giao hàng (TSP)}
+\heading{Các vấn đề đã được giải quyết}
 
-Tìm hành trình ngắn nhất đi qua mỗi thành phố đúng một lần
+Các phương pháp phỏng đoán được chấp nhận có thể được rút ra từ \emph{chính xác}\\
+chi phí giải pháp của phiên bản \emph{thoải mái} của vấn đề
+
+Nếu các quy tắc của câu đố 8 được nới lỏng để một viên gạch có thể di chuyển
+\emph{bất cứ nơi nào}, sau đó \mat{$h_1(n)$} đưa ra giải pháp ngắn nhất
+
+Nếu các quy tắc được nới lỏng để một ô có thể di chuyển tới \emph{bất kỳ ô liền kề nào
+Square}, sau đó \mat{$h_2(n)$} cho lời giải ngắn nhất
+
+Điểm mấu chốt: chi phí giải pháp tối ưu của một vấn đề thoải mái \\
+không lớn hơn chi phí giải pháp tối ưu của bài toán thực
+
+%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\heading{Các vấn đề đã được giải quyết tiếp.}
+
+Ví dụ nổi tiếng: \defn{vấn đề của nhân viên bán hàng du lịch} (TSP)\\
+Tìm chuyến đi ngắn nhất đến thăm tất cả các thành phố đúng một lần
 
 \vspace*{0.3in}
 
-\epsfxsize=0.7\textwidth
-\fig{\file{figures}{tsp-sequence.ps}}
+\epsfxsize=0,75\textwidth
+\fig{\file{figures}{tsp-mst.ps}}
+
+\defn{ Cây bao trùm tối thiểu } có thể được tính trong \mat{$O(n^2)$} \\
+và là giới hạn dưới của hành trình (mở) ngắn nhất
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Ví dụ: Bài toán $n$-quân hậu}
+\heading{Tóm tắt}
 
-Đặt $n$ quân hậu trên bàn cờ $n \times n$ sao cho không có hai quân hậu nào nằm
-trên cùng một\\
-hàng, cột, hoặc đường chéo
+Hàm heuristic ước tính chi phí của các đường đi ngắn nhất
 
-\vspace*{0.3in}
+Phương pháp phỏng đoán tốt có thể giảm đáng kể chi phí tìm kiếm 
 
-\epsfxsize=1.0\textwidth
-\fig{\file{figures}{4queens-sequence.ps}}
+Tìm kiếm đầu tiên tốt nhất tham lam mở rộng thấp nhất \mat{$h$} \al
+  -- không đầy đủ và không phải lúc nào cũng tối ưu
 
+Tìm kiếm {\Astar} mở rộng ở mức thấp nhất \mat{$g+h$}\al
+  -- đầy đủ và tối ưu\al
+  -- cũng có hiệu quả tối ưu (tối đa các điểm ngắt, để tìm kiếm chuyển tiếp)
 
-
-
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Leo đồi (Hill-climbing / gradient ascent / descent)}
-
-``Giống như leo đỉnh Everest trong màn sương mù dày đặc với chứng mất trí nhớ''
-
-\input{\file{algorithms}{hill-climbing-algorithm}}
-
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Leo đồi (tiếp)}
-
-Vấn đề: tùy thuộc vào trạng thái ban đầu, có thể bị mắc kẹt ở cực đại cục bộ (local maxima)
-
-\vspace*{0.3in}
-
-\epsfxsize=0.8\textwidth
-\fig{\file{figures}{hill-climbing-maxima.ps}}
-
-
-
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Luyện kim mô phỏng (Simulated annealing)}
-
-Ý tưởng: thoát khỏi cực đại cục bộ bằng cách cho phép một số bước đi ``tồi''\\
-{\em nhưng giảm dần kích thước và tần suất của chúng}
-
-\input{\file{algorithms}{simulated-annealing-algorithm}}
-
-
-
-
-
-%%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Thuộc tính của luyện kim mô phỏng}
-
-Ở một ``nhiệt độ'' cố định $T$, xác suất chiếm hữu trạng thái đạt đến\\
-phân bố Boltzman
-\[
-p(x) = \alpha e^{\frac{E(x)}{kT}}
-\]
-$T$ giảm đủ chậm $\Longrightarrow$ luôn đạt được trạng thái tốt nhất
-
-\q{Đây có nhất thiết là một sự đảm bảo thú vị không?}
-
-Được phát triển bởi Metropolis và cộng sự vào năm 1953, dùng cho mô phỏng quá trình vật lý
-
-Được sử dụng rộng rãi trong thiết kế bố trí VLSI, lập lịch hàng không, v.v.
-
-
-
+Các phương pháp phỏng đoán có thể chấp nhận được có thể được rút ra từ lời giải chính xác của các bài toán thoải mái
 
 \end{huge}
 \end{document}
