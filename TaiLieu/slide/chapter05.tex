@@ -1,7 +1,7 @@
 \documentclass{article}
 \usepackage{fleqn}
 \usepackage{epsf}
-\usepackage[dvips]{color}
+\usepackage{color}
 \usepackage{aima2e-slides}
 
 \begin{document}
@@ -50,7 +50,7 @@ hơn các thuật toán tìm kiếm tiêu chuẩn
 
 \vspace*{-0.0in}
 
-\epsfxsize=0,65\textwidth
+\epsfxsize=0.65\textwidth
 \fig{\file{figures}{australia.ps}}
 
 \vspace*{-0.6in}
@@ -66,7 +66,7 @@ ví dụ: \mat{$WA\neq NT$} (nếu ngôn ngữ cho phép điều này) hoặc \a
 
 \vspace*{0.1in}
 
-\epsfxsize=0,65\textwidth
+\epsfxsize=0.65\textwidth
 \fig{\file{figures}{australia-solution.ps}}
 
 \note{Giải pháp} là các bài tập đáp ứng tất cả các ràng buộc, ví dụ:\\
@@ -83,7 +83,7 @@ ví dụ: \mat{$WA\neq NT$} (nếu ngôn ngữ cho phép điều này) hoặc \a
 
 \vspace*{-0.5in}
 
-\epsfxsize=0,6\textwidth
+\epsfxsize=0.6\textwidth
 \fig{\file{figures}{australia-csp.ps}}
 
 Các thuật toán CSP có mục đích chung sử dụng cấu trúc biểu đồ\\
@@ -126,7 +126,7 @@ $\rightarrow$ các vấn đề tối ưu hóa bị ràng buộc
 
 \vspace*{0.3in}
 
-\epsfxsize=0,85\textwidth
+\epsfxsize=0.85\textwidth
 \fig{\file{figures}{cryptarithmetic.ps}}
 
 \note{Biến}: \mat{$F\ T\ U\ W\ R\ O\ X_1\ X_2\ X_3$}\\
@@ -211,25 +211,25 @@ Có thể giải \mat{$n$}-quân hậu cho \mat{$n \approx 25$}
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \heading{Ví dụ quay lui}
 
-\epsfxsize=0,95\maxfigwidth
+\epsfxsize=0.95\maxfigwidth
 \fig{\sfile{figures}{backtrack-progress1.ps}}
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \heading{Ví dụ quay lui}
 
-\epsfxsize=0,95\maxfigwidth
+\epsfxsize=0.95\maxfigwidth
 \fig{\sfile{figures}{backtrack-progress2.ps}}
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \heading{Ví dụ quay lui}
 
-\epsfxsize=0,95\maxfigwidth
+\epsfxsize=0.95\maxfigwidth
 \fig{\sfile{figures}{backtrack-progress3.ps}}
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \heading{Ví dụ quay lui}
 
-\epsfxsize=0,95\maxfigwidth
+\epsfxsize=0.95\maxfigwidth
 \fig{\sfile{figures}{backtrack-progress4.ps}}
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -421,7 +421,7 @@ Có thể chạy như một bộ tiền xử lý hoặc sau mỗi lần gán
 
 \vspace*{-0.4in}
 
-\epsfxsize=0,6\textwidth
+\epsfxsize=0.6\textwidth
 \fig{\file{figures}{australia-csp.ps}}
 
 Tasmania và đất liền là \defn{bài toán con độc lập}
@@ -445,7 +445,7 @@ Ví dụ: \mat{$n\eq 80$}, \mat{$d\eq 2$}, \mat{$c\eq 20$}\al
 
 \vspace*{0.3in}
 
-\epsfxsize=0,5\textwidth
+\epsfxsize=0.5\textwidth
 \fig{\file{figures}{tree-csp1.ps}}
 
 \note{Định lý}: nếu đồ thị ràng buộc không có vòng lặp, thì CSP có thể được giải theo 
@@ -467,10 +467,10 @@ sao cho mọi nút cha của nút đều đứng trước nó theo thứ tự
 
 \vspace*{0.2in}
 
-\epsfxsize=0,95\textwidth
+\epsfxsize=0.95\textwidth
 \fig{\file{figures}{tree-csp2.ps}}
 
-2. Đối với \mat{$j$} từ \mat{$n$} xuống \mat{$2$}, hãy áp dụng \prog{RemoveInconsistent\mat{\mat{$(Parent(X_j),X_j)$}}
+2. Đối với \mat{$j$} từ \mat{$n$} xuống \mat{$2$}, hãy áp dụng \prog{RemoveInconsistent\mat{\mat{$(Parent(X_j),X_j)$}}}
 
 3. Đối với \mat{$j$} từ \mat{$1$} đến \mat{$n$}, gán \mat{$X_j$} nhất quán với \mat{$Parent(X_j)$}
 
@@ -481,7 +481,7 @@ sao cho mọi nút cha của nút đều đứng trước nó theo thứ tự
 
 \vspace*{0.2in}
 
-\epsfxsize=0,75\textwidth
+\epsfxsize=0.75\textwidth
 \fig{\file{figures}{australia-cutset.ps}}
 
 
@@ -523,7 +523,7 @@ tức là leo dốc với \mat{$h(n)$} = tổng số ràng buộc bị vi phạm
 
 \vspace*{0.3in}
 
-\epsfxsize=0,7\textwidth
+\epsfxsize=0.7\textwidth
 \epsffile{\file{figures}{4queens-iterative.ps}}
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -540,7 +540,7 @@ R = \frac{\mbox{number of constraints}}{\mbox{number of variables}}
 
 \vspace*{0.2in}
 
-\epsfxsize=0,6\textwidth
+\epsfxsize=0.6\textwidth
 \fig{\file{figures}{random-csp-runtime.ps}}
 
 
@@ -602,7 +602,7 @@ Giả sử có một quân hậu ở mỗi cột. Mỗi người đi vào hàng 
 
 \end{minipage}}
 &
-\epsfxsize=2,3in
+\epsfxsize=2.3in
 \epsffile{\file{figures}{4queens.ps}}
 \end{tabular}
 

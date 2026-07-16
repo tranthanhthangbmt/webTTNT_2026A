@@ -104,7 +104,6 @@ Tầm nhìn đòi hỏi phải kết hợp nhiều tín hiệu
 ---
 ## Hình thành hình ảnh
 
-,75\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/pinhole.png)
 
 \mat{$P$} là một điểm trong cảnh, có tọa độ \mat{$ (X,Y,Z)$}
@@ -117,7 +116,6 @@ bằng các tam giác đồng dạng. Tỷ lệ/khoảng cách là không xác �
 ---
 ## Hình ảnh
 
-,85\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/stapler1+square.png)
 
 ---
@@ -136,7 +134,6 @@ tức là 0,25 terabit/giây
 
 Cường độ thay đổi theo tần số \mat{$\rightarrow$} tín hiệu vô chiều
 
-,65\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/color-vision.png)
 
 Mắt người có ba loại tế bào nhạy cảm với màu sắc;
@@ -146,7 +143,6 @@ mỗi tín hiệu tích hợp cường độ vectơ 3 phần tử \mat{$\implies
 ---
 ## Phát hiện cạnh
 
-,7\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/edge-test.png)
 
 Các cạnh trong ảnh \mat{$\Leftarrow$} sự gián đoạn trong cảnh:
@@ -167,14 +163,12 @@ Các cạnh trong ảnh \mat{$\Leftarrow$} sự gián đoạn trong cảnh:
   E_{\theta}(x,y) = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f_{\theta}(u,v) I(x+u,y+v)\,du\,dv
 \]}
 
-,75\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/spatially-oriented-filters.png)
 
 2) Gắn nhãn các pixel trên ngưỡng với hướng cạnh
 
 3) Suy ra các đoạn đường "sạch" bằng cách kết hợp các pixel cạnh có cùng hướng
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/edgels.png)
 
   
@@ -196,19 +190,16 @@ Các cạnh trong ảnh \mat{$\Leftarrow$} sự gián đoạn trong cảnh:
 
 ![Hình ảnh](../TaiLieu/slide_md/figures/00.png)
 
-,3\textwidth
  ![Hình ảnh](../TaiLieu/slide_md/figures/00.png) 
 ![Hình ảnh](../TaiLieu/slide_md/figures/flow.png)
-,3\textwidth
+
 ![Hình ảnh](../TaiLieu/slide_md/figures/19.png)
 
-,4\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/flow.png)
 
 ---
 ## Âm thanh nổi
 
-,85\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/stereo-pyramid.png)
 
 ---
@@ -229,7 +220,6 @@ Sinh lý học: \mat{$\delta\theta \geq 2.42\times 10^{-5}$} radian, \mat{$b\eq 
 ---
 ## Hoạ tiết
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/chem-test.png)
 
 Ý tưởng: giả sử kết cấu thực tế là đồng nhất, tính toán hình dạng bề mặt sẽ tạo ra sự biến dạng này
@@ -243,10 +233,8 @@ sự giao thoa đưa ra tính toán phi tiêu điểm về cường độ cảm 
 ---
 ## Các loại cạnh và đỉnh
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/diff-labels.png)
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/trihedral.png)
 
 Giả sử thế giới của các vật thể đa diện rắn có đỉnh tam diện
@@ -254,10 +242,8 @@ Giả sử thế giới của các vật thể đa diện rắn có đỉnh tam 
 ---
 ## Nhãn đỉnh/cạnh
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/vertex-a.png)
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/huffman-clowes.png)
 
 ---
@@ -357,7 +343,6 @@ Mỗi điểm được mô tả bằng biểu đồ ngữ cảnh cục bộ củ
 Xác định tổng khoảng cách giữa các hình bằng tổng khoảng cách cho
 điểm tương ứng dưới sự phù hợp tốt nhất
 
-,3\textwidth
 [Hình ảnh: \fig{figures/exampleA5.eps}]
 
 Việc học lân cận gần nhất đơn giản mang lại tỷ lệ lỗi 0,63\% trên dữ liệu chữ số NIST

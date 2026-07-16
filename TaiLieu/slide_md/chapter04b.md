@@ -1,6 +1,6 @@
 \usepackage{fleqn}
 \usepackage{epsf}
-\usepackage[dvips]{color}
+\usepackage{color}
 \usepackage{aima2e-slides}
 
 # Thuật toán tìm kiếm cục bộ (Local search algorithms)
@@ -42,7 +42,6 @@ Không gian cố định, thích hợp cho việc tìm kiếm trực tuyến cũ
 
 Bắt đầu với bất kỳ chuyến tham quan hoàn chỉnh nào, thực hiện trao đổi theo cặp
 
-,7\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/tsp-sequence.png)
 
 Các biến thể của phương pháp này đạt được trong khoảng 1\% mức tối ưu rất nhanh chóng với
@@ -89,7 +88,6 @@ function Hill-Climbing(problem) returns a state that is a local maximum
 
 Hữu ích khi xem xét \defn{cảnh quan không gian trạng thái}
 
-,8\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/hill-climbing.png)
 
 \defn{ Leo đồi khởi động lại ngẫu nhiên } vượt qua cực đại cục bộ---hoàn thành tầm thường

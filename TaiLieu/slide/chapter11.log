@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.24)  15 JUL 2026 17:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.24)  16 JUL 2026 22:28
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **./chapter11.tex
 (chapter11.tex
@@ -38,13 +38,86 @@ LaTeX Info: Redefining \] on input line 75.
 Already applied: [0000/00/00] Make \] robust on input line 83.
 ))
 (epsf.sty
-\epsffilein=\read2
-\epsfxsize=\dimen149
-\epsfysize=\dimen150
-\epsftsize=\dimen151
-\epsfrsize=\dimen152
-\epsftmp=\dimen153
-\pspoints=\dimen154
+Package: epsf 2026/07/16 Modern replacement using graphicx
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen149
+\Gin@req@width=\dimen150
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf.s
+ty
+Package: epstopdf 2020-01-24 v2.11 Conversion with epstopdf on the fly (HO)
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.s
+ty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/grfext\grfext.sty
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
+keys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+))
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+))
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
+.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+ (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
+fg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps,.ps]
+(grfext)             \AppendGraphicsExtensions on input line 11.
+\epsfxsize=\skip52
+\epsfysize=\skip53
 )
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
 Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
@@ -52,13 +125,9 @@ Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package color Info: Driver file: dvips.def on input line 149.
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\dvips.def
-File: dvips.def 2025/01/21 v3.2a Graphics/color driver for dvips
-) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\dvipsnam.def
-File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
-) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.lt
-x)) (aima2e-slides.sty
+Package color Info: Driver file: pdftex.def on input line 149.
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+) (aima2e-slides.sty
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
 
@@ -229,31 +298,31 @@ File: t5cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 ))
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
 Package: inputenc 2024/02/08 v1.3d Input encoding file
-\inpenc@prehook=\toks17
-\inpenc@posthook=\toks18
+\inpenc@prehook=\toks18
+\inpenc@posthook=\toks19
 )
 Package color Info: Redefining color red on input line 7.
 Package color Info: Redefining color cyan on input line 14.
-\headingwidth=\skip52
-\backdrop=\skip53
-\backheight=\skip54
-\backwidth=\skip55
-\xborder=\skip56
-\yborder=\skip57
-\headtotal=\skip58
-\codewidth=\skip59
-\boxwidth=\skip60
-\boxheight=\skip61
-\skipwidth=\skip62
-\roomheight=\skip63
-\charheight=\skip64
-\marginlineskip=\skip65
-\marginwidth=\skip66
-\textplusmarginwidth=\skip67
-\maxfigwidth=\skip68
-\tablewidth=\skip69
-\captionskip=\skip70
-\tcaptionskip=\skip71
+\headingwidth=\skip54
+\backdrop=\skip55
+\backheight=\skip56
+\backwidth=\skip57
+\xborder=\skip58
+\yborder=\skip59
+\headtotal=\skip60
+\codewidth=\skip61
+\boxwidth=\skip62
+\boxheight=\skip63
+\skipwidth=\skip64
+\roomheight=\skip65
+\charheight=\skip66
+\marginlineskip=\skip67
+\marginwidth=\skip68
+\textplusmarginwidth=\skip69
+\maxfigwidth=\skip70
+\tablewidth=\skip71
+\captionskip=\skip72
+\tcaptionskip=\skip73
 )
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
@@ -278,27 +347,31 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
 LaTeX Font Info:    ... okay on input line 7.
 LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 7.
 LaTeX Font Info:    ... okay on input line 7.
- [1
-Non-PDF special ignored!
-<special> papersize=614.295pt,794.96999pt
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count284
+\scratchdimen=\dimen151
+\scratchbox=\box53
+\nofMPsegments=\count285
+\nofMParguments=\count286
+\everyMPshowfont=\toks20
+\MPscratchCnt=\count287
+\MPscratchDim=\dimen152
+\MPnumerator=\count288
+\makeMPintoPDFobject=\count289
+\everyMPtoPDFconversion=\toks21
+) [1
+
 
 Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-{C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
+<special> papersize=11in,8.5in
+{C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
 LaTeX Font Info:    Trying to load font information for T5+cmss on input line 1
 2.
- (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmss.fd
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmss.fd
 File: t5cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -308,69 +381,272 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 17.
 
-[2
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
+[2]
 
 LaTeX Font Warning: Font shape `T5/cmss/m/it' in size <20.74> not available
 (Font)              Font shape `T5/cmss/m/sl' tried instead on input line 27.
 
-[3
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.7 0.0 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/supermarket1.ps llx=47 lly=243 urx=543 ury=552 rwi...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [4
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-])
-Runaway argument?
-{-1.5in[0pt][0pt]{\epsffile {\file {figures}{operator-schema2.ps}}\\ \ETC.
-! File ended while scanning use of \raisebox .
-<inserted text> 
-                \par 
-<*> ./chapter11.tex
-                   
-I suspect you have forgotten a `}', causing me
-to read past where you wanted me to stop.
-I'll try to recover; but if the error is serious,
-you'd better type `E' or `X' now and fix your file.
+Package epstopdf Info: Source file: <figures/supermarket1.ps>
+(epstopdf)                    date: 2026-07-15 08:15:06
+(epstopdf)                    size: 20031 bytes
+(epstopdf)             Output file: <figures/supermarket1-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:06:44
+(epstopdf)                    size: 8206 bytes
+(epstopdf)             Command: <epstopdf figures/supermarket1.ps --outfile=fig
+ures/supermarket1-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 33.
+Package epstopdf Info: Output file is already uptodate.
+<figures/supermarket1-ps-converted-to.pdf, id=13, 497.86pt x 310.15875pt>
+File: figures/supermarket1-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/supermarket1-ps-converted-to.pdf>
+Package pdftex.def Info: figures/supermarket1-ps-converted-to.pdf  used on inpu
+t line 33.
+(pdftex.def)             Requested size: 491.43787pt x 306.16364pt.
+[3 <./figures/supermarket1-ps-converted-to.pdf>] [4]
+Package epstopdf Info: Source file: <figures/operator-schema2.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 11208 bytes
+(epstopdf)             Output file: <figures/operator-schema2-ps-converted-to.p
+df>
+(epstopdf)                    date: 2026-07-16 22:28:04
+(epstopdf)                    size: 5493 bytes
+(epstopdf)             Command: <epstopdf figures/operator-schema2.ps --outfile
+=figures/operator-schema2-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 62.
+Package epstopdf Info: Output file is already uptodate.
+<figures/operator-schema2-ps-converted-to.pdf, id=32, 97.36375pt x 81.30376pt>
+File: figures/operator-schema2-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/operator-schema2-ps-converted-to.pdf>
+Package pdftex.def Info: figures/operator-schema2-ps-converted-to.pdf  used on 
+input line 62.
+(pdftex.def)             Requested size: 122.85712pt x 102.59584pt.
+ [5 <./figures/operator-schema2-ps-converted-to.pdf>] [6] [7]
+Package epstopdf Info: Source file: <figures/plan-construction1.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 12610 bytes
+(epstopdf)             Output file: <figures/plan-construction1-ps-converted-to
+.pdf>
+(epstopdf)                    date: 2026-07-16 22:28:07
+(epstopdf)                    size: 6477 bytes
+(epstopdf)             Command: <epstopdf figures/plan-construction1.ps --outfi
+le=figures/plan-construction1-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 98.
+Package epstopdf Info: Output file is already uptodate.
+<figures/plan-construction1-ps-converted-to.pdf, id=52, 302.12875pt x 417.56pt>
 
-! Emergency stop.
-<*> ./chapter11.tex
-                   
-*** (job aborted, no legal \end found)
+File: figures/plan-construction1-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/plan-construction1-ps-converted-to.pdf>
+Package pdftex.def Info: figures/plan-construction1-ps-converted-to.pdf  used o
+n input line 98.
+(pdftex.def)             Requested size: 302.128pt x 417.55896pt.
+ [8 <./figures/plan-construction1-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/plan-construction2.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 15583 bytes
+(epstopdf)             Output file: <figures/plan-construction2-ps-converted-to
+.pdf>
+(epstopdf)                    date: 2026-07-16 22:28:09
+(epstopdf)                    size: 8752 bytes
+(epstopdf)             Command: <epstopdf figures/plan-construction2.ps --outfi
+le=figures/plan-construction2-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 106.
+Package epstopdf Info: Output file is already uptodate.
+<figures/plan-construction2-ps-converted-to.pdf, id=64, 314.17375pt x 421.575pt
+>
+File: figures/plan-construction2-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/plan-construction2-ps-converted-to.pdf>
+Package pdftex.def Info: figures/plan-construction2-ps-converted-to.pdf  used o
+n input line 106.
+(pdftex.def)             Requested size: 314.17297pt x 421.57396pt.
+ [9 <./figures/plan-construction2-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/plan-construction3.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 19184 bytes
+(epstopdf)             Output file: <figures/plan-construction3-ps-converted-to
+.pdf>
+(epstopdf)                    date: 2026-07-16 22:28:12
+(epstopdf)                    size: 10410 bytes
+(epstopdf)             Command: <epstopdf figures/plan-construction3.ps --outfi
+le=figures/plan-construction3-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 114.
+Package epstopdf Info: Output file is already uptodate.
+<figures/plan-construction3-ps-converted-to.pdf, id=79, 276.03125pt x 421.575pt
+>
+File: figures/plan-construction3-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/plan-construction3-ps-converted-to.pdf>
+Package pdftex.def Info: figures/plan-construction3-ps-converted-to.pdf  used o
+n input line 114.
+(pdftex.def)             Requested size: 276.03056pt x 421.57396pt.
+ [10 <./figures/plan-construction3-ps-converted-to.pdf>] [11] (algorithms/pop-a
+lgorithm1.tex
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <17.28> on input line 17.
 
- 
+Overfull \hbox (3.55833pt too wide) in paragraph at lines 1--18
+ []  
+ []
+
+) [12] (algorithms/pop-algorithm2.tex)
+Overfull \hbox (3.55833pt too wide) in paragraph at lines 1--141
+ []  
+ []
+
+[13]
+LaTeX Font Info:    Calculating math sizes for size <25> on input line 143.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <12.5> not available
+(Font)              size <12> substituted on input line 143.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <12.5> not available
+(Font)              size <12> substituted on input line 143.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <12.5> not available
+(Font)              size <12> substituted on input line 143.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <25> on input line 143.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <17.49992> on input line 143.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12.5> on input line 143.
+Package epstopdf Info: Source file: <figures/clobber.ps>
+(epstopdf)                    date: 2026-07-15 08:15:02
+(epstopdf)                    size: 14285 bytes
+(epstopdf)             Output file: <figures/clobber-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 22:28:14
+(epstopdf)                    size: 8579 bytes
+(epstopdf)             Command: <epstopdf figures/clobber.ps --outfile=figures/
+clobber-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 150.
+Package epstopdf Info: Output file is already uptodate.
+<figures/clobber-ps-converted-to.pdf, id=105, 210.7875pt x 254.9525pt>
+File: figures/clobber-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/clobber-ps-converted-to.pdf>
+Package pdftex.def Info: figures/clobber-ps-converted-to.pdf  used on input lin
+e 150.
+(pdftex.def)             Requested size: 210.78699pt x 254.95186pt.
+[14 <./figures/clobber-ps-converted-to.pdf>] [15]
+Package epstopdf Info: Source file: <figures/blocks-world.ps>
+(epstopdf)                    date: 2026-07-15 08:15:02
+(epstopdf)                    size: 16387 bytes
+(epstopdf)             Output file: <figures/blocks-world-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 22:28:16
+(epstopdf)                    size: 10443 bytes
+(epstopdf)             Command: <epstopdf figures/blocks-world.ps --outfile=fig
+ures/blocks-world-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 189.
+Package epstopdf Info: Output file is already uptodate.
+<figures/blocks-world-ps-converted-to.pdf, id=123, 500.87125pt x 359.3425pt>
+File: figures/blocks-world-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/blocks-world-ps-converted-to.pdf>
+Package pdftex.def Info: figures/blocks-world-ps-converted-to.pdf  used on inpu
+t line 189.
+(pdftex.def)             Requested size: 552.86174pt x 396.68712pt.
+ [16 <./figures/blocks-world-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/sussman1c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:06
+(epstopdf)                    size: 15395 bytes
+(epstopdf)             Output file: <figures/sussman1c-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 22:28:18
+(epstopdf)                    size: 6408 bytes
+(epstopdf)             Command: <epstopdf figures/sussman1c.ps --outfile=figure
+s/sussman1c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 197.
+Package epstopdf Info: Output file is already uptodate.
+<figures/sussman1c-ps-converted-to.pdf, id=141, 575.14874pt x 422.57875pt>
+File: figures/sussman1c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/sussman1c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/sussman1c-ps-converted-to.pdf  used on input l
+ine 197.
+(pdftex.def)             Requested size: 552.86174pt x 406.21907pt.
+ [17 <./figures/sussman1c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/sussman2c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:06
+(epstopdf)                    size: 17052 bytes
+(epstopdf)             Output file: <figures/sussman2c-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 22:28:20
+(epstopdf)                    size: 7546 bytes
+(epstopdf)             Command: <epstopdf figures/sussman2c.ps --outfile=figure
+s/sussman2c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 208.
+Package epstopdf Info: Output file is already uptodate.
+<figures/sussman2c-ps-converted-to.pdf, id=156, 575.14874pt x 422.57875pt>
+File: figures/sussman2c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/sussman2c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/sussman2c-ps-converted-to.pdf  used on input l
+ine 208.
+(pdftex.def)             Requested size: 552.86174pt x 406.21907pt.
+ [18 <./figures/sussman2c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/sussman3c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:06
+(epstopdf)                    size: 19039 bytes
+(epstopdf)             Output file: <figures/sussman3c-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 22:28:22
+(epstopdf)                    size: 9377 bytes
+(epstopdf)             Command: <epstopdf figures/sussman3c.ps --outfile=figure
+s/sussman3c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 218.
+Package epstopdf Info: Output file is already uptodate.
+<figures/sussman3c-ps-converted-to.pdf, id=171, 575.14874pt x 422.57875pt>
+File: figures/sussman3c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/sussman3c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/sussman3c-ps-converted-to.pdf  used on input l
+ine 218.
+(pdftex.def)             Requested size: 552.86174pt x 406.21907pt.
+ [19 <./figures/sussman3c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/sussman4c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:06
+(epstopdf)                    size: 20705 bytes
+(epstopdf)             Output file: <figures/sussman4c-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 22:28:24
+(epstopdf)                    size: 10054 bytes
+(epstopdf)             Command: <epstopdf figures/sussman4c.ps --outfile=figure
+s/sussman4c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 228.
+Package epstopdf Info: Output file is already uptodate.
+<figures/sussman4c-ps-converted-to.pdf, id=187, 575.14874pt x 422.57875pt>
+File: figures/sussman4c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/sussman4c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/sussman4c-ps-converted-to.pdf  used on input l
+ine 228.
+(pdftex.def)             Requested size: 552.86174pt x 406.21907pt.
+ [20 <./figures/sussman4c-ps-converted-to.pdf>] (chapter11.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+ ***********
+
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 0.5pt have occurred.
+
+ ) 
 Here is how much of TeX's memory you used:
- 1763 strings out of 467870
- 25042 string characters out of 5418355
- 437733 words of memory out of 5000000
- 30666 multiletter control sequences out of 15000+600000
- 640199 words of font info for 60 fonts, out of 8000000 for 9000
+ 3111 strings out of 467870
+ 51763 string characters out of 5418355
+ 443189 words of memory out of 5000000
+ 31947 multiletter control sequences out of 15000+600000
+ 646558 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,7n,65p,220b,263s stack positions out of 10000i,1000n,20000p,200000b,200000s
-!  ==> Fatal error occurred, no output PDF file produced!
+ 72i,14n,79p,232b,329s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmmi12.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmr12.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmr17.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/thanh/AppData/Local/Programs/MiKT
+eX/fonts/type1/vntex/vnr/vnbx12.pfb><C:/Users/thanh/AppData/Local/Programs/MiKT
+eX/fonts/type1/vntex/vnr/vncsc10.pfb><C:/Users/thanh/AppData/Local/Programs/MiK
+TeX/fonts/type1/vntex/vnr/vnr8.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTe
+X/fonts/type1/vntex/vnr/vnss17.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTe
+X/fonts/type1/vntex/vnr/vnssbx10.pfb><C:/Users/thanh/AppData/Local/Programs/MiK
+TeX/fonts/type1/vntex/vnr/vnssi17.pfb><C:/Users/thanh/AppData/Local/Programs/Mi
+KTeX/fonts/type1/vntex/vnr/vnti12.pfb>
+Output written on chapter11.pdf (20 pages, 260509 bytes).
+PDF statistics:
+ 248 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
+

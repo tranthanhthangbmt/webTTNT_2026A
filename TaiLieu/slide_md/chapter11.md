@@ -1,6 +1,6 @@
 \usepackage{fleqn}
 \usepackage{epsf}
-\usepackage[dvips]{color}
+\usepackage{color}
 \usepackage{aima2e-slides}
 
 # Lập kế hoạch (Planning)
@@ -23,7 +23,6 @@ Xét nhiệm vụ \txr*lấy sữa, chuối và máy khoan không dây*
 
 Các thuật toán tìm kiếm tiêu chuẩn dường như thất bại thảm hại:
 
-,8\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/supermarket1.png)
 
 Kiểm tra mục tiêu/kinh nghiệm sau thực tế không đầy đủ
@@ -52,7 +51,7 @@ Hệ thống lập kế hoạch thực hiện những việc sau:
 
 Mô tả hành động được sắp xếp gọn gàng, ngôn ngữ hạn chế
 
-**Hành động**: $Buy(x)$\raisebox{-1.5in[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/operator-schema2.png)
+**Hành động**: $Buy(x)$\raisebox{-1.5in}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/operator-schema2.png)
 
 **Điều kiện tiên quyết**: $At(p), Sells(p,x)$
 
@@ -94,17 +93,17 @@ và không có bước \txb{ nào có thể can thiệp } có thể hoàn tác n
 ---
 ## Ví dụ
 
-\centerline{\raisebox{-0.9\textheight[0pt][0pt]{\epsfysize=0.95\textheight![Hình ảnh](../TaiLieu/slide_md/figures/plan-construction1.png)}
+\centerline{\raisebox{-0.9\textheight}[0pt][0pt]{\epsfysize=0.95\textheight![Hình ảnh](../TaiLieu/slide_md/figures/plan-construction1.png)}
 
 ---
 ## Ví dụ
 
-\centerline{\raisebox{-0.9\textheight[0pt][0pt]{\epsfysize=0.95\textheight![Hình ảnh](../TaiLieu/slide_md/figures/plan-construction2.png)}
+\centerline{\raisebox{-0.9\textheight}[0pt][0pt]{\epsfysize=0.95\textheight![Hình ảnh](../TaiLieu/slide_md/figures/plan-construction2.png)}
 
 ---
 ## Ví dụ
 
-\centerline{\raisebox{-0.9\textheight[0pt][0pt]{\epsfysize=0.95\textheight![Hình ảnh](../TaiLieu/slide_md/figures/plan-construction3.png)}
+\centerline{\raisebox{-0.9\textheight}[0pt][0pt]{\epsfysize=0.95\textheight![Hình ảnh](../TaiLieu/slide_md/figures/plan-construction3.png)}
 
 ---
 ## Quy trình lập kế hoạch
@@ -174,7 +173,6 @@ function Select-Subgoal(plan) returns $S_{need, c$}
 \txb{clobberer} là một bước can thiệp có khả năng phá hủy
 điều kiện đạt được bởi một liên kết nhân quả. Ví dụ: $Go(Home)$ tắc nghẽn $At(Supermarket)$:
 
-,40\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/clobber.png)
  
 

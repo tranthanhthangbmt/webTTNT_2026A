@@ -25,9 +25,8 @@
 
 ![Hình ảnh](../TaiLieu/slide_md/figures/sequential-decision-world.png)
 
-,4\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/sequential-decision-world.png) \hspace*{1in} $s \in S$
-,2\textwidth
+
 $a \in A$
 
 Kỳ $s \in S$, hành động $a \in A$
@@ -55,13 +54,11 @@ Chính sách tối ưu tối đa hóa (giả sử) *tổng phần thưởng dự
 
 Chính sách tối ưu khi hình phạt của tiểu bang $R(s)$ là --0,04:
 
-,45\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/sequential-decision-policy.png)
 
 ---
 ## Rủi ro và phần thưởng
 
-,75\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/policy-flips4.png)
 
 ---
@@ -164,7 +161,6 @@ Một phương trình trên mỗi trạng thái = $n$ <u>phi tuyến </u> phươ
 Lặp lại đồng thời cho mọi $s$ cho đến khi "không thay đổi"
 \[ U(s) \leftarrow R(s) + \gamma\,\max_a \mysum_{s'} U(s') T(s,a,s')  &nbsp;&nbsp;&nbsp;&nbsp;  \mbox{for all } s\]
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/4x3-vi-curve.png)
 
 ---

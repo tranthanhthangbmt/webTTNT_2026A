@@ -14,7 +14,13 @@
 
 #### **Slide**
 
-*(Chưa có slide)*
+<div class="pdf-container" style="margin-bottom: 20px;">
+  <iframe src="TaiLieu/slide/chapter20a.pdf" width="100%" height="100%"></iframe>
+</div>
+
+<div class="pdf-container" style="margin-bottom: 20px;">
+  <iframe src="TaiLieu/slide/chapter20b.pdf" width="100%" height="100%"></iframe>
+</div>
 
 
 #### **Trắc nghiệm**

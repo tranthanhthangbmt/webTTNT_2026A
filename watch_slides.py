@@ -27,7 +27,7 @@ def main():
                     filename = os.path.basename(f)
                     
                     # 1. Compile to PDF using latexmk
-                    print(f"Compiling {filename} to PDF...")
+                    print(f"Compiling {filename} to PDF using pdflatex...")
                     try:
                         subprocess.run(
                             ['latexmk', '-pdf', '-shell-escape', '-interaction=nonstopmode', filename],

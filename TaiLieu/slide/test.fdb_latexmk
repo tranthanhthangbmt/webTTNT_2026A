@@ -1,0 +1,30 @@
+# Fdb version 4
+["dvips"] 1784173754.45406 "test.dvi" "test.ps" "test" 1784173757.47576 0
+  "test.dvi" 1784173754 384 045f51fdd0205e8f449448b3c2980fd1 "latex"
+  (generated)
+  "test.ps"
+  (rewritten before read)
+["latex"] 1784173753.58994 "test.tex" "test.dvi" "test" 1784173757.47425 0
+  "C:/Users/thanh/AppData/Local/MiKTeX/miktex/data/le/pdftex/latex.fmt" 1784046865 13333466 fe599c2ca9d2c98cf417c8032187d800 ""
+  "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/base/article.cls" 1761900684 20144 b966087dda3b194755eb460d32e2ef75 ""
+  "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/base/size10.clo" 1761900684 8448 686612a86f0e04f41ea577f5ec7e83d8 ""
+  "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/graphics-cfg/graphics.cfg" 1465894292 1224 978390e9c2234eab29404bc21b268d1e ""
+  "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/graphics-def/dvips.def" 1762694372 6789 86de240c158ee63ff8a8e12ed82d4c47 ""
+  "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/graphics/graphics.sty" 1749322634 18363 69bb4f5538964bfea50d1e6d89cbe69f ""
+  "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/graphics/graphicx.sty" 1749322634 8118 43b99e52946c33a23f5f43b52d5cc5ec ""
+  "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/graphics/keyval.sty" 1749322634 2671 d9941f4bf4750e9b0603c9a2ec54693b ""
+  "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/graphics/trig.sty" 1749322634 4023 e66acf578d6b564c4670fb57ff336a7a ""
+  "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/l3backend/l3backend-dvips.def" 1761202581 36609 211a83707a10296382938594c6db8f7c ""
+  "figures/agent-environment.ps" 1784078101 17123 af4782e973b8feb72c055de59f166b9f ""
+  "test.aux" 1784173754 32 3985256e7290058c681f74d7a3565a19 "latex"
+  "test.tex" 1784173562 166 f077c34b6ba54718556c8cb30b88d1ff ""
+  (generated)
+  "test.aux"
+  "test.dvi"
+  "test.log"
+  (rewritten before read)
+["ps2pdf"] 1784173755.76298 "test.ps" "test.pdf" "test" 1784173757.47604 0
+  "test.ps" 1784173755 57004 66b3d38abc1ecf493b148acb309a54c3 "dvips"
+  (generated)
+  "test.pdf"
+  (rewritten before read)

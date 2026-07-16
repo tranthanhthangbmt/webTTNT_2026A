@@ -1,15 +1,41 @@
 # Fdb version 4
-["pdflatex"] 1784083412.17028 "cpcs.tex" "cpcs.pdf" "cpcs" 1784083414.26209 0
-  "C:/Users/thanh/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1782268607 13333528 ce7767b4b1864107ed4ad937a79bf98c ""
+["dvips"] 0 "cpcs.dvi" "cpcs.ps" "cpcs" 0 -1
+  "cpcs.dvi" 1784196010 396 400a381db1638c383a42b76fe9e18b6f "latex"
+  (generated)
+  "cpcs.ps"
+  (rewritten before read)
+["latex"] 1784196008.56588 "cpcs.tex" "cpcs.dvi" "cpcs" 1784196010.85088 2
+  "C:/Users/thanh/AppData/Local/MiKTeX/miktex/data/le/pdftex/latex.fmt" 1784046865 13333466 fe599c2ca9d2c98cf417c8032187d800 ""
+  "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/generic/iftex/iftex.sty" 1734114575 7984 7dbb9280f03c0a315425f1b4f35d43ee ""
+  "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/generic/infwarerr/infwarerr.sty" 1575399508 8356 7bbb2c2373aa810be568c29e333da8ed ""
+  "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/generic/kvdefinekeys/kvdefinekeys.sty" 1576763304 5412 d5a2436094cd7be85769db90f29250a6 ""
+  "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/generic/ltxcmds/ltxcmds.sty" 1702206890 17865 1a9bd36b4f98178fa551aca822290953 ""
+  "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/generic/pdftexcmds/pdftexcmds.sty" 1623005277 20089 80423eac55aa175305d35b49e04fe23b ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/base/article.cls" 1761900684 20144 b966087dda3b194755eb460d32e2ef75 ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/base/size10.clo" 1761900684 8448 686612a86f0e04f41ea577f5ec7e83d8 ""
-  "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/l3backend/l3backend-pdftex.def" 1761202581 30662 bfd6e864f4ffc5018b0e2b6260c3181c ""
-  "cpcs.aux" 1784083413 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
-  "cpcs.tex" 1784081713 272 ce6f6dabf85f129cde7d2eac914d8703 ""
-  "epsf.sty" 1784040955 8344 4fe02452014c262d15e6b94053672392 ""
+  "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1623003186 13886 d1306dcf79a944f6988e688c1785f9ce ""
+  "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/epstopdf-pkg/epstopdf.sty" 1623003186 4393 47f27fd4d95928d20b1885ba77de11d2 ""
+  "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/graphics-cfg/graphics.cfg" 1465894292 1224 978390e9c2234eab29404bc21b268d1e ""
+  "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/graphics-def/dvips.def" 1762694372 6789 86de240c158ee63ff8a8e12ed82d4c47 ""
+  "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/graphics/graphics.sty" 1749322634 18363 69bb4f5538964bfea50d1e6d89cbe69f ""
+  "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/graphics/graphicx.sty" 1749322634 8118 43b99e52946c33a23f5f43b52d5cc5ec ""
+  "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/graphics/keyval.sty" 1749322634 2671 d9941f4bf4750e9b0603c9a2ec54693b ""
+  "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/graphics/trig.sty" 1749322634 4023 e66acf578d6b564c4670fb57ff336a7a ""
+  "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/grfext/grfext.sty" 1575399474 7133 b94bbacbee6e4fdccdc7f810b2aec370 ""
+  "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/kvoptions/kvoptions.sty" 1656236481 22555 6d8e155cfef6d82c3d5c742fea7c992e ""
+  "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/kvsetkeys/kvsetkeys.sty" 1665066333 13815 760b0c02f691ea230f5359c4e1de23a7 ""
+  "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/l3backend/l3backend-dvips.def" 1761202581 36609 211a83707a10296382938594c6db8f7c ""
+  "cpcs.aux" 1784196010 32 3985256e7290058c681f74d7a3565a19 "latex"
+  "cpcs.tex" 1784195777 272 ce6f6dabf85f129cde7d2eac914d8703 ""
+  "epsf.sty" 1784174136 996 233adc7198973012402c0c59c47151d5 ""
   "figures/full-CPCS-1.eps" 1784078104 1482338 703116d2487f24f0b9953ea615ea1c3d ""
   (generated)
   "cpcs.aux"
+  "cpcs.dvi"
   "cpcs.log"
+  (rewritten before read)
+["ps2pdf"] 0 "cpcs.ps" "cpcs.pdf" "cpcs" 0 -1
+  "cpcs.ps" 0 -1 0 "dvips"
+  (generated)
   "cpcs.pdf"
   (rewritten before read)

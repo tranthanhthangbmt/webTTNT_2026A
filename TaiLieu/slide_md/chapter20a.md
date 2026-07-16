@@ -60,7 +60,6 @@ Giả sử có năm loại túi kẹo:
   
 10\% là \mat{$h_5$}: 100\% kẹo chanh
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/candy-kinds.png)
 
 Sau đó, chúng tôi quan sát những viên kẹo được rút ra từ một số túi:  ![Hình ảnh](../TaiLieu/slide_md/figures/candy-obs.png)
@@ -114,7 +113,7 @@ ML là phương pháp học thống kê "chuẩn" (không phải Bayesian)
 ---
 ## Học tham số ML trong mạng Bayes
 
-Túi từ nhà sản xuất mới; phần \mat{$\theta$} của kẹo anh đào?in\raisebox{-1.25in[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/ml-network1.png)} 
+Túi từ nhà sản xuất mới; phần \mat{$\theta$} của kẹo anh đào?in\raisebox{-1.25in}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/ml-network1.png)} 
 
 Bất kỳ \mat{$\theta$} nào cũng có thể xảy ra: sự liên tục của các giả thuyết \mat{$h_{\theta}$} 
 
@@ -141,7 +140,7 @@ Có vẻ hợp lý nhưng gây ra vấn đề với số 0!
 ---
 ## Nhiều tham số
 
-Giấy gói màu đỏ/xanh phụ thuộc xác suất vào hương vị: \hspace*{0.75in}in\raisebox{-2.5in[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/ml-network2.png)} 
+Giấy gói màu đỏ/xanh phụ thuộc xác suất vào hương vị: \hspace*{0.75in}in\raisebox{-2.5in}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/ml-network2.png)} 
 
 Ví dụ: khả năng xảy ra với kẹo anh đào trong giấy gói màu xanh lá cây:
 \mat{\begin{eqnarray*}

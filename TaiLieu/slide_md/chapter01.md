@@ -1,6 +1,6 @@
 \usepackage{fleqn}
 \usepackage{epsf}
-\usepackage[dvips]{color}
+\usepackage{color}
 \usepackage{aima2e-slides}
 
 # Trí tuệ nhân tạo (Artificial Intelligence)
@@ -37,7 +37,6 @@ Turing (1950) " Máy tính và trí thông minh ":
 
 - Bài kiểm tra vận hành hành vi thông minh: \defn{Trò chơi bắt chước}
 
-,7\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/turing.png)
 
 - Dự đoán rằng đến năm 2000, một chiếc máy có thể có 30\% khả năng 

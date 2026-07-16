@@ -30,7 +30,7 @@
 Xổ số \mat{$L = [p,A;\ (1-p),B]$}
 
  
-,3\textwidth
+
 ![Hình ảnh](../TaiLieu/slide_md/figures/lottery.png)
 
 Ký hiệu:
@@ -90,7 +90,7 @@ Nếu \mat{$C \pref A$} thì đại lý có \mat{$A$}
 sẽ trả (giả sử) 1 xu để có được \mat{$C$}
 
  
-,3\textwidth
+
 \  &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;  ![Hình ảnh](../TaiLieu/slide_md/figures/cash-machine.png)
 
 ---
@@ -131,7 +131,6 @@ Cách tiếp cận tiêu chuẩn để đánh giá tiện ích con người:
   
   điều chỉnh xác suất xổ số \mat{$p$} cho đến \mat{$A \indiff L_p$}
 
-,85\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/micromort.png)
 
 ---
@@ -169,7 +168,6 @@ giải thưởng \mat{$x$} và xổ số \mat{$[p,{\DollarSign}M;\ (1-p),{\Dolla
 
 Dữ liệu thực nghiệm điển hình, được ngoại suy với hành vi \defn{dễ xảy ra rủi ro}:
 
-,55\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/beard-utility.png)
 
 ---
@@ -186,7 +184,6 @@ Thêm \defn{nút hành động} và \defn{nút tiện ích} vào mạng niềm t
 
 để cho phép đưa ra quyết định hợp lý
 
-,52\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/airport-id.png)
 
 Thuật toán:

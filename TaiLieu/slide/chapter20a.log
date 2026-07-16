@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.24)  15 JUL 2026 17:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.24)  16 JUL 2026 22:48
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **./chapter20a.tex
 (chapter20a.tex
@@ -38,13 +38,86 @@ LaTeX Info: Redefining \] on input line 75.
 Already applied: [0000/00/00] Make \] robust on input line 83.
 ))
 (epsf.sty
-\epsffilein=\read2
-\epsfxsize=\dimen149
-\epsfysize=\dimen150
-\epsftsize=\dimen151
-\epsfrsize=\dimen152
-\epsftmp=\dimen153
-\pspoints=\dimen154
+Package: epsf 2026/07/16 Modern replacement using graphicx
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen149
+\Gin@req@width=\dimen150
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf.s
+ty
+Package: epstopdf 2020-01-24 v2.11 Conversion with epstopdf on the fly (HO)
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.s
+ty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/grfext\grfext.sty
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
+keys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+))
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+))
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
+.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+ (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
+fg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps,.ps]
+(grfext)             \AppendGraphicsExtensions on input line 11.
+\epsfxsize=\skip52
+\epsfysize=\skip53
 ) (aima2e-slides.sty
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
@@ -216,8 +289,8 @@ File: t5cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 ))
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
 Package: inputenc 2024/02/08 v1.3d Input encoding file
-\inpenc@prehook=\toks17
-\inpenc@posthook=\toks18
+\inpenc@prehook=\toks18
+\inpenc@posthook=\toks19
 )
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
 Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
@@ -225,35 +298,31 @@ Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package color Info: Driver file: dvips.def on input line 149.
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\dvips.def
-File: dvips.def 2025/01/21 v3.2a Graphics/color driver for dvips
-) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\dvipsnam.def
-File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
-) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.lt
-x))
+Package color Info: Driver file: pdftex.def on input line 149.
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+)
 Package color Info: Redefining color red on input line 7.
 Package color Info: Redefining color cyan on input line 14.
-\headingwidth=\skip52
-\backdrop=\skip53
-\backheight=\skip54
-\backwidth=\skip55
-\xborder=\skip56
-\yborder=\skip57
-\headtotal=\skip58
-\codewidth=\skip59
-\boxwidth=\skip60
-\boxheight=\skip61
-\skipwidth=\skip62
-\roomheight=\skip63
-\charheight=\skip64
-\marginlineskip=\skip65
-\marginwidth=\skip66
-\textplusmarginwidth=\skip67
-\maxfigwidth=\skip68
-\tablewidth=\skip69
-\captionskip=\skip70
-\tcaptionskip=\skip71
+\headingwidth=\skip54
+\backdrop=\skip55
+\backheight=\skip56
+\backwidth=\skip57
+\xborder=\skip58
+\yborder=\skip59
+\headtotal=\skip60
+\codewidth=\skip61
+\boxwidth=\skip62
+\boxheight=\skip63
+\skipwidth=\skip64
+\roomheight=\skip65
+\charheight=\skip66
+\marginlineskip=\skip67
+\marginwidth=\skip68
+\textplusmarginwidth=\skip69
+\maxfigwidth=\skip70
+\tablewidth=\skip71
+\captionskip=\skip72
+\tcaptionskip=\skip73
 )
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
@@ -278,27 +347,31 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
 LaTeX Font Info:    ... okay on input line 6.
 LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 6.
 LaTeX Font Info:    ... okay on input line 6.
- [1
-Non-PDF special ignored!
-<special> papersize=614.295pt,794.96999pt
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count284
+\scratchdimen=\dimen151
+\scratchbox=\box53
+\nofMPsegments=\count285
+\nofMParguments=\count286
+\everyMPshowfont=\toks20
+\MPscratchCnt=\count287
+\MPscratchDim=\dimen152
+\MPnumerator=\count288
+\makeMPintoPDFobject=\count289
+\everyMPtoPDFconversion=\toks21
+) [1
+
 
 Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-{C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
+<special> papersize=11in,8.5in
+{C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
 LaTeX Font Info:    Trying to load font information for T5+cmss on input line 1
 1.
- (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmss.fd
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmss.fd
 File: t5cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -312,16 +385,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Warning: Font shape `T5/cmss/m/it' in size <20.74> not available
 (Font)              Font shape `T5/cmss/m/sl' tried instead on input line 18.
 
-[2
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
+[2]
 
 LaTeX Font Warning: Command \Huge invalid in math mode on input line 46.
 
@@ -332,235 +396,179 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 LaTeX Font Warning: Command \Huge invalid in math mode on input line 46.
 
-[3
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [4
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [5
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/candy-kinds.ps llx=58 lly=519 urx=569 ury=632 rwi=...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [6
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/candy-obs.ps llx=73 lly=478 urx=369 ury=499 rwi=18...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [7
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=graphs/limes-bayes-post.eps llx=50 lly=50 urx=410 ury=302 ...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [8
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=graphs/limes-bayes-pred.eps llx=50 lly=50 urx=410 ury=302 ...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [9
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [10
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-])
-Runaway argument?
-{-1.25in[0pt][0pt]{\epsffile {\file {figures}{ml-network1.ps}}} \\ Bá\ETC.
-! File ended while scanning use of \raisebox .
-<inserted text> 
-                \par 
-<*> ./chapter20a.tex
-                    
-I suspect you have forgotten a `}', causing me
-to read past where you wanted me to stop.
-I'll try to recover; but if the error is serious,
-you'd better type `E' or `X' now and fix your file.
+[3] [4]
+Package epstopdf Info: Source file: <figures/candy-kinds.ps>
+(epstopdf)                    date: 2026-07-15 08:15:04
+(epstopdf)                    size: 16055 bytes
+(epstopdf)             Output file: <figures/candy-kinds-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:11:37
+(epstopdf)                    size: 7607 bytes
+(epstopdf)             Command: <epstopdf figures/candy-kinds.ps --outfile=figu
+res/candy-kinds-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 63.
+Package epstopdf Info: Output file is already uptodate.
+<figures/candy-kinds-ps-converted-to.pdf, id=24, 512.91624pt x 113.42375pt>
+File: figures/candy-kinds-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/candy-kinds-ps-converted-to.pdf>
+Package pdftex.def Info: figures/candy-kinds-ps-converted-to.pdf  used on input
+ line 63.
+(pdftex.def)             Requested size: 368.58073pt x 81.5058pt.
+Package epstopdf Info: Source file: <figures/candy-obs.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 9817 bytes
+(epstopdf)             Output file: <figures/candy-obs-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:11:39
+(epstopdf)                    size: 2934 bytes
+(epstopdf)             Command: <epstopdf figures/candy-obs.ps --outfile=figure
+s/candy-obs-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 65.
+Package epstopdf Info: Output file is already uptodate.
+<figures/candy-obs-ps-converted-to.pdf, id=25, 297.11pt x 21.07875pt>
+File: figures/candy-obs-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/candy-obs-ps-converted-to.pdf>
+Package pdftex.def Info: figures/candy-obs-ps-converted-to.pdf  used on input l
+ine 65.
+(pdftex.def)             Requested size: 297.10927pt x 21.07867pt.
+ [5 <./figures/candy-kinds-ps-converted-to.pdf>] [6 <./figures/candy-obs-ps-con
+verted-to.pdf>]
+Package epstopdf Info: Source file: <graphs/limes-bayes-post.eps>
+(epstopdf)                    date: 2026-07-15 08:15:08
+(epstopdf)                    size: 15596 bytes
+(epstopdf)             Output file: <graphs/limes-bayes-post-eps-converted-to.p
+df>
+(epstopdf)                    date: 2026-07-16 17:11:42
+(epstopdf)                    size: 9106 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=graphs/
+limes-bayes-post-eps-converted-to.pdf graphs/limes-bayes-post.eps>
+(epstopdf)             \includegraphics on input line 76.
+Package epstopdf Info: Output file is already uptodate.
+<graphs/limes-bayes-post-eps-converted-to.pdf, id=35, 361.35pt x 252.945pt>
+File: graphs/limes-bayes-post-eps-converted-to.pdf Graphic file (type pdf)
+<use graphs/limes-bayes-post-eps-converted-to.pdf>
+Package pdftex.def Info: graphs/limes-bayes-post-eps-converted-to.pdf  used on 
+input line 76.
+(pdftex.def)             Requested size: 552.86174pt x 387.03932pt.
+ [7 <./graphs/limes-bayes-post-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <graphs/limes-bayes-pred.eps>
+(epstopdf)                    date: 2026-07-15 08:15:08
+(epstopdf)                    size: 12958 bytes
+(epstopdf)             Output file: <graphs/limes-bayes-pred-eps-converted-to.p
+df>
+(epstopdf)                    date: 2026-07-16 17:11:45
+(epstopdf)                    size: 7607 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=graphs/
+limes-bayes-pred-eps-converted-to.pdf graphs/limes-bayes-pred.eps>
+(epstopdf)             \includegraphics on input line 87.
+Package epstopdf Info: Output file is already uptodate.
+<graphs/limes-bayes-pred-eps-converted-to.pdf, id=51, 361.35pt x 252.945pt>
+File: graphs/limes-bayes-pred-eps-converted-to.pdf Graphic file (type pdf)
+<use graphs/limes-bayes-pred-eps-converted-to.pdf>
+Package pdftex.def Info: graphs/limes-bayes-pred-eps-converted-to.pdf  used on 
+input line 87.
+(pdftex.def)             Requested size: 552.86174pt x 387.03932pt.
 
-! Emergency stop.
-<*> ./chapter20a.tex
-                    
-*** (job aborted, no legal \end found)
+[8 <./graphs/limes-bayes-pred-eps-converted-to.pdf>] [9] [10]
+Package epstopdf Info: Source file: <figures/ml-network1.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 12539 bytes
+(epstopdf)             Output file: <figures/ml-network1-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:11:47
+(epstopdf)                    size: 6485 bytes
+(epstopdf)             Command: <epstopdf figures/ml-network1.ps --outfile=figu
+res/ml-network1-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 125.
+Package epstopdf Info: Output file is already uptodate.
+<figures/ml-network1-ps-converted-to.pdf, id=72, 70.2625pt x 72.27pt>
+File: figures/ml-network1-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/ml-network1-ps-converted-to.pdf>
+Package pdftex.def Info: figures/ml-network1-ps-converted-to.pdf  used on input
+ line 125.
+(pdftex.def)             Requested size: 90.3375pt x 92.9243pt.
+ [11 <./figures/ml-network1-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/ml-network2.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 16543 bytes
+(epstopdf)             Output file: <figures/ml-network2-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:11:49
+(epstopdf)                    size: 7900 bytes
+(epstopdf)             Command: <epstopdf figures/ml-network2.ps --outfile=figu
+res/ml-network2-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 155.
+Package epstopdf Info: Output file is already uptodate.
+<figures/ml-network2-ps-converted-to.pdf, id=89, 137.51375pt x 166.6225pt>
+File: figures/ml-network2-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/ml-network2-ps-converted-to.pdf>
+Package pdftex.def Info: figures/ml-network2-ps-converted-to.pdf  used on input
+ line 155.
+(pdftex.def)             Requested size: 162.6075pt x 197.04504pt.
+ [12 <./figures/ml-network2-ps-converted-to.pdf>] [13] [14]
+Package epstopdf Info: Source file: <graphs/regression-model.eps>
+(epstopdf)                    date: 2026-07-15 08:15:08
+(epstopdf)                    size: 124090 bytes
+(epstopdf)             Output file: <graphs/regression-model-eps-converted-to.p
+df>
+(epstopdf)                    date: 2026-07-16 17:11:51
+(epstopdf)                    size: 72947 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=graphs/
+regression-model-eps-converted-to.pdf graphs/regression-model.eps>
+(epstopdf)             \includegraphics on input line 197.
+Package epstopdf Info: Output file is already uptodate.
+<graphs/regression-model-eps-converted-to.pdf, id=113, 196.735pt x 137.51375pt>
 
- 
+File: graphs/regression-model-eps-converted-to.pdf Graphic file (type pdf)
+<use graphs/regression-model-eps-converted-to.pdf>
+Package pdftex.def Info: graphs/regression-model-eps-converted-to.pdf  used on 
+input line 197.
+(pdftex.def)             Requested size: 294.85896pt x 206.11484pt.
+Package epstopdf Info: Source file: <graphs/regression-sample.eps>
+(epstopdf)                    date: 2026-07-15 08:15:08
+(epstopdf)                    size: 14502 bytes
+(epstopdf)             Output file: <graphs/regression-sample-eps-converted-to.
+pdf>
+(epstopdf)                    date: 2026-07-16 17:11:53
+(epstopdf)                    size: 6614 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=graphs/
+regression-sample-eps-converted-to.pdf graphs/regression-sample.eps>
+(epstopdf)             \includegraphics on input line 197.
+Package epstopdf Info: Output file is already uptodate.
+<graphs/regression-sample-eps-converted-to.pdf, id=114, 196.735pt x 137.51375pt
+>
+File: graphs/regression-sample-eps-converted-to.pdf Graphic file (type pdf)
+<use graphs/regression-sample-eps-converted-to.pdf>
+Package pdftex.def Info: graphs/regression-sample-eps-converted-to.pdf  used on
+ input line 197.
+(pdftex.def)             Requested size: 196.7345pt x 137.51341pt.
+ [15 <./graphs/regression-model-eps-converted-to.pdf> <./graphs/regression-samp
+le-eps-converted-to.pdf>] [16] (chapter20a.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+ ***********
+ ) 
 Here is how much of TeX's memory you used:
- 1780 strings out of 467870
- 25324 string characters out of 5418355
- 438733 words of memory out of 5000000
- 30678 multiletter control sequences out of 15000+600000
- 642974 words of font info for 67 fonts, out of 8000000 for 9000
+ 3061 strings out of 467870
+ 49880 string characters out of 5418355
+ 444210 words of memory out of 5000000
+ 31905 multiletter control sequences out of 15000+600000
+ 644015 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,6n,65p,237b,284s stack positions out of 10000i,1000n,20000p,200000b,200000s
-!  ==> Fatal error occurred, no output PDF file produced!
+ 72i,10n,79p,250b,285s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmex10.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmmi12.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmr12.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/thanh/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/thanh/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/thanh/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/vntex/vnr/vnbx12.pfb><C:/Users/thanh/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/vntex/vnr/vncsc10.pfb><C:/Users/thanh/AppData/
+Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnr8.pfb><C:/Users/thanh/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/vntex/vnr/vnss17.pfb><C:/Users/thanh/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/vntex/vnr/vnssbx10.pfb><C:/Users/thanh/AppData/
+Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnssi17.pfb>
+Output written on chapter20a.pdf (16 pages, 304569 bytes).
+PDF statistics:
+ 184 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+

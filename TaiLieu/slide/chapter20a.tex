@@ -59,7 +59,7 @@ Giả sử có năm loại túi kẹo:\al
 
 \vspace*{0.2in}
 
-\epsfxsize=0,6\textwidth
+\epsfxsize=0.6\textwidth
 \fig{\file{figures}{candy-kinds.ps}}
 
 Sau đó, chúng tôi quan sát những viên kẹo được rút ra từ một số túi: \epsfxsize=0.3\textwidth \epsffile{\file{figures}{candy-obs.ps}}
@@ -122,7 +122,7 @@ ML là phương pháp học thống kê ``chuẩn'' (không phải Bayesian)
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \heading{Học tham số ML trong mạng Bayes}
 
-Túi từ nhà sản xuất mới; phần \mat{$\theta$} của kẹo anh đào?\hfill\epsfxsize=1.25in\raisebox{-1.25in[0pt][0pt]{\epsffile{\file{figures}{ml-network1.ps}}} \\
+Túi từ nhà sản xuất mới; phần \mat{$\theta$} của kẹo anh đào?\hfill\epsfxsize=1.25in\raisebox{-1.25in}[0pt][0pt]{\epsffile{\file{figures}{ml-network1.ps}}} \\
 Bất kỳ \mat{$\theta$} nào cũng có thể xảy ra: sự liên tục của các giả thuyết \mat{$h_{\theta}$} \\
 \mat{$\theta$} là tham số \defn{} cho dòng mô hình đơn giản (\note{binomial}) này 
 
@@ -152,7 +152,7 @@ Có vẻ hợp lý nhưng gây ra vấn đề với số 0!
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \heading{Nhiều tham số}
 
-Giấy gói màu đỏ/xanh phụ thuộc xác suất vào hương vị: \hspace*{0.75in}\epsfxsize=2.25in\raisebox{-2.5in[0pt][0pt]{\epsffile{\file{figures}{ml-network2.ps}}} 
+Giấy gói màu đỏ/xanh phụ thuộc xác suất vào hương vị: \hspace*{0.75in}\epsfxsize=2.25in\raisebox{-2.5in}[0pt][0pt]{\epsffile{\file{figures}{ml-network2.ps}}} 
 
 Ví dụ: khả năng xảy ra với kẹo anh đào trong giấy gói màu xanh lá cây:
 \mat{\begin{eqnarray*}
@@ -215,15 +215,15 @@ Học MAP cân bằng độ phức tạp với độ chính xác trên dữ li�
 Khả năng tối đa giả định thống nhất trước đó, OK đối với các tập dữ liệu lớn
 
 1. Chọn một nhóm mô hình được tham số hóa để mô tả dữ liệu\\
-\note{{\em yêu cầu cái nhìn sâu sắc đáng kể và đôi khi là các mô hình mới}
+\note{{\em yêu cầu cái nhìn sâu sắc đáng kể và đôi khi là các mô hình mới}}
 
 2. Viết ra khả năng xảy ra của dữ liệu dưới dạng hàm của các tham số\\
-\note{{\em có thể yêu cầu tính tổng các biến ẩn, tức là suy luận}
+\note{{\em có thể yêu cầu tính tổng các biến ẩn, tức là suy luận}}
 
 3. Viết đạo hàm của log khả năng w.r.t. mỗi tham số
 
 4. Tìm các giá trị tham số sao cho đạo hàm bằng 0\\
-\note{{\em có thể khó/không thể; trợ giúp về kỹ thuật tối ưu hóa hiện đại}
+\note{{\em có thể khó/không thể; trợ giúp về kỹ thuật tối ưu hóa hiện đại}}
 
 
 

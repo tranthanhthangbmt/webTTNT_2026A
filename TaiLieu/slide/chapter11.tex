@@ -1,7 +1,7 @@
 \documentclass{article}
 \usepackage{fleqn}
 \usepackage{epsf}
-\usepackage[dvips]{color}
+\usepackage{color}
 \usepackage{aima2e-slides}
 
 \begin{document}
@@ -29,7 +29,7 @@ Các thuật toán tìm kiếm tiêu chuẩn dường như thất bại thảm h
 
 \vspace*{0.1in}
 
-\epsfxsize=0,8\textwidth
+\epsfxsize=0.8\textwidth
 \fig{\file{figures}{supermarket1.ps}}
 
 Kiểm tra mục tiêu/kinh nghiệm sau thực tế không đầy đủ
@@ -59,7 +59,7 @@ Hệ thống lập kế hoạch thực hiện những việc sau:\al
 
 Mô tả hành động được sắp xếp gọn gàng, ngôn ngữ hạn chế
 
-{\sc Hành động}: $Buy(x)$\hfill\epsfxsize=0.2\textwidth\raisebox{-1.5in[0pt][0pt]{\epsffile{\file{figures}{operator-schema2.ps}}\\
+{\sc Hành động}: $Buy(x)$\hfill\epsfxsize=0.2\textwidth\raisebox{-1.5in}[0pt][0pt]{\epsffile{\file{figures}{operator-schema2.ps}}}\\
 {\sc Điều kiện tiên quyết}: $At(p), Sells(p,x)$\\
 {\sc Effect}: $Have(x)$
 
@@ -95,7 +95,7 @@ và không có bước \txb{ nào có thể can thiệp } có thể hoàn tác n
 
 \vspace*{0.2in}
 
-\centerline{\raisebox{-0.9\textheight[0pt][0pt]{\epsfysize=0.95\textheight\epsffile{\file{figures}{plan-construction1.ps}}}
+\centerline{\raisebox{-0.9\textheight}[0pt][0pt]{\epsfysize=0.95\textheight\epsffile{\file{figures}{plan-construction1.ps}}}}
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -103,7 +103,7 @@ và không có bước \txb{ nào có thể can thiệp } có thể hoàn tác n
 
 \vspace*{0.2in}
 
-\centerline{\raisebox{-0.9\textheight[0pt][0pt]{\epsfysize=0.95\textheight\epsffile{\file{figures}{plan-construction2.ps}}}
+\centerline{\raisebox{-0.9\textheight}[0pt][0pt]{\epsfysize=0.95\textheight\epsffile{\file{figures}{plan-construction2.ps}}}}
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -111,7 +111,7 @@ và không có bước \txb{ nào có thể can thiệp } có thể hoàn tác n
 
 \vspace*{0.2in}
 
-\centerline{\raisebox{-0.9\textheight[0pt][0pt]{\epsfysize=0.95\textheight\epsffile{\file{figures}{plan-construction3.ps}}}
+\centerline{\raisebox{-0.9\textheight}[0pt][0pt]{\epsfysize=0.95\textheight\epsffile{\file{figures}{plan-construction3.ps}}}}
 
 
 
@@ -146,7 +146,7 @@ nếu xung đột không thể giải quyết được
 điều kiện đạt được bởi một liên kết nhân quả. Ví dụ: $Go(Home)$ tắc nghẽn $At(Supermarket)$:
 
 \begin{tabular}{lr}
-\epsfxsize=0,40\textwidth
+\epsfxsize=0.40\textwidth
 \epsffile{\file{figures}{clobber.ps}}
 &
 \hbox{\begin{minipage}[b]{0.6\textwidth}

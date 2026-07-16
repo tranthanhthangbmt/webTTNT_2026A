@@ -44,7 +44,7 @@ Cấu trúc liên kết của mạng mã hóa các xác nhận độc lập có 
 
 \vspace*{0.3in}
 
-\epsfxsize=0,5\textwidth
+\epsfxsize=0.5\textwidth
 \fig{\file{figures}{dentist-network.ps}}
 
 \mat{$Weather$} độc lập với các biến khác
@@ -71,13 +71,13 @@ Cấu trúc liên kết mạng phản ánh kiến thức ``nhân quả'':\al
 
 \vspace*{0.3in}
 
-\epsfxsize=0,95\textwidth
+\epsfxsize=0.95\textwidth
 \fig{\file{figures}{burglary2.ps}}
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \heading{Độ nhỏ gọn}
 
-CPT cho Boolean \mat{$X_i$} với \mat{$k$} cha mẹ Boolean có\hspace*{1.75in}\epsfxsize=1.5in\raisebox{-1.5in[0pt][0pt]{\epsffile{\file{figures}{burglary-small.ps}}\\
+CPT cho Boolean \mat{$X_i$} với \mat{$k$} cha mẹ Boolean có\hspace*{1.75in}\epsfxsize=1.5in\raisebox{-1.5in}[0pt][0pt]{\epsffile{\file{figures}{burglary-small.ps}}}\\
 \mat{$2^k$} hàng cho sự kết hợp của các giá trị gốc
 
 Mỗi hàng yêu cầu một số \mat{$p$} cho \mat{$X_i\eq true$}\\
@@ -93,7 +93,7 @@ Tức là, tăng tuyến tính với \mat{$n$}, so với ~\mat{$O(2^n)$} để p
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \heading{Ngữ nghĩa toàn cầu}
 
-Ngữ nghĩa \defn{Global} xác định phân phối chung đầy đủ\hspace*{1.2in}\epsfxsize=1.5in\raisebox{-1.5in[0pt][0pt]{\epsffile{\file{figures}{burglary-small.ps}}\\
+Ngữ nghĩa \defn{Global} xác định phân phối chung đầy đủ\hspace*{1.2in}\epsfxsize=1.5in\raisebox{-1.5in}[0pt][0pt]{\epsffile{\file{figures}{burglary-small.ps}}}\\
 là sản phẩm của phân phối có điều kiện cục bộ:
 \mat{\[
   P(x_1,\ldots,x_n) = \myprod_{i\eq 1}^n P(x_i|\parents(X_i))
@@ -107,7 +107,7 @@ ví dụ: \mat{$P(j\land m\land a\land \lnot b \land \lnot e)$}
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \heading{Ngữ nghĩa toàn cầu}
 
-Ngữ nghĩa ``Toàn cầu'' xác định phân phối chung đầy đủ\hspace*{1.2in}\epsfxsize=1.5in\raisebox{-1.5in[0pt][0pt]{\epsffile{\file{figures}{burglary-small.ps}}\\
+Ngữ nghĩa ``Toàn cầu'' xác định phân phối chung đầy đủ\hspace*{1.2in}\epsfxsize=1.5in\raisebox{-1.5in}[0pt][0pt]{\epsffile{\file{figures}{burglary-small.ps}}}\\
 là sản phẩm của phân phối có điều kiện cục bộ:
 \mat{\[
   P(x_1,\ldots,x_n) = \myprod_{i\eq 1}^n P(x_i|\parents(X_i))
@@ -127,7 +127,7 @@ của những người không phải là hậu duệ của nó được trao cho
 
 \vspace*{0.2in}
 
-\epsfxsize=0,55\textwidth
+\epsfxsize=0.55\textwidth
 \fig{\file{figures}{nondescendants.ps}}
 
 Định lý: \mat{Local semantics} \mat{$\lequiv$} \mat{global semantics}
@@ -142,7 +142,7 @@ Mỗi nút độc lập có điều kiện với tất cả các nút khác dự
 
 \vspace*{0.3in}
 
-\epsfxsize=0,5\textwidth
+\epsfxsize=0.5\textwidth
 \fig{\file{figures}{markov-blanket.ps}}
 
 
@@ -174,7 +174,7 @@ Giả sử chúng ta chọn thứ tự \mat{$M$}, \mat{$J$}, \mat{$A$}, \mat{$B$
 
 \vspace*{0.1in}
 
-\epsfxsize=0,5\textwidth
+\epsfxsize=0.5\textwidth
 \fig{\sfile{figures}{burglary-make1.ps}}
 
 \vspace*{-0.65in}
@@ -189,12 +189,12 @@ Giả sử chúng ta chọn thứ tự \mat{$M$}, \mat{$J$}, \mat{$A$}, \mat{$B$
 
 \vspace*{0.1in}
 
-\epsfxsize=0,5\textwidth
+\epsfxsize=0.5\textwidth
 \fig{\sfile{figures}{burglary-make2.ps}}
 
 \vspace*{-0.65in}
 
-\ptext{\mat{$P(J|M) = P(J)$}?\quad Không\\
+\ptext{\mat{$P(J|M) = P(J)$}?\quad Không}\\
 \mat{$P(A|J,M) = P(A|J)$}? \mat{$P(A|J,M) = P(A)$}?
 
 %%%%%%%%%%%% Overlay %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -204,13 +204,13 @@ Giả sử chúng ta chọn thứ tự \mat{$M$}, \mat{$J$}, \mat{$A$}, \mat{$B$
 
 \vspace*{0.1in}
 
-\epsfxsize=0,5\textwidth
+\epsfxsize=0.5\textwidth
 \fig{\sfile{figures}{burglary-make3.ps}}
 
 \vspace*{-0.65in}
 
-\ptext{\mat{$P(J|M) = P(J)$}?\quad Không\\
-\ptext{\mat{$P(A|J,M) = P(A|J)$}? \mat{$P(A|J,M) = P(A)$}?\quad Không\\
+\ptext{\mat{$P(J|M) = P(J)$}?\quad Không}\\
+\ptext{\mat{$P(A|J,M) = P(A|J)$}? \mat{$P(A|J,M) = P(A)$}?\quad Không}\\
 \mat{$P(B|A,J,M) = P(B|A)$}?\\
 \mat{$P(B|A,J,M) = P(B)$}?
 
@@ -222,15 +222,15 @@ Giả sử chúng ta chọn thứ tự \mat{$M$}, \mat{$J$}, \mat{$A$}, \mat{$B$
 
 \vspace*{0.1in}
 
-\epsfxsize=0,5\textwidth
+\epsfxsize=0.5\textwidth
 \fig{\sfile{figures}{burglary-make4.ps}}
 
 \vspace*{-0.65in}
 
-\ptext{\mat{$P(J|M) = P(J)$}?\quad Không\\
-\ptext{\mat{$P(A|J,M) = P(A|J)$}? \mat{$P(A|J,M) = P(A)$}?\quad Không\\
-\ptext{\mat{$P(B|A,J,M) = P(B|A)$}?\quad Có\\
-\ptext{\mat{$P(B|A,J,M) = P(B)$}?\quad Không\\
+\ptext{\mat{$P(J|M) = P(J)$}?\quad Không}\\
+\ptext{\mat{$P(A|J,M) = P(A|J)$}? \mat{$P(A|J,M) = P(A)$}?\quad Không}\\
+\ptext{\mat{$P(B|A,J,M) = P(B|A)$}?\quad Có}\\
+\ptext{\mat{$P(B|A,J,M) = P(B)$}?\quad Không}\\
 \mat{$P(E|B,A,J,M) = P(E|A)$}?\\
 \mat{$P(E|B,A,J,M) = P(E|A,B)$}?
 
@@ -241,17 +241,17 @@ Giả sử chúng ta chọn thứ tự \mat{$M$}, \mat{$J$}, \mat{$A$}, \mat{$B$
 
 \vspace*{0.1in}
 
-\epsfxsize=0,5\textwidth
+\epsfxsize=0.5\textwidth
 \fig{\sfile{figures}{burglary-make5.ps}}
 
 \vspace*{-0.65in}
 
-\ptext{\mat{$P(J|M) = P(J)$}?\quad Không\\
-\ptext{\mat{$P(A|J,M) = P(A|J)$}? \mat{$P(A|J,M) = P(A)$}?\quad Không\\
-\ptext{\mat{$P(B|A,J,M) = P(B|A)$}?\quad Có\\
-\ptext{\mat{$P(B|A,J,M) = P(B)$}?\quad Không\\
-\ptext{\mat{$P(E|B,A,J,M) = P(E|A)$}?\quad Không\\
-\ptext{\mat{$P(E|B,A,J,M) = P(E|A,B)$}?\quad Có
+\ptext{\mat{$P(J|M) = P(J)$}?\quad Không}\\
+\ptext{\mat{$P(A|J,M) = P(A|J)$}? \mat{$P(A|J,M) = P(A)$}?\quad Không}\\
+\ptext{\mat{$P(B|A,J,M) = P(B|A)$}?\quad Có}\\
+\ptext{\mat{$P(B|A,J,M) = P(B)$}?\quad Không}\\
+\ptext{\mat{$P(E|B,A,J,M) = P(E|A)$}?\quad Không}\\
+\ptext{\mat{$P(E|B,A,J,M) = P(E|A,B)$}?\quad Có}
 
 %%[[13 numbers (vs.~10), and CPTs hard to assess---use \emph{causal} direction!!]]
 
@@ -260,7 +260,7 @@ Giả sử chúng ta chọn thứ tự \mat{$M$}, \mat{$J$}, \mat{$A$}, \mat{$B$
 
 \vspace*{0.15in}
 
-\epsfxsize=0,5\textwidth
+\epsfxsize=0.5\textwidth
 \fig{\sfile{figures}{burglary-make5.ps}}
 
 \vspace*{-0.15in}
@@ -358,7 +358,7 @@ Rời rạc (\mat{$Subsidy?$} và \mat{$Buys?$});  liên tục (\mat{$Harvest$} 
 
 \vspace*{0.2in}
 
-\epsfxsize=0,42\textwidth
+\epsfxsize=0.42\textwidth
 \fig{\file{figures}{continuous-net.ps}}
 
 Tùy chọn 1: rời rạc---có thể có lỗi lớn, CPT lớn\\
@@ -395,7 +395,7 @@ Sự thay đổi tuyến tính là không hợp lý trên toàn bộ phạm vi \
 
 \vspace*{-0.4in}
 
-\epsfxsize=0,5\textwidth
+\epsfxsize=0.5\textwidth
 \fig{\file{graphs}{linear-gaussian-true.ps}}
 
 \vspace*{-0.4in}
@@ -417,7 +417,7 @@ cho mỗi sự kết hợp của các giá trị biến rời rạc
 
 Xác suất của \mat{$Buys?$} cho trước \mat{$Cost$} phải là ngưỡng ``mềm'':
 
-\epsfxsize=0,6\textwidth
+\epsfxsize=0.6\textwidth
 \fig{\file{graphs}{probit.ps}}
 
 Phân phối \defn{Probit} sử dụng tích phân của Gaussian:\al
@@ -431,7 +431,7 @@ Phân phối \defn{Probit} sử dụng tích phân của Gaussian:\al
 
 2. Có thể xem là ngưỡng cứng có vị trí bị nhiễu
 
-\epsfxsize=0,6\textwidth
+\epsfxsize=0.6\textwidth
 \fig{\file{figures}{noisy-threshold.ps}}
 
 
@@ -446,7 +446,7 @@ P(Buys?\eq true \given Cost \eq c) = \frac{1}{1+exp(-2\frac{-c+\mu}{\sigma})}
 \]}
 Sigmoid có hình dạng tương tự probit nhưng đuôi dài hơn nhiều:
 
-\epsfxsize=0,6\textwidth
+\epsfxsize=0.6\textwidth
 \fig{\file{graphs}{logit.ps}}
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

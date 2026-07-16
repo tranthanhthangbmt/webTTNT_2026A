@@ -64,7 +64,6 @@ mẫu cảm biến \mat{$P(\E_t|\X_t)$} đã được sửa cho tất cả \mat{
 ---
 ## Ví dụ
 
-,8\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/umbrella-dbn.png)
 
 Giả định Markov bậc nhất không hoàn toàn đúng trong thế giới thực!
@@ -135,13 +134,11 @@ Thời gian và không gian *hằng số* (độc lập với \mat{$t$})
 ---
 ## Ví dụ về lọc
 
-,8\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/umbrella-filter.png)
 
 ---
 ## Làm mịn
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/smoothing-dbn.png)
 
 Chia bằng chứng \mat{$\e_{1:t}$} thành \mat{$\e_{1:k}$}, \mat{$\e_{k+1:t}$}:
@@ -171,7 +168,6 @@ P(\e_{k+1:t}|\X_k)
 ---
 ## Ví dụ làm mịn
 
-,72\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/umbrella-smooth.png)
 
 Thuật toán \defn{Chuyển tiếp--lùi lại}: lưu các tin nhắn chuyển tiếp vào bộ đệm trong quá trình thực hiện 
@@ -210,7 +206,6 @@ Cập nhật có tổng được thay thế bằng max, tạo ra \defn{Thuật t
 ---
 ## Ví dụ về Viterbi
 
-,8\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/umbrella-paths.png)
 
 ---
@@ -256,7 +251,6 @@ thuật toán tiến lùi:
 \end{eqnarray*}}
 Thuật toán: chuyền tiến tính \mat{$\f_t$}, chuyền lùi tính \mat{$\f_i$}, \mat{$\b_i$}
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/country-dance01.png)
 
 ---
@@ -277,7 +271,6 @@ thuật toán tiến lùi:
 \end{eqnarray*}}
 Thuật toán: chuyền tiến tính \mat{$\f_t$}, chuyền lùi tính \mat{$\f_i$}, \mat{$\b_i$}
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/country-dance02.png)
 
 ---
@@ -298,7 +291,6 @@ thuật toán tiến lùi:
 \end{eqnarray*}}
 Thuật toán: chuyền tiến tính \mat{$\f_t$}, chuyền lùi tính \mat{$\f_i$}, \mat{$\b_i$}
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/country-dance03.png)
 
 ---
@@ -319,7 +311,6 @@ thuật toán tiến lùi:
 \end{eqnarray*}}
 Thuật toán: chuyền tiến tính \mat{$\f_t$}, chuyền lùi tính \mat{$\f_i$}, \mat{$\b_i$}
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/country-dance04.png)
 
 ---
@@ -340,7 +331,6 @@ thuật toán tiến lùi:
 \end{eqnarray*}}
 Thuật toán: chuyền tiến tính \mat{$\f_t$}, chuyền lùi tính \mat{$\f_i$}, \mat{$\b_i$}
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/country-dance05.png)
 
 ---
@@ -361,7 +351,6 @@ thuật toán tiến lùi:
 \end{eqnarray*}}
 Thuật toán: chuyền tiến tính \mat{$\f_t$}, chuyền lùi tính \mat{$\f_i$}, \mat{$\b_i$}
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/country-dance06.png)
 
 ---
@@ -382,7 +371,6 @@ thuật toán tiến lùi:
 \end{eqnarray*}}
 Thuật toán: chuyền tiến tính \mat{$\f_t$}, chuyền lùi tính \mat{$\f_i$}, \mat{$\b_i$}
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/country-dance07.png)
 
 ---
@@ -403,7 +391,6 @@ thuật toán tiến lùi:
 \end{eqnarray*}}
 Thuật toán: chuyền tiến tính \mat{$\f_t$}, chuyền lùi tính \mat{$\f_i$}, \mat{$\b_i$}
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/country-dance08.png)
 
 ---
@@ -424,7 +411,6 @@ thuật toán tiến lùi:
 \end{eqnarray*}}
 Thuật toán: chuyền tiến tính \mat{$\f_t$}, chuyền lùi tính \mat{$\f_i$}, \mat{$\b_i$}
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/country-dance09.png)
 
 ---
@@ -445,7 +431,6 @@ thuật toán tiến lùi:
 \end{eqnarray*}}
 Thuật toán: chuyền tiến tính \mat{$\f_t$}, chuyền lùi tính \mat{$\f_i$}, \mat{$\b_i$}
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/country-dance10.png)
 
 ---
@@ -457,7 +442,6 @@ ví dụ: theo dõi một con chim đang bay---\mat{$\X_t\eq X, Y, Z, \dot X,\do
   
 Máy bay, robot, hệ sinh thái, nền kinh tế, nhà máy hóa chất, hành tinh, \mat{$\ldots$}
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/kalman-network.png)
 
 Gaussian trước, mô hình chuyển tiếp Gaussian tuyến tính và mô hình cảm biến
@@ -495,7 +479,6 @@ Bước đi ngẫu nhiên Gaussian trên \mat{$X$}--axis, s.d. \mat{$\sigma_x$},
                         {\sigma_t^2+\sigma_x^2+\sigma_z^2}
 \]}
 
-,7\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/kalman-one-step.png)
 
 ---
@@ -561,7 +544,6 @@ Không thành công nếu hệ thống cục bộ không mượt mà
 
 Mỗi HMM là một DBN một biến; mọi DBN rời rạc đều là HMM
 
-,7\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/dbn-vs-hmm.png)
 
 Các phần phụ thuộc thưa thớt \mat{$\Rightarrow$} có ít tham số hơn theo cấp số nhân;
@@ -601,7 +583,6 @@ Hệ số lớn nhất là \mat{$O(d^{n+1})$}, chi phí cập nhật \mat{$O(d^{
 
 Tập hợp các mẫu có trọng số gần đúng với trạng thái niềm tin
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/umbrella5.png)
 
 Các mẫu LW không chú ý đến bằng chứng!
@@ -610,7 +591,6 @@ Các mẫu LW không chú ý đến bằng chứng!
     
    \mat{$\Rightarrow$} số lượng mẫu cần thiết tăng theo cấp số nhân với \mat{$t$}
 
-,4\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/umbrella-lw.png)
 
 ---
@@ -622,7 +602,6 @@ theo dõi các vùng có khả năng xảy ra cao trong không gian trạng thá
 
 Tái tạo các hạt tỷ lệ thuận với khả năng xảy ra đối với \mat{$\e_t$}
 
-,7\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/umbrella-particle.png)
 
 Được sử dụng rộng rãi để theo dõi các hệ thống phi tuyến, đặc biệt. trong tầm nhìn
@@ -669,7 +648,6 @@ Lỗi gần đúng của quá trình lọc hạt vẫn bị giới hạn theo th
 
 ít nhất là về mặt thực nghiệm---phân tích lý thuyết rất khó
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/comparison-lw-ersof.png)
 
 ---
@@ -706,7 +684,6 @@ Lọc hạt là một thuật toán lọc gần đúng tốt cho DBN
 
 Gọi đệ quy (theo chiều sâu) trên các nhiệm vụ con \mat{$k$}
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/island.png)
 
 \mat{$O(k|\f|\log_k t)$} không gian, \mat{$O(k\log_k t)$} thêm thời gian 
@@ -714,7 +691,6 @@ Gọi đệ quy (theo chiều sâu) trên các nhiệm vụ con \mat{$k$}
 ---
 ## Làm mượt độ trễ cố định trực tuyến
 
-,8\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/fixed-lag-smoothing.png)
 
 Phương pháp rõ ràng là chạy tiến--lùi cho các bước \mat{$d$} mỗi lần
@@ -758,10 +734,8 @@ Tốt hơn nên đề xuất các mẫu mới dựa trên bằng chứng mới
 
 Giảm thiểu phương sai của các ước tính hậu nghiệm (Kong \& Liu, 1996)
 
-,75\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/umbrella5-er.png)
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/step-all-25.png)
 
 ---

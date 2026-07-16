@@ -33,7 +33,6 @@ Việc học sửa đổi cơ chế quyết định của tác nhân để cải
 ---
 ## Tác nhân học tập
 
-,95\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/learning-model.png)
 
 ---
@@ -98,7 +97,6 @@ Xây dựng/điều chỉnh \mat{$h$} để phù hợp với \mat{$f$} trên t�
 
 Ví dụ: khớp đường cong:
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/curve-fitting1.png)
 
 ---
@@ -110,7 +108,6 @@ Xây dựng/điều chỉnh \mat{$h$} để phù hợp với \mat{$f$} trên t�
 
 Ví dụ: khớp đường cong:
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/curve-fitting2.png)
 
 ---
@@ -122,7 +119,6 @@ Xây dựng/điều chỉnh \mat{$h$} để phù hợp với \mat{$f$} trên t�
 
 Ví dụ: khớp đường cong:
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/curve-fitting3.png)
 
 ---
@@ -134,7 +130,6 @@ Xây dựng/điều chỉnh \mat{$h$} để phù hợp với \mat{$f$} trên t�
 
 Ví dụ: khớp đường cong:
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/curve-fitting4.png)
 
 ---
@@ -146,7 +141,6 @@ Xây dựng/điều chỉnh \mat{$h$} để phù hợp với \mat{$f$} trên t�
 
 Ví dụ: khớp đường cong:
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/curve-fitting5.png)
 
 ---
@@ -158,7 +152,6 @@ Xây dựng/điều chỉnh \mat{$h$} để phù hợp với \mat{$f$} trên t�
 
 Ví dụ: khớp đường cong:
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/curve-fitting5.png)
 
 \defn{Dao cạo Ockham}: tối đa hóa sự kết hợp giữa tính nhất quán và sự đơn giản
@@ -200,7 +193,6 @@ Một đại diện khả dĩ cho các giả thuyết
 
 Ví dụ: đây là cây "true" để quyết định có nên đợi hay không:
 
-,8\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/restaurant-tree.png)
 
 ---
@@ -210,7 +202,6 @@ Cây quyết định có thể thể hiện bất kỳ chức năng nào của t
 
 Ví dụ: đối với các hàm Boolean, đường dẫn hàng bảng chân lý \mat{$\rightarrow$} đến lá:
 
-,65\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/xor-decision-tree.png)
 
 Điều đáng chú ý là có một cây quyết định nhất quán cho bất kỳ tập huấn luyện nào
@@ -378,7 +369,6 @@ Một thuộc tính chia các ví dụ \mat{$E$} thành các tập con \mat{$E_i
 
 Cây quyết định học được từ 12 ví dụ:
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/induced-restaurant-tree.png)
 
 Đơn giản hơn nhiều so với cây “đúng”---một giả thuyết phức tạp hơn
@@ -397,7 +387,6 @@ Làm sao chúng ta biết được điều đó \mat{$h\approx f$}? (Bài toán 
 
 \defn{Đường cong học tập} = \% đúng trên tập kiểm tra dưới dạng hàm của kích thước tập huấn luyện
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/restaurant-dtl-curve.png)
 
 ---
@@ -413,7 +402,6 @@ Làm sao chúng ta biết được điều đó \mat{$h\approx f$}? (Bài toán 
   
  -- tính biểu đạt dư thừa (ví dụ: vô số thuộc tính không liên quan)
 
-,95\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/learning-curves.png)
 
 ---

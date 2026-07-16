@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.24)  15 JUL 2026 17:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.24)  16 JUL 2026 22:53
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **./chapter20b.tex
 (chapter20b.tex
@@ -38,13 +38,86 @@ LaTeX Info: Redefining \] on input line 75.
 Already applied: [0000/00/00] Make \] robust on input line 83.
 ))
 (epsf.sty
-\epsffilein=\read2
-\epsfxsize=\dimen149
-\epsfysize=\dimen150
-\epsftsize=\dimen151
-\epsfrsize=\dimen152
-\epsftmp=\dimen153
-\pspoints=\dimen154
+Package: epsf 2026/07/16 Modern replacement using graphicx
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen149
+\Gin@req@width=\dimen150
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf.s
+ty
+Package: epstopdf 2020-01-24 v2.11 Conversion with epstopdf on the fly (HO)
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.s
+ty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/grfext\grfext.sty
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
+keys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+))
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+))
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
+.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+ (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
+fg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps,.ps]
+(grfext)             \AppendGraphicsExtensions on input line 11.
+\epsfxsize=\skip52
+\epsfysize=\skip53
 ) (aima2e-slides.sty
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
@@ -216,8 +289,8 @@ File: t5cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 ))
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
 Package: inputenc 2024/02/08 v1.3d Input encoding file
-\inpenc@prehook=\toks17
-\inpenc@posthook=\toks18
+\inpenc@prehook=\toks18
+\inpenc@posthook=\toks19
 )
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
 Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
@@ -225,35 +298,31 @@ Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package color Info: Driver file: dvips.def on input line 149.
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\dvips.def
-File: dvips.def 2025/01/21 v3.2a Graphics/color driver for dvips
-) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\dvipsnam.def
-File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
-) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.lt
-x))
+Package color Info: Driver file: pdftex.def on input line 149.
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+)
 Package color Info: Redefining color red on input line 7.
 Package color Info: Redefining color cyan on input line 14.
-\headingwidth=\skip52
-\backdrop=\skip53
-\backheight=\skip54
-\backwidth=\skip55
-\xborder=\skip56
-\yborder=\skip57
-\headtotal=\skip58
-\codewidth=\skip59
-\boxwidth=\skip60
-\boxheight=\skip61
-\skipwidth=\skip62
-\roomheight=\skip63
-\charheight=\skip64
-\marginlineskip=\skip65
-\marginwidth=\skip66
-\textplusmarginwidth=\skip67
-\maxfigwidth=\skip68
-\tablewidth=\skip69
-\captionskip=\skip70
-\tcaptionskip=\skip71
+\headingwidth=\skip54
+\backdrop=\skip55
+\backheight=\skip56
+\backwidth=\skip57
+\xborder=\skip58
+\yborder=\skip59
+\headtotal=\skip60
+\codewidth=\skip61
+\boxwidth=\skip62
+\boxheight=\skip63
+\skipwidth=\skip64
+\roomheight=\skip65
+\charheight=\skip66
+\marginlineskip=\skip67
+\marginwidth=\skip68
+\textplusmarginwidth=\skip69
+\maxfigwidth=\skip70
+\tablewidth=\skip71
+\captionskip=\skip72
+\tcaptionskip=\skip73
 )
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
@@ -278,27 +347,31 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
 LaTeX Font Info:    ... okay on input line 6.
 LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 6.
 LaTeX Font Info:    ... okay on input line 6.
- [1
-Non-PDF special ignored!
-<special> papersize=614.295pt,794.96999pt
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count284
+\scratchdimen=\dimen151
+\scratchbox=\box53
+\nofMPsegments=\count285
+\nofMParguments=\count286
+\everyMPshowfont=\toks20
+\MPscratchCnt=\count287
+\MPscratchDim=\dimen152
+\MPnumerator=\count288
+\makeMPintoPDFobject=\count289
+\everyMPtoPDFconversion=\toks21
+) [1
+
 
 Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-{C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
+<special> papersize=11in,8.5in
+{C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
 LaTeX Font Info:    Trying to load font information for T5+cmss on input line 1
 1.
- (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmss.fd
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmss.fd
 File: t5cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -308,39 +381,24 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 16.
 
-[2
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [3
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/neuron.ps llx=107 lly=345 urx=601 ury=635 rwi=4896
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
+[2]
+Package epstopdf Info: Source file: <figures/neuron.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 21655 bytes
+(epstopdf)             Output file: <figures/neuron-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:12:00
+(epstopdf)                    size: 13579 bytes
+(epstopdf)             Command: <epstopdf figures/neuron.ps --outfile=figures/n
+euron-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 37.
+Package epstopdf Info: Output file is already uptodate.
+<figures/neuron-ps-converted-to.pdf, id=13, 495.8525pt x 291.0875pt>
+File: figures/neuron-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/neuron-ps-converted-to.pdf>
+Package pdftex.def Info: figures/neuron-ps-converted-to.pdf  used on input line
+ 37.
+(pdftex.def)             Requested size: 491.43787pt x 288.4973pt.
+ [3 <./figures/neuron-ps-converted-to.pdf>]
 
 LaTeX Font Warning: Command \Huge invalid in math mode on input line 46.
 
@@ -348,26 +406,23 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <24.88> on input line 46.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <17.28> on input line 46.
-[4
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/neuron-unit.eps llx=166 lly=330 urx=437 ury=436 rw...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
+Package epstopdf Info: Source file: <figures/neuron-unit.eps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 150694 bytes
+(epstopdf)             Output file: <figures/neuron-unit-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:12:03
+(epstopdf)                    size: 9665 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/neuron-unit-eps-converted-to.pdf figures/neuron-unit.eps>
+(epstopdf)             \includegraphics on input line 52.
+Package epstopdf Info: Output file is already uptodate.
+<figures/neuron-unit-eps-converted-to.pdf, id=25, 272.01625pt x 106.3975pt>
+File: figures/neuron-unit-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/neuron-unit-eps-converted-to.pdf>
+Package pdftex.def Info: figures/neuron-unit-eps-converted-to.pdf  used on inpu
+t line 52.
+(pdftex.def)             Requested size: 491.43787pt x 192.23293pt.
+[4 <./figures/neuron-unit-eps-converted-to.pdf>]
 LaTeX Font Info:    Calculating math sizes for size <25> on input line 59.
 
 
@@ -388,446 +443,634 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <17.49992> on input line 59.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12.5> on input line 59.
-[5
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/activation-fns.eps llx=171 lly=341 urx=446 ury=450...
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [6
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/nn-logical.eps llx=148 lly=347 urx=469 ury=442 rwi...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
+Package epstopdf Info: Source file: <figures/activation-fns.eps>
+(epstopdf)                    date: 2026-07-15 08:15:01
+(epstopdf)                    size: 381794 bytes
+(epstopdf)             Output file: <figures/activation-fns-eps-converted-to.pd
+f>
+(epstopdf)                    date: 2026-07-16 17:12:05
+(epstopdf)                    size: 6290 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/activation-fns-eps-converted-to.pdf figures/activation-fns.eps>
+(epstopdf)             \includegraphics on input line 64.
+Package epstopdf Info: Output file is already uptodate.
+<figures/activation-fns-eps-converted-to.pdf, id=42, 276.03125pt x 109.40875pt>
+
+File: figures/activation-fns-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/activation-fns-eps-converted-to.pdf>
+Package pdftex.def Info: figures/activation-fns-eps-converted-to.pdf  used on i
+nput line 64.
+(pdftex.def)             Requested size: 583.57837pt x 231.33438pt.
+[5 <./figures/activation-fns-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/nn-logical.eps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 364784 bytes
+(epstopdf)             Output file: <figures/nn-logical-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:12:08
+(epstopdf)                    size: 7300 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/nn-logical-eps-converted-to.pdf figures/nn-logical.eps>
+(epstopdf)             \includegraphics on input line 82.
+Package epstopdf Info: Output file is already uptodate.
+<figures/nn-logical-eps-converted-to.pdf, id=57, 322.20375pt x 95.35625pt>
+File: figures/nn-logical-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/nn-logical-eps-converted-to.pdf>
+Package pdftex.def Info: figures/nn-logical-eps-converted-to.pdf  used on input
+ line 82.
+(pdftex.def)             Requested size: 491.43787pt x 145.44788pt.
+ [6 <./figures/nn-logical-eps-converted-to.pdf>]
 
 LaTeX Font Warning: Font shape `T5/cmss/m/it' in size <20.74> not available
 (Font)              Font shape `T5/cmss/m/sl' tried instead on input line 99.
 
-[7
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.5 0.0 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [8
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
+[7] [8]
+Package epstopdf Info: Source file: <figures/neural-net.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 16288 bytes
+(epstopdf)             Output file: <figures/neural-net-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:12:10
+(epstopdf)                    size: 5509 bytes
+(epstopdf)             Command: <epstopdf figures/neural-net.ps --outfile=figur
+es/neural-net-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 112.
+Package epstopdf Info: Output file is already uptodate.
+<figures/neural-net-ps-converted-to.pdf, id=83, 203.76125pt x 114.4275pt>
+File: figures/neural-net-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/neural-net-ps-converted-to.pdf>
+Package pdftex.def Info: figures/neural-net-ps-converted-to.pdf  used on input 
+line 112.
+(pdftex.def)             Requested size: 430.00462pt x 241.49213pt.
+
 Overfull \hbox (0.60606pt too wide) in alignment at lines 119--119
  [][][] []
  []
 
-[9
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/neural-net.ps llx=311 lly=617 urx=514 ury=731 rwi=...
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [10
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [11
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/perceptron.ps llx=112 lly=317 urx=278 ury=461 rwi=...
-Non-PDF special ignored!
-<special> PSfile=graphs/perceptron-model.eps llx=50 lly=50 urx=246 ury=187 ...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
+[9 <./figures/neural-net-ps-converted-to.pdf>] [10]
+Package epstopdf Info: Source file: <figures/perceptron.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 16267 bytes
+(epstopdf)             Output file: <figures/perceptron-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:12:13
+(epstopdf)                    size: 6117 bytes
+(epstopdf)             Command: <epstopdf figures/perceptron.ps --outfile=figur
+es/perceptron-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 126.
+Package epstopdf Info: Output file is already uptodate.
+<figures/perceptron-ps-converted-to.pdf, id=98, 166.6225pt x 144.54pt>
+File: figures/perceptron-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/perceptron-ps-converted-to.pdf>
+Package pdftex.def Info: figures/perceptron-ps-converted-to.pdf  used on input 
+line 126.
+(pdftex.def)             Requested size: 294.85896pt x 255.82472pt.
+Package epstopdf Info: Source file: <graphs/perceptron-model.eps>
+(epstopdf)                    date: 2026-07-15 08:15:08
+(epstopdf)                    size: 117844 bytes
+(epstopdf)             Output file: <graphs/perceptron-model-eps-converted-to.p
+df>
+(epstopdf)                    date: 2026-07-16 17:12:15
+(epstopdf)                    size: 72870 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=graphs/
+perceptron-model-eps-converted-to.pdf graphs/perceptron-model.eps>
+(epstopdf)             \includegraphics on input line 126.
+Package epstopdf Info: Output file is already uptodate.
+<graphs/perceptron-model-eps-converted-to.pdf, id=99, 196.735pt x 137.51375pt>
+File: graphs/perceptron-model-eps-converted-to.pdf Graphic file (type pdf)
+<use graphs/perceptron-model-eps-converted-to.pdf>
+Package pdftex.def Info: graphs/perceptron-model-eps-converted-to.pdf  used on 
+input line 126.
+(pdftex.def)             Requested size: 196.7345pt x 137.51341pt.
+ [11 <./figures/perceptron-ps-converted-to.pdf> <./graphs/perceptron-model-eps-
+converted-to.pdf>]
 
 LaTeX Font Warning: Command \Huge invalid in math mode on input line 146.
 
-[12
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/perceptron-linear.eps llx=147 lly=339 urx=466 ury=...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
+Package epstopdf Info: Source file: <figures/perceptron-linear.eps>
+(epstopdf)                    date: 2026-07-15 08:15:07
+(epstopdf)                    size: 327910 bytes
+(epstopdf)             Output file: <figures/perceptron-linear-eps-converted-to
+.pdf>
+(epstopdf)                    date: 2026-07-16 17:12:18
+(epstopdf)                    size: 8506 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/perceptron-linear-eps-converted-to.pdf figures/perceptron-linear.eps>
+(epstopdf)             \includegraphics on input line 151.
+Package epstopdf Info: Output file is already uptodate.
+<figures/perceptron-linear-eps-converted-to.pdf, id=116, 320.19624pt x 111.4162
+4pt>
+File: figures/perceptron-linear-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/perceptron-linear-eps-converted-to.pdf>
+Package pdftex.def Info: figures/perceptron-linear-eps-converted-to.pdf  used o
+n input line 151.
+(pdftex.def)             Requested size: 552.86174pt x 192.37852pt.
+[12 <./figures/perceptron-linear-eps-converted-to.pdf>]
 
 LaTeX Font Warning: Command \Huge invalid in math mode on input line 173.
 
-[13
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
-! I couldn't open graphs/nhà hàng-perceptron+dtl-curve.eps, will ignore it.
-\epsfgetbb ...{I couldn't open #1, will ignore it}
-                                                  \else {\epsffileoktrue \ch...
-l.189 ...hs}{nhà hàng-perceptron+dtl-curve.eps}}
-                                                  
-This error message was generated by an \errmessage
-command, so I can't give any explicit help.
-Pretend that you're Hercule Poirot: Examine all clues,
-and deduce the truth by order and method.
+[13]
+Package epstopdf Info: Source file: <graphs/majority-perceptron+dtl-curve.eps>
+(epstopdf)                    date: 2026-07-15 08:15:08
+(epstopdf)                    size: 14167 bytes
+(epstopdf)             Output file: <graphs/majority-perceptron+dtl-curve-eps-c
+onverted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:12:21
+(epstopdf)                    size: 7197 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=graphs/
+majority-perceptron+dtl-curve-eps-converted-to.pdf graphs/majority-perceptron+d
+tl-curve.eps>
+(epstopdf)             \includegraphics on input line 189.
+Package epstopdf Info: Output file is already uptodate.
+<graphs/majority-perceptron+dtl-curve-eps-converted-to.pdf, id=140, 251.94125pt
+ x 176.66pt>
+File: graphs/majority-perceptron+dtl-curve-eps-converted-to.pdf Graphic file (t
+ype pdf)
+<use graphs/majority-perceptron+dtl-curve-eps-converted-to.pdf>
+Package pdftex.def Info: graphs/majority-perceptron+dtl-curve-eps-converted-to.
+pdf  used on input line 189.
+(pdftex.def)             Requested size: 294.85896pt x 206.75606pt.
+Package epstopdf Info: Source file: <graphs/restaurant-perceptron+dtl-curve.eps
+>
+(epstopdf)                    date: 2026-07-15 08:15:08
+(epstopdf)                    size: 14167 bytes
+(epstopdf)             Output file: <graphs/restaurant-perceptron+dtl-curve-eps
+-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 22:53:22
+(epstopdf)                    size: 7249 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=graphs/
+restaurant-perceptron+dtl-curve-eps-converted-to.pdf graphs/restaurant-perceptr
+on+dtl-curve.eps>
+(epstopdf)             \includegraphics on input line 189.
+Package epstopdf Info: Output file is already uptodate.
+<graphs/restaurant-perceptron+dtl-curve-eps-converted-to.pdf, id=141, 251.94125
+pt x 176.66pt>
+File: graphs/restaurant-perceptron+dtl-curve-eps-converted-to.pdf Graphic file 
+(type pdf)
+<use graphs/restaurant-perceptron+dtl-curve-eps-converted-to.pdf>
+Package pdftex.def Info: graphs/restaurant-perceptron+dtl-curve-eps-converted-t
+o.pdf  used on input line 189.
+(pdftex.def)             Requested size: 251.94063pt x 176.65956pt.
+ [14 <./graphs/majority-perceptron+dtl-curve-eps-converted-to.pdf> <./graphs/re
+staurant-perceptron+dtl-curve-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/restaurant-nn.eps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 148370 bytes
+(epstopdf)             Output file: <figures/restaurant-nn-eps-converted-to.pdf
+>
+(epstopdf)                    date: 2026-07-16 17:12:23
+(epstopdf)                    size: 7082 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/restaurant-nn-eps-converted-to.pdf figures/restaurant-nn.eps>
+(epstopdf)             \includegraphics on input line 207.
+Package epstopdf Info: Output file is already uptodate.
+<figures/restaurant-nn-eps-converted-to.pdf, id=155, 358.33875pt x 165.61874pt>
 
-[14
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [15
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.5 0.0 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=graphs/majority-perceptron+dtl-curve.eps llx=50 lly=50 urx...
-Non-PDF special ignored!
-<special> PSfile=graphs/nhà hàng-perceptron+dtl-curve.eps llx=72 lly=72 u...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [16
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [17
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/restaurant-nn.eps llx=129 lly=312 urx=486 ury=477 ...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [18
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=graphs/nn-ridge.eps llx=50 lly=50 urx=246 ury=187 rwi=2937
-Non-PDF special ignored!
-<special> PSfile=graphs/nn-bump.eps llx=50 lly=50 urx=246 ury=187 rwi=2937
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [19
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [20
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.5 0.0 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [21
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [22
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [23
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=graphs/restaurant-back-prop-error.eps llx=50 lly=50 urx=33...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [24
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=graphs/restaurant-back-prop+dtl-curve.eps llx=50 lly=50 ur...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-])
-Runaway argument?
-{\begin {minipage}{\maxfigwidth \noindent {\fboxsep =0,4pt \framebox \ETC.
-! File ended while scanning use of \@iframebox.
-<inserted text> 
-                \par 
-<*> ./chapter20b.tex
-                    
-I suspect you have forgotten a `}', causing me
-to read past where you wanted me to stop.
-I'll try to recover; but if the error is serious,
-you'd better type `E' or `X' now and fix your file.
+File: figures/restaurant-nn-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/restaurant-nn-eps-converted-to.pdf>
+Package pdftex.def Info: figures/restaurant-nn-eps-converted-to.pdf  used on in
+put line 207.
+(pdftex.def)             Requested size: 552.86174pt x 255.54138pt.
+ [15 <./figures/restaurant-nn-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <graphs/nn-ridge.eps>
+(epstopdf)                    date: 2026-07-15 08:15:08
+(epstopdf)                    size: 198142 bytes
+(epstopdf)             Output file: <graphs/nn-ridge-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:12:26
+(epstopdf)                    size: 52776 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=graphs/
+nn-ridge-eps-converted-to.pdf graphs/nn-ridge.eps>
+(epstopdf)             \includegraphics on input line 216.
+Package epstopdf Info: Output file is already uptodate.
+<graphs/nn-ridge-eps-converted-to.pdf, id=167, 196.735pt x 137.51375pt>
+File: graphs/nn-ridge-eps-converted-to.pdf Graphic file (type pdf)
+<use graphs/nn-ridge-eps-converted-to.pdf>
+Package pdftex.def Info: graphs/nn-ridge-eps-converted-to.pdf  used on input li
+ne 216.
+(pdftex.def)             Requested size: 294.85896pt x 206.11484pt.
+Package epstopdf Info: Source file: <graphs/nn-bump.eps>
+(epstopdf)                    date: 2026-07-15 08:15:08
+(epstopdf)                    size: 158722 bytes
+(epstopdf)             Output file: <graphs/nn-bump-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:12:28
+(epstopdf)                    size: 37359 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=graphs/
+nn-bump-eps-converted-to.pdf graphs/nn-bump.eps>
+(epstopdf)             \includegraphics on input line 216.
+Package epstopdf Info: Output file is already uptodate.
+<graphs/nn-bump-eps-converted-to.pdf, id=168, 196.735pt x 137.51375pt>
+File: graphs/nn-bump-eps-converted-to.pdf Graphic file (type pdf)
+<use graphs/nn-bump-eps-converted-to.pdf>
+Package pdftex.def Info: graphs/nn-bump-eps-converted-to.pdf  used on input lin
+e 216.
+(pdftex.def)             Requested size: 196.7345pt x 137.51341pt.
+ [16 <./graphs/nn-ridge-eps-converted-to.pdf> <./graphs/nn-bump-eps-converted-t
+o.pdf>] [17] [18] [19] [20]
+Package epstopdf Info: Source file: <graphs/restaurant-back-prop-error.eps>
+(epstopdf)                    date: 2026-07-15 08:15:08
+(epstopdf)                    size: 15819 bytes
+(epstopdf)             Output file: <graphs/restaurant-back-prop-error-eps-conv
+erted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:12:29
+(epstopdf)                    size: 7214 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=graphs/
+restaurant-back-prop-error-eps-converted-to.pdf graphs/restaurant-back-prop-err
+or.eps>
+(epstopdf)             \includegraphics on input line 286.
+Package epstopdf Info: Output file is already uptodate.
+<graphs/restaurant-back-prop-error-eps-converted-to.pdf, id=207, 289.08pt x 201
+.75375pt>
+File: graphs/restaurant-back-prop-error-eps-converted-to.pdf Graphic file (type
+ pdf)
+<use graphs/restaurant-back-prop-error-eps-converted-to.pdf>
+Package pdftex.def Info: graphs/restaurant-back-prop-error-eps-converted-to.pdf
+  used on input line 286.
+(pdftex.def)             Requested size: 368.58073pt x 257.25262pt.
+ [21 <./graphs/restaurant-back-prop-error-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <graphs/restaurant-back-prop+dtl-curve.eps>
 
-! Emergency stop.
-<*> ./chapter20b.tex
-                    
-*** (job aborted, no legal \end found)
+(epstopdf)                    date: 2026-07-15 08:15:08
+(epstopdf)                    size: 14908 bytes
+(epstopdf)             Output file: <graphs/restaurant-back-prop+dtl-curve-eps-
+converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:12:32
+(epstopdf)                    size: 7516 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=graphs/
+restaurant-back-prop+dtl-curve-eps-converted-to.pdf graphs/restaurant-back-prop
++dtl-curve.eps>
+(epstopdf)             \includegraphics on input line 298.
+Package epstopdf Info: Output file is already uptodate.
+<graphs/restaurant-back-prop+dtl-curve-eps-converted-to.pdf, id=216, 289.08pt x
+ 201.75375pt>
+File: graphs/restaurant-back-prop+dtl-curve-eps-converted-to.pdf Graphic file (
+type pdf)
+<use graphs/restaurant-back-prop+dtl-curve-eps-converted-to.pdf>
+Package pdftex.def Info: graphs/restaurant-back-prop+dtl-curve-eps-converted-to
+.pdf  used on input line 298.
+(pdftex.def)             Requested size: 399.288pt x 278.68521pt.
+ [22 <./graphs/restaurant-back-prop+dtl-curve-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/easy21c.eps>
+(epstopdf)                    date: 2026-07-15 08:15:03
+(epstopdf)                    size: 96812 bytes
+(epstopdf)             Output file: <figures/easy21c-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 22:52:09
+(epstopdf)                    size: 3005 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/easy21c-eps-converted-to.pdf figures/easy21c.eps>
+(epstopdf)             \includegraphics on input line 332.
+Package epstopdf Info: Output file is already uptodate.
+<figures/easy21c-eps-converted-to.pdf, id=225, 56.21pt x 56.21pt>
+File: figures/easy21c-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/easy21c-eps-converted-to.pdf>
+Package pdftex.def Info: figures/easy21c-eps-converted-to.pdf  used on input li
+ne 332.
+(pdftex.def)             Requested size: 56.20985pt x 56.20985pt.
+Package epstopdf Info: Source file: <figures/easy23c.eps>
+(epstopdf)                    date: 2026-07-15 08:15:03
+(epstopdf)                    size: 96812 bytes
+(epstopdf)             Output file: <figures/easy23c-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 22:52:13
+(epstopdf)                    size: 2890 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/easy23c-eps-converted-to.pdf figures/easy23c.eps>
+(epstopdf)             \includegraphics on input line 332.
+Package epstopdf Info: Output file is already uptodate.
+<figures/easy23c-eps-converted-to.pdf, id=226, 56.21pt x 56.21pt>
+File: figures/easy23c-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/easy23c-eps-converted-to.pdf>
+Package pdftex.def Info: figures/easy23c-eps-converted-to.pdf  used on input li
+ne 332.
+(pdftex.def)             Requested size: 56.20985pt x 56.20985pt.
+Package epstopdf Info: Source file: <figures/easy16c.eps>
+(epstopdf)                    date: 2026-07-15 08:15:03
+(epstopdf)                    size: 96812 bytes
+(epstopdf)             Output file: <figures/easy16c-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 22:52:19
+(epstopdf)                    size: 2977 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/easy16c-eps-converted-to.pdf figures/easy16c.eps>
+(epstopdf)             \includegraphics on input line 332.
+Package epstopdf Info: Output file is already uptodate.
+<figures/easy16c-eps-converted-to.pdf, id=227, 56.21pt x 56.21pt>
+File: figures/easy16c-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/easy16c-eps-converted-to.pdf>
+Package pdftex.def Info: figures/easy16c-eps-converted-to.pdf  used on input li
+ne 332.
+(pdftex.def)             Requested size: 56.20985pt x 56.20985pt.
+Package epstopdf Info: Source file: <figures/easy12c.eps>
+(epstopdf)                    date: 2026-07-15 08:15:03
+(epstopdf)                    size: 96812 bytes
+(epstopdf)             Output file: <figures/easy12c-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 22:52:22
+(epstopdf)                    size: 3001 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/easy12c-eps-converted-to.pdf figures/easy12c.eps>
+(epstopdf)             \includegraphics on input line 332.
+Package epstopdf Info: Output file is already uptodate.
+<figures/easy12c-eps-converted-to.pdf, id=228, 56.21pt x 56.21pt>
+File: figures/easy12c-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/easy12c-eps-converted-to.pdf>
+Package pdftex.def Info: figures/easy12c-eps-converted-to.pdf  used on input li
+ne 332.
+(pdftex.def)             Requested size: 56.20985pt x 56.20985pt.
+Package epstopdf Info: Source file: <figures/easy20c.eps>
+(epstopdf)                    date: 2026-07-15 08:15:03
+(epstopdf)                    size: 96812 bytes
+(epstopdf)             Output file: <figures/easy20c-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 22:52:30
+(epstopdf)                    size: 2962 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/easy20c-eps-converted-to.pdf figures/easy20c.eps>
+(epstopdf)             \includegraphics on input line 332.
+Package epstopdf Info: Output file is already uptodate.
+<figures/easy20c-eps-converted-to.pdf, id=229, 56.21pt x 56.21pt>
+File: figures/easy20c-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/easy20c-eps-converted-to.pdf>
+Package pdftex.def Info: figures/easy20c-eps-converted-to.pdf  used on input li
+ne 332.
+(pdftex.def)             Requested size: 56.20985pt x 56.20985pt.
+Package epstopdf Info: Source file: <figures/easy35c.eps>
+(epstopdf)                    date: 2026-07-15 08:15:03
+(epstopdf)                    size: 96812 bytes
+(epstopdf)             Output file: <figures/easy35c-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 22:52:40
+(epstopdf)                    size: 2824 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/easy35c-eps-converted-to.pdf figures/easy35c.eps>
+(epstopdf)             \includegraphics on input line 332.
+Package epstopdf Info: Output file is already uptodate.
+<figures/easy35c-eps-converted-to.pdf, id=230, 56.21pt x 56.21pt>
+File: figures/easy35c-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/easy35c-eps-converted-to.pdf>
+Package pdftex.def Info: figures/easy35c-eps-converted-to.pdf  used on input li
+ne 332.
+(pdftex.def)             Requested size: 56.20985pt x 56.20985pt.
+Package epstopdf Info: Source file: <figures/easy13c.eps>
+(epstopdf)                    date: 2026-07-15 08:15:03
+(epstopdf)                    size: 96812 bytes
+(epstopdf)             Output file: <figures/easy13c-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 22:52:44
+(epstopdf)                    size: 3008 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/easy13c-eps-converted-to.pdf figures/easy13c.eps>
+(epstopdf)             \includegraphics on input line 332.
+Package epstopdf Info: Output file is already uptodate.
+<figures/easy13c-eps-converted-to.pdf, id=231, 56.21pt x 56.21pt>
+File: figures/easy13c-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/easy13c-eps-converted-to.pdf>
+Package pdftex.def Info: figures/easy13c-eps-converted-to.pdf  used on input li
+ne 332.
+(pdftex.def)             Requested size: 56.20985pt x 56.20985pt.
+Package epstopdf Info: Source file: <figures/easy29c.eps>
+(epstopdf)                    date: 2026-07-15 08:15:03
+(epstopdf)                    size: 96812 bytes
+(epstopdf)             Output file: <figures/easy29c-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 22:52:48
+(epstopdf)                    size: 2903 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/easy29c-eps-converted-to.pdf figures/easy29c.eps>
+(epstopdf)             \includegraphics on input line 332.
+Package epstopdf Info: Output file is already uptodate.
+<figures/easy29c-eps-converted-to.pdf, id=232, 56.21pt x 56.21pt>
+File: figures/easy29c-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/easy29c-eps-converted-to.pdf>
+Package pdftex.def Info: figures/easy29c-eps-converted-to.pdf  used on input li
+ne 332.
+(pdftex.def)             Requested size: 56.20985pt x 56.20985pt.
+Package epstopdf Info: Source file: <figures/easy17c.eps>
+(epstopdf)                    date: 2026-07-15 08:15:03
+(epstopdf)                    size: 96812 bytes
+(epstopdf)             Output file: <figures/easy17c-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 22:52:53
+(epstopdf)                    size: 2987 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/easy17c-eps-converted-to.pdf figures/easy17c.eps>
+(epstopdf)             \includegraphics on input line 332.
+Package epstopdf Info: Output file is already uptodate.
+<figures/easy17c-eps-converted-to.pdf, id=233, 56.21pt x 56.21pt>
+File: figures/easy17c-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/easy17c-eps-converted-to.pdf>
+Package pdftex.def Info: figures/easy17c-eps-converted-to.pdf  used on input li
+ne 332.
+(pdftex.def)             Requested size: 56.20985pt x 56.20985pt.
+Package epstopdf Info: Source file: <figures/easy19c.eps>
+(epstopdf)                    date: 2026-07-15 08:15:03
+(epstopdf)                    size: 96812 bytes
+(epstopdf)             Output file: <figures/easy19c-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 22:52:58
+(epstopdf)                    size: 2908 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/easy19c-eps-converted-to.pdf figures/easy19c.eps>
+(epstopdf)             \includegraphics on input line 332.
+Package epstopdf Info: Output file is already uptodate.
+<figures/easy19c-eps-converted-to.pdf, id=234, 56.21pt x 56.21pt>
+File: figures/easy19c-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/easy19c-eps-converted-to.pdf>
+Package pdftex.def Info: figures/easy19c-eps-converted-to.pdf  used on input li
+ne 332.
+(pdftex.def)             Requested size: 56.20985pt x 56.20985pt.
+Package epstopdf Info: Source file: <figures/hard53c.eps>
+(epstopdf)                    date: 2026-07-15 08:15:04
+(epstopdf)                    size: 96812 bytes
+(epstopdf)             Output file: <figures/hard53c-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 22:53:02
+(epstopdf)                    size: 3005 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/hard53c-eps-converted-to.pdf figures/hard53c.eps>
+(epstopdf)             \includegraphics on input line 332.
+Package epstopdf Info: Output file is already uptodate.
+<figures/hard53c-eps-converted-to.pdf, id=235, 56.21pt x 56.21pt>
+File: figures/hard53c-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/hard53c-eps-converted-to.pdf>
+Package pdftex.def Info: figures/hard53c-eps-converted-to.pdf  used on input li
+ne 332.
+(pdftex.def)             Requested size: 56.20985pt x 56.20985pt.
+Package epstopdf Info: Source file: <figures/hard04c.eps>
+(epstopdf)                    date: 2026-07-15 08:15:04
+(epstopdf)                    size: 96812 bytes
+(epstopdf)             Output file: <figures/hard04c-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 22:53:06
+(epstopdf)                    size: 2853 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/hard04c-eps-converted-to.pdf figures/hard04c.eps>
+(epstopdf)             \includegraphics on input line 332.
+Package epstopdf Info: Output file is already uptodate.
+<figures/hard04c-eps-converted-to.pdf, id=236, 56.21pt x 56.21pt>
+File: figures/hard04c-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/hard04c-eps-converted-to.pdf>
+Package pdftex.def Info: figures/hard04c-eps-converted-to.pdf  used on input li
+ne 332.
+(pdftex.def)             Requested size: 56.20985pt x 56.20985pt.
+Package epstopdf Info: Source file: <figures/hard20c.eps>
+(epstopdf)                    date: 2026-07-15 08:15:04
+(epstopdf)                    size: 96812 bytes
+(epstopdf)             Output file: <figures/hard20c-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 22:53:08
+(epstopdf)                    size: 3011 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/hard20c-eps-converted-to.pdf figures/hard20c.eps>
+(epstopdf)             \includegraphics on input line 332.
+Package epstopdf Info: Output file is already uptodate.
+<figures/hard20c-eps-converted-to.pdf, id=237, 56.21pt x 56.21pt>
+File: figures/hard20c-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/hard20c-eps-converted-to.pdf>
+Package pdftex.def Info: figures/hard20c-eps-converted-to.pdf  used on input li
+ne 332.
+(pdftex.def)             Requested size: 56.20985pt x 56.20985pt.
+Package epstopdf Info: Source file: <figures/hard13c.eps>
+(epstopdf)                    date: 2026-07-15 08:15:04
+(epstopdf)                    size: 96812 bytes
+(epstopdf)             Output file: <figures/hard13c-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 22:53:11
+(epstopdf)                    size: 2951 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/hard13c-eps-converted-to.pdf figures/hard13c.eps>
+(epstopdf)             \includegraphics on input line 332.
+Package epstopdf Info: Output file is already uptodate.
+<figures/hard13c-eps-converted-to.pdf, id=238, 56.21pt x 56.21pt>
+File: figures/hard13c-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/hard13c-eps-converted-to.pdf>
+Package pdftex.def Info: figures/hard13c-eps-converted-to.pdf  used on input li
+ne 332.
+(pdftex.def)             Requested size: 56.20985pt x 56.20985pt.
+Package epstopdf Info: Source file: <figures/hard01c.eps>
+(epstopdf)                    date: 2026-07-15 08:15:04
+(epstopdf)                    size: 96812 bytes
+(epstopdf)             Output file: <figures/hard01c-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 22:53:14
+(epstopdf)                    size: 2948 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/hard01c-eps-converted-to.pdf figures/hard01c.eps>
+(epstopdf)             \includegraphics on input line 332.
+Package epstopdf Info: Output file is already uptodate.
+<figures/hard01c-eps-converted-to.pdf, id=239, 56.21pt x 56.21pt>
+File: figures/hard01c-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/hard01c-eps-converted-to.pdf>
+Package pdftex.def Info: figures/hard01c-eps-converted-to.pdf  used on input li
+ne 332.
+(pdftex.def)             Requested size: 56.20985pt x 56.20985pt.
+Package epstopdf Info: Source file: <figures/hard10c.eps>
+(epstopdf)                    date: 2026-07-15 08:15:04
+(epstopdf)                    size: 96812 bytes
+(epstopdf)             Output file: <figures/hard10c-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 22:53:18
+(epstopdf)                    size: 2987 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/hard10c-eps-converted-to.pdf figures/hard10c.eps>
+(epstopdf)             \includegraphics on input line 332.
+Package epstopdf Info: Output file is already uptodate.
+<figures/hard10c-eps-converted-to.pdf, id=240, 56.21pt x 56.21pt>
+File: figures/hard10c-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/hard10c-eps-converted-to.pdf>
+Package pdftex.def Info: figures/hard10c-eps-converted-to.pdf  used on input li
+ne 332.
+(pdftex.def)             Requested size: 56.20985pt x 56.20985pt.
+Package epstopdf Info: Source file: <figures/hard34c.eps>
+(epstopdf)                    date: 2026-07-15 08:15:04
+(epstopdf)                    size: 96812 bytes
+(epstopdf)             Output file: <figures/hard34c-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 22:53:22
+(epstopdf)                    size: 2981 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/hard34c-eps-converted-to.pdf figures/hard34c.eps>
+(epstopdf)             \includegraphics on input line 332.
+Package epstopdf Info: Output file is already uptodate.
+<figures/hard34c-eps-converted-to.pdf, id=241, 56.21pt x 56.21pt>
+File: figures/hard34c-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/hard34c-eps-converted-to.pdf>
+Package pdftex.def Info: figures/hard34c-eps-converted-to.pdf  used on input li
+ne 332.
+(pdftex.def)             Requested size: 56.20985pt x 56.20985pt.
+Package epstopdf Info: Source file: <figures/hard52c.eps>
+(epstopdf)                    date: 2026-07-15 08:15:04
+(epstopdf)                    size: 96812 bytes
+(epstopdf)             Output file: <figures/hard52c-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 22:53:27
+(epstopdf)                    size: 2877 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/hard52c-eps-converted-to.pdf figures/hard52c.eps>
+(epstopdf)             \includegraphics on input line 332.
+Package epstopdf Info: Output file is already uptodate.
+<figures/hard52c-eps-converted-to.pdf, id=242, 56.21pt x 56.21pt>
+File: figures/hard52c-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/hard52c-eps-converted-to.pdf>
+Package pdftex.def Info: figures/hard52c-eps-converted-to.pdf  used on input li
+ne 332.
+(pdftex.def)             Requested size: 56.20985pt x 56.20985pt.
+Package epstopdf Info: Source file: <figures/hard05c.eps>
+(epstopdf)                    date: 2026-07-15 08:15:04
+(epstopdf)                    size: 96812 bytes
+(epstopdf)             Output file: <figures/hard05c-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 22:53:31
+(epstopdf)                    size: 2912 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/hard05c-eps-converted-to.pdf figures/hard05c.eps>
+(epstopdf)             \includegraphics on input line 332.
+Package epstopdf Info: Output file is already uptodate.
+<figures/hard05c-eps-converted-to.pdf, id=243, 56.21pt x 56.21pt>
+File: figures/hard05c-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/hard05c-eps-converted-to.pdf>
+Package pdftex.def Info: figures/hard05c-eps-converted-to.pdf  used on input li
+ne 332.
+(pdftex.def)             Requested size: 56.20985pt x 56.20985pt.
+Package epstopdf Info: Source file: <figures/hard14c.eps>
+(epstopdf)                    date: 2026-07-15 08:15:04
+(epstopdf)                    size: 96812 bytes
+(epstopdf)             Output file: <figures/hard14c-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 22:53:36
+(epstopdf)                    size: 2900 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/hard14c-eps-converted-to.pdf figures/hard14c.eps>
+(epstopdf)             \includegraphics on input line 332.
+Package epstopdf Info: Output file is already uptodate.
+<figures/hard14c-eps-converted-to.pdf, id=244, 56.21pt x 56.21pt>
+File: figures/hard14c-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/hard14c-eps-converted-to.pdf>
+Package pdftex.def Info: figures/hard14c-eps-converted-to.pdf  used on input li
+ne 332.
+(pdftex.def)             Requested size: 56.20985pt x 56.20985pt.
+ [23 <./figures/easy21c-eps-converted-to.pdf> <./figures/easy23c-eps-converted-
+to.pdf> <./figures/easy16c-eps-converted-to.pdf> <./figures/easy12c-eps-convert
+ed-to.pdf> <./figures/easy20c-eps-converted-to.pdf> <./figures/easy35c-eps-conv
+erted-to.pdf> <./figures/easy13c-eps-converted-to.pdf> <./figures/easy29c-eps-c
+onverted-to.pdf> <./figures/easy17c-eps-converted-to.pdf> <./figures/easy19c-ep
+s-converted-to.pdf> <./figures/hard53c-eps-converted-to.pdf> <./figures/hard04c
+-eps-converted-to.pdf> <./figures/hard20c-eps-converted-to.pdf> <./figures/hard
+13c-eps-converted-to.pdf> <./figures/hard01c-eps-converted-to.pdf> <./figures/h
+ard10c-eps-converted-to.pdf> <./figures/hard34c-eps-converted-to.pdf> <./figure
+s/hard52c-eps-converted-to.pdf> <./figures/hard05c-eps-converted-to.pdf> <./fig
+ures/hard14c-eps-converted-to.pdf>] [24]
+(chapter20b.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+ ***********
 
- 
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 0.5pt have occurred.
+
+ ) 
 Here is how much of TeX's memory you used:
- 1813 strings out of 467870
- 25864 string characters out of 5418355
- 442733 words of memory out of 5000000
- 30699 multiletter control sequences out of 15000+600000
+ 3266 strings out of 467870
+ 58081 string characters out of 5418355
+ 446217 words of memory out of 5000000
+ 32110 multiletter control sequences out of 15000+600000
  645649 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,9n,65p,221b,287s stack positions out of 10000i,1000n,20000p,200000b,200000s
-!  ==> Fatal error occurred, no output PDF file produced!
+ 72i,9n,79p,241b,339s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmex10.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmmi12.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmr12.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/thanh/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/thanh/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/thanh/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/vntex/vnr/vnbx12.pfb><C:/Users/thanh/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/vntex/vnr/vncsc10.pfb><C:/Users/thanh/AppData/
+Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnr8.pfb><C:/Users/thanh/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/vntex/vnr/vnss17.pfb><C:/Users/thanh/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/vntex/vnr/vnssbx10.pfb>
+Output written on chapter20b.pdf (24 pages, 444464 bytes).
+PDF statistics:
+ 317 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 176 words of extra memory for PDF output out of 10000 (max. 10000000)
+

@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.24)  15 JUL 2026 17:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.24)  16 JUL 2026 22:25
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **./chapter09a.tex
 (chapter09a.tex
@@ -407,6 +407,9 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 [1
 
+
+Non-PDF special ignored!
+<special> papersize=11in,8.5in
 {C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/than
 h/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-t5.enc}{C:/Users/thanh/Ap
 pData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}]
@@ -445,180 +448,26 @@ nc}]
 [3{C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.en
 c}{C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}]
 [4]
-Runaway argument?
-{$Buffalo(Bob) \land Pig(Pat) \implies Faster(Bob,Pat)$\\ \phantom {U\ETC.
-! Paragraph ended before \makeph@nt was complete.
-<to be read again> 
-                   \par 
-l.66 
-     
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
+Overfull \hbox (77.25568pt too wide) in paragraph at lines 58--66
+[][]  
+ []
 
-! Missing } inserted.
-<inserted text> 
-                }
-l.68 \pheading{Ví dụ chứng minh}
-                                     
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
+[5]
+Overfull \hbox (77.25568pt too wide) in paragraph at lines 70--79
+[][]  
+ []
 
-! Missing } inserted.
-<inserted text> 
-                }
-l.68 \pheading{Ví dụ chứng minh}
-                                     
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
+[6]
+Overfull \hbox (77.25568pt too wide) in paragraph at lines 85--95
+[][]  
+ []
 
-! Missing \cr inserted.
-<inserted text> 
-                \cr 
-l.68 \pheading{Ví dụ chứng minh}
-                                     
-I'm guessing that you meant to end an alignment here.
-
-! Missing { inserted.
-<inserted text> 
-                {
-l.68 \pheading{Ví dụ chứng minh}
-                                     
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
-
-Runaway argument?
-{$Buffalo(Bob) \land Pig(Pat) \implies Faster(Bob,Pat)$\\ \hline AI 1\ETC.
-! Paragraph ended before \makeph@nt was complete.
-<to be read again> 
-                   \par 
-l.79 
-     
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.83 \pheading{Ví dụ chứng minh}
-                                     
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.83 \pheading{Ví dụ chứng minh}
-                                     
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing \cr inserted.
-<inserted text> 
-                \cr 
-l.83 \pheading{Ví dụ chứng minh}
-                                     
-I'm guessing that you meant to end an alignment here.
-
-! Missing { inserted.
-<inserted text> 
-                {
-l.83 \pheading{Ví dụ chứng minh}
-                                     
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
-
-Runaway argument?
-{$Buffalo(Bob) \land Pig(Pat) \implies Faster(Bob,Pat)$\\ \hline \phantom \ETC.
-! Paragraph ended before \makeph@nt was complete.
-<to be read again> 
-                   \par 
-l.95 
-     
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.97 \pheading{Ví dụ chứng minh}
-                                     
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.97 \pheading{Ví dụ chứng minh}
-                                     
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing \cr inserted.
-<inserted text> 
-                \cr 
-l.97 \pheading{Ví dụ chứng minh}
-                                     
-I'm guessing that you meant to end an alignment here.
-
-! Missing { inserted.
-<inserted text> 
-                {
-l.97 \pheading{Ví dụ chứng minh}
-                                     
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
-
-
+[7]
 Overfull \hbox (77.25568pt too wide) in paragraph at lines 99--110
 [][]  
  []
 
-! Misplaced \cr.
-\reserved@c ->\ifnum 0=`{\fi }\cr 
-                                  
-l.116 T
-       rạng thái là các tập hợp \\
-I can't figure out why you would want to use a tab mark
-or \cr or \span just now. If something like a right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced \cr.
-\reserved@c ->\ifnum 0=`{\fi }\cr 
-                                  
-l.117 K
-       iểm tra trạng thái kiểm tra đích để xem nó có chứa c�...
-I can't figure out why you would want to use a tab mark
-or \cr or \span just now. If something like a right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
+[8]
 Package epstopdf Info: Source file: <figures/naive-proof-tree.ps>
 (epstopdf)                    date: 2026-07-15 08:15:05
 (epstopdf)                    size: 16718 bytes
@@ -630,7 +479,7 @@ df>
 =figures/naive-proof-tree-ps-converted-to.pdf>
 (epstopdf)             \includegraphics on input line 121.
 Package epstopdf Info: Output file is already uptodate.
-<figures/naive-proof-tree-ps-converted-to.pdf, id=22, 203.76125pt x 209.78375pt
+<figures/naive-proof-tree-ps-converted-to.pdf, id=35, 203.76125pt x 209.78375pt
 >
 File: figures/naive-proof-tree-ps-converted-to.pdf Graphic file (type pdf)
 <use figures/naive-proof-tree-ps-converted-to.pdf>
@@ -657,263 +506,17 @@ Overfull \hbox (24.5463pt too wide) detected at line 148
 $ []$ 
  []
 
-
+[9 <./figures/naive-proof-tree-ps-converted-to.pdf>] [10]
 Overfull \hbox (24.5463pt too wide) detected at line 161
 $ []$ 
  []
 
-! Misplaced \cr.
-\reserved@c ->\ifnum 0=`{\fi }\cr 
-                                  
-l.163 \begin
-            {tabular}{rl}
-I can't figure out why you would want to use a tab mark
-or \cr or \span just now. If something like a right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-
-Overfull \hbox (12.08229pt too wide) in paragraph at lines 162--169
-\T5/lmr/m/n/20.74 lu�n[]  
- []
-
-
+[11]
 Overfull \hbox (61.14696pt too wide) detected at line 179
 $ []$ 
  []
 
-! Misplaced \cr.
-\reserved@c ->\ifnum 0=`{\fi }\cr 
-                                  
-l.189 h
-       oặc là một câu cá đơn hoặc \nl
-I can't figure out why you would want to use a tab mark
-or \cr or \span just now. If something like a right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced \cr.
-\reserved@c ->\ifnum 0=`{\fi }\cr 
-                                  
-l.189 hoặc là một câu cá đơn hoặc \nl
-                                                
-I can't figure out why you would want to use a tab mark
-or \cr or \span just now. If something like a right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced \cr.
-\reserved@c ->\ifnum 0=`{\fi }\cr 
-                                  
-l.191 T
-       ất cả các biến được định nghĩa đều có giá trị t...
-I can't figure out why you would want to use a tab mark
-or \cr or \span just now. If something like a right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced \cr.
-\reserved@c ->\ifnum 0=`{\fi }\cr 
-                                  
-l.219 ...iện mới $p$ được thêm vào KB\al
-                                                  
-I can't figure out why you would want to use a tab mark
-or \cr or \span just now. If something like a right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced \cr.
-\reserved@c ->\ifnum 0=`{\fi }\cr 
-                                  
-l.220 ... hợp nhất với một tiền đề\nl
-                                                  
-I can't figure out why you would want to use a tab mark
-or \cr or \span just now. If something like a right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced \cr.
-\reserved@c ->\ifnum 0=`{\fi }\cr 
-                                  
-l.221 ...ác tiền đề khác \u{đã biết}\nl
-                                                  
-I can't figure out why you would want to use a tab mark
-or \cr or \span just now. If something like a right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced \cr.
-\reserved@c ->\ifnum 0=`{\fi }\cr 
-                                  
-l.224 ...c cung cấp bởi data (data-driven)}\nl
-                                                  
-I can't figure out why you would want to use a tab mark
-or \cr or \span just now. If something like a right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced \cr.
-\reserved@c ->\ifnum 0=`{\fi }\cr 
-                                  
-l.232 S
-       ố trong [] = hợp lý nhất theo nghĩa đen; \tick\ ra quy tắc...
-I can't figure out why you would want to use a tab mark
-or \cr or \span just now. If something like a right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced \cr.
-\reserved@c ->\ifnum 0=`{\fi }\cr 
-                                  
-l.235 \u
-        {2.} $Pig(y) \land Slug(z) \implies Faster(y,z)$\\
-I can't figure out why you would want to use a tab mark
-or \cr or \span just now. If something like a right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced \cr.
-\reserved@c ->\ifnum 0=`{\fi }\cr 
-                                  
-l.236 \u
-        {3.} $Faster(x,y) \land Faster(y,z) \implies Faster(x,z)$\\
-I can't figure out why you would want to use a tab mark
-or \cr or \span just now. If something like a right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced \cr.
-\reserved@c ->\ifnum 0=`{\fi }\cr 
-                                  
-l.237 \u
-        {4.} $Buffalo(Bob)$ \u{[1a,\cross]}\\
-I can't figure out why you would want to use a tab mark
-or \cr or \span just now. If something like a right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced \cr.
-\reserved@c ->\ifnum 0=`{\fi }\cr 
-                                  
-l.238 \u
-        {5.} $Pig(Pat)$ \u{[1b,\cross]} $\rightarrow$ \u{6.} $Faster(Bob,Pat...
-I can't figure out why you would want to use a tab mark
-or \cr or \span just now. If something like a right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced \cr.
-\reserved@c ->\ifnum 0=`{\fi }\cr 
-                                  
-l.239 \phantom
-              {\u{5.} $Pig(Pat)$} \u{[2a,\cross]}\\
-I can't figure out why you would want to use a tab mark
-or \cr or \span just now. If something like a right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced \cr.
-\reserved@c ->\ifnum 0=`{\fi }\cr 
-                                  
-l.240 \u
-        {7.} $Slug(Steve)$ \u{[2b,\cross]}\al
-I can't figure out why you would want to use a tab mark
-or \cr or \span just now. If something like a right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced \cr.
-\reserved@c ->\ifnum 0=`{\fi }\cr 
-                                  
-l.240 \u{7.} $Slug(Steve)$ \u{[2b,\cross]}\al
-                                             
-I can't figure out why you would want to use a tab mark
-or \cr or \span just now. If something like a right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced \cr.
-\reserved@c ->\ifnum 0=`{\fi }\cr 
-                                  
-l.241 ...eve)$ \u{[3a,\cross]}, \u{[3b,\cross]}\nl
-                                                  
-I can't figure out why you would want to use a tab mark
-or \cr or \span just now. If something like a right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced \cr.
-\reserved@c ->\ifnum 0=`{\fi }\cr 
-                                  
-l.248 Khi một truy vấn $q$ được hỏi\al
-                                                
-I can't figure out why you would want to use a tab mark
-or \cr or \span just now. If something like a right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced \cr.
-\reserved@c ->\ifnum 0=`{\fi }\cr 
-                                  
-l.249 ...'$, hãy trả về bộ hợp nhất \al
-                                                  
-I can't figure out why you would want to use a tab mark
-or \cr or \span just now. If something like a right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced \cr.
-\reserved@c ->\ifnum 0=`{\fi }\cr 
-                                  
-l.250 ...�� $q'$ của nó phù hợp với $q$\nl
-                                                  
-I can't figure out why you would want to use a tab mark
-or \cr or \span just now. If something like a right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced \cr.
-\reserved@c ->\ifnum 0=`{\fi }\cr 
-                                  
-l.266 \u
-        {2.} $Slimy(z) \land Creeps(z) \implies Slug(z)$\\
-I can't figure out why you would want to use a tab mark
-or \cr or \span just now. If something like a right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced \cr.
-\reserved@c ->\ifnum 0=`{\fi }\cr 
-                                  
-l.267 \u
-        {3.} $Pig(Pat)$ \qquad \u{4.} $Slimy(Steve)$ \qquad \u{5.} $Creeps(S...
-I can't figure out why you would want to use a tab mark
-or \cr or \span just now. If something like a right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
+[12] [13] [14] [15] [16]
 Package epstopdf Info: Source file: <figures/slug-bc.ps>
 (epstopdf)                    date: 2026-07-15 08:15:06
 (epstopdf)                    size: 17490 bytes
@@ -924,146 +527,38 @@ Package epstopdf Info: Source file: <figures/slug-bc.ps>
 slug-bc-ps-converted-to.pdf>
 (epstopdf)             \includegraphics on input line 272.
 Package epstopdf Info: Output file is already uptodate.
-<figures/slug-bc-ps-converted-to.pdf, id=23, 229.85875pt x 175.65625pt>
+<figures/slug-bc-ps-converted-to.pdf, id=71, 229.85875pt x 175.65625pt>
 File: figures/slug-bc-ps-converted-to.pdf Graphic file (type pdf)
 <use figures/slug-bc-ps-converted-to.pdf>
 Package pdftex.def Info: figures/slug-bc-ps-converted-to.pdf  used on input lin
 e 272.
 (pdftex.def)             Requested size: 368.58073pt x 281.6829pt.
-
-! LaTeX Error: \begin{tabular} on input line 85 ended by \end{huge}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.277 \end{huge}
-                
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.277 \end{huge}
-                
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.277 \end{huge}
-                
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.277 \end{huge}
-                
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-
-! LaTeX Error: \begin{tabular} on input line 70 ended by \end{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.278 \end{document}
-                    
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
+ [17 <./figures/slug-bc-ps-converted-to.pdf>]
 (chapter09a.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
-
-! You can't use `\end' in internal vertical mode.
-\enddocument ...cument/end}\deadcycles \z@ \@@end 
-                                                  
-l.278 \end{document}
-                    
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-
-! LaTeX Error: \begin{tabular} on input line 70 ended by \end{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.278 \end{document}
-                    
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.278 \end{document}
-                    
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.278 \end{document}
-                    
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.278 \end{document}
-                    
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-)
-! Emergency stop.
-<*> ./chapter09a.tex
-                    
-*** (job aborted, no legal \end found)
-
- 
+ ) 
 Here is how much of TeX's memory you used:
  3056 strings out of 467870
  49813 string characters out of 5418355
- 461281 words of memory out of 5000000
+ 444392 words of memory out of 5000000
  31881 multiletter control sequences out of 15000+600000
  683491 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,24n,79p,304b,529s stack positions out of 10000i,1000n,20000p,200000b,200000s
-!  ==> Fatal error occurred, no output PDF file produced!
+ 72i,12n,79p,304b,316s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pf
+b><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.p
+fb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.p
+fb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pf
+b><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb
+><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><
+C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><
+C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb>
+Output written on chapter09a.pdf (17 pages, 229152 bytes).
+PDF statistics:
+ 129 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+

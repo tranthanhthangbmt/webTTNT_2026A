@@ -1,7 +1,7 @@
 \documentclass{article}
 \usepackage{fleqn}
 \usepackage{epsf}
-\usepackage[dvips]{color}
+\usepackage{color}
 \usepackage{aima2e-slides}
 \def\Astar{A$^*$}
 \begin{document}
@@ -249,7 +249,7 @@ Giả sử một số mục tiêu dưới mức tối ưu \mat{$G_2$} đã đư�
 và đang trong hàng đợi. Đặt \mat{$n$} là một nút chưa được mở rộng
 trên con đường ngắn nhất tới mục tiêu tối ưu \mat{$G_1$}.
 
-\epsfxsize=0,5\textwidth
+\epsfxsize=0.5\textwidth
 \fig{\file{figures}{astar-proof.ps}}
 
 \begin{eqnarray*}
@@ -274,25 +274,25 @@ Dần dần thêm ``\mat{$f$}-contours'' của các nút (xem thêm các lớp t
 
 \vspace*{0.3in}
 
-\epsfxsize=0,75\textwidth
+\epsfxsize=0.75\textwidth
 \fig{\file{figures}{f-circles.ps}}
 
 
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Thuộc tính của {\Astar}
+\heading{Thuộc tính của {\Astar}}
 
 \q{Hoàn thành}
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Thuộc tính của {\Astar}
+\heading{Thuộc tính của {\Astar}}
 
 \q{Hoàn thành} Có, trừ khi có vô số nút có \mat{$f \leq f(G)$}
 
 \q{Thời gian}
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Thuộc tính của {\Astar}
+\heading{Thuộc tính của {\Astar}}
 
 \q{Hoàn thành} Có, trừ khi có vô số nút có \mat{$f \leq f(G)$}
 
@@ -301,7 +301,7 @@ Dần dần thêm ``\mat{$f$}-contours'' của các nút (xem thêm các lớp t
 \q{Không gian}
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Thuộc tính của {\Astar}
+\heading{Thuộc tính của {\Astar}}
 
 \q{Hoàn thành} Có, trừ khi có vô số nút có \mat{$f \leq f(G)$}
 
@@ -312,7 +312,7 @@ Dần dần thêm ``\mat{$f$}-contours'' của các nút (xem thêm các lớp t
 \q{Tối ưu}
 
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\heading{Thuộc tính của {\Astar}
+\heading{Thuộc tính của {\Astar}}
 
 \q{Hoàn thành} Có, trừ khi có vô số nút có \mat{$f \leq f(G)$}
 
@@ -330,7 +330,7 @@ Dần dần thêm ``\mat{$f$}-contours'' của các nút (xem thêm các lớp t
 %%%%%%%%%%%% Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \heading{Chứng minh bổ đề: Tính nhất quán}
 
-Một phương pháp phỏng đoán là \defn{nhất quán} nếu \hfill\raisebox{-0.35\textwidth[0pt][0pt]{\epsfxsize=0.3\textwidth\epsffile{\file{figures}{consistency.ps}}}
+Một phương pháp phỏng đoán là \defn{nhất quán} nếu \hfill\raisebox{-0.35\textwidth}[0pt][0pt]{\epsfxsize=0.3\textwidth\epsffile{\file{figures}{consistency.ps}}}
 \[
   h(n) \leq c(n,a,n') + h(n')
 \]
@@ -354,7 +354,7 @@ Ví dụ: đối với câu đố 8:
 \mat{$h_2(n)$} = tổng khoảng cách \defn{Manhattan} \nl
 (tức là số ô vuông từ vị trí mong muốn của mỗi ô)
 
-\epsfxsize=0,5\textwidth
+\epsfxsize=0.5\textwidth
 \fig{\file{figures}{8puzzle.ps}}
 
 \q{$h_2(S)$ =} \\
@@ -370,7 +370,7 @@ Ví dụ: đối với câu đố 8:
 \mat{$h_2(n)$} = tổng khoảng cách \defn{Manhattan} \nl
 (tức là số ô vuông từ vị trí mong muốn của mỗi ô)
 
-\epsfxsize=0,5\textwidth
+\epsfxsize=0.5\textwidth
 \fig{\file{figures}{8puzzle.ps}}
 
 \q{$h_2(S)$ =} 6\\
@@ -428,7 +428,7 @@ Tìm chuyến đi ngắn nhất đến thăm tất cả các thành phố đúng
 
 \vspace*{0.3in}
 
-\epsfxsize=0,75\textwidth
+\epsfxsize=0.75\textwidth
 \fig{\file{figures}{tsp-mst.ps}}
 
 \defn{ Cây bao trùm tối thiểu } có thể được tính trong \mat{$O(n^2)$} \\

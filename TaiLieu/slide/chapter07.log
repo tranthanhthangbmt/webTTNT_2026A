@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.24)  15 JUL 2026 17:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.24)  16 JUL 2026 17:25
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **./chapter07.tex
 (chapter07.tex
@@ -38,13 +38,86 @@ LaTeX Info: Redefining \] on input line 75.
 Already applied: [0000/00/00] Make \] robust on input line 83.
 ))
 (epsf.sty
-\epsffilein=\read2
-\epsfxsize=\dimen149
-\epsfysize=\dimen150
-\epsftsize=\dimen151
-\epsfrsize=\dimen152
-\epsftmp=\dimen153
-\pspoints=\dimen154
+Package: epsf 2026/07/16 Modern replacement using graphicx
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen149
+\Gin@req@width=\dimen150
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf.s
+ty
+Package: epstopdf 2020-01-24 v2.11 Conversion with epstopdf on the fly (HO)
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.s
+ty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/grfext\grfext.sty
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
+keys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+))
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+))
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
+.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+ (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
+fg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps,.ps]
+(grfext)             \AppendGraphicsExtensions on input line 11.
+\epsfxsize=\skip52
+\epsfysize=\skip53
 )
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
 Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
@@ -52,13 +125,9 @@ Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package color Info: Driver file: dvips.def on input line 149.
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\dvips.def
-File: dvips.def 2025/01/21 v3.2a Graphics/color driver for dvips
-) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\dvipsnam.def
-File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
-) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.lt
-x)) (aima2e-slides.sty
+Package color Info: Driver file: pdftex.def on input line 149.
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+) (aima2e-slides.sty
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
 
@@ -229,31 +298,31 @@ File: t5cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 ))
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
 Package: inputenc 2024/02/08 v1.3d Input encoding file
-\inpenc@prehook=\toks17
-\inpenc@posthook=\toks18
+\inpenc@prehook=\toks18
+\inpenc@posthook=\toks19
 )
 Package color Info: Redefining color red on input line 7.
 Package color Info: Redefining color cyan on input line 14.
-\headingwidth=\skip52
-\backdrop=\skip53
-\backheight=\skip54
-\backwidth=\skip55
-\xborder=\skip56
-\yborder=\skip57
-\headtotal=\skip58
-\codewidth=\skip59
-\boxwidth=\skip60
-\boxheight=\skip61
-\skipwidth=\skip62
-\roomheight=\skip63
-\charheight=\skip64
-\marginlineskip=\skip65
-\marginwidth=\skip66
-\textplusmarginwidth=\skip67
-\maxfigwidth=\skip68
-\tablewidth=\skip69
-\captionskip=\skip70
-\tcaptionskip=\skip71
+\headingwidth=\skip54
+\backdrop=\skip55
+\backheight=\skip56
+\backwidth=\skip57
+\xborder=\skip58
+\yborder=\skip59
+\headtotal=\skip60
+\codewidth=\skip61
+\boxwidth=\skip62
+\boxheight=\skip63
+\skipwidth=\skip64
+\roomheight=\skip65
+\charheight=\skip66
+\marginlineskip=\skip67
+\marginwidth=\skip68
+\textplusmarginwidth=\skip69
+\maxfigwidth=\skip70
+\tablewidth=\skip71
+\captionskip=\skip72
+\tcaptionskip=\skip73
 )
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
@@ -278,27 +347,31 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
 LaTeX Font Info:    ... okay on input line 7.
 LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 7.
 LaTeX Font Info:    ... okay on input line 7.
- [1
-Non-PDF special ignored!
-<special> papersize=614.295pt,794.96999pt
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count284
+\scratchdimen=\dimen151
+\scratchbox=\box53
+\nofMPsegments=\count285
+\nofMParguments=\count286
+\everyMPshowfont=\toks20
+\MPscratchCnt=\count287
+\MPscratchDim=\dimen152
+\MPnumerator=\count288
+\makeMPintoPDFobject=\count289
+\everyMPtoPDFconversion=\toks21
+) [1
+
 
 Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-{C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
+<special> papersize=11in,8.5in
+{C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
 LaTeX Font Info:    Trying to load font information for T5+cmss on input line 1
 2.
- (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmss.fd
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmss.fd
 File: t5cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -308,54 +381,862 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 17.
 
-[2
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [3
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
+[2] [3]
+Package epstopdf Info: Source file: <figures/kbs.ps>
+(epstopdf)                    date: 2026-07-15 08:15:04
+(epstopdf)                    size: 11751 bytes
+(epstopdf)             Output file: <figures/kbs-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:05:53
+(epstopdf)                    size: 5052 bytes
+(epstopdf)             Command: <epstopdf figures/kbs.ps --outfile=figures/kbs-
+ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 44.
+Package epstopdf Info: Output file is already uptodate.
+<figures/kbs-ps-converted-to.pdf, id=16, 367.3725pt x 64.24pt>
+File: figures/kbs-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/kbs-ps-converted-to.pdf>
+Package pdftex.def Info: figures/kbs-ps-converted-to.pdf  used on input line 44
+.
+(pdftex.def)             Requested size: 486.63899pt x 85.10092pt.
+
 
 LaTeX Font Warning: Font shape `T5/cmss/m/it' in size <20.74> not available
 (Font)              Font shape `T5/cmss/m/sl' tried instead on input line 46.
 
+[4 <./figures/kbs-ps-converted-to.pdf>] [5]
+(algorithms/logical-agent-algorithm.tex
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <17.28> on input line 11.
 )
-Runaway argument?
-{Nói cho nó biết điều nó cần biết \par Sau đó, nó có \ETC.
-! File ended while scanning use of \defprog.
-<inserted text> 
-                \par 
-<*> ./chapter07.tex
-                   
-I suspect you have forgotten a `}', causing me
-to read past where you wanted me to stop.
-I'll try to recover; but if the error is serious,
-you'd better type `E' or `X' now and fix your file.
+Overfull \hbox (3.55833pt too wide) in paragraph at lines 1--64
+ []  
+ []
 
-! Emergency stop.
-<*> ./chapter07.tex
-                   
-*** (job aborted, no legal \end found)
+[6] [7]
+Package epstopdf Info: Source file: <figures/wumpus-world.ps>
+(epstopdf)                    date: 2026-07-15 08:15:07
+(epstopdf)                    size: 40840 bytes
+(epstopdf)             Output file: <figures/wumpus-world-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:21:57
+(epstopdf)                    size: 18176 bytes
+(epstopdf)             Command: <epstopdf figures/wumpus-world.ps --outfile=fig
+ures/wumpus-world-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 95.
+Package epstopdf Info: Output file is already uptodate.
+<figures/wumpus-world-ps-converted-to.pdf, id=38, 292.09125pt x 286.06876pt>
+File: figures/wumpus-world-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/wumpus-world-ps-converted-to.pdf>
+Package pdftex.def Info: figures/wumpus-world-ps-converted-to.pdf  used on inpu
+t line 95.
+(pdftex.def)             Requested size: 292.09052pt x 286.06805pt.
 
- 
+Overfull \hbox (101.08354pt too wide) in paragraph at lines 78--97
+[][]  
+ []
+
+[8 <./figures/wumpus-world-ps-converted-to.pdf>] [9] [10] [11] [12] [13]
+[14] [15] [16]
+Package epstopdf Info: Source file: <figures/wumpus-seq0c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:07
+(epstopdf)                    size: 14602 bytes
+(epstopdf)             Output file: <figures/wumpus-seq0c-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:22:00
+(epstopdf)                    size: 3687 bytes
+(epstopdf)             Command: <epstopdf figures/wumpus-seq0c.ps --outfile=fig
+ures/wumpus-seq0c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 189.
+Package epstopdf Info: Output file is already uptodate.
+<figures/wumpus-seq0c-ps-converted-to.pdf, id=81, 271.0125pt x 272.01625pt>
+File: figures/wumpus-seq0c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/wumpus-seq0c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/wumpus-seq0c-ps-converted-to.pdf  used on inpu
+t line 189.
+(pdftex.def)             Requested size: 368.58073pt x 369.95795pt.
+ [17 <./figures/wumpus-seq0c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/wumpus-seq1c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:07
+(epstopdf)                    size: 15453 bytes
+(epstopdf)             Output file: <figures/wumpus-seq1c-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:22:04
+(epstopdf)                    size: 3923 bytes
+(epstopdf)             Command: <epstopdf figures/wumpus-seq1c.ps --outfile=fig
+ures/wumpus-seq1c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 197.
+Package epstopdf Info: Output file is already uptodate.
+<figures/wumpus-seq1c-ps-converted-to.pdf, id=90, 271.0125pt x 272.01625pt>
+File: figures/wumpus-seq1c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/wumpus-seq1c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/wumpus-seq1c-ps-converted-to.pdf  used on inpu
+t line 197.
+(pdftex.def)             Requested size: 368.58073pt x 369.95795pt.
+ [18 <./figures/wumpus-seq1c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/wumpus-seq2c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:07
+(epstopdf)                    size: 15982 bytes
+(epstopdf)             Output file: <figures/wumpus-seq2c-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:22:07
+(epstopdf)                    size: 4134 bytes
+(epstopdf)             Command: <epstopdf figures/wumpus-seq2c.ps --outfile=fig
+ures/wumpus-seq2c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 205.
+Package epstopdf Info: Output file is already uptodate.
+<figures/wumpus-seq2c-ps-converted-to.pdf, id=99, 271.0125pt x 272.01625pt>
+File: figures/wumpus-seq2c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/wumpus-seq2c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/wumpus-seq2c-ps-converted-to.pdf  used on inpu
+t line 205.
+(pdftex.def)             Requested size: 368.58073pt x 369.95795pt.
+ [19 <./figures/wumpus-seq2c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/wumpus-seq3c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:07
+(epstopdf)                    size: 17043 bytes
+(epstopdf)             Output file: <figures/wumpus-seq3c-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:22:09
+(epstopdf)                    size: 4405 bytes
+(epstopdf)             Command: <epstopdf figures/wumpus-seq3c.ps --outfile=fig
+ures/wumpus-seq3c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 213.
+Package epstopdf Info: Output file is already uptodate.
+<figures/wumpus-seq3c-ps-converted-to.pdf, id=109, 271.0125pt x 272.01625pt>
+File: figures/wumpus-seq3c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/wumpus-seq3c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/wumpus-seq3c-ps-converted-to.pdf  used on inpu
+t line 213.
+(pdftex.def)             Requested size: 368.58073pt x 369.95795pt.
+ [20 <./figures/wumpus-seq3c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/wumpus-seq4c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:07
+(epstopdf)                    size: 17947 bytes
+(epstopdf)             Output file: <figures/wumpus-seq4c-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:22:13
+(epstopdf)                    size: 4534 bytes
+(epstopdf)             Command: <epstopdf figures/wumpus-seq4c.ps --outfile=fig
+ures/wumpus-seq4c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 221.
+Package epstopdf Info: Output file is already uptodate.
+<figures/wumpus-seq4c-ps-converted-to.pdf, id=118, 271.0125pt x 272.01625pt>
+File: figures/wumpus-seq4c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/wumpus-seq4c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/wumpus-seq4c-ps-converted-to.pdf  used on inpu
+t line 221.
+(pdftex.def)             Requested size: 368.58073pt x 369.95795pt.
+ [21 <./figures/wumpus-seq4c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/wumpus-seq5c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:07
+(epstopdf)                    size: 18622 bytes
+(epstopdf)             Output file: <figures/wumpus-seq5c-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:22:16
+(epstopdf)                    size: 4596 bytes
+(epstopdf)             Command: <epstopdf figures/wumpus-seq5c.ps --outfile=fig
+ures/wumpus-seq5c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 229.
+Package epstopdf Info: Output file is already uptodate.
+<figures/wumpus-seq5c-ps-converted-to.pdf, id=127, 271.0125pt x 272.01625pt>
+File: figures/wumpus-seq5c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/wumpus-seq5c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/wumpus-seq5c-ps-converted-to.pdf  used on inpu
+t line 229.
+(pdftex.def)             Requested size: 368.58073pt x 369.95795pt.
+ [22 <./figures/wumpus-seq5c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/wumpus-seq6c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:07
+(epstopdf)                    size: 18970 bytes
+(epstopdf)             Output file: <figures/wumpus-seq6c-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:22:18
+(epstopdf)                    size: 4615 bytes
+(epstopdf)             Command: <epstopdf figures/wumpus-seq6c.ps --outfile=fig
+ures/wumpus-seq6c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 237.
+Package epstopdf Info: Output file is already uptodate.
+<figures/wumpus-seq6c-ps-converted-to.pdf, id=136, 271.0125pt x 272.01625pt>
+File: figures/wumpus-seq6c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/wumpus-seq6c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/wumpus-seq6c-ps-converted-to.pdf  used on inpu
+t line 237.
+(pdftex.def)             Requested size: 368.58073pt x 369.95795pt.
+
+[23 <./figures/wumpus-seq6c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/wumpus-seq7c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:07
+(epstopdf)                    size: 19836 bytes
+(epstopdf)             Output file: <figures/wumpus-seq7c-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:22:20
+(epstopdf)                    size: 4807 bytes
+(epstopdf)             Command: <epstopdf figures/wumpus-seq7c.ps --outfile=fig
+ures/wumpus-seq7c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 245.
+Package epstopdf Info: Output file is already uptodate.
+<figures/wumpus-seq7c-ps-converted-to.pdf, id=145, 271.0125pt x 272.01625pt>
+File: figures/wumpus-seq7c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/wumpus-seq7c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/wumpus-seq7c-ps-converted-to.pdf  used on inpu
+t line 245.
+(pdftex.def)             Requested size: 368.58073pt x 369.95795pt.
+ [24 <./figures/wumpus-seq7c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/wumpus-bb.ps>
+(epstopdf)                    date: 2026-07-15 08:15:07
+(epstopdf)                    size: 15464 bytes
+(epstopdf)             Output file: <figures/wumpus-bb-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:22:23
+(epstopdf)                    size: 4261 bytes
+(epstopdf)             Command: <epstopdf figures/wumpus-bb.ps --outfile=figure
+s/wumpus-bb-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 254.
+Package epstopdf Info: Output file is already uptodate.
+<figures/wumpus-bb-ps-converted-to.pdf, id=154, 203.76125pt x 204.765pt>
+File: figures/wumpus-bb-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/wumpus-bb-ps-converted-to.pdf>
+Package pdftex.def Info: figures/wumpus-bb-ps-converted-to.pdf  used on input l
+ine 254.
+(pdftex.def)             Requested size: 195.12877pt x 196.09723pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 257--259
+
+ []
+
+Package epstopdf Info: Source file: <figures/wumpus-s.ps>
+(epstopdf)                    date: 2026-07-15 08:15:07
+(epstopdf)                    size: 11537 bytes
+(epstopdf)             Output file: <figures/wumpus-s-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:22:25
+(epstopdf)                    size: 3538 bytes
+(epstopdf)             Command: <epstopdf figures/wumpus-s.ps --outfile=figures
+/wumpus-s-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 267.
+Package epstopdf Info: Output file is already uptodate.
+<figures/wumpus-s-ps-converted-to.pdf, id=155, 137.51375pt x 137.51375pt>
+File: figures/wumpus-s-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/wumpus-s-ps-converted-to.pdf>
+Package pdftex.def Info: figures/wumpus-s-ps-converted-to.pdf  used on input li
+ne 267.
+(pdftex.def)             Requested size: 137.51341pt x 137.51341pt.
+
+Overfull \hbox (4.1218pt too wide) in paragraph at lines 252--280
+[][]  
+ []
+
+[25] [26 <./figures/wumpus-bb-ps-converted-to.pdf> <./figures/wumpus-s-ps-conve
+rted-to.pdf>] [27] [28] [29]
+Package epstopdf Info: Source file: <figures/model-inclusion.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 19245 bytes
+(epstopdf)             Output file: <figures/model-inclusion-ps-converted-to.pd
+f>
+(epstopdf)                    date: 2026-07-16 17:22:27
+(epstopdf)                    size: 4909 bytes
+(epstopdf)             Command: <epstopdf figures/model-inclusion.ps --outfile=
+figures/model-inclusion-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 346.
+Package epstopdf Info: Output file is already uptodate.
+<figures/model-inclusion-ps-converted-to.pdf, id=184, 222.8325pt x 203.76125pt>
+
+File: figures/model-inclusion-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/model-inclusion-ps-converted-to.pdf>
+Package pdftex.def Info: figures/model-inclusion-ps-converted-to.pdf  used on i
+nput line 346.
+(pdftex.def)             Requested size: 231.26378pt x 211.47452pt.
+
+Overfull \hbox (9.54955pt too wide) in paragraph at lines 339--348
+[][]  
+ []
+
+[30 <./figures/model-inclusion-ps-converted-to.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 354--357
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 354--357
+
+ []
+
+Package epstopdf Info: Source file: <figures/wumpus-seq1c-alt.ps>
+(epstopdf)                    date: 2026-07-15 08:15:07
+(epstopdf)                    size: 15503 bytes
+(epstopdf)             Output file: <figures/wumpus-seq1c-alt-ps-converted-to.p
+df>
+(epstopdf)                    date: 2026-07-16 17:22:29
+(epstopdf)                    size: 3845 bytes
+(epstopdf)             Command: <epstopdf figures/wumpus-seq1c-alt.ps --outfile
+=figures/wumpus-seq1c-alt-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 363.
+Package epstopdf Info: Output file is already uptodate.
+<figures/wumpus-seq1c-alt-ps-converted-to.pdf, id=193, 271.0125pt x 272.01625pt
+>
+File: figures/wumpus-seq1c-alt-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/wumpus-seq1c-alt-ps-converted-to.pdf>
+Package pdftex.def Info: figures/wumpus-seq1c-alt-ps-converted-to.pdf  used on 
+input line 363.
+(pdftex.def)             Requested size: 271.01183pt x 272.01558pt.
+
+Overfull \hbox (18.58098pt too wide) in paragraph at lines 352--365
+[][]  
+ []
+
+[31 <./figures/wumpus-seq1c-alt-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/wumpus-models1.ps>
+(epstopdf)                    date: 2026-07-15 08:15:07
+(epstopdf)                    size: 44105 bytes
+(epstopdf)             Output file: <figures/wumpus-models1-ps-converted-to.pdf
+>
+(epstopdf)                    date: 2026-07-16 17:22:32
+(epstopdf)                    size: 12272 bytes
+(epstopdf)             Command: <epstopdf figures/wumpus-models1.ps --outfile=f
+igures/wumpus-models1-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 373.
+Package epstopdf Info: Output file is already uptodate.
+<figures/wumpus-models1-ps-converted-to.pdf, id=203, 460.72125pt x 342.27875pt>
+
+File: figures/wumpus-models1-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/wumpus-models1-ps-converted-to.pdf>
+Package pdftex.def Info: figures/wumpus-models1-ps-converted-to.pdf  used on in
+put line 373.
+(pdftex.def)             Requested size: 460.72124pt x 342.2779pt.
+ [32 <./figures/wumpus-models1-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/wumpus-models2.ps>
+(epstopdf)                    date: 2026-07-15 08:15:07
+(epstopdf)                    size: 44629 bytes
+(epstopdf)             Output file: <figures/wumpus-models2-ps-converted-to.pdf
+>
+(epstopdf)                    date: 2026-07-16 17:22:35
+(epstopdf)                    size: 13719 bytes
+(epstopdf)             Command: <epstopdf figures/wumpus-models2.ps --outfile=f
+igures/wumpus-models2-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 379.
+Package epstopdf Info: Output file is already uptodate.
+<figures/wumpus-models2-ps-converted-to.pdf, id=218, 460.72125pt x 342.27875pt>
+
+File: figures/wumpus-models2-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/wumpus-models2-ps-converted-to.pdf>
+Package pdftex.def Info: figures/wumpus-models2-ps-converted-to.pdf  used on in
+put line 379.
+(pdftex.def)             Requested size: 460.72124pt x 342.2779pt.
+ [33 <./figures/wumpus-models2-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/wumpus-models3.ps>
+(epstopdf)                    date: 2026-07-15 08:15:07
+(epstopdf)                    size: 45559 bytes
+(epstopdf)             Output file: <figures/wumpus-models3-ps-converted-to.pdf
+>
+(epstopdf)                    date: 2026-07-16 17:22:38
+(epstopdf)                    size: 15019 bytes
+(epstopdf)             Command: <epstopdf figures/wumpus-models3.ps --outfile=f
+igures/wumpus-models3-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 387.
+Package epstopdf Info: Output file is already uptodate.
+<figures/wumpus-models3-ps-converted-to.pdf, id=236, 460.72125pt x 342.27875pt>
+
+File: figures/wumpus-models3-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/wumpus-models3-ps-converted-to.pdf>
+Package pdftex.def Info: figures/wumpus-models3-ps-converted-to.pdf  used on in
+put line 387.
+(pdftex.def)             Requested size: 460.72124pt x 342.2779pt.
+
+[34 <./figures/wumpus-models3-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/wumpus-models2.ps>
+(epstopdf)                    date: 2026-07-15 08:15:07
+(epstopdf)                    size: 44629 bytes
+(epstopdf)             Output file: <figures/wumpus-models2-ps-converted-to.pdf
+>
+(epstopdf)                    date: 2026-07-16 17:22:35
+(epstopdf)                    size: 13719 bytes
+(epstopdf)             Command: <epstopdf figures/wumpus-models2.ps --outfile=f
+igures/wumpus-models2-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 398.
+Package epstopdf Info: Output file is already uptodate.
+File: figures/wumpus-models2-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/wumpus-models2-ps-converted-to.pdf>
+Package pdftex.def Info: figures/wumpus-models2-ps-converted-to.pdf  used on in
+put line 398.
+(pdftex.def)             Requested size: 460.72124pt x 342.2779pt.
+ [35]
+Package epstopdf Info: Source file: <figures/wumpus-models4.ps>
+(epstopdf)                    date: 2026-07-15 08:15:07
+(epstopdf)                    size: 45632 bytes
+(epstopdf)             Output file: <figures/wumpus-models4-ps-converted-to.pdf
+>
+(epstopdf)                    date: 2026-07-16 17:22:40
+(epstopdf)                    size: 15077 bytes
+(epstopdf)             Command: <epstopdf figures/wumpus-models4.ps --outfile=f
+igures/wumpus-models4-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 406.
+Package epstopdf Info: Output file is already uptodate.
+<figures/wumpus-models4-ps-converted-to.pdf, id=261, 472.76625pt x 342.27875pt>
+
+File: figures/wumpus-models4-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/wumpus-models4-ps-converted-to.pdf>
+Package pdftex.def Info: figures/wumpus-models4-ps-converted-to.pdf  used on in
+put line 406.
+(pdftex.def)             Requested size: 460.72124pt x 333.56635pt.
+ [36 <./figures/wumpus-models4-ps-converted-to.pdf>] [37] [38] [39] [40]
+(tables/truth-tables-table.tex) [41] [42] [43] (tables/wumpus-model-table.tex)
+[44] (algorithms/tt-entails-algorithm.tex)
+Overfull \hbox (3.55833pt too wide) in paragraph at lines 1--541
+ []  
+ []
+
+[45] [46] (tables/logical-equivalence-table.tex
+Overfull \hbox (24.18839pt too wide) detected at line 16
+$ []$ 
+ []
+
+) [47] [48] [49] [50] [51] [52] [53] (tables/fc-example-table.tex)
+Package epstopdf Info: Source file: <figures/pl-horn-example.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 15179 bytes
+(epstopdf)             Output file: <figures/pl-horn-example-ps-converted-to.pd
+f>
+(epstopdf)                    date: 2026-07-16 17:23:46
+(epstopdf)                    size: 4826 bytes
+(epstopdf)             Command: <epstopdf figures/pl-horn-example.ps --outfile=
+figures/pl-horn-example-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 621.
+Package epstopdf Info: Output file is already uptodate.
+<figures/pl-horn-example-ps-converted-to.pdf, id=337, 136.51pt x 217.81375pt>
+File: figures/pl-horn-example-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/pl-horn-example-ps-converted-to.pdf>
+Package pdftex.def Info: figures/pl-horn-example-ps-converted-to.pdf  used on i
+nput line 621.
+(pdftex.def)             Requested size: 152.0741pt x 242.6635pt.
+ [54 <./figures/pl-horn-example-ps-converted-to.pdf>] (algorithms/pl-fc-algorit
+hm.tex
+Overfull \hbox (3.55833pt too wide) in paragraph at lines 1--20
+ []  
+ []
+
+) [55]
+Package epstopdf Info: Source file: <figures/fc-horn-example01c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:04
+(epstopdf)                    size: 16653 bytes
+(epstopdf)             Output file: <figures/fc-horn-example01c-ps-converted-to
+.pdf>
+(epstopdf)                    date: 2026-07-16 17:23:50
+(epstopdf)                    size: 5825 bytes
+(epstopdf)             Command: <epstopdf figures/fc-horn-example01c.ps --outfi
+le=figures/fc-horn-example01c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 633.
+Package epstopdf Info: Output file is already uptodate.
+<figures/fc-horn-example01c-ps-converted-to.pdf, id=350, 158.5925pt x 235.88126
+pt>
+File: figures/fc-horn-example01c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/fc-horn-example01c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/fc-horn-example01c-ps-converted-to.pdf  used o
+n input line 633.
+(pdftex.def)             Requested size: 273.73154pt x 407.20514pt.
+ [56 <./figures/fc-horn-example01c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/fc-horn-example02c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:04
+(epstopdf)                    size: 16651 bytes
+(epstopdf)             Output file: <figures/fc-horn-example02c-ps-converted-to
+.pdf>
+(epstopdf)                    date: 2026-07-16 17:23:53
+(epstopdf)                    size: 5844 bytes
+(epstopdf)             Command: <epstopdf figures/fc-horn-example02c.ps --outfi
+le=figures/fc-horn-example02c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 639.
+Package epstopdf Info: Output file is already uptodate.
+<figures/fc-horn-example02c-ps-converted-to.pdf, id=362, 158.5925pt x 235.88126
+pt>
+File: figures/fc-horn-example02c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/fc-horn-example02c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/fc-horn-example02c-ps-converted-to.pdf  used o
+n input line 639.
+(pdftex.def)             Requested size: 273.73154pt x 407.20514pt.
+ [57 <./figures/fc-horn-example02c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/fc-horn-example03c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:04
+(epstopdf)                    size: 16840 bytes
+(epstopdf)             Output file: <figures/fc-horn-example03c-ps-converted-to
+.pdf>
+(epstopdf)                    date: 2026-07-16 17:23:56
+(epstopdf)                    size: 6055 bytes
+(epstopdf)             Command: <epstopdf figures/fc-horn-example03c.ps --outfi
+le=figures/fc-horn-example03c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 645.
+Package epstopdf Info: Output file is already uptodate.
+<figures/fc-horn-example03c-ps-converted-to.pdf, id=374, 158.5925pt x 235.88126
+pt>
+File: figures/fc-horn-example03c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/fc-horn-example03c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/fc-horn-example03c-ps-converted-to.pdf  used o
+n input line 645.
+(pdftex.def)             Requested size: 273.73154pt x 407.20514pt.
+ [58 <./figures/fc-horn-example03c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/fc-horn-example04c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:04
+(epstopdf)                    size: 17029 bytes
+(epstopdf)             Output file: <figures/fc-horn-example04c-ps-converted-to
+.pdf>
+(epstopdf)                    date: 2026-07-16 17:23:59
+(epstopdf)                    size: 6043 bytes
+(epstopdf)             Command: <epstopdf figures/fc-horn-example04c.ps --outfi
+le=figures/fc-horn-example04c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 651.
+Package epstopdf Info: Output file is already uptodate.
+<figures/fc-horn-example04c-ps-converted-to.pdf, id=386, 158.5925pt x 235.88126
+pt>
+File: figures/fc-horn-example04c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/fc-horn-example04c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/fc-horn-example04c-ps-converted-to.pdf  used o
+n input line 651.
+(pdftex.def)             Requested size: 273.73154pt x 407.20514pt.
+ [59 <./figures/fc-horn-example04c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/fc-horn-example05c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:04
+(epstopdf)                    size: 17291 bytes
+(epstopdf)             Output file: <figures/fc-horn-example05c-ps-converted-to
+.pdf>
+(epstopdf)                    date: 2026-07-16 17:24:02
+(epstopdf)                    size: 6123 bytes
+(epstopdf)             Command: <epstopdf figures/fc-horn-example05c.ps --outfi
+le=figures/fc-horn-example05c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 657.
+Package epstopdf Info: Output file is already uptodate.
+<figures/fc-horn-example05c-ps-converted-to.pdf, id=398, 158.5925pt x 235.88126
+pt>
+File: figures/fc-horn-example05c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/fc-horn-example05c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/fc-horn-example05c-ps-converted-to.pdf  used o
+n input line 657.
+(pdftex.def)             Requested size: 273.73154pt x 407.20514pt.
+
+[60 <./figures/fc-horn-example05c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/fc-horn-example06c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:04
+(epstopdf)                    size: 17672 bytes
+(epstopdf)             Output file: <figures/fc-horn-example06c-ps-converted-to
+.pdf>
+(epstopdf)                    date: 2026-07-16 17:24:05
+(epstopdf)                    size: 6228 bytes
+(epstopdf)             Command: <epstopdf figures/fc-horn-example06c.ps --outfi
+le=figures/fc-horn-example06c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 663.
+Package epstopdf Info: Output file is already uptodate.
+<figures/fc-horn-example06c-ps-converted-to.pdf, id=410, 158.5925pt x 235.88126
+pt>
+File: figures/fc-horn-example06c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/fc-horn-example06c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/fc-horn-example06c-ps-converted-to.pdf  used o
+n input line 663.
+(pdftex.def)             Requested size: 273.73154pt x 407.20514pt.
+ [61 <./figures/fc-horn-example06c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/fc-horn-example07c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:04
+(epstopdf)                    size: 17480 bytes
+(epstopdf)             Output file: <figures/fc-horn-example07c-ps-converted-to
+.pdf>
+(epstopdf)                    date: 2026-07-16 17:24:08
+(epstopdf)                    size: 6157 bytes
+(epstopdf)             Command: <epstopdf figures/fc-horn-example07c.ps --outfi
+le=figures/fc-horn-example07c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 669.
+Package epstopdf Info: Output file is already uptodate.
+<figures/fc-horn-example07c-ps-converted-to.pdf, id=423, 158.5925pt x 235.88126
+pt>
+File: figures/fc-horn-example07c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/fc-horn-example07c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/fc-horn-example07c-ps-converted-to.pdf  used o
+n input line 669.
+(pdftex.def)             Requested size: 273.73154pt x 407.20514pt.
+ [62 <./figures/fc-horn-example07c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/fc-horn-example08c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:04
+(epstopdf)                    size: 17478 bytes
+(epstopdf)             Output file: <figures/fc-horn-example08c-ps-converted-to
+.pdf>
+(epstopdf)                    date: 2026-07-16 17:24:11
+(epstopdf)                    size: 6158 bytes
+(epstopdf)             Command: <epstopdf figures/fc-horn-example08c.ps --outfi
+le=figures/fc-horn-example08c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 675.
+Package epstopdf Info: Output file is already uptodate.
+<figures/fc-horn-example08c-ps-converted-to.pdf, id=435, 158.5925pt x 235.88126
+pt>
+File: figures/fc-horn-example08c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/fc-horn-example08c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/fc-horn-example08c-ps-converted-to.pdf  used o
+n input line 675.
+(pdftex.def)             Requested size: 273.73154pt x 407.20514pt.
+ [63 <./figures/fc-horn-example08c-ps-converted-to.pdf>] [64] [65]
+[66] [67]
+Package epstopdf Info: Source file: <figures/bc-horn-example01c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:02
+(epstopdf)                    size: 15931 bytes
+(epstopdf)             Output file: <figures/bc-horn-example01c-ps-converted-to
+.pdf>
+(epstopdf)                    date: 2026-07-16 17:24:12
+(epstopdf)                    size: 5091 bytes
+(epstopdf)             Command: <epstopdf figures/bc-horn-example01c.ps --outfi
+le=figures/bc-horn-example01c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 715.
+Package epstopdf Info: Output file is already uptodate.
+<figures/bc-horn-example01c-ps-converted-to.pdf, id=460, 158.5925pt x 235.88126
+pt>
+File: figures/bc-horn-example01c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/bc-horn-example01c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/bc-horn-example01c-ps-converted-to.pdf  used o
+n input line 715.
+(pdftex.def)             Requested size: 273.73154pt x 407.20514pt.
+ [68 <./figures/bc-horn-example01c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/bc-horn-example02c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:02
+(epstopdf)                    size: 16121 bytes
+(epstopdf)             Output file: <figures/bc-horn-example02c-ps-converted-to
+.pdf>
+(epstopdf)                    date: 2026-07-16 17:24:14
+(epstopdf)                    size: 5164 bytes
+(epstopdf)             Command: <epstopdf figures/bc-horn-example02c.ps --outfi
+le=figures/bc-horn-example02c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 721.
+Package epstopdf Info: Output file is already uptodate.
+<figures/bc-horn-example02c-ps-converted-to.pdf, id=469, 158.5925pt x 235.88126
+pt>
+File: figures/bc-horn-example02c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/bc-horn-example02c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/bc-horn-example02c-ps-converted-to.pdf  used o
+n input line 721.
+(pdftex.def)             Requested size: 273.73154pt x 407.20514pt.
+ [69 <./figures/bc-horn-example02c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/bc-horn-example03c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:02
+(epstopdf)                    size: 16504 bytes
+(epstopdf)             Output file: <figures/bc-horn-example03c-ps-converted-to
+.pdf>
+(epstopdf)                    date: 2026-07-16 17:24:17
+(epstopdf)                    size: 5326 bytes
+(epstopdf)             Command: <epstopdf figures/bc-horn-example03c.ps --outfi
+le=figures/bc-horn-example03c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 727.
+Package epstopdf Info: Output file is already uptodate.
+<figures/bc-horn-example03c-ps-converted-to.pdf, id=478, 158.5925pt x 235.88126
+pt>
+File: figures/bc-horn-example03c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/bc-horn-example03c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/bc-horn-example03c-ps-converted-to.pdf  used o
+n input line 727.
+(pdftex.def)             Requested size: 273.73154pt x 407.20514pt.
+ [70 <./figures/bc-horn-example03c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/bc-horn-example04c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:02
+(epstopdf)                    size: 16889 bytes
+(epstopdf)             Output file: <figures/bc-horn-example04c-ps-converted-to
+.pdf>
+(epstopdf)                    date: 2026-07-16 17:24:19
+(epstopdf)                    size: 5477 bytes
+(epstopdf)             Command: <epstopdf figures/bc-horn-example04c.ps --outfi
+le=figures/bc-horn-example04c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 733.
+Package epstopdf Info: Output file is already uptodate.
+<figures/bc-horn-example04c-ps-converted-to.pdf, id=487, 158.5925pt x 235.88126
+pt>
+File: figures/bc-horn-example04c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/bc-horn-example04c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/bc-horn-example04c-ps-converted-to.pdf  used o
+n input line 733.
+(pdftex.def)             Requested size: 273.73154pt x 407.20514pt.
+ [71 <./figures/bc-horn-example04c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/bc-horn-example03c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:02
+(epstopdf)                    size: 16504 bytes
+(epstopdf)             Output file: <figures/bc-horn-example03c-ps-converted-to
+.pdf>
+(epstopdf)                    date: 2026-07-16 17:24:17
+(epstopdf)                    size: 5326 bytes
+(epstopdf)             Command: <epstopdf figures/bc-horn-example03c.ps --outfi
+le=figures/bc-horn-example03c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 739.
+Package epstopdf Info: Output file is already uptodate.
+File: figures/bc-horn-example03c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/bc-horn-example03c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/bc-horn-example03c-ps-converted-to.pdf  used o
+n input line 739.
+(pdftex.def)             Requested size: 273.73154pt x 407.20514pt.
+
+[72]
+Package epstopdf Info: Source file: <figures/bc-horn-example05c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:02
+(epstopdf)                    size: 16887 bytes
+(epstopdf)             Output file: <figures/bc-horn-example05c-ps-converted-to
+.pdf>
+(epstopdf)                    date: 2026-07-16 17:24:21
+(epstopdf)                    size: 5465 bytes
+(epstopdf)             Command: <epstopdf figures/bc-horn-example05c.ps --outfi
+le=figures/bc-horn-example05c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 745.
+Package epstopdf Info: Output file is already uptodate.
+<figures/bc-horn-example05c-ps-converted-to.pdf, id=499, 158.5925pt x 235.88126
+pt>
+File: figures/bc-horn-example05c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/bc-horn-example05c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/bc-horn-example05c-ps-converted-to.pdf  used o
+n input line 745.
+(pdftex.def)             Requested size: 273.73154pt x 407.20514pt.
+ [73 <./figures/bc-horn-example05c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/bc-horn-example06c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:02
+(epstopdf)                    size: 16500 bytes
+(epstopdf)             Output file: <figures/bc-horn-example06c-ps-converted-to
+.pdf>
+(epstopdf)                    date: 2026-07-16 17:24:23
+(epstopdf)                    size: 5338 bytes
+(epstopdf)             Command: <epstopdf figures/bc-horn-example06c.ps --outfi
+le=figures/bc-horn-example06c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 751.
+Package epstopdf Info: Output file is already uptodate.
+<figures/bc-horn-example06c-ps-converted-to.pdf, id=509, 158.5925pt x 235.88126
+pt>
+File: figures/bc-horn-example06c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/bc-horn-example06c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/bc-horn-example06c-ps-converted-to.pdf  used o
+n input line 751.
+(pdftex.def)             Requested size: 273.73154pt x 407.20514pt.
+ [74 <./figures/bc-horn-example06c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/bc-horn-example07c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:02
+(epstopdf)                    size: 16884 bytes
+(epstopdf)             Output file: <figures/bc-horn-example07c-ps-converted-to
+.pdf>
+(epstopdf)                    date: 2026-07-16 17:24:25
+(epstopdf)                    size: 5491 bytes
+(epstopdf)             Command: <epstopdf figures/bc-horn-example07c.ps --outfi
+le=figures/bc-horn-example07c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 757.
+Package epstopdf Info: Output file is already uptodate.
+<figures/bc-horn-example07c-ps-converted-to.pdf, id=518, 158.5925pt x 235.88126
+pt>
+File: figures/bc-horn-example07c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/bc-horn-example07c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/bc-horn-example07c-ps-converted-to.pdf  used o
+n input line 757.
+(pdftex.def)             Requested size: 273.73154pt x 407.20514pt.
+ [75 <./figures/bc-horn-example07c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/bc-horn-example08c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:02
+(epstopdf)                    size: 16496 bytes
+(epstopdf)             Output file: <figures/bc-horn-example08c-ps-converted-to
+.pdf>
+(epstopdf)                    date: 2026-07-16 17:24:27
+(epstopdf)                    size: 5336 bytes
+(epstopdf)             Command: <epstopdf figures/bc-horn-example08c.ps --outfi
+le=figures/bc-horn-example08c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 763.
+Package epstopdf Info: Output file is already uptodate.
+<figures/bc-horn-example08c-ps-converted-to.pdf, id=527, 158.5925pt x 235.88126
+pt>
+File: figures/bc-horn-example08c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/bc-horn-example08c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/bc-horn-example08c-ps-converted-to.pdf  used o
+n input line 763.
+(pdftex.def)             Requested size: 273.73154pt x 407.20514pt.
+ [76 <./figures/bc-horn-example08c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/bc-horn-example09c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:02
+(epstopdf)                    size: 16495 bytes
+(epstopdf)             Output file: <figures/bc-horn-example09c-ps-converted-to
+.pdf>
+(epstopdf)                    date: 2026-07-16 17:24:29
+(epstopdf)                    size: 5336 bytes
+(epstopdf)             Command: <epstopdf figures/bc-horn-example09c.ps --outfi
+le=figures/bc-horn-example09c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 769.
+Package epstopdf Info: Output file is already uptodate.
+<figures/bc-horn-example09c-ps-converted-to.pdf, id=536, 158.5925pt x 235.88126
+pt>
+File: figures/bc-horn-example09c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/bc-horn-example09c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/bc-horn-example09c-ps-converted-to.pdf  used o
+n input line 769.
+(pdftex.def)             Requested size: 273.73154pt x 407.20514pt.
+ [77 <./figures/bc-horn-example09c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/bc-horn-example10c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:02
+(epstopdf)                    size: 16494 bytes
+(epstopdf)             Output file: <figures/bc-horn-example10c-ps-converted-to
+.pdf>
+(epstopdf)                    date: 2026-07-16 17:24:31
+(epstopdf)                    size: 5325 bytes
+(epstopdf)             Command: <epstopdf figures/bc-horn-example10c.ps --outfi
+le=figures/bc-horn-example10c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 775.
+Package epstopdf Info: Output file is already uptodate.
+<figures/bc-horn-example10c-ps-converted-to.pdf, id=545, 158.5925pt x 235.88126
+pt>
+File: figures/bc-horn-example10c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/bc-horn-example10c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/bc-horn-example10c-ps-converted-to.pdf  used o
+n input line 775.
+(pdftex.def)             Requested size: 273.73154pt x 407.20514pt.
+ [78 <./figures/bc-horn-example10c-ps-converted-to.pdf>] [79]
+Package epstopdf Info: Source file: <figures/wumpus-seq5c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:07
+(epstopdf)                    size: 18622 bytes
+(epstopdf)             Output file: <figures/wumpus-seq5c-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:22:16
+(epstopdf)                    size: 4596 bytes
+(epstopdf)             Command: <epstopdf figures/wumpus-seq5c.ps --outfile=fig
+ures/wumpus-seq5c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 804.
+Package epstopdf Info: Output file is already uptodate.
+File: figures/wumpus-seq5c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/wumpus-seq5c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/wumpus-seq5c-ps-converted-to.pdf  used on inpu
+t line 804.
+(pdftex.def)             Requested size: 126.47249pt x 126.93866pt.
+ [80] [81] [82]
+(algorithms/pl-resolution-algorithm.tex
+Overfull \hbox (3.55833pt too wide) in paragraph at lines 1--25
+ []  
+ []
+
+) [83]
+Package epstopdf Info: Source file: <figures/wumpus-resolution.ps>
+(epstopdf)                    date: 2026-07-15 08:15:07
+(epstopdf)                    size: 40676 bytes
+(epstopdf)             Output file: <figures/wumpus-resolution-ps-converted-to.
+pdf>
+(epstopdf)                    date: 2026-07-16 17:24:33
+(epstopdf)                    size: 6070 bytes
+(epstopdf)             Command: <epstopdf figures/wumpus-resolution.ps --outfil
+e=figures/wumpus-resolution-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 855.
+Package epstopdf Info: Output file is already uptodate.
+<figures/wumpus-resolution-ps-converted-to.pdf, id=571, 844.15375pt x 184.69pt>
+
+File: figures/wumpus-resolution-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/wumpus-resolution-ps-converted-to.pdf>
+Package pdftex.def Info: figures/wumpus-resolution-ps-converted-to.pdf  used on
+ input line 855.
+(pdftex.def)             Requested size: 675.72824pt x 147.84518pt.
+ [84 <./figures/wumpus-resolution-ps-converted-to.pdf>] [85] [86]
+(chapter07.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+ ***********
+ ) 
 Here is how much of TeX's memory you used:
- 1761 strings out of 467870
- 24975 string characters out of 5418355
- 435733 words of memory out of 5000000
- 30664 multiletter control sequences out of 15000+600000
- 640199 words of font info for 60 fonts, out of 8000000 for 9000
+ 3352 strings out of 467870
+ 63414 string characters out of 5418355
+ 478189 words of memory out of 5000000
+ 32166 multiletter control sequences out of 15000+600000
+ 648199 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,6n,65p,220b,259s stack positions out of 10000i,1000n,20000p,200000b,200000s
-!  ==> Fatal error occurred, no output PDF file produced!
+ 72i,12n,79p,497b,436s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmex10.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmmi12.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmr12.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/thanh/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/thanh/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/thanh/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/vntex/vnr/vnbx12.pfb><C:/Users/thanh/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/vntex/vnr/vncsc10.pfb><C:/Users/thanh/AppData/
+Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnr8.pfb><C:/Users/thanh/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/vntex/vnr/vnss17.pfb><C:/Users/thanh/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/vntex/vnr/vnssbx10.pfb><C:/Users/thanh/AppData/
+Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnti12.pfb>
+Output written on chapter07.pdf (86 pages, 460081 bytes).
+PDF statistics:
+ 643 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 191 words of extra memory for PDF output out of 10000 (max. 10000000)
+

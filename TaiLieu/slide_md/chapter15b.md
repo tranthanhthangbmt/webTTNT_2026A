@@ -104,7 +104,6 @@ Ví dụ: [t] trong "thứ tám" có lưỡi chạm vào răng cửa
 ---
 ## Ví dụ về mẫu điện thoại
 
-,8\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/sr-hmm.png)
 
 ---
@@ -114,7 +113,6 @@ Mỗi từ được mô tả như một sự phân bố qua các chuỗi điện
 
 Phân phối được biểu diễn dưới dạng mô hình chuyển tiếp HMM
 
-,8\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/sr-tomato-b.png)
 
 \mat{\begin{formula}

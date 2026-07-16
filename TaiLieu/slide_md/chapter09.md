@@ -1,6 +1,6 @@
 \usepackage{fleqn}
 \usepackage{epsf}
-\usepackage[dvips]{color}
+\usepackage{color}
 \usepackage{aima2e-slides}
 
 # Suy diễn trong logic bậc một (Inference in first-order logic)
@@ -532,7 +532,6 @@ Chuỗi chuyển tiếp được sử dụng rộng rãi trong cơ sở dữ li�
 ---
 ## Ví dụ về khớp cứng
 
-,4\maxfigwidth
  ![Hình ảnh](../TaiLieu/slide_md/figures/australia-csp.png) 
 
 \hđiền

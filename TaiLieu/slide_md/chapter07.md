@@ -1,6 +1,6 @@
 \usepackage{fleqn}
 \usepackage{epsf}
-\usepackage[dvips]{color}
+\usepackage{color}
 \usepackage{aima2e-slides}
 
 # Tác tử logic (Logical agents)
@@ -102,7 +102,7 @@ Nắm lấy vàng nếu ở cùng một ô vuông
 Thả vàng rơi vào cùng một ô vuông
 
  
-,34\textwidth
+
 ![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-world.png)
 
 \note{Thiết bị truyền động} Rẽ trái, Rẽ phải,
@@ -189,56 +189,48 @@ Thả vàng rơi vào cùng một ô vuông
 ---
 ## Khám phá thế giới wumpus
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-seq0.png)
 
 ---
 ## Khám phá thế giới wumpus
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-seq1.png)
 
 ---
 ## Khám phá thế giới wumpus
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-seq2.png)
 
 ---
 ## Khám phá thế giới wumpus
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-seq3.png)
 
 ---
 ## Khám phá thế giới wumpus
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-seq4.png)
 
 ---
 ## Khám phá thế giới wumpus
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-seq5.png)
 
 ---
 ## Khám phá thế giới wumpus
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-seq6.png)
 
 ---
 ## Khám phá thế giới wumpus
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-seq7.png)
 
 ---
 ## Các điểm chật khác
 
-,7in
-\raisebox{-0.5in[2.5in]{![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-bb.png)}
+in
+\raisebox{-0.5in}[2.5in]{![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-bb.png)}
  
 
 Gió vào (1,2) và (2,1)
@@ -251,7 +243,7 @@ Giả sử các hố phân bố đồng đều,
 
      
 
-,8in
+in
 ![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-s.png)
  
 
@@ -345,8 +337,8 @@ Ví dụ: \mat{$KB$} = Người khổng lồ thắng và Quỷ đỏ thắng
   pha$} = Người khổng lồ đã thắng
 
  
-,2in
-\raisebox{-2in[0in]{![Hình ảnh](../TaiLieu/slide_md/figures/model-inclusion.png)}
+in
+\raisebox{-2in}[0in]{![Hình ảnh](../TaiLieu/slide_md/figures/model-inclusion.png)}
 
 ---
 ## Sự đòi hỏi trong thế giới wumpus
@@ -360,7 +352,7 @@ Xem xét các mô hình có thể có cho ?s
 giả sử chỉ có hố 
 
  
-,4\textwidth
+
 ![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-seq1c-alt.png)
 
 3 lựa chọn Boolean $\implies$ 8 mô hình có thể
@@ -368,13 +360,11 @@ giả sử chỉ có hố
 ---
 ## Mẫu Wumpus
 
-,75\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-models1.png)
 
 ---
 ## Mẫu Wumpus
 
-,75\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-models2.png)
 
 \mat{$KB$} = quy tắc của thế giới wumpus + quan sát
@@ -382,7 +372,6 @@ giả sử chỉ có hố
 ---
 ## Mẫu Wumpus
 
-,75\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-models3.png)
 
 \mat{$KB$} = quy tắc của thế giới wumpus + quan sát
@@ -394,7 +383,6 @@ giả sử chỉ có hố
 ---
 ## Mẫu Wumpus
 
-,75\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-models2.png)
 
 \mat{$KB$} = quy tắc của thế giới wumpus + quan sát
@@ -402,7 +390,6 @@ giả sử chỉ có hố
 ---
 ## Mẫu Wumpus
 
-,75\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-models4.png)
 
 \mat{$KB$} = quy tắc của thế giới wumpus + quan sát
@@ -762,7 +749,6 @@ Các thuật toán này rất tự nhiên và chạy trong thời gian *tuyến 
 [4pt]
 \tab\tab\tab\tab\tab\tab$B$
 
-,25\maxfigwidth
  ![Hình ảnh](../TaiLieu/slide_md/figures/pl-horn-example.png) 
 
 ---
@@ -791,49 +777,41 @@ function PL-FC-Entails?(\v{KB), \v{q}}{\v{true} or \v{false}}
 ---
 ##  Ví dụ về chuỗi chuyển tiếp 
 
-,45\maxfigwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/fc-horn-example01c.png)
 
 ---
 ##  Ví dụ về chuỗi chuyển tiếp 
 
-,45\maxfigwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/fc-horn-example02c.png)
 
 ---
 ##  Ví dụ về chuỗi chuyển tiếp 
 
-,45\maxfigwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/fc-horn-example03c.png)
 
 ---
 ##  Ví dụ về chuỗi chuyển tiếp 
 
-,45\maxfigwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/fc-horn-example04c.png)
 
 ---
 ##  Ví dụ về chuỗi chuyển tiếp 
 
-,45\maxfigwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/fc-horn-example05c.png)
 
 ---
 ##  Ví dụ về chuỗi chuyển tiếp 
 
-,45\maxfigwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/fc-horn-example06c.png)
 
 ---
 ##  Ví dụ về chuỗi chuyển tiếp 
 
-,45\maxfigwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/fc-horn-example07c.png)
 
 ---
 ##  Ví dụ về chuỗi chuyển tiếp 
 
-,45\maxfigwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/fc-horn-example08c.png)
 
 ---
@@ -882,67 +860,56 @@ Tránh làm việc lặp lại: kiểm tra xem mục tiêu phụ mới
 ---
 ## Ví dụ về chuỗi ngược
 
-,45\maxfigwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/bc-horn-example01c.png)
 
 ---
 ## Ví dụ về chuỗi ngược
 
-,45\maxfigwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/bc-horn-example02c.png)
 
 ---
 ## Ví dụ về chuỗi ngược
 
-,45\maxfigwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/bc-horn-example03c.png)
 
 ---
 ## Ví dụ về chuỗi ngược
 
-,45\maxfigwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/bc-horn-example04c.png)
 
 ---
 ## Ví dụ về chuỗi ngược
 
-,45\maxfigwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/bc-horn-example03c.png)
 
 ---
 ## Ví dụ về chuỗi ngược
 
-,45\maxfigwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/bc-horn-example05c.png)
 
 ---
 ## Ví dụ về chuỗi ngược
 
-,45\maxfigwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/bc-horn-example06c.png)
 
 ---
 ## Ví dụ về chuỗi ngược
 
-,45\maxfigwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/bc-horn-example07c.png)
 
 ---
 ## Ví dụ về chuỗi ngược
 
-,45\maxfigwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/bc-horn-example08c.png)
 
 ---
 ## Ví dụ về chuỗi ngược
 
-,45\maxfigwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/bc-horn-example09c.png)
 
 ---
 ## Ví dụ về chuỗi ngược
 
-,45\maxfigwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/bc-horn-example10c.png)
 
 ---
@@ -976,7 +943,7 @@ ví dụ: Chìa khóa của tôi đâu? Làm thế nào để tôi vào được
         {\ell_1 \lor \cdots\lor \ell_{i-1}\lor \ell_{i+1}\lor\cdots\lor \ell_k
         \lor m_1 \lor \cdots \lor m_{j-1}\lor m_{j+1}\lor\cdots\lor m_n}
 \]}
-trong đó \mat{$\ell_i$} và \mat{$m_j$} là các chữ bổ sung. Ví dụ:in\raisebox{-1.5in[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-seq5c.png)}
+trong đó \mat{$\ell_i$} và \mat{$m_j$} là các chữ bổ sung. Ví dụ:in\raisebox{-1.5in}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-seq5c.png)}
 \mat{\[
    \frac{P_{1,3} \lor P_{2,2}, &nbsp;&nbsp;&nbsp;&nbsp; \lnot P_{2,2}}
        {P_{1,3}}

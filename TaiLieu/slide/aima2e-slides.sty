@@ -3,7 +3,7 @@
 %%%%%%% Colors
 \usepackage[T5]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[dvips]{color}
+\usepackage{color}
 \definecolor{red}{rgb}{0.5,0.0,0.0}
 \definecolor{darkgreen}{rgb}{0,0.4,0}
 \definecolor{navyblue}{rgb}{0,0,.5}
@@ -269,7 +269,7 @@
 \evensidemargin=0.25in
 \topmargin=-0.5in
 \ifx\pdfpagewidth\undefined\else\pdfpagewidth=11in \pdfpageheight=8.5in\fi
-\AtBeginDocument{\ifx\pdfpagewidth\undefined\else\pdfpagewidth=11in \pdfpageheight=8.5in\fi\raggedright}
+\AtBeginDocument{\ifx\pdfpagewidth\undefined\else\pdfpagewidth=11in \pdfpageheight=8.5in\fi\raggedright\special{papersize=11in,8.5in}}
 }
 
 \landscape

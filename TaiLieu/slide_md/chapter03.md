@@ -1,6 +1,6 @@
 \usepackage{fleqn}
 \usepackage{epsf}
-\usepackage[dvips]{color}
+\usepackage{color}
 \usepackage{aima2e-slides}
 
 # Giải quyết vấn đề và Tìm kiếm (Problem solving and search)
@@ -109,7 +109,6 @@ thường *xen kẽ* tìm kiếm, thực thi
 
  
 
-,4\maxfigwidth
 \raisebox{-0.35\maxfigwidth}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/vacuum2-space.png)}
 
 ---
@@ -127,7 +126,6 @@ ví dụ: \mat{$Right$} chuyển đến \mat{$\{2,4,6,8\}$}. <u>Giải pháp</u>
 }
  
 
-,4\maxfigwidth
 \raisebox{-0.35\maxfigwidth}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/vacuum2-space.png)}
 
 ---
@@ -156,7 +154,6 @@ Cảm biến cục bộ: bụi bẩn, chỉ vị trí.
 }
  
 
-,4\maxfigwidth
 \raisebox{-0.35\maxfigwidth}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/vacuum2-space.png)}
 
 ---
@@ -187,7 +184,6 @@ Cảm biến cục bộ: bụi bẩn, chỉ vị trí.
 }
  
 
-,4\maxfigwidth
 \raisebox{-0.35\maxfigwidth}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/vacuum2-space.png)}
 
 ---
@@ -245,7 +241,6 @@ Mỗi hành động trừu tượng phải "dễ dàng hơn" so với vấn đ�
 ---
 ##  Ví dụ: đồ thị không gian trạng thái thế giới chân không 
 
-,8\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/vacuum2-paths.png)
 
 <u>trạng thái</u>??
@@ -259,7 +254,6 @@ Mỗi hành động trừu tượng phải "dễ dàng hơn" so với vấn đ�
 ---
 ##  Ví dụ: đồ thị không gian trạng thái thế giới chân không 
 
-,8\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/vacuum2-paths.png)
 
 <u>state</u>??: số nguyên bụi bẩn và vị trí robot (bỏ qua bụi bẩn \note{số lượng}, v.v.)
@@ -273,7 +267,6 @@ Mỗi hành động trừu tượng phải "dễ dàng hơn" so với vấn đ�
 ---
 ##  Ví dụ: đồ thị không gian trạng thái thế giới chân không 
 
-,8\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/vacuum2-paths.png)
 
 <u>state</u>??: số nguyên bụi bẩn và vị trí robot (bỏ qua bụi bẩn \note{số lượng}, v.v.)
@@ -287,7 +280,6 @@ Mỗi hành động trừu tượng phải "dễ dàng hơn" so với vấn đ�
 ---
 ##  Ví dụ: đồ thị không gian trạng thái thế giới chân không 
 
-,8\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/vacuum2-paths.png)
 
 <u>state</u>??: số nguyên bụi bẩn và vị trí robot (bỏ qua bụi bẩn \note{số lượng}, v.v.)
@@ -301,7 +293,6 @@ Mỗi hành động trừu tượng phải "dễ dàng hơn" so với vấn đ�
 ---
 ##  Ví dụ: đồ thị không gian trạng thái thế giới chân không 
 
-,8\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/vacuum2-paths.png)
 
 <u>state</u>??: số nguyên bụi bẩn và vị trí robot (bỏ qua bụi bẩn \note{số lượng}, v.v.)
@@ -315,7 +306,6 @@ Mỗi hành động trừu tượng phải "dễ dàng hơn" so với vấn đ�
 ---
 ## Ví dụ: Câu đố 8 ô
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/8puzzle.png)
 
 <u>trạng thái</u>??
@@ -329,7 +319,6 @@ Mỗi hành động trừu tượng phải "dễ dàng hơn" so với vấn đ�
 ---
 ## Ví dụ: Câu đố 8 ô
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/8puzzle.png)
 
 <u>state</u>??: vị trí số nguyên của các ô (bỏ qua các vị trí trung gian)
@@ -343,7 +332,6 @@ Mỗi hành động trừu tượng phải "dễ dàng hơn" so với vấn đ�
 ---
 ## Ví dụ: Câu đố 8 ô
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/8puzzle.png)
 
 <u>state</u>??: vị trí số nguyên của các ô (bỏ qua các vị trí trung gian)
@@ -357,7 +345,6 @@ Mỗi hành động trừu tượng phải "dễ dàng hơn" so với vấn đ�
 ---
 ## Ví dụ: Câu đố 8 ô
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/8puzzle.png)
 
 <u>state</u>??: vị trí số nguyên của các ô (bỏ qua các vị trí trung gian)
@@ -371,7 +358,6 @@ Mỗi hành động trừu tượng phải "dễ dàng hơn" so với vấn đ�
 ---
 ## Ví dụ: Câu đố 8 ô
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/8puzzle.png)
 
 <u>state</u>??: vị trí số nguyên của các ô (bỏ qua các vị trí trung gian)
@@ -387,7 +373,6 @@ Mỗi hành động trừu tượng phải "dễ dàng hơn" so với vấn đ�
 ---
 ## Ví dụ: lắp ráp robot
 
-,7\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/stanford-arm+blocks.png)
 
 <u>state</u>??: tọa độ có giá trị thực của các góc khớp robot
@@ -448,11 +433,10 @@ Nút \defn{} là cấu trúc dữ liệu cấu thành một phần của cây t�
 
 Hoa không có cha mẹ, con cái, độ sâu, hoặc chi phí đường đi!
 
-,65\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/state-vs-node.png)
 
 Hàm **Expand** tạo các nút mới, điền vào các nút khác nhau
-các trường và sử dụng {\s SuccessorFn} của
+các trường và sử dụng **SuccessorFn** của
 bài toán để tạo ra các trạng thái tương ứng.
 
 ---
@@ -528,7 +512,6 @@ Mở rộng nút nông nhất chưa được mở rộng
     
 \v{fringe} là một hàng đợi FIFO, tức là những người kế nhiệm mới sẽ ở cuối
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/bfs-progress1.png)
 
 ---
@@ -540,7 +523,6 @@ Mở rộng nút nông nhất chưa được mở rộng
     
 \v{fringe} là một hàng đợi FIFO, tức là những người kế nhiệm mới sẽ ở cuối
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/bfs-progress2.png)
 
 ---
@@ -552,7 +534,6 @@ Mở rộng nút nông nhất chưa được mở rộng
     
 \v{fringe} là một hàng đợi FIFO, tức là những người kế nhiệm mới sẽ ở cuối
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/bfs-progress3.png)
 
 ---
@@ -564,7 +545,6 @@ Mở rộng nút nông nhất chưa được mở rộng
     
 \v{fringe} là một hàng đợi FIFO, tức là những người kế nhiệm mới sẽ ở cuối
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/bfs-progress4.png)
 
 ---
@@ -644,7 +624,6 @@ Mở rộng nút chưa được mở rộng sâu nhất
     
 \v{fringe} = Hàng đợi LIFO, tức là đặt những người kế nhiệm lên hàng đầu
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/dfs-progress01.png)
 
 ---
@@ -656,7 +635,6 @@ Mở rộng nút chưa được mở rộng sâu nhất
     
 \v{fringe} = Hàng đợi LIFO, tức là đặt những người kế nhiệm lên hàng đầu
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/dfs-progress02.png)
 
 ---
@@ -668,7 +646,6 @@ Mở rộng nút chưa được mở rộng sâu nhất
     
 \v{fringe} = Hàng đợi LIFO, tức là đặt những người kế nhiệm lên hàng đầu
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/dfs-progress03.png)
 
 ---
@@ -680,7 +657,6 @@ Mở rộng nút chưa được mở rộng sâu nhất
     
 \v{fringe} = Hàng đợi LIFO, tức là đặt những người kế nhiệm lên hàng đầu
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/dfs-progress04.png)
 
 ---
@@ -692,7 +668,6 @@ Mở rộng nút chưa được mở rộng sâu nhất
     
 \v{fringe} = Hàng đợi LIFO, tức là đặt những người kế nhiệm lên hàng đầu
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/dfs-progress05.png)
 
 ---
@@ -704,7 +679,6 @@ Mở rộng nút chưa được mở rộng sâu nhất
     
 \v{fringe} = Hàng đợi LIFO, tức là đặt những người kế nhiệm lên hàng đầu
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/dfs-progress06.png)
 
 ---
@@ -716,7 +690,6 @@ Mở rộng nút chưa được mở rộng sâu nhất
     
 \v{fringe} = Hàng đợi LIFO, tức là đặt những người kế nhiệm lên hàng đầu
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/dfs-progress07.png)
 
 ---
@@ -728,7 +701,6 @@ Mở rộng nút chưa được mở rộng sâu nhất
     
 \v{fringe} = Hàng đợi LIFO, tức là đặt những người kế nhiệm lên hàng đầu
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/dfs-progress08.png)
 
 ---
@@ -740,7 +712,6 @@ Mở rộng nút chưa được mở rộng sâu nhất
     
 \v{fringe} = Hàng đợi LIFO, tức là đặt những người kế nhiệm lên hàng đầu
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/dfs-progress09.png)
 
 ---
@@ -752,7 +723,6 @@ Mở rộng nút chưa được mở rộng sâu nhất
     
 \v{fringe} = Hàng đợi LIFO, tức là đặt những người kế nhiệm lên hàng đầu
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/dfs-progress10.png)
 
 ---
@@ -764,7 +734,6 @@ Mở rộng nút chưa được mở rộng sâu nhất
     
 \v{fringe} = Hàng đợi LIFO, tức là đặt những người kế nhiệm lên hàng đầu
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/dfs-progress11.png)
 
 ---
@@ -776,7 +745,6 @@ Mở rộng nút chưa được mở rộng sâu nhất
     
 \v{fringe} = Hàng đợi LIFO, tức là đặt những người kế nhiệm lên hàng đầu
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/dfs-progress12.png)
 
 ---
@@ -979,7 +947,6 @@ BFS có thể được sửa đổi để áp dụng kiểm tra mục tiêu khi 
 Việc không phát hiện được các trạng thái lặp lại có thể biến một bài toán tuyến tính thành một bài toán
 số mũ!
 
-,7\maxfigwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/ribbon-space.png)
 
 ---

@@ -26,9 +26,8 @@
 
 ![Hình ảnh](../TaiLieu/slide_md/figures/sequential-decision-world.png)
 
-,4\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/sequential-decision-world.png) \hspace*{1in} $M_{ij}^a \equiv P(j|i,a)$
-,2\textwidth
+
 $a$
 
 Mô hình $M_{ij}^a \equiv P(j|i,a)$ = xác suất thực hiện $a$ trong $i$ dẫn đến $j$
@@ -116,7 +115,6 @@ Một phương trình trên mỗi trạng thái = $n$ <u>phi tuyến </u> phươ
 lặp lại cho đến khi "không thay đổi"
 \[ U(i) \leftarrow R(i) + \max_a \mysum_j U(j) M_{ij}^a  &nbsp;&nbsp;&nbsp;&nbsp;  \mbox{for all } i\]
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/4x3-vi-curve.png)
 
 ---

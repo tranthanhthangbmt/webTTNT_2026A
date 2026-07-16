@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.24)  15 JUL 2026 17:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.24)  16 JUL 2026 17:10
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **./chapter17.tex
 (chapter17.tex
@@ -38,13 +38,86 @@ LaTeX Info: Redefining \] on input line 75.
 Already applied: [0000/00/00] Make \] robust on input line 83.
 ))
 (epsf.sty
-\epsffilein=\read2
-\epsfxsize=\dimen149
-\epsfysize=\dimen150
-\epsftsize=\dimen151
-\epsfrsize=\dimen152
-\epsftmp=\dimen153
-\pspoints=\dimen154
+Package: epsf 2026/07/16 Modern replacement using graphicx
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen149
+\Gin@req@width=\dimen150
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf.s
+ty
+Package: epstopdf 2020-01-24 v2.11 Conversion with epstopdf on the fly (HO)
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.s
+ty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/grfext\grfext.sty
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
+keys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+))
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+))
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
+.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+ (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
+fg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps,.ps]
+(grfext)             \AppendGraphicsExtensions on input line 11.
+\epsfxsize=\skip52
+\epsfysize=\skip53
 ) (aima2e-slides.sty
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
@@ -216,8 +289,8 @@ File: t5cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 ))
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
 Package: inputenc 2024/02/08 v1.3d Input encoding file
-\inpenc@prehook=\toks17
-\inpenc@posthook=\toks18
+\inpenc@prehook=\toks18
+\inpenc@posthook=\toks19
 )
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
 Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
@@ -225,35 +298,31 @@ Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package color Info: Driver file: dvips.def on input line 149.
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\dvips.def
-File: dvips.def 2025/01/21 v3.2a Graphics/color driver for dvips
-) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\dvipsnam.def
-File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
-) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.lt
-x))
+Package color Info: Driver file: pdftex.def on input line 149.
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+)
 Package color Info: Redefining color red on input line 7.
 Package color Info: Redefining color cyan on input line 14.
-\headingwidth=\skip52
-\backdrop=\skip53
-\backheight=\skip54
-\backwidth=\skip55
-\xborder=\skip56
-\yborder=\skip57
-\headtotal=\skip58
-\codewidth=\skip59
-\boxwidth=\skip60
-\boxheight=\skip61
-\skipwidth=\skip62
-\roomheight=\skip63
-\charheight=\skip64
-\marginlineskip=\skip65
-\marginwidth=\skip66
-\textplusmarginwidth=\skip67
-\maxfigwidth=\skip68
-\tablewidth=\skip69
-\captionskip=\skip70
-\tcaptionskip=\skip71
+\headingwidth=\skip54
+\backdrop=\skip55
+\backheight=\skip56
+\backwidth=\skip57
+\xborder=\skip58
+\yborder=\skip59
+\headtotal=\skip60
+\codewidth=\skip61
+\boxwidth=\skip62
+\boxheight=\skip63
+\skipwidth=\skip64
+\roomheight=\skip65
+\charheight=\skip66
+\marginlineskip=\skip67
+\marginwidth=\skip68
+\textplusmarginwidth=\skip69
+\maxfigwidth=\skip70
+\tablewidth=\skip71
+\captionskip=\skip72
+\tcaptionskip=\skip73
 )
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
@@ -278,27 +347,31 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
 LaTeX Font Info:    ... okay on input line 6.
 LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 6.
 LaTeX Font Info:    ... okay on input line 6.
- [1
-Non-PDF special ignored!
-<special> papersize=614.295pt,794.96999pt
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count284
+\scratchdimen=\dimen151
+\scratchbox=\box53
+\nofMPsegments=\count285
+\nofMParguments=\count286
+\everyMPshowfont=\toks20
+\MPscratchCnt=\count287
+\MPscratchDim=\dimen152
+\MPnumerator=\count288
+\makeMPintoPDFobject=\count289
+\everyMPtoPDFconversion=\toks21
+) [1
+
 
 Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-{C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
+<special> papersize=11in,8.5in
+{C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
 LaTeX Font Info:    Trying to load font information for T5+cmss on input line 1
 1.
- (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmss.fd
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmss.fd
 File: t5cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -308,129 +381,146 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 16.
 
-[2
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [3
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/decision-problems.ps llx=64 lly=452 urx=507 ury=61...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [4
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/sequential-decision-world.ps llx=270 lly=504 urx=5...
-Non-PDF special ignored!
-<special> PSfile=figures/sequential-decision-world.ps llx=270 lly=504 urx=5...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [5
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
+[2]
+Package epstopdf Info: Source file: <figures/decision-problems.ps>
+(epstopdf)                    date: 2026-07-15 08:15:03
+(epstopdf)                    size: 13591 bytes
+(epstopdf)             Output file: <figures/decision-problems-ps-converted-to.
+pdf>
+(epstopdf)                    date: 2026-07-15 09:42:44
+(epstopdf)                    size: 8190 bytes
+(epstopdf)             Command: <epstopdf figures/decision-problems.ps --outfil
+e=figures/decision-problems-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 29.
+Package epstopdf Info: Output file is already uptodate.
+<figures/decision-problems-ps-converted-to.pdf, id=13, 444.66125pt x 165.61874p
+t>
+File: figures/decision-problems-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/decision-problems-ps-converted-to.pdf>
+Package pdftex.def Info: figures/decision-problems-ps-converted-to.pdf  used on
+ input line 29.
+(pdftex.def)             Requested size: 651.15118pt x 242.54684pt.
+ [3 <./figures/decision-problems-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/sequential-decision-world.ps>
+(epstopdf)                    date: 2026-07-15 08:15:06
+(epstopdf)                    size: 14063 bytes
+(epstopdf)             Output file: <figures/sequential-decision-world-ps-conve
+rted-to.pdf>
+(epstopdf)                    date: 2026-07-15 09:42:50
+(epstopdf)                    size: 4732 bytes
+(epstopdf)             Command: <epstopdf figures/sequential-decision-world.ps 
+--outfile=figures/sequential-decision-world-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 36.
+Package epstopdf Info: Output file is already uptodate.
+<figures/sequential-decision-world-ps-converted-to.pdf, id=26, 276.03125pt x 21
+4.8025pt>
+File: figures/sequential-decision-world-ps-converted-to.pdf Graphic file (type 
+pdf)
+<use figures/sequential-decision-world-ps-converted-to.pdf>
+Package pdftex.def Info: figures/sequential-decision-world-ps-converted-to.pdf 
+ used on input line 36.
+(pdftex.def)             Requested size: 276.03056pt x 214.80197pt.
+Package epstopdf Info: Source file: <figures/sequential-decision-world.ps>
+(epstopdf)                    date: 2026-07-15 08:15:06
+(epstopdf)                    size: 14063 bytes
+(epstopdf)             Output file: <figures/sequential-decision-world-ps-conve
+rted-to.pdf>
+(epstopdf)                    date: 2026-07-15 09:42:50
+(epstopdf)                    size: 4732 bytes
+(epstopdf)             Command: <epstopdf figures/sequential-decision-world.ps 
+--outfile=figures/sequential-decision-world-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 42.
+Package epstopdf Info: Output file is already uptodate.
+File: figures/sequential-decision-world-ps-converted-to.pdf Graphic file (type 
+pdf)
+<use figures/sequential-decision-world-ps-converted-to.pdf>
+Package pdftex.def Info: figures/sequential-decision-world-ps-converted-to.pdf 
+ used on input line 42.
+(pdftex.def)             Requested size: 276.03056pt x 214.80197pt.
+ [4 <./figures/sequential-decision-world-ps-converted-to.pdf>] [5]
 
 LaTeX Font Warning: Font shape `T5/cmss/m/it' in size <20.74> not available
 (Font)              Font shape `T5/cmss/m/sl' tried instead on input line 56.
 
-[6
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [7
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/sequential-decision-policy.ps llx=270 lly=504 urx=...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [8
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/policy-flips4.ps llx=108 lly=516 urx=375 ury=747 r...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [9
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [10
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [11
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [12
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/sequential-decision-values.ps llx=270 lly=504 urx=...
-Non-PDF special ignored!
-<special> PSfile=figures/sequential-decision-policy.ps llx=270 lly=504 urx=...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
+Package epstopdf Info: Source file: <figures/sequential-decision-policy.ps>
+(epstopdf)                    date: 2026-07-15 08:15:06
+(epstopdf)                    size: 15611 bytes
+(epstopdf)             Output file: <figures/sequential-decision-policy-ps-conv
+erted-to.pdf>
+(epstopdf)                    date: 2026-07-15 09:42:54
+(epstopdf)                    size: 4365 bytes
+(epstopdf)             Command: <epstopdf figures/sequential-decision-policy.ps
+ --outfile=figures/sequential-decision-policy-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 68.
+Package epstopdf Info: Output file is already uptodate.
+<figures/sequential-decision-policy-ps-converted-to.pdf, id=45, 276.03125pt x 2
+14.8025pt>
+File: figures/sequential-decision-policy-ps-converted-to.pdf Graphic file (type
+ pdf)
+<use figures/sequential-decision-policy-ps-converted-to.pdf>
+Package pdftex.def Info: figures/sequential-decision-policy-ps-converted-to.pdf
+  used on input line 68.
+(pdftex.def)             Requested size: 276.43086pt x 215.13628pt.
+[6] [7 <./figures/sequential-decision-policy-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/policy-flips4.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 28558 bytes
+(epstopdf)             Output file: <figures/policy-flips4-ps-converted-to.pdf>
+
+(epstopdf)             Command: <epstopdf figures/policy-flips4.ps --outfile=fi
+gures/policy-flips4-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 76.
+runsystem(epstopdf figures/policy-flips4.ps --outfile=figures/policy-flips4-ps-
+converted-to.pdf)...executed.
+
+Package epstopdf Info: Result file: <figures/policy-flips4-ps-converted-to.pdf>
+
+(epstopdf)                    date: 2026-07-16 17:10:39
+(epstopdf)                    size: 7734 bytes.
+<figures/policy-flips4-ps-converted-to.pdf, id=60, 268.00125pt x 231.86626pt>
+File: figures/policy-flips4-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/policy-flips4-ps-converted-to.pdf>
+Package pdftex.def Info: figures/policy-flips4-ps-converted-to.pdf  used on inp
+ut line 76.
+(pdftex.def)             Requested size: 460.72124pt x 398.6005pt.
+ [8 <./figures/policy-flips4-ps-converted-to.pdf>] [9] [10]
+Package epstopdf Info: Source file: <figures/sequential-decision-values.ps>
+(epstopdf)                    date: 2026-07-15 08:15:06
+(epstopdf)                    size: 15445 bytes
+(epstopdf)             Output file: <figures/sequential-decision-values-ps-conv
+erted-to.pdf>
+(epstopdf)                    date: 2026-07-15 09:42:57
+(epstopdf)                    size: 4728 bytes
+(epstopdf)             Command: <epstopdf figures/sequential-decision-values.ps
+ --outfile=figures/sequential-decision-values-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 110.
+Package epstopdf Info: Output file is already uptodate.
+<figures/sequential-decision-values-ps-converted-to.pdf, id=84, 276.03125pt x 2
+14.8025pt>
+File: figures/sequential-decision-values-ps-converted-to.pdf Graphic file (type
+ pdf)
+<use figures/sequential-decision-values-ps-converted-to.pdf>
+Package pdftex.def Info: figures/sequential-decision-values-ps-converted-to.pdf
+  used on input line 110.
+(pdftex.def)             Requested size: 294.85896pt x 229.47914pt.
+Package epstopdf Info: Source file: <figures/sequential-decision-policy.ps>
+(epstopdf)                    date: 2026-07-15 08:15:06
+(epstopdf)                    size: 15611 bytes
+(epstopdf)             Output file: <figures/sequential-decision-policy-ps-conv
+erted-to.pdf>
+(epstopdf)                    date: 2026-07-15 09:42:54
+(epstopdf)                    size: 4365 bytes
+(epstopdf)             Command: <epstopdf figures/sequential-decision-policy.ps
+ --outfile=figures/sequential-decision-policy-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 110.
+Package epstopdf Info: Output file is already uptodate.
+File: figures/sequential-decision-policy-ps-converted-to.pdf Graphic file (type
+ pdf)
+<use figures/sequential-decision-policy-ps-converted-to.pdf>
+Package pdftex.def Info: figures/sequential-decision-policy-ps-converted-to.pdf
+  used on input line 110.
+(pdftex.def)             Requested size: 276.03056pt x 214.80197pt.
+ [11] [12 <./figures/sequential-decision-values-ps-converted-to.pdf>]
 
 LaTeX Font Warning: Command \Huge invalid in math mode on input line 125.
 
@@ -438,46 +528,11 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <24.88> on input line 125.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <17.28> on input line 125.
-[13
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [14
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
+[13] [14]
 
 LaTeX Font Warning: Command \Huge invalid in math mode on input line 145.
 
-[15
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
+[15]
 Runaway argument?
 {+ \mbox {$\max \{$}$0.8 U(2,1) + 0.1 U(1,2) + 0.1 U(1,1) \}$\hfill {\ETC.
 ! Paragraph ended before \makeph@nt was complete.
@@ -489,16 +544,7 @@ I suspect you've forgotten a `}', causing me to apply this
 control sequence to too much text. How can we recover?
 My plan is to forget the whole thing and hope for the best.
 
-[16
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
+[16]
 
 LaTeX Font Warning: Font shape `T5/cmss/bx/it' undefined
 (Font)              using `T5/cmss/bx/n' instead on input line 157.
@@ -510,79 +556,27 @@ LaTeX Font Warning: Command \Huge invalid in math mode on input line 164.
 LaTeX Font Warning: Font shape `T5/cmss/m/it' in size <24.88> not available
 (Font)              Font shape `T5/cmss/m/sl' tried instead on input line 164.
 
-[17
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [18
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=graphs/4x3-vi-curve.ps llx=50 lly=50 urx=770 ury=554 rwi=3...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [19
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
+Package epstopdf Info: Source file: <graphs/4x3-vi-curve.ps>
+(epstopdf)                    date: 2026-07-15 08:15:08
+(epstopdf)                    size: 6211 bytes
+(epstopdf)             Output file: <graphs/4x3-vi-curve-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-15 09:43:01
+(epstopdf)                    size: 7023 bytes
+(epstopdf)             Command: <epstopdf graphs/4x3-vi-curve.ps --outfile=grap
+hs/4x3-vi-curve-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 167.
+Package epstopdf Info: Output file is already uptodate.
+<graphs/4x3-vi-curve-ps-converted-to.pdf, id=110, 722.7pt x 505.89pt>
+File: graphs/4x3-vi-curve-ps-converted-to.pdf Graphic file (type pdf)
+<use graphs/4x3-vi-curve-ps-converted-to.pdf>
+Package pdftex.def Info: graphs/4x3-vi-curve-ps-converted-to.pdf  used on input
+ line 167.
+(pdftex.def)             Requested size: 368.58073pt x 258.0082pt.
+[17] [18 <./graphs/4x3-vi-curve-ps-converted-to.pdf>] [19]
 
 LaTeX Font Warning: Command \Huge invalid in math mode on input line 200.
 
-[20
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [21
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [22
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
+[20] [21] [22]
 LaTeX Font Info:    Calculating math sizes for size <25> on input line 223.
 
 
@@ -603,25 +597,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <17.49992> on input line 223.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12.5> on input line 223.
-[23
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [24
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
+[23] [24]
 ! Missing } inserted.
 <inserted text> 
                 }
@@ -655,16 +631,7 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-[25
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] (chapter17.aux)
+[25] (chapter17.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
@@ -679,13 +646,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 1805 strings out of 467870
- 25942 string characters out of 5418355
- 438733 words of memory out of 5000000
- 30701 multiletter control sequences out of 15000+600000
+ 3056 strings out of 467870
+ 49647 string characters out of 5418355
+ 442206 words of memory out of 5000000
+ 31902 multiletter control sequences out of 15000+600000
  642997 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,8n,65p,220b,386s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,8n,79p,240b,379s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmex10.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmmi12.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/p
@@ -697,9 +664,9 @@ grams/MiKTeX/fonts/type1/vntex/vnr/vnr8.pfb><C:/Users/thanh/AppData/Local/Progr
 ams/MiKTeX/fonts/type1/vntex/vnr/vnss17.pfb><C:/Users/thanh/AppData/Local/Progr
 ams/MiKTeX/fonts/type1/vntex/vnr/vnssbx10.pfb><C:/Users/thanh/AppData/Local/Pro
 grams/MiKTeX/fonts/type1/vntex/vnr/vnssi17.pfb>
-Output written on chapter17.pdf (25 pages, 183505 bytes).
+Output written on chapter17.pdf (25 pages, 215065 bytes).
 PDF statistics:
- 133 PDF objects out of 1000 (max. 8388607)
+ 187 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

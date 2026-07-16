@@ -43,7 +43,6 @@ phân phối trên \mat{$X_i$} cho mỗi kết hợp giá trị gốc
 
 Cấu trúc liên kết của mạng mã hóa các xác nhận độc lập có điều kiện:
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/dentist-network.png)
 
 \mat{$Weather$} độc lập với các biến khác
@@ -72,13 +71,12 @@ Cấu trúc liên kết mạng phản ánh kiến thức "nhân quả":
 ---
 ## Ví dụ tiếp theo.
 
-,95\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/burglary2.png)
 
 ---
 ## Độ nhỏ gọn
 
-CPT cho Boolean \mat{$X_i$} với \mat{$k$} cha mẹ Boolean có\hspace*{1.75in}in\raisebox{-1.5in[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/burglary-small.png)
+CPT cho Boolean \mat{$X_i$} với \mat{$k$} cha mẹ Boolean có\hspace*{1.75in}in\raisebox{-1.5in}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/burglary-small.png)
 
 \mat{$2^k$} hàng cho sự kết hợp của các giá trị gốc
 
@@ -97,7 +95,7 @@ Tức là, tăng tuyến tính với \mat{$n$}, so với  \mat{$O(2^n)$} để p
 ---
 ## Ngữ nghĩa toàn cầu
 
-Ngữ nghĩa \defn{Global} xác định phân phối chung đầy đủ\hspace*{1.2in}in\raisebox{-1.5in[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/burglary-small.png)
+Ngữ nghĩa \defn{Global} xác định phân phối chung đầy đủ\hspace*{1.2in}in\raisebox{-1.5in}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/burglary-small.png)
 
 là sản phẩm của phân phối có điều kiện cục bộ:
 \mat{\[
@@ -111,7 +109,7 @@ ví dụ: \mat{$P(j\land m\land a\land \lnot b \land \lnot e)$}
 ---
 ## Ngữ nghĩa toàn cầu
 
-Ngữ nghĩa "Toàn cầu" xác định phân phối chung đầy đủ\hspace*{1.2in}in\raisebox{-1.5in[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/burglary-small.png)
+Ngữ nghĩa "Toàn cầu" xác định phân phối chung đầy đủ\hspace*{1.2in}in\raisebox{-1.5in}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/burglary-small.png)
 
 là sản phẩm của phân phối có điều kiện cục bộ:
 \mat{\[
@@ -133,7 +131,6 @@ Ngữ nghĩa \defn{Local}: mỗi nút độc lập có điều kiện
 
 của những người không phải là hậu duệ của nó được trao cho cha mẹ của nó
 
-,55\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/nondescendants.png)
 
 Định lý: \mat{Local semantics} \mat{$\lequiv$} \mat{global semantics}
@@ -145,7 +142,6 @@ Mỗi nút độc lập có điều kiện với tất cả các nút khác dự
  của nó
 \defn{Chăn Markov}: cha mẹ + con cái + cha mẹ con cái
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/markov-blanket.png)
 
 ---
@@ -179,7 +175,6 @@ P(X_1,\ldots,X_n) &=& \myprod_{i\eq 1}^n P(X_i | X_1,\, \ldots,\, X_{i-1})
 
 Giả sử chúng ta chọn thứ tự \mat{$M$}, \mat{$J$}, \mat{$A$}, \mat{$B$}, \mat{$E$}
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/burglary-make1.png)
 
 \mat{$P(J|M) = P(J)$}?
@@ -189,7 +184,6 @@ Giả sử chúng ta chọn thứ tự \mat{$M$}, \mat{$J$}, \mat{$A$}, \mat{$B$
 
 \ptext{Giả sử chúng ta chọn thứ tự \mat{$M$}, \mat{$J$}, \mat{$A$}, \mat{$B$}, \mat{$E$}}
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/burglary-make2.png)
 
 \ptext{\mat{$P(J|M) = P(J)$}? &nbsp;&nbsp;  Không
@@ -201,7 +195,6 @@ Giả sử chúng ta chọn thứ tự \mat{$M$}, \mat{$J$}, \mat{$A$}, \mat{$B$
 
 \ptext{Giả sử chúng ta chọn thứ tự \mat{$M$}, \mat{$J$}, \mat{$A$}, \mat{$B$}, \mat{$E$}}
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/burglary-make3.png)
 
 \ptext{\mat{$P(J|M) = P(J)$}? &nbsp;&nbsp;  Không
@@ -217,7 +210,6 @@ Giả sử chúng ta chọn thứ tự \mat{$M$}, \mat{$J$}, \mat{$A$}, \mat{$B$
 
 \ptext{Giả sử chúng ta chọn thứ tự \mat{$M$}, \mat{$J$}, \mat{$A$}, \mat{$B$}, \mat{$E$}}
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/burglary-make4.png)
 
 \ptext{\mat{$P(J|M) = P(J)$}? &nbsp;&nbsp;  Không
@@ -237,7 +229,6 @@ Giả sử chúng ta chọn thứ tự \mat{$M$}, \mat{$J$}, \mat{$A$}, \mat{$B$
 
 \ptext{Giả sử chúng ta chọn thứ tự \mat{$M$}, \mat{$J$}, \mat{$A$}, \mat{$B$}, \mat{$E$}}
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/burglary-make5.png)
 
 \ptext{\mat{$P(J|M) = P(J)$}? &nbsp;&nbsp;  Không
@@ -255,7 +246,6 @@ Giả sử chúng ta chọn thứ tự \mat{$M$}, \mat{$J$}, \mat{$A$}, \mat{$B$
 ---
 ## Ví dụ tiếp theo.
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/burglary-make5.png)
 
 Quyết định tính độc lập có điều kiện là khó theo hướng phi nhân quả
@@ -337,7 +327,6 @@ Số tham số *tuyến tính* trong số cha mẹ
 
 Rời rạc (\mat{$Subsidy?$} và \mat{$Buys?$});  liên tục (\mat{$Harvest$} và \mat{$Cost$})
 
-,42\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/continuous-net.png)
 
 Tùy chọn 1: rời rạc---có thể có lỗi lớn, CPT lớn
@@ -375,7 +364,6 @@ Sự thay đổi tuyến tính là không hợp lý trên toàn bộ phạm vi
 ---
 ## Biến con liên tục
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/linear-gaussian-true.png)
 
 Mạng liên tục với các bản phân phối của LG
@@ -392,7 +380,6 @@ cho mỗi sự kết hợp của các giá trị biến rời rạc
 
 Xác suất của \mat{$Buys?$} cho trước \mat{$Cost$} phải là ngưỡng "mềm":
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/probit.png)
 
 Phân phối \defn{Probit} sử dụng tích phân của Gaussian:
@@ -408,7 +395,6 @@ Phân phối \defn{Probit} sử dụng tích phân của Gaussian:
 
 2. Có thể xem là ngưỡng cứng có vị trí bị nhiễu
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/noisy-threshold.png)
 
 ---
@@ -420,7 +406,6 @@ P(Buys?\eq true \given Cost \eq c) = \frac{1}{1+exp(-2\frac{-c+\mu}{\sigma})}
 \]}
 Sigmoid có hình dạng tương tự probit nhưng đuôi dài hơn nhiều:
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/logit.png)
 
 ---

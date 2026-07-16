@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.24)  15 JUL 2026 17:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.24)  16 JUL 2026 22:40
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **./chapter14b.tex
 (chapter14b.tex
@@ -38,13 +38,86 @@ LaTeX Info: Redefining \] on input line 75.
 Already applied: [0000/00/00] Make \] robust on input line 83.
 ))
 (epsf.sty
-\epsffilein=\read2
-\epsfxsize=\dimen149
-\epsfysize=\dimen150
-\epsftsize=\dimen151
-\epsfrsize=\dimen152
-\epsftmp=\dimen153
-\pspoints=\dimen154
+Package: epsf 2026/07/16 Modern replacement using graphicx
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen149
+\Gin@req@width=\dimen150
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf.s
+ty
+Package: epstopdf 2020-01-24 v2.11 Conversion with epstopdf on the fly (HO)
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.s
+ty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/grfext\grfext.sty
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
+keys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+))
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+))
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
+.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+ (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
+fg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps,.ps]
+(grfext)             \AppendGraphicsExtensions on input line 11.
+\epsfxsize=\skip52
+\epsfysize=\skip53
 ) (aima2e-slides.sty
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
@@ -216,8 +289,8 @@ File: t5cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 ))
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
 Package: inputenc 2024/02/08 v1.3d Input encoding file
-\inpenc@prehook=\toks17
-\inpenc@posthook=\toks18
+\inpenc@prehook=\toks18
+\inpenc@posthook=\toks19
 )
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
 Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
@@ -225,35 +298,31 @@ Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package color Info: Driver file: dvips.def on input line 149.
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\dvips.def
-File: dvips.def 2025/01/21 v3.2a Graphics/color driver for dvips
-) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\dvipsnam.def
-File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
-) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.lt
-x))
+Package color Info: Driver file: pdftex.def on input line 149.
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+)
 Package color Info: Redefining color red on input line 7.
 Package color Info: Redefining color cyan on input line 14.
-\headingwidth=\skip52
-\backdrop=\skip53
-\backheight=\skip54
-\backwidth=\skip55
-\xborder=\skip56
-\yborder=\skip57
-\headtotal=\skip58
-\codewidth=\skip59
-\boxwidth=\skip60
-\boxheight=\skip61
-\skipwidth=\skip62
-\roomheight=\skip63
-\charheight=\skip64
-\marginlineskip=\skip65
-\marginwidth=\skip66
-\textplusmarginwidth=\skip67
-\maxfigwidth=\skip68
-\tablewidth=\skip69
-\captionskip=\skip70
-\tcaptionskip=\skip71
+\headingwidth=\skip54
+\backdrop=\skip55
+\backheight=\skip56
+\backwidth=\skip57
+\xborder=\skip58
+\yborder=\skip59
+\headtotal=\skip60
+\codewidth=\skip61
+\boxwidth=\skip62
+\boxheight=\skip63
+\skipwidth=\skip64
+\roomheight=\skip65
+\charheight=\skip66
+\marginlineskip=\skip67
+\marginwidth=\skip68
+\textplusmarginwidth=\skip69
+\maxfigwidth=\skip70
+\tablewidth=\skip71
+\captionskip=\skip72
+\tcaptionskip=\skip73
 )
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
@@ -278,27 +347,31 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
 LaTeX Font Info:    ... okay on input line 6.
 LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 6.
 LaTeX Font Info:    ... okay on input line 6.
- [1
-Non-PDF special ignored!
-<special> papersize=614.295pt,794.96999pt
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count284
+\scratchdimen=\dimen151
+\scratchbox=\box53
+\nofMPsegments=\count285
+\nofMParguments=\count286
+\everyMPshowfont=\toks20
+\MPscratchCnt=\count287
+\MPscratchDim=\dimen152
+\MPnumerator=\count288
+\makeMPintoPDFobject=\count289
+\everyMPtoPDFconversion=\toks21
+) [1
+
 
 Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-{C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
+<special> papersize=11in,8.5in
+{C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
 LaTeX Font Info:    Trying to load font information for T5+cmss on input line 1
 1.
- (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmss.fd
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmss.fd
 File: t5cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -308,89 +381,604 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 16.
 
-[2
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [3
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-])
-Runaway argument?
-{-1.5in[0pt][0pt]{\epsffile {\file {figures}{burglary-small.ps}}\\ \mat \ETC.
-! File ended while scanning use of \raisebox .
-<inserted text> 
-                \par 
-<*> ./chapter14b.tex
-                    
-I suspect you have forgotten a `}', causing me
-to read past where you wanted me to stop.
-I'll try to recover; but if the error is serious,
-you'd better type `E' or `X' now and fix your file.
+[2] [3]
+Package epstopdf Info: Source file: <figures/burglary-small.ps>
+(epstopdf)                    date: 2026-07-15 08:15:02
+(epstopdf)                    size: 13430 bytes
+(epstopdf)             Output file: <figures/burglary-small-ps-converted-to.pdf
+>
+(epstopdf)                    date: 2026-07-16 22:34:45
+(epstopdf)                    size: 4088 bytes
+(epstopdf)             Command: <epstopdf figures/burglary-small.ps --outfile=f
+igures/burglary-small-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 51.
+Package epstopdf Info: Output file is already uptodate.
+<figures/burglary-small-ps-converted-to.pdf, id=19, 127.47626pt x 127.47626pt>
+File: figures/burglary-small-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/burglary-small-ps-converted-to.pdf>
+Package pdftex.def Info: figures/burglary-small-ps-converted-to.pdf  used on in
+put line 51.
+(pdftex.def)             Requested size: 108.405pt x 108.40977pt.
 
-! Emergency stop.
-<*> ./chapter14b.tex
-                    
-*** (job aborted, no legal \end found)
 
- 
+LaTeX Font Warning: Command \Huge invalid in math mode on input line 55.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <24.88> on input line 55.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <17.28> on input line 55.
+
+LaTeX Font Warning: Command \Huge invalid in math mode on input line 55.
+
+
+LaTeX Font Warning: Command \Huge invalid in math mode on input line 59.
+
+
+LaTeX Font Warning: Command \Huge invalid in math mode on input line 59.
+
+
+LaTeX Font Warning: Command \Huge invalid in math mode on input line 60.
+
+
+LaTeX Font Warning: Command \Huge invalid in math mode on input line 60.
+
+[4 <./figures/burglary-small-ps-converted-to.pdf>]
+(algorithms/enumeration-algorithm.tex
+Overfull \hbox (3.55833pt too wide) in paragraph at lines 1--21
+ []  
+ []
+
+) [5]
+Package epstopdf Info: Source file: <figures/enumeration-tree.ps>
+(epstopdf)                    date: 2026-07-15 08:15:04
+(epstopdf)                    size: 30080 bytes
+(epstopdf)             Output file: <figures/enumeration-tree-ps-converted-to.p
+df>
+(epstopdf)                    date: 2026-07-16 22:39:43
+(epstopdf)                    size: 7725 bytes
+(epstopdf)             Command: <epstopdf figures/enumeration-tree.ps --outfile
+=figures/enumeration-tree-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 74.
+Package epstopdf Info: Output file is already uptodate.
+<figures/enumeration-tree-ps-converted-to.pdf, id=34, 368.37625pt x 207.77625pt
+>
+File: figures/enumeration-tree-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/enumeration-tree-ps-converted-to.pdf>
+Package pdftex.def Info: figures/enumeration-tree-ps-converted-to.pdf  used on 
+input line 74.
+(pdftex.def)             Requested size: 614.295pt x 346.48099pt.
+ [6 <./figures/enumeration-tree-ps-converted-to.pdf>] [7]
+
+LaTeX Font Warning: Command \Huge invalid in math mode on input line 93.
+
+
+LaTeX Font Warning: Command \Huge invalid in math mode on input line 93.
+
+
+LaTeX Font Warning: Command \Huge invalid in math mode on input line 94.
+
+
+LaTeX Font Warning: Command \Huge invalid in math mode on input line 94.
+
+
+LaTeX Font Warning: Command \Huge invalid in math mode on input line 95.
+
+
+LaTeX Font Warning: Command \Huge invalid in math mode on input line 95.
+
+
+LaTeX Font Warning: Command \Huge invalid in math mode on input line 96.
+
+
+LaTeX Font Warning: Command \Huge invalid in math mode on input line 96.
+
+[8]
+
+LaTeX Font Warning: Command \Huge invalid in math mode on input line 97.
+
+[9]
+
+LaTeX Font Warning: Command \Huge invalid in math mode on input line 111.
+
+
+LaTeX Font Warning: Command \Huge invalid in math mode on input line 111.
+
+[10] [11] (algorithms/elimination-ask-algorithm.tex
+Overfull \hbox (3.55833pt too wide) in paragraph at lines 1--13
+ []  
+ []
+
+) [12]
+Package epstopdf Info: Source file: <figures/burglary-small.ps>
+(epstopdf)                    date: 2026-07-15 08:15:02
+(epstopdf)                    size: 13430 bytes
+(epstopdf)             Output file: <figures/burglary-small-ps-converted-to.pdf
+>
+(epstopdf)                    date: 2026-07-16 22:34:45
+(epstopdf)                    size: 4088 bytes
+(epstopdf)             Command: <epstopdf figures/burglary-small.ps --outfile=f
+igures/burglary-small-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 135.
+Package epstopdf Info: Output file is already uptodate.
+File: figures/burglary-small-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/burglary-small-ps-converted-to.pdf>
+Package pdftex.def Info: figures/burglary-small-ps-converted-to.pdf  used on in
+put line 135.
+(pdftex.def)             Requested size: 108.405pt x 108.40977pt.
+
+
+LaTeX Font Warning: Font shape `T5/cmss/m/it' in size <20.74> not available
+(Font)              Font shape `T5/cmss/m/sl' tried instead on input line 139.
+
+[13]
+Package epstopdf Info: Source file: <figures/burglary-moral.ps>
+(epstopdf)                    date: 2026-07-15 08:15:02
+(epstopdf)                    size: 13621 bytes
+(epstopdf)             Output file: <figures/burglary-moral-ps-converted-to.pdf
+>
+(epstopdf)                    date: 2026-07-16 22:39:47
+(epstopdf)                    size: 3856 bytes
+(epstopdf)             Command: <epstopdf figures/burglary-moral.ps --outfile=f
+igures/burglary-moral-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 158.
+Package epstopdf Info: Output file is already uptodate.
+<figures/burglary-moral-ps-converted-to.pdf, id=70, 127.47626pt x 127.47626pt>
+File: figures/burglary-moral-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/burglary-moral-ps-converted-to.pdf>
+Package pdftex.def Info: figures/burglary-moral-ps-converted-to.pdf  used on in
+put line 158.
+(pdftex.def)             Requested size: 108.405pt x 108.40977pt.
+ [14 <./figures/burglary-moral-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/bn-3sat.ps>
+(epstopdf)                    date: 2026-07-15 08:15:02
+(epstopdf)                    size: 17359 bytes
+(epstopdf)             Output file: <figures/bn-3sat-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 22:39:50
+(epstopdf)                    size: 6129 bytes
+(epstopdf)             Command: <epstopdf figures/bn-3sat.ps --outfile=figures/
+bn-3sat-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 179.
+Package epstopdf Info: Output file is already uptodate.
+<figures/bn-3sat-ps-converted-to.pdf, id=79, 588.1975pt x 269.005pt>
+File: figures/bn-3sat-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/bn-3sat-ps-converted-to.pdf>
+Package pdftex.def Info: figures/bn-3sat-ps-converted-to.pdf  used on input lin
+e 179.
+(pdftex.def)             Requested size: 460.72124pt x 210.70555pt.
+ [15] [16 <./figures/bn-3sat-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/coin-flip.ps>
+(epstopdf)                    date: 2026-07-15 08:15:02
+(epstopdf)                    size: 11172 bytes
+(epstopdf)             Output file: <figures/coin-flip-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 22:39:54
+(epstopdf)                    size: 3985 bytes
+(epstopdf)             Command: <epstopdf figures/coin-flip.ps --outfile=figure
+s/coin-flip-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 186.
+Package epstopdf Info: Output file is already uptodate.
+<figures/coin-flip-ps-converted-to.pdf, id=94, 54.2025pt x 83.31125pt>
+File: figures/coin-flip-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/coin-flip-ps-converted-to.pdf>
+Package pdftex.def Info: figures/coin-flip-ps-converted-to.pdf  used on input l
+ine 186.
+(pdftex.def)             Requested size: 72.26999pt x 111.09492pt.
+ [17 <./figures/coin-flip-ps-converted-to.pdf>]
+[18] (algorithms/prior-sample-algorithm.tex)
+Overfull \hbox (3.55833pt too wide) in paragraph at lines 1--202
+ []  
+ []
+
+[19]
+Package epstopdf Info: Source file: <figures/rain-prior-sample1c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 20678 bytes
+(epstopdf)             Output file: <figures/rain-prior-sample1c-ps-converted-t
+o.pdf>
+(epstopdf)                    date: 2026-07-16 22:39:57
+(epstopdf)                    size: 8296 bytes
+(epstopdf)             Command: <epstopdf figures/rain-prior-sample1c.ps --outf
+ile=figures/rain-prior-sample1c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 207.
+Package epstopdf Info: Output file is already uptodate.
+<figures/rain-prior-sample1c-ps-converted-to.pdf, id=110, 351.3125pt x 281.05pt
+>
+File: figures/rain-prior-sample1c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/rain-prior-sample1c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/rain-prior-sample1c-ps-converted-to.pdf  used 
+on input line 207.
+(pdftex.def)             Requested size: 522.1545pt x 417.7958pt.
+ [20 <./figures/rain-prior-sample1c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/rain-prior-sample2c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 20695 bytes
+(epstopdf)             Output file: <figures/rain-prior-sample2c-ps-converted-t
+o.pdf>
+(epstopdf)                    date: 2026-07-16 22:40:00
+(epstopdf)                    size: 8296 bytes
+(epstopdf)             Command: <epstopdf figures/rain-prior-sample2c.ps --outf
+ile=figures/rain-prior-sample2c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 213.
+Package epstopdf Info: Output file is already uptodate.
+<figures/rain-prior-sample2c-ps-converted-to.pdf, id=122, 351.3125pt x 281.05pt
+>
+File: figures/rain-prior-sample2c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/rain-prior-sample2c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/rain-prior-sample2c-ps-converted-to.pdf  used 
+on input line 213.
+(pdftex.def)             Requested size: 522.1545pt x 417.7958pt.
+ [21 <./figures/rain-prior-sample2c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/rain-prior-sample3c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 21058 bytes
+(epstopdf)             Output file: <figures/rain-prior-sample3c-ps-converted-t
+o.pdf>
+(epstopdf)                    date: 2026-07-16 22:40:03
+(epstopdf)                    size: 8324 bytes
+(epstopdf)             Command: <epstopdf figures/rain-prior-sample3c.ps --outf
+ile=figures/rain-prior-sample3c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 219.
+Package epstopdf Info: Output file is already uptodate.
+<figures/rain-prior-sample3c-ps-converted-to.pdf, id=134, 351.3125pt x 281.05pt
+>
+File: figures/rain-prior-sample3c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/rain-prior-sample3c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/rain-prior-sample3c-ps-converted-to.pdf  used 
+on input line 219.
+(pdftex.def)             Requested size: 522.1545pt x 417.7958pt.
+ [22 <./figures/rain-prior-sample3c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/rain-prior-sample4c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 21073 bytes
+(epstopdf)             Output file: <figures/rain-prior-sample4c-ps-converted-t
+o.pdf>
+(epstopdf)                    date: 2026-07-16 22:40:06
+(epstopdf)                    size: 8325 bytes
+(epstopdf)             Command: <epstopdf figures/rain-prior-sample4c.ps --outf
+ile=figures/rain-prior-sample4c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 225.
+Package epstopdf Info: Output file is already uptodate.
+<figures/rain-prior-sample4c-ps-converted-to.pdf, id=146, 351.3125pt x 281.05pt
+>
+File: figures/rain-prior-sample4c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/rain-prior-sample4c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/rain-prior-sample4c-ps-converted-to.pdf  used 
+on input line 225.
+(pdftex.def)             Requested size: 522.1545pt x 417.7958pt.
+ [23 <./figures/rain-prior-sample4c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/rain-prior-sample5c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 21090 bytes
+(epstopdf)             Output file: <figures/rain-prior-sample5c-ps-converted-t
+o.pdf>
+(epstopdf)                    date: 2026-07-16 22:40:09
+(epstopdf)                    size: 8329 bytes
+(epstopdf)             Command: <epstopdf figures/rain-prior-sample5c.ps --outf
+ile=figures/rain-prior-sample5c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 231.
+Package epstopdf Info: Output file is already uptodate.
+<figures/rain-prior-sample5c-ps-converted-to.pdf, id=158, 351.3125pt x 281.05pt
+>
+File: figures/rain-prior-sample5c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/rain-prior-sample5c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/rain-prior-sample5c-ps-converted-to.pdf  used 
+on input line 231.
+(pdftex.def)             Requested size: 522.1545pt x 417.7958pt.
+
+[24 <./figures/rain-prior-sample5c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/rain-prior-sample6c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 21271 bytes
+(epstopdf)             Output file: <figures/rain-prior-sample6c-ps-converted-t
+o.pdf>
+(epstopdf)                    date: 2026-07-16 22:40:12
+(epstopdf)                    size: 8347 bytes
+(epstopdf)             Command: <epstopdf figures/rain-prior-sample6c.ps --outf
+ile=figures/rain-prior-sample6c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 237.
+Package epstopdf Info: Output file is already uptodate.
+<figures/rain-prior-sample6c-ps-converted-to.pdf, id=170, 351.3125pt x 281.05pt
+>
+File: figures/rain-prior-sample6c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/rain-prior-sample6c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/rain-prior-sample6c-ps-converted-to.pdf  used 
+on input line 237.
+(pdftex.def)             Requested size: 522.1545pt x 417.7958pt.
+ [25 <./figures/rain-prior-sample6c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/rain-prior-sample7c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 21271 bytes
+(epstopdf)             Output file: <figures/rain-prior-sample7c-ps-converted-t
+o.pdf>
+(epstopdf)                    date: 2026-07-16 22:40:14
+(epstopdf)                    size: 8344 bytes
+(epstopdf)             Command: <epstopdf figures/rain-prior-sample7c.ps --outf
+ile=figures/rain-prior-sample7c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 243.
+Package epstopdf Info: Output file is already uptodate.
+<figures/rain-prior-sample7c-ps-converted-to.pdf, id=183, 351.3125pt x 281.05pt
+>
+File: figures/rain-prior-sample7c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/rain-prior-sample7c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/rain-prior-sample7c-ps-converted-to.pdf  used 
+on input line 243.
+(pdftex.def)             Requested size: 522.1545pt x 417.7958pt.
+ [26 <./figures/rain-prior-sample7c-ps-converted-to.pdf>]
+
+LaTeX Font Warning: Command \Huge invalid in math mode on input line 252.
+
+[27] (algorithms/rejection-sampling-algorithm.tex)
+Overfull \hbox (3.55833pt too wide) in paragraph at lines 1--279
+ []  
+ []
+
+[28] [29] [30]
+LaTeX Font Info:    Calculating math sizes for size <25> on input line 309.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <12.5> not available
+(Font)              size <12> substituted on input line 309.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <12.5> not available
+(Font)              size <12> substituted on input line 309.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <12.5> not available
+(Font)              size <12> substituted on input line 309.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <25> on input line 309.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <17.49992> on input line 309.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12.5> on input line 309.
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/it' in size <12.5> not available
+(Font)              size <12> substituted on input line 309.
+
+(algorithms/likelihood-weighting-algorithm.tex)
+Overfull \hbox (3.55833pt too wide) in paragraph at lines 1--315
+ []  
+ []
+
+[31] [32]
+Package epstopdf Info: Source file: <figures/rain-lw-sample1c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 20778 bytes
+(epstopdf)             Output file: <figures/rain-lw-sample1c-ps-converted-to.p
+df>
+(epstopdf)                    date: 2026-07-16 22:40:18
+(epstopdf)                    size: 8713 bytes
+(epstopdf)             Command: <epstopdf figures/rain-lw-sample1c.ps --outfile
+=figures/rain-lw-sample1c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 321.
+Package epstopdf Info: Output file is already uptodate.
+<figures/rain-lw-sample1c-ps-converted-to.pdf, id=214, 355.3275pt x 283.0575pt>
+
+File: figures/rain-lw-sample1c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/rain-lw-sample1c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/rain-lw-sample1c-ps-converted-to.pdf  used on 
+input line 321.
+(pdftex.def)             Requested size: 430.00462pt x 342.55676pt.
+ [33 <./figures/rain-lw-sample1c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/rain-lw-sample2c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 20795 bytes
+(epstopdf)             Output file: <figures/rain-lw-sample2c-ps-converted-to.p
+df>
+(epstopdf)                    date: 2026-07-16 22:40:20
+(epstopdf)                    size: 8713 bytes
+(epstopdf)             Command: <epstopdf figures/rain-lw-sample2c.ps --outfile
+=figures/rain-lw-sample2c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 329.
+Package epstopdf Info: Output file is already uptodate.
+<figures/rain-lw-sample2c-ps-converted-to.pdf, id=226, 355.3275pt x 283.0575pt>
+
+File: figures/rain-lw-sample2c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/rain-lw-sample2c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/rain-lw-sample2c-ps-converted-to.pdf  used on 
+input line 329.
+(pdftex.def)             Requested size: 430.00462pt x 342.55676pt.
+ [34 <./figures/rain-lw-sample2c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/rain-lw-sample3c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 21158 bytes
+(epstopdf)             Output file: <figures/rain-lw-sample3c-ps-converted-to.p
+df>
+(epstopdf)                    date: 2026-07-16 22:40:24
+(epstopdf)                    size: 8739 bytes
+(epstopdf)             Command: <epstopdf figures/rain-lw-sample3c.ps --outfile
+=figures/rain-lw-sample3c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 337.
+Package epstopdf Info: Output file is already uptodate.
+<figures/rain-lw-sample3c-ps-converted-to.pdf, id=238, 355.3275pt x 283.0575pt>
+
+File: figures/rain-lw-sample3c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/rain-lw-sample3c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/rain-lw-sample3c-ps-converted-to.pdf  used on 
+input line 337.
+(pdftex.def)             Requested size: 430.00462pt x 342.55676pt.
+ [35 <./figures/rain-lw-sample3c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/rain-lw-sample3c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 21158 bytes
+(epstopdf)             Output file: <figures/rain-lw-sample3c-ps-converted-to.p
+df>
+(epstopdf)                    date: 2026-07-16 22:40:24
+(epstopdf)                    size: 8739 bytes
+(epstopdf)             Command: <epstopdf figures/rain-lw-sample3c.ps --outfile
+=figures/rain-lw-sample3c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 345.
+Package epstopdf Info: Output file is already uptodate.
+File: figures/rain-lw-sample3c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/rain-lw-sample3c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/rain-lw-sample3c-ps-converted-to.pdf  used on 
+input line 345.
+(pdftex.def)             Requested size: 430.00462pt x 342.55676pt.
+ [36]
+Package epstopdf Info: Source file: <figures/rain-lw-sample4c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 21175 bytes
+(epstopdf)             Output file: <figures/rain-lw-sample4c-ps-converted-to.p
+df>
+(epstopdf)                    date: 2026-07-16 22:40:27
+(epstopdf)                    size: 8738 bytes
+(epstopdf)             Command: <epstopdf figures/rain-lw-sample4c.ps --outfile
+=figures/rain-lw-sample4c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 353.
+Package epstopdf Info: Output file is already uptodate.
+<figures/rain-lw-sample4c-ps-converted-to.pdf, id=253, 355.3275pt x 283.0575pt>
+
+File: figures/rain-lw-sample4c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/rain-lw-sample4c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/rain-lw-sample4c-ps-converted-to.pdf  used on 
+input line 353.
+(pdftex.def)             Requested size: 430.00462pt x 342.55676pt.
+ [37 <./figures/rain-lw-sample4c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/rain-lw-sample5c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 21356 bytes
+(epstopdf)             Output file: <figures/rain-lw-sample5c-ps-converted-to.p
+df>
+(epstopdf)                    date: 2026-07-16 22:40:30
+(epstopdf)                    size: 8756 bytes
+(epstopdf)             Command: <epstopdf figures/rain-lw-sample5c.ps --outfile
+=figures/rain-lw-sample5c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 361.
+Package epstopdf Info: Output file is already uptodate.
+<figures/rain-lw-sample5c-ps-converted-to.pdf, id=266, 355.3275pt x 283.0575pt>
+
+File: figures/rain-lw-sample5c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/rain-lw-sample5c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/rain-lw-sample5c-ps-converted-to.pdf  used on 
+input line 361.
+(pdftex.def)             Requested size: 430.00462pt x 342.55676pt.
+
+[38 <./figures/rain-lw-sample5c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/rain-lw-sample5c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 21356 bytes
+(epstopdf)             Output file: <figures/rain-lw-sample5c-ps-converted-to.p
+df>
+(epstopdf)                    date: 2026-07-16 22:40:30
+(epstopdf)                    size: 8756 bytes
+(epstopdf)             Command: <epstopdf figures/rain-lw-sample5c.ps --outfile
+=figures/rain-lw-sample5c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 369.
+Package epstopdf Info: Output file is already uptodate.
+File: figures/rain-lw-sample5c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/rain-lw-sample5c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/rain-lw-sample5c-ps-converted-to.pdf  used on 
+input line 369.
+(pdftex.def)             Requested size: 430.00462pt x 342.55676pt.
+ [39]
+
+LaTeX Font Warning: Command \Huge invalid in math mode on input line 377.
+
+Package epstopdf Info: Source file: <figures/rain-lw2.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 13052 bytes
+(epstopdf)             Output file: <figures/rain-lw2-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 22:40:33
+(epstopdf)                    size: 5651 bytes
+(epstopdf)             Command: <epstopdf figures/rain-lw2.ps --outfile=figures
+/rain-lw2-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 378.
+Package epstopdf Info: Output file is already uptodate.
+<figures/rain-lw2-ps-converted-to.pdf, id=281, 207.77625pt x 140.525pt>
+File: figures/rain-lw2-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/rain-lw2-ps-converted-to.pdf>
+Package pdftex.def Info: figures/rain-lw2-ps-converted-to.pdf  used on input li
+ne 378.
+(pdftex.def)             Requested size: 151.76744pt x 102.64885pt.
+
+LaTeX Font Warning: Command \Huge invalid in math mode on input line 383.
+
+[40 <./figures/rain-lw2-ps-converted-to.pdf>]
+
+LaTeX Font Warning: Command \Huge invalid in math mode on input line 388.
+
+
+LaTeX Font Warning: Command \Huge invalid in math mode on input line 388.
+
+[41] (algorithms/mcmc-algorithm.tex
+Overfull \hbox (3.55833pt too wide) in paragraph at lines 1--15
+ []  
+ []
+
+) [42] [43]
+Package epstopdf Info: Source file: <figures/rain-chain.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 25436 bytes
+(epstopdf)             Output file: <figures/rain-chain-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 22:40:36
+(epstopdf)                    size: 8691 bytes
+(epstopdf)             Command: <epstopdf figures/rain-chain.ps --outfile=figur
+es/rain-chain-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 415.
+Package epstopdf Info: Output file is already uptodate.
+<figures/rain-chain-ps-converted-to.pdf, id=300, 527.9725pt x 388.45125pt>
+File: figures/rain-chain-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/rain-chain-ps-converted-to.pdf>
+Package pdftex.def Info: figures/rain-chain-ps-converted-to.pdf  used on input 
+line 415.
+(pdftex.def)             Requested size: 430.00462pt x 316.36862pt.
+ [44 <./figures/rain-chain-ps-converted-to.pdf>] [45]
+Package epstopdf Info: Source file: <figures/rain-lw1.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 13035 bytes
+(epstopdf)             Output file: <figures/rain-lw1-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 22:40:40
+(epstopdf)                    size: 5698 bytes
+(epstopdf)             Command: <epstopdf figures/rain-lw1.ps --outfile=figures
+/rain-lw1-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 441.
+Package epstopdf Info: Output file is already uptodate.
+<figures/rain-lw1-ps-converted-to.pdf, id=312, 207.77625pt x 140.525pt>
+File: figures/rain-lw1-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/rain-lw1-ps-converted-to.pdf>
+Package pdftex.def Info: figures/rain-lw1-ps-converted-to.pdf  used on input li
+ne 441.
+(pdftex.def)             Requested size: 151.76744pt x 102.64885pt.
+
+
+LaTeX Font Warning: Command \Huge invalid in math mode on input line 448.
+
+[46 <./figures/rain-lw1-ps-converted-to.pdf>] [47] [48] (chapter14b.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+ ***********
+
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 0.5pt have occurred.
+
+ ) 
 Here is how much of TeX's memory you used:
- 1755 strings out of 467870
- 24929 string characters out of 5418355
- 437733 words of memory out of 5000000
- 30662 multiletter control sequences out of 15000+600000
- 639195 words of font info for 59 fonts, out of 8000000 for 9000
+ 3224 strings out of 467870
+ 57119 string characters out of 5418355
+ 444210 words of memory out of 5000000
+ 32046 multiletter control sequences out of 15000+600000
+ 649586 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,6n,65p,221b,259s stack positions out of 10000i,1000n,20000p,200000b,200000s
-!  ==> Fatal error occurred, no output PDF file produced!
+ 72i,9n,79p,278b,420s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmex10.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmmi12.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmr12.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/thanh/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/thanh/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/thanh/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/vntex/vnr/vnbx12.pfb><C:/Users/thanh/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/vntex/vnr/vncsc10.pfb><C:/Users/thanh/AppData/
+Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnr8.pfb><C:/Users/thanh/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/vntex/vnr/vnss17.pfb><C:/Users/thanh/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/vntex/vnr/vnssbx10.pfb><C:/Users/thanh/AppData/
+Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnti12.pfb>
+Output written on chapter14b.pdf (48 pages, 356068 bytes).
+PDF statistics:
+ 379 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 101 words of extra memory for PDF output out of 10000 (max. 10000000)
+

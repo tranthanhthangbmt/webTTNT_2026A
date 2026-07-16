@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1784103003.37359 "chapter09b.tex" "chapter09b.pdf" "chapter09b" 1784103005.29713 2
+["pdflatex"] 1784196396.48984 "chapter09b.tex" "chapter09b.pdf" "chapter09b" 1784196398.90643 2
   "C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1784049722 89969 e95579120a3aa0ebc21d2737ca2ba701 ""
   "C:/Users/thanh/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1782268607 13333528 ce7767b4b1864107ed4ad937a79bf98c ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc" 1256929440 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -68,9 +68,9 @@
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/vntex/t5cmr.fd" 1368738347 1333 ab1c3d512aa3d88df568aed3641db58f ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/vntex/t5enc.def" 1368738347 21986 ccb3b8f7cc27fbd61b3daabbbb82ad3f ""
   "C:/Users/thanh/AppData/Local/Programs/MiKTeX/tex/latex/vntex/t5enc.dfu" 1368738347 13949 387dd4fa58aea5f873839c93430fffed ""
-  "aima-slides.sty" 1784080572 14189 6be9220f5305bbd3e1f55f538ba3d73e ""
-  "chapter09b.aux" 1784103004 33 f7d8a52c1d960073e083a764194e265e "pdflatex"
-  "chapter09b.tex" 1784102138 10119 1b3c5dbce8e39ca653f6712329d2b813 ""
+  "aima-slides.sty" 1784172542 14238 feeead86ed17bd654b9ec37a88ef4b8b ""
+  "chapter09b.aux" 1784196397 33 f7d8a52c1d960073e083a764194e265e "pdflatex"
+  "chapter09b.tex" 1784195776 10119 1b3c5dbce8e39ca653f6712329d2b813 ""
   "figures/resolve-clauses-ps-converted-to.pdf" 1784102999 4297 01c1172b8d30adfc039fec5fae668f2e ""
   "figures/resolve-clauses.ps" 1784078105 11746 1039f9ee4b8669d2ff817635deb5f4c9 ""
   "figures/rich-proof-ps-converted-to.pdf" 1784103001 7921 aba6bd79ba60e15683a5fb818c640e4e ""

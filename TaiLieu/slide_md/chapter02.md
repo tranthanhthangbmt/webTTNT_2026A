@@ -1,6 +1,6 @@
 \usepackage{fleqn}
 \usepackage{epsf}
-\usepackage[dvips]{color}
+\usepackage{color}
 \usepackage{aima2e-slides}
 
 # Tác tử thông minh (Intelligent Agents)
@@ -30,7 +30,6 @@
 ---
 ## Tác nhân và môi trường
 
-,65\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/agent-environment.png)
 
 \defn{Đại lý} bao gồm con người, robot, robot mềm, bộ điều nhiệt, v.v.
@@ -42,7 +41,6 @@ Chương trình tác nhân \defn{} chạy trên kiến trúc \defn{ vật lý} �
 ---
 ## Thế giới máy hút bụi
 
-,65\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/vacuum2-environment.png)
 
 Nhận thức: vị trí và nội dung, ví dụ: $[A,Dirty]$
@@ -271,7 +269,6 @@ Tất cả những thứ này có thể được biến thành tác nhân học 
 ---
 ## Các tác nhân phản xạ đơn giản
 
-,95\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/simple-reflex-agent.png)
 
 ---
@@ -304,7 +301,6 @@ function Reflex-Vacuum-Agent([location,status]) returns an action
 ---
 ## Tác nhân phản xạ có trạng thái 
 
-,95\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/reflex+state-agent.png)
 
 ---
@@ -338,19 +334,16 @@ function Reflex-Vacuum-Agent([location,status]) returns an action
 ---
 ## Tác nhân dựa trên mục tiêu
 
-,95\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/goal-based-agent.png)
 
 ---
 ## Tác nhân dựa trên tiện ích
 
-,95\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/utility-based-agent.png)
 
 ---
 ## Tác nhân học tập
 
-,95\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/learning-agent.png)
 
 ---

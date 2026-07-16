@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.24)  15 JUL 2026 17:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.24)  16 JUL 2026 17:04
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **./chapter04a.tex
 (chapter04a.tex
@@ -38,13 +38,86 @@ LaTeX Info: Redefining \] on input line 75.
 Already applied: [0000/00/00] Make \] robust on input line 83.
 ))
 (epsf.sty
-\epsffilein=\read2
-\epsfxsize=\dimen149
-\epsfysize=\dimen150
-\epsftsize=\dimen151
-\epsfrsize=\dimen152
-\epsftmp=\dimen153
-\pspoints=\dimen154
+Package: epsf 2026/07/16 Modern replacement using graphicx
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen149
+\Gin@req@width=\dimen150
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf.s
+ty
+Package: epstopdf 2020-01-24 v2.11 Conversion with epstopdf on the fly (HO)
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.s
+ty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/grfext\grfext.sty
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
+keys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+))
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+))
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
+.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+ (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
+fg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps,.ps]
+(grfext)             \AppendGraphicsExtensions on input line 11.
+\epsfxsize=\skip52
+\epsfysize=\skip53
 )
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
 Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
@@ -52,13 +125,9 @@ Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package color Info: Driver file: dvips.def on input line 149.
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\dvips.def
-File: dvips.def 2025/01/21 v3.2a Graphics/color driver for dvips
-) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\dvipsnam.def
-File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
-) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.lt
-x)) (aima2e-slides.sty
+Package color Info: Driver file: pdftex.def on input line 149.
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+) (aima2e-slides.sty
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
 
@@ -229,31 +298,31 @@ File: t5cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 ))
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
 Package: inputenc 2024/02/08 v1.3d Input encoding file
-\inpenc@prehook=\toks17
-\inpenc@posthook=\toks18
+\inpenc@prehook=\toks18
+\inpenc@posthook=\toks19
 )
 Package color Info: Redefining color red on input line 7.
 Package color Info: Redefining color cyan on input line 14.
-\headingwidth=\skip52
-\backdrop=\skip53
-\backheight=\skip54
-\backwidth=\skip55
-\xborder=\skip56
-\yborder=\skip57
-\headtotal=\skip58
-\codewidth=\skip59
-\boxwidth=\skip60
-\boxheight=\skip61
-\skipwidth=\skip62
-\roomheight=\skip63
-\charheight=\skip64
-\marginlineskip=\skip65
-\marginwidth=\skip66
-\textplusmarginwidth=\skip67
-\maxfigwidth=\skip68
-\tablewidth=\skip69
-\captionskip=\skip70
-\tcaptionskip=\skip71
+\headingwidth=\skip54
+\backdrop=\skip55
+\backheight=\skip56
+\backwidth=\skip57
+\xborder=\skip58
+\yborder=\skip59
+\headtotal=\skip60
+\codewidth=\skip61
+\boxwidth=\skip62
+\boxheight=\skip63
+\skipwidth=\skip64
+\roomheight=\skip65
+\charheight=\skip66
+\marginlineskip=\skip67
+\marginwidth=\skip68
+\textplusmarginwidth=\skip69
+\maxfigwidth=\skip70
+\tablewidth=\skip71
+\captionskip=\skip72
+\tcaptionskip=\skip73
 )
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
@@ -278,27 +347,31 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
 LaTeX Font Info:    ... okay on input line 7.
 LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 7.
 LaTeX Font Info:    ... okay on input line 7.
- [1
-Non-PDF special ignored!
-<special> papersize=614.295pt,794.96999pt
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count284
+\scratchdimen=\dimen151
+\scratchbox=\box53
+\nofMPsegments=\count285
+\nofMParguments=\count286
+\everyMPshowfont=\toks20
+\MPscratchCnt=\count287
+\MPscratchDim=\dimen152
+\MPnumerator=\count288
+\makeMPintoPDFobject=\count289
+\everyMPtoPDFconversion=\toks21
+) [1
+
 
 Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-{C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
+<special> papersize=11in,8.5in
+{C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
 LaTeX Font Info:    Trying to load font information for T5+cmss on input line 1
 2.
- (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmss.fd
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmss.fd
 File: t5cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -308,16 +381,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 17.
 
-[2
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] (algorithms/tree-search-short-algorithm.tex
+[2] (algorithms/tree-search-short-algorithm.tex
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <17.28> on input line 9.
 
@@ -330,358 +394,101 @@ Overfull \hbox (3.55833pt too wide) in paragraph at lines 1--10
 LaTeX Font Warning: Font shape `T5/cmss/m/it' in size <20.74> not available
 (Font)              Font shape `T5/cmss/m/sl' tried instead on input line 28.
 
-[3
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.7 0.0 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.5 0.0 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [4
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [5
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/romania2.ps llx=-4 lly=263 urx=557 ury=538 rwi=660...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [6
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.5 0.0 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.5 0.0 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [7
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/greedy-progress01c.ps llx=15 lly=591 urx=589 ury=8...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [8
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/greedy-progress02c.ps llx=15 lly=591 urx=589 ury=8...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [9
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/greedy-progress03c.ps llx=15 lly=591 urx=589 ury=8...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [10
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/greedy-progress04c.ps llx=15 lly=591 urx=589 ury=8...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [11
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [12
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [13
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [14
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [15
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
+[3] [4]
+Package epstopdf Info: Source file: <figures/romania2.ps>
+(epstopdf)                    date: 2026-07-15 08:15:06
+(epstopdf)                    size: 34294 bytes
+(epstopdf)             Output file: <figures/romania2-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 16:56:39
+(epstopdf)                    size: 16894 bytes
+(epstopdf)             Command: <epstopdf figures/romania2.ps --outfile=figures
+/romania2-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 55.
+Package epstopdf Info: Output file is already uptodate.
+<figures/romania2-ps-converted-to.pdf, id=21, 563.10374pt x 276.03125pt>
+File: figures/romania2-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/romania2-ps-converted-to.pdf>
+Package pdftex.def Info: figures/romania2-ps-converted-to.pdf  used on input li
+ne 55.
+(pdftex.def)             Requested size: 663.43971pt x 325.2381pt.
+ [5 <./figures/romania2-ps-converted-to.pdf>] [6]
+Package epstopdf Info: Source file: <figures/greedy-progress01c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:04
+(epstopdf)                    size: 11440 bytes
+(epstopdf)             Output file: <figures/greedy-progress01c-ps-converted-to
+.pdf>
+(epstopdf)                    date: 2026-07-16 16:56:43
+(epstopdf)                    size: 3836 bytes
+(epstopdf)             Command: <epstopdf figures/greedy-progress01c.ps --outfi
+le=figures/greedy-progress01c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 74.
+Package epstopdf Info: Output file is already uptodate.
+<figures/greedy-progress01c-ps-converted-to.pdf, id=43, 576.1525pt x 209.78375p
+t>
+File: figures/greedy-progress01c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/greedy-progress01c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/greedy-progress01c-ps-converted-to.pdf  used o
+n input line 74.
+(pdftex.def)             Requested size: 675.72824pt x 246.05096pt.
+ [7 <./figures/greedy-progress01c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/greedy-progress02c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:04
+(epstopdf)                    size: 13851 bytes
+(epstopdf)             Output file: <figures/greedy-progress02c-ps-converted-to
+.pdf>
+(epstopdf)                    date: 2026-07-16 16:56:47
+(epstopdf)                    size: 5272 bytes
+(epstopdf)             Command: <epstopdf figures/greedy-progress02c.ps --outfi
+le=figures/greedy-progress02c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 85.
+Package epstopdf Info: Output file is already uptodate.
+<figures/greedy-progress02c-ps-converted-to.pdf, id=53, 576.1525pt x 209.78375p
+t>
+File: figures/greedy-progress02c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/greedy-progress02c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/greedy-progress02c-ps-converted-to.pdf  used o
+n input line 85.
+(pdftex.def)             Requested size: 675.72824pt x 246.05096pt.
+ [8 <./figures/greedy-progress02c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/greedy-progress03c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:04
+(epstopdf)                    size: 17106 bytes
+(epstopdf)             Output file: <figures/greedy-progress03c-ps-converted-to
+.pdf>
+(epstopdf)                    date: 2026-07-16 16:56:50
+(epstopdf)                    size: 6479 bytes
+(epstopdf)             Command: <epstopdf figures/greedy-progress03c.ps --outfi
+le=figures/greedy-progress03c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 96.
+Package epstopdf Info: Output file is already uptodate.
+<figures/greedy-progress03c-ps-converted-to.pdf, id=62, 576.1525pt x 209.78375p
+t>
+File: figures/greedy-progress03c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/greedy-progress03c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/greedy-progress03c-ps-converted-to.pdf  used o
+n input line 96.
+(pdftex.def)             Requested size: 675.72824pt x 246.05096pt.
+ [9 <./figures/greedy-progress03c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/greedy-progress04c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:04
+(epstopdf)                    size: 18606 bytes
+(epstopdf)             Output file: <figures/greedy-progress04c-ps-converted-to
+.pdf>
+(epstopdf)                    date: 2026-07-16 16:56:54
+(epstopdf)                    size: 7036 bytes
+(epstopdf)             Command: <epstopdf figures/greedy-progress04c.ps --outfi
+le=figures/greedy-progress04c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 107.
+Package epstopdf Info: Output file is already uptodate.
+<figures/greedy-progress04c-ps-converted-to.pdf, id=71, 576.1525pt x 209.78375p
+t>
+File: figures/greedy-progress04c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/greedy-progress04c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/greedy-progress04c-ps-converted-to.pdf  used o
+n input line 107.
+(pdftex.def)             Requested size: 675.72824pt x 246.05096pt.
+ [10 <./figures/greedy-progress04c-ps-converted-to.pdf>] [11] [12] [13] [14] [1
+5]
 LaTeX Font Info:    Calculating math sizes for size <25> on input line 168.
 
 
@@ -702,442 +509,255 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <17.49992> on input line 168.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12.5> on input line 168.
-[16
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.5 0.0 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [17
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/astar-progress01c.ps llx=15 lly=779 urx=583 ury=10...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [18
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/astar-progress02c.ps llx=15 lly=779 urx=583 ury=10...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [19
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/astar-progress03c.ps llx=15 lly=779 urx=583 ury=10...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [20
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/astar-progress04c.ps llx=15 lly=779 urx=583 ury=10...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [21
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/astar-progress05c.ps llx=15 lly=779 urx=583 ury=10...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [22
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/astar-progress06c.ps llx=15 lly=779 urx=583 ury=10...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [23
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/astar-proof.ps llx=154 lly=638 urx=432 ury=771 rwi...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [24
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
-Runaway argument?
-{Thuộc tính của {\Astar } 
-! Paragraph ended before \heading was complete.
-<to be read again> 
-                   \par 
-l.284 
-      
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
+[16]
+Package epstopdf Info: Source file: <figures/astar-progress01c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:02
+(epstopdf)                    size: 11451 bytes
+(epstopdf)             Output file: <figures/astar-progress01c-ps-converted-to.
+pdf>
+(epstopdf)                    date: 2026-07-16 16:56:57
+(epstopdf)                    size: 3996 bytes
+(epstopdf)             Command: <epstopdf figures/astar-progress01c.ps --outfil
+e=figures/astar-progress01c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 194.
+Package epstopdf Info: Output file is already uptodate.
+<figures/astar-progress01c-ps-converted-to.pdf, id=99, 570.13pt x 233.87375pt>
+File: figures/astar-progress01c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/astar-progress01c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/astar-progress01c-ps-converted-to.pdf  used on
+ input line 194.
+(pdftex.def)             Requested size: 675.72824pt x 277.19264pt.
+ [17 <./figures/astar-progress01c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/astar-progress02c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:02
+(epstopdf)                    size: 13987 bytes
+(epstopdf)             Output file: <figures/astar-progress02c-ps-converted-to.
+pdf>
+(epstopdf)                    date: 2026-07-16 16:57:00
+(epstopdf)                    size: 5609 bytes
+(epstopdf)             Command: <epstopdf figures/astar-progress02c.ps --outfil
+e=figures/astar-progress02c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 203.
+Package epstopdf Info: Output file is already uptodate.
+<figures/astar-progress02c-ps-converted-to.pdf, id=108, 570.13pt x 233.87375pt>
 
-[25
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
-Runaway argument?
-{Thuộc tính của {\Astar } 
-! Paragraph ended before \heading was complete.
-<to be read again> 
-                   \par 
-l.289 
-      
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
+File: figures/astar-progress02c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/astar-progress02c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/astar-progress02c-ps-converted-to.pdf  used on
+ input line 203.
+(pdftex.def)             Requested size: 675.72824pt x 277.19264pt.
+ [18 <./figures/astar-progress02c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/astar-progress03c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:02
+(epstopdf)                    size: 17267 bytes
+(epstopdf)             Output file: <figures/astar-progress03c-ps-converted-to.
+pdf>
+(epstopdf)                    date: 2026-07-16 16:57:03
+(epstopdf)                    size: 6698 bytes
+(epstopdf)             Command: <epstopdf figures/astar-progress03c.ps --outfil
+e=figures/astar-progress03c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 212.
+Package epstopdf Info: Output file is already uptodate.
+<figures/astar-progress03c-ps-converted-to.pdf, id=117, 570.13pt x 233.87375pt>
 
-Runaway argument?
-{Thuộc tính của {\Astar } 
-! Paragraph ended before \heading was complete.
-<to be read again> 
-                   \par 
-l.296 
-      
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
+File: figures/astar-progress03c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/astar-progress03c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/astar-progress03c-ps-converted-to.pdf  used on
+ input line 212.
+(pdftex.def)             Requested size: 675.72824pt x 277.19264pt.
+ [19 <./figures/astar-progress03c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/astar-progress04c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:02
+(epstopdf)                    size: 19761 bytes
+(epstopdf)             Output file: <figures/astar-progress04c-ps-converted-to.
+pdf>
+(epstopdf)                    date: 2026-07-16 16:57:06
+(epstopdf)                    size: 7326 bytes
+(epstopdf)             Command: <epstopdf figures/astar-progress04c.ps --outfil
+e=figures/astar-progress04c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 221.
+Package epstopdf Info: Output file is already uptodate.
+<figures/astar-progress04c-ps-converted-to.pdf, id=127, 570.13pt x 233.87375pt>
 
-[26
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/f-circles.ps llx=52 lly=254 urx=564 ury=578 rwi=45...
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
-Runaway argument?
-{Thuộc tính của {\Astar } 
-! Paragraph ended before \heading was complete.
-<to be read again> 
-                   \par 
-l.305 
-      
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
+File: figures/astar-progress04c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/astar-progress04c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/astar-progress04c-ps-converted-to.pdf  used on
+ input line 221.
+(pdftex.def)             Requested size: 675.72824pt x 277.19264pt.
+ [20 <./figures/astar-progress04c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/astar-progress05c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:02
+(epstopdf)                    size: 21345 bytes
+(epstopdf)             Output file: <figures/astar-progress05c-ps-converted-to.
+pdf>
+(epstopdf)                    date: 2026-07-16 16:57:09
+(epstopdf)                    size: 7727 bytes
+(epstopdf)             Command: <epstopdf figures/astar-progress05c.ps --outfil
+e=figures/astar-progress05c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 230.
+Package epstopdf Info: Output file is already uptodate.
+<figures/astar-progress05c-ps-converted-to.pdf, id=136, 570.13pt x 233.87375pt>
 
-Runaway argument?
-{Thuộc tính của {\Astar } 
-! Paragraph ended before \heading was complete.
-<to be read again> 
-                   \par 
-l.316 
-      
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
+File: figures/astar-progress05c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/astar-progress05c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/astar-progress05c-ps-converted-to.pdf  used on
+ input line 230.
+(pdftex.def)             Requested size: 675.72824pt x 277.19264pt.
+ [21 <./figures/astar-progress05c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/astar-progress06c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:02
+(epstopdf)                    size: 23799 bytes
+(epstopdf)             Output file: <figures/astar-progress06c-ps-converted-to.
+pdf>
+(epstopdf)                    date: 2026-07-16 16:57:13
+(epstopdf)                    size: 8055 bytes
+(epstopdf)             Command: <epstopdf figures/astar-progress06c.ps --outfil
+e=figures/astar-progress06c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 239.
+Package epstopdf Info: Output file is already uptodate.
+<figures/astar-progress06c-ps-converted-to.pdf, id=145, 570.13pt x 233.87375pt>
 
-[27
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [28
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-])
-Runaway argument?
-{-0.35\textwidth [0pt][0pt]{\epsfxsize =0.3\textwidth \epsffile {\file \ETC.
-! File ended while scanning use of \raisebox .
-<inserted text> 
-                \par 
-<*> ./chapter04a.tex
-                    
-I suspect you have forgotten a `}', causing me
-to read past where you wanted me to stop.
-I'll try to recover; but if the error is serious,
-you'd better type `E' or `X' now and fix your file.
+File: figures/astar-progress06c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/astar-progress06c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/astar-progress06c-ps-converted-to.pdf  used on
+ input line 239.
+(pdftex.def)             Requested size: 675.72824pt x 277.19264pt.
+ [22 <./figures/astar-progress06c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/astar-proof.ps>
+(epstopdf)                    date: 2026-07-15 08:15:02
+(epstopdf)                    size: 13585 bytes
+(epstopdf)             Output file: <figures/astar-proof-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 16:57:16
+(epstopdf)                    size: 5706 bytes
+(epstopdf)             Command: <epstopdf figures/astar-proof.ps --outfile=figu
+res/astar-proof-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 253.
+Package epstopdf Info: Output file is already uptodate.
+<figures/astar-proof-ps-converted-to.pdf, id=154, 279.0425pt x 133.49875pt>
+File: figures/astar-proof-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/astar-proof-ps-converted-to.pdf>
+Package pdftex.def Info: figures/astar-proof-ps-converted-to.pdf  used on input
+ line 253.
+(pdftex.def)             Requested size: 307.14749pt x 146.94885pt.
+ [23 <./figures/astar-proof-ps-converted-to.pdf>] [24]
+Package epstopdf Info: Source file: <figures/f-circles.ps>
+(epstopdf)                    date: 2026-07-15 08:15:04
+(epstopdf)                    size: 23058 bytes
+(epstopdf)             Output file: <figures/f-circles-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 16:57:19
+(epstopdf)                    size: 7467 bytes
+(epstopdf)             Command: <epstopdf figures/f-circles.ps --outfile=figure
+s/f-circles-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 278.
+Package epstopdf Info: Output file is already uptodate.
+<figures/f-circles-ps-converted-to.pdf, id=166, 513.92pt x 325.215pt>
+File: figures/f-circles-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/f-circles-ps-converted-to.pdf>
+Package pdftex.def Info: figures/f-circles-ps-converted-to.pdf  used on input l
+ine 278.
+(pdftex.def)             Requested size: 460.72124pt x 291.55441pt.
 
-! Emergency stop.
-<*> ./chapter04a.tex
-                    
-*** (job aborted, no legal \end found)
+[25] [26 <./figures/f-circles-ps-converted-to.pdf>] [27] [28] [29] [30]
+[31]
+Package epstopdf Info: Source file: <figures/consistency.ps>
+(epstopdf)                    date: 2026-07-15 08:15:02
+(epstopdf)                    size: 12609 bytes
+(epstopdf)             Output file: <figures/consistency-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 16:57:22
+(epstopdf)                    size: 4804 bytes
+(epstopdf)             Command: <epstopdf figures/consistency.ps --outfile=figu
+res/consistency-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 333.
+Package epstopdf Info: Output file is already uptodate.
+<figures/consistency-ps-converted-to.pdf, id=198, 206.7725pt x 219.82124pt>
+File: figures/consistency-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/consistency-ps-converted-to.pdf>
+Package pdftex.def Info: figures/consistency-ps-converted-to.pdf  used on input
+ line 333.
+(pdftex.def)             Requested size: 206.77199pt x 219.8207pt.
+ [32 <./figures/consistency-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/8puzzle.ps>
+(epstopdf)                    date: 2026-07-15 08:15:01
+(epstopdf)                    size: 21803 bytes
+(epstopdf)             Output file: <figures/8puzzle-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 10:52:20
+(epstopdf)                    size: 6098 bytes
+(epstopdf)             Command: <epstopdf figures/8puzzle.ps --outfile=figures/
+8puzzle-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 358.
+Package epstopdf Info: Output file is already uptodate.
+<figures/8puzzle-ps-converted-to.pdf, id=208, 448.67625pt x 227.85126pt>
+File: figures/8puzzle-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/8puzzle-ps-converted-to.pdf>
+Package pdftex.def Info: figures/8puzzle-ps-converted-to.pdf  used on input lin
+e 358.
+(pdftex.def)             Requested size: 307.14749pt x 155.98329pt.
+ [33 <./figures/8puzzle-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/8puzzle.ps>
+(epstopdf)                    date: 2026-07-15 08:15:01
+(epstopdf)                    size: 21803 bytes
+(epstopdf)             Output file: <figures/8puzzle-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 10:52:20
+(epstopdf)                    size: 6098 bytes
+(epstopdf)             Command: <epstopdf figures/8puzzle.ps --outfile=figures/
+8puzzle-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 374.
+Package epstopdf Info: Output file is already uptodate.
+File: figures/8puzzle-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/8puzzle-ps-converted-to.pdf>
+Package pdftex.def Info: figures/8puzzle-ps-converted-to.pdf  used on input lin
+e 374.
+(pdftex.def)             Requested size: 307.14749pt x 155.98329pt.
+ [34] [35] [36]
+Package epstopdf Info: Source file: <figures/tsp-mst.ps>
+(epstopdf)                    date: 2026-07-15 08:15:06
+(epstopdf)                    size: 11507 bytes
+(epstopdf)             Output file: <figures/tsp-mst-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 16:57:26
+(epstopdf)                    size: 3179 bytes
+(epstopdf)             Command: <epstopdf figures/tsp-mst.ps --outfile=figures/
+tsp-mst-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 432.
+Package epstopdf Info: Output file is already uptodate.
+<figures/tsp-mst-ps-converted-to.pdf, id=229, 324.21124pt x 125.46875pt>
+File: figures/tsp-mst-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/tsp-mst-ps-converted-to.pdf>
+Package pdftex.def Info: figures/tsp-mst-ps-converted-to.pdf  used on input lin
+e 432.
+(pdftex.def)             Requested size: 460.72124pt x 178.30852pt.
+ [37 <./figures/tsp-mst-ps-converted-to.pdf>] [38] (chapter04a.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+ ***********
 
- 
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 0.5pt have occurred.
+
+ ) 
 Here is how much of TeX's memory you used:
- 1818 strings out of 467870
- 26429 string characters out of 5418355
- 437733 words of memory out of 5000000
- 30703 multiletter control sequences out of 15000+600000
+ 3144 strings out of 467870
+ 53368 string characters out of 5418355
+ 442198 words of memory out of 5000000
+ 31983 multiletter control sequences out of 15000+600000
  647379 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,6n,65p,238b,319s stack positions out of 10000i,1000n,20000p,200000b,200000s
-!  ==> Fatal error occurred, no output PDF file produced!
+ 72i,7n,79p,249b,319s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmmi12.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmr12.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmr17.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/thanh/AppData/Local/Programs/MiKT
+eX/fonts/type1/vntex/vnr/vnbx12.pfb><C:/Users/thanh/AppData/Local/Programs/MiKT
+eX/fonts/type1/vntex/vnr/vncsc10.pfb><C:/Users/thanh/AppData/Local/Programs/MiK
+TeX/fonts/type1/vntex/vnr/vnr8.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTe
+X/fonts/type1/vntex/vnr/vnss17.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTe
+X/fonts/type1/vntex/vnr/vnssbx10.pfb><C:/Users/thanh/AppData/Local/Programs/MiK
+TeX/fonts/type1/vntex/vnr/vnti12.pfb>
+Output written on chapter04a.pdf (38 pages, 269953 bytes).
+PDF statistics:
+ 283 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+

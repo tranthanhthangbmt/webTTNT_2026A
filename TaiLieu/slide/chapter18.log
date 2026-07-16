@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.24)  15 JUL 2026 17:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.24)  16 JUL 2026 17:10
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **./chapter18.tex
 (chapter18.tex
@@ -38,13 +38,86 @@ LaTeX Info: Redefining \] on input line 75.
 Already applied: [0000/00/00] Make \] robust on input line 83.
 ))
 (epsf.sty
-\epsffilein=\read2
-\epsfxsize=\dimen149
-\epsfysize=\dimen150
-\epsftsize=\dimen151
-\epsfrsize=\dimen152
-\epsftmp=\dimen153
-\pspoints=\dimen154
+Package: epsf 2026/07/16 Modern replacement using graphicx
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen149
+\Gin@req@width=\dimen150
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf.s
+ty
+Package: epstopdf 2020-01-24 v2.11 Conversion with epstopdf on the fly (HO)
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.s
+ty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/grfext\grfext.sty
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
+keys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+))
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+))
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
+.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+ (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
+fg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps,.ps]
+(grfext)             \AppendGraphicsExtensions on input line 11.
+\epsfxsize=\skip52
+\epsfysize=\skip53
 ) (aima2e-slides.sty
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
@@ -216,8 +289,8 @@ File: t5cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 ))
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
 Package: inputenc 2024/02/08 v1.3d Input encoding file
-\inpenc@prehook=\toks17
-\inpenc@posthook=\toks18
+\inpenc@prehook=\toks18
+\inpenc@posthook=\toks19
 )
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
 Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
@@ -225,35 +298,31 @@ Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package color Info: Driver file: dvips.def on input line 149.
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\dvips.def
-File: dvips.def 2025/01/21 v3.2a Graphics/color driver for dvips
-) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\dvipsnam.def
-File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
-) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.lt
-x))
+Package color Info: Driver file: pdftex.def on input line 149.
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+)
 Package color Info: Redefining color red on input line 7.
 Package color Info: Redefining color cyan on input line 14.
-\headingwidth=\skip52
-\backdrop=\skip53
-\backheight=\skip54
-\backwidth=\skip55
-\xborder=\skip56
-\yborder=\skip57
-\headtotal=\skip58
-\codewidth=\skip59
-\boxwidth=\skip60
-\boxheight=\skip61
-\skipwidth=\skip62
-\roomheight=\skip63
-\charheight=\skip64
-\marginlineskip=\skip65
-\marginwidth=\skip66
-\textplusmarginwidth=\skip67
-\maxfigwidth=\skip68
-\tablewidth=\skip69
-\captionskip=\skip70
-\tcaptionskip=\skip71
+\headingwidth=\skip54
+\backdrop=\skip55
+\backheight=\skip56
+\backwidth=\skip57
+\xborder=\skip58
+\yborder=\skip59
+\headtotal=\skip60
+\codewidth=\skip61
+\boxwidth=\skip62
+\boxheight=\skip63
+\skipwidth=\skip64
+\roomheight=\skip65
+\charheight=\skip66
+\marginlineskip=\skip67
+\marginwidth=\skip68
+\textplusmarginwidth=\skip69
+\maxfigwidth=\skip70
+\tablewidth=\skip71
+\captionskip=\skip72
+\tcaptionskip=\skip73
 )
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
@@ -278,27 +347,31 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
 LaTeX Font Info:    ... okay on input line 6.
 LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 6.
 LaTeX Font Info:    ... okay on input line 6.
- [1
-Non-PDF special ignored!
-<special> papersize=614.295pt,794.96999pt
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count284
+\scratchdimen=\dimen151
+\scratchbox=\box53
+\nofMPsegments=\count285
+\nofMParguments=\count286
+\everyMPshowfont=\toks20
+\MPscratchCnt=\count287
+\MPscratchDim=\dimen152
+\MPnumerator=\count288
+\makeMPintoPDFobject=\count289
+\everyMPtoPDFconversion=\toks21
+) [1
+
 
 Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-{C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
+<special> papersize=11in,8.5in
+{C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
 LaTeX Font Info:    Trying to load font information for T5+cmss on input line 1
 1.
- (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmss.fd
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmss.fd
 File: t5cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -308,64 +381,52 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 16.
 
-[2
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [3
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [4
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/learning-model.ps llx=81 lly=143 urx=528 ury=457 r...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [5
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [6
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/learning-elements.ps llx=104 lly=334 urx=567 ury=4...
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
+[2] [3]
+Package epstopdf Info: Source file: <figures/learning-model.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 17195 bytes
+(epstopdf)             Output file: <figures/learning-model-ps-converted-to.pdf
+>
+(epstopdf)             Command: <epstopdf figures/learning-model.ps --outfile=f
+igures/learning-model-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 41.
+runsystem(epstopdf figures/learning-model.ps --outfile=figures/learning-model-p
+s-converted-to.pdf)...executed.
+
+Package epstopdf Info: Result file: <figures/learning-model-ps-converted-to.pdf
+>
+(epstopdf)                    date: 2026-07-16 17:11:00
+(epstopdf)                    size: 8421 bytes.
+<figures/learning-model-ps-converted-to.pdf, id=16, 448.67625pt x 315.1775pt>
+File: figures/learning-model-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/learning-model-ps-converted-to.pdf>
+Package pdftex.def Info: figures/learning-model-ps-converted-to.pdf  used on in
+put line 41.
+(pdftex.def)             Requested size: 583.57837pt x 409.9856pt.
+ [4 <./figures/learning-model-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/learning-elements.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 14821 bytes
+(epstopdf)             Output file: <figures/learning-elements-ps-converted-to.
+pdf>
+(epstopdf)             Command: <epstopdf figures/learning-elements.ps --outfil
+e=figures/learning-elements-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 70.
+runsystem(epstopdf figures/learning-elements.ps --outfile=figures/learning-elem
+ents-ps-converted-to.pdf)...executed.
+
+Package epstopdf Info: Result file: <figures/learning-elements-ps-converted-to.
+pdf>
+(epstopdf)                    date: 2026-07-16 17:11:04
+(epstopdf)                    size: 6218 bytes.
+<figures/learning-elements-ps-converted-to.pdf, id=28, 464.73625pt x 118.4425pt
+>
+File: figures/learning-elements-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/learning-elements-ps-converted-to.pdf>
+Package pdftex.def Info: figures/learning-elements-ps-converted-to.pdf  used on
+ input line 70.
+(pdftex.def)             Requested size: 657.30014pt x 167.53526pt.
+ [5] [6 <./figures/learning-elements-ps-converted-to.pdf>]
 
 LaTeX Font Warning: Font shape `T5/cmss/m/it' in size <20.74> not available
 (Font)              Font shape `T5/cmss/m/sl' tried instead on input line 84.
@@ -383,271 +444,134 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[7
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.5 0.0 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.5 0.0 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.5 0.0 0.0
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [8
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.5 0.0 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.5 0.0 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [9
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/curve-fitting1c.ps llx=114 lly=592 urx=352 ury=775...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [10
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/curve-fitting2c.ps llx=114 lly=592 urx=352 ury=775...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [11
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/curve-fitting3c.ps llx=114 lly=592 urx=352 ury=775...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [12
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/curve-fitting4c.ps llx=114 lly=570 urx=352 ury=775...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [13
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/curve-fitting5c.ps llx=114 lly=570 urx=352 ury=775...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [14
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/curve-fitting5c.ps llx=114 lly=570 urx=352 ury=775...
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] (tables/restaurant-example-table.tex
+[7] [8]
+Package epstopdf Info: Source file: <figures/curve-fitting1c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:03
+(epstopdf)                    size: 14371 bytes
+(epstopdf)             Output file: <figures/curve-fitting1c-ps-converted-to.pd
+f>
+(epstopdf)             Command: <epstopdf figures/curve-fitting1c.ps --outfile=
+figures/curve-fitting1c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 122.
+runsystem(epstopdf figures/curve-fitting1c.ps --outfile=figures/curve-fitting1c
+-ps-converted-to.pdf)...executed.
+
+Package epstopdf Info: Result file: <figures/curve-fitting1c-ps-converted-to.pd
+f>
+(epstopdf)                    date: 2026-07-16 17:11:07
+(epstopdf)                    size: 4081 bytes.
+<figures/curve-fitting1c-ps-converted-to.pdf, id=51, 238.8925pt x 183.68625pt>
+File: figures/curve-fitting1c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/curve-fitting1c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/curve-fitting1c-ps-converted-to.pdf  used on i
+nput line 122.
+(pdftex.def)             Requested size: 307.14749pt x 236.18263pt.
+ [9 <./figures/curve-fitting1c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/curve-fitting2c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:03
+(epstopdf)                    size: 14586 bytes
+(epstopdf)             Output file: <figures/curve-fitting2c-ps-converted-to.pd
+f>
+(epstopdf)             Command: <epstopdf figures/curve-fitting2c.ps --outfile=
+figures/curve-fitting2c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 135.
+runsystem(epstopdf figures/curve-fitting2c.ps --outfile=figures/curve-fitting2c
+-ps-converted-to.pdf)...executed.
+
+Package epstopdf Info: Result file: <figures/curve-fitting2c-ps-converted-to.pd
+f>
+(epstopdf)                    date: 2026-07-16 17:11:09
+(epstopdf)                    size: 4101 bytes.
+<figures/curve-fitting2c-ps-converted-to.pdf, id=60, 238.8925pt x 183.68625pt>
+File: figures/curve-fitting2c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/curve-fitting2c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/curve-fitting2c-ps-converted-to.pdf  used on i
+nput line 135.
+(pdftex.def)             Requested size: 307.14749pt x 236.18263pt.
+ [10 <./figures/curve-fitting2c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/curve-fitting3c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:03
+(epstopdf)                    size: 14844 bytes
+(epstopdf)             Output file: <figures/curve-fitting3c-ps-converted-to.pd
+f>
+(epstopdf)             Command: <epstopdf figures/curve-fitting3c.ps --outfile=
+figures/curve-fitting3c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 148.
+runsystem(epstopdf figures/curve-fitting3c.ps --outfile=figures/curve-fitting3c
+-ps-converted-to.pdf)...executed.
+
+Package epstopdf Info: Result file: <figures/curve-fitting3c-ps-converted-to.pd
+f>
+(epstopdf)                    date: 2026-07-16 17:11:10
+(epstopdf)                    size: 4263 bytes.
+<figures/curve-fitting3c-ps-converted-to.pdf, id=69, 238.8925pt x 183.68625pt>
+File: figures/curve-fitting3c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/curve-fitting3c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/curve-fitting3c-ps-converted-to.pdf  used on i
+nput line 148.
+(pdftex.def)             Requested size: 307.14749pt x 236.18263pt.
+ [11 <./figures/curve-fitting3c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/curve-fitting4c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:03
+(epstopdf)                    size: 15109 bytes
+(epstopdf)             Output file: <figures/curve-fitting4c-ps-converted-to.pd
+f>
+(epstopdf)             Command: <epstopdf figures/curve-fitting4c.ps --outfile=
+figures/curve-fitting4c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 161.
+runsystem(epstopdf figures/curve-fitting4c.ps --outfile=figures/curve-fitting4c
+-ps-converted-to.pdf)...executed.
+
+Package epstopdf Info: Result file: <figures/curve-fitting4c-ps-converted-to.pd
+f>
+(epstopdf)                    date: 2026-07-16 17:11:13
+(epstopdf)                    size: 4349 bytes.
+<figures/curve-fitting4c-ps-converted-to.pdf, id=78, 238.8925pt x 205.76875pt>
+File: figures/curve-fitting4c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/curve-fitting4c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/curve-fitting4c-ps-converted-to.pdf  used on i
+nput line 161.
+(pdftex.def)             Requested size: 307.14749pt x 264.5762pt.
+ [12 <./figures/curve-fitting4c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/curve-fitting5c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:03
+(epstopdf)                    size: 15563 bytes
+(epstopdf)             Output file: <figures/curve-fitting5c-ps-converted-to.pd
+f>
+(epstopdf)             Command: <epstopdf figures/curve-fitting5c.ps --outfile=
+figures/curve-fitting5c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 174.
+runsystem(epstopdf figures/curve-fitting5c.ps --outfile=figures/curve-fitting5c
+-ps-converted-to.pdf)...executed.
+
+Package epstopdf Info: Result file: <figures/curve-fitting5c-ps-converted-to.pd
+f>
+(epstopdf)                    date: 2026-07-16 17:11:15
+(epstopdf)                    size: 4541 bytes.
+<figures/curve-fitting5c-ps-converted-to.pdf, id=87, 238.8925pt x 205.76875pt>
+File: figures/curve-fitting5c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/curve-fitting5c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/curve-fitting5c-ps-converted-to.pdf  used on i
+nput line 174.
+(pdftex.def)             Requested size: 307.14749pt x 264.5762pt.
+ [13 <./figures/curve-fitting5c-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/curve-fitting5c.ps>
+(epstopdf)                    date: 2026-07-15 08:15:03
+(epstopdf)                    size: 15563 bytes
+(epstopdf)             Output file: <figures/curve-fitting5c-ps-converted-to.pd
+f>
+(epstopdf)                    date: 2026-07-16 17:11:15
+(epstopdf)                    size: 4541 bytes
+(epstopdf)             Command: <epstopdf figures/curve-fitting5c.ps --outfile=
+figures/curve-fitting5c-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 187.
+Package epstopdf Info: Output file is already uptodate.
+File: figures/curve-fitting5c-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/curve-fitting5c-ps-converted-to.pdf>
+Package pdftex.def Info: figures/curve-fitting5c-ps-converted-to.pdf  used on i
+nput line 187.
+(pdftex.def)             Requested size: 307.14749pt x 264.5762pt.
+ [14] (tables/restaurant-example-table.tex
 
 LaTeX Font Warning: Font shape `T5/cmss/m/it' in size <17.28> not available
 (Font)              Font shape `T5/cmss/m/sl' tried instead on input line 2.
@@ -659,736 +583,217 @@ Overfull \hbox (2.02562pt too wide) in paragraph at lines 2--201
 []  
  []
 
-[15
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [16
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [17
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/restaurant-tree.ps llx=91 lly=412 urx=516 ury=717 ...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [18
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/xor-decision-tree.ps llx=125 lly=604 urx=481 ury=7...
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.5 0.0 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [19
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [20
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [21
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [22
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [23
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
+[15]
+Package epstopdf Info: Source file: <figures/restaurant-tree.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 29551 bytes
+(epstopdf)             Output file: <figures/restaurant-tree-ps-converted-to.pd
+f>
+(epstopdf)             Command: <epstopdf figures/restaurant-tree.ps --outfile=
+figures/restaurant-tree-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 217.
+runsystem(epstopdf figures/restaurant-tree.ps --outfile=figures/restaurant-tree
+-ps-converted-to.pdf)...executed.
+
+Package epstopdf Info: Result file: <figures/restaurant-tree-ps-converted-to.pd
+f>
+(epstopdf)                    date: 2026-07-16 17:11:18
+(epstopdf)                    size: 6951 bytes.
+<figures/restaurant-tree-ps-converted-to.pdf, id=106, 426.59375pt x 306.14375pt
+>
+File: figures/restaurant-tree-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/restaurant-tree-ps-converted-to.pdf>
+Package pdftex.def Info: figures/restaurant-tree-ps-converted-to.pdf  used on i
+nput line 217.
+(pdftex.def)             Requested size: 491.43787pt x 352.70255pt.
+ [16] [17 <./figures/restaurant-tree-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/xor-decision-tree.ps>
+(epstopdf)                    date: 2026-07-15 08:15:07
+(epstopdf)                    size: 19300 bytes
+(epstopdf)             Output file: <figures/xor-decision-tree-ps-converted-to.
+pdf>
+(epstopdf)             Command: <epstopdf figures/xor-decision-tree.ps --outfil
+e=figures/xor-decision-tree-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 233.
+runsystem(epstopdf figures/xor-decision-tree.ps --outfile=figures/xor-decision-
+tree-ps-converted-to.pdf)...executed.
+
+Package epstopdf Info: Result file: <figures/xor-decision-tree-ps-converted-to.
+pdf>
+(epstopdf)                    date: 2026-07-16 17:11:20
+(epstopdf)                    size: 4306 bytes.
+<figures/xor-decision-tree-ps-converted-to.pdf, id=119, 357.335pt x 119.44624pt
+>
+File: figures/xor-decision-tree-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/xor-decision-tree-ps-converted-to.pdf>
+Package pdftex.def Info: figures/xor-decision-tree-ps-converted-to.pdf  used on
+ input line 233.
+(pdftex.def)             Requested size: 399.288pt x 133.4763pt.
+ [18 <./figures/xor-decision-tree-ps-converted-to.pdf>] [19] [20] [21] [22] [23
 ]
 Overfull \hbox (70.46806pt too wide) in paragraph at lines 286--287
 [][]$[]$\T5/cmss/m/n/20.74 ??[]  
  []
 
-[24
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
+[24]
 Overfull \hbox (70.46806pt too wide) in paragraph at lines 301--302
 [][]$[]$\T5/cmss/m/n/20.74 ??[]  
  []
 
-[25
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 1 0 0
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/smiley.ps llx=334 lly=625 urx=470 ury=761 rwi=239
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [26
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/frowny.ps llx=334 lly=625 urx=470 ury=761 rwi=239
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] (algorithms/DTL-algorithm.tex)
+Package epstopdf Info: Source file: <figures/smiley.ps>
+(epstopdf)                    date: 2026-07-15 08:15:06
+(epstopdf)                    size: 9429 bytes
+(epstopdf)             Output file: <figures/smiley-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:03:00
+(epstopdf)                    size: 3048 bytes
+(epstopdf)             Command: <epstopdf figures/smiley.ps --outfile=figures/s
+miley-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 314.
+Package epstopdf Info: Output file is already uptodate.
+<figures/smiley-ps-converted-to.pdf, id=147, 136.51pt x 136.51pt>
+File: figures/smiley-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/smiley-ps-converted-to.pdf>
+Package pdftex.def Info: figures/smiley-ps-converted-to.pdf  used on input line
+ 314.
+(pdftex.def)             Requested size: 24.02333pt x 24.0229pt.
+[25 <./figures/smiley-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/frowny.ps>
+(epstopdf)                    date: 2026-07-15 08:15:04
+(epstopdf)                    size: 9280 bytes
+(epstopdf)             Output file: <figures/frowny-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:03:02
+(epstopdf)                    size: 3035 bytes
+(epstopdf)             Command: <epstopdf figures/frowny.ps --outfile=figures/f
+rowny-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 316.
+Package epstopdf Info: Output file is already uptodate.
+<figures/frowny-ps-converted-to.pdf, id=154, 136.51pt x 136.51pt>
+File: figures/frowny-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/frowny-ps-converted-to.pdf>
+Package pdftex.def Info: figures/frowny-ps-converted-to.pdf  used on input line
+ 316.
+(pdftex.def)             Requested size: 24.02333pt x 24.0229pt.
+ [26 <./figures/frowny-ps-converted-to.pdf>] (algorithms/DTL-algorithm.tex)
 Overfull \hbox (3.55833pt too wide) in paragraph at lines 1--327
  []  
  []
 
-[27
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.7 0.0 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [28
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/restaurant-roots.ps llx=15 lly=599 urx=598 ury=738...
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.5 0.0 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
+[27]
+Package epstopdf Info: Source file: <figures/restaurant-roots.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 24285 bytes
+(epstopdf)             Output file: <figures/restaurant-roots-ps-converted-to.p
+df>
+(epstopdf)             Command: <epstopdf figures/restaurant-roots.ps --outfile
+=figures/restaurant-roots-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 345.
+runsystem(epstopdf figures/restaurant-roots.ps --outfile=figures/restaurant-roo
+ts-ps-converted-to.pdf)...executed.
+
+Package epstopdf Info: Result file: <figures/restaurant-roots-ps-converted-to.p
+df>
+(epstopdf)                    date: 2026-07-16 17:11:22
+(epstopdf)                    size: 8078 bytes.
+<figures/restaurant-roots-ps-converted-to.pdf, id=165, 585.18625pt x 139.52126p
+t>
+File: figures/restaurant-roots-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/restaurant-roots-ps-converted-to.pdf>
+Package pdftex.def Info: figures/restaurant-roots-ps-converted-to.pdf  used on 
+input line 345.
+(pdftex.def)             Requested size: 614.295pt x 146.47607pt.
+ [28 <./figures/restaurant-roots-ps-converted-to.pdf>]
 
 LaTeX Font Warning: Command \Huge invalid in math mode on input line 364.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <24.88> on input line 364.
-[29
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
+[29]
 
 LaTeX Font Warning: Command \Huge invalid in math mode on input line 384.
 
-[30
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.5 0.0 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [31
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [32
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/induced-restaurant-tree.ps llx=84 lly=480 urx=399 ...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [33
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.5 0.0 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push cmyk 0 0.6 0 0.4
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.5 0.0 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [34
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=graphs/restaurant-dtl-curve.ps llx=50 lly=50 urx=554 ury=4...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [35
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [36
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/learning-curves.ps llx=102 lly=587 urx=542 ury=776...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [37
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] (chapter18.aux)
+[30] [31]
+Package epstopdf Info: Source file: <figures/induced-restaurant-tree.ps>
+(epstopdf)                    date: 2026-07-15 08:15:04
+(epstopdf)                    size: 20934 bytes
+(epstopdf)             Output file: <figures/induced-restaurant-tree-ps-convert
+ed-to.pdf>
+(epstopdf)             Command: <epstopdf figures/induced-restaurant-tree.ps --
+outfile=figures/induced-restaurant-tree-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 398.
+runsystem(epstopdf figures/induced-restaurant-tree.ps --outfile=figures/induced
+-restaurant-tree-ps-converted-to.pdf)...executed.
+
+Package epstopdf Info: Result file: <figures/induced-restaurant-tree-ps-convert
+ed-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:11:24
+(epstopdf)                    size: 5942 bytes.
+<figures/induced-restaurant-tree-ps-converted-to.pdf, id=184, 316.18124pt x 253
+.94875pt>
+File: figures/induced-restaurant-tree-ps-converted-to.pdf Graphic file (type pd
+f)
+<use figures/induced-restaurant-tree-ps-converted-to.pdf>
+Package pdftex.def Info: figures/induced-restaurant-tree-ps-converted-to.pdf  u
+sed on input line 398.
+(pdftex.def)             Requested size: 368.58073pt x 296.0571pt.
+ [32 <./figures/induced-restaurant-tree-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <graphs/restaurant-dtl-curve.ps>
+(epstopdf)                    date: 2026-07-15 08:15:07
+(epstopdf)                    size: 12112 bytes
+(epstopdf)             Output file: <graphs/restaurant-dtl-curve-ps-converted-t
+o.pdf>
+(epstopdf)             Command: <epstopdf graphs/restaurant-dtl-curve.ps --outf
+ile=graphs/restaurant-dtl-curve-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 420.
+runsystem(epstopdf graphs/restaurant-dtl-curve.ps --outfile=graphs/restaurant-d
+tl-curve-ps-converted-to.pdf)...executed.
+
+Package epstopdf Info: Result file: <graphs/restaurant-dtl-curve-ps-converted-t
+o.pdf>
+(epstopdf)                    date: 2026-07-16 17:11:26
+(epstopdf)                    size: 6024 bytes.
+<graphs/restaurant-dtl-curve-ps-converted-to.pdf, id=193, 505.89pt x 361.35pt>
+File: graphs/restaurant-dtl-curve-ps-converted-to.pdf Graphic file (type pdf)
+<use graphs/restaurant-dtl-curve-ps-converted-to.pdf>
+Package pdftex.def Info: graphs/restaurant-dtl-curve-ps-converted-to.pdf  used 
+on input line 420.
+(pdftex.def)             Requested size: 368.58073pt x 263.27605pt.
+ [33]
+[34 <./graphs/restaurant-dtl-curve-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/learning-curves.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 12745 bytes
+(epstopdf)             Output file: <figures/learning-curves-ps-converted-to.pd
+f>
+(epstopdf)             Command: <epstopdf figures/learning-curves.ps --outfile=
+figures/learning-curves-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 442.
+runsystem(epstopdf figures/learning-curves.ps --outfile=figures/learning-curves
+-ps-converted-to.pdf)...executed.
+
+Package epstopdf Info: Result file: <figures/learning-curves-ps-converted-to.pd
+f>
+(epstopdf)                    date: 2026-07-16 17:11:28
+(epstopdf)                    size: 5619 bytes.
+<figures/learning-curves-ps-converted-to.pdf, id=205, 441.65pt x 189.70876pt>
+File: figures/learning-curves-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/learning-curves-ps-converted-to.pdf>
+Package pdftex.def Info: figures/learning-curves-ps-converted-to.pdf  used on i
+nput line 442.
+(pdftex.def)             Requested size: 583.57837pt x 250.68552pt.
+ [35] [36 <./figures/learning-curves-ps-converted-to.pdf>] [37] (chapter18.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 1844 strings out of 467870
- 27297 string characters out of 5418355
- 457733 words of memory out of 5000000
- 30718 multiletter control sequences out of 15000+600000
+ 3151 strings out of 467870
+ 53597 string characters out of 5418355
+ 463206 words of memory out of 5000000
+ 31982 multiletter control sequences out of 15000+600000
  651424 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,8n,65p,220b,352s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,8n,79p,240b,352s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmmi12.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmr12.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/pu
@@ -1403,9 +808,9 @@ ms/MiKTeX/fonts/type1/vntex/vnr/vnss17.pfb><C:/Users/thanh/AppData/Local/Progra
 ms/MiKTeX/fonts/type1/vntex/vnr/vnssbx10.pfb><C:/Users/thanh/AppData/Local/Prog
 rams/MiKTeX/fonts/type1/vntex/vnr/vnssi17.pfb><C:/Users/thanh/AppData/Local/Pro
 grams/MiKTeX/fonts/type1/vntex/vnr/vnti12.pfb>
-Output written on chapter18.pdf (37 pages, 220819 bytes).
+Output written on chapter18.pdf (37 pages, 282157 bytes).
 PDF statistics:
- 188 PDF objects out of 1000 (max. 8388607)
+ 277 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 76 words of extra memory for PDF output out of 10000 (max. 10000000)
 

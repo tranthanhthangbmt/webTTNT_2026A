@@ -1,6 +1,6 @@
 \usepackage{fleqn}
 \usepackage{epsf}
-\usepackage[dvips]{color}
+\usepackage{color}
 \usepackage{aima2e-slides}
 
 # Logic bậc một (First-order logic)
@@ -142,7 +142,6 @@ nằm trong mối quan hệ \note{} được đề cập bởi \mat{$predicate$}
 ---
 ## Mô hình cho FOL: Ví dụ
 
-,85\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/fol-model.png)
 
 ---
@@ -443,7 +442,6 @@ Các tình huống được kết nối bằng chức năng \mat{$Result$}
 
 \mat{$Result(a,s)$} là tình huống xảy ra do thực hiện \mat{$a$} trong \mat{$s$}
 
-,3\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/situations2.png)
 
 ---

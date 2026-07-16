@@ -140,7 +140,6 @@ Với bất kỳ mệnh đề $A$, $B$ nào
 
 3. $P(A \lor B) = P(A) + P(B) - P(A\land B)$
 
-,45\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/axiom3-venn.png)
 
 de Finetti (1931): một tác tử đặt theo phạm vi xác thực

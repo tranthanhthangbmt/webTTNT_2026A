@@ -1,7 +1,7 @@
 \documentclass{article}
 \usepackage{fleqn}
 \usepackage{epsf}
-\usepackage[dvips]{color}
+\usepackage{color}
 \usepackage{aima2e-slides}
 
 
@@ -31,7 +31,7 @@
 \heading{Lược sử lý luận}
 
 \begin{tabular}{llll}
-\note{450{\sc b.c.} &\txr{ Stoics }& logic mệnh đề, suy luận (có thể) \\
+\note{450{\sc b.c.}} &\txr{ Stoics }& logic mệnh đề, suy luận (có thể) \\
 \note{322{\sc b.c.} }&\txr{ Aristotle }& ``syllogisms'' (quy tắc suy luận), định lượng \\
 \note{1565 }&\txr{ Cardano }& lý thuyết xác suất (logic mệnh đề + độ không chắc chắn) \\
 \note{1847 }&\txr{ Boole }& logic mệnh đề (lại) \\
@@ -433,11 +433,11 @@ Chuỗi chuyển tiếp được sử dụng rộng rãi trong cơ sở dữ li�
 \heading{Ví dụ về khớp cứng}
 
 \begin{minipage}[c]{0.42\maxfigwidth}
-\epsfxsize=0,4\maxfigwidth
+\epsfxsize=0.4\maxfigwidth
 \centerline{ \epsffile{figures/australia-csp.ps} }
 \end{minipage}%
-\hđiền
-\begin{minipage}[c]{0,58\maxfigwidth}
+\hfill
+\begin{minipage}[c]{0.58\maxfigwidth}
 \noindent 
 \tab\mat{$\Diff(wa,nt)\land \Diff(wa,sa)\land{}$}
 \\[4pt]
@@ -574,7 +574,7 @@ Truy xuất hiệu quả các mệnh đề phù hợp bằng cách liên kết t
 Chuỗi lùi theo chiều sâu, từ trái sang phải\\
 Các vị từ tích hợp sẵn cho số học, v.v., ví dụ: {\tt X is Y*Z+3}\\
 Giả định thế giới đóng (``phủ định là thất bại'')\al
-   ví dụ: cho {\tt còn sống(X) :- chưa chết(X).\al
+   ví dụ: cho {\tt còn sống(X) :- chưa chết(X).}\al
    {\tt live(joe)} thành công nếu {\tt dead(joe)} thất bại
 
 

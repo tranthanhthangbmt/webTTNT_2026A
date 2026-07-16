@@ -1,6 +1,6 @@
 \usepackage{fleqn}
 \usepackage{epsf}
-\usepackage[dvips]{color}
+\usepackage{color}
 \usepackage{aima2e-slides}
 
 # Chơi trò chơi (Game playing)
@@ -67,7 +67,6 @@ Chơi hoàn hảo cho các trò chơi xác định, thông tin hoàn hảo
 
 Ví dụ: trò chơi 2 lớp:
 
-,8\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/minimax.png)
 
 ---
@@ -179,7 +178,6 @@ $\beta$
 ## Tại sao lại gọi là $
   pha$--
 
-,4\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/alpha-beta-general.png)
 
 \mat{$
@@ -263,7 +261,6 @@ $\Rightarrow$ $
 ---
 ## Chức năng đánh giá
 
-,95\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/chess-evaluation-bc.png)
 
 Đối với cờ vua, thường là tổng trọng số \note{tuyến tính} của \defn{features}
@@ -309,7 +306,6 @@ tệ. Trong go, $b > 300$, vì vậy hầu hết các chương trình đều s�
 ---
 ## Trò chơi không xác định: cờ thỏ cáo
 
-,65\maxfigwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/backgammon-position.png)
 
 ---
@@ -319,7 +315,6 @@ Trong các trò chơi không xác định, cơ hội được tạo ra bởi xú
 
 Ví dụ đơn giản hóa với việc lật đồng xu:
 
-,65\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/expectiminimax-simple.png)
 
 ---

@@ -1,6 +1,6 @@
 \usepackage{fleqn}
 \usepackage{epsf}
-\usepackage[dvips]{color}
+\usepackage{color}
 \usepackage{aima2e-slides}
 
 # Bài toán Thỏa mãn Ràng buộc (Constraint Satisfaction Problems)
@@ -47,7 +47,6 @@ hơn các thuật toán tìm kiếm tiêu chuẩn
 ---
 ## Ví dụ: Tô màu bản đồ
 
-,65\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/australia.png)
 
 \note{Biến} \mat{$WA$}, \mat{$NT$}, \mat{$Q$}, \mat{$NSW$}, \mat{$V$}, \mat{$SA$}, \mat{$T$} 
@@ -63,7 +62,6 @@ ví dụ: \mat{$WA\neq NT$} (nếu ngôn ngữ cho phép điều này) hoặc
 ---
 ## Ví dụ: Tiếp theo tô màu bản đồ.
 
-,65\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/australia-solution.png)
 
 \note{Giải pháp} là các bài tập đáp ứng tất cả các ràng buộc, ví dụ:
@@ -77,7 +75,6 @@ ví dụ: \mat{$WA\neq NT$} (nếu ngôn ngữ cho phép điều này) hoặc
 
 \defn{Biểu đồ ràng buộc}: các nút là các biến, các cung hiển thị các ràng buộc
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/australia-csp.png)
 
 Các thuật toán CSP có mục đích chung sử dụng cấu trúc biểu đồ
@@ -131,7 +128,6 @@ $\rightarrow$ các vấn đề tối ưu hóa bị ràng buộc
 ---
 ## Ví dụ: Số học mật mã
 
-,85\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/cryptarithmetic.png)
 
 \note{Biến}: \mat{$F\ T\ U\ W\ R\ O\ X_1\ X_2\ X_3$}
@@ -237,25 +233,21 @@ function Recursive-Backtracking(assignment, csp) returns soln/failure
 ---
 ## Ví dụ quay lui
 
-,95\maxfigwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/backtrack-progress1.png)
 
 ---
 ## Ví dụ quay lui
 
-,95\maxfigwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/backtrack-progress2.png)
 
 ---
 ## Ví dụ quay lui
 
-,95\maxfigwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/backtrack-progress3.png)
 
 ---
 ## Ví dụ quay lui
 
-,95\maxfigwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/backtrack-progress4.png)
 
 ---
@@ -428,7 +420,6 @@ function Remove-Inconsistent-Values(\(X_{i), X_{j}\)}{true iff succeeds}
 ---
 ## Cấu trúc bài toán
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/australia-csp.png)
 
 Tasmania và đất liền là \defn{bài toán con độc lập}
@@ -451,7 +442,6 @@ Ví dụ: \mat{$n\eq 80$}, \mat{$d\eq 2$}, \mat{$c\eq 20$}
 ---
 ## CSP có cấu trúc cây
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/tree-csp1.png)
 
 \note{Định lý}: nếu đồ thị ràng buộc không có vòng lặp, thì CSP có thể được giải theo 
@@ -472,10 +462,9 @@ và sự phức tạp của lý luận.
 
 sao cho mọi nút cha của nút đều đứng trước nó theo thứ tự 
 
-,95\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/tree-csp2.png)
 
-2. Đối với \mat{$j$} từ \mat{$n$} xuống \mat{$2$}, hãy áp dụng \prog{RemoveInconsistent\mat{\mat{$(Parent(X_j),X_j)$}}
+2. Đối với \mat{$j$} từ \mat{$n$} xuống \mat{$2$}, hãy áp dụng \prog{RemoveInconsistent\mat{\mat{$(Parent(X_j),X_j)$}}}
 
 3. Đối với \mat{$j$} từ \mat{$1$} đến \mat{$n$}, gán \mat{$X_j$} nhất quán với \mat{$Parent(X_j)$}
 
@@ -484,7 +473,6 @@ sao cho mọi nút cha của nút đều đứng trước nó theo thứ tự
 
 \defn{Điều hòa}: khởi tạo một biến, cắt tỉa các miền của hàng xóm của nó
 
-,75\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/australia-cutset.png)
 
 \defn{Điều hòa cutset}: khởi tạo (theo mọi cách) một tập hợp các biến
@@ -525,7 +513,6 @@ tức là leo dốc với \mat{$h(n)$} = tổng số ràng buộc bị vi phạm
 
 \note{Đánh giá}: \mat{$h(n)$} = số lần tấn công
 
-,7\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/4queens-iterative.png)
 
 ---
@@ -541,7 +528,6 @@ tùy ý \mat{$n$} với xác suất cao (ví dụ: \mat{$n$} = 10.000.000)
 R = \frac{\mbox{number of constraints}}{\mbox{number of variables}}
 \]
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/random-csp-runtime.png)
 
 ---
@@ -587,7 +573,7 @@ Giả sử có một quân hậu ở mỗi cột. Mỗi người đi vào hàng 
 
 }
  
-,3in
+in
 ![Hình ảnh](../TaiLieu/slide_md/figures/4queens.png)
 
 Chuyển từng ràng buộc thành tập hợp các giá trị cho phép cho các biến của nó

@@ -1,6 +1,6 @@
 \usepackage{fleqn}
 \usepackage{epsf}
-\usepackage[dvips]{color}
+\usepackage{color}
 \usepackage{aima2e-slides}
 \def\Astar{A$^*$}
 
@@ -214,7 +214,6 @@ Giả sử một số mục tiêu dưới mức tối ưu \mat{$G_2$} đã đư�
 và đang trong hàng đợi. Đặt \mat{$n$} là một nút chưa được mở rộng
 trên con đường ngắn nhất tới mục tiêu tối ưu \mat{$G_1$}.
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/astar-proof.png)
 
 \begin{eqnarray*}
@@ -237,16 +236,17 @@ Dần dần thêm "\mat{$f$}-contours" của các nút (xem thêm các lớp the
 
 Đường viền \mat{$i$} có tất cả các nút có \mat{$f=f_i$}, trong đó \mat{$f_i < f_{i+1}$}
 
-,75\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/f-circles.png)
 
 ---
 ## Thuộc tính của {\Astar
+}
 
 <u>Hoàn thành</u>??
 
 ---
 ## Thuộc tính của {\Astar
+}
 
 <u>Hoàn thành</u>?? Có, trừ khi có vô số nút có \mat{$f \leq f(G)$}
 
@@ -254,6 +254,7 @@ Dần dần thêm "\mat{$f$}-contours" của các nút (xem thêm các lớp the
 
 ---
 ## Thuộc tính của {\Astar
+}
 
 <u>Hoàn thành</u>?? Có, trừ khi có vô số nút có \mat{$f \leq f(G)$}
 
@@ -263,6 +264,7 @@ Dần dần thêm "\mat{$f$}-contours" của các nút (xem thêm các lớp the
 
 ---
 ## Thuộc tính của {\Astar
+}
 
 <u>Hoàn thành</u>?? Có, trừ khi có vô số nút có \mat{$f \leq f(G)$}
 
@@ -274,6 +276,7 @@ Dần dần thêm "\mat{$f$}-contours" của các nút (xem thêm các lớp the
 
 ---
 ## Thuộc tính của {\Astar
+}
 
 <u>Hoàn thành</u>?? Có, trừ khi có vô số nút có \mat{$f \leq f(G)$}
 
@@ -292,7 +295,7 @@ Dần dần thêm "\mat{$f$}-contours" của các nút (xem thêm các lớp the
 ---
 ## Chứng minh bổ đề: Tính nhất quán
 
-Một phương pháp phỏng đoán là \defn{nhất quán} nếu \raisebox{-0.35\textwidth[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/consistency.png)}
+Một phương pháp phỏng đoán là \defn{nhất quán} nếu \raisebox{-0.35\textwidth}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/consistency.png)}
 \[
   h(n) \leq c(n,a,n') + h(n')
 \]
@@ -319,7 +322,6 @@ Ví dụ: đối với câu đố 8:
     
 (tức là số ô vuông từ vị trí mong muốn của mỗi ô)
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/8puzzle.png)
 
 <u>$h_2(S)$ =</u>?? 
@@ -337,7 +339,6 @@ Ví dụ: đối với câu đố 8:
     
 (tức là số ô vuông từ vị trí mong muốn của mỗi ô)
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/8puzzle.png)
 
 <u>$h_2(S)$ =</u>?? 6
@@ -392,7 +393,6 @@ Ví dụ nổi tiếng: \defn{vấn đề của nhân viên bán hàng du lịch
 
 Tìm chuyến đi ngắn nhất đến thăm tất cả các thành phố đúng một lần
 
-,75\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/tsp-mst.png)
 
 \defn{ Cây bao trùm tối thiểu } có thể được tính trong \mat{$O(n^2)$} 

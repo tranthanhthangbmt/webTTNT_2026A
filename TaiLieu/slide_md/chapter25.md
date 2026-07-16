@@ -27,7 +27,6 @@ Lập kế hoạch chuyển động
 ---
 ## Bộ điều khiển 
 
-,7\textwidth
 [Hình ảnh: \fig{figures/stanford-arm.eps}]
 
 Cấu hình của robot được xác định bởi 6 số
@@ -41,7 +40,6 @@ $\implies$ 6 \defn{bậc tự do} (DOF)
 ---
 ## Robot không ba chiều
 
-,4\textwidth
 [Hình ảnh: \fig{figures/car-like.eps}]
 
 Một chiếc ô tô có nhiều DOF (3) hơn điều khiển (2), nên \defn{non-holonomic};
@@ -67,7 +65,6 @@ cảm biến lực, cảm biến mô-men xoắn
 
 Tính toán vị trí và hướng hiện tại (\defn{pose}) dựa trên các quan sát:
 
-,7\textwidth
 [Hình ảnh: \fig{figures/robotics-ddn.eps}]
 
 ---
@@ -89,7 +86,6 @@ Có thể sử dụng tính năng lọc hạt để tạo ra ước tính vị t
 
 Cũng có thể sử dụng bộ lọc Kalman mở rộng \defn{} cho các trường hợp đơn giản:
 
-,75\textwidth
 [Hình ảnh: \fig{figures/robotics-pic6.eps}]
 
 Giả sử rằng các điểm mốc là *có thể nhận dạng được*---nếu không,
@@ -115,8 +111,8 @@ Công thức xác suất của SLAM:
 
  &nbsp;&nbsp;&nbsp;&nbsp; 
 
-\epsfysize=0,37\textheight![Hình ảnh](../TaiLieu/slide_md/figures/arena033.png) &nbsp;&nbsp;&nbsp;&nbsp; \epsfysize=0,37\textheight![Hình ảnh](../TaiLieu/slide_md/figures/arena034.png)
-\epsfysize=0,37\textheight![Hình ảnh](../TaiLieu/slide_md/figures/arena033.png) &nbsp;&nbsp;&nbsp;&nbsp; \epsfysize=0,37\textheight![Hình ảnh](../TaiLieu/slide_md/figures/arena034.png)
+\epsfysize=0.37\textheight![Hình ảnh](../TaiLieu/slide_md/figures/arena033.png) &nbsp;&nbsp;&nbsp;&nbsp; \epsfysize=0.37\textheight![Hình ảnh](../TaiLieu/slide_md/figures/arena034.png)
+\epsfysize=0.37\textheight![Hình ảnh](../TaiLieu/slide_md/figures/arena033.png) &nbsp;&nbsp;&nbsp;&nbsp; \epsfysize=0.37\textheight![Hình ảnh](../TaiLieu/slide_md/figures/arena034.png)
 
 ---
 ## Ví dụ về bản đồ 3D
@@ -169,7 +165,6 @@ Giải pháp: phân rã đệ quy các ô hỗn hợp (tự do + chướng ngạ
 
 Sơ đồ Voronoi: quỹ tích các điểm cách đều chướng ngại vật
 
-,44\textwidth
 [Hình ảnh: \fig{figures/armVoronoi.eps}]
 
 Vấn đề: không mở rộng tốt sang các kích thước cao hơn
@@ -181,7 +176,6 @@ Lộ trình xác suất được tạo bằng cách tạo các điểm ngẫu nh
 C-space và giữ chúng trong không gian tự do; tạo biểu đồ bằng cách tham gia
 cặp theo đường thẳng
 
-,44\textwidth
 [Hình ảnh: \fig{figures/armRoadmap.eps}]
 
 Vấn đề: cần tạo đủ điểm để đảm bảo rằng mọi
@@ -239,7 +233,6 @@ bị hỏng do nhiễu, tạo ra $\theta$ được rút ra từ $P_{\theta_0}$
 
 Đầu ra (ví dụ: khoảng cách từ mục tiêu) $y = F(\theta)$; 
 
-,7\maxfigwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/arm-setup.png)
 
 ---
@@ -275,25 +268,21 @@ $P_{\theta_0}(\theta) = N(\theta_0,\Sigma)$, chúng tôi thu được
 ---
 ## Thuật toán đang làm gì
 
-,7\maxfigwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/control-noise-distort.png)
 
 ---
 ## Kết quả cho bộ điều khiển 2--D
 
-,75\textwidth
  ![Hình ảnh](../TaiLieu/slide_md/figures/progress3-theta.png) 
 
 ---
 ## Kết quả cho bộ điều khiển 2--D
 
-,75\textwidth
  ![Hình ảnh](../TaiLieu/slide_md/figures/progress3-theta-zoom.png) 
 
 ---
 ## Kết quả cho bộ điều khiển 2--D
 
-,75\textwidth
  ![Hình ảnh](../TaiLieu/slide_md/figures/progress3-score.png) 
 
 ---

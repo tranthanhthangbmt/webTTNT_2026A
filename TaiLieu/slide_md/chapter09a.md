@@ -108,7 +108,6 @@ Trạng thái là các tập hợp
 
 Kiểm tra trạng thái kiểm tra đích để xem nó có chứa câu hỏi hay không
 
-,3\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/naive-proof-tree.png)
  
 
@@ -273,5 +272,4 @@ Suy diễn lùi là cơ sở cho <u>lập trình logic (lập trình logic)</u>,
 
 <u>3.</u> $Pig(Pat)$  &nbsp;&nbsp;&nbsp;&nbsp;  <u>4.</u> $Slimy(Steve)$  &nbsp;&nbsp;&nbsp;&nbsp;  <u>5.</u> $Creeps(Steve)$
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/slug-bc.png)

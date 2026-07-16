@@ -26,7 +26,6 @@
 
 Tín hiệu ồn ào 'đoàn tàu gai' của điện thế
 
-,8\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/neuron.png)
 
 ---
@@ -37,7 +36,6 @@ Tín hiệu ồn ào 'đoàn tàu gai' của điện thế
 a_i \leftarrow g(in_i) = g\left(\mysum_j \w{j}{i} a_j\right)
 \]}
 
-,8\textwidth
 [Hình ảnh: \fig{figures/neuron-unit.eps}]
 
 Sự đơn giản hóa quá mức của các nơ-ron thực, nhưng mục đích của nó là
@@ -47,7 +45,6 @@ Sự đơn giản hóa quá mức của các nơ-ron thực, nhưng mục đích
 ---
 ## Chức năng kích hoạt
 
-,95\textwidth
 [Hình ảnh: \fig{figures/activation-fns.eps}]
 
 (a) là hàm bước \defn{} hoặc \defn{hàm ngưỡng }
@@ -59,7 +56,6 @@ Thay đổi trọng số thiên vị \mat{$\w{0}{i}$} sẽ di chuyển vị trí
 ---
 ## Thực hiện các hàm logic
 
-,8\textwidth
 [Hình ảnh: \fig{figures/nn-logical.eps}]
 
 McCulloch và Pitts: mọi hàm Boolean đều có thể được triển khai
@@ -92,7 +88,6 @@ Mạng chuyển tiếp nguồn cấp dữ liệu thực hiện các chức năng
 ---
 ## Ví dụ về chuyển tiếp nguồn cấp dữ liệu
 
-,7\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/neural-net.png)
 
 Mạng chuyển tiếp nguồn cấp dữ liệu = một họ các hàm phi tuyến được tham số hóa:
@@ -260,7 +255,6 @@ Tại mỗi \defn{epoch}, tính tổng các cập nhật gradient cho tất cả
 
 \defn{Đường cong đào tạo} cho 100 ví dụ về nhà hàng: tìm thấy sự phù hợp chính xác
 
-,6\textwidth
 [Hình ảnh: \fig{graphs/restaurant-back-prop-error.eps}]
 
 Các vấn đề điển hình: hội tụ chậm, cực tiểu cục bộ
@@ -270,7 +264,6 @@ Các vấn đề điển hình: hội tụ chậm, cực tiểu cục bộ
 
 Đường cong học tập cho MLP với 4 đơn vị ẩn:
 
-,65\textwidth
 [Hình ảnh: \fig{graphs/restaurant-back-prop+dtl-curve.eps}]
 
 MLP khá tốt cho các nhiệm vụ nhận dạng mẫu phức tạp,

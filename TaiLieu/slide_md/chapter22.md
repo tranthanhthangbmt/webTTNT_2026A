@@ -53,7 +53,7 @@ Austin (1962) *Cách thực hiện mọi việc bằng từ ngữ*
 
 Searle (1969) *Hành vi lời nói*
 
-Tại sao? \hspace*{5.5in}in\raisebox{-1.5in[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/lamppost.png)}
+Tại sao? \hspace*{5.5in}in\raisebox{-1.5in}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/lamppost.png)}
 
 ---
 ## Giao tiếp
@@ -72,7 +72,7 @@ Austin (1962) *Cách thực hiện mọi việc bằng từ ngữ*
 
 Searle (1969) *Hành vi lời nói*
 
-Tại sao? \hspace*{5.5in}in\raisebox{-1.5in[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/lamppost+dog.png)}
+Tại sao? \hspace*{5.5in}in\raisebox{-1.5in}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/lamppost+dog.png)}
 
 ---
 ## Giao tiếp
@@ -91,14 +91,13 @@ Austin (1962) *Cách thực hiện mọi việc bằng từ ngữ*
 
 Searle (1969) *Hành vi lời nói*
 
-Tại sao? \hspace*{5.5in}in\raisebox{-1.5in[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/lamppost+dog.png)}
+Tại sao? \hspace*{5.5in}in\raisebox{-1.5in}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/lamppost+dog.png)}
 
 * Để thay đổi hành động của các tác nhân khác*
 
 ---
 ## Hành động lời nói
 
-,7\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/utterance.png)
 
 Hành vi lời nói đạt được mục đích của người nói:
@@ -320,7 +319,6 @@ breeze + and + I smell a wumpus}
 
 Ngôn ngữ hình thức \mat{$L_1$} có thể khác với ngôn ngữ tự nhiên \mat{$L_2$}
 
-,6\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/language-learning.png)
 
 Điều chỉnh \mat{$L_1$} để đồng ý với \mat{$L_2$} là một vấn đề cần học hỏi!
@@ -341,7 +339,6 @@ Ngữ pháp thực sự 10--500 trang, không đủ ngay cả đối với tiế
 
 Trình bày cấu trúc ngữ pháp của câu
 
-,8\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/parse-tree1.png)
 
 ---
@@ -349,7 +346,6 @@ Trình bày cấu trúc ngữ pháp của câu
 
 Trình bày cấu trúc ngữ pháp của câu
 
-,8\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/parse-tree2.png)
 
 ---
@@ -357,7 +353,6 @@ Trình bày cấu trúc ngữ pháp của câu
 
 Trình bày cấu trúc ngữ pháp của câu
 
-,8\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/parse-tree3.png)
 
 ---
@@ -365,7 +360,6 @@ Trình bày cấu trúc ngữ pháp của câu
 
 Trình bày cấu trúc ngữ pháp của câu
 
-,8\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/parse-tree4.png)
 
 ---
@@ -373,7 +367,6 @@ Trình bày cấu trúc ngữ pháp của câu
 
 Trình bày cấu trúc ngữ pháp của câu
 
-,8\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/parse-tree5.png)
 
 ---

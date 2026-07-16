@@ -1,7 +1,7 @@
 \documentclass{article}
 \usepackage{fleqn}
 \usepackage{epsf}
-\usepackage[dvips]{color}
+\usepackage{color}
 \usepackage{aima2e-slides}
 
 \begin{document}
@@ -75,7 +75,7 @@ Chơi hoàn hảo cho các trò chơi xác định, thông tin hoàn hảo
 
 Ví dụ: trò chơi 2 lớp:
 
-\epsfxsize=0,8\textwidth
+\epsfxsize=0.8\textwidth
 \fig{\file{figures}{minimax.ps}}
 
 
@@ -193,7 +193,7 @@ $\beta$
 
 \vspace*{0.1in}
 
-\epsfxsize=0,4\textwidth
+\epsfxsize=0.4\textwidth
 \fig{\file{figures}{alpha-beta-general.ps}}
 
 \mat{$\alpha$} là giá trị tốt nhất (đến {\sc max}) được tìm thấy ở xa đường dẫn hiện tại
@@ -240,9 +240,9 @@ Thật không may, \mat{$35^{50}$} vẫn không thể thực hiện được!
 
 Cách tiếp cận tiêu chuẩn:
 \begin{itemize}
-\item Sử dụng {\sc Cutoff-Test} thay vì {\sc Terminal-Test\nl
+\item Sử dụng {\sc Cutoff-Test} thay vì {\sc Terminal-Test}\nl
 ví dụ: giới hạn độ sâu (có thể thêm \defn{tìm kiếm tĩnh })
-\item Sử dụng {\sc Eval} thay vì {\sc Utility\nl
+\item Sử dụng {\sc Eval} thay vì {\sc Utility}\nl
 tức là, \defn{hàm đánh giá } ước tính mức độ mong muốn của vị trí
 \end{itemize}
 
@@ -256,7 +256,7 @@ $\Rightarrow$ $\alpha$--$\beta$ đạt độ sâu 8 $\Rightarrow$ chương trìn
 
 \vspace*{0.2in}
 
-\epsfxsize=0,95\textwidth
+\epsfxsize=0.95\textwidth
 \fig{\file{figures}{chess-evaluation-bc.ps}}
 
 Đối với cờ vua, thường là tổng trọng số \note{tuyến tính} của \defn{features}
@@ -313,7 +313,7 @@ tệ. Trong go, $b > 300$, vì vậy hầu hết các chương trình đều s�
 
 \vspace*{0.3in}
 
-\epsfxsize=0,65\maxfigwidth
+\epsfxsize=0.65\maxfigwidth
 \fig{\file{figures}{backgammon-position.ps}}
 
 
@@ -328,7 +328,7 @@ Ví dụ đơn giản hóa với việc lật đồng xu:
 
 \vspace*{0.3in}
 
-\epsfxsize=0,65\textwidth
+\epsfxsize=0.65\textwidth
 \fig{\file{figures}{expectiminimax-simple.ps}}
 
 
@@ -340,11 +340,11 @@ Ví dụ đơn giản hóa với việc lật đồng xu:
 Giống như {\sc Minimax}, ngoại trừ việc chúng ta cũng phải xử lý các nút ngẫu nhiên:
 
 $\ldots$\\
-\key{if} \var{state} là một nút {\sc Max} \key{then\nl
+\key{if} \var{state} là một nút {\sc Max} \key{then}\nl
    \key{return} {\sc ExpectiMinimax-Value} cao nhất trong số {\sc Successors}(\var{state})\\
-\key{if} \var{state} là một nút {\sc Min} \key{then\nl
+\key{if} \var{state} là một nút {\sc Min} \key{then}\nl
    \key{return} {\sc ExpectiMinimax-Value} thấp nhất của {\sc Successors}(\var{state})\\
-\key{if} \var{state} là một nút cơ hội \key{then\nl
+\key{if} \var{state} là một nút cơ hội \key{then}\nl
    \key{return} trung bình của {\sc ExpectiMinimax-Value} của {\sc Successors}(\var{state})\\
 $\ldots$
 
@@ -362,7 +362,7 @@ $\Rightarrow$ giá trị của lookahead bị giảm đi
 
 $\alpha$--$\beta$ việc cắt tỉa kém hiệu quả hơn nhiều
 
-{\sc TDGammon} sử dụng tìm kiếm theo độ sâu 2 + rất tốt {\sc Eval\nl
+{\sc TDGammon} sử dụng tìm kiếm theo độ sâu 2 + rất tốt {\sc Eval}\nl
 $\approx$ cấp độ vô địch thế giới
 
 

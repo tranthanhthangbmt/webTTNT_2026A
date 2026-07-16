@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.24)  15 JUL 2026 17:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.24)  16 JUL 2026 17:16
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **./chapter25.tex
 (chapter25.tex
@@ -38,13 +38,86 @@ LaTeX Info: Redefining \] on input line 75.
 Already applied: [0000/00/00] Make \] robust on input line 83.
 ))
 (epsf.sty
-\epsffilein=\read2
-\epsfxsize=\dimen149
-\epsfysize=\dimen150
-\epsftsize=\dimen151
-\epsfrsize=\dimen152
-\epsftmp=\dimen153
-\pspoints=\dimen154
+Package: epsf 2026/07/16 Modern replacement using graphicx
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen149
+\Gin@req@width=\dimen150
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf.s
+ty
+Package: epstopdf 2020-01-24 v2.11 Conversion with epstopdf on the fly (HO)
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.s
+ty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/grfext\grfext.sty
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
+keys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+))
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+))
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
+.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+ (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
+fg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps,.ps]
+(grfext)             \AppendGraphicsExtensions on input line 11.
+\epsfxsize=\skip52
+\epsfysize=\skip53
 ) (aima2e-slides.sty
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
@@ -216,8 +289,8 @@ File: t5cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 ))
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
 Package: inputenc 2024/02/08 v1.3d Input encoding file
-\inpenc@prehook=\toks17
-\inpenc@posthook=\toks18
+\inpenc@prehook=\toks18
+\inpenc@posthook=\toks19
 )
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
 Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
@@ -225,35 +298,31 @@ Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package color Info: Driver file: dvips.def on input line 149.
-(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\dvips.def
-File: dvips.def 2025/01/21 v3.2a Graphics/color driver for dvips
-) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\dvipsnam.def
-File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
-) (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.lt
-x))
+Package color Info: Driver file: pdftex.def on input line 149.
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+)
 Package color Info: Redefining color red on input line 7.
 Package color Info: Redefining color cyan on input line 14.
-\headingwidth=\skip52
-\backdrop=\skip53
-\backheight=\skip54
-\backwidth=\skip55
-\xborder=\skip56
-\yborder=\skip57
-\headtotal=\skip58
-\codewidth=\skip59
-\boxwidth=\skip60
-\boxheight=\skip61
-\skipwidth=\skip62
-\roomheight=\skip63
-\charheight=\skip64
-\marginlineskip=\skip65
-\marginwidth=\skip66
-\textplusmarginwidth=\skip67
-\maxfigwidth=\skip68
-\tablewidth=\skip69
-\captionskip=\skip70
-\tcaptionskip=\skip71
+\headingwidth=\skip54
+\backdrop=\skip55
+\backheight=\skip56
+\backwidth=\skip57
+\xborder=\skip58
+\yborder=\skip59
+\headtotal=\skip60
+\codewidth=\skip61
+\boxwidth=\skip62
+\boxheight=\skip63
+\skipwidth=\skip64
+\roomheight=\skip65
+\charheight=\skip66
+\marginlineskip=\skip67
+\marginwidth=\skip68
+\textplusmarginwidth=\skip69
+\maxfigwidth=\skip70
+\tablewidth=\skip71
+\captionskip=\skip72
+\tcaptionskip=\skip73
 )
 (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
@@ -278,474 +347,665 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
 LaTeX Font Info:    ... okay on input line 6.
 LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 6.
 LaTeX Font Info:    ... okay on input line 6.
- [1
-Non-PDF special ignored!
-<special> papersize=614.295pt,794.96999pt
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count284
+\scratchdimen=\dimen151
+\scratchbox=\box53
+\nofMPsegments=\count285
+\nofMParguments=\count286
+\everyMPshowfont=\toks20
+\MPscratchCnt=\count287
+\MPscratchDim=\dimen152
+\MPnumerator=\count288
+\makeMPintoPDFobject=\count289
+\everyMPtoPDFconversion=\toks21
+) [1
+
 
 Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-{C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
+<special> papersize=11in,8.5in
+{C:/Users/thanh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
 LaTeX Font Info:    Trying to load font information for T5+cmss on input line 1
 1.
- (C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmss.fd
+
+(C:\Users\thanh\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmss.fd
 File: t5cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-[2
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [3
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/raibert-1leg.eps llx=227 lly=281 urx=385 ury=510 r...
-Non-PDF special ignored!
-<special> PSfile=figures/robocup.eps llx=196 lly=281 urx=416 ury=510 rwi=22...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [4
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/raibert-1leg.eps llx=227 lly=281 urx=385 ury=510 r...
-Non-PDF special ignored!
-<special> PSfile=figures/robocup.eps llx=196 lly=281 urx=416 ury=510 rwi=22...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
+[2]
+Package epstopdf Info: Source file: <figures/raibert-1leg.eps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 5594985 bytes
+(epstopdf)             Output file: <figures/raibert-1leg-eps-converted-to.pdf>
+
+(epstopdf)                    date: 2026-07-16 17:14:23
+(epstopdf)                    size: 128864 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/raibert-1leg-eps-converted-to.pdf figures/raibert-1leg.eps>
+(epstopdf)             \includegraphics on input line 27.
+Package epstopdf Info: Output file is already uptodate.
+<figures/raibert-1leg-eps-converted-to.pdf, id=12, 158.5925pt x 229.85875pt>
+File: figures/raibert-1leg-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/raibert-1leg-eps-converted-to.pdf>
+Package pdftex.def Info: figures/raibert-1leg-eps-converted-to.pdf  used on inp
+ut line 27.
+(pdftex.def)             Requested size: 158.59209pt x 229.85817pt.
+Package epstopdf Info: Source file: <figures/robocup.eps>
+(epstopdf)                    date: 2026-07-15 08:15:06
+(epstopdf)                    size: 7713945 bytes
+(epstopdf)             Output file: <figures/robocup-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:14:35
+(epstopdf)                    size: 148274 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/robocup-eps-converted-to.pdf figures/robocup.eps>
+(epstopdf)             \includegraphics on input line 27.
+Package epstopdf Info: Output file is already uptodate.
+<figures/robocup-eps-converted-to.pdf, id=13, 220.825pt x 229.85875pt>
+File: figures/robocup-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/robocup-eps-converted-to.pdf>
+Package pdftex.def Info: figures/robocup-eps-converted-to.pdf  used on input li
+ne 27.
+(pdftex.def)             Requested size: 220.82445pt x 229.85817pt.
+Package epstopdf Info: Source file: <figures/raibert-1leg.eps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 5594985 bytes
+(epstopdf)             Output file: <figures/raibert-1leg-eps-converted-to.pdf>
+
+(epstopdf)                    date: 2026-07-16 17:14:23
+(epstopdf)                    size: 128864 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/raibert-1leg-eps-converted-to.pdf figures/raibert-1leg.eps>
+(epstopdf)             \includegraphics on input line 29.
+Package epstopdf Info: Output file is already uptodate.
+File: figures/raibert-1leg-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/raibert-1leg-eps-converted-to.pdf>
+Package pdftex.def Info: figures/raibert-1leg-eps-converted-to.pdf  used on inp
+ut line 29.
+(pdftex.def)             Requested size: 158.59209pt x 229.85817pt.
+Package epstopdf Info: Source file: <figures/robocup.eps>
+(epstopdf)                    date: 2026-07-15 08:15:06
+(epstopdf)                    size: 7713945 bytes
+(epstopdf)             Output file: <figures/robocup-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:14:35
+(epstopdf)                    size: 148274 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/robocup-eps-converted-to.pdf figures/robocup.eps>
+(epstopdf)             \includegraphics on input line 29.
+Package epstopdf Info: Output file is already uptodate.
+File: figures/robocup-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/robocup-eps-converted-to.pdf>
+Package pdftex.def Info: figures/robocup-eps-converted-to.pdf  used on input li
+ne 29.
+(pdftex.def)             Requested size: 220.82445pt x 229.85817pt.
+ [3 <./figures/raibert-1leg-eps-converted-to.pdf> <./figures/robocup-eps-conver
+ted-to.pdf>] [4]
+Package epstopdf Info: Source file: <figures/stanford-arm.eps>
+(epstopdf)                    date: 2026-07-15 08:15:06
+(epstopdf)                    size: 109483 bytes
+(epstopdf)             Output file: <figures/stanford-arm-eps-converted-to.pdf>
+
+(epstopdf)                    date: 2026-07-16 17:14:37
+(epstopdf)                    size: 7046 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/stanford-arm-eps-converted-to.pdf figures/stanford-arm.eps>
+(epstopdf)             \includegraphics on input line 38.
+Package epstopdf Info: Output file is already uptodate.
+<figures/stanford-arm-eps-converted-to.pdf, id=24, 235.88126pt x 106.3975pt>
+File: figures/stanford-arm-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/stanford-arm-eps-converted-to.pdf>
+Package pdftex.def Info: figures/stanford-arm-eps-converted-to.pdf  used on inp
+ut line 38.
+(pdftex.def)             Requested size: 430.00462pt x 193.96356pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <20.74> on input line 41.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <14.4> on input line 41.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 41.
- [5
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/stanford-arm.eps llx=204 lly=347 urx=439 ury=453 r...
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [6
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/car-like.eps llx=178 lly=322 urx=315 ury=403 rwi=2...
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [7
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/robot0124bw.eps llx=0 lly=0 urx=249 ury=168 rwi=24...
-Non-PDF special ignored!
-<special> PSfile=figures/sick.eps llx=0 lly=0 urx=118 ury=156 rwi=1180
-Non-PDF special ignored!
-<special> PSfile=figures/robot0124bw.eps llx=0 lly=0 urx=249 ury=168 rwi=24...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [8
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [9
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/robotics-ddn.eps llx=172 lly=436 urx=405 ury=560 r...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [10
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/robotics-pic2.eps llx=236 lly=324 urx=422 ury=468 ...
-Non-PDF special ignored!
-<special> PSfile=figures/range-scan-model.eps llx=206 lly=329 urx=396 ury=4...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [11
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/first.ps llx=0 lly=0 urx=755 ury=558 rwi=1958
-Non-PDF special ignored!
-<special> PSfile=figures/second.ps llx=0 lly=0 urx=753 ury=556 rwi=1958
-Non-PDF special ignored!
-<special> PSfile=figures/third.ps llx=0 lly=0 urx=753 ury=556 rwi=1958
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-]
+ [5 <./figures/stanford-arm-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/car-like.eps>
+(epstopdf)                    date: 2026-07-15 08:15:02
+(epstopdf)                    size: 105739 bytes
+(epstopdf)             Output file: <figures/car-like-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:14:39
+(epstopdf)                    size: 6536 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/car-like-eps-converted-to.pdf figures/car-like.eps>
+(epstopdf)             \includegraphics on input line 53.
+Package epstopdf Info: Output file is already uptodate.
+<figures/car-like-eps-converted-to.pdf, id=34, 137.51375pt x 81.30376pt>
+File: figures/car-like-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/car-like-eps-converted-to.pdf>
+Package pdftex.def Info: figures/car-like-eps-converted-to.pdf  used on input l
+ine 53.
+(pdftex.def)             Requested size: 245.71425pt x 145.28963pt.
+ [6 <./figures/car-like-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/robot0124bw.eps>
+(epstopdf)                    date: 2026-07-15 08:15:06
+(epstopdf)                    size: 155724 bytes
+(epstopdf)             Output file: <figures/robot0124bw-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:14:42
+(epstopdf)                    size: 6481 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/robot0124bw-eps-converted-to.pdf figures/robot0124bw.eps>
+(epstopdf)             \includegraphics on input line 62.
+Package epstopdf Info: Output file is already uptodate.
+<figures/robot0124bw-eps-converted-to.pdf, id=50, 249.93375pt x 168.63pt>
+File: figures/robot0124bw-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/robot0124bw-eps-converted-to.pdf>
+Package pdftex.def Info: figures/robot0124bw-eps-converted-to.pdf  used on inpu
+t line 62.
+(pdftex.def)             Requested size: 249.93314pt x 168.62958pt.
+Package epstopdf Info: Source file: <figures/sick.eps>
+(epstopdf)                    date: 2026-07-15 08:15:06
+(epstopdf)                    size: 91477 bytes
+(epstopdf)             Output file: <figures/sick-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:14:44
+(epstopdf)                    size: 64551 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/sick-eps-converted-to.pdf figures/sick.eps>
+(epstopdf)             \includegraphics on input line 67.
+Package epstopdf Info: Output file is already uptodate.
+<figures/sick-eps-converted-to.pdf, id=51, 118.4425pt x 156.585pt>
+File: figures/sick-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/sick-eps-converted-to.pdf>
+Package pdftex.def Info: figures/sick-eps-converted-to.pdf  used on input line 
+67.
+(pdftex.def)             Requested size: 118.4422pt x 156.58461pt.
+Package epstopdf Info: Source file: <figures/robot0124bw.eps>
+(epstopdf)                    date: 2026-07-15 08:15:06
+(epstopdf)                    size: 155724 bytes
+(epstopdf)             Output file: <figures/robot0124bw-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:14:42
+(epstopdf)                    size: 6481 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/robot0124bw-eps-converted-to.pdf figures/robot0124bw.eps>
+(epstopdf)             \includegraphics on input line 67.
+Package epstopdf Info: Output file is already uptodate.
+File: figures/robot0124bw-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/robot0124bw-eps-converted-to.pdf>
+Package pdftex.def Info: figures/robot0124bw-eps-converted-to.pdf  used on inpu
+t line 67.
+(pdftex.def)             Requested size: 249.93314pt x 168.62958pt.
+ [7 <./figures/robot0124bw-eps-converted-to.pdf> <./figures/sick-eps-converted-
+to.pdf>] [8]
+Package epstopdf Info: Source file: <figures/robotics-ddn.eps>
+(epstopdf)                    date: 2026-07-15 08:15:06
+(epstopdf)                    size: 109186 bytes
+(epstopdf)             Output file: <figures/robotics-ddn-eps-converted-to.pdf>
+
+(epstopdf)                    date: 2026-07-16 17:14:46
+(epstopdf)                    size: 7130 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/robotics-ddn-eps-converted-to.pdf figures/robotics-ddn.eps>
+(epstopdf)             \includegraphics on input line 82.
+Package epstopdf Info: Output file is already uptodate.
+<figures/robotics-ddn-eps-converted-to.pdf, id=65, 233.87375pt x 124.465pt>
+File: figures/robotics-ddn-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/robotics-ddn-eps-converted-to.pdf>
+Package pdftex.def Info: figures/robotics-ddn-eps-converted-to.pdf  used on inp
+ut line 82.
+(pdftex.def)             Requested size: 430.00462pt x 228.87213pt.
+ [9 <./figures/robotics-ddn-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/robotics-pic2.eps>
+(epstopdf)                    date: 2026-07-15 08:15:06
+(epstopdf)                    size: 177997 bytes
+(epstopdf)             Output file: <figures/robotics-pic2-eps-converted-to.pdf
+>
+(epstopdf)                    date: 2026-07-16 17:14:48
+(epstopdf)                    size: 8270 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/robotics-pic2-eps-converted-to.pdf figures/robotics-pic2.eps>
+(epstopdf)             \includegraphics on input line 89.
+Package epstopdf Info: Output file is already uptodate.
+<figures/robotics-pic2-eps-converted-to.pdf, id=84, 186.6975pt x 144.54pt>
+File: figures/robotics-pic2-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/robotics-pic2-eps-converted-to.pdf>
+Package pdftex.def Info: figures/robotics-pic2-eps-converted-to.pdf  used on in
+put line 89.
+(pdftex.def)             Requested size: 294.85896pt x 228.28906pt.
+Package epstopdf Info: Source file: <figures/range-scan-model.eps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 103416 bytes
+(epstopdf)             Output file: <figures/range-scan-model-eps-converted-to.
+pdf>
+(epstopdf)                    date: 2026-07-16 17:14:51
+(epstopdf)                    size: 5616 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/range-scan-model-eps-converted-to.pdf figures/range-scan-model.eps>
+(epstopdf)             \includegraphics on input line 89.
+Package epstopdf Info: Output file is already uptodate.
+<figures/range-scan-model-eps-converted-to.pdf, id=85, 190.7125pt x 127.47626pt
+>
+File: figures/range-scan-model-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/range-scan-model-eps-converted-to.pdf>
+Package pdftex.def Info: figures/range-scan-model-eps-converted-to.pdf  used on
+ input line 89.
+(pdftex.def)             Requested size: 190.71202pt x 127.47594pt.
+ [10 <./figures/robotics-pic2-eps-converted-to.pdf> <./figures/range-scan-model
+-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/first.ps>
+(epstopdf)                    date: 2026-07-15 08:15:02
+(epstopdf)                    size: 1675805 bytes
+(epstopdf)             Output file: <figures/first-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:14:56
+(epstopdf)                    size: 1435792 bytes
+(epstopdf)             Command: <epstopdf figures/first.ps --outfile=figures/fi
+rst-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 100.
+Package epstopdf Info: Output file is already uptodate.
+<figures/first-ps-converted-to.pdf, id=115, 757.83125pt x 560.0925pt>
+File: figures/first-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/first-ps-converted-to.pdf>
+Package pdftex.def Info: figures/first-ps-converted-to.pdf  used on input line 
+100.
+(pdftex.def)             Requested size: 757.8294pt x 560.09113pt.
+Package epstopdf Info: Source file: <figures/second.ps>
+(epstopdf)                    date: 2026-07-15 08:15:06
+(epstopdf)                    size: 1674490 bytes
+(epstopdf)             Output file: <figures/second-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:15:01
+(epstopdf)                    size: 1262865 bytes
+(epstopdf)             Command: <epstopdf figures/second.ps --outfile=figures/s
+econd-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 100.
+Package epstopdf Info: Output file is already uptodate.
+<figures/second-ps-converted-to.pdf, id=116, 755.82375pt x 558.085pt>
+File: figures/second-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/second-ps-converted-to.pdf>
+Package pdftex.def Info: figures/second-ps-converted-to.pdf  used on input line
+ 100.
+(pdftex.def)             Requested size: 755.8219pt x 558.08365pt.
+Package epstopdf Info: Source file: <figures/third.ps>
+(epstopdf)                    date: 2026-07-15 08:15:06
+(epstopdf)                    size: 1673019 bytes
+(epstopdf)             Output file: <figures/third-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:15:06
+(epstopdf)                    size: 1253279 bytes
+(epstopdf)             Command: <epstopdf figures/third.ps --outfile=figures/th
+ird-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 100.
+Package epstopdf Info: Output file is already uptodate.
+<figures/third-ps-converted-to.pdf, id=117, 755.82375pt x 558.085pt>
+File: figures/third-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/third-ps-converted-to.pdf>
+Package pdftex.def Info: figures/third-ps-converted-to.pdf  used on input line 
+100.
+(pdftex.def)             Requested size: 755.8219pt x 558.08365pt.
+ [11]
+Overfull \vbox (128.67902pt too high) has occurred while \output is active []
+
+
+[12 <./figures/first-ps-converted-to.pdf> <./figures/second-ps-converted-to.pdf
+> <./figures/third-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/robotics-pic6.eps>
+(epstopdf)                    date: 2026-07-15 08:15:06
+(epstopdf)                    size: 205980 bytes
+(epstopdf)             Output file: <figures/robotics-pic6-eps-converted-to.pdf
+>
+(epstopdf)                    date: 2026-07-16 17:15:09
+(epstopdf)                    size: 6368 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/robotics-pic6-eps-converted-to.pdf figures/robotics-pic6.eps>
+(epstopdf)             \includegraphics on input line 110.
+Package epstopdf Info: Output file is already uptodate.
+<figures/robotics-pic6-eps-converted-to.pdf, id=139, 318.18875pt x 85.31876pt>
+File: figures/robotics-pic6-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/robotics-pic6-eps-converted-to.pdf>
+Package pdftex.def Info: figures/robotics-pic6-eps-converted-to.pdf  used on in
+put line 110.
+(pdftex.def)             Requested size: 460.72124pt x 123.53716pt.
+
 
 LaTeX Font Warning: Font shape `T5/cmss/m/it' in size <20.74> not available
 (Font)              Font shape `T5/cmss/m/sl' tried instead on input line 112.
 
-[12
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/robotics-pic6.eps llx=140 lly=350 urx=457 ury=435 ...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [13
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [14
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/arena033.ps llx=18.000000 lly=144.000000 urx=594.0...
-Non-PDF special ignored!
-<special> PSfile=figures/arena034.ps llx=18.000000 lly=144.000000 urx=594.0...
-Non-PDF special ignored!
-<special> PSfile=figures/arena033.ps llx=18.000000 lly=144.000000 urx=594.0...
-Non-PDF special ignored!
-<special> PSfile=figures/arena034.ps llx=18.000000 lly=144.000000 urx=594.0...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [15
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/mine-robot.eps llx=211 lly=335 urx=400 ury=456 rwi...
-Non-PDF special ignored!
-<special> PSfile=figures/mine-data.eps llx=0 lly=0 urx=189 ury=121 rwi=2937
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [16
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/armExampleConfSpace.eps llx=209 lly=310 urx=415 ur...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [17
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/armExampleWorkSpace.eps llx=191 lly=325 urx=375 ur...
-Non-PDF special ignored!
-<special> PSfile=figures/armExampleConfSpace.eps llx=209 lly=310 urx=415 ur...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [18
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.5 0.0 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [19
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/armDPwithoutPotentialWorkspaceCoarse.eps llx=215 l...
-Non-PDF special ignored!
-<special> PSfile=figures/armDPwithoutPotentialCoarse.eps llx=221 lly=356 ur...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [20
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/armVoronoi.eps llx=193 lly=307 urx=382 ury=496 rwi...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [21
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/armRoadmap.eps llx=227 lly=304 urx=416 ury=493 rwi...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [22
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [23
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.3 0.0
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push rgb 0.0 0.0 0.5
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [24
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [25
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [26
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/arm-setup.ps llx=96 lly=536 urx=477 ury=751 rwi=42...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [27
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [28
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/control-noise-distort.ps llx=100 lly=667 urx=392 u...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [29
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/progress3-theta.ps llx=50 lly=50 urx=554 ury=410 r...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [30
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/progress3-theta-zoom.ps llx=50 lly=50 urx=554 ury=...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [31
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> PSfile=figures/progress3-score.ps llx=50 lly=50 urx=554 ury=410 r...
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] [32
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-Non-PDF special ignored!
-<special> color push  Black
-Non-PDF special ignored!
-<special> color pop
-] (chapter25.aux)
+[13 <./figures/robotics-pic6-eps-converted-to.pdf>] [14]
+Package epstopdf Info: Source file: <figures/arena033.ps>
+(epstopdf)                    date: 2026-07-15 08:15:01
+(epstopdf)                    size: 52809 bytes
+(epstopdf)             Output file: <figures/arena033-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:15:10
+(epstopdf)                    size: 9932 bytes
+(epstopdf)             Command: <epstopdf figures/arena033.ps --outfile=figures
+/arena033-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 137.
+Package epstopdf Info: Output file is already uptodate.
+<figures/arena033-ps-converted-to.pdf, id=157, 578.16pt x 578.16pt>
+File: figures/arena033-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/arena033-ps-converted-to.pdf>
+Package pdftex.def Info: figures/arena033-ps-converted-to.pdf  used on input li
+ne 137.
+(pdftex.def)             Requested size: 578.15858pt x 578.15858pt.
+Package epstopdf Info: Source file: <figures/arena034.ps>
+(epstopdf)                    date: 2026-07-15 08:15:01
+(epstopdf)                    size: 55213 bytes
+(epstopdf)             Output file: <figures/arena034-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:15:12
+(epstopdf)                    size: 9828 bytes
+(epstopdf)             Command: <epstopdf figures/arena034.ps --outfile=figures
+/arena034-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 137.
+Package epstopdf Info: Output file is already uptodate.
+<figures/arena034-ps-converted-to.pdf, id=158, 578.16pt x 578.16pt>
+File: figures/arena034-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/arena034-ps-converted-to.pdf>
+Package pdftex.def Info: figures/arena034-ps-converted-to.pdf  used on input li
+ne 137.
+(pdftex.def)             Requested size: 578.15858pt x 578.15858pt.
+Package epstopdf Info: Source file: <figures/arena033.ps>
+(epstopdf)                    date: 2026-07-15 08:15:01
+(epstopdf)                    size: 52809 bytes
+(epstopdf)             Output file: <figures/arena033-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:15:10
+(epstopdf)                    size: 9932 bytes
+(epstopdf)             Command: <epstopdf figures/arena033.ps --outfile=figures
+/arena033-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 138.
+Package epstopdf Info: Output file is already uptodate.
+File: figures/arena033-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/arena033-ps-converted-to.pdf>
+Package pdftex.def Info: figures/arena033-ps-converted-to.pdf  used on input li
+ne 138.
+(pdftex.def)             Requested size: 578.15858pt x 578.15858pt.
+Package epstopdf Info: Source file: <figures/arena034.ps>
+(epstopdf)                    date: 2026-07-15 08:15:01
+(epstopdf)                    size: 55213 bytes
+(epstopdf)             Output file: <figures/arena034-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:15:12
+(epstopdf)                    size: 9828 bytes
+(epstopdf)             Command: <epstopdf figures/arena034.ps --outfile=figures
+/arena034-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 138.
+Package epstopdf Info: Output file is already uptodate.
+File: figures/arena034-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/arena034-ps-converted-to.pdf>
+Package pdftex.def Info: figures/arena034-ps-converted-to.pdf  used on input li
+ne 138.
+(pdftex.def)             Requested size: 578.15858pt x 578.15858pt.
+ [15]
+Overfull \vbox (108.4036pt too high) has occurred while \output is active []
+
+
+[16 <./figures/arena033-ps-converted-to.pdf> <./figures/arena034-ps-converted-t
+o.pdf>]
+Overfull \vbox (108.4036pt too high) has occurred while \output is active []
+
+
+[17]
+Package epstopdf Info: Source file: <figures/mine-robot.eps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 3671944 bytes
+(epstopdf)             Output file: <figures/mine-robot-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:15:18
+(epstopdf)                    size: 105079 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/mine-robot-eps-converted-to.pdf figures/mine-robot.eps>
+(epstopdf)             \includegraphics on input line 145.
+Package epstopdf Info: Output file is already uptodate.
+<figures/mine-robot-eps-converted-to.pdf, id=172, 189.70876pt x 121.45375pt>
+File: figures/mine-robot-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/mine-robot-eps-converted-to.pdf>
+Package pdftex.def Info: figures/mine-robot-eps-converted-to.pdf  used on input
+ line 145.
+(pdftex.def)             Requested size: 294.85896pt x 188.79247pt.
+Package epstopdf Info: Source file: <figures/mine-data.eps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 3273080 bytes
+(epstopdf)             Output file: <figures/mine-data-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:15:27
+(epstopdf)                    size: 214159 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/mine-data-eps-converted-to.pdf figures/mine-data.eps>
+(epstopdf)             \includegraphics on input line 145.
+Package epstopdf Info: Output file is already uptodate.
+<figures/mine-data-eps-converted-to.pdf, id=173, 189.70876pt x 121.45375pt>
+File: figures/mine-data-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/mine-data-eps-converted-to.pdf>
+Package pdftex.def Info: figures/mine-data-eps-converted-to.pdf  used on input 
+line 145.
+(pdftex.def)             Requested size: 189.70828pt x 121.45343pt.
+ [18 <./figures/mine-robot-eps-converted-to.pdf> <./figures/mine-data-eps-conve
+rted-to.pdf>]
+Package epstopdf Info: Source file: <figures/armExampleConfSpace.eps>
+(epstopdf)                    date: 2026-07-15 08:15:01
+(epstopdf)                    size: 1231254 bytes
+(epstopdf)             Output file: <figures/armExampleConfSpace-eps-converted-
+to.pdf>
+(epstopdf)                    date: 2026-07-16 17:15:34
+(epstopdf)                    size: 12386 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/armExampleConfSpace-eps-converted-to.pdf figures/armExampleConfSpace.eps>
+(epstopdf)             \includegraphics on input line 152.
+Package epstopdf Info: Output file is already uptodate.
+<figures/armExampleConfSpace-eps-converted-to.pdf, id=181, 206.7725pt x 200.75p
+t>
+File: figures/armExampleConfSpace-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/armExampleConfSpace-eps-converted-to.pdf>
+Package pdftex.def Info: figures/armExampleConfSpace-eps-converted-to.pdf  used
+ on input line 152.
+(pdftex.def)             Requested size: 206.77199pt x 200.7495pt.
+Package epstopdf Info: Source file: <figures/armExampleWorkSpace.eps>
+(epstopdf)                    date: 2026-07-15 08:15:01
+(epstopdf)                    size: 215185 bytes
+(epstopdf)             Output file: <figures/armExampleWorkSpace-eps-converted-
+to.pdf>
+(epstopdf)                    date: 2026-07-16 17:15:37
+(epstopdf)                    size: 5705 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/armExampleWorkSpace-eps-converted-to.pdf figures/armExampleWorkSpace.eps>
+(epstopdf)             \includegraphics on input line 154.
+Package epstopdf Info: Output file is already uptodate.
+<figures/armExampleWorkSpace-eps-converted-to.pdf, id=182, 184.69pt x 168.63pt>
+
+File: figures/armExampleWorkSpace-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/armExampleWorkSpace-eps-converted-to.pdf>
+Package pdftex.def Info: figures/armExampleWorkSpace-eps-converted-to.pdf  used
+ on input line 154.
+(pdftex.def)             Requested size: 184.68953pt x 168.62958pt.
+Package epstopdf Info: Source file: <figures/armExampleConfSpace.eps>
+(epstopdf)                    date: 2026-07-15 08:15:01
+(epstopdf)                    size: 1231254 bytes
+(epstopdf)             Output file: <figures/armExampleConfSpace-eps-converted-
+to.pdf>
+(epstopdf)                    date: 2026-07-16 17:15:34
+(epstopdf)                    size: 12386 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/armExampleConfSpace-eps-converted-to.pdf figures/armExampleConfSpace.eps>
+(epstopdf)             \includegraphics on input line 154.
+Package epstopdf Info: Output file is already uptodate.
+File: figures/armExampleConfSpace-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/armExampleConfSpace-eps-converted-to.pdf>
+Package pdftex.def Info: figures/armExampleConfSpace-eps-converted-to.pdf  used
+ on input line 154.
+(pdftex.def)             Requested size: 206.77199pt x 200.7495pt.
+ [19 <./figures/armExampleConfSpace-eps-converted-to.pdf>]
+[20 <./figures/armExampleWorkSpace-eps-converted-to.pdf>] [21]
+Package epstopdf Info: Source file: <figures/armDPwithoutPotentialWorkspaceCoar
+se.eps>
+(epstopdf)                    date: 2026-07-15 08:15:01
+(epstopdf)                    size: 510047 bytes
+(epstopdf)             Output file: <figures/armDPwithoutPotentialWorkspaceCoar
+se-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:15:41
+(epstopdf)                    size: 16386 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/armDPwithoutPotentialWorkspaceCoarse-eps-converted-to.pdf figures/armDPwithout
+PotentialWorkspaceCoarse.eps>
+(epstopdf)             \includegraphics on input line 178.
+Package epstopdf Info: Output file is already uptodate.
+<figures/armDPwithoutPotentialWorkspaceCoarse-eps-converted-to.pdf, id=212, 185
+.69376pt x 186.6975pt>
+File: figures/armDPwithoutPotentialWorkspaceCoarse-eps-converted-to.pdf Graphic
+ file (type pdf)
+<use figures/armDPwithoutPotentialWorkspaceCoarse-eps-converted-to.pdf>
+Package pdftex.def Info: figures/armDPwithoutPotentialWorkspaceCoarse-eps-conve
+rted-to.pdf  used on input line 178.
+(pdftex.def)             Requested size: 185.6933pt x 186.69704pt.
+Package epstopdf Info: Source file: <figures/armDPwithoutPotentialCoarse.eps>
+(epstopdf)                    date: 2026-07-15 08:15:01
+(epstopdf)                    size: 1360840 bytes
+(epstopdf)             Output file: <figures/armDPwithoutPotentialCoarse-eps-co
+nverted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:15:44
+(epstopdf)                    size: 9233 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/armDPwithoutPotentialCoarse-eps-converted-to.pdf figures/armDPwithoutPotential
+Coarse.eps>
+(epstopdf)             \includegraphics on input line 178.
+Package epstopdf Info: Output file is already uptodate.
+<figures/armDPwithoutPotentialCoarse-eps-converted-to.pdf, id=213, 190.7125pt x
+ 191.71625pt>
+File: figures/armDPwithoutPotentialCoarse-eps-converted-to.pdf Graphic file (ty
+pe pdf)
+<use figures/armDPwithoutPotentialCoarse-eps-converted-to.pdf>
+Package pdftex.def Info: figures/armDPwithoutPotentialCoarse-eps-converted-to.p
+df  used on input line 178.
+(pdftex.def)             Requested size: 190.71202pt x 191.71577pt.
+ [22 <./figures/armDPwithoutPotentialWorkspaceCoarse-eps-converted-to.pdf> <./f
+igures/armDPwithoutPotentialCoarse-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/armVoronoi.eps>
+(epstopdf)                    date: 2026-07-15 08:15:02
+(epstopdf)                    size: 1104756 bytes
+(epstopdf)             Output file: <figures/armVoronoi-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:15:47
+(epstopdf)                    size: 11785 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/armVoronoi-eps-converted-to.pdf figures/armVoronoi.eps>
+(epstopdf)             \includegraphics on input line 192.
+Package epstopdf Info: Output file is already uptodate.
+<figures/armVoronoi-eps-converted-to.pdf, id=227, 189.70876pt x 189.70876pt>
+File: figures/armVoronoi-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/armVoronoi-eps-converted-to.pdf>
+Package pdftex.def Info: figures/armVoronoi-eps-converted-to.pdf  used on input
+ line 192.
+(pdftex.def)             Requested size: 270.29129pt x 270.3204pt.
+ [23 <./figures/armVoronoi-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/armRoadmap.eps>
+(epstopdf)                    date: 2026-07-15 08:15:01
+(epstopdf)                    size: 1132085 bytes
+(epstopdf)             Output file: <figures/armRoadmap-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:15:50
+(epstopdf)                    size: 30141 bytes
+(epstopdf)             Command: <miktex-epstopdf-unrestricted --outfile=figures
+/armRoadmap-eps-converted-to.pdf figures/armRoadmap.eps>
+(epstopdf)             \includegraphics on input line 206.
+Package epstopdf Info: Output file is already uptodate.
+<figures/armRoadmap-eps-converted-to.pdf, id=233, 189.70876pt x 189.70876pt>
+File: figures/armRoadmap-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/armRoadmap-eps-converted-to.pdf>
+Package pdftex.def Info: figures/armRoadmap-eps-converted-to.pdf  used on input
+ line 206.
+(pdftex.def)             Requested size: 270.29129pt x 270.3204pt.
+ [24 <./figures/armRoadmap-eps-converted-to.pdf>] [25] [26] [27]
+[28]
+Package epstopdf Info: Source file: <figures/arm-setup.ps>
+(epstopdf)                    date: 2026-07-15 08:15:01
+(epstopdf)                    size: 12778 bytes
+(epstopdf)             Output file: <figures/arm-setup-ps-converted-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:15:52
+(epstopdf)                    size: 4425 bytes
+(epstopdf)             Command: <epstopdf figures/arm-setup.ps --outfile=figure
+s/arm-setup-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 259.
+Package epstopdf Info: Output file is already uptodate.
+<figures/arm-setup-ps-converted-to.pdf, id=253, 382.42876pt x 215.80624pt>
+File: figures/arm-setup-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/arm-setup-ps-converted-to.pdf>
+Package pdftex.def Info: figures/arm-setup-ps-converted-to.pdf  used on input l
+ine 259.
+(pdftex.def)             Requested size: 425.80563pt x 240.29526pt.
+ [29 <./figures/arm-setup-ps-converted-to.pdf>] [30]
+Package epstopdf Info: Source file: <figures/control-noise-distort.ps>
+(epstopdf)                    date: 2026-07-15 08:15:02
+(epstopdf)                    size: 17749 bytes
+(epstopdf)             Output file: <figures/control-noise-distort-ps-converted
+-to.pdf>
+(epstopdf)                    date: 2026-07-16 17:15:54
+(epstopdf)                    size: 3589 bytes
+(epstopdf)             Command: <epstopdf figures/control-noise-distort.ps --ou
+tfile=figures/control-noise-distort-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 297.
+Package epstopdf Info: Output file is already uptodate.
+<figures/control-noise-distort-ps-converted-to.pdf, id=266, 293.095pt x 115.431
+24pt>
+File: figures/control-noise-distort-ps-converted-to.pdf Graphic file (type pdf)
+
+<use figures/control-noise-distort-ps-converted-to.pdf>
+Package pdftex.def Info: figures/control-noise-distort-ps-converted-to.pdf  use
+d on input line 297.
+(pdftex.def)             Requested size: 425.80563pt x 167.69685pt.
+ [31 <./figures/control-noise-distort-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/progress3-theta.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 16329 bytes
+(epstopdf)             Output file: <figures/progress3-theta-ps-converted-to.pd
+f>
+(epstopdf)                    date: 2026-07-16 17:15:56
+(epstopdf)                    size: 11058 bytes
+(epstopdf)             Command: <epstopdf figures/progress3-theta.ps --outfile=
+figures/progress3-theta-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 306.
+Package epstopdf Info: Output file is already uptodate.
+<figures/progress3-theta-ps-converted-to.pdf, id=275, 505.89pt x 361.35pt>
+File: figures/progress3-theta-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/progress3-theta-ps-converted-to.pdf>
+Package pdftex.def Info: figures/progress3-theta-ps-converted-to.pdf  used on i
+nput line 306.
+(pdftex.def)             Requested size: 460.72124pt x 329.09367pt.
+ [32 <./figures/progress3-theta-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/progress3-theta-zoom.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 13111 bytes
+(epstopdf)             Output file: <figures/progress3-theta-zoom-ps-converted-
+to.pdf>
+(epstopdf)                    date: 2026-07-16 17:15:58
+(epstopdf)                    size: 7685 bytes
+(epstopdf)             Command: <epstopdf figures/progress3-theta-zoom.ps --out
+file=figures/progress3-theta-zoom-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 314.
+Package epstopdf Info: Output file is already uptodate.
+<figures/progress3-theta-zoom-ps-converted-to.pdf, id=284, 505.89pt x 361.35pt>
+
+File: figures/progress3-theta-zoom-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/progress3-theta-zoom-ps-converted-to.pdf>
+Package pdftex.def Info: figures/progress3-theta-zoom-ps-converted-to.pdf  used
+ on input line 314.
+(pdftex.def)             Requested size: 460.72124pt x 329.09367pt.
+ [33 <./figures/progress3-theta-zoom-ps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/progress3-score.ps>
+(epstopdf)                    date: 2026-07-15 08:15:05
+(epstopdf)                    size: 16052 bytes
+(epstopdf)             Output file: <figures/progress3-score-ps-converted-to.pd
+f>
+(epstopdf)                    date: 2026-07-16 17:16:00
+(epstopdf)                    size: 10693 bytes
+(epstopdf)             Command: <epstopdf figures/progress3-score.ps --outfile=
+figures/progress3-score-ps-converted-to.pdf>
+(epstopdf)             \includegraphics on input line 324.
+Package epstopdf Info: Output file is already uptodate.
+<figures/progress3-score-ps-converted-to.pdf, id=293, 505.89pt x 361.35pt>
+File: figures/progress3-score-ps-converted-to.pdf Graphic file (type pdf)
+<use figures/progress3-score-ps-converted-to.pdf>
+Package pdftex.def Info: figures/progress3-score-ps-converted-to.pdf  used on i
+nput line 324.
+(pdftex.def)             Requested size: 460.72124pt x 329.09367pt.
+ [34 <./figures/progress3-score-ps-converted-to.pdf>] [35] (chapter25.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 1800 strings out of 467870
- 25715 string characters out of 5418355
- 439733 words of memory out of 5000000
- 30673 multiletter control sequences out of 15000+600000
+ 3183 strings out of 467870
+ 55776 string characters out of 5418355
+ 444208 words of memory out of 5000000
+ 32028 multiletter control sequences out of 15000+600000
  640199 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,7n,65p,220b,302s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,7n,79p,240b,291s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmex10.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmmi12.pfb><C:/Users/thanh/AppData/Local/Programs/MiKTeX/fonts/type1/p
@@ -758,9 +1018,9 @@ grams/MiKTeX/fonts/type1/vntex/vnr/vnr8.pfb><C:/Users/thanh/AppData/Local/Progr
 ams/MiKTeX/fonts/type1/vntex/vnr/vnss17.pfb><C:/Users/thanh/AppData/Local/Progr
 ams/MiKTeX/fonts/type1/vntex/vnr/vnssbx10.pfb><C:/Users/thanh/AppData/Local/Pro
 grams/MiKTeX/fonts/type1/vntex/vnr/vnssi17.pfb>
-Output written on chapter25.pdf (32 pages, 167780 bytes).
+Output written on chapter25.pdf (35 pages, 4934547 bytes).
 PDF statistics:
- 160 PDF objects out of 1000 (max. 8388607)
+ 351 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 141 words of extra memory for PDF output out of 10000 (max. 10000000)
 

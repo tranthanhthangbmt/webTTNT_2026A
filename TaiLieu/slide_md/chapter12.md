@@ -1,6 +1,6 @@
 \usepackage{fleqn}
 \usepackage{epsf}
-\usepackage[dvips]{color}
+\usepackage{color}
 \usepackage{aima2e-slides}
 
 \newcommand{\condstep}[3]{\mbf{if} #1 \mbf{then} #2 \mbf{else} #3}
@@ -23,10 +23,8 @@
 ---
 ## Thế giới thực
 
-,5\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/flat-tire-picture.png)
 
-,8\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/flat-tire-model.png)
 
 ---
@@ -90,7 +88,6 @@
 
 Tìm kiếm trong không gian của \txb{trạng thái niềm tin} (tập hợp các trạng thái thực tế có thể có)
 
-,65\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/vacuum2-sets.png)
 
 ---
@@ -133,7 +130,6 @@ Double Murphy: hút hoặc đến có thể làm bẩn một hình vuông sạch
 
 Triple Murphy: đôi khi cũng đứng yên thay vì di chuyển
 
-,8\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/vacuum-loop-plan.png)
 
 $[L_1:\ Left, \condstep{AtR}{L_1}{[\condstep{CleanL}{\noplan}{Suck}]}]$
@@ -164,32 +160,32 @@ IPEM (Lập kế hoạch, thực thi và giám sát tích hợp):
 ---
 ## Ví dụ
 
-\centerline{\raisebox{-0.9\textheight[0pt][0pt]{\epsfysize=0.95\textheight![Hình ảnh](../TaiLieu/slide_md/figures/plan-preconditions1.png)}
+\centerline{\raisebox{-0.9\textheight}[0pt][0pt]{\epsfysize=0.95\textheight![Hình ảnh](../TaiLieu/slide_md/figures/plan-preconditions1.png)}
 
 ---
 ## Ví dụ
 
-\centerline{\raisebox{-0.9\textheight[0pt][0pt]{\epsfysize=0.95\textheight![Hình ảnh](../TaiLieu/slide_md/figures/plan-preconditions2.png)}
+\centerline{\raisebox{-0.9\textheight}[0pt][0pt]{\epsfysize=0.95\textheight![Hình ảnh](../TaiLieu/slide_md/figures/plan-preconditions2.png)}
 
 ---
 ## Ví dụ
 
-\centerline{\raisebox{-0.9\textheight[0pt][0pt]{\epsfysize=0.95\textheight![Hình ảnh](../TaiLieu/slide_md/figures/plan-preconditions3.png)}
+\centerline{\raisebox{-0.9\textheight}[0pt][0pt]{\epsfysize=0.95\textheight![Hình ảnh](../TaiLieu/slide_md/figures/plan-preconditions3.png)}
 
 ---
 ## Ví dụ
 
-\centerline{\raisebox{-0.9\textheight[0pt][0pt]{\epsfysize=0.95\textheight![Hình ảnh](../TaiLieu/slide_md/figures/plan-preconditions4.png)}
+\centerline{\raisebox{-0.9\textheight}[0pt][0pt]{\epsfysize=0.95\textheight![Hình ảnh](../TaiLieu/slide_md/figures/plan-preconditions4.png)}
 
 ---
 ## Ví dụ
 
-\centerline{\raisebox{-0.9\textheight[0pt][0pt]{\epsfysize=0.95\textheight![Hình ảnh](../TaiLieu/slide_md/figures/plan-preconditions5.png)}
+\centerline{\raisebox{-0.9\textheight}[0pt][0pt]{\epsfysize=0.95\textheight![Hình ảnh](../TaiLieu/slide_md/figures/plan-preconditions5.png)}
 
 ---
 ## Ví dụ
 
-\centerline{\raisebox{-0.9\textheight[0pt][0pt]{\epsfysize=0.95\textheight![Hình ảnh](../TaiLieu/slide_md/figures/plan-preconditions6.png)}
+\centerline{\raisebox{-0.9\textheight}[0pt][0pt]{\epsfysize=0.95\textheight![Hình ảnh](../TaiLieu/slide_md/figures/plan-preconditions6.png)}
 
 ---
 ## Hành vi mới nổi 

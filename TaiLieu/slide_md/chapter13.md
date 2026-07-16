@@ -209,7 +209,6 @@ phải có xác suất liên quan
 
 Ví dụ: \mat{$P(a \lor b) = P(a) + P(b) - P(a\land b)$}
 
-,45\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/axiom3-venn.png)
 
 de Finetti (1931): một đại lý đặt cược theo xác suất vi phạm
@@ -277,7 +276,6 @@ Phân phối nhanh dưới dạng hàm tham số của giá trị:
   
 \mat{$P(X\eq x) = U[18,26](x)$} = mật độ đồng đều giữa \mat{$18$} và \mat{$26$}
 
-,65\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/uniform-density.png)
 
 Ở đây \mat{$P$} là \defn{mật độ}; tích phân thành 1.
@@ -292,7 +290,6 @@ Phân phối nhanh dưới dạng hàm tham số của giá trị:
 
 \mat{$P(x) = \frac{1}{\sqrt{2\pi} \sigma} e^{-(x-\mu)^2/2\sigma^2}$}
 
-,65\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/gaussian-density.png)
 
 ---
@@ -360,7 +357,6 @@ Phiên bản chung áp dụng cho toàn bộ bản phân phối, ví dụ:
 
 Bắt đầu với việc phân phối chung:
 
-,65\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/dentist-joint.png)
 
 Đối với bất kỳ mệnh đề nào \mat{$\phi$}, hãy tính tổng các sự kiện nguyên tử trong đó nó đúng:
@@ -372,7 +368,6 @@ Bắt đầu với việc phân phối chung:
 
 Bắt đầu với việc phân phối chung:
 
-,65\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/dentist-joint1.png)
 
 Đối với bất kỳ mệnh đề nào \mat{$\phi$}, hãy tính tổng các sự kiện nguyên tử trong đó nó đúng:
@@ -386,7 +381,6 @@ Bắt đầu với việc phân phối chung:
 
 Bắt đầu với việc phân phối chung:
 
-,65\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/dentist-joint2.png)
 
 Đối với bất kỳ mệnh đề nào \mat{$\phi$}, hãy tính tổng các sự kiện nguyên tử trong đó nó đúng:
@@ -401,7 +395,6 @@ Bắt đầu với việc phân phối chung:
 
 Bắt đầu với việc phân phối chung:
 
-,65\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/dentist-joint3.png)
 
 Cũng có thể tính xác suất có điều kiện:
@@ -415,7 +408,6 @@ P(\lnot cavity|toothache)
 ---
 ## Chuẩn hóa
 
-,65\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/dentist-joint4.png)
 
 Mẫu số có thể được xem dưới dạng hằng số chuẩn hóa \note{} \mat{$
@@ -473,7 +465,6 @@ Vấn đề rõ ràng:
 
 \mat{$P(A|B) \eq P(A)$}  &nbsp;&nbsp;  hoặc  &nbsp;&nbsp;  \mat{$P(B|A) \eq P(B)$}  &nbsp;&nbsp;  hoặc  &nbsp;&nbsp;  \mat{$P(A, B) \eq P(A)P(B)$}
 
-,75\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/weather-independence.png)
 
 \mat{$P(Toothache,Catch,Cavity,Weather)$}
@@ -575,7 +566,6 @@ Lưu ý: khả năng mắc bệnh viêm màng não sau này vẫn rất nhỏ!
        P(Cause)\myprod_i P(Effect_i|Cause)
 \]}
 
-,75\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/naive-bayes.png)
 
 Tổng số tham số là *tuyến tính* trong \mat{$n$}
@@ -583,7 +573,6 @@ Tổng số tham số là *tuyến tính* trong \mat{$n$}
 ---
 ## Thế giới Wumpus
 
-,35\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-stuck.png)
 
 \mat{$P_{ij}\eq true$} iff [\mat{$i,j$}] chứa một cái hố
@@ -635,7 +624,6 @@ Phát triển theo cấp số nhân với số lượng hình vuông!
 Cái nhìn sâu sắc cơ bản: các quan sát độc lập có điều kiện với
 các ô vuông ẩn khác cho các ô vuông ẩn lân cận
 
-,35\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-variables.png)
 
 Xác định \mat{$Unknown = Fringe \cup Other$}

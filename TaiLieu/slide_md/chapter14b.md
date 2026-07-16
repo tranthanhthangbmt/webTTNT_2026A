@@ -43,7 +43,7 @@
 Cách hơi thông minh để tính tổng các biến từ khớp
 mà không thực sự xây dựng sự biểu diễn rõ ràng của nó
 
-Truy vấn đơn giản trên mạng trộm:\hspace*{2.5in}in\raisebox{-1.5in[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/burglary-small.png)
+Truy vấn đơn giản trên mạng trộm:\hspace*{2.5in}in\raisebox{-1.5in}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/burglary-small.png)
 
 \mat{$P(B|j,m)$}
 
@@ -177,7 +177,7 @@ function Elimination-Ask(\v{X), \e, \v{bn}}{a distribution over \v{X}}
 ---
 ## Các biến không liên quan
 
-Hãy xem xét truy vấn \mat{$P(JohnCalls|Burglary\eq true)$}\hspace*{1.0in}in\raisebox{-1.5in[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/burglary-small.png)}
+Hãy xem xét truy vấn \mat{$P(JohnCalls|Burglary\eq true)$}\hspace*{1.0in}in\raisebox{-1.5in}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/burglary-small.png)}
 \mat{\[
   P(J|b) = 
   pha P(b) \sum_e P(e) \sum_a P(a|b,e) P(J|a) \sum_m P(m|a)
@@ -201,7 +201,7 @@ Defn: \underline{biểu đồ đạo đức} của Bayes net: kết hôn với t
 
 Định nghĩa: \mat{$\A$} được phân tách bằng \underline{m} khỏi \mat{$\B$} bởi \mat{$\C$} nếu được phân tách bằng \mat{$\C$} trong biểu đồ đạo đức
 
-Thm 2: \mat{$Y$} không liên quan nếu m được phân tách khỏi \mat{$X$} bởi \mat{$\E$}\hspace*{1.0in}in\raisebox{-1.5in[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/burglary-moral.png)}
+Thm 2: \mat{$Y$} không liên quan nếu m được phân tách khỏi \mat{$X$} bởi \mat{$\E$}\hspace*{1.0in}in\raisebox{-1.5in}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/burglary-moral.png)}
 
 Đối với \mat{$P(JohnCalls|Alarm\eq true)$}, cả 
 
@@ -222,7 +222,6 @@ Thm 2: \mat{$Y$} không liên quan nếu m được phân tách khỏi \mat{$X$}
   
   -- tương đương với *đếm* kiểu 3SAT \mat{$\implies$} \#P-complete
 
-,75\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/bn-3sat.png)
 
 ---
@@ -230,7 +229,7 @@ Thm 2: \mat{$Y$} không liên quan nếu m được phân tách khỏi \mat{$X$}
 
 Ý tưởng cơ bản:
   
-  1) Vẽ \mat{$N$} mẫu từ phân phối lấy mẫu \mat{$S$}\hspace*{1.5in}in\raisebox{-1.5in[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/coin-flip.png)
+  1) Vẽ \mat{$N$} mẫu từ phân phối lấy mẫu \mat{$S$}\hspace*{1.5in}in\raisebox{-1.5in}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/coin-flip.png)
   
   2) Tính xác suất hậu nghiệm gần đúng \mat{$\hat P$}
   
@@ -265,43 +264,36 @@ function Prior-Sample(\v{bn)}{an event sampled from \v{bn}}
 ---
 ## Ví dụ
 
-,85\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/rain-prior-sample1.png)
 
 ---
 ## Ví dụ
 
-,85\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/rain-prior-sample2.png)
 
 ---
 ## Ví dụ
 
-,85\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/rain-prior-sample3.png)
 
 ---
 ## Ví dụ
 
-,85\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/rain-prior-sample4.png)
 
 ---
 ## Ví dụ
 
-,85\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/rain-prior-sample5.png)
 
 ---
 ## Ví dụ
 
-,85\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/rain-prior-sample6.png)
 
 ---
 ## Ví dụ
 
-,85\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/rain-prior-sample7.png)
 
 ---
@@ -410,7 +402,6 @@ function Weighted-Sample(\v{bn), \v{\e}}{an event and a weight}
 ---
 ## Ví dụ về trọng số khả năng
 
-,7\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/rain-lw-sample1.png)
 
 \mat{$w = 1.0$}
@@ -418,7 +409,6 @@ function Weighted-Sample(\v{bn), \v{\e}}{an event and a weight}
 ---
 ## Ví dụ về trọng số khả năng
 
-,7\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/rain-lw-sample2.png)
 
 \mat{$w = 1.0$}
@@ -426,7 +416,6 @@ function Weighted-Sample(\v{bn), \v{\e}}{an event and a weight}
 ---
 ## Ví dụ về trọng số khả năng
 
-,7\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/rain-lw-sample3.png)
 
 \mat{$w = 1.0$}
@@ -434,7 +423,6 @@ function Weighted-Sample(\v{bn), \v{\e}}{an event and a weight}
 ---
 ## Ví dụ về trọng số khả năng
 
-,7\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/rain-lw-sample3.png)
 
 \mat{$w = 1.0 \stimes 0.1$}
@@ -442,7 +430,6 @@ function Weighted-Sample(\v{bn), \v{\e}}{an event and a weight}
 ---
 ## Ví dụ về trọng số khả năng
 
-,7\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/rain-lw-sample4.png)
 
 \mat{$w = 1.0 \stimes 0.1$}
@@ -450,7 +437,6 @@ function Weighted-Sample(\v{bn), \v{\e}}{an event and a weight}
 ---
 ## Ví dụ về trọng số khả năng
 
-,7\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/rain-lw-sample5.png)
 
 \mat{$w = 1.0 \stimes 0.1$}
@@ -458,7 +444,6 @@ function Weighted-Sample(\v{bn), \v{\e}}{an event and a weight}
 ---
 ## Ví dụ về trọng số khả năng
 
-,7\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/rain-lw-sample5.png)
 
 \mat{$w = 1.0 \stimes 0.1 \stimes 0.99 = 0.099$}
@@ -470,7 +455,7 @@ Xác suất lấy mẫu cho \prog{WeightedSample} là
   
   \mat{$S_{WS}(\mbf{z},\e) = \myprod_{i\eq 1}^l P(z_i|\parents(Z_i))$}
 
-Lưu ý: chỉ chú ý đến bằng chứng trong *tổ tiên*\hspace*{0.3in}in\raisebox{-1.3in[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/rain-lw2.png)
+Lưu ý: chỉ chú ý đến bằng chứng trong *tổ tiên*\hspace*{0.3in}in\raisebox{-1.3in}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/rain-lw2.png)
     
     \mat{$\implies$} đâu đó "ở giữa" trước và
     
@@ -526,7 +511,6 @@ Cũng có thể chọn một biến để lấy mẫu ngẫu nhiên mỗi lần
 
 Với \mat{$Sprinkler\eq true,WetGrass\eq true$}, có bốn trạng thái:
 
-,7\textwidth
 ![Hình ảnh](../TaiLieu/slide_md/figures/rain-chain.png)
 
 Đi loanh quanh một lúc, tính trung bình những gì bạn nhìn thấy
@@ -557,7 +541,7 @@ tỷ lệ thuận với xác suất sau của nó
 ---
 ## Lấy mẫu chăn Markov
 
-Chăn Markov của \mat{$Cloudy$} là\hspace*{2.3in}in\raisebox{-1.3in[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/rain-lw1.png)
+Chăn Markov của \mat{$Cloudy$} là\hspace*{2.3in}in\raisebox{-1.3in}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/rain-lw1.png)
     
     \mat{$Sprinkler$} và \mat{$Rain$}
 
