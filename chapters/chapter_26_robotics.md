@@ -4,7 +4,7 @@
 
 #### **Tiếng Việt**
 <div class="pdf-container">
-  <iframe src="TaiLieu/ebooks_Chapters_Vi3/Chapter_26_Robotics.pdf" width="100%" height="100%"></iframe>
+  <iframe src="TaiLieu/ebooks_Chapters_Vi3/Chapter_26_Robotics/chapter_26_vi.html?v=1" width="100%" height="100%"></iframe>
 </div>
 
 #### **Tiếng Anh**

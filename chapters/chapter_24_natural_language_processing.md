@@ -4,7 +4,7 @@
 
 #### **Tiếng Việt**
 <div class="pdf-container">
-  <iframe src="TaiLieu/ebooks_Chapters_Vi3/Chapter_24_Natural%20Language%20Processing.pdf" width="100%" height="100%"></iframe>
+  <iframe src="TaiLieu/ebooks_Chapters_Vi3/Chapter_24_Natural%20Language%20Processing/chapter_24_vi.html?v=1" width="100%" height="100%"></iframe>
 </div>
 
 #### **Tiếng Anh**

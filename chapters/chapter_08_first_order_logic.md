@@ -15,7 +15,7 @@
 #### **Slide**
 
 <div class="pdf-container" style="margin-bottom: 20px;">
-  <iframe src="TaiLieu/slide/chapter08.pdf" width="100%" height="100%"></iframe>
+  <iframe src="TaiLieu/slide_4th/Chapter08_4th.pdf" width="100%" height="100%"></iframe>
 </div>
 
 

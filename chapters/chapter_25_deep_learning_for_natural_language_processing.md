@@ -4,7 +4,7 @@
 
 #### **Tiếng Việt**
 <div class="pdf-container">
-  <iframe src="TaiLieu/ebooks_Chapters_Vi3/Chapter_25_Deep%20learning%20for%20natural%20language%20processing.pdf" width="100%" height="100%"></iframe>
+  <iframe src="TaiLieu/ebooks_Chapters_Vi3/Chapter_25_Deep%20learning%20for%20natural%20language%20processing/chapter_25_vi.html" width="100%" height="100%"></iframe>
 </div>
 
 #### **Tiếng Anh**

@@ -4,7 +4,7 @@
 
 #### **Tiếng Việt**
 <div class="pdf-container">
-  <iframe src="TaiLieu/ebooks_Chapters_Vi3/Chapter_28_Philosophy%2C%20ethics%2C%20and%20safety%20of%20AI.pdf" width="100%" height="100%"></iframe>
+  <iframe src="TaiLieu/ebooks_Chapters_Vi3/Chapter_28_Philosophy, ethics, and safety of AI/chapter_28_vi.html" width="100%" height="100%"></iframe>
 </div>
 
 #### **Tiếng Anh**

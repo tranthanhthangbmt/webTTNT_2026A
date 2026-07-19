@@ -4,7 +4,7 @@
 
 #### **Tiếng Việt**
 <div class="pdf-container">
-  <iframe src="TaiLieu/ebooks_Chapters_Vi3/Chapter_27_Computer%20Vision.pdf" width="100%" height="100%"></iframe>
+  <iframe src="TaiLieu/ebooks_Chapters_Vi3/Chapter_27_Computer%20Vision/chapter_27_vi.html" width="100%" height="100%"></iframe>
 </div>
 
 #### **Tiếng Anh**
