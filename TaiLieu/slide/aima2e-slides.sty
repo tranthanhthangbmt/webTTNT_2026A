@@ -45,11 +45,11 @@
 }
 
 \def\noheading{%
-\newpage\noindent\rule{0pt}{1.1\baselineskip}}
+\clearpage\noindent\rule{0pt}{1.1\baselineskip}}
 
-\def\heading#1{\newpage\noindent\fbox{\fbox{\makebox[\headingwidth]{\rule[-1.5\fboxsep]{0em}{1em}\headingfont #1}}}\par\medskip}
+\def\heading#1{\clearpage\noindent\fbox{\fbox{\makebox[\headingwidth]{\rule[-1.5\fboxsep]{0em}{1em}\headingfont #1}}}\par\medskip}
 
-\def\phantomheading#1{\newpage\noindent\phantom{\fbox{\fbox{\makebox[\headingwidth]{\rule[-1.5\fboxsep]{0em}{1em}\headingfont #1}}}}\par\medskip}
+\def\phantomheading#1{\clearpage\noindent\phantom{\fbox{\fbox{\makebox[\headingwidth]{\rule[-1.5\fboxsep]{0em}{1em}\headingfont #1}}}}\par\medskip}
 
 %%%%%%% Useful formatting commands for lines of text etc.
 
