@@ -1,0 +1,282 @@
+962
+Chapter 26
+Robotics
+In this section, we are looking more directly at the underlying MDP the robot works
+in. We’re switching from the familiar discrete MDPs to continuous ones. We will denote
+our dynamic state of the world by x, as is common practice—the equivalent of s in discrete
+MDPs. Let xs and xg be the starting and goal states.
+We want to ﬁnd a sequence of actions that, when executed by the robot, result in state-
+action pairs with low cumulative cost. The actions are torques which we denote with u(t)
+for t starting at 0 and ending at T. Formally, we want to ﬁnd the sequence of torques u that
+minimize a cumulative cost J:
+min
+u
+R T
+0 J(x(t),u(t))dt
+(26.7)
+subject to the constraints
+∀t, ˙x(t) = f(x(t),u(t))
+x(0) = xs, x(T) = xg .
+How is this connected to motion planning and trajectory tracking control? Well, imagine
+we take the notion of efﬁciency and clearance away from the obstacles and put it into the cost
+function J, just as we did before in trajectory optimization over kinematic state. The dynamic
+state is the conﬁguration and velocity, and torques u change it via the dynamics f from open-
+loop trajectory tracking. The difference is that now we’re thinking about the conﬁgurations
+and the torques at the same time. Sometimes, we might want to treat collision avoidance as a
+hard constraint as well, something we’ve also mentioned before when we looked at trajectory
+optimization for the kinematic state only.
+To solve this optimization problem, we can take gradients of J—not with respect to the
+sequence τ of conﬁgurations anymore, but directly with respect to the controls u. It is some-
+times helpful to include the state sequence x as a decision variable too, and use the dynamics
+constraints to ensure that x and u are consistent. There are various trajectory optimization
+techniques using this approach; two of them go by the names multiple shooting and direct
+collocation. None of these techniques will ﬁnd the global optimal solution, but in practice
+they can effectively make humanoid robots walk and make autonomous cars drive.
+Magic happens when in the problem above, J is quadratic and f is linear in x and u. We
+want to minimize
+min
+Z ∞
+0 xTQx+uTRudt
+subject to
+∀t, ˙x(t) = Ax(t)+Bu(t).
+We can optimize over an inﬁnite horizon rather than a ﬁnite one, and we obtain a policy
+from any state rather than just a sequence of controls. Q and R need to be positive deﬁnite
+matrices for this to work. This gives us the linear quadratic regulator (LQR). With LQR,
+Linear quadratic
+regulator (LQR)
+the optimal value function (called cost to go) is quadratic, and the optimal policy is linear.
+The policy looks like u = −Kx, where ﬁnding the matrix K requires solving an algebraic
+Riccati equation—no local optimization, no value iteration, no policy iteration are needed!
+Riccati equation
+Because of the ease of ﬁnding the optimal policy, LQR ﬁnds many uses in practice de-
+spite the fact that real problems seldom actually have quadratic costs and linear dynamics. A
+really useful method is called iterative LQR (ILQR), which works by starting with a solu-
+Iterative LQR
+(ILQR)
+tion and then iteratively computing a linear approximation of the dynamics and a quadratic
+approximation of the cost around it, then solving the resulting LQR system to arrive at a new
+solution. Variants of LQR are also often used for trajectory tracking.
+
+
+Section 26.6
+Planning Uncertain Movements
+963
+26.6 Planning Uncertain Movements
+In robotics, uncertainty arises from partial observability of the environment and from the
+stochastic (or unmodeled) effects of the robot’s actions. Errors can also arise from the use
+of approximation algorithms such as particle ﬁltering, which does not give the robot an exact
+belief state even if the environment is modeled perfectly.
+The majority of today’s robots use deterministic algorithms for decision making, such
+as the path-planning algorithms of the previous section, or the search algorithms that were
+introduced in Chapter 3. These deterministic algorithms are adapted in two ways: ﬁrst, they
+deal with the continuous state space by turning it into a discrete space (for example with
+visibility graphs or cell decomposition). Second, they deal with uncertainty in the current
+state by choosing the most likely state from the probability distribution produced by the
+Most likely state
+state estimation algorithm. That approach makes the computation faster and makes a better
+ﬁt for the deterministic search algorithms. In this section we discuss methods for dealing with
+uncertainty that are analogous to the more complex search algorithms covered in Chapter 4.
+First, instead of deterministic plans, uncertainty calls for policies. We already discussed
+how trajectory tracking control turns a plan into a policy to compensate for errors in dynamics.
+Sometimes though, if the most likely hypothesis changes enough, tracking the plan designed
+for a different hypothesis is too suboptimal. This is where online replanning comes in: we
+Online replanning
+can recompute a new plan based on the new belief. Many robots today use a technique called
+model predictive control (MPC), where they plan for a shorter time horizon, but replan
+Model predictive
+control (MPC)
+at every time step. (MPC is therefore closely related to real-time search and game-playing
+algorithms.) This effectively results in a policy: at every step, we run a planner and take the
+ﬁrst action in the plan; if new information comes along, or we end up not where we expected,
+that’s OK, because we are going to replan anyway and that will tell us what to do next.
+Second, uncertainty calls for information gathering actions. When we consider only the
+information we have and make a plan based on it (this is called separating estimation from
+control), we are effectively solving (approximately) a new MDP at every step, corresponding
+to our current belief about where we are or how the world works. But in reality, uncertainty is
+better captured by the POMDP framework: there is something we don’t directly observe, be
+it the robot’s location or conﬁguration, the location of objects in the world, or the parameters
+of the dynamics model itself—for example, where exactly is the center of mass of link two
+on this arm?
+What we lose when we don’t solve the POMDP is the ability to reason about future
+information the robot will get: in MDPs we only plan with what we know, not with what we
+might eventually know. Remember the value of information? Well, robots that plan using
+their current belief as if they will never ﬁnd out anything more fail to account for the value of
+information. They will never take actions that seem suboptimal right now according to what
+they know, but that will actually result in a lot of information and enable the robot to do well.
+What does such an action look like for a navigation robot? The robot could get close
+to a landmark to get a better estimate of where it is, even if that landmark is out of the way
+according to what it currently knows. This action is optimal only if the robot considers the
+new observations it will get, as opposed to looking only at the information it already has.
+To get around this, robotics techniques sometimes deﬁne information gathering actions
+explicitly—such as moving a hand until it touches a surface (called guarded movements)—
+Guarded movement
+
+
+964
+Chapter 26
+Robotics
+v
+Cv
+motion
+envelope
+initial
+configuration
+Figure 26.23 A two-dimensional environment, velocity uncertainty cone, and envelope of
+possible robot motions. The intended velocity is v, but with uncertainty the actual velocity
+could be anywhere in Cv, resulting in a ﬁnal conﬁguration somewhere in the motion envelope,
+which means we wouldn’t know if we hit the hole or not.
+and make sure the robot does that before coming up with a plan for reaching its actual goal.
+Each guarded motion consists of (1) a motion command and (2) a termination condition,
+which is a predicate on the robot’s sensor values saying when to stop.
+Sometimes, the goal itself could be reached via a sequence of guarded moves guaranteed
+to succeed regardless of uncertainty. As an example, Figure 26.23 shows a two-dimensional
+conﬁguration space with a narrow vertical hole. It could be the conﬁguration space for inser-
+tion of a rectangular peg into a hole or a car key into the ignition. The motion commands are
+constant velocities. The termination conditions are contact with a surface. To model uncer-
+tainty in control, we assume that instead of moving in the commanded direction, the robot’s
+actual motion lies in the cone Cv about it.
+The ﬁgure shows what would happen if the robot attempted to move straight down from
+the initial conﬁguration. Because of the uncertainty in velocity, the robot could move any-
+where in the conical envelope, possibly going into the hole, but more likely landing to one
+side of it. Because the robot would not then know which side of the hole it was on, it would
+not know which way to move.
+A more sensible strategy is shown in Figures 26.24 and 26.25. In Figure 26.24, the robot
+deliberately moves to one side of the hole. The motion command is shown in the ﬁgure,
+and the termination test is contact with any surface. In Figure 26.25, a motion command is
+given that causes the robot to slide along the surface and into the hole. Because all possible
+velocities in the motion envelope are to the right, the robot will slide to the right whenever it
+is in contact with a horizontal surface.
+It will slide down the right-hand vertical edge of the hole when it touches it, because
+all possible velocities are down relative to a vertical surface. It will keep moving until it
+reaches the bottom of the hole, because that is its termination condition. In spite of the
+control uncertainty, all possible trajectories of the robot terminate in contact with the bottom
+of the hole—that is, unless surface irregularities cause the robot to stick in one place.
+Other techniques beyond guarded movements change the cost function to incentivize ac-
+tions we know will lead to information—like the coastal navigation heuristic which requires
+Coastal navigation
+the robot to stay near known landmarks. More generally, techniques can incorporate the ex-
+pected information gain (reduction of entropy of the belief) as a term in the cost function,
+
+
+Section 26.7
+Reinforcement Learning in Robotics
+965
+v
+Cv
+motion
+envelope
+initial
+conﬁguration
+Figure 26.24 The ﬁrst motion command and the resulting envelope of possible robot mo-
+tions. No matter what actual motion ensues, we know the ﬁnal conﬁguration will be to the
+left of the hole.
+v
+Cv
+motion
+envelope
+Figure 26.25 The second motion command and the envelope of possible motions. Even with
+error, we will eventually get into the hole.
+leading to the robot explicitly reasoning about how much information each action might bring
+when deciding what to do. While more difﬁcult computationally, such approaches have the
+advantage that the robot invents its own information gathering actions rather than relying on
+human-provided heuristics and scripted strategies that often lack ﬂexibility.
+26.7 Reinforcement Learning in Robotics
+Thus far we have considered tasks in which the robot has access to the dynamics model of
+the world. In many tasks, it is very difﬁcult to write down such a model, which puts us in the
+domain of reinforcement learning (RL).
+One challenge of RL in robotics is the continuous nature of the state and action spaces,
+which we handle either through discretization, or, more commonly, through function approxi-
+mation. Policies or value functions are represented as combinations of known useful features,
+or as deep neural networks. Neural nets can map from raw inputs directly to outputs, and thus
+largely avoid the need for feature engineering, but they do require more data.
+A bigger challenge is that robots operate in the real world. We have seen how reinforce-
+ment learning can be used to learn to play chess or Go by playing simulated games. But when
+a real robot moves in the real world, we have to make sure that its actions are safe (things
+
+
+966
+Chapter 26
+Robotics
+(a)
+(b)
+(c)
+Figure 26.26 Training a robust policy. (a) Multiple simulations are run of a robot hand ma-
+nipulating objects, with different randomized parameters for physics and lighting. Courtesy
+of Wojciech Zaremba. (b) The real-world environment, with a single robot hand in the center
+of a cage, surrounded by cameras and range ﬁnders. (c) Simulation and real-world train-
+ing yields multiple different policies for grasping objects; here a pinch grasp and a quadpod
+grasp. Courtesy of OpenAI. See Andrychowicz et al. (2018a).
+break!), and we have to accept that progress will be slower than in a simulation because the
+world refuses to move faster than one second per second. Much of what is interesting about
+using reinforcement learning in robotics boils down to how we might reduce the real world
+sample complexity—the number of interactions with the physical world that the robot needs
+before it has learned how to do the task.
+26.7.1 Exploiting models
+A natural way to avoid the need for many real-world samples is to use as much knowledge
+of the world’s dynamics as possible. For instance, we might not know exactly what the
+coefﬁcient of friction or the mass of an object is, but we might have equations that describe
+the dynamics as a function of these parameters.
+In such a case, model-based reinforcement learning (Chapter 23) is appealing, where
+the robot can alternate between ﬁtting the dynamics parameters and computing a better pol-
+icy. Even if the equations are incorrect because they fail to model every detail of physics,
+researchers have experimented with learning an error term, in addition to the parameters, that
+can compensate for the inaccuracy of the physical model. Or, we can abandon the equations
+and instead ﬁt locally linear models of the world that each approximate the dynamics in a
+region of the state space, an approach that has been successful in getting robots to master
+complex dynamic tasks like juggling.
+A model of the world can also be useful in reducing the sample complexity of model-free
+reinforcement learning methods by doing sim-to-real transfer: transferring policies that work
+Sim-to-real
+
+
+Section 26.7
+Reinforcement Learning in Robotics
+967
+in simulation to the real world. The idea is to use the model as a simulator for a policy search
+(Section 23.5). To learn a policy that transfers well, we can add noise to the model during
+training, thereby making the policy more robust. Or, we can train policies that will work
+with a variety of models by sampling different parameters in the simulations—sometimes
+referred to as domain randomization. An example is in Figure 26.26, where a dexterous
+Domain
+randomization
+manipulation task is trained in simulation by varying visual attributes, as well as physical
+attributes like friction or damping.
+Finally, hybrid approaches that borrow ideas from both model-based and model-free al-
+gorithms are meant to give us the best of both. The hybrid approach originated with the Dyna
+architecture, where the idea was to iterate between acting and improving the policy, but the
+policy improvement would come in two complementary ways: 1) the standard model-free
+way of using the experience to directly update the policy, and 2) the model-based way of
+using the experience to ﬁt a model, then plan with it to generate a policy.
+More recent techniques have experimented with ﬁtting local models, planning with them
+to generate actions, and using these actions as supervision to ﬁt a policy, then iterating to get
+better and better models around the areas that the policy needs. This has been successfully
+applied in end-to-end learning, where the policy takes pixels as input and directly outputs
+torques as actions—it enabled the ﬁrst demonstration of deep RL on physical robots.
+Models can also be exploited for the purpose of ensuring safe exploration. Learning
+slowly but safely may be better than learning quickly but crashing and burning half way
+through. So arguably, more important than reducing real-world samples is reducing real-
+world samples in dangerous states—we don’t want robots falling off cliffs, and we don’t
+want them breaking our favorite mugs or, even worse, colliding with objects and people. An
+approximate model, with uncertainty associated to it (for example by considering a range of
+values for its parameters), can guide exploration and impose constraints on the actions that
+the robot is allowed to take in order to avoid these dangerous states. This is an active area of
+research in robotics and control.
+26.7.2 Exploiting other information
+Models are useful, but there is more we can do to further reduce sample complexity.
+When setting up a reinforcement learning problem, we have to select the state and action
+spaces, the representation of the policy or value function, and the reward function we’re using.
+These decisions have a large impact on how easy or how hard we are making the problem.
+One approach is to use higher-level motion primitives instead of low-level actions like
+Motion primitive
+torque commands. A motion primitive is a parameterized skill that the robot has. For exam-
+ple, a robotic soccer player might have the skill of “pass the ball to the player at (x,y).” All
+the policy needs to do is to ﬁgure out how to combine them and set their parameters, instead
+of reinventing them. This approach often learns much faster than low-level approaches, but
+does restrict the space of possible behaviors that the robot can learn.
+Another way to reduce the number of real-world samples required for learning is to reuse
+information from previous learning episodes on other tasks, rather than starting from scratch.
+This falls under the umbrella of metalearning or transfer learning.
+Finally, people are a great source of information. In the next section, we talk about how
+to interact with people, and part of it is how to use their actions to guide the robot’s learning.
+
+

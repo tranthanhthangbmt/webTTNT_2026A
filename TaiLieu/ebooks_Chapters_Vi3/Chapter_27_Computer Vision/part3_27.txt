@@ -1,0 +1,232 @@
+998
+Chapter 27
+Computer Vision
+So the smoothing function is achieved by convolving the image with the Gaussian, I ∗Gσ. A
+σ of 1 pixel is enough to smooth over a small amount of noise, whereas 2 pixels will smooth
+a larger amount, but at the loss of some detail. Because the Gaussian’s inﬂuence fades rapidly
+with distance, in practice we can replace the ±∞in the sums with something like ±3σ.
+We have a chance to make an optimization here: we can combine the smoothing and
+the edge ﬁnding into a single operation. It is a theorem that for any functions f and g, the
+derivative of the convolution, (f ∗g)′, is equal to the convolution with the derivative, f ∗(g′).
+So rather than smoothing the image and then differentiating, we can just convolve the image
+with the derivative of the Gaussian smoothing function, G′
+σ. We then mark as edges those
+peaks in the response that are above some threshold, chosen to eliminate spurious peaks due
+to noise.
+There is a natural generalization of this algorithm from one-dimensional crosssections to
+general 2D images. In two dimensions edges may be at any angle θ. Considering the image
+brightness as a scalar function of the variables x, y, its gradient is a vector
+∇I =
+
+
+∂I
+∂x
+∂I
+∂y
+
+
+Edges correspond to locations in images where the brightness undergoes a sharp change,
+and thus the magnitude of the gradient, ||∇I|| should be large at an edge point. When the
+image gets brighter or darker, the gradient vector at each point gets longer or shorter, but the
+direction of the gradient
+∇I
+||∇I|| =
+ cosθ
+sinθ
+
+does not change. This gives us a θ = θ(x,y) at every pixel, which deﬁnes the edge orientation
+Orientation
+at that pixel. This feature is often useful, because it does not depend on image intensity.
+As you might expect from the discussion on detecting edges in one-dimensional signals,
+to form the gradient, we don’t actually compute ∇I, but rather ∇(I ∗Gσ), after smoothing the
+image by convolving it with a Gaussian. A property of convolutions is that this is equivalent
+to convolving the image with the partial derivatives of the Gaussian. Once we have computed
+the gradient, we can obtain edges by ﬁnding edge points and linking them together. To tell
+whether a point is an edge point, we must look at other points a small distance forward and
+back along the direction of the gradient. If the gradient magnitude at one of these points is
+larger, then we could get a better edge point by shifting the edge curve very slightly. Further-
+more, if the gradient magnitude is too small, the point cannot be an edge point. So at an edge
+point, the gradient magnitude is a local maximum along the direction of the gradient, and the
+gradient magnitude is above a suitable threshold.
+Once we have marked edge pixels by this algorithm, the next stage is to link those pixels
+that belong to the same edge curves. This can be done by assuming that any two neighboring
+pixels that are both edge pixels with consistent orientations belong to the same edge curve.
+Edge detection isn’t perfect. Figure 27.8(a) shows an image of a scene containing a
+stapler resting on a desk, and Figure 27.8(b) shows the output of an edge detection algorithm
+on this image. As you can see, the output is not perfect: there are gaps where no edge appears,
+and there are “noise” edges that do not correspond to anything of signiﬁcance in the scene.
+Later stages of processing will have to correct for these errors.
+
+
+Section 27.3
+Simple Image Features
+999
+Figure 27.8 (a) Photograph of a stapler. (b) Edges computed from (a).
+27.3.2 Texture
+In everyday language, the texture of surfaces hints at what they feel like when you run a
+Texture
+ﬁnger over them (the words “texture,” “textile,” and “text” have the same Latin root, a word
+for weaving). In computational vision, texture refers to a pattern on a surface that can be
+sensed visually. Usually, these patterns are roughly regular. Examples include the pattern of
+windows on a building, the stitches on a sweater, the spots on a leopard’s skin, blades of grass
+on a lawn, pebbles on a beach, and a crowd of people in a stadium.
+Sometimes the arrangement is quite periodic, as in the stitches on a sweater; in other
+instances, such as pebbles on a beach, the regularity is only in a statistical sense: the density
+of pebbles is roughly the same on different parts of the beach. A usual rough model of texture
+is a repetitive pattern of elements, sometimes called texels. This model is quite useful because
+Texels
+it is surprisingly hard to make or ﬁnd real textures that never repeat.
+Texture is a property of an image patch, rather than a pixel in isolation. A good descrip-
+tion of a patch’s texture should summarize what the patch looks like. The description should
+not change when the lighting changes. This rules out using edge points; if a texture is brightly
+lit, many locations within the patch will have high contrast and will generate edge points; but
+if the same texture is viewed under less bright light, many of these edges will not be above
+the threshold. The description should change in a sensible way when the patch rotates. It is
+important to preserve the difference between vertical stripes and horizontal stripes but not if
+the vertical stripes are rotated to the horizontal.
+Texture representations with these properties have been shown to be useful for two key
+tasks. The ﬁrst is identifying objects—a zebra and horse have similar shape, but different
+textures. The second is matching patches in one image to patches in another image, a key
+step in recovering 3D information from multiple images (Section 27.6.1).
+Here is a basic construction for a texture representation. Given an image patch, compute
+the gradient orientation at each pixel in the patch, and then characterize the patch by a his-
+togram of orientations. Gradient orientations are largely invariant to changes in illumination
+(the gradient will get longer, but it will not change direction). The histogram of orientations
+seems to capture important aspects of the texture. For example, vertical stripes will have two
+peaks in the histogram (one for the left side of each stripe and one for the right); leopard spots
+will have more uniformly distributed orientations.
+But we do not know how big a patch to describe. There are two strategies. In specialized
+applications, image information reveals how big the patch should be (for example, one might
+
+
+1000
+Chapter 27
+Computer Vision
+grow a patch full of stripes until it covers the zebra). An alternative is to describe a patch
+centered at each pixel for a range of scales. This range usually runs from a few pixels to the
+extent of the image. Now divide the patch into bins, and in each bin construct an orientation
+histogram, then summarize the pattern of histograms across bins. It is no longer usual to
+construct these descriptions by hand. Instead, convolutional neural networks are used to
+produce texture representations. But the representations constructed by the networks seem to
+mirror this construction very roughly.
+27.3.3 Optical ﬂow
+Next, let us consider what happens when we have a video sequence, instead of just a single
+static image. Whenever there is relative movement between the camera and one or more
+objects in the scene, the resulting apparent motion in the image is called optical ﬂow. This
+Optical ﬂow
+describes the direction and speed of motion of features in the image as a result of relative
+motion between the viewer and the scene. For example, distant objects viewed from a moving
+car have much slower apparent motion than nearby objects, so the rate of apparent motion
+can tell us something about distance.
+In Figure 27.9 we show two frames from a video of a tennis player. On the right we
+display the optical ﬂow vectors computed from these images. The optical ﬂow encodes useful
+information about scene structure—the tennis player is moving and the background (largely)
+isn’t. Furthermore, the ﬂow vectors reveal something about what the player is doing—one
+arm and one leg are moving fast, and the other body parts aren’t.
+The optical ﬂow vector ﬁeld can be represented by its components vx(x,y) in the x direc-
+tion and vy(x,y) in the y direction. To measure optical ﬂow, we need to ﬁnd corresponding
+points between one time frame and the next. A very simple-minded technique is based on the
+fact that image patches around corresponding points have similar intensity patterns. Consider
+a block of pixels centered at pixel p, (x0,y0), at time t. This block of pixels is to be compared
+with pixel blocks centered at various candidate pixels qi at (x0 +Dx,y0 +Dy) at time t +Dt.
+One possible measure of similarity is the sum of squared differences (SSD):
+Sum of squared
+diﬀerences (SSD)
+SSD(Dx,Dy) = ∑
+(x,y)
+(I(x,y,t)−I(x+Dx,y+Dy,t +Dt))2 .
+Figure 27.9 Two frames of a video sequence and the optical ﬂow ﬁeld corresponding to the
+displacement from one frame to the other. Note how the movement of the tennis racket and
+the front leg is captured by the directions of the arrows. (Images courtesy of Thomas Brox.)
+
+
+Section 27.3
+Simple Image Features
+1001
+Here, (x,y) ranges over pixels in the block centered at (x0,y0). We ﬁnd the (Dx,Dy) that
+minimizes the SSD. The optical ﬂow at (x0,y0) is then (vx,vy) = (Dx/Dt,Dy/Dt). Note that
+for this to work, there should be some texture in the scene, resulting in windows containing a
+signiﬁcant variation in brightness among the pixels. If one is looking at a uniform white wall,
+then the SSD is going to be nearly the same for the different candidate matches q, and the
+algorithm is reduced to making a blind guess. The best-performing algorithms for measuring
+optical ﬂow rely on a variety of additional constraints to deal with situations in which the
+scene is only partially textured.
+27.3.4 Segmentation of natural images
+Segmentation is the process of breaking an image into groups of similar pixels. The basic
+Segmentation
+idea is that each image pixel can be associated with certain visual properties, such as bright-
+ness, color, and texture. Within an object, or a single part of an object, these attributes vary
+relatively little, whereas across an inter-object boundary there is typically a large change in
+one or more of these attributes. We need to ﬁnd a partition of the image into sets of pixels
+such that these constraints are satisﬁed as well as possible. Notice that it isn’t enough just to
+ﬁnd edges, because many edges are not object boundaries. So, for example, a tiger in grass
+may generate an edge on each side of each stripe and each blade of grass. In all the confusing
+edge data, we may miss the tiger for the stripes.
+There are two ways of studying the problem, one focusing on detecting the boundaries of
+these groups, and the other on detecting the groups themselves, called regions. We illustrate
+Regions
+this in Figure 27.10, showing boundary detection in (b) and region extraction in (c) and (d).
+One way to formalize the problem of detecting boundary curves is as a classiﬁcation
+problem, amenable to the techniques of machine learning. A boundary curve at pixel location
+(x,y) will have an orientation θ. An image neighborhood centered at (x,y) looks roughly
+like a disk, cut into two halves by a diameter oriented at θ. We can compute the probability
+Pb(x,y,θ) that there is a boundary curve at that pixel along that orientation by comparing
+features in the two halves. The natural way to predict this probability is to train a machine
+learning classiﬁer using a data set of natural images in which humans have marked the ground
+truth boundaries—the goal of the classiﬁer is to mark exactly those boundaries marked by
+humans and no others.
+Boundaries detected by this technique are better than those found using the simple edge
+detection technique described previously. But there are still two limitations: (1) the boundary
+pixels formed by thresholding Pb(x,y,θ) are not guaranteed to form closed curves, so this
+approach doesn’t deliver regions, and (2) the decision making exploits only local context,
+and does not use global consistency constraints.
+The alternative approach is based on trying to “cluster” the pixels into regions based on
+their brightness, color and texture properties. There are a number of different ways in which
+this intuition can be formalized mathematically. For instance, Shi and Malik (2000) set this
+up as a graph partitioning problem. The nodes of the graph correspond to pixels, and edges
+to connections between pixels. The weight Wij on the edge connecting a pair of pixels i and
+j is based on how similar the two pixels are in brightness, color, texture, etc. They then
+ﬁnd partitions that minimize a normalized cut criterion. Roughly speaking, the criterion for
+partitioning the graph is to minimize the sum of weights of connections across the groups and
+maximize the sum of weights of connections within the groups.
+
+
+1002
+Chapter 27
+Computer Vision
+(a)
+(b)
+(c)
+(d)
+Figure 27.10 (a) Original image. (b) Boundary contours, where the higher the Pb value,
+the darker the contour. (c) Segmentation into regions, corresponding to a ﬁne partition of
+the image. Regions are rendered in their mean colors. (d) Segmentation into regions, corre-
+sponding to a coarser partition of the image, resulting in fewer regions. (Images courtesy of
+Pablo Arbelaez, Michael Maire, Charless Fowlkes and Jitendra Malik.)
+It turns out that the approaches based on ﬁnding boundaries and on ﬁnding regions can
+be coupled, but we will not explore these possibilities here. Segmentation based purely on
+low-level, local attributes such as brightness and color can not be expected to deliver the ﬁnal
+correct boundaries of all the objects in the scene. To reliably ﬁnd boundaries associated with
+objects, it is also necessary to incorporate high-level knowledge of the kinds of objects one
+may expect to encounter in a scene. At this time, a popular strategy is to produce an over-
+segmentation of an image, where one is guaranteed not to have missed marking any of the true
+boundaries but may have marked many extra false boundaries as well. The resulting regions,
+called superpixels, provide a signiﬁcant reduction in computational complexity for various
+algorithms, as the number of superpixels may be in the hundreds, compared to millions of
+raw pixels. Exploiting high-level knowledge of objects is the subject of the next section, and
+actually detecting the objects in images is the subject of Section 27.5.
+27.4 Classifying Images
+Image classiﬁcation applies to two main cases. In one, the images are of objects, taken from
+a given taxonomy of classes, and there’s not much else of signiﬁcance in the picture—for
+example, a catalog of clothing or furniture images, where the background doesn’t matter, and
+the output of the classiﬁer is “cashmere sweater” or “desk chair.”
+In the other case, each image shows a scene containing multiple objects. So in grassland
+you might see a giraffe and a lion, and in the living room you might see a couch and lamp,
+but you don’t expect a giraffe or a submarine in a living room. We now have methods for
+large-scale image classiﬁcation that can accurately output “grassland” or “living room.”
+Modern systems classify images using appearance (i.e., color and texture, as opposed
+Appearance
+to geometry). There are two difﬁculties. First, different instances of the same class could
+look different—some cats are black and others are orange. Second, the same cat could look
+
+

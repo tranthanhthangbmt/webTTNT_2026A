@@ -1,0 +1,60 @@
+<h2 id="264-robotic-perception">26.4 Nhận thức của Robot (Robotic Perception)</h2>
+
+<p>Nhận thức là quá trình robot ánh xạ các phép đo cảm biến thành những biểu diễn nội tại về môi trường. Phần lớn quá trình này sử dụng các kỹ thuật thị giác máy tính từ chương trước. Nhưng nhận thức trong robotics còn phải đối phó với nhiều cảm biến bổ sung như Lidar và cảm biến xúc giác.</p>
+
+<p>Nhận thức rất khó khăn do cảm biến bị nhiễu và môi trường có tính quan sát một phần, không thể dự đoán và thường xuyên thay đổi. Nói cách khác, robot gặp phải tất cả những vấn đề về ước lượng trạng thái (hay lọc) mà chúng ta đã thảo luận trong Mục 14.2. Theo nguyên tắc thực nghiệm, các biểu diễn nội tại tốt cho robot có ba đặc điểm:
+1. Chúng chứa đủ thông tin để robot đưa ra quyết định tốt.
+2. Chúng được cấu trúc sao cho có thể cập nhật hiệu quả.
+3. Chúng tự nhiên theo nghĩa các biến nội tại tương ứng với các biến trạng thái tự nhiên trong thế giới vật lý.</p>
+
+<p>Trong Chương 14, chúng ta đã thấy bộ lọc Kalman, HMM và mạng Bayes động có thể biểu diễn mô hình chuyển tiếp và mô hình cảm biến của một môi trường quan sát một phần, và chúng ta đã mô tả các thuật toán chính xác lẫn xấp xỉ để cập nhật <strong>trạng thái niềm tin</strong> (belief state) — phân phối xác suất hậu nghiệm (posterior probability distribution) trên các biến trạng thái môi trường. Với bài toán robot, chúng ta đưa cả các hành động trong quá khứ của robot vào làm biến quan sát trong mô hình. <strong>Hình 26.4</strong> mô tả ký hiệu dùng trong chương này: \(X_t\) là trạng thái của môi trường (bao gồm cả robot) tại thời điểm \(t\), \(Z_t\) là quan sát nhận được tại thời điểm \(t\), và \(A_t\) là hành động được thực hiện sau khi nhận quan sát.</p>
+
+<p><strong>Hình 26.4</strong> Nhận thức của robot có thể được xem như quá trình suy diễn theo thời gian từ các chuỗi hành động và phép đo lường, được minh họa bằng mạng lưới quyết định động này.</p>
+
+<p>Chúng ta muốn tính trạng thái niềm tin mới, \(P(X_{t+1} | z_{1:t+1}, a_{1:t})\), từ trạng thái niềm tin hiện tại, \(P(X_t | z_{1:t}, a_{1:t-1})\), và quan sát mới \(z_{t+1}\). Chúng ta đã thực hiện việc này trong Mục 14.2, nhưng ở đây có hai điểm khác biệt: chúng ta phải điều kiện hóa trên cả các hành động cùng với quan sát, và xử lý các biến liên tục thay vì rời rạc. Do đó, phương trình lọc đệ quy (14.5 ở trang 485) được sửa đổi thành phép tích phân thay vì phép tổng:</p>
+
+<p>$$ P(X_{t+1} | z_{1:t+1}, a_{1:t}) = \alpha P(z_{t+1} | X_{t+1}) \int P(X_{t+1} | x_t, a_t) P(x_t | z_{1:t}, a_{1:t-1}) dx_t \quad (26.1) $$</p>
+
+<p>Phương trình này cho biết xác suất hậu nghiệm trên các biến trạng thái \(X\) tại thời điểm \(t+1\) được tính đệ quy từ ước lượng tương ứng ở một bước thời gian trước đó. Tính toán này liên quan đến hành động trước đó \(a_t\) và phép đo cảm biến hiện tại \(z_{t+1}\). Xác suất \(P(X_{t+1} | x_t, a_t)\) được gọi là <strong>mô hình chuyển tiếp</strong> (transition model) hoặc <strong>mô hình chuyển động</strong> (motion model), và \(P(z_{t+1} | X_{t+1})\) là <strong>mô hình cảm biến</strong> (sensor model).</p>
+
+<h3 id="2641-localization-and-mapping">26.4.1 Định vị và vẽ bản đồ (Localization and mapping)</h3>
+
+<p><strong>Định vị</strong> (Localization) là bài toán tìm xem mọi thứ ở đâu — bao gồm cả chính bản thân robot. Để đơn giản hóa, hãy xét một robot di chuyển chậm trong thế giới 2D phẳng và giả định robot đã được cung cấp một bản đồ chính xác. Tư thế (pose) của một robot di động như vậy được xác định bởi hai tọa độ Descartes \(x\) và \(y\) cùng với hướng (heading) \(\theta\), như trong <strong>Hình 26.5(a)</strong>. Trạng thái bất kỳ được biểu diễn dưới dạng vector: \(X_t = (x_t, y_t, \theta_t)^\top\).</p>
+
+<p>Trong <em>xấp xỉ động học</em>, mỗi hành động là đặc tả tức thời của hai vận tốc: vận tốc tịnh tiến \(v_t\) và vận tốc góc \(\omega_t\). Trong một khoảng thời gian nhỏ \(\Delta t\), mô hình tất định của robot được tính bằng:</p>
+
+<p>$$ \hat{X}_{t+1} = f(X_t, v_t, \omega_t) = X_t + \begin{pmatrix} v_t \Delta t \cos\theta_t \\ v_t \Delta t \sin\theta_t \\ \omega_t \Delta t \end{pmatrix} $$</p>
+
+<p>Trong thực tế, do robot luôn có sai số trượt bánh, điều này được mô hình hóa bằng phân phối Gaussian (chuẩn) với trung bình là \(f(X_t, v_t, \omega_t)\) và ma trận hiệp phương sai \(\Sigma_x\):
+$$ P(X_{t+1} | X_t, v_t, \omega_t) = \mathcal{N}(\hat{X}_{t+1}, \Sigma_x) $$
+Đây chính là <em>mô hình chuyển động</em> của robot.</p>
+
+<p>Tiếp theo, ta cần <em>mô hình cảm biến</em>. Xét một cảm biến nhận dạng các <strong>điểm chuẩn</strong> (landmarks) trong môi trường. Với mỗi điểm chuẩn ở vị trí \((x_i, y_i)^\top\) đã biết, khoảng cách và góc phương vị được cảm biến ghi lại. Dự đoán không có nhiễu (noiseless prediction) sẽ được tính bằng hình học đơn giản:</p>
+
+<p>$$ \hat{z}_t = h(x_t) = \begin{pmatrix} \sqrt{(x_t - x_i)^2 + (y_t - y_i)^2} \\ \arctan \frac{y_i - y_t}{x_i - x_t} - \theta_t \end{pmatrix} $$</p>
+
+<p>Thêm nhiễu Gaussian với hiệp phương sai \(\Sigma_z\), ta có mô hình cảm biến: \(P(z_t | x_t) = \mathcal{N}(\hat{z}_t, \Sigma_z)\).</p>
+
+<p><strong>Hình 26.5</strong> (a) Mô hình động học đơn giản của robot di động. (b) Mô hình cảm biến dựa trên chùm tia quét khoảng cách (range scan). Hình cho thấy hai tư thế khả dĩ phát sinh dữ liệu, trong đó tư thế bên trái có khả năng cao hơn.</p>
+
+<p><strong>Bộ lọc hạt và Lọc Kalman</strong><br>
+Hầu hết các thuật toán định vị hiện đại dùng lọc hạt (particle filter) hoặc lọc Kalman (Kalman filter) để biểu diễn trạng thái niềm tin \(P(X_t | z_{1:t}, a_{1:t-1})\).
+- Định vị bằng lọc hạt còn được gọi là <strong>Định vị Monte Carlo</strong> (Monte Carlo localization - MCL).
+- Định vị bằng lọc Kalman: Do niềm tin Gaussian chỉ kín dưới mô hình chuyển động tuyến tính, các bài toán thực tế phi tuyến được xấp xỉ bằng cách tuyến tính hóa (Linearization) hay khai triển Taylor (Taylor expansion). Bộ lọc Kalman áp dụng cách tuyến tính hóa này được gọi là <strong>Lọc Kalman mở rộng</strong> (Extended Kalman Filter - EKF).</p>
+
+<p><strong>Hình 26.8</strong> Tuyến tính hóa mô hình chuyển động. (a) Không tuyến tính hóa. (b) Tuyến tính hóa qua đạo hàm (tiếp tuyến).</p>
+<p><strong>Hình 26.9</strong> Định vị dùng Lọc Kalman mở rộng. Vùng elip sai số mở rộng khi robot di chuyển mù, và thu nhỏ lại khi phát hiện điểm chuẩn (landmark).</p>
+
+<p>Trong một số tình huống, chưa có bản đồ nào được cung cấp. Robot sẽ phải tự tạo bản đồ. Đây là bài toán con gà và quả trứng: robot phải định vị trên một bản đồ chưa rõ ràng, đồng thời xây dựng bản đồ đó khi chưa biết rõ vị trí của mình. Đây được gọi là <strong>Định vị và Vẽ bản đồ đồng thời</strong> (Simultaneous localization and mapping - <strong>SLAM</strong>).</p>
+
+<h3 id="2642-other-types-of-perception">26.4.2 Các loại nhận thức khác (Other types of perception)</h3>
+
+<p>Không phải tất cả nhận thức của robot đều là định vị hay vẽ bản đồ. Robot còn nhận thức nhiệt độ, mùi, âm thanh, v.v. Nhiều đại lượng này có thể được ước lượng qua các biến thể của mạng Bayes động.</p>
+
+<h3 id="2643-supervised-and-unsupervised-learning-in-robot-perception">26.4.3 Học có giám sát và không giám sát trong nhận thức của robot</h3>
+
+<p>Học máy (Machine learning) đóng vai trò vô cùng quan trọng, đặc biệt khi chưa biết biểu diễn nội tại tốt nhất. Một phương pháp là ánh xạ dữ liệu cảm biến đa chiều thành không gian ít chiều hơn qua học không giám sát (<strong>nhúng không gian chiều thấp</strong> - low-dimensional embedding).</p>
+
+<p><strong>Hình 26.10</strong> (a,b,c) Áp dụng phân loại bằng thị giác thích ứng cho "bề mặt có thể lái được". Bề mặt màu hồng là nơi có thể lái. Khi xe đi lệch ra cỏ, cỏ cũng bắt đầu được đánh giá là mặt đường an toàn. (Ảnh do Sebastian Thrun cung cấp).</p>
+
+<p>Kỹ thuật giúp robot tự thu thập dữ liệu huấn luyện (có nhãn) được gọi là <strong>học tự giám sát</strong> (Self-supervised learning). Robot dùng các cảm biến tầm gần có độ chính xác cao để gán nhãn cho những dữ liệu ở xa do camera thu thập, giúp nó có thể "nhìn xa hơn" và di chuyển nhanh hơn, chỉ chậm lại khi gặp địa hình mới.</p>

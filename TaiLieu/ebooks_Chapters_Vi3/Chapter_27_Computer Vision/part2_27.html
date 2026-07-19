@@ -1,0 +1,47 @@
+<h3 id="2724-light-and-shading">27.2.4 Ánh sáng và đổ bóng (Light and shading)</h3>
+
+<p>Độ sáng của một điểm ảnh là hàm phụ thuộc vào độ sáng của bề mặt cảnh vật chiếu tới điểm ảnh đó. Ở các máy ảnh hiện đại, hàm này tuyến tính với cường độ ánh sáng ở mức vừa phải, nhưng rất phi tuyến đối với môi trường quá tối hoặc quá sáng. Chúng ta sẽ dùng mô hình tuyến tính. Độ sáng của hình ảnh là một tín hiệu mạnh mẽ gợi ý về cả hình dạng lẫn danh tính vật thể. Sự mơ hồ xảy ra do có ba yếu tố đóng góp vào lượng ánh sáng phản xạ từ điểm trên vật thể vào ảnh: cường độ tổng thể của <strong>ánh sáng môi trường</strong> (ambient light); điểm đó có quay mặt về phía nguồn sáng hay đang nằm trong bóng râm; và lượng ánh sáng <strong>phản xạ</strong> (reflection) từ điểm đó.</p>
+
+<p>Con người giải quyết sự mơ hồ về độ sáng cực kỳ tài tình — họ dễ dàng phân biệt giữa một vật màu đen dưới ánh sáng rực rỡ với một vật màu trắng trong bóng râm, ngay cả khi độ sáng tổng thể của chúng như nhau. Tuy nhiên đôi khi con người vẫn nhầm lẫn giữa bóng đổ và hoa văn trang trí — một đường phấn màu tối kẻ dưới gò má thường trông giống như bóng đổ, khiến cho khuôn mặt trông có vẻ gầy gò hơn.</p>
+
+<p>Hầu hết các bề mặt phản xạ ánh sáng qua quá trình <strong>Phản xạ khuếch tán</strong> (Diffuse reflection). Phản xạ khuếch tán tán xạ ánh sáng đều về mọi hướng rời khỏi bề mặt, thế nên độ sáng của một bề mặt khuếch tán không phụ thuộc vào hướng nhìn. Đa phần các loại vải, bề mặt sơn, gỗ thô ráp, cây cối, đá, bê tông đều có thuộc tính này.</p>
+
+<p>Ngược lại, <strong>Phản xạ phản gương</strong> (Specular reflection) khiến ánh sáng bật ra khỏi bề mặt theo một chùm hướng nhất định tùy thuộc vào hướng chiếu tới. Gương là một ví dụ. Những gì bạn thấy phụ thuộc hoàn toàn vào góc bạn nhìn vào gương. Trong trường hợp này, chùm tia phản xạ rất hẹp nên bạn có thể nhìn rõ hình dáng vật thể trong gương.</p>
+
+<p>Đối với nhiều bề mặt khác, chùm tia phản xạ này rộng hơn. Bề mặt lúc này xuất hiện những vệt sáng lấp lánh nhỏ, gọi là <strong>Điểm loang sáng</strong> (Specularities). Khi ánh sáng hoặc bề mặt dịch chuyển, các điểm loang sáng này cũng dịch chuyển theo. Ngoài các vệt sáng này ra, phần còn lại của bề mặt hoạt động như phản xạ khuếch tán. Điểm loang sáng hay gặp ở mặt kim loại, nhựa, sơn, hoặc các bề mặt ướt. Rất dễ để nhận diện chúng vì chúng nhỏ và cực kỳ sáng chói (Hình 27.4).</p>
+
+<p><strong>Hình 27.4</strong> Bức ảnh này minh họa nhiều hiệu ứng chiếu sáng khác nhau. Trên các lọ đựng bằng inox có những điểm loang sáng. Củ hành và cà rốt là các bề mặt phản xạ khuếch tán sáng vì chúng hướng mặt về nguồn sáng. Đổ bóng xuất hiện ở các vị trí hoàn toàn không thấy nguồn sáng. Bên trong cái nồi là các bề mặt phản xạ khuếch tán tối do ánh sáng chiếu theo góc tiếp tuyến.</p>
+
+<p>Nguồn sáng chính ngoài trời là mặt trời. Vì nó quá xa nên mọi tia sáng từ mặt trời chiếu tới đều song song với nhau theo một hướng duy nhất. Chúng ta mô phỏng điều này bằng mô hình <strong>Nguồn sáng điểm ở xa</strong> (Distant point light source). Lượng ánh sáng thu được tại một khoảng bề mặt trong mô hình này phụ thuộc vào góc \(\theta\) giữa hướng chiếu sáng và pháp tuyến của bề mặt (Hình 27.5).</p>
+
+<p><strong>Hình 27.5</strong> Hai bề mặt được chiếu sáng bởi một nguồn điểm ở xa (mũi tên nhạt). Bề mặt A nghiêng ra khỏi nguồn sáng (\(\theta\) gần \(90^\circ\)) nên thu được ít năng lượng hơn do nó cắt ít tia sáng hơn trên cùng một đơn vị diện tích. Bề mặt B hướng thẳng về nguồn sáng (\(\theta\) gần \(0^\circ\)) nên thu được nhiều năng lượng hơn.</p>
+
+<p>Một mảng bề mặt khuếch tán sẽ phản xạ một lượng phân số của ánh sáng nó thu được, phần số này gọi là <strong>Suất phản chiếu khuếch tán</strong> (Diffuse albedo). Trong thực tế, hệ số \(\rho\) này dao động từ 0.05 đến 0.95. <strong>Định luật cosin Lambert</strong> (Lambert's cosine law) phát biểu rằng độ sáng của mảng bề mặt đó là:
+$$ I = \rho I_0 \cos\theta $$
+với \(I_0\) là cường độ nguồn sáng, \(\theta\) là góc giữa hướng ánh sáng và pháp tuyến, và \(\rho\) là suất phản chiếu khuếch tán. Định luật này chỉ ra rằng các điểm ảnh sáng là những điểm hướng thẳng về phía nguồn sáng, do đó sự đổ bóng trên bề mặt cung cấp manh mối về hình dáng vật thể. Nếu bề mặt không thấy nguồn sáng, nó sẽ nằm trong <strong>Bóng râm</strong> (Shadow). Bóng râm ngoài đời hiếm khi đen kịt hoàn toàn vì nó thường nhận được một chút ánh sáng hắt lại từ chỗ khác. Ngoài trời thì bầu trời cũng sáng; trong nhà thì ánh sáng dội từ các tường dội vào bóng râm. Những hiện tượng dội sáng này gọi là <strong>Phản xạ qua lại</strong> (Interreflections). Để đơn giản, người ta thường cộng thêm một hằng số <strong>Ánh sáng môi trường</strong> (Ambient illumination) vào công thức dự đoán cường độ sáng.</p>
+
+<h3 id="2725-color">27.2.5 Màu sắc (Color)</h3>
+
+<p>Trái cây ngọt ngào là một sự "hối lộ" mà cây cối gửi tặng các loài động vật để chúng mang hạt giống đi rải khắp nơi. Các cây có khả năng phát ra tín hiệu "quả này chín rồi" sẽ có lợi thế sinh tồn lớn, và các động vật đọc được tín hiệu đó cũng vậy. Vì thế, hầu hết trái cây khi còn xanh thì màu xanh lục, khi chín thì chuyển đỏ hoặc vàng. Ánh sáng tới mắt mang theo năng lượng ở các bước sóng khác nhau, biểu diễn bằng mật độ năng lượng phổ.</p>
+
+<p>Máy ảnh và hệ thị giác con người nhạy cảm với dải bước sóng từ khoảng 380nm (tím) đến 750nm (đỏ). Mắt người có 3 loại thụ thể nhạy cảm màu sắc. Cảm giác "thấy màu" xuất hiện khi não bộ so sánh phản ứng của các thụ thể gần nhau trên võng mạc. <strong>Nguyên lý ba màu</strong> (Principle of trichromacy) do Thomas Young đề xuất năm 1802 nói rằng mắt người có thể phối trộn mọi màu sắc phức tạp nhất chỉ bằng cách hòa trộn 3 <strong>Màu cơ bản</strong> (Primaries). Đỏ (Red), Lục (Green) và Lam (Blue) là 3 màu cơ bản thông dụng (RGB).</p>
+
+<p>Với hầu hết ứng dụng thị giác máy tính, ta mô hình hóa bề mặt vật thể có 3 suất phản chiếu khuếch tán (RGB) độc lập và nguồn sáng cũng có 3 cường độ ánh sáng (RGB). Định luật cosin Lambert sẽ được áp dụng cho từng màu để tính ra các giá trị điểm ảnh Red, Green, Blue. Mô hình này dự đoán đúng việc cùng một bề mặt sẽ ra các hình ảnh màu khác nhau nếu chiếu đèn màu khác nhau. Nhưng con người thì rất giỏi ở việc loại bỏ hiệu ứng màu đèn để ước tính ra màu thật của bề mặt dưới ánh sáng trắng, một hiệu ứng gọi là <strong>Sự bất biến màu sắc</strong> (Color constancy).</p>
+
+<h2 id="273-simple-image-features">27.3 Các Đặc trưng Hình ảnh Đơn giản (Simple Image Features)</h2>
+
+<p>Ánh sáng bật ra từ cảnh vật để tạo ra một hình ảnh chứa mười hai triệu pixel, mỗi pixel tốn 3 byte. Chắc chắn sẽ có nhiễu trong ảnh và khối lượng dữ liệu này là khổng lồ. Cách bắt đầu phân tích là tạo ra những biểu diễn giản lược, loại bỏ tiểu tiết nhưng giữ lại phần trọng yếu. Hiện nay người ta thường dùng dữ liệu để học (learning) ra các biểu diễn này. Nhưng có bốn thuộc tính đặc biệt phổ biến trong mọi hình ảnh: cạnh (edges), họa tiết (texture), luồng quang học (optical flow) và phân đoạn khu vực (segmentation).</p>
+
+<p>Một <strong>cạnh</strong> (edge) xuất hiện tại nơi có sự khác biệt lớn về cường độ ánh sáng pixel so với khu vực lân cận. Đây là thao tác cục bộ, không cần biết đối tượng gì đang ở trong ảnh. Vì vậy phát hiện cạnh thường là bước xử lý "sớm" hay "cấp thấp" (low-level). Còn để nhận diện họa tiết, luồng dịch chuyển hay cắt ảnh thành khu vực (segmentation) thì đòi hỏi nhìn bao quát khu vực lớn hơn, được gọi là các phép toán "cấp trung" (mid-level).</p>
+
+<h3 id="2731-edges">27.3.1 Cạnh (Edges)</h3>
+
+<p>Cạnh là các đường thẳng hoặc đường cong trên mặt phẳng ảnh, vắt ngang qua những vị trí có sự thay đổi "đáng kể" về độ sáng ảnh. Mục tiêu của việc dò cạnh là tóm lược bức ảnh nặng nhiều megabyte thành một biểu diễn gọn nhẹ hơn (như trong Hình 27.6). Cạnh có thể hình thành do 4 lý do (như đánh số trong hình): (1) Sự đứt gãy về khoảng cách chiều sâu (vượt qua mép cạnh là đến không gian nền sau); (2) Bề mặt gấp khúc thay đổi pháp tuyến; (3) Vật liệu sơn đổi màu; (4) Bóng đổ từ ánh sáng.</p>
+
+<p><strong>Hình 27.6</strong> Bốn loại cạnh: (1) Do chiều sâu; (2) Do pháp tuyến bề mặt; (3) Do sự phản xạ/đổi màu; (4) Do ánh sáng tạo bóng đổ (shadows).</p>
+
+<p>Việc tìm kiếm cạnh đòi hỏi sự cẩn thận. Nếu ta dùng phép lấy đạo hàm cường độ ảnh \(I'(x)\), cạnh sẽ là những nơi đạo hàm đạt giá trị lớn (như đồ thị giữa ở Hình 27.7, ngay tại vị trí \(x=50\)). Nhưng vì luôn có độ <strong>Nhiễu</strong> (Noise), đạo hàm cũng tăng vọt ở những chỗ tào lao khác (như \(x=75\)). Nhiễu có thể do nhiễu nhiệt cảm biến, hoặc do bề mặt vật bị xước xát li ti. Nếu ta dùng thao tác "làm mịn" (smooth) bức ảnh trước khi đạo hàm, các đỉnh nhiễu này sẽ biến mất (đồ thị cuối Hình 27.7).</p>
+
+<p>Làm mịn là lấy giá trị trung bình có trọng số của các pixel lân cận, pixel nào càng gần thì trọng số càng cao. Một lựa chọn trọng số cực kỳ kinh điển là <strong>Bộ lọc Gaussian</strong> (Gaussian filter), sử dụng hàm Gaussian:
+$$ G_\sigma(x, y) = \frac{1}{2\pi\sigma^2} e^{-(x^2+y^2)/2\sigma^2} $$
+Áp dụng bộ lọc Gaussian nghĩa là tính tổng các \(I(x,y)G_\sigma(d)\). Quá trình tổng có trọng số này diễn ra liên tục, phổ biến đến mức toán học gọi nó là phép <strong>Tích chập</strong> (Convolution), ký hiệu là dấu sao \(*\).</p>

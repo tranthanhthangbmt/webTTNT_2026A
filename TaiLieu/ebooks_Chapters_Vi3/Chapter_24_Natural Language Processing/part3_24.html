@@ -1,0 +1,86 @@
+<table border="1">
+  <tr><th>Thẻ (Tag)</th><th>Từ (Word)</th><th>Mô tả (Description)</th><th>Thẻ (Tag)</th><th>Từ (Word)</th><th>Mô tả (Description)</th></tr>
+  <tr><td>CC</td><td>and</td><td>Liên từ kết hợp (Coordinating conjunction)</td><td>PRP$</td><td>your</td><td>Đại từ sở hữu (Possessive pronoun)</td></tr>
+  <tr><td>CD</td><td>three</td><td>Số đếm (Cardinal number)</td><td>RB</td><td>quickly</td><td>Trạng từ (Adverb)</td></tr>
+  <tr><td>DT</td><td>the</td><td>Hạn định từ (Determiner)</td><td>RBR</td><td>quicker</td><td>Trạng từ, so sánh hơn (Adverb, comparative)</td></tr>
+  <tr><td>EX</td><td>there</td><td>Từ tồn tại (Existential there)</td><td>RBS</td><td>quickest</td><td>Trạng từ, so sánh nhất (Adverb, superlative)</td></tr>
+  <tr><td>FW</td><td>per se</td><td>Từ ngoại lai (Foreign word)</td><td>RP</td><td>off</td><td>Tiểu từ (Particle)</td></tr>
+  <tr><td>IN</td><td>of</td><td>Giới từ (Preposition)</td><td>SYM</td><td>+</td><td>Ký hiệu (Symbol)</td></tr>
+  <tr><td>JJ</td><td>purple</td><td>Tính từ (Adjective)</td><td>TO</td><td>to</td><td>to</td></tr>
+  <tr><td>JJR</td><td>better</td><td>Tính từ, so sánh hơn (Adjective, comparative)</td><td>UH</td><td>eureka</td><td>Thán từ (Interjection)</td></tr>
+  <tr><td>JJS</td><td>best</td><td>Tính từ, so sánh nhất (Adjective, superlative)</td><td>VB</td><td>talk</td><td>Động từ, dạng nguyên thể (Verb, base form)</td></tr>
+  <tr><td>LS</td><td>1</td><td>Đánh dấu danh sách (List item marker)</td><td>VBD</td><td>talked</td><td>Động từ, quá khứ (Verb, past tense)</td></tr>
+  <tr><td>MD</td><td>should</td><td>Động từ khuyết thiếu (Modal)</td><td>VBG</td><td>talking</td><td>Danh động từ (Verb, gerund)</td></tr>
+  <tr><td>NN</td><td>kitten</td><td>Danh từ, số ít hoặc không đếm được</td><td>VBN</td><td>talked</td><td>Động từ, phân từ quá khứ (Verb, past participle)</td></tr>
+  <tr><td>NNS</td><td>kittens</td><td>Danh từ, số nhiều</td><td>VBP</td><td>talk</td><td>Động từ, không phải ngôi thứ 3 số ít</td></tr>
+  <tr><td>NNP</td><td>Ali</td><td>Danh từ riêng, số ít</td><td>VBZ</td><td>talks</td><td>Động từ, ngôi thứ 3 số ít (Verb, 3rd-sing)</td></tr>
+  <tr><td>NNPS</td><td>Fords</td><td>Danh từ riêng, số nhiều</td><td>WDT</td><td>which</td><td>Từ hạn định Wh (Wh-determiner)</td></tr>
+  <tr><td>PDT</td><td>all</td><td>Tiền hạn định từ (Predeterminer)</td><td>WP</td><td>who</td><td>Đại từ Wh (Wh-pronoun)</td></tr>
+  <tr><td>POS</td><td>’s</td><td>Hậu tố sở hữu (Possessive ending)</td><td>WP$</td><td>whose</td><td>Đại từ sở hữu Wh (Possessive wh-pronoun)</td></tr>
+  <tr><td>PRP</td><td>you</td><td>Đại từ nhân xưng (Personal pronoun)</td><td>WRB</td><td>where</td><td>Trạng từ Wh (Wh-adverb)</td></tr>
+  <tr><td>$</td><td>$</td><td>Dấu đô la (Dollar sign)</td><td>#</td><td>#</td><td>Dấu thăng (Pound sign)</td></tr>
+  <tr><td>“</td><td>‘</td><td>Dấu ngoặc kép trái (Left quote)</td><td>”</td><td>’</td><td>Dấu ngoặc kép phải (Right quote)</td></tr>
+  <tr><td>(</td><td>[</td><td>Dấu ngoặc đơn trái (Left parenthesis)</td><td>)</td><td>]</td><td>Dấu ngoặc đơn phải (Right parenthesis)</td></tr>
+  <tr><td>,</td><td>,</td><td>Dấu phẩy (Comma)</td><td>.</td><td>!</td><td>Kết thúc câu (Sentence end)</td></tr>
+  <tr><td>:</td><td>;</td><td>Dấu chấm câu giữa câu (Mid-sentence punctuation)</td><td></td><td></td><td></td></tr>
+</table>
+<p><strong>Hình 24.1</strong> Các thẻ từ loại (với một từ ví dụ cho mỗi thẻ) của kho ngữ liệu Penn Treebank (Marcus và cộng sự, 1993). Ở đây "3rd-sing" là viết tắt của "third person singular present tense" (ngôi thứ ba số ít thì hiện tại).</p>
+
+<h3>24.1.6 Gán nhãn từ loại (Part-of-speech (POS) tagging)</h3>
+
+<p>Một cách cơ bản để phân loại các từ là theo <strong>từ loại (part of speech - POS)</strong> của chúng, còn được gọi là phạm trù từ vựng (lexical category) hay thẻ (tag): danh từ, động từ, tính từ, v.v. Các từ loại cho phép các mô hình ngôn ngữ nắm bắt được những sự khái quát hóa, chẳng hạn như "tính từ thường đứng trước danh từ trong tiếng Anh." (Trong các ngôn ngữ khác, chẳng hạn như tiếng Pháp, điều này thường ngược lại).</p>
+
+<p>Mọi người đều đồng ý rằng "danh từ" (noun) và "động từ" (verb) là các từ loại, nhưng khi đi vào chi tiết, không có một danh sách định nghĩa duy nhất nào cả. Hình 24.1 hiển thị 45 thẻ được sử dụng trong <strong>Penn Treebank</strong>, một kho ngữ liệu (corpus) gồm hơn ba triệu từ văn bản được chú thích bằng các thẻ từ loại. Như chúng ta sẽ thấy sau này, Penn Treebank cũng chú thích nhiều câu với các <strong>cây phân tích cú pháp (syntactic parse trees)</strong>, từ đó tập ngữ liệu có cái tên như vậy. Dưới đây là một đoạn trích cho biết từ "from" được gắn thẻ là một giới từ (IN), "the" là một từ hạn định (DT), v.v:</p>
+
+<pre><code>From the start , it took a person with great qualities to succeed
+IN   DT  NN    , PRP VBD DT NN     IN    JJ    NNS       TO VB</code></pre>
+
+<p>Nhiệm vụ gán một từ loại cho mỗi từ trong một câu được gọi là <strong>gán nhãn từ loại (part-of-speech tagging)</strong>. Mặc dù bản thân nó không thực sự thú vị, nhưng đây là một bước đầu tiên hữu ích trong nhiều tác vụ xử lý ngôn ngữ tự nhiên (NLP) khác, chẳng hạn như trả lời câu hỏi hoặc dịch máy. Ngay cả đối với một tác vụ đơn giản như tổng hợp văn bản thành giọng nói (text-to-speech synthesis), điều quan trọng là phải biết rằng danh từ "record" (bản ghi, kỷ lục) được phát âm khác với động từ "record" (ghi âm, ghi hình). Trong phần này, chúng ta sẽ xem xét cách hai mô hình quen thuộc có thể được áp dụng vào tác vụ gán nhãn này, và trong Chương 25, chúng ta sẽ xem xét một mô hình thứ ba.</p>
+
+<p>Một mô hình phổ biến để gán thẻ POS là <strong>Mô hình Markov ẩn (Hidden Markov model - HMM)</strong>. Nhắc lại từ Mục 14.3 rằng một mô hình Markov ẩn lấy vào một chuỗi quan sát thời gian (temporal sequence of evidence observations) và dự đoán các trạng thái ẩn có khả năng nhất có thể đã sinh ra chuỗi đó. Trong ví dụ HMM ở trang 491, bằng chứng bao gồm các quan sát về một người có mang ô (hoặc không), và trạng thái ẩn là trời mưa (hoặc không) ở thế giới bên ngoài. Đối với gán nhãn POS, bằng chứng là chuỗi các từ, \(W_{1:N}\), và các trạng thái ẩn là các phạm trù từ vựng, \(C_{1:N}\).</p>
+
+<p>HMM là một mô hình sinh (generative model), phát biểu rằng cách để tạo ra ngôn ngữ là bắt đầu ở một trạng thái, chẳng hạn như IN (trạng thái của giới từ), và sau đó đưa ra hai sự lựa chọn: từ nào (chẳng hạn như "from") nên được phát ra (emitted), và trạng thái nào (chẳng hạn như DT) nên xuất hiện tiếp theo. Mô hình này không xem xét bất kỳ ngữ cảnh nào khác ngoài trạng thái từ loại hiện tại, cũng như không có ý tưởng gì về việc câu thực sự đang cố truyền đạt điều gì. Mặc dù vậy, nó vẫn là một mô hình hữu ích — nếu chúng ta áp dụng <strong>thuật toán Viterbi (Viterbi algorithm)</strong> (Phần 14.2.3) để tìm ra chuỗi các trạng thái ẩn (các thẻ) có xác suất cao nhất, chúng ta sẽ thấy rằng việc gán nhãn đạt được độ chính xác rất cao; thường là khoảng 97%.</p>
+
+<p>Để tạo ra một HMM cho việc gán nhãn POS, chúng ta cần <strong>mô hình chuyển trạng thái (transition model)</strong>, vốn cho biết xác suất của một từ loại theo sau một từ loại khác, \(P(C_t | C_{t-1})\), và <strong>mô hình cảm biến (sensor model)</strong>, \(P(W_t | C_t)\). Ví dụ: \(P(C_t = \text{VB} | C_{t-1} = \text{MD}) = 0.8\) có nghĩa là khi cho trước một động từ khuyết thiếu (chẳng hạn như "would"), chúng ta có thể mong đợi từ tiếp theo sẽ là một động từ (chẳng hạn như "think") với xác suất 0.8. Con số 0.8 này từ đâu mà ra? Cũng giống như với các mô hình n-gram, nó đến từ số lượng đếm trong tập ngữ liệu (corpus), đi kèm với phương pháp làm mịn phù hợp. Thực tế cho thấy có 13.124 trường hợp xuất hiện của MD trong tập ngữ liệu Penn Treebank, và 10.471 trường hợp trong số đó được theo sau bởi một VB.</p>
+
+<p>Đối với mô hình cảm biến, \(P(W_t = \text{would} | C_t = \text{MD}) = 0.1\) có nghĩa là khi chúng ta đang chọn một động từ khuyết thiếu, chúng ta sẽ chọn "would" trong 10% các trường hợp. Những con số này cũng đến từ việc đếm trên tập ngữ liệu, có kèm làm mịn.</p>
+
+<p>Một điểm yếu của các mô hình HMM là mọi thứ chúng ta biết về ngôn ngữ đều phải được biểu diễn dưới dạng các mô hình chuyển trạng thái và mô hình cảm biến. Từ loại cho từ hiện tại chỉ được xác định duy nhất bởi các xác suất trong hai mô hình này và bởi từ loại của từ trước đó. Không có cách nào dễ dàng để nhà phát triển hệ thống nói rằng, chẳng hạn, bất kỳ từ nào kết thúc bằng "ous" có khả năng là một tính từ, hay trong cụm từ "attorney general" (tổng chưởng lý), "attorney" là một danh từ chứ không phải là một tính từ.</p>
+
+<p>Rất may, <strong>Hồi quy Logistic (Logistic regression)</strong> lại có khả năng biểu diễn những thông tin dạng này. Nhắc lại từ Mục 19.6.5 rằng trong mô hình hồi quy logistic, đầu vào là một vector, \(\mathbf{x}\), gồm các giá trị đặc trưng (feature values). Sau đó chúng ta lấy tích vô hướng, \(\mathbf{w} \cdot \mathbf{x}\), của các đặc trưng đó với một vector trọng số \(\mathbf{w}\) đã được huấn luyện trước, và biến đổi tổng đó thành một con số từ 0 đến 1, có thể diễn giải như xác suất cho việc đầu vào là một ví dụ tích cực của một danh mục.</p>
+
+<p>Các trọng số trong mô hình hồi quy logistic tương ứng với mức độ dự đoán của mỗi đặc trưng cho mỗi danh mục; các giá trị trọng số được học bằng phương pháp hạ dốc gradient (gradient descent). Đối với việc gán nhãn POS, chúng ta sẽ xây dựng 45 mô hình hồi quy logistic khác nhau, mỗi mô hình dành cho một từ loại, và hỏi mỗi mô hình xem xác suất để từ ví dụ là một thành viên của danh mục đó là bao nhiêu, với các giá trị đặc trưng đã cho đối với từ đó trong ngữ cảnh cụ thể của nó.</p>
+
+<p>Câu hỏi đặt ra sau đó là các đặc trưng nên là gì? Các trình gán nhãn POS thường sử dụng các đặc trưng có giá trị nhị phân mã hóa thông tin về từ đang được gán nhãn, \(w_i\) (và có lẽ là các từ lân cận khác), cũng như danh mục đã được gán cho từ trước đó, \(c_{i-1}\) (và có lẽ là danh mục của các từ trước đó nữa). Các đặc trưng có thể phụ thuộc vào danh tính chính xác của một từ, một vài khía cạnh về cách nó được đánh vần, hoặc một vài thuộc tính từ một mục từ điển. Một bộ các đặc trưng gán nhãn POS có thể bao gồm:</p>
+<ul>
+<li>\(w_{i-1} = \text{"I"}\)</li>
+<li>\(w_{i+1} = \text{"for"}\)</li>
+<li>\(w_{i-1} = \text{"you"}\)</li>
+<li>\(c_{i-1} = \text{IN}\)</li>
+<li>\(w_i\) kết thúc bằng "ous"</li>
+<li>\(w_i\) chứa một dấu gạch ngang (hyphen)</li>
+<li>\(w_i\) kết thúc bằng "ly"</li>
+<li>\(w_i\) chứa một chữ số</li>
+<li>\(w_i\) bắt đầu bằng "un"</li>
+<li>\(w_i\) viết hoa toàn bộ</li>
+<li>\(w_{i-2} = \text{"to"}\) và \(c_{i-1} = \text{VB}\)</li>
+<li>\(w_{i-2}\) có thuộc tính PRESENT (hiện tại)</li>
+<li>\(w_{i-1} = \text{"I"}\) và \(w_{i+1} = \text{"to"}\)</li>
+<li>\(w_{i-2}\) có thuộc tính PAST (quá khứ)</li>
+</ul>
+
+<p>Ví dụ, từ "walk" có thể là danh từ hoặc động từ, nhưng trong câu "I walk to school," đặc trưng ở hàng cuối cùng, cột ngoài cùng bên trái có thể được dùng để phân loại "walk" thành động từ (VBP). Một ví dụ khác, từ "cut" có thể là danh từ (NN), động từ thì quá khứ (VBD), hoặc động từ thì hiện tại (VBP). Cho câu "Yesterday I cut the rope," đặc trưng ở hàng cuối cùng, cột bên phải có thể giúp gán thẻ cho "cut" là VBD, trong khi trong câu "Now I cut the rope," đặc trưng nằm ngay phía trên đó có thể giúp gán thẻ cho "cut" là VBP.</p>
+
+<p>Tổng cộng, có thể có cả triệu đặc trưng, nhưng đối với bất kỳ từ nào được cho, chỉ có khoảng vài chục đặc trưng là khác không (nonzero). Các đặc trưng này thường được thủ công xây dựng bởi một nhà thiết kế hệ thống là con người, người đã nghĩ ra những khuôn mẫu đặc trưng thú vị.</p>
+
+<p>Hồi quy logistic không có khái niệm về chuỗi đầu vào — bạn cung cấp cho nó một vector đặc trưng đơn lẻ (thông tin về một từ đơn lẻ) và nó tạo ra một đầu ra (một thẻ tag). Nhưng chúng ta có thể buộc hồi quy logistic phải xử lý một chuỗi thông qua <strong>tìm kiếm tham lam (greedy search)</strong>: bắt đầu bằng việc chọn danh mục có khả năng nhất cho từ đầu tiên, rồi chuyển tiếp tới các từ còn lại theo thứ tự từ trái sang phải. Ở mỗi bước, danh mục \(c_i\) được gán theo công thức:</p>
+
+<p>$$ c_i = \text{argmax}_{c' \in \text{Categories}} P(c' | w_{1:N}, c_{1:i-1}) $$</p>
+
+<p>Nghĩa là, bộ phân loại được phép xem xét bất kỳ đặc trưng nào (ngoài các đặc trưng danh mục) của bất kỳ từ nào ở bất cứ đâu trong câu (vì các đặc trưng này đều cố định), cũng như bất kỳ danh mục nào đã được gán trước đó.</p>
+
+<p>Lưu ý rằng tìm kiếm tham lam đưa ra sự lựa chọn danh mục dứt khoát cho từng từ, và sau đó chuyển sang từ tiếp theo; nếu sự lựa chọn đó bị mâu thuẫn bởi các bằng chứng ở phần sau của câu, thì sẽ không có khả năng quay lại và đảo ngược lựa chọn. Điều đó khiến thuật toán hoạt động nhanh. Ngược lại, thuật toán Viterbi giữ một bảng tất cả các lựa chọn danh mục có thể có ở mỗi bước và luôn có tùy chọn thay đổi. Điều đó làm cho thuật toán chính xác hơn, nhưng chậm hơn.</p>
+
+<p>Đối với cả hai thuật toán, một giải pháp thỏa hiệp là <strong>tìm kiếm theo chùm (beam search)</strong>, trong đó chúng ta xem xét mọi danh mục có thể có ở mỗi bước thời gian, nhưng sau đó chỉ giữ lại \(b\) thẻ tag có khả năng cao nhất, loại bỏ các thẻ ít có khả năng hơn khác. Việc thay đổi giá trị của \(b\) mang tính đánh đổi (trades off) giữa tốc độ và độ chính xác.</p>
+
+<p>Mô hình Naive Bayes và mô hình Markov ẩn đều là các <strong>mô hình sinh (generative models)</strong> (xem Mục 21.2.3). Nghĩa là, chúng học một phân phối xác suất đồng thời, \(P(W, C)\), và chúng ta có thể tạo ra một câu ngẫu nhiên bằng cách lấy mẫu (sampling) từ phân phối xác suất đó để nhận được từ đầu tiên (kèm danh mục) của câu, và sau đó thêm lần lượt từng từ một.</p>

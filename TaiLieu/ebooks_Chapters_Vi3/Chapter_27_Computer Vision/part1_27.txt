@@ -1,0 +1,244 @@
+CHAPTER 27
+COMPUTER VISION
+In which we connect the computer to the raw, unwashed world through the eyes of a camera.
+Most animals have eyes, often at signiﬁcant cost: eyes take up a lot of space; use energy;
+and are quite fragile. This cost is justiﬁed by the immense value that eyes provide. An agent
+that can see can predict the future—it can tell what it might bump into; it can tell whether to
+attack or to ﬂee or to court; it can guess whether the ground ahead is swampy or ﬁrm; and
+it can tell how far away the fruit is. In this chapter, we describe how to recover information
+from the ﬂood of data that comes from eyes or cameras.
+27.1 Introduction
+Vision is a perceptual channel that accepts a stimulus and reports some representation of the
+world. Most agents that use vision use passive sensing—they do not need to send out light
+to see. In contrast, active sensing involves sending out a signal such as radar or ultrasound,
+and sensing a reﬂection. Examples of agents that use active sensing include bats (ultrasound),
+dolphins (sound), abyssal ﬁshes (light), and some robots (light, sound, radar). To understand
+a perceptual channel, one must study both the physical and statistical phenomena that occur
+in sensing and what the perceptual process should produce. We concentrate on vision in this
+chapter, but robots in the real world use a variety of sensors to perceive sound, touch, distance,
+temperature, global position, and acceleration.
+A feature is a number obtained by applying simple computations to an image. Very use-
+Feature
+ful information can be obtained directly from features. The wumpus agent had ﬁve sensors,
+each of which extracted a single bit of information. These bits, which are features, could
+be interpreted directly by the program. As another example, many ﬂying animals compute a
+simple feature that gives a good estimate of time to contact with a nearby object; this feature
+can be passed directly to muscles that control steering or wings, allowing very fast changes of
+direction. This feature extraction approach emphasizes simple, direct computations applied
+to sensor responses.
+The model-based approach to vision uses two kinds of models. An object model could
+be the kind of precise geometric model produced by computer aided design systems. It could
+also be a vague statement about general properties of objects, for example, the claim that all
+faces viewed in low resolution look approximately the same. A rendering model describes
+the physical, geometric, and statistical processes that produce the stimulus from the world.
+While rendering models are now sophisticated and exact, the stimulus is usually ambiguous.
+A white object under low light may look like a black object under intense light. A small,
+nearby object may look the same as a large, distant object. Without additional evidence,
+
+
+Section 27.2
+Image Formation
+989
+we cannot tell if what we see is a toy Godzilla tearing up a toy building, or a real monster
+destroying a real building.
+There are two main ways to manage these ambiguities. First, some interpretations are
+more likely than others. For example, we can be conﬁdent that the picture doesn’t show a
+real Godzilla destroying a real building, because there are no real Godzillas. Second, some
+ambiguities are insigniﬁcant. For example, distant scenery may be trees or may be a ﬂat
+painted surface. For most applications, the difference is unimportant, because the objects are
+far away and so we will not bump into them or interact with them soon.
+The two core problems of computer vision are reconstruction, where an agent builds
+Reconstruction
+a model of the world from an image or a set of images, and recognition, where an agent
+Recognition
+draws distinctions among the objects it encounters based on visual and other information.
+Both problems should be interpreted very broadly. Building a geometric model from images
+is obviously reconstruction (and solutions are very valuable), but sometimes we need to build
+a map of the different textures on a surface, and this is reconstruction, too. Attaching names
+to objects that appear in an image is clearly recognition. Sometimes we need to answer
+questions like: Is it asleep? Does it eat meat? Which end has teeth? Answering these
+questions is recognition, too.
+The last thirty years of research have produced powerful tools and methods for addressing
+these core problems. Understanding these methods requires an understanding of the processes
+by which images are formed.
+27.2 Image Formation
+Imaging distorts the appearance of objects. A picture taken looking down a long straight set
+of railway tracks will suggest that the rails converge and meet. If you hold your hand in front
+of your eye, you can block out the moon, even though the moon is larger than your hand (this
+works with the sun too, but you could damage your eyes checking it). If you hold a book
+ﬂat in front of your face and tilt it backward and forward, it will seem to shrink and grow in
+the image. This effect is known as foreshortening (Figure 27.1). Models of these effects are
+essential for building competent object recognition systems and also yield powerful cues for
+reconstructing geometry.
+27.2.1 Images without lenses: The pinhole camera
+Image sensors gather light scattered from objects in a scene and create a two-dimensional
+Scene
+(2D) image. In the eye, these sensors consist of two types of cell: There are about 100
+Image
+million rods, which are sensitive to light at a wide range of wavelengths, and 5 million cones.
+Cones, which are essential for color vision, are of three main types, each of which is sensitive
+to a different set of wavelengths. In cameras, the image is formed on an image plane. In ﬁlm
+cameras the image plane is coated with silver halides. In digital cameras, the image plane is
+subdivided into a grid of a few million pixels.
+Pixels
+We refer to the whole image plane as a sensor, but each pixel is an individual tiny
+Sensor
+sensor—usually a charge-coupled device (CCD) or complementary metal-oxide semiconduc-
+tor (CMOS). Each photon arriving at the sensor produces an electrical effect, whose strength
+depends on the wavelength of the photon. The output of the sensor is the sum of all these
+effects in some time window, meaning that image sensors report a weighted average of the
+
+
+990
+Chapter 27
+Computer Vision
+Figure 27.1 Geometry in the scene appears distorted in images. Parallel lines appear to
+meet, like the railway tracks in a desolate town. Buildings that have right angles in the real
+world scene have distorted angles in the image.
+intensity of light arriving at the sensor. The average is over wavelength, direction from which
+photons can arrive, time, and the area of the sensor.
+To see a focused image, we must ensure that all the photons arriving at a sensor come
+from approximately the same spot on the object in the world. The simplest way to form a fo-
+cused image is to view stationary objects with a pinhole camera, which consists of a pinhole
+Pinhole camera
+opening, O, at the front of a box, and an image plane at the back of the box (Figure 27.2).
+The opening is called the aperture. If the pinhole is small enough, each tiny sensor in the
+Aperture
+image plane will see only photons that come from approximately the same spot on the object,
+and so the image is focused. We can form focused images of moving objects with a pinhole
+camera, too, as long as the object moves only a short distance in the sensors’ time window.
+Otherwise, the image of the moving object is defocused, an effect known as motion blur.
+Motion blur
+One way to manipulate the time window is to open and close the pinhole.
+Pinhole cameras make it easy to understand the geometric model of camera behavior
+(which is more complicated—but similar—with most other imaging devices). We will use a
+three-dimensional (3D) coordinate system with the origin at O, and will consider a point P
+in the scene, with coordinates (X,Y,Z). P gets projected to the point P′ in the image plane
+with coordinates (x,y,z). If f is the focal length—the distance from the pinhole to the image
+Focal length
+plane—then by similar triangles, we can derive the following equations:
+−x
+f
+= X
+Z , −y
+f
+= Y
+Z
+⇒
+x = −fX
+Z
+, y = −fY
+Z
+.
+These equations deﬁne an image formation process known as perspective projection. Note
+Perspective
+projection
+that the Z in the denominator means that the farther away an object is, the smaller its image
+will be. Also, note that the minus signs mean that the image is inverted, both left–right and
+up–down, compared with the scene.
+Perspective imaging has a number of geometric effects. Distant objects look small. Par-
+allel lines converge to a point on the horizon. (Think of railway tracks, Figure 27.1.) A line
+in the scene in the direction (U,V,W) and passing through the point (X0,Y0,Z0) can be de-
+scribed as the set of points (X0+λU,Y0+λV,Z0+λW), with λ varying between −∞and +∞.
+Different choices of (X0,Y0,Z0) yield different lines parallel to one another. The projection
+
+
+Section 27.2
+Image Formation
+991
+f
+image
+plane
+pinhole
+P
+P’
+Y
+X
+Z
+Q
+Figure 27.2 Each light sensitive element at the back of a pinhole camera receives light that
+passes through the pinhole from a small range of directions. If the pinhole is small enough,
+the result is a focused image behind the pinhole. The process of projection means that large,
+distant objects look the same as smaller, nearby objects—the point P′ in the image plane
+could have come from a nearby toy tower at point P or from a distant real tower at point Q.
+of a point Pλ from this line onto the image plane is given by
+Pλ =
+
+f X0 +λU
+Z0 +λW , f Y0 +λV
+Z0 +λW
+
+.
+As λ →∞or λ →−∞, this becomes P∞= (fU/W, fV/W) if W̸ = 0. This means that two
+parallel lines leaving different points in space will converge in the image—for large λ, the
+image points are nearly the same, whatever the value of (X0,Y0,Z0) (again, think railway
+tracks, Figure 27.1). We call P∞the vanishing point associated with the family of straight
+Vanishing point
+lines with direction (U,V,W). Lines with the same direction share the same vanishing point.
+27.2.2 Lens systems
+Pinhole cameras can focus light well, but because the pinhole is small, only a little light will
+get in, and the image will be dark. Over a short period of time, only a few photons will hit
+each point on the sensor, so the signal at each point will be dominated by random ﬂuctuations;
+we say that a dark ﬁlm image is grainy and a dark digital image is noisy; either way, the image
+is of low quality.
+Enlarging the hole (the aperture) will make the image brighter by collecting more light
+from a wider range of directions. However, with a larger aperture the light that hits a particular
+point in the image plane will have come from multiple points in the real world scene, so the
+image will be defocused. We need some way to refocus the image.
+Vertebrate eyes and modern cameras use a lens system—a single piece of transparent
+Lens
+tissue in the eye and a system of multiple glass lens elements in a camera. In Figure 27.3 we
+see that light from the tip of the candle spreads out in all directions. A camera (or an eye)
+with a lens captures all the light that hits anywhere on the lens—a much larger area than a
+pinhole—and focuses all that light to a single point on the image plane. Light from other parts
+of the candle would similarly be gathered and focused to other points on the image plane. The
+result is a brighter, less noisy, focused image.
+
+
+992
+Chapter 27
+Computer Vision
+Iris
+Cornea
+Fovea
+Visual Axis
+Optical Axis
+Lens
+Retina
+Optic Nerve
+Lens
+System
+Image plane
+Focal plane
+Depth of field
+Figure 27.3 Lenses collect the light leaving a point in the scene (here, the tip of the candle
+ﬂame) in a range of directions, and steer all the light to arrive at a single point on the image
+plane. Points in the scene near the focal plane—within the depth of ﬁeld—will be focused
+properly. In cameras, elements of the lens system move to change the focal plane, whereas
+in the eye, the shape of the lens is changed by specialized muscles.
+Lens systems do not focus all the light from everywhere in the real world; the lens design
+restricts them to focusing light only from points that lie within a range of Z depths from the
+lens. The center of this range—where focus is sharpest—is called the focal plane, and the
+Focal plane
+range of depths for which focus remains sharp enough is called the depth of ﬁeld. The larger
+Depth of ﬁeld
+the lens aperture (opening), the smaller the depth of ﬁeld.
+What if you want to focus on something at a different distance? To move the focal plane,
+the lens elements in a camera can move back and forth, and the lens in the eye can change
+shape—but with age the eye lens tends to harden, making it less able to adjust focal distances,
+and requiring many humans to augment their vision with external lens—eyeglasses.
+27.2.3 Scaled orthographic projection
+The geometric effects of perspective imaging aren’t always pronounced. For example, win-
+dows on a building across the street look much smaller than ones right nearby, but two win-
+dows that are next to each other will have about the same size even though one is slightly
+farther away. We have the option to handle the windows with a simpliﬁed model called
+scaled orthographic projection, rather than perspective projection. If the depth Z of all
+Scaled orthographic
+projection
+points on an object fall within the range Z0 ±∆Z, with ∆Z ≪Z0, then the perspective scaling
+factor f/Z can be approximated by a constant s = f/Z0. The equations for projection from
+the scene coordinates (X,Y,Z) to the image plane become x = sX and y = sY. Foreshortening
+still occurs in the scaled orthographic projection model, because it is caused by the object
+tilting away from the view.
+
+

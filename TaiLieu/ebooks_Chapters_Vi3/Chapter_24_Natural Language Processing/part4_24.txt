@@ -1,0 +1,188 @@
+Section 24.1
+Language Models
+883
+Logistic regression on the other hand is a discriminative model. It learns a conditional
+probability distribution P(C|W), meaning that it can assign categories given a sequence of
+words, but it can’t generate random sentences. Generally, researchers have found that dis-
+criminative models have a lower error rate, perhaps because they model the intended output
+directly, and perhaps because they make it easier for an analyst to create additional features.
+However, generative models tend to converge more quickly, and so may be preferred when
+the available training time is short, or when there is limited training data.
+24.1.7 Comparing language models
+To get a feeling for what different n-gram models are like, we built unigram (i.e., bag-of-
+words), bigram, trigram, and 4-gram models over the words in this book and then randomly
+sampled word sequences from each of the four models:
+• n = 1: logical are as are confusion a may right tries agent goal the was
+• n = 2: systems are very similar computational approach would be represented
+• n = 3: planning and scheduling are integrated the success of naive Bayes model is
+• n = 4: taking advantage of the structure of Bayesian networks and developed various languages
+for writing “templates” with logical variables, from which large networks could be constructed
+automatically for each problem instance
+From this small sample it should be clear that the unigram model is a very poor approximation
+of either English in general or an AI textbook in particular, and that the 4-gram model is
+imperfect but much better. Next, to demonstrate how samples switch between training sources
+(and deﬁnitely not just for fun) we added the text of the King James Bible to the 4-gram model
+yielding these random samples:
+• Prove that any 3-SAT problem can be reduced to simpler ones using the laws of thy God.
+• Masters, give unto your servants that which is true iff both P and Q in any model m by a simple
+experiment: put your hand unto, ye and your households for it is pleasant.
+• Many will intreat the LORD your God, Saying, No; but we will ignore this issue for now;
+Chapters 7 and 8 suggest methods for compactly representing very large belief states.
+• And it came to pass, as if it had no successors.
+• The direct utility estimation is just an instance of the general or algorithm in which new function
+symbols are constructed “on the ﬂy.” For example, the ﬁrst child of the Holy Ghost.
+There is a limit to n-gram models—as n increases, they will produce language that is more
+ﬂuent, but they tend to reproduce long passages from their training data verbatim, rather
+than generate novel text. Language models with more complex representations of words and
+context can do better. The rest of this chapter demonstrates how grammar can improve a
+language model, and Chapter 25 shows how deep learning methods have recently produced
+impressive language models. One such deep learning model, GPT-2, can produce ﬂuent En-
+glish samples when given a prompt. We gave GPT-2 the ﬁrst two sentences of this paragraph
+as a prompt; it produced the following two samples:
+• Numerous studies have shown that the best language models that can generate language are
+those that use neural networks, and in particular that use deep learning to model speech. I have
+used one of these models to generate hundreds of sentences in multiple languages, and it has
+the ability to generate almost perfect translations of my training sentences. It’s a great model
+to have, and will save you a lot of time in the future when you need to translate between many
+languages.
+
+
+884
+Chapter 24
+Natural Language Processing
+• These models can also do better if their samples are chosen at random, rather than by an
+expert in the domain. However, as a general rule, n-gram and language models that include a
+large number of features tend to produce text better, since these features contribute the most to
+language learning. To measure the performance of a model, I’ve made some sample sentences
+that I’d like to train to better understand speech and language models. You can read them to get
+a grasp of how the model predicts.
+We see that these passages are diverse and grammatically ﬂuent; moreover, they stick to top-
+ics that are relevant to the prompt sentences. But the sentences do not build on each other to
+advance a coherent thesis. The GPT-2 language model is known as a transformer model,
+which will be covered in Section 25.4; further examples from GPT-2 are in Figure 25.14.
+Another transformer model is the Conditional Transformer Language, CTRL. It can be con-
+trolled more ﬂexibly; in the following samples CTRL was asked to generate text in the cate-
+gory product reviews, with a rating of 1 and of 4 (out of 5): speciﬁed rating (out of 5):
+• 1.0: I bought this for my son who is a huge fan of the show. He was so excited to get it and when
+he opened it, we were all very disappointed. The quality of the product is terrible. It looks like
+something you would buy at a dollar store.
+• 4.0: I bought this for my husband and he loves it. He has a small wrist so it is hard to ﬁnd
+watches that ﬁt him well. This one ﬁts perfectly.
+24.2 Grammar
+In Chapter 7 we used Backus–Naur Form (BNF) to write down a grammar for the language
+of ﬁrst-order logic. A grammar is a set of rules that deﬁnes the tree structure of allowable
+phrases, and a language is the set of sentences that follow those rules.
+Natural languages do not work exactly like the formal language of ﬁrst-order logic—they
+do not have a hard boundary between allowable and unallowable sentences, nor do they have a
+single deﬁnitive tree structure for each sentence. However, hierarchical structure is important
+in natural language. The word “Stocks” in “Stocks rallied on Monday” is not just a word,
+nor is it just a noun; in this sentence it also comprises a noun phrase, which is the subject
+of the following verb phrase. Syntactic categories such as noun phrase or verb phrase help
+Syntactic category
+to constrain the probable words at each point within a sentence, and the phrase structure
+Phrase structure
+provides a framework for the meaning or semantics of the sentence.
+There are many competing language models based on the idea of hierarchical syntactic
+structure; in this section we will describe a popular model called the probabilistic context-
+free grammar, or PCFG. A probabilistic grammar assigns a probability to each string, and
+Probabilistic
+context-free
+grammar
+“context-free” means that any rule can be used in any context: the rules for a noun phrase at
+the beginning of a sentence are the same as for another noun phrase later in the sentence, and
+if the same phrase occurs in two locations, it must have the same probability each time. We
+will deﬁne a PCFG grammar for a tiny fragment of English that is suitable for communication
+between agents exploring the wumpus world. We call this language E0 (see Figure 24.2). A
+grammar rule such as
+Adjs →Adjective
+[0.80]
+|
+Adjective Adjs [0.20]
+means that the syntactic category Adjs can consist of either a single Adjective, with probability
+0.80, or of an Adjective followed by a string that constitutes an Adjs, with probability 0.20.
+
+
+Section 24.2
+Grammar
+885
+S →NP VP
+[0.90] I + feel a breeze
+|
+S Conj S
+[0.10] I feel a breeze + and + It stinks
+NP →Pronoun
+[0.25] I
+|
+Name
+[0.10] Ali
+|
+Noun
+[0.10] pits
+|
+Article Noun
+[0.25] the + wumpus
+|
+Article Adjs Noun [0.05] the + smelly dead + wumpus
+|
+Digit Digit
+[0.05] 3 4
+|
+NP PP
+[0.10] the wumpus + in 1 3
+|
+NP RelClause
+[0.05] the wumpus + that is smelly
+|
+NP Conj NP
+[0.05] the wumpus + and + I
+VP →Verb
+[0.40] stinks
+|
+VP NP
+[0.35] feel + a breeze
+|
+VP Adjective
+[0.05] smells + dead
+|
+VP PP
+[0.10] is + in 1 3
+|
+VP Adverb
+[0.10] go + ahead
+Adjs →Adjective
+[0.80] smelly
+|
+Adjective Adjs
+[0.20] smelly + dead
+PP →Prep NP
+[1.00] to + the east
+RelClause →RelPro VP
+[1.00] that + is smelly
+Figure 24.2 The grammar for E0, with example phrases for each rule. The syntactic cate-
+gories are sentence (S), noun phrase (NP), verb phrase (VP), list of adjectives (Adjs), prepo-
+sitional phrase (PP), and relative clause (RelClause).
+Noun
+→stench [0.05] | breeze [0.10] | wumpus [0.15] | pits [0.05] | ...
+Verb
+→is [0.10] | feel [0.10] | smells [0.10] | stinks [0.05] | ...
+Adjective →right [0.10] | dead [0.05] | smelly [0.02] | breezy [0.02]...
+Adverb
+→here [0.05] | ahead [0.05] | nearby [0.02] | ...
+Pronoun
+→me [0.10] | you [0.03] | I [0.10] | it [0.10] | ...
+RelPro
+→that [0.40] | which [0.15] | who [0.20] | whom [0.02] | ...
+Name
+→Ali [0.01] | Bo [0.01] | Boston [0.01] | ...
+Article
+→the [0.40] | a [0.30] | an [0.10] | every [0.05] | ...
+Prep
+→to [0.20] | in [0.10] | on [0.05] | near [0.10] | ...
+Conj
+→and [0.50] | or [0.10] | but [0.20] | yet [0.02] | ...
+Digit
+→0 [0.20] | 1 [0.20] | 2 [0.20] | 3 [0.20] | 4 [0.20] | ...
+Figure 24.3 The lexicon for E0. RelPro is short for relative pronoun, Prep for preposition,
+and Conj for conjunction. The sum of the probabilities for each category is 1.
+
+

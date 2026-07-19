@@ -1,0 +1,150 @@
+898
+Chapter 24
+Natural Language Processing
+Ambiguity: We tend to think of ambiguity as a failure in communication; when a listener
+Ambiguity
+is consciously aware of an ambiguity in an utterance, it means that the utterance is unclear or
+confusing. Here are some examples taken from newspaper headlines:
+Squad helps dog bite victim.
+Police begin campaign to run down jaywalkers.
+Helicopter powered by human ﬂies.
+Once-sagging cloth diaper industry saved by full dumps.
+Include your children when baking cookies.
+Portable toilet bombed; police have nothing to go on.
+Milk drinkers are turning to powder.
+Two sisters reunited after 18 years in checkout counter.
+Such confusions are the exception; most of the time the language we hear seems unambigu-
+ous. Thus, when researchers ﬁrst began to use computers to analyze language in the 1960s,
+they were quite surprised to learn that almost every sentence is ambiguous, with multiple
+possible parses (sometimes hundreds), even when the single preferred parse is the only one
+that native speakers notice. For example, we understand the phrase “brown rice and black
+beans” as “[brown rice] and [black beans],” and never consider the low-probability interpre-
+tation “brown [rice and black beans],” where the adjective “brown” is modifying the whole
+phrase, not just the “rice.” When we hear “Outside of a dog, a book is a person’s best friend,”
+we interpret “outside of” as meaning “except for,” and ﬁnd it funny when the next sentence
+of the Groucho Marx joke is “Inside of a dog it’s too dark to read.”
+Lexical ambiguity is when a word has more than one meaning: “back” can be an adverb
+Lexical ambiguity
+(go back), an adjective (back door), a noun (the back of the room), a verb (back a candidate),
+or a proper noun (a river in Nunavut, Canada). “Jack” can be a proper name, a noun (a playing
+card, a six-pointed metal game piece, a nautical ﬂag, a ﬁsh, a bird, a cheese, a socket, etc.), or
+a verb (to jack up a car, to hunt with a light, or to hit a baseball hard). Syntactic ambiguity
+Syntactic ambiguity
+refers to a phrase that has multiple parses: “I smelled a wumpus in 2,2” has two parses: one
+where the prepositional phrase “in 2,2” modiﬁes the noun and one where it modiﬁes the verb.
+The syntactic ambiguity leads to a semantic ambiguity, because one parse means that the
+Semantic ambiguity
+wumpus is in 2,2 and the other means that a stench is in 2,2. In this case, getting the wrong
+interpretation could be a deadly mistake.
+There can also be ambiguity between literal and ﬁgurative meanings. Figures of speech
+are important in poetry, and are common in everyday speech as well. A metonymy is a
+Metonymy
+ﬁgure of speech in which one object is used to stand for another. When we hear “Chrysler
+announced a new model,” we do not interpret it as saying that companies can talk; rather
+we understand that a spokesperson for the company made the announcement. Metonymy is
+common and is often interpreted unconsciously by human hearers.
+Unfortunately, our grammar as it is written is not so facile. To handle the semantics of
+metonymy properly, we need to introduce a whole new level of ambiguity. We could do
+this by providing two objects for the semantic interpretation of every phrase in the sentence:
+one for the object that the phrase literally refers to (Chrysler) and one for the metonymic
+reference (the spokesperson). We then have to say that there is a relation between the two. In
+
+
+Section 24.5
+Complications of Real Natural Language
+899
+our current grammar, “Chrysler announced” gets interpreted as
+x = Chrysler ∧e ∈Announce(x)∧After(Now,Extent(e)).
+We need to change that to
+x = Chrysler ∧e ∈Announce(m)∧After(Now,Extent(e))
+∧Metonymy(m,x).
+This says that there is one entity x that is equal to Chrysler, and another entity m that did the
+announcing, and that the two are in a metonymy relation. The next step is to deﬁne what
+kinds of metonymy relations can occur. The simplest case is when there is no metonymy at
+all—the literal object x and the metonymic object m are identical:
+∀m,x (m = x) ⇒Metonymy(m,x).
+For the Chrysler example, a reasonable generalization is that an organization can be used to
+stand for a spokesperson of that organization:
+∀m,x x∈Organizations∧Spokesperson(m,x) ⇒Metonymy(m,x).
+Other metonymies include the author for the works (I read Shakespeare) or more generally
+the producer for the product (I drive a Honda) and the part for the whole (The Red Sox need
+a strong arm). Some examples of metonymy, such as “The ham sandwich on Table 4 wants
+another beer,” are more novel and are interpreted with respect to a situation (such as waiting
+on tables and not knowing a customer’s name).
+A metaphor is another ﬁgure of speech, in which a phrase with one literal meaning is
+Metaphor
+used to suggest a different meaning by way of an analogy. Thus, metaphor can be seen as a
+kind of metonymy where the relation is one of similarity.
+Disambiguation is the process of recovering the most probable intended meaning of an
+Disambiguation
+utterance. In one sense we already have a framework for solving this problem: each rule
+has a probability associated with it, so the probability of an interpretation is the product of
+the probabilities of the rules that led to the interpretation. Unfortunately, the probabilities
+reﬂect how common the phrases are in the corpus from which the grammar was learned,
+and thus reﬂect general knowledge, not speciﬁc knowledge of the current situation. To do
+disambiguation properly, we need to combine four models:
+1. The world model: the likelihood that a proposition occurs in the world. Given what we
+know about the world, it is more likely that a speaker who says “I’m dead” means “I
+am in big trouble” or “I lost this video game” rather than “My life ended, and yet I can
+still talk.”
+2. The mental model: the likelihood that the speaker forms the intention of communicat-
+ing a certain fact to the hearer. This approach combines models of what the speaker
+believes, what the speaker believes the hearer believes, and so on. For example, when
+a politician says, “I am not a crook,” the world model might assign a probability of
+only 50% to the proposition that the politician is not a criminal, and 99.999% to the
+proposition that he is not a hooked shepherd’s staff. Nevertheless, we select the former
+interpretation because it is a more likely thing to say.
+3. The language model: the likelihood that a certain string of words will be chosen, given
+that the speaker has the intention of communicating a certain fact.
+
+
+900
+Chapter 24
+Natural Language Processing
+4. The acoustic model: for spoken communication, the likelihood that a particular se-
+quence of sounds will be generated, given that the speaker has chosen a given string
+of words. (For handwritten or typed communication, we have the problem of optical
+character recognition.)
+24.6 Natural Language Tasks
+Natural language processing is a big ﬁeld, deserving an entire textbook or two of its own
+(Goldberg, 2017; Jurafsky and Martin, 2020). In this section we brieﬂy describe some of the
+main tasks; you can use the references to get more details.
+Speech recognition is the task of transforming spoken sound into text. We can then
+Speech recognition
+perform further tasks (such as question answering) on the resulting text. Current systems
+have a word error rate of about 3% to 5% (depending on details of the test set), similar
+to human transcribers. The challenge for a system using speech recognition is to respond
+appropriately even when there are errors on individual words.
+Top systems today use a combination of recurrent neural networks and hidden Markov
+models (Hinton et al., 2012; Yu and Deng, 2016; Deng, 2016; Chiu et al., 2017; Zhang et al.,
+2017). The introduction of deep neural nets for speech in 2011 led to an immediate and
+dramatic improvement of about 30% in error rate—this from a ﬁeld that seemed to be mature
+and was previously progressing at only a few percent per year. Deep neural networks are a
+good ﬁt because the problem of speech recognition has a natural compositional breakdown:
+waveforms to phonemes to words to sentences. They will be covered in the next chapter.
+Text-to-speech synthesis is the inverse process—going from text to sound. Taylor (2009)
+Text-to-speech
+gives a book-length overview. The challenge is to pronounce each word correctly, and to make
+the ﬂow of each sentence seem natural, with the right pauses and emphasis.
+Another area of development is in synthesizing different voices—starting with a choice
+between a generic male or female voice, then allowing for regional dialects, and even imi-
+tating celebrity voices. As with speech recognition, the introduction of deep recurrent neu-
+ral networks led to a large improvement, with about 2/3 of listeners saying that the neural
+WaveNet system (van den Oord et al., 2016a) sounded more natural than the previous non-
+neural system.
+Machine translation transforms text in one language to another. Systems are usually
+trained using a bilingual corpus: a set of paired documents, where one member of the pair is
+in, say, English, and the other is in, say, French. The documents do not need to be annotated
+in any way; the machine translation system learns to align sentences and phrases and then
+when presented with a novel sentence in one language, can generate a translation to the other.
+Systems in the early 2000s used n-gram models, and achieved results that were usually
+good enough to get across the meaning of a text, but contained syntactic errors in most sen-
+tences. One problem was the limit on the length of the n-grams: even with a large limit of
+7, it was difﬁcult for information to ﬂow from one end of the sentence to the other. Another
+problem was that all the information in an n-gram model is at the level of individual words.
+Such a system could learn that “black cat” translates to “chat noir,” but it could not learn the
+rule that adjectives generally come before the noun in English and after the noun in French.
+Recurrent neural sequence-to-sequence models (Sutskever et al., 2015) got around the
+problem. They could generalize better (because they could use word embeddings rather than
+
+

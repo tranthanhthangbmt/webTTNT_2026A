@@ -1,0 +1,228 @@
+1018
+Chapter 27
+Computer Vision
+27.7.3 Reconstruction from many views
+Reconstructing a set of points from many views—which could come from video or from an
+aggregation of tourist photographs—is similar to reconstructing the points from two views,
+but there are some important differences. There is far more work to be done to establish cor-
+respondence between points in different views, and points can go in and out of view, making
+the matching and reconstruction process messier. But more views means more constraints
+on the reconstruction and on the recovered viewing parameters, so it is usually possible to
+produce extremely accurate estimates of both the position of the points and of the viewing
+parameters. Rather roughly, reconstruction proceeds by matching points over pairs of im-
+ages, extending these matches to groups of images, coming up with a rough solution for both
+geometry and viewing parameters, then polishing that solution. Polishing means minimizing
+the error between points predicted by the model (of geometry and viewing parameters) and
+the locations of image features. The detailed procedures are too complex to cover fully, but
+are now very well understood and quite reliable.
+All the geometric constraints on correspondences are known for any conceivably useful
+form of camera. The procedures can be generalized to deal with views that are not ortho-
+graphic; to deal with points that are observed in only some views; to deal with unknown
+camera parameters (like focal length); and to exploit various sophisticated searches for ap-
+propriate correspondences. It is practical to accurately reconstruct a model of an entire city
+from images. Some applications are:
+• Model building: For example, one might build a modeling system that takes many
+views depicting an object and produces a very detailed 3D mesh of textured polygons
+for use in computer graphics and virtual reality applications. It is routine to build models
+like this from video, but such models can now be built from apparently random sets of
+pictures. For example, you can build a 3D model of the Statue of Liberty from pictures
+found on the Internet.
+• Mix animation with live actors in video: To place computer graphics characters into
+real video, we need to know how the camera moved for the real video, so we can render
+the character correctly, changing the view as the camera moves.
+• Path reconstruction: Mobile robots need to know where they have been. If the robot
+has a camera, we can build a model of the camera’s path through the world; that will
+serve as a representation of the robot’s path.
+• Construction management: Buildings are enormously complicated artifacts, and keep-
+ing track of what is happening during construction is difﬁcult and expensive. One way
+to keep track is to ﬂy drones through the construction site once a week, ﬁlming the
+current state. Then build a 3D model of the current state and explore the difference
+between the plans and the reconstruction using visualization techniques. Figure 27.21
+illustrates this application.
+27.7.4 Geometry from a single view
+Geometric representations are particularly useful if you want to move, because they can reveal
+where you are, where you can go, and what you are likely bump into. But it is not always
+convenient to use multiple views to produce a geometric model. For example, when you open
+the door and step into a room, your eyes are too close together to recover a good representation
+
+
+Section 27.7
+Using Computer Vision
+1019
+Figure 27.21 3D models of construction sites are produced from images by structure-from-
+motion and multiview stereo algorithms. They help construction companies to coordinate
+work on large buildings by comparing a 3D model of the actual construction to date with
+the building plans. Left: A visualization of a geometric model captured by drones. The
+reconstructed 3D points are rendered in color, so the result looks like progress to date (note
+the partially completed building with crane). The small pyramids show the pose of a drone
+when it captured an image, to allow visualization of the ﬂight path. Right: These systems
+are actually used by construction teams; this team views the model of the as-built site, and
+compares it with building plans as part of the coordination meeting. Figure courtesy of Derek
+Hoiem, Mani Golparvar-Fard and Reconstruct, produced by a commercial system described
+in a blog post at medium.com/reconstruct-inc.
+of the depth to distant objects across the room. You could move your head back and forth,
+but that is time-consuming and inconvenient.
+An alternative is to predict a depth map—an array giving the depth to each pixel in the
+Depth map
+image, nominally from the camera—from a single image. For many kinds of scenes, this is
+surprisingly easy to do accurately, because the depth map has quite a simple structure. This is
+particularly true of rooms and indoor scenes in general. The mechanics are straightforward.
+One obtains a data set of images and depth maps, then trains a network to predict depth
+maps from images. A variety of interesting variations of the problem can be solved. The
+problem with a depth map is that it doesn’t tell you anything about the backs of objects, or
+the space behind the objects. But there are methods that can predict what voxels (3D pixels)
+are occupied by known objects (the object geometry is known) and what a depth map would
+look like if an object were removed (and so where you could hide objects). These methods
+work because object shapes are quite strongly stylized.
+As we saw in Section 27.6.4, recovering the pose of a known object using a 3D model
+is straightforward. Now imagine you see a single image of, say, a sparrow. If you have seen
+many images of sparrow-like birds in the past, you can reconstruct a reasonable estimate of
+both the pose of the sparrow and its geometric model from that single image. Using the past
+images you build a small, parametric family of geometric models for sparrow-like birds; then
+an optimization procedure is used to ﬁnd the best set of parameters and viewpoints to explain
+the image that you see. This argument works to supply texture for that model, too, even for
+the parts you cannot see (Figure 27.22).
+
+
+1020
+Chapter 27
+Computer Vision
+Figure 27.22 If you have seen many pictures of some category—say, birds (top)—you can
+use them to produce a 3D reconstruction from a single new view (bottom). You need to be
+sure that all objects have a fairly similar geometry (so a picture of an ostrich won’t help if
+you’re looking at a sparrow), but classiﬁcation methods can sort this out. From the many
+images you can estimate how texture values in the image are distributed across the object,
+and thus complete the texture for parts of the bird you haven’t seen yet (bottom). Figure
+courtesy of Angjoo Kanazawa, produced by a system described in Kanazawa et al. (2018b).
+Top photo credit: Satori/123RF; Bottom left credit: Four Oaks/Shutterstock.
+27.7.5 Making pictures
+It is now common to insert computer graphics models into photographs in a convincing fash-
+ion, as in Figure 27.23, where a statue has been placed into a photo of a room. First estimate
+a depth map and albedo for the picture. Then estimate the lighting in the image by matching
+it to other images with known lighting. Place the object in the image’s depth map, and render
+the resulting world with a physical rendering program—a standard tool in computer graphics.
+Finally, blend the modiﬁed image with the original image.
+Neural networks can also be trained to do image transformation: mapping images from
+Image
+transformation
+type X—for example, a blurry image; an aerial image of a town; or a drawing of a new
+product—to images of type Y—for example, a deblurred version of the image; a road map;
+or a product photograph. This is easiest when the training data consists of (X, Y) pairs of
+images—in Figure 27.24 each example pair has an aerial image and the corresponding road
+map section. The training loss compares the output of the network with the desired output,
+and also has a loss component from a generative adversarial network (GAN) that ensures that
+the output has the right kinds of features for images of type Y. As we see in the test portion
+of Figure 27.24, systems of this kind perform very well.
+Sometimes we don’t have images that are paired with each other, but we do have a big
+collection of images of type X (say, pictures of horses) and a separate collection of type Y
+
+
+Section 27.7
+Using Computer Vision
+1021
+Figure 27.23 On the left, an image of a real scene. On the right, a computer graphics object
+has been inserted into the scene. You can see that the light appears to be coming from the
+right direction, and that the object seems to cast appropriate shadows. The generated image
+is convincing even if there are small errors in the lighting and shadows, because people are
+not expert at identifying these errors. Figure courtesy of Kevin Karsch, produced by a system
+described in Karsch et al. (2011).
+xi
+yi
+…
+Training data
+Input
+i
+xi
+X
+Y
+regression error
+xi
+yi
+yi
+Objective
+Result
+Training
+Test
+,
+,
+y^
+^
+Figure 27.24 Paired image translation where the input consists of aerial images and the
+corresponding map tiles, and the goal is to train a network to produce a map tile from an
+aerial image. (The system can also learn to generate aerial images from map tiles.) The
+network is trained by comparing ˆyi (the output for example xi of type X) to the right output yi
+of type Y. Then at test time, the network must make new images of type Y from new inputs
+of type X. Figure courtesy of Phillip Isola, Jun-Yan Zhu and Alexei A. Efros, produced by a
+system described in Isola et al. (2017). Map data © 2019 Google.
+(say, pictures of zebras). Imagine an artist who is tasked with creating an image of a zebra
+running in a ﬁeld. The artist would appreciate being able to select just the right image of
+a horse, and then having the computer automatically transform the horse into a zebra (Fig-
+ure 27.25). To achieve this we can train two transformation networks, with an additional
+constraint called a cycle constraint. The ﬁrst network maps horses to zebras; the second net-
+work maps zebras to horses; and the cycle constraint requires that when you map X to Y to
+
+
+1022
+Chapter 27
+Computer Vision
+i
+cycle-consistency error
+X
+Y
+yi
+ˆxi
+xi
+Objective
+Result
+xi
+…
+Y
+…
+Training data
+Input
+Training
+Test
+,
+yˆ
+ˆ
+X
+Figure 27.25 Unpaired image translation: given two populations of images (here type X is
+horses and type Y is zebras), but no corresponding pairs, learn to translate a horse into a
+zebra. The method trains two predictors: one that maps type X to type Y, and another that
+maps type Y to type X. If the ﬁrst network maps a horse xi to a zebra ˆyi, the second network
+should map ˆyi back to the original xi. The difference between xi and ˆxi is what trains the two
+networks. The cycle from Y to X and back must be closed. Such networks can successfully
+impose rich transformations on images. Figure courtesy of Alexei A. Efros; see Zhu et al.
+(2017). Running horse photo by Justyna Furmanczyk Gibaszek/Shutterstock.
+X (or Y to X to Y), you get what you started with. Again, GAN losses ensure that the horse
+(or zebra) pictures that the networks output are “like” real horse (or zebra) pictures.
+Another artistic effect is called style transfer: the input consists of two images—the
+Style transfer
+content (for example, a photograph of a cat); and the style (for example, an abstract painting).
+The output is a version of the cat rendered in the abstract style (see Figure 27.26). The key
+insight to solving this problem is that if we examine a deep convolutional neural network
+(CNN) that has been trained to do object recognition (say, on ImageNet), we ﬁnd that the
+early layers tend to represent the style of a picture, and the late layers represent the content.
+Let p be the content image and s be the style image, and let E(x) be the vector of activations
+of an early layer on image x and L(x) be the vector of activations of a late layer on image
+x. Then we want to generate some image x that has similar content to the house photo,
+that is, minimizes |L(x)−L(p)|, and also has similar style to the impressionist painting, that
+is, minimizes |E(x) −E(s)|. We use gradient descent with a loss function that is a linear
+combination of these two factors to ﬁnd an image x that minimizes the loss.
+Generative adversarial networks (GANs) can create novel photorealistic images, fooling
+most people most of the time. One kind of image is the deepfake—an image or video that
+Deepfake
+looks like a particular person, but is generated from a model. For example, when Carrie Fisher
+was 60, a generated replica of her 19-year-old face was superimposed on another actor’s body
+for the making of Rogue One. The movie industry creates ever-better deepfakes for artistic
+purposes, and researchers work on countermeasures for detecting deepfakes, to mitigate the
+destructive effects of fake news.
+Generated images can also be used to maintain privacy. For example, there are image
+data sets in radiological practices that would be useful for researchers, but can’t be published
+because of patient conﬁdentiality. Generative image models can take a private data set of
+images and produce a synthetic data set that can be shared with researchers. This data set
+should be (a) like the training data set; (b) different; and (c) controllable. Consider chest
+X-rays. The synthetic data set should be like the training data set in the sense that each image
+individually would fool a radiologist and the frequencies of each effect should be right, so
+
+

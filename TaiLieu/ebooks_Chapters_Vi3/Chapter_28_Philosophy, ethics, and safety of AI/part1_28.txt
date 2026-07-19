@@ -1,0 +1,184 @@
+CHAPTER 28
+PHILOSOPHY, ETHICS, AND SAFETY
+OF AI
+In which we consider the big questions around the meaning of AI, how we can ethically
+develop and apply it, and how we can keep it safe.
+Philosophers have been asking big questions for a long time: How do minds work? Is it
+possible for machines to act intelligently in the way that people do? Would such machines
+have real, conscious minds?
+To these, we add new ones: What are the ethical implications of intelligent machines in
+day-to-day use? Should machines be allowed to decide to kill humans? Can algorithms be
+fair and unbiased? What will humans do if machines can do all kinds of work? And how do
+we control machines that may become more intelligent than us?
+28.1 The Limits of AI
+In 1980, philosopher John Searle introduced a distinction between weak AI—the idea that
+Weak AI
+machines could act as if they were intelligent—and strong AI—the assertion that machines
+Strong AI
+that do so are actually consciously thinking (not just simulating thinking). Over time the
+deﬁnition of strong AI shifted to refer to what is also called “human-level AI” or “general
+AI”—programs that can solve an arbitrarily wide variety of tasks, including novel ones, and
+do so as well as a human.
+Critics of weak AI who objected to the very possibility of intelligent behavior in machines
+now appear as shortsighted as Simon Newcomb, who in October 1903 wrote “aerial ﬂight
+is one of the great class of problems with which man can never cope”—just two months
+before the Wright brothers’ ﬂight at Kitty Hawk. The rapid progress of recent years does
+not, however, prove that there can be no limits to what AI can achieve. Alan Turing (1950),
+the ﬁrst person to deﬁne AI, was also the ﬁrst to raise possible objections to AI, foreseeing
+almost all the ones subsequently raised by others.
+28.1.1 The argument from informality
+Turing’s “argument from informality of behavior” says that human behavior is far too com-
+plex to be captured by any formal set of rules—humans must be using some informal guide-
+lines that (the argument claims) could never be captured in a formal set of rules and thus
+could never be codiﬁed in a computer program.
+A key proponent of this view was Hubert Dreyfus, who produced a series of inﬂuen-
+tial critiques of artiﬁcial intelligence: What Computers Can’t Do (1972), the sequel What
+
+
+Section 28.1
+The Limits of AI
+1033
+Computers Still Can’t Do (1992), and, with his brother Stuart, Mind Over Machine (1986).
+Similarly, philosopher Kenneth Sayre (1993) said “Artiﬁcial intelligence pursued within the
+cult of computationalism stands not even a ghost of a chance of producing durable results.”
+The technology they criticized came to be called Good Old-Fashioned AI (GOFAI).
+Good Old-Fashioned
+AI (GOFAI)
+GOFAI corresponds to the simplest logical agent design described in Chapter 7, and we
+saw there that it is indeed difﬁcult to capture every contingency of appropriate behavior in a
+set of necessary and sufﬁcient logical rules; we called that the qualiﬁcation problem. But
+as we saw in Chapter 12, probabilistic reasoning systems are more appropriate for open-
+ended domains, and as we saw in Chapter 22, deep learning systems do well on a variety
+of “informal” tasks. Thus, the critique is not addressed against computers per se, but rather
+against one particular style of programming them with logical rules—a style that was popular
+in the 1980s but has been eclipsed by new approaches.
+One of Dreyfus’s strongest arguments is for situated agents rather than disembodied log-
+ical inference engines. An agent whose understanding of “dog” comes only from a limited
+set of logical sentences such as “Dog(x) ⇒Mammal(x)” is at a disadvantage compared to an
+agent that has watched dogs run, has played fetch with them, and has been licked by one. As
+philosopher Andy Clark (1998) says, “Biological brains are ﬁrst and foremost the control sys-
+tems for biological bodies. Biological bodies move and act in rich real-world surroundings.”
+According to Clark, we are “good at frisbee, bad at logic.”
+The embodied cognition approach claims that it makes no sense to consider the brain
+Embodied cognition
+separately: cognition takes place within a body, which is embedded in an environment. We
+need to study the system as a whole; the brain’s functioning exploits regularities in its envi-
+ronment, including the rest of its body. Under the embodied cognition approach, robotics,
+vision, and other sensors become central, not peripheral.
+Overall, Dreyfus saw areas where AI did not have complete answers and said that AI is
+therefore impossible; we now see many of these same areas undergoing continued research
+and development leading to increased capability, not impossibility.
+28.1.2 The argument from disability
+The “argument from disability” makes the claim that “a machine can never do X.” As exam-
+ples of X, Turing lists the following:
+Be kind, resourceful, beautiful, friendly, have initiative, have a sense of humor, tell right
+from wrong, make mistakes, fall in love, enjoy strawberries and cream, make someone
+fall in love with it, learn from experience, use words properly, be the subject of its own
+thought, have as much diversity of behavior as man, do something really new.
+In retrospect, some of these are rather easy—we’re all familiar with computers that “make
+mistakes.” Computers with metareasoning capabilities (Chapter 6) can examine their own
+computations, thus being the subject of their own reasoning. A century-old technology has
+the proven ability to “make someone fall in love with it”—the teddy bear. Computer chess
+expert David Levy predicts that by 2050 people will routinely fall in love with humanoid
+robots. As for a robot falling in love, that is a common theme in ﬁction,1 but there has
+been only limited academic speculation on the subject (Kim et al., 2007). Computers have
+1
+For example, the opera Copp´elia (1870), the novel Do Androids Dream of Electric Sheep? (1968), the movies
+AI (2001), Wall-E (2008), and Her (2013).
+
+
+1034
+Chapter 28
+Philosophy, Ethics, and Safety of AI
+done things that are “really new,” making signiﬁcant discoveries in astronomy, mathematics,
+chemistry, mineralogy, biology, computer science, and other ﬁelds, and creating new forms of
+art through style transfer (Gatys et al., 2016). Overall, programs exceed human performance
+in some tasks and lag behind on others. The one thing that it is clear they can’t do is be
+exactly human.
+28.1.3 The mathematical objection
+Turing (1936) and G¨odel (1931) proved that certain mathematical questions are in princi-
+ple unanswerable by particular formal systems. G¨odel’s incompleteness theorem (see Sec-
+tion 9.5) is the most famous example of this. Brieﬂy, for any formal axiomatic framework F
+powerful enough to do arithmetic, it is possible to construct a so-called G¨odel sentence G(F)
+with the following properties:
+• G(F) is a sentence of F, but cannot be proved within F.
+• If F is consistent, then G(F) is true.
+Philosophers such as J. R. Lucas (1961) have claimed that this theorem shows that machines
+are mentally inferior to humans, because machines are formal systems that are limited by
+the incompleteness theorem—they cannot establish the truth of their own G¨odel sentence—
+while humans have no such limitation. This has caused a lot of controversy, spawning a
+vast literature, including two books by the mathematician/physicist Sir Roger Penrose (1989,
+1994). Penrose repeats Lucas’s claim with some fresh twists, such as the hypothesis that
+humans are different because their brains operate by quantum gravity—a theory that makes
+multiple false predictions about brain physiology.
+We will examine three of the problems with Lucas’s claim. First, an agent should not be
+ashamed that it cannot establish the truth of some sentence while other agents can. Consider
+the following sentence:
+Lucas cannot consistently assert that this sentence is true.
+If Lucas asserted this sentence, then he would be contradicting himself, so therefore Lucas
+cannot consistently assert it, and hence it is true. We have thus demonstrated that there is a
+true sentence that Lucas cannot consistently assert while other people (and machines) can.
+But that does not make us think any less of Lucas.
+Second, G¨odel’s incompleteness theorem and related results apply to mathematics, not
+to computers. No entity—human or machine—can prove things that are impossible to prove.
+Lucas and Penrose falsely assume that humans can somehow get around these limits, as when
+Lucas (1976) says “we must assume our own consistency, if thought is to be possible at all.”
+But this is an unwarranted assumption: humans are notoriously inconsistent. This is certainly
+true for everyday reasoning, but it is also true for careful mathematical thought. A famous
+example is the four-color map problem. Alfred Kempe (1879) published a proof that was
+widely accepted for 11 years until Percy Heawood (1890) pointed out a ﬂaw.
+Third, G¨odel’s incompleteness theorem technically applies only to formal systems that
+are powerful enough to do arithmetic. This includes Turing machines, and Lucas’s claim is
+in part based on the assertion that computers are equivalent to Turing machines. This is not
+quite true. Turing machines are inﬁnite, whereas computers (and brains) are ﬁnite, and any
+computer can therefore be described as a (very large) system in propositional logic, which is
+not subject to G¨odel’s incompleteness theorem. Lucas assumes that humans can “change their
+
+
+Section 28.2
+Can Machines Really Think?
+1035
+minds” while computers cannot, but that is also false—a computer can retract a conclusion
+after new evidence or further deliberation; it can upgrade its hardware; and it can change its
+decision-making processes with machine learning or software rewriting.
+28.1.4 Measuring AI
+Alan Turing, in his famous paper “Computing Machinery and Intelligence” (1950), suggested
+that instead of asking whether machines can think, we should ask whether machines can pass
+a behavioral test, which has come to be called the Turing test. The test requires a program
+to have a conversation (via typed messages) with an interrogator for ﬁve minutes. The in-
+terrogator then has to guess if the conversation is with a program or a person; the program
+passes the test if it fools the interrogator 30% of the time. To Turing, the key point was not
+the exact details of the test, but instead the idea of measuring intelligence by performance on
+some kind of open-ended behavioral task, rather than by philosophical speculation.
+Nevertheless, Turing conjectured that by the year 2000 a computer with a storage of a
+billion units could pass the test, but here we are on the other side of 2000, and we still can’t
+agree whether any program has passed. Many people have been fooled when they didn’t know
+they might be chatting with a computer. The ELIZA program and Internet chatbots such as
+MGONZ (Humphrys, 2008) and NATACHATA (Jonathan et al., 2009) fool their correspondents
+repeatedly, and the chatbot CYBERLOVER has attracted the attention of law enforcement be-
+cause of its penchant for tricking fellow chatters into divulging enough personal information
+that their identity can be stolen.
+In 2014, a chatbot called Eugene Goostman fooled 33% of the untrained amateur judges
+in a Turing test. The program claimed to be a boy from Ukraine with limited command of
+English; this helped explain its grammatical errors. Perhaps the Turing test is really a test of
+human gullibility. So far no well-trained judge has been fooled (Aaronson, 2014).
+Turing test competitions have led to better chatbots, but have not been a focus of research
+within the AI community. Instead, AI researchers who crave competition are more likely
+to concentrate on playing chess or Go or StarCraft II, or taking an 8th grade science exam,
+or identifying objects in images. In many of these competitions, programs have reached
+or surpassed human-level performance, but that doesn’t mean the programs are human-like
+outside the speciﬁc task. The point is to improve basic science and technology and to provide
+useful tools, not to fool judges.
+28.2 Can Machines Really Think?
+Some philosophers claim that a machine that acts intelligently would not be actually thinking,
+but would be only a simulation of thinking. But most AI researchers are not concerned with
+the distinction, and the computer scientist Edsger Dijkstra (1984) said that “The question of
+whether Machines Can Think . . . is about as relevant as the question of whether Submarines
+Can Swim.” The American Heritage Dictionary’s ﬁrst deﬁnition of swim is “To move through
+water by means of the limbs, ﬁns, or tail,” and most people agree that submarines, being
+limbless, cannot swim. The dictionary also deﬁnes ﬂy as “To move through the air by means
+of wings or winglike parts,” and most people agree that airplanes, having winglike parts,
+can ﬂy. However, neither the questions nor the answers have any relevance to the design or
+capabilities of airplanes and submarines; rather they are about word usage in English. (The
+
+

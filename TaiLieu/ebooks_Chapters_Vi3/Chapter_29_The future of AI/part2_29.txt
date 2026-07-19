@@ -1,0 +1,207 @@
+Section 29.1
+AI Components
+1067
+need advances in transfer learning so that we can take advantage of data in one domain to
+improve performance on a related domain.
+The vast majority of machine learning research today assumes a factored representation,
+learning a function h : Rn →R for regression and h : Rn →{0,1} for classiﬁcation. Machine
+learning has been less successful for problems that have only a small amount of data, or
+problems that require the construction of new structured, hierarchical representations. Deep
+learning, especially with convolutional networks applied to computer vision problems, has
+demonstrated some success in going from low-level pixels to intermediate-level concepts like
+Eye and Mouth, then to Face, and ﬁnally to Person or Cat.
+A challenge for the future is to more smoothly combine learning and prior knowledge.
+If we give a computer a problem it has not encountered before—say, recognizing different
+models of cars—we don’t want the system to be powerless until it has been fed millions of
+labeled examples.
+The ideal system should be able to draw on what it already knows: it should already have
+a model of how vision works, and how the design and branding of products in general work;
+now it should use transfer learning to apply that to the new problem of car models. It should
+be able to ﬁnd on its own information about car models, drawing from text, images, and
+video available on the Internet. It should be capable of apprenticeship learning: having a
+conversation with a teacher, and not just asking “may I have a thousand images of a Corolla,”
+but rather being able to understand advice like “the Insight is similar to the Prius, but the
+Insight has a larger grille.” It should know that each model comes in a small range of possible
+colors, but that a car can be repainted, so there is a chance that it might see a car in a color
+that was not in the training set. (If it didn’t know that, it should be capable of learning it, or
+being told about it.)
+All this requires a communication and representation language that humans and comput-
+ers can share; we can’t expect a human analyst to directly modify a model with millions of
+weights. Probabilistic models (including probabilistic programming languages) give humans
+some ability to describe what we know, but these models are not yet well integrated with
+other learning mechanisms.
+The work of Bengio and LeCun (2007) is one step towards this integration. Recently
+Yann LeCun has suggested that the term “deep learning” should be replaced with the more
+general differentiable programming (Siskind and Pearlmutter, 2016; Li et al., 2018); this
+Diﬀerentiable
+programming
+suggests that our general programming languages and our machine learning models could be
+merged together.
+Right now, it is common to build a deep learning model that is differentiable, and thus can
+be trained to minimize loss, and retrained when circumstances change. But that deep learning
+model is only one part of a larger software system that takes in data, massages the data, feeds
+it to the model, and ﬁgures out what to do with the model’s output. All these other parts of the
+larger system were written by hand by a programmer, and thus are nondifferentiable, which
+means that when circumstances change, it is up to the programmer to recognize any problems
+and ﬁx them by hand. With differentiable programming, the hope is that the entire system is
+subject to automated optimization.
+The end goal is to be able to express what we know in whatever form is convenient to us:
+informal advice given in natural language, a strong mathematical law like F = ma, a statistical
+model accompanied by data, or a probabilistic program with unknown parameters that can
+
+
+1068
+Chapter 29
+The Future of AI
+be automatically optimized through gradient descent. Our computer models will learn from
+conversations with human experts as well as by using all the available data.
+Yann LeCun, Geoffrey Hinton, and others have suggested that the current emphasis on
+supervised learning (and to a lesser extent reinforcement learning) is not sustainable—that
+computer models will have to rely on weakly supervised learning, in which some supervi-
+sion is given with a small number of labeled examples and/or a small number of rewards, but
+most of the learning is unsupervised, because unannotated data are so much more plentiful.
+LeCun uses the term predictive learning for an unsupervised learning system that can
+Predictive learning
+model the world and learn to predict aspects of future states of the world—not just predict
+labels for inputs that are independent and identically distributed with respect to past data, and
+not just predict a value function over states. He suggests that GANs (generative adversarial
+networks) can be used to learn to minimize the difference between predictions and reality.
+Geoffrey Hinton stated in 2017 that “My view is throw it all away and start again,” mean-
+ing that the overall idea of learning by adjusting parameters in a network is enduring, but the
+speciﬁcs of the architecture of the networks and the technique of back-propagation need to be
+rethought. Smolensky (1988) had a prescription for how to think about connectionist models;
+his thoughts remain relevant today.
+Resources
+Machine learning research and development has been accelerated by the increasing availabil-
+ity of data, storage, processing power, software, trained experts, and the investments needed to
+support them. Since the 1970s, there has been a 100,000-fold speedup in general-purpose pro-
+cessors and an additional 1,000-fold speedup due to specialized machine learning hardware.
+The Web has served as a rich source of images, videos, speech, text, and semi-structured data,
+currently adding over 1018 bytes every day.
+Hundreds of high-quality data sets are available for a range of tasks in computer vision,
+speech recognition, and natural language processing. If the data you need is not already
+available, you can often assemble it from other sources, or engage humans to label data for
+you through a crowdsourcing platform. Validating the data obtained in this way becomes an
+important part of the overall workﬂow (Hirth et al., 2013).
+An important recent development is the shift from shared data to shared models. The
+Shared model
+major cloud service providers (e.g., Amazon, Microsoft, Google, Alibaba, IBM, Salesforce)
+have begun competing to offer machine learning APIs with pre-built models for speciﬁc tasks
+such as visual object recognition, speech recognition, and machine translation. These models
+can be used as is, or can serve as a baseline to be customized with your particular data for
+your particular application.
+We expect that these models will improve over time, and that it will become unusual to
+start a machine learning project from scratch, just as it is now unusual to do a Web develop-
+ment project from scratch, with no libraries. It is possible that a big jump in model quality
+will occur when it becomes economical to process all the video on the Web; for example, the
+YouTube platform alone adds 300 hours of video every minute.
+Moore’s law has made it more cost effective to process data; a megabyte of storage cost $1
+million in 1969 and less then $0.02 in 2019, and supercomputer throughput has increased by a
+factor of more than 1010 in that time. Specialized hardware components for machine learning
+such as graphics processing units (GPUs), tensor cores, tensor processing units (TPUs), and
+
+
+Section 29.2
+AI Architectures
+1069
+ﬁeld programmable gate arrays (FPGAs) are hundreds of times faster than conventional CPUs
+for machine learning training (Vasilache et al., 2014; Jouppi et al., 2017). In 2014 it took a
+full day to train an ImageNet model; in 2018 it takes just 2 minutes (Ying et al., 2018).
+The OpenAI Institute reports that the amount of compute power used to train the largest
+machine learning models doubled every 3.5 months from 2012 to 2018, reaching over an
+exaﬂop/second-day for ALPHAZERO (although they also report that some very inﬂuential
+work used 100 million times less computing power (Amodei and Hernandez, 2018)). The
+same economic trends that have made cell-phone cameras cheaper and better also apply to
+processors—we will see continued progress in low-power, high-performance computing that
+beneﬁts from economies of scale.
+There is a possibility that quantum computers could accelerate AI. Currently there are
+some fast quantum algorithms for the linear algebra operations used in machine learning
+(Harrow et al., 2009; Dervovic et al., 2018), but no quantum computer capable of running
+them. We have some example applications of tasks such as image classiﬁcation (Mott et al.,
+2017) where quantum algorithms are as good as classical algorithms on small problems.
+Current quantum computers handle only a few tens of bits, whereas machine learning
+algorithms often handle inputs with millions of bits and create models with hundreds of mil-
+lions of parameters. So we need breakthroughs in both quantum hardware and software to
+make quantum computing practical for large-scale machine learning. Alternatively, there may
+be a division of labor—perhaps a quantum algorithm to efﬁciently search the space of hyper-
+parameters while the normal training process runs on conventional computers—but we don’t
+know how to do that yet. Research on quantum algorithms can sometimes inspire new and
+better algorithms on classical computers (Tang, 2018).
+We have also seen exponential growth in the number of publications, people, and dollars
+in AI/machine learning/data science. Dean et al. (2018) show that the number of papers
+about “machine learning” on arXiv doubled every two years from 2009 to 2017. Investors are
+funding startup companies in these ﬁelds, large companies are hiring and spending as they
+determine their AI strategy, and governments are investing to make sure their country doesn’t
+fall too far behind.
+29.2 AI Architectures
+It is natural to ask, “Which of the agent architectures in Chapter 2 should an agent use?” The
+answer is, “All of them!” Reﬂex responses are needed for situations in which time is of the
+essence, whereas knowledge-based deliberation allows the agent to plan ahead. Learning is
+convenient when we have lots of data, and necessary when the environment is changing, or
+when human designers have insufﬁcient knowledge of the domain.
+AI has long had a split between symbolic systems (based on logical and probabilistic
+inference) and connectionist systems (based on loss minimization over a large number of
+uninterpreted parameters). A continuing challenge for AI is to bring these two together,
+to capture the best of both. Symbolic systems allow us to string together long chains of
+reasoning and to take advantage of the expressive power of structured representations, while
+connectionist systems can recognize patterns even in the face of noisy data. One line of
+research aims to combine probabilistic programming with deep learning, although as yet the
+various proposals are limited in the extent to which the approaches are truly merged.
+
+
+1070
+Chapter 29
+The Future of AI
+Agents also need ways to control their own deliberations. They must be able to use the
+available time well, and cease deliberating when action is demanded. For example, a taxi-
+driving agent that sees an accident ahead must decide in a split second whether to brake or
+swerve. It should also spend that split second thinking about the most important questions,
+such as whether the lanes to the left and right are clear and whether there is a large truck close
+behind, rather than worrying about where to pick up the next passenger. These issues are
+usually studied under the heading of real-time AI. As AI systems move into more complex
+Real-time AI
+domains, all problems will become real-time, because the agent will never have long enough
+to solve the decision problem exactly.
+Clearly, there is a pressing need for general methods of controlling deliberation, rather
+than speciﬁc recipes for what to think about in each situation. The ﬁrst useful idea is the
+anytime algorithms (Dean and Boddy, 1988; Horvitz, 1987): an algorithm whose output
+Anytime algorithm
+quality improves gradually over time, so that it has a reasonable decision ready whenever it is
+interrupted. Examples of anytime algorithms include iterative deepening in game-tree search
+and MCMC in Bayesian networks.
+The second technique for controlling deliberation is decision-theoretic metareasoning
+Decision-theoretic
+metareasoning
+(Russell and Wefald, 1989; Horvitz and Breese, 1996; Hay et al., 2012). This method, which
+was mentioned brieﬂy in Sections 3.6.5 and 6.7, applies the theory of information value
+(Chapter 15) to the selection of individual computations (Section 3.6.5). The value of a
+computation depends on both its cost (in terms of delaying action) and its beneﬁts (in terms
+of improved decision quality).
+Metareasoning techniques can be used to design better search algorithms and to guarantee
+that the algorithms have the anytime property. Monte Carlo tree search is one example: the
+choice of leaf node at which to begin the next playout is made by an approximately rational
+metalevel decision derived from bandit theory.
+Metareasoning is more expensive than reﬂex action, of course, but compilation methods
+can be applied so that the overhead is small compared to the costs of the computations being
+controlled. Metalevel reinforcement learning may provide another way to acquire effective
+policies for controlling deliberation: in essence, computations that lead to better decisions are
+reinforced, while those that turn out to have no effect are penalized. This approach avoids the
+myopia problems of the simple value-of-information calculation.
+Metareasoning is one speciﬁc example of a reﬂective architecture—that is, an architec-
+Reﬂective
+architecture
+ture that enables deliberation about the computational entities and actions occurring within
+the architecture itself. A theoretical foundation for reﬂective architectures can be built by
+deﬁning a joint state space composed from the environment state and the computational state
+of the agent itself. Decision-making and learning algorithms can be designed that operate
+over this joint state space and thereby serve to implement and improve the agent’s compu-
+tational activities. Eventually, we expect task-speciﬁc algorithms such as alpha–beta search,
+regression planning, and variable elimination to disappear from AI systems, to be replaced
+by general methods that direct the agent’s computations toward the efﬁcient generation of
+high-quality decisions.
+Metareasoning and reﬂection (and many other efﬁciency-related architectural and algo-
+rithmic devices explored in this book) are necessary because making decisions is hard. Ever
+since computers were invented, their blinding speed has led people to overestimate their abil-
+ity to overcome complexity, or, equivalently, to underestimate what complexity really means.
+
+

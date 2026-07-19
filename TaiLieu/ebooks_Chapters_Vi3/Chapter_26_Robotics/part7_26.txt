@@ -1,0 +1,264 @@
+968
+Chapter 26
+Robotics
+26.8 Humans and Robots
+Thus far, we’ve focused on a robot planning and learning how to act in isolation. This is
+useful for some robots, like the rovers we send out to explore distant planets on our behalf.
+But, for the most part, we do not build robots to work in isolation. We build them to help us,
+and to work in human environments, around and with us.
+This raises two complementary challenges. First is optimizing reward when there are
+people acting in the same environment as the robot. We call this the coordination problem
+(see Section 17.1). When the robot’s reward depends on not just its own actions, but also the
+actions that people take, the robot has to choose its actions in a way that meshes well with
+theirs. When the human and the robot are on the same team, this turns into collaboration.
+Second is the challenge of optimizing for what people actually want. If a robot is to
+help people, its reward function needs to incentivize the actions that people want the robot to
+execute. Figuring out the right reward function (or policy) for the robot is itself an interaction
+problem. We will explore these two challenges in turn.
+26.8.1 Coordination
+Let’s assume for now, as we have been, that the robot has access to a clearly deﬁned reward
+function. But, instead of needing to optimize it in isolation, now the robot needs to optimize
+it around a human who is also acting. For example, as an autonomous car merges on the
+highway, it needs to negotiate the maneuver with the human driver coming in the target lane—
+should it accelerate and merge in front, or slow down and merge behind? Later, as it pulls to
+a stop sign, preparing to take a right, it has to watch out for the cyclist in the bicycle lane, and
+for the pedestrian about to step onto the crosswalk.
+Or, consider a mobile robot in a hallway. Someone heading straight toward the robot
+steps slightly to the right, indicating which side of the robot they want to pass on. The robot
+has to respond, clarifying its intentions.
+Humans as approximately rational agents
+One way to formulate coordination with a human is to model it as a game between the robot
+and the human (Section 17.2). With this approach, we explicitly make the assumption that
+people are agents incentivized by objectives. This does not automatically mean that they are
+perfectly rational agents (i.e., ﬁnd optimal solutions in the game), but it does mean that the
+robot can structure the way it reasons about the human via the notion of possible objectives
+that the human might have. In this game:
+• the state of the environment captures the conﬁgurations of both the robot and human
+agents; call it x = (xR,xH);
+• each agent can take actions, uR and uH respectively;
+• each agent has an objective that can be represented as a cost, JR and JH: each agent
+wants to get to its goal safely and efﬁciently;
+• and, as in any game, each objective depends on the state and on the actions of both
+agents: JR(x,uR,uH) and JH(x,uH,uR). Think of the car-pedestrian interaction—the car
+should stop if the pedestrian crosses, and should go forward if the pedestrian waits.
+Three important aspects complicate this game. First is that the human and the robot don’t
+necessarily know each other’s objectives. This makes it an incomplete information game.
+Incomplete
+information game
+
+
+Section 26.8
+Humans and Robots
+969
+Second is that the state and action spaces are continuous, as they’ve been throughout this
+chapter. We learned in Chapter 6 how to do tree search to tackle discrete games, but how do
+we tackle continuous spaces?
+Third, even though at the high level the game model makes sense—humans do move,
+and they do have objectives—a human’s behavior might not always be well-characterized as
+a solution to the game. The game comes with a computational challenge not only for the
+robot, but for us humans too. It requires thinking about what the robot will do in response to
+what the person does, which depends on what the robot thinks the person will do, and pretty
+soon we get to “what do you think I think you think I think”— it’s turtles all the way down!
+Humans can’t deal with all of that, and exhibit certain suboptimalities. This means that the
+robot should account for these suboptimalities.
+So, then, what is an autonomous car to do when the coordination problem is this hard?
+We will do something similar to what we’ve done before in this chapter. For motion planning
+and control, we took an MDP and broke it up into planning a trajectory and then tracking it
+with a controller. Here too, we will take the game, and break it up into making predictions
+about human actions, and deciding what the robot should do given these predictions.
+Predicting human action
+Predicting human actions is hard because they depend on the robot’s actions and vice versa.
+One trick that robots use is to pretend the person is ignoring the robot. The robot assumes
+people are noisily optimal with respect to their objective, which is unknown to the robot and
+is modeled as no longer dependent on the robot’s actions: JH(x,uH). In particular, the higher
+the value of an action for the objective (the lower the cost to go), the more likely the human
+is to take it. The robot can create a model for P(uH | x,JH), for instance using the softmax
+function from page 862:
+P(uH | x,JH) ∝e−Q(x,uH;JH)
+(26.8)
+with Q(x,uH;JH) the Q-value function corresponding to JH (the negative sign is there because
+in robotics we like to minimize cost, not maximize reward). Note that the robot does not
+assume perfectly optimal actions, nor does it assume that the actions are chosen based on
+reasoning about the robot at all.
+Armed with this model, the robot uses the human’s ongoing actions as evidence about JH.
+If we have an observation model for how human actions depend on the human’s objective,
+each human action can be incorporated to update the robot’s belief over what objective the
+person has:
+b′(JH) ∝b(JH)P(uH | x,JH).
+(26.9)
+An example is in Figure 26.27: the robot is tracking a human’s location and as the hu-
+man moves, the robot updates its belief over human goals. As the human heads toward the
+windows, the robot increases the probability that the goal is to look out the window, and
+decreases the probability that the goal is going to the kitchen, which is in the other direction.
+This is how the human’s past actions end up informing the robot about what the human
+will do in the future. Having a belief about the human’s goal helps the robot anticipate
+what next actions the human will take. The heatmap in the ﬁgure shows the robot’s future
+predictions: red is most probable; blue least probable.
+
+
+970
+Chapter 26
+Robotics
+(a)
+(b)
+(c)
+Figure 26.27 Making predictions by assuming that people are noisily rational given their
+goal: the robot uses the past actions to update a belief over what goal the person is heading
+to, and then uses the belief to make predictions about future actions. (a) The map of a room.
+(b) Predictions after seeing a small part of the person’s trajectory (white path); (c) Predictions
+after seeing more human actions: the robot now knows that the person is not heading to the
+hallway on the left, because the path taken so far would be a poor path if that were the
+person’s goal. Images courtesy of Brian D. Ziebart. See Ziebart et al. (2009).
+The same can happen in driving. We might not know how much another driver values
+efﬁciency, but if we see them accelerate as someone is trying to merge in front of them, we
+now know a bit more about them. And once we know that, we can better anticipate what they
+will do in the future—the same driver is likely to come closer behind us, or weave through
+trafﬁc to get ahead.
+Once the robot can make predictions about human future actions, it has reduced its prob-
+lem to solving an MDP. The human actions complicate the transition function, but as long as
+the robot can anticipate what action the person will take from any future state, the robot can
+calculate P(x′ | x,uR): it can compute P(uH | x) from P(uH | x,JH) by marginalizing over JH,
+and combine it with P(x′ | x,uR,uH), the transition (dynamics) function for how the world
+updates based on both the robot’s and the human’s actions. In Section 26.5 we focused on
+how to solve this in continuous state and action spaces for deterministic dynamics, and in
+Section 26.6 we discussed doing it with stochastic dynamics and uncertainty.
+Splitting prediction from action makes it easier for the robot to handle interaction, but
+sacriﬁces performance much as splitting estimation from motion did, or splitting planning
+from control.
+A robot with this split no longer understands that its actions can inﬂuence what people
+end up doing. In contrast, the robot in Figure 26.27 anticipates where people will go and then
+optimizes for reaching its own goal and avoiding collisions with them. In Figure 26.28, we
+have an autonomous car merging on the highway. If it just planned in reaction to other cars,
+it might have to wait a long time while other cars occupy its target lane. In contrast, a car
+that reasons about prediction and action jointly knows that different actions it could take will
+result in different reactions from the human. If it starts to assert itself, the other cars are likely
+to slow down a bit and make room. Roboticists are working towards coordinated interactions
+like this so robots can work better with humans.
+
+
+Section 26.8
+Humans and Robots
+971
+(a)
+(b)
+Figure 26.28 (a) Left: An autonomous car (middle lane) predicts that the human driver (left
+lane) wants to keep going forward, and plans a trajectory that slows down and merges behind.
+Right: The car accounts for the inﬂuence its actions can have on human actions, and realizes
+it can merge in front and rely on the human driver to slow down. (b) That same algorithm
+produces an unusual strategy at an intersection: the car realizes that it can make it more
+likely for the person (bottom) to proceed faster through the intersection by starting to inch
+backwards. Images courtesy of Anca Dragan. See Sadigh et al. (2016).
+Human predictions about the robot
+Incomplete information is often two-sided: the robot does not know the human’s objective
+and the human, in turn, does not know the robot’s objective—people need to be making
+predictions about robots. As robot designers, we are not in charge of how the human makes
+predictions; we can only control what the robot does. However, the robot can act in a way
+to make it easier for the human to make correct predictions. The robot can assume that
+the human is using something roughly analogous to Equation (26.8) to estimate the robot’s
+objective JR, and thus the robot will act so that its true objective can be easily inferred.
+A special case of the game is when the human and the robot are on the same team,
+working toward the same goal or objective: JH = JR. Imagine getting a personal home robot
+that is helping you make dinner or clean up—these are examples of collaboration.
+We can now deﬁne a joint agent whose actions are tuples of human–robot actions,
+Joint agent
+(uH,uR) and who optimizes for JH(x,uH,uR) = JR(x,uR,uH), and we’re solving a regular
+planning problem. We compute the optimal plan or policy for the joint agent, and voila, we
+now know what the robot and human should do.
+This would work really well if people were perfectly optimal. The robot would do its part
+of the joint plan, the human theirs. Unfortunately, in practice, people don’t seem to follow
+the perfectly laid out joint-agent plan; they have a mind of their own! We’ve already learned
+one way to handle this though, back in Section 26.6. We called it model predictive control
+(MPC): the idea was to come up with a plan, execute the ﬁrst action, and then replan. That
+way, the robot always adapts its plan to what the human is actually doing.
+Let’s work through an example. Suppose you and the robot are in your kitchen, and have
+decided to make wafﬂes. You are slightly closer to the fridge, so the optimal joint plan would
+
+
+972
+Chapter 26
+Robotics
+have you grab the eggs and milk from the fridge, while the robot fetches the ﬂour from the
+cabinet. The robot knows this because it can measure quite precisely where everyone is. But
+suppose you start heading for the ﬂour cabinet. You are going against the optimal joint plan.
+Rather than sticking to it and stubbornly also going for the ﬂour, the MPC robot recalculates
+the optimal plan, and now that you are close enough to the ﬂour it is best for the robot to grab
+the wafﬂe iron instead.
+If we know that people might deviate from optimality, we can account for it ahead of time.
+In our example, the robot can try to anticipate that you are going for the ﬂour the moment you
+take your ﬁrst step (say, using the prediction technique above). Even if it is still technically
+optimal for you to turn around and head for the fridge, the robot should not assume that’s
+what is going to happen. Instead, the robot can compute a plan in which you keep doing what
+you seem to want.
+Humans as black box agents
+We don’t have to treat people as objective-driven, intentional agents to get robots to coordi-
+nate with us. An alternative model is that the human is merely some agent whose policy πH
+“messes” with the environment dynamics. The robot does not know πH, but can model the
+problem as needing to act in an MDP with unknown dynamics. We have seen this before: for
+general agents in Chapter 23, and for robots in particular in Section 26.7.
+The robot can ﬁt a policy model πH to human data, and use it to compute an optimal
+policy for itself. Due to scarcity of data, this has been mostly used so far at the task level. For
+instance, robots have learned through interaction what actions people tend to take (in response
+to its own actions) for the task of placing and drilling screws in an industrial assembly task.
+Then there is also the model-free reinforcement learning alternative: the robot can start
+with some initial policy or value function, and keep improving it over time via trial and error.
+26.8.2 Learning to do what humans want
+Another way interaction with humans comes into robotics is in JR itself—the robot’s cost or
+reward function. The framework of rational agents and the associated algorithms reduce the
+problem of generating good behavior to specifying a good reward function. But for robots,
+as for many other AI agents, getting the cost right is still difﬁcult.
+Take autonomous cars: we want them to reach the destination, to be safe, to drive com-
+fortably for their passengers, to obey trafﬁc laws, etc. A designer of such a system needs to
+trade off these different components of the cost function. The designer’s task is hard because
+robots are built to help end users, and not every end user is the same. We all have different
+preferences for how aggressively we want our car to drive, etc.
+Below, we explore two alternatives for trying to get robot behavior to match what we
+actually want the robot to do. The ﬁrst is to learn a cost function from human input. The
+second is to bypass the cost function and imitate human demonstrations of the task.
+Preference learning: Learning cost functions
+Imagine that an end user is showing a robot how to do a task. For instance, they are driving
+the car in the way they would like it to be driven by the robot. Can you think of a way for the
+robot to use these actions—we call them “demonstrations”—to ﬁgure out what cost function
+it should optimize?
+
+
+Section 26.8
+Humans and Robots
+973
+Figure 26.29 Left: A mobile robot is shown a demonstration that stays on the dirt road.
+Middle: The robot infers the desired cost function, and uses it in a new scene, knowing to
+put lower cost on the road there. Right: The robot plans a path for the new scene that also
+stays on the road, reproducing the preferences behind the demonstration. Images courtesy of
+Nathan Ratliff and James A. Bagnell. See Ratliff et al. (2006).
+We have actually already seen the answer to this back in Section 26.8.1. There, the setup
+was a little different: we had another person taking actions in the same space as the robot, and
+the robot needed to predict what the person would do. But one technique we went over for
+making these predictions was to assume that people act to noisily optimize some cost function
+JH, and we can use their ongoing actions as evidence about what cost function that is. We
+can do the same here, except not for the purpose of predicting human behavior in the future,
+but rather acquiring the cost function the robot itself should optimize. If the person drives
+defensively, the cost function that will explain their actions will put a lot of weight on safety
+and less so on efﬁciency. The robot can adopt this cost function as its own and optimize it
+when driving the car itself.
+Roboticists have experimented with different algorithms for making this cost inference
+computationally tractable. In Figure 26.29, we see an example of teaching a robot to prefer
+staying on the road to going over the grassy terrain. Traditionally in such methods, the cost
+function has been represented as a combination of hand-crafted features, but recent work has
+also studied how to represent it using a deep neural network, without feature engineering.
+There are other ways for a person to provide input. A person could use language rather
+than demonstration to instruct the robot. A person could act as a critic, watching the robot
+perform a task one way (or two ways) and then saying how well the task was done (or which
+way was better), or giving advice on how to improve.
+Learning policies directly via imitation
+An alternative is to bypass cost functions and learn the desired robot policy directly. In our
+car example, the human’s demonstrations make for a convenient data set of states labeled by
+the action the robot should take at each state: D = {(xi,ui)}. The robot can run supervised
+learning to ﬁt a policy π : x 7→u, and execute that policy. This is called imitation learning or
+behavioral cloning.
+Behavioral cloning
+A challenge with this approach is in generalization to new states. The robot does not
+Generalization
+know why the actions in its database have been marked as optimal. It has no causal rule; all
+it can do is run a supervised learning algorithm to try to learn a policy that will generalize to
+unknown states. However, there is no guarantee that the generalization will be correct.
+
+

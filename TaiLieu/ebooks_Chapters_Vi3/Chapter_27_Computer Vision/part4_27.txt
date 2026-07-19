@@ -1,0 +1,230 @@
+Section 27.4
+Classifying Images
+1003
+Foreshortening
+Aspect
+Occlusion
+Deformation
+Figure 27.11 Important sources of appearance variation that can make different images of
+the same object look different. First, elements can foreshorten, like the circular patch on the
+top left. This patch is viewed at a glancing angle, and so is elliptical in the image. Second,
+objects viewed from different directions can change shape quite dramatically, a phenomenon
+known as aspect. On the top right are three different aspects of a doughnut. Occlusion causes
+the handle of the mug on the bottom left to disappear when the mug is rotated. In this case,
+because the body and handle belong to the same mug, we have self-occlusion. Finally, on the
+bottom right, some objects can deform dramatically.
+different at different times depending on several effects, (as illustrated in Figure 27.11):
+• Lighting, which changes the brightness and color of the image.
+• Foreshortening, which causes a pattern viewed at a glancing angle to be distorted.
+• Aspect, which causes objects to look different when seen from different directions. A
+doughnut seen from the side looks like a ﬂattened oval, but from above it is an annulus.
+• Occlusion, where some parts of the object are hidden. Objects can occlude one another,
+or parts of an object can occlude other parts, an effect known as self-occlusion.
+• Deformation, where the object changes its shape. For example, the tennis player moves
+her arms and legs.
+Modern methods deal with these problems by learning representations and classiﬁers from
+very large quantities of training data using a convolutional neural network. With a sufﬁciently
+rich training set the classiﬁer will have seen any effect of importance many times in training,
+and so can adjust for the effect.
+27.4.1 Image classiﬁcation with convolutional neural networks
+Convolutional neural networks (CNNs) are spectacularly successful image classiﬁers. With
+enough training data and enough training ingenuity, CNNs produce very successful classiﬁ-
+cation systems, much better than anyone has been able to produce with other methods.
+The ImageNet data set played a historic role in the development of image classiﬁcation
+systems by providing them with over 14 million training images, classiﬁed into over 30,000
+
+
+1004
+Chapter 27
+Computer Vision
+ﬁne-grained categories. ImageNet also spurred progress with an annual competition. Systems
+are evaluated by both the classiﬁcation accuracy of their single best guess and by top-5 ac-
+curacy, in which systems are allowed to submit ﬁve guesses—for example, malamute, husky,
+akita, samoyed, eskimo dog. ImageNet has 189 subcategories of dog, so even dog-loving
+humans ﬁnd it hard to label images correctly with a single guess.
+In the ﬁrst ImageNet competition in 2010, systems could do no better than 70% top-5
+accuracy. The introduction of convolutional neural networks in 2012 and their subsequent
+reﬁnement led to an accuracy of 98% in top-5 (surpassing human performance) and 87% in
+top-1 accuracy by 2019. The primary reason for this success seems to be that the features that
+are being used by CNN classiﬁers are learned from data, not hand-crafted by a researcher;
+this ensures that the features are actually useful for classiﬁcation.
+Progress in image classiﬁcation has been rapid because of the availability of large, chal-
+lenging data sets such as ImageNet; because of competitions based on these data sets that
+are fair and open; and because of the widespread dissemination of successful models. The
+winners of competitions publish the code and often the pretrained parameters of their models,
+making it easy for others to ﬁddle with successful architectures and try to make them better.
+27.4.2 Why convolutional neural networks classify images well
+Image classiﬁcation is best understood by looking at data sets, but ImageNet is much too
+large to look at in detail. The MNIST data set is a collection of 70,000 images of handwritten
+digits, 0–9, which is often used as a standard warmup data set. Looking at this data set (some
+examples appear in Figure 27.12) exposes some important, quite general, properties. You can
+take an image of a digit and make a number of small alterations without changing the identity
+of the digit: you can shift it, rotate it, make it brighter or darker, smaller or larger. This means
+that individual pixel values are not particularly informative—we know that an 8 should have
+some dark pixels in the center and a 0 should not, but those dark pixels will be in slightly
+different pixel locations in each instance of an 8.
+Another important property of images is that local patterns can be quite informative:
+The digits 0, 6, 8 and 9 have loops; the digits 4 and 8 have crossings; the digits 1, 2, 3, 5
+and 7 have line endings, but no loops or crossings; the digits 6 and 9 have loops and line
+endings. Furthermore, spatial relations between local patterns are informative. A 1 has two
+line endings above one another; a 6 has a line ending above a loop. These observations
+suggest a strategy that is a central tenet of modern computer vision: you construct features
+that respond to patterns in small, localized neighborhoods; then other features look at patterns
+of those features; then others look at patterns of those, and so on.
+This is what convolutional neural networks do well. You should think of a layer—a con-
+volution followed by a ReLU activation function—as a local pattern detector (Figure 27.12).
+The convolution measures how much each local window of the image looks like the kernel
+pattern; the ReLU sets low-scoring windows to zero, and emphasizes high-scoring windows.
+So convolution with multiple kernels ﬁnds multiple patterns; furthermore, composite patterns
+can be detected by applying another layer to the output of the ﬁrst layer.
+Think about the output of the ﬁrst convolutional layer. Each location receives inputs from
+pixels in a window about that location. The output of the ReLU, as we have seen, forms a
+simple pattern detector. Now if we put a second layer on top of this, each location in the
+second layer receives inputs from ﬁrst-layer values in a window about that location. This
+
+
+Section 27.4
+Classifying Images
+1005
+Digits
+Kernels
+Convolution output
+Test against threshold 
+Figure 27.12 On the far left, some images from the MNIST data set. Three kernels appear
+on the center left. They are shown at actual size (tiny blocks) and magniﬁed to reveal their
+content: mid-grey is zero, light is positive, and dark is negative. Center right shows the results
+of applying these kernels to the images. Right shows pixels where the response is bigger than
+a threshold (green) or smaller than a threshold (red). You should notice that this gives (from
+top to bottom): a horizontal bar detector; a vertical bar detector; and (harder to note) a line
+ending detector. These detectors pay attention to the contrast of the bar, so (for example) a
+horizontal bar that is light on top and dark below produces a positive (green) response, and
+one that is dark on top and light below gets a negative (red) response. These detectors are
+moderately effective, but not perfect.
+means that locations in the second layer are affected by a larger window of pixels than those
+in the ﬁrst layer. You should think of these as representing “patterns of patterns.” If we place
+a third layer on top of the second layer, locations in that third layer will depend on an even
+larger window of pixels; a fourth layer will depend on a yet larger window, and so on. The
+network is creating patterns at multiple levels, and is doing that by learning from the data
+rather than having the patterns given to it by a programmer.
+While training a CNN “out of the box” does sometimes work, it helps to know a few
+practical techniques. One of the most important is data set augmentation, in which training
+Data set
+augmentation
+examples are copied and modiﬁed slightly. For example, one might randomly shift, rotate,
+or stretch an image by a small amount, or randomly shift the hue of the pixels by a small
+amount. Introducing this simulated variation in viewpoint or lighting to the data set helps to
+increase the size of the data set, though of course the new examples are highly correlated with
+the originals. It is also possible to use augmentation at test time rather than training time. In
+this approach, the image is replicated and modiﬁed several times (e.g., with random cropping)
+and the classiﬁer is run on each of the modiﬁed images. The outputs of the classiﬁer from
+each copy are then used to vote for a ﬁnal decision on the overall class.
+When you are classifying images of scenes, every pixel could be helpful. But when you
+are classifying images of objects, some pixels aren’t part of the object, and so might be a
+
+
+1006
+Chapter 27
+Computer Vision
+distraction. For example, if a cat is lying on a dog bed, we want a classiﬁer to concentrate
+on the pixels of the cat, not the bed. Modern image classiﬁers handle this well, classifying
+an image as “cat” accurately even if few pixels actually lie on the cat. There are two reasons
+for this. First, CNN-based classiﬁers are good at ignoring patterns that aren’t discriminative.
+Second, patterns that lie off the object might be discriminative (e.g., a cat toy, a collar with
+a little bell, or a dish of cat food might actually help tell that we are looking at a cat). This
+effect is known as context. Context can help or can hurt, depending quite strongly on the
+Context
+particular data set and application.
+27.5 Detecting Objects
+Image classiﬁers predict what is in the image—they classify the whole image as belonging to
+one class. Object detectors ﬁnd multiple objects in an image, report what class each object is,
+and also report where each object is by giving a bounding box around the object.1 The set of
+Bounding box
+classes is ﬁxed in advance. So we might try to detect all faces, all cars, or all cats.
+We can build an object detector by looking at a small sliding window onto the larger
+Sliding window
+image—a rectangle. At each spot, we classify what we see in the window, using a CNN
+classiﬁer. We then take the high-scoring classiﬁcations—a cat over here and a dog over
+there—and ignore the other windows. After some work resolving conﬂicts, we have a ﬁnal
+set of objects with their locations. There are still some details to work out:
+• Decide on a window shape: The easiest choice by far is to use axis-aligned rectangles.
+(The alternative—some form of mask that cuts the object out of the image—is hardly
+ever used, because it is hard to represent and to compute with.) We still need to choose
+the width and height of the rectangles.
+• Build a classiﬁer for windows: We already know how to do this with a CNN.
+• Decide which windows to look at: Out of all possible windows, we want to select ones
+that are likely to have interesting objects in them.
+• Choose which windows to report: Windows will overlap, and we don’t want to report
+the same object multiple times in slightly different windows. Some objects are not
+worth mentioning; think about the number of chairs and people in a picture of a large
+packed lecture hall. Should they all be reported as individual objects? Perhaps only the
+objects that appear large in the image—the front row—should be reported. The choice
+depends on the intended use of the object detector.
+• Report precise locations of objects using these windows: Once we know that the
+object is somewhere in the window, we can afford to do more computation to ﬁgure out
+a more precise location within the window.
+Let’s look more carefully at the problem of deciding which windows to look at. Search-
+ing all possible windows isn’t efﬁcient—in an n × n pixel image there are O(n4) possible
+rectangular windows. But we know that windows that contain objects tend to have quite co-
+herent color and texture. On the other hand, windows that cut an object in half have regions
+or edges that cross the side of the window. So it makes sense to have a mechanism that scores
+1
+We will use the term “box” to mean any axis-aligned rectangular region of the image, and the term “window”
+mostly as a synonym for “box,” but with the connotation that we have a window onto the input where we are
+hoping to see something, and a bounding box in the output when we have found it.
+
+
+Section 27.5
+Detecting Objects
+1007
+“objectness”—whether a box has an object in it, independent of what that object is. We can
+ﬁnd the boxes that look like they have an object in them, and then classify the object for just
+those boxes that pass the objectness test.
+A network that ﬁnds regions with objects is called a regional proposal network (RPN).
+Regional proposal
+network (RPN)
+The object detector known as Faster RCNN encodes a large collection of bounding boxes as a
+map of ﬁxed size. Then it builds a network that can predict a score for each box, and trains this
+network so the score is large when the box contains an object, and small otherwise. Encoding
+boxes as a map is straightforward. We consider boxes centered on points throughout the
+image; we don’t need to consider every possible point (because moving by one pixel is not
+likely to change the classiﬁcation); a good choice is a stride (the offset between center points)
+of 16 pixels. For each center point we consider several possible boxes, called anchor boxes.
+Faster RCNN uses nine boxes: small, medium, and large sizes; and tall, wide, and square
+aspect ratios.
+In terms of the neural network architecture, construct a 3D block where each spatial
+location in the block has two dimensions for the center point and one dimension for the type
+of box. Now any box with a good enough objectness score is called a region of interest
+(ROI), and must be checked by a classiﬁer. But CNN classiﬁers prefer images of ﬁxed size,
+and the boxes that pass the objectness test will differ in size and shape. We can’t make
+the boxes have the same number of pixels, but we can make them have the same number
+of features by sampling the pixels to extract features, a process called ROI pooling. This
+ﬁxed-size feature map is then passed to the classiﬁer.
+Now for the problem of deciding which windows to report. Assume we look at windows
+of size 32×32 with a stride of 1: each window is offset by just one pixel from the one before.
+There will be many windows that are similar, and should have similar scores. If they all have
+a score above threshold we don’t want to report all of them, because they very likely all refer
+to slightly different views of the same object. On the other hand if the stride is too large, it
+might be that an object is not contained within any one window, and will be missed. Instead,
+we can use a greedy algorithm called non-maximum suppression. First, build a sorted list
+Non-maximum
+suppression
+of all windows with scores over a threshold. Then, while there are windows in the list, choose
+the window with the highest score and accept it as containing an object; discard from the list
+all other largely overlapping windows.
+Finally, we have the problem of reporting the precise location of objects. Assume we
+have a window that has a high score, and has passed through non-maximum suppression. This
+window is unlikely to be in exactly the right place (remember, we looked at a relatively small
+number of windows with a small number of possible sizes). We use the feature representation
+computed by the classiﬁer to predict improvements that will trim the window down to a
+proper bounding box, a step known as bounding box regression.
+Bounding box
+regression
+Evaluating object detectors takes care. First we need a test set: a collection of images
+with each object in the image marked by a ground truth category label and bounding box.
+Usually, the boxes and labels are supplied by humans. Then we feed each image to the object
+detector and compare its output to the ground truth. We should be willing to accept boxes
+that are off by a few pixels, because the ground truth boxes won’t be perfect. The evaluation
+score should balance recall (ﬁnding all the objects that are there) and precision (not ﬁnding
+objects that are not there).
+
+

@@ -1,0 +1,33 @@
+<p><strong>Hình 26.36</strong> (a) Một robot đo đạc mỏ than bị bỏ hoang. (b) Bản đồ 3D của mỏ do robot lập ra. (Ảnh do Sebastian Thrun cung cấp).</p>
+
+<ul>
+<li><strong>Giải trí (Entertainment)</strong>: Hãng Disney đã sử dụng robot (dưới tên gọi <strong>Animatronics</strong>) trong các công viên từ năm 1963. Ngày nay, một thế hệ mới gọi là <strong>Autonomatronics</strong> có thể tương tác tự động. Robot cũng có hình hài những món đồ chơi thông minh cho trẻ em (như Cozmo của Anki), hoặc các drone cá nhân theo dõi quay phim chúng ta khi chơi thể thao.</li>
+<li><strong>Khám phá và môi trường nguy hiểm (Exploration and hazardous environments)</strong>: Robot đã đi đến những nơi con người chưa từng tới, bao gồm bề mặt sao Hỏa, đáy đại dương để vẽ bản đồ xác tàu đắm, hay đi vào các miệng núi lửa đang hoạt động. Chúng cũng đóng vai trò chủ chốt trong việc dọn dẹp chất thải hạt nhân ở Three Mile Island, Chernobyl, Fukushima, và hỗ trợ cứu nạn tại Trung tâm Thương mại Thế giới sau sự kiện 11/9.</li>
+<li><strong>Công nghiệp (Industry)</strong>: Phần lớn robot ngày nay vẫn nằm trong các nhà máy, tự động hóa những công việc nặng nhọc, nguy hiểm hoặc nhàm chán (đặc biệt là ngành sản xuất ô tô). Dù đem lại năng suất cao cho xã hội, nó cũng dấy lên bài toán về chính sách kinh tế và đào tạo lại lực lượng lao động.</li>
+</ul>
+
+<h2 id="summary">Tóm tắt (Summary)</h2>
+
+<p>Robotics nói về các tác tử có cơ thể vật lý, có thể làm thay đổi trạng thái của thế giới thực. Trong chương này, chúng ta đã học được:</p>
+<ul>
+<li>Các loại robot phổ biến nhất là tay máy (manipulators) và robot di động (mobile robots). Chúng dùng cảm biến để nhận thức và cơ cấu chấp hành để di chuyển và tác động lên thế giới.</li>
+<li>Bài toán robot tổng quát luôn chứa đựng tính ngẫu nhiên (dùng MDP), quan sát một phần (dùng POMDP), và tương tác với các tác tử khác (lý thuyết trò chơi). Vấn đề càng khó hơn vì phải hoạt động trong không gian liên tục, số chiều lớn, và thế giới thực không cho phép tính năng "hoàn tác" (undo).</li>
+<li>Dù lý tưởng nhất là giải toàn bộ bài toán từ đầu đến cuối trong một bước (từ ảnh pixel ra dòng điện động cơ), trong thực tế, ta thường chia tách vấn đề thành <strong>nhận thức</strong> (perception) và <strong>hành động</strong> (action).</li>
+<li><strong>Nhận thức</strong> của robot liên quan đến việc dùng các bộ lọc xác suất (Kalman, Particle filters) để duy trì trạng thái niềm tin qua quá trình định vị và vẽ bản đồ.</li>
+<li>Đối với <strong>chuyển động</strong>, ta dùng không gian cấu hình (C-space) để dễ dàng kiểm tra va chạm.</li>
+<li>Ta tiếp tục chia tách việc tạo chuyển động thành <strong>lập kế hoạch chuyển động</strong> (với các thuật toán như RRT, PRM, tìm kiếm lưới) và <strong>điều khiển bám quỹ đạo</strong> (như điều khiển PID, điều khiển mô-men tính toán).</li>
+<li><strong>Điều khiển tối ưu</strong> hợp nhất lập kế hoạch và bám quỹ đạo bằng cách tối ưu hóa trực tiếp các tín hiệu điều khiển (ví dụ thông qua LQR).</li>
+<li>Lập kế hoạch trong môi trường bất định hợp nhất nhận thức và hành động thông qua <strong>lập kế hoạch lại trực tuyến</strong> (như MPC) và các hành động thu thập thông tin.</li>
+<li><strong>Học tăng cường</strong> được áp dụng nhiều trong robotics bằng cách tận dụng mô hình hoặc chuyển giao từ mô phỏng sang thực tế (sim-to-real) để giảm số lượng tương tác cần thiết trong thế giới thực.</li>
+<li>Tương tác với <strong>con người</strong> yêu cầu khả năng phối hợp. Robot dùng hành động của người để dự đoán ý định và sau đó lập kế hoạch cho bản thân. Robot cũng có thể học hàm chi phí hoặc học chính sách trực tiếp từ những minh họa (demonstrations) của con người.</li>
+</ul>
+
+<h2 id="bibliographical-and-historical-notes">Ghi chú Thư mục và Lịch sử (Bibliographical and Historical Notes)</h2>
+
+<p>Từ "robot" được phổ biến bởi nhà viết kịch người Séc Karel Čapek trong vở kịch <em>R.U.R.</em> (Rossum's Universal Robots) năm 1920. Tuy nhiên, ý tưởng về máy móc tự động đã có từ hàng nghìn năm trước trong thần thoại Hy Lạp với robot Talos, và các mô hình tự động cổ đại từ thế kỷ thứ 3 TCN.</p>
+
+<p>Grey Walter's "turtle" (1948) được coi là robot di động tự hành đầu tiên. Sau đó là "Shakey" (những năm 1960), robot di động đa năng đầu tiên kết hợp nhận thức, lập kế hoạch và thực thi. Cánh tay robot thương mại đầu tiên là UNIMATE (1961), được dùng trong nhà máy General Motors, khởi đầu cho cuộc cách mạng công nghiệp rô-bốt.</p>
+
+<p>Các cuộc thi như AAAI mobile robot competition (1992), RoboCup (1995), và đặc biệt là DARPA Grand Challenge (2004, 2005) đã thúc đẩy mạnh mẽ sự phát triển của ô tô tự lái và robot di động.</p>
+
+<p>Lĩnh vực vẽ bản đồ robot (SLAM) bắt nguồn từ việc áp dụng bộ lọc Kalman và biểu diễn lưới chiếm dụng (occupancy grid). Lập kế hoạch chuyển động có nền tảng vững chắc với các công trình về không gian cấu hình của Lozano-Perez (1983) và các thuật toán xác suất PRM, RRT vào những năm 1990-2000.</p>

@@ -1,0 +1,157 @@
+Section 24.3
+Parsing
+889
+I
+detect
+the
+Adjective
+wumpus
+near
+Pronoun
+I
+detect
+the
+smelly
+wumpus
+near
+me
+Pronoun
+NP
+S
+VP
+Verb
+NP
+Article
+Prep
+Noun
+NP
+PP
+NP
+Adjs
+me
+smelly
+Figure 24.7 A dependency-style parse (top) and the corresponding phrase structure parse
+(bottom) for the sentence I detect the smelly wumpus near me.
+guaranteed to ﬁnd the parse with highest probability, but (with a careful implementation) the
+parser can operate in O(n) time and still ﬁnds the best parse most of the time.
+A beam search parser with b = 1 is called a deterministic parser. One popular determin-
+Deterministic parser
+istic approach is shift-reduce parsing, in which we go through the sentence word by word,
+Shift-reduce parsing
+choosing at each point whether to shift the word onto a stack of constituents, or to reduce
+the top constituent(s) on the stack according to a grammar rule. Each style of parsing has its
+adherents within the NLP community. Even though it is possible to transform a shift-reduce
+system into a PCFG (and vice versa), when you apply machine learning to the problem of
+inducing a grammar, the inductive bias and hence the generalizations that each system will
+make will be different (Abney et al., 1999).
+24.3.1 Dependency parsing
+There is a widely used alternative syntactic approach called dependency grammar, which
+Dependency
+grammar
+assumes that syntactic structure is formed by binary relations between lexical items, without
+a need for syntactic constituents. Figure 24.7 shows a sentence with a dependency parse and
+a phrase structure parse.
+In one sense, dependency grammar and phrase structure grammar are just notational vari-
+ants. If the phrase structure tree is annotated with the head of each phrase, you can recover
+
+
+890
+Chapter 24
+Natural Language Processing
+[ [S [NP-2 Her eyes]
+[VP were
+[VP glazed
+[NP *-2]
+[SBAR-ADV as if
+[S [NP she]
+[VP did n’t
+[VP [VP hear [NP *-1]]
+or
+[VP [ADVP even] see [NP *-1]]
+[NP-1 him]]]]]]]]
+.]
+Figure 24.8 Annotated tree for the sentence “Her eyes were glazed as if she didn’t hear
+or even see him.” from the Penn Treebank. Note a grammatical phenomenon we have not
+covered yet: the movement of a phrase from one part of the tree to another. This tree analyzes
+the phrase “hear or even see him” as consisting of two constituent VPs, [VP hear [NP *-1]]
+and [VP [ADVP even] see [NP *-1]], both of which have a missing object, denoted *-1, which
+refers to the NP labeled elsewhere in the tree as [NP-1 him]. Similarly, the [NP *-2] refers to
+the [NP-2 Her eyes].
+the dependency tree from it. In the other direction, we can convert a dependency tree into a
+phrase structure tree by introducing arbitrary categories (although we might not always get a
+natural-looking tree this way).
+Therefore we wouldn’t prefer one notation over the other because one is more powerful;
+rather we would prefer one because it is more natural—either more familiar for the human
+developers of a system, or more natural for a machine learning system which will have to
+learn the structures. In general, phrase structure trees are natural for languages (like English)
+with mostly ﬁxed word order; dependency trees are natural for languages (such as Latin) with
+mostly free word order, where the order of words is determined more by pragmatics than by
+syntactic categories.
+The popularity of dependency grammar today stems in large part from the
+Universal Dependencies project (Nivre et al., 2016), an open-source treebank project that
+deﬁnes a set of relations and provides millions of parsed sentences in over 70 languages.
+24.3.2 Learning a parser from examples
+Building a grammar for a signiﬁcant portion of English is laborious and error prone. This
+suggests that it would be better to learn the grammar rules (and probabilities) rather than
+writing them down by hand. To apply supervised learning, we need input/output pairs of
+sentences and their parse trees. The Penn Treebank is the best known source of such data,
+with over 100 thousand sentences annotated with parse-tree structure. Figure 24.8 shows an
+annotated tree from the Penn Treebank.
+Given a treebank, we can create a PCFG just by counting the number of times each node-
+type appears in a tree (with the usual caveats about smoothing low counts). In Figure 24.8,
+there are two nodes of the form [S[NP...][VP...]]. We would count these, and all the other
+
+
+Section 24.3
+Parsing
+891
+subtrees with root S in the corpus. If there are 1000 S nodes of which 600 are of this form,
+then we create the rule:
+S →NP VP [0.6].
+All together, the Penn Treebank has over 10,000 different node types. This reﬂects the fact
+that English is a complex language, but it also indicates that the annotators who created the
+treebank favored ﬂat trees, perhaps ﬂatter than we would like. For example, the phrase “the
+good and the bad” is parsed as a single noun phrase rather than as two conjoined noun phrases,
+giving us the rule:
+NP →Article Noun Conjunction Article Noun .
+There are hundreds of similar rules that deﬁne a noun phrase as a string of categories with
+a conjunction somewhere in the middle; a more concise grammar could capture all the con-
+joined noun phrase rules with the single rule
+NP →NP Conjunction NP.
+Bod et al. (2003) and Bod (2008) show how to automatically recover generalized rules like
+this, greatly reducing the number of rules that come out of the treebank, and creating a gram-
+mar that ends up generalizing better for previously unseen sentences. They call their approach
+data-oriented parsing.
+We have seen that treebanks are not perfect—they contain errors, and have idiosyncratic
+parses. It is also clear that creating a treebank requires a lot of hard work; that means that
+treebanks will remain relatively small in size, compared to all the text that has not been
+annotated with trees. An alternative approach is unsupervised parsing, in which we learn a
+Unsupervised parsing
+new grammar (or improve an existing grammar) using a corpus of sentences without trees.
+The inside–outside algorithm (Dodd, 1988), which we will not cover here, learns to
+estimate the probabilities in a PCFG from example sentences without trees, similar to the
+way the forward-backward algorithm (Figure 14.4) estimates probabilities. Spitkovsky et al.
+(2010a) describe an unsupervised learning approach that uses curriculum learning: start
+Curriculum learning
+with the easy part of the curriculum—short unambiguous 2-word sentences like “He left” can
+be easily parsed based on prior knowledge or annotations. Each new parse of a short sentence
+extends the system’s knowledge so that it can eventually tackle 3-word, then 4-word, and
+eventually 40-word sentences.
+We can also use semisupervised parsing, in which we start with a small number of trees
+Semisupervised
+parsing
+as data to build an initial grammar, then add a large number of unparsed sentences to improve
+the grammar. The semisupervised approach can make use of partial bracketing: we can
+Partial bracketing
+use widely available text that has been marked up by the authors, not by linguistic experts,
+with a partial tree-like structure, in the form of HTML or similar annotations. In HTML text
+most brackets correspond to a syntactic component, so partial bracketing can help learn a
+grammar (Pereira and Schabes, 1992; Spitkovsky et al., 2010b). Consider this HTML text
+from a newspaper article:
+In 1998, however, as I <a>established in
+<i>The New Republic</i></a> and Bill Clinton just
+<a>confirmed in his memoirs</a>, Netanyahu changed his mind
+The words surrounded by <i></i> tags form a noun phrase, and the two strings of words
+surrounded by <a></a> tags each form verb phrases.
+
+

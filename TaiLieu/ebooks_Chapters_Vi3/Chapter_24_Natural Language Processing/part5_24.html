@@ -1,0 +1,72 @@
+<p>Thật không may, ngữ pháp này <strong>sinh ra thừa (overgenerates)</strong>: nghĩa là nó tạo ra những câu không đúng ngữ pháp, chẳng hạn như "Me go I." Nó cũng <strong>sinh ra thiếu (undergenerates)</strong>: có nhiều câu tiếng Anh đúng nhưng lại bị nó từ chối, chẳng hạn như "I think the wumpus is smelly." Sau này, chúng ta sẽ xem cách để học một ngữ pháp tốt hơn; bây giờ, chúng ta sẽ tập trung vào những gì chúng ta có thể làm với ngữ pháp rất đơn giản này.</p>
+
+<h3>24.2.1 Từ vựng của \(\mathcal{E}_0\) (The lexicon of \(\mathcal{E}_0\))</h3>
+
+<p><strong>Từ vựng (lexicon)</strong>, hay danh sách các từ được cho phép, được định nghĩa trong Hình 24.3. Mỗi phạm trù từ vựng (lexical categories) đều kết thúc bằng <code>...</code> để chỉ ra rằng còn có những từ khác trong danh mục đó. Đối với danh từ, tên riêng, động từ, tính từ và trạng từ, về nguyên tắc việc liệt kê tất cả các từ là bất khả thi. Không chỉ vì có hàng chục ngàn từ vựng trong mỗi lớp từ, mà các từ mới — như <em>humblebrag</em> (sự khiêm tốn giả tạo) hay <em>microbiome</em> (hệ vi sinh vật) — luôn liên tục được bổ sung thêm. Năm danh mục này được gọi là <strong>các lớp mở (open classes)</strong>. Các đại từ, đại từ quan hệ, mạo từ, giới từ và liên từ được gọi là <strong>các lớp đóng (closed classes)</strong>; chúng chỉ có một số lượng nhỏ các từ (khoảng hơn một tá), và chỉ thay đổi qua nhiều thế kỷ chứ không phải vài tháng. Ví dụ, "thee" và "thou" từng là những đại từ được sử dụng phổ biến trong thế kỷ 17, bắt đầu suy thoái vào thế kỷ 19, và ngày nay chỉ còn được bắt gặp trong thơ ca và một số phương ngữ vùng miền.</p>
+
+<h2>24.3 Phân tích cú pháp (Parsing)</h2>
+
+<p><strong>Phân tích cú pháp (Parsing)</strong> là quá trình phân tích một chuỗi các từ để khám phá ra cấu trúc cụm từ của nó, tuân theo các quy tắc của một ngữ pháp. Chúng ta có thể coi nó giống như một quá trình tìm kiếm một cây phân tích cú pháp hợp lệ mà phần lá của cây chính là các từ trong chuỗi. Hình 24.4 cho thấy chúng ta có thể bắt đầu với ký hiệu S và tìm kiếm từ trên xuống (top down), hoặc chúng ta có thể bắt đầu với các từ vựng và tìm kiếm từ dưới lên (bottom up). Tuy nhiên, các chiến lược phân tích từ-trên-xuống hoặc từ-dưới-lên thuần túy có thể không hiệu quả, bởi vì chúng có thể phải lặp lại công sức tìm kiếm ở những khu vực không gian tìm kiếm dẫn đến ngõ cụt. Xem xét hai câu sau:</p>
+<ul>
+<li><em>Have the students in section 2 of Computer Science 101 take the exam.</em> (Hãy yêu cầu các sinh viên thuộc nhóm 2 của môn Khoa học Máy tính 101 làm bài thi.)</li>
+<li><em>Have the students in section 2 of Computer Science 101 taken the exam?</em> (Các sinh viên thuộc nhóm 2 của môn Khoa học Máy tính 101 đã làm bài thi chưa?)</li>
+</ul>
+
+<p>Mặc dù chúng có chung 10 từ đầu tiên, hai câu này có cấu trúc phân tích cú pháp hoàn toàn khác nhau, vì câu đầu tiên là câu mệnh lệnh còn câu thứ hai là câu hỏi. Một thuật toán phân tích cú pháp từ-trái-sang-phải sẽ phải đoán xem từ đầu tiên là một phần của câu lệnh hay câu hỏi, và sẽ không thể biết được suy đoán đó có đúng hay không cho đến tận khi gặp từ thứ 11, "take" hoặc "taken". Nếu thuật toán đoán sai, nó sẽ phải quay lui (backtrack) về tận từ đầu tiên và phân tích lại toàn bộ câu theo cách diễn giải kia.</p>
+
+<p>Để tránh sự kém hiệu quả này, chúng ta có thể sử dụng quy hoạch động (dynamic programming): mỗi khi phân tích một chuỗi con (substring), hãy lưu lại kết quả để chúng ta không phải phân tích lại nó sau này. Ví dụ: khi chúng ta phát hiện ra rằng "the students in section 2 of Computer Science 101" là một Cụm danh từ (NP), chúng ta có thể ghi lại kết quả đó vào một cấu trúc dữ liệu được gọi là <strong>biểu đồ (chart)</strong>. Một thuật toán thực hiện điều này được gọi là <strong>bộ phân tích cú pháp biểu đồ (chart parser)</strong>. Bởi vì chúng ta đang xử lý các ngữ pháp phi ngữ cảnh (context-free grammars), bất kỳ cụm từ nào được tìm thấy trong ngữ cảnh của một nhánh của cây tìm kiếm cũng đều có thể hoạt động tốt như thế trong bất kỳ nhánh nào khác của cây tìm kiếm. Có nhiều loại chart parsers; chúng tôi xin mô tả một phiên bản xác suất của thuật toán phân tích cú pháp biểu đồ từ-dưới-lên có tên là <strong>thuật toán CYK</strong>, được đặt theo tên những người phát minh ra nó: Ali Cocke, Daniel Younger, và Tadeo Kasami. (Đôi khi tên các tác giả được xếp theo thứ tự CKY).</p>
+
+<table border="1">
+  <tr><th>Danh sách các mục (List of items)</th><th>Luật (Rule)</th></tr>
+  <tr><td><code>S</code></td><td><code>S → NP VP</code></td></tr>
+  <tr><td><code>NP VP</code></td><td><code>VP → VP Adjective</code></td></tr>
+  <tr><td><code>NP VP Adjective</code></td><td><code>VP → Verb</code></td></tr>
+  <tr><td><code>NP Verb Adjective</code></td><td><code>Adjective → dead</code></td></tr>
+  <tr><td><code>NP Verb dead</code></td><td><code>Verb → is</code></td></tr>
+  <tr><td><code>NP is dead</code></td><td><code>NP → Article Noun</code></td></tr>
+  <tr><td><code>Article Noun is dead</code></td><td><code>Noun → wumpus</code></td></tr>
+  <tr><td><code>Article wumpus is dead</code></td><td><code>Article → the</code></td></tr>
+  <tr><td><code>the wumpus is dead</code></td><td></td></tr>
+</table>
+<p><strong>Hình 24.4</strong> Phân tích cú pháp chuỗi "The wumpus is dead" dưới dạng một câu (S), tuân theo ngữ pháp \(\mathcal{E}_0\). Dưới góc nhìn phân tích từ-trên-xuống (top-down), ta bắt đầu với S, ở mỗi bước sẽ khớp một ký hiệu không kết thúc (nonterminal) \(X\) với một luật có dạng (\(X \to Y \dots\)) và thay thế \(X\) trong danh sách các mục bằng \(Y \dots\); ví dụ như thay thế S bằng chuỗi <code>NP VP</code>. Dưới góc nhìn phân tích từ-dưới-lên (bottom-up), ta bắt đầu với các từ "the wumpus is dead", và ở mỗi bước sẽ khớp một chuỗi các token dạng (\(Y \dots\)) theo một luật có dạng (\(X \to Y \dots\)) và thay thế các token đó bằng \(X\); ví dụ như thay thế "the" bằng <code>Article</code> hoặc thay thế <code>Article Noun</code> bằng <code>NP</code>.</p>
+
+<p>Thuật toán CYK được thể hiện trong Hình 24.5. Nó yêu cầu một ngữ pháp với tất cả các luật phải nằm ở một trong hai định dạng rất cụ thể: luật từ vựng (lexical rules) có dạng \(X \to \text{word} [p]\), và luật cú pháp (syntactic rules) có dạng \(X \to Y Z [p]\), với chính xác hai danh mục (category) ở phía bên phải. Định dạng ngữ pháp này, được gọi là <strong>Dạng Chuẩn Chomsky (Chomsky Normal Form)</strong>, có vẻ mang tính hạn chế, nhưng thực tế không phải vậy: bất kỳ ngữ pháp phi ngữ cảnh nào cũng có thể được biến đổi tự động thành Dạng Chuẩn Chomsky.</p>
+
+<pre><code>function CYK-PARSE(words, grammar) returns a table of parse trees
+  inputs: words, a list of words
+          grammar, a structure with LEXICALRULES and GRAMMARRULES
+  T ← a table
+  // T[X, i, k] là cây X có xác suất cao nhất bao phủ (spanning) đoạn từ words_i:k
+  P ← a table, initially all 0
+  // P[X, i, k] là xác suất của cây T[X, i, k]
+  
+  // Chèn các từ loại (lexical categories) cho mỗi từ.
+  for i = 1 to LEN(words) do
+    for each (X, p) in grammar.LEXICALRULES(words_i) do
+      P[X, i, i] ← p
+      T[X, i, i] ← TREE(X, words_i)
+      
+  // Xây dựng X_i:k từ Y_i:j + Z_j+1:k, các khoảng (spans) ngắn nhất được xử lý trước.
+  for each (i, j, k) in SUBSPANS(LEN(words)) do
+    for each (X, Y, Z, p) in grammar.GRAMMARRULES do
+      P_YZ ← P[Y, i, j] × P[Z, j+1, k] × p
+      if P_YZ &gt; P[X, i, k] do
+        P[X, i, k] ← P_YZ
+        T[X, i, k] ← TREE(X, T[Y, i, j], T[Z, j + 1, k])
+  return T
+
+function SUBSPANS(N) yields (i, j, k) tuples
+  for length = 2 to N do
+    for i = 1 to N + 1 - length do
+      k ← i + length - 1
+      for j = i to k - 1 do
+        yield (i, j, k)</code></pre>
+<p><strong>Hình 24.5</strong> Thuật toán CYK để phân tích cú pháp. Cho trước một chuỗi từ đầu vào, nó tìm ra cây phân tích cú pháp có xác suất cao nhất cho chuỗi đó và các chuỗi con của nó. Bảng \(P[X, i, k]\) cung cấp xác suất của cây phân tích có khả năng cao nhất của danh mục \(X\) bao phủ đoạn từ \(words_{i:k}\). Bảng kết quả trả về \(T[X, i, k]\) chứa cây có xác suất cao nhất thuộc danh mục \(X\) bao phủ các vị trí từ \(i\) đến \(k\) (tính cả 2 đầu mút). Hàm <code>SUBSPANS</code> trả về tất cả các bộ ba <code>(i, j, k)</code> bao phủ khoảng đoạn từ \(words_{i:k}\), với \(i \le j &lt; k\), liệt kê các bộ giá trị này theo chiều tăng dần chiều dài khoảng \(i:k\), để khi chúng ta kết hợp hai khoảng ngắn thành một khoảng dài hơn, thì các khoảng ngắn này đã được tính toán xong và có sẵn trong bảng. Hàm <code>LEXICALRULES(word)</code> trả về một tập hợp các cặp \((X, p)\), ứng với mỗi luật có dạng \(X \to \text{word} [p]\), và hàm <code>GRAMMARRULES</code> cung cấp các bộ \((X,Y,Z,p)\), tương ứng với mỗi luật ngữ pháp có dạng \(X \to Y Z [p]\).</p>
+
+<p>Thuật toán CYK sử dụng không gian bộ nhớ \(\mathcal{O}(n^2 m)\) cho các bảng \(P\) và \(T\), với \(n\) là số từ trong câu và \(m\) là số lượng các ký hiệu không kết thúc (nonterminal symbols) trong ngữ pháp, và tốn thời gian \(\mathcal{O}(n^3 m)\). Nếu chúng ta muốn một thuật toán đảm bảo hoạt động được với tất cả các ngữ pháp phi ngữ cảnh có thể có, thì chúng ta không thể làm gì tốt hơn mức này. Nhưng thực tế chúng ta chỉ muốn phân tích cú pháp các ngôn ngữ tự nhiên, chứ không phải mọi ngữ pháp khả dĩ. Ngôn ngữ tự nhiên đã tiến hóa theo hướng để con người dễ dàng hiểu được theo thời gian thực (real time), chứ không phải để trở nên rắc rối nhất có thể, vì vậy có vẻ như chúng hoàn toàn phù hợp với các thuật toán phân tích cú pháp nhanh hơn.</p>
+
+<p>Để cố gắng đạt đến độ phức tạp \(\mathcal{O}(n)\), chúng ta có thể áp dụng <strong>tìm kiếm A*</strong> theo một cách khá trực tiếp: mỗi trạng thái là một danh sách các mục (các từ hoặc danh mục), như được thấy trong Hình 24.4. Trạng thái bắt đầu là một danh sách các từ và trạng thái đích là một mục đơn lẻ \(S\). Chi phí của một trạng thái là nghịch đảo xác suất của nó dựa trên các luật đã được áp dụng cho đến nay, và có nhiều hàm heuristic khác nhau được sử dụng để ước tính khoảng cách còn lại tới đích; những hàm heuristic tốt nhất hiện được sử dụng đến từ các phương pháp học máy áp dụng trên một kho ngữ liệu (corpus) các câu.</p>
+
+<p>Với thuật toán A*, chúng ta không cần phải tìm kiếm trên toàn bộ không gian trạng thái, và chúng ta được đảm bảo rằng kết quả phân tích cú pháp đầu tiên tìm thấy sẽ là kết quả có xác suất cao nhất (giả sử sử dụng một hàm heuristic chấp nhận được - admissible heuristic). Thuật toán này thường sẽ nhanh hơn CYK, nhưng (tùy thuộc vào chi tiết của ngữ pháp) vẫn chậm hơn mức \(\mathcal{O}(n)\). Một ví dụ về kết quả của một bản phân tích cú pháp được hiển thị trong Hình 24.6.</p>
+
+<p>Cũng giống như với việc gán nhãn từ loại (POS tagging), chúng ta có thể sử dụng tìm kiếm theo chùm (beam search) để phân tích cú pháp, trong đó tại bất kỳ thời điểm nào chúng ta cũng chỉ xem xét \(b\) bản phân tích cú pháp có xác suất cao nhất. Điều này có nghĩa là chúng ta không...</p>

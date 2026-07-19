@@ -1,0 +1,213 @@
+1052
+Chapter 28
+Philosophy, Ethics, and Safety of AI
+If robots have rights, then they should not be enslaved, and there is a question of whether
+reprogramming them would be a kind of enslavement. Another ethical issue involves voting
+rights: a rich person could buy thousands of robots and program them to cast thousands
+of votes—should those votes count? If a robot clones itself, can they both vote? What is
+the boundary between ballot stufﬁng and exercising free will, and when does robotic voting
+violate the “one person, one vote” principle?
+Ernie Davis argues for avoiding the dilemmas of robot consciousness by never building
+robots that could possibly be considered conscious. This argument was previously made by
+Joseph Weizenbaum in his book Computer Power and Human Reason (1976), and before that
+by Julien de La Mettrie in L’Homme Machine (1748). Robots are tools that we create, to do
+the tasks we direct them to do, and if we grant them personhood, we are just declining to take
+responsibility for the actions of our own property: “I’m not at fault for my self-driving car
+crash—the car did it itself.”
+This issue takes a different turn if we develop human–robot hybrids. Of course we already
+have humans enhanced by technology such as contact lenses, pacemakers, and artiﬁcial hips.
+But adding computational protheses may blur the lines between human and machine.
+28.3.7 AI Safety
+Almost any technology has the potential to cause harm in the wrong hands, but with AI
+and robotics, the hands might be operating on their own. Countless science ﬁction stories
+have warned about robots or cyborgs running amok. Early examples include Mary Shelley’s
+Frankenstein, or the Modern Prometheus (1818) and Karel ˇCapek’s play R.U.R. (1920), in
+which robots conquer the world. In movies, we have The Terminator (1984) and The Matrix
+(1999), which both feature robots trying to eliminate humans—the robopocalypse (Wilson,
+Robopocalypse
+2011). Perhaps robots are so often the villains because they represent the unknown, just like
+the witches and ghosts of tales from earlier eras. We can hope that a robot that is smart
+enough to ﬁgure out how to terminate the human race is also smart enough to ﬁgure out that
+that was not the intended utility function; but in building intelligent systems, we want to rely
+not just on hope, but on a design process with guarantees of safety.
+It would be unethical to distribute an unsafe AI agent. We require our agents to avoid
+accidents, to be resistant to adversarial attacks and malicious abuse, and in general to cause
+beneﬁts, not harms. That is especially true as AI agents are deployed in safety-critical appli-
+cations, such as driving cars, controlling robots in dangerous factory or construction settings,
+and making life-or-death medical decisions.
+There is a long history of safety engineering in traditional engineering ﬁelds. We know
+Safety engineering
+how to build bridges, airplanes, spacecraft, and power plants that are designed up front to
+behave safely even when components of the system fail. The ﬁrst technique is failure modes
+and effect analysis (FMEA): analysts consider each component of the system, and imagine
+Failure modes and
+eﬀect analysis
+(FMEA)
+every possible way the component could go wrong (for example, what if this bolt were to
+snap?), drawing on past experience and on calculations based on the physical properties of
+the component. Then the analysts work forward to see what would result from the failure.
+If the result is severe (a section of the bridge could fall down) then the analysts alter the
+design to mitigate the failure. (With this additional cross-member, the bridge can survive the
+failure of any 5 bolts; with this backup server, the online service can survive a tsunami taking
+out the primary server.) The technique of fault tree analysis (FTA) is used to make these
+Fault tree analysis
+(FTA)
+
+
+Section 28.3
+The Ethics of AI
+1053
+determinations: analysts build an AND/OR tree of possible failures and assign probabilities
+to each root cause, allowing for calculations of overall failure probability. These techniques
+can and should be applied to all safety-critical engineered systems, including AI systems.
+The ﬁeld of software engineering is aimed at producing reliable software, but the em-
+phasis has historically been on correctness, not safety. Correctness means that the software
+faithfully implements the speciﬁcation. But safety goes beyond that to insist that the speciﬁ-
+cation has considered any feasible failure modes, and is designed to degrade gracefully even
+in the face of unforeseen failures. For example, the software for a self-driving car wouldn’t
+be considered safe unless it can handle unusual situations. For example, what if the power to
+the main computer dies? A safe system will have a backup computer with a separate power
+supply. What if a tire is punctured at high speed? A safe system will have tested for this, and
+will have software to correct for the resulting loss of control.
+An agent designed as a utility maximizer, or as a goal achiever, can be unsafe if it has
+the wrong objective function. Suppose we give a robot the task of fetching a coffee from
+the kitchen. We might run into trouble with unintended side effects—the robot might rush
+Unintended side
+eﬀect
+to accomplish the goal, knocking over lamps and tables along the way. In testing, we might
+notice this kind of behavior and modify the utility function to penalize such damage, but it is
+difﬁcult for the designers and testers to anticipate all possible side effects ahead of time.
+One way to deal with this is to design a robot to have low impact (Armstrong and Levin-
+Low impact
+stein, 2017): instead of just maximizing utility, maximize the utility minus a weighted sum-
+mary of all changes to the state of the world. In this way, all other things being equal, the
+robot prefers not to change those things whose effect on utility is unknown; so it avoids
+knocking over the lamp not because it knows speciﬁcally that knocking the lamp will cause
+it to fall over and break, but because it knows in general that disruption might be bad. This
+can be seen as a version of the physician’s creed “ﬁrst, do no harm,” or as an analog to regu-
+larization in machine learning: we want a policy that achieves goals, but we prefer policies
+that take smooth, low-impact actions to get there. The trick is how to measure impact. It
+is not acceptable to knock over a fragile lamp, but perfectly ﬁne if the air molecules in the
+room are disturbed a little, or if some bacteria in the room are inadvertently killed. It is cer-
+tainly not acceptable to harm pets and humans in the room. We need to make sure that the
+robot knows the differences between these cases (and many subtle cases in between) through
+a combination of explicit programming, machine learning over time, and rigorous testing.
+Utility functions can go wrong due to externalities, the word used by economists for
+factors that are outside of what is measured and paid for. The world suffers when green-
+house gases are considered as externalities—companies and countries are not penalized for
+producing them, and as a result everyone suffers. Ecologist Garrett Hardin (1968) called the
+exploitation of shared resources the tragedy of the commons. We can mitigate the tragedy
+by internalizing the externalities—making them part of the utility function, for example with
+a carbon tax—or by using the design principles that economist Elinor Ostrom identiﬁed as
+being used by local people throughout the world for centuries (work that won her the Nobel
+Prize in Economics in 2009):
+• Clearly deﬁne the shared resource and who has access.
+• Adapt to local conditions.
+• Allow all parties to participate in decisions.
+
+
+1054
+Chapter 28
+Philosophy, Ethics, and Safety of AI
+• Monitor the resource with accountable monitors.
+• Sanctions, proportional to the severity of the violation.
+• Easy conﬂict resolution procedures.
+• Hierarchical control for large shared resources.
+Victoria Krakovna (2018) has cataloged examples of AI agents that have gamed the system,
+ﬁguring out how to maximize utility without actually solving the problem that their designers
+intended them to solve. To the designers this looks like cheating, but to the agents, they
+are just doing their job. Some agents took advantage of bugs in the simulation (such as
+ﬂoating point overﬂow bugs) to propose solutions that would not work once the bug was
+ﬁxed. Several agents in video games discovered ways to crash or pause the game when they
+were about to lose, thus avoiding a penalty. And in a speciﬁcation where crashing the game
+was penalized, one agent learned to use up just enough of the game’s memory so that when it
+was the opponent’s turn, it would run out of memory and crash the game. Finally, a genetic
+algorithm operating in a simulated world was supposed to evolve fast-moving creatures but
+in fact produced creatures that were enormously tall and moved fast by falling over.
+Designers of agents should be aware of these kinds of speciﬁcation failures and take steps
+to avoid them. To help them do that, Krakovna was part of the team that released the AI Safety
+Gridworlds environments (Leike et al., 2017), which allows designers to test how well their
+agents perform.
+The moral is that we need to be very careful in specifying what we want, because with
+utility maximizers we get what we actually asked for. The value alignment problem is the
+Value alignment
+problem
+problem of making sure that what we ask for is what we really want; it is also known as the
+King Midas problem, as discussed on page 51. We run into trouble when a utility function
+fails to capture background societal norms about acceptable behavior. For example, a human
+who is hired to clean ﬂoors, when faced with a messy person who repeatedly tracks in dirt,
+knows that it is acceptable to politely ask the person to be more careful, but it is not acceptable
+to kidnap or incapacitate said person.
+A robotic cleaner needs to know these things too, either through explicit programming or
+by learning from observation. Trying to write down all the rules so that the robot always does
+the right thing is almost certainly hopeless. We have been trying to write loophole-free tax
+laws for several thousand years without success. Better to make the robot want to pay taxes,
+so to speak, than to try to make rules to force it to do so when it really wants to do something
+else. A sufﬁciently intelligent robot will ﬁnd a way to do something else.
+Robots can learn to conform better with human preferences by observing human behav-
+ior. This is clearly related to the notion of apprenticeship learning (Section 23.6). The robot
+may learn a policy that directly suggests what actions to take in what situations; this is often
+a straightforward supervised learning problem if the environment is observable. For exam-
+ple, a robot can watch a human playing chess: each state–action pair is an example for the
+learning process. Unfortunately, this form of imitation learning means that the robot will
+repeat human mistakes. Instead, the robot can apply inverse reinforcement learning to dis-
+cover the utility function that the humans must be operating under. Watching even terrible
+chess players is probably enough for the robot to learn the objective of the game. Given just
+this information, the robot can then go on to exceed human performance—as, for example,
+ALPHAZERO did in chess—by computing optimal or near-optimal policies from the objec-
+
+
+Section 28.3
+The Ethics of AI
+1055
+tive. This approach works not just in board games, but in real-world physical tasks such as
+helicopter aerobatics (Coates et al., 2009).
+In more complex settings involving, for example, social interactions with humans, it is
+very unlikely that the robot will converge to exact and correct knowledge of each human’s
+individual preferences. (After all, many humans never quite learn what makes other humans
+tick, despite a lifetime of experience, and many of us are unsure of our own preferences too.)
+It will be necessary, therefore, for machines to function appropriately when it is uncertain
+about human preferences. In Chapter 17, we introduced assistance games, which capture
+exactly this situation. Solutions to assistance games include acting cautiously, so as not to
+disturb aspects of the world that the human might care about, and asking questions. For
+example, the robot could ask whether turning the oceans into sulphuric acid is an acceptable
+solution to global warming before it puts the plan into effect.
+In dealing with humans, a robot solving an assistance game must accommodate human
+imperfections. If the robot asks permission, the human may give it, not foreseeing that the
+robot’s proposal is in fact catastrophic in the long term. Moreover, humans do not have
+complete introspective access to their true utility function, and they don’t always act in a way
+that is compatible with it. Humans sometimes lie or cheat, or do things they know are wrong.
+They sometimes take self-destructive actions like overeating or abusing drugs. AI systems
+need not learn to adopt these problematic tendencies, but they must understand that they exist
+when interpreting human behavior to get at the underlying human preferences.
+Despite this toolbox of safeguards, there is a fear, expressed by prominent technologists
+such as Bill Gates and Elon Musk and scientists such as Stephen Hawking and Martin Rees,
+that AI could evolve out of control. They warn that we have no experience controlling power-
+ful nonhuman entities with super-human capabilities. However, that’s not quite true; we have
+centuries of experience with nations and corporations; non-human entities that aggregate the
+power of thousands or millions of people. Our record of controlling these entities is not very
+encouraging: nations produce periodic convulsions called wars that kill tens of millions of
+human beings, and corporations are partly responsible for global warming and our inability
+to confront it.
+AI systems may present much greater problems than nations and corporations because of
+their potential to self-improve at a rapid pace, as considered by I. J. Good (1965b):
+Let an ultraintelligent machine be deﬁned as a machine that can far surpass all the
+Ultraintelligent
+machine
+intellectual activities of any man however clever. Since the design of machines is one of
+these intellectual activities, an ultraintelligent machine could design even better machines;
+there would then unquestionably be an “intelligence explosion,” and the intelligence of
+man would be left far behind. Thus the ﬁrst ultraintelligent machine is the last invention
+that man need ever make, provided that the machine is docile enough to tell us how to
+keep it under control.
+Good’s “intelligence explosion” has also been called the technological singularity by math-
+Technological
+singularity
+ematics professor and science ﬁction author Vernor Vinge, who wrote in 1993: “Within thirty
+years, we will have the technological means to create superhuman intelligence. Shortly after,
+the human era will be ended.” In 2017, inventor and futurist Ray Kurzweil predicted the
+singularity would appear by 2045, which means it got 2 years closer in 24 years. (At that
+rate, only 336 years to go!) Vinge and Kurzweil correctly note that technological progress on
+many measures is growing exponentially at present.
+
+

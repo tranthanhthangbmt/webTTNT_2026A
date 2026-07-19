@@ -1,0 +1,43 @@
+<p>Điều quan trọng trong phương pháp ô lưới là ta không nhất thiết phải biểu diễn toàn bộ vùng C-space. Thay vào đó, ta sử dụng một bộ <strong>kiểm tra va chạm</strong> (Collision checker), một hàm ánh xạ giá trị 1 nếu cấu hình va chạm và 0 nếu ngược lại.</p>
+
+<p>Một thách thức nữa với tìm kiếm trên lưới là đường đi thường tạo thành các góc nhọn, trong khi robot thực tế có quán tính và không thể đổi hướng tức thời. Giải pháp là thuật toán <strong>Hybrid A*</strong>, sử dụng mô hình động học liên tục của robot để đảm bảo các bước nhảy từ ô này sang ô khác tạo ra những đoạn cong mượt mà có thể thực thi được.</p>
+
+<p><strong>Lập kế hoạch ngẫu nhiên (Randomized motion planning)</strong><br>
+Thay vì phân chia không gian thành lưới đều đặn, phương pháp ngẫu nhiên lấy mẫu các điểm và tạo cạnh nếu có thể nối chúng đơn giản (như đường thẳng) mà không va chạm. Nổi bật là thuật toán <strong>Bản đồ lộ trình xác suất</strong> (Probabilistic roadmap - <strong>PRM</strong>).<br>
+Thuật toán lấy mẫu M <em>điểm mốc</em> (milestones) trong C-space, kiểm tra va chạm, rồi nối từng mốc với \(k\) mốc gần nhất. Cuối cùng, dùng đồ thị thu được để tìm đường đi. Phương pháp này hoàn chỉnh theo xác suất (probabilistically complete) – tức là nếu có đường đi, nó sẽ tìm thấy nếu được lấy mẫu đủ lâu.</p>
+
+<p><strong>Hình 26.17</strong> Thuật toán PRM. Trên trái: khởi đầu và đích. Trên phải: lấy mẫu M mốc tự do. Dưới trái: nối với k mốc gần nhất. Dưới phải: tìm đường đi ngắn nhất.</p>
+
+<p><strong>Cây khám phá ngẫu nhiên nhanh (Rapidly exploring random trees - RRTs)</strong><br>
+RRT rất phổ biến cho các bài toán truy vấn đơn (single-query). Nó xây dựng 2 cây: một từ gốc là điểm bắt đầu, một từ điểm đích. Cây phát triển bằng cách lấy một mốc ngẫu nhiên, tìm điểm gần nhất trên cây và kéo dài từ điểm đó về hướng mốc ngẫu nhiên một khoảng \(\delta\). Nếu 2 cây kết nối được, ta có đường đi.</p>
+
+<p><strong>Hình 26.18</strong> Thuật toán RRT hai chiều.</p>
+<p><strong>Hình 26.19</strong> Các bước đường đi từ RRT sau khi được xử lý "đi tắt" (short-cutting) để mượt mà hơn.</p>
+
+<p>Biến thể <strong>RRT*</strong> cải tiến RRT để tìm đường đi tiệm cận tối ưu bằng cách đi dây lại (rewire) cây nếu việc nối qua điểm mốc mới tiết kiệm chi phí hơn.</p>
+
+<p><strong>Tối ưu hóa quỹ đạo (Trajectory optimization)</strong><br>
+Khác với RRT (tìm đường khả thi rồi làm mượt), phương pháp này bắt đầu bằng một đường đi thẳng (dù cắt qua chướng ngại vật), sau đó liên tục đẩy đường đi rời khỏi chướng ngại vật qua phương pháp hạ gradient dựa trên hàm chi phí \(J = J_{obs} + \lambda J_{eff}\). Hàm này cân bằng giữa chi phí tránh va chạm (\(J_{obs}\)) và tính hiệu quả, ngắn gọn (\(J_{eff}\)).</p>
+
+<p><strong>Hình 26.20</strong> Tối ưu quỹ đạo. Đường thẳng ban đầu bị chướng ngại vật bẻ cong dần để tìm đường an toàn ngắn nhất.</p>
+
+<h3 id="2653-trajectory-tracking-control">26.5.3 Điều khiển bám quỹ đạo (Trajectory tracking control)</h3>
+
+<p>Chúng ta có đường đi, nhưng làm sao chuyển nó thành dòng điện, mô-men xoắn để robot thực sự di chuyển? Đó là lĩnh vực của <strong>Lý thuyết điều khiển</strong> (Control theory).</p>
+
+<p><strong>Hình 26.21</strong> Giải quyết bài toán đưa tay với lấy chai nước bằng bộ tối ưu quỹ đạo.</p>
+
+<p>Trước tiên, ta dùng <strong>mô hình động lực học</strong> (Dynamics model) \(\ddot{q} = f(q, \dot{q}, u)\) và <strong>động lực học nghịch</strong> (Inverse dynamics) để tính toán lực \(\tau\) cần thiết để tạo ra gia tốc \(\ddot{q}\). Nhưng đường đi ban đầu chỉ là hình học, nên ta cần <strong>đặt lại thời gian</strong> (Retiming) biến nó thành quỹ đạo thực sự \(\xi(t)\) với thời gian cụ thể cho từng đoạn.</p>
+
+<p>Trên thực tế, mô hình động lực học không bao giờ hoàn hảo, luôn có ma sát, nhiễu loạn làm robot chệch hướng. Để giải quyết, ta dùng điều khiển phản hồi:<br>
+- <strong>Bộ điều khiển P (Proportional)</strong>: Cung cấp lực tỉ lệ thuận với sai số vị trí. \(u(t) = K_P(\xi(t) - q_t)\). Nhược điểm: gây dao động mạnh quanh đường đích (như lò xo) do quán tính.<br>
+- <strong>Bộ điều khiển PD (Proportional Derivative)</strong>: Thêm thành phần đạo hàm (vận tốc sai số) để giảm xóc (dampen). \(u(t) = K_P(\xi(t) - q_t) + K_D(\dot{\xi}(t) - \dot{q}_t)\). Triệt tiêu dao động hiệu quả.<br>
+- <strong>Bộ điều khiển PID (Proportional Integral Derivative)</strong>: Thêm thành phần tích phân để xóa bỏ các sai số hệ thống kéo dài theo thời gian.</p>
+
+<p><strong>Hình 26.22</strong> Điều khiển tay robot. (a) Bộ điều khiển P với hệ số 1.0 gây dao động cực mạnh. (b) Bộ điều khiển P hệ số 0.1 vẫn bị dao động. (c) Bộ điều khiển PD giúp bám quỹ đạo mượt mà hơn nhiều.</p>
+
+<p>Một giải pháp tối ưu hơn là <strong>điều khiển mô-men tính toán</strong> (Computed torque control), kết hợp thành phần <em>tiến quản</em> (feedforward) từ động lực học nghịch và thành phần <em>phản hồi</em> (feedback) từ PD.</p>
+
+<h3 id="2654-optimal-control">26.5.4 Điều khiển tối ưu (Optimal control)</h3>
+
+<p>Thay vì tách rời lập kế hoạch quỹ đạo và bám theo quỹ đạo, điều khiển tối ưu tối ưu hóa thẳng trên các hành động (mô-men), xem xét luôn cả động lực học. Điển hình là bài toán <strong>Bộ điều chỉnh toàn phương tuyến tính</strong> (Linear Quadratic Regulator - <strong>LQR</strong>) khi chi phí là hàm bậc 2 và động lực học là tuyến tính. Trong bài toán phi tuyến phức tạp hơn, người ta sử dụng <strong>ILQR</strong> (Iterative LQR) để xấp xỉ tuyến tính và giải lặp.</p>

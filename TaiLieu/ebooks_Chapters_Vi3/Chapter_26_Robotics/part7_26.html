@@ -1,0 +1,45 @@
+<h2 id="268-humans-and-robots">26.8 Con người và Robot (Humans and Robots)</h2>
+
+<p>Phần lớn thời gian, chúng ta không chế tạo robot để hoạt động cô lập, mà để giúp đỡ và làm việc trong môi trường của con người. Điều này đặt ra hai thách thức lớn. Đầu tiên là bài toán <strong>Phối hợp</strong> (Coordination) — robot phải chọn hành động sao cho hòa hợp với những hành động của con người xung quanh. Khi có cùng mục tiêu chung, sự phối hợp biến thành <strong>Hợp tác</strong> (Collaboration). Thứ hai là tối ưu hóa chính xác những gì con người <em>thực sự muốn</em>. Việc tìm ra đúng hàm phần thưởng là một bài toán tương tác vô cùng phức tạp.</p>
+
+<h3 id="2681-coordination">26.8.1 Phối hợp (Coordination)</h3>
+
+<p>Giả sử robot đã có một hàm phần thưởng rõ ràng, nhưng giờ nó phải tối ưu hóa hàm đó trong khi có sự can thiệp của con người. Ví dụ, khi xe tự lái hòa vào làn đường cao tốc, nó phải "đàm phán" với tài xế đang đi trên làn mục tiêu: nên tăng tốc tạt đầu hay giảm tốc nhường đường? Hoặc khi robot đi dọc hành lang và gặp người đi ngược chiều, robot phải thể hiện rõ ý định sẽ đi tránh sang bên nào.</p>
+
+<p><strong>Con người như các tác tử xấp xỉ hợp lý (Humans as approximately rational agents)</strong><br>
+Một cách để tiếp cận là mô hình hóa quá trình phối hợp như một trò chơi giữa robot và người. Cả hai đều có trạng thái (\(x_R, x_H\)), hành động (\(u_R, u_H\)) và hàm chi phí riêng (\(J_R, J_H\)). Trò chơi này gặp 3 vấn đề lớn:
+1. Robot và người thường không biết mục tiêu của nhau. Đây là một <strong>trò chơi thiếu thông tin</strong> (Incomplete information game).
+2. Không gian trạng thái và hành động là liên tục.
+3. Con người không phải lúc nào cũng tối ưu hóa trò chơi hoàn hảo, họ có những tính toán dưới mức tối ưu mà robot cần phải hiểu và xử lý.</p>
+
+<p>Để giải quyết, robot dùng nguyên tắc phân tách (như đã làm ở phần trước): Tách việc đưa ra các <em>dự đoán về hành động con người</em> khỏi việc <em>quyết định hành động của bản thân</em>.</p>
+
+<p><strong>Dự đoán hành động của con người</strong><br>
+Robot có thể giả định con người bỏ qua sự tồn tại của nó, và họ hành động (có nhiễu) dựa theo một hàm mục tiêu \(J_H\) chưa biết. Robot có thể tạo mô hình phân phối xác suất \(P(u_H | x, J_H)\). Quá trình người thực hiện hành động sẽ tiết lộ dần hàm mục tiêu của họ cho robot:
+$$ b'(J_H) \propto b(J_H)P(u_H | x, J_H) $$</p>
+
+<p><strong>Hình 26.27</strong> Đưa ra dự đoán thông qua các hành động trong quá khứ của người. Dựa trên quỹ đạo người đang đi, robot cập nhật niềm tin và suy diễn người đang đi ra cửa sổ chứ không phải nhà bếp.</p>
+
+<p>Dựa vào niềm tin mới này, robot có thể dự đoán người sẽ làm gì tiếp theo và coi đó như một bài toán MDP thông thường, đưa ra kế hoạch cho riêng mình mà không va chạm. Tuy nhiên, nếu tách biệt dự đoán và hành động, robot sẽ đánh mất khả năng <em>gây ảnh hưởng</em>. Robot tiên tiến hơn sẽ tính toán gộp (jointly): Nó biết rằng nếu mình quyết liệt chuyển làn, người kia có thể sẽ phải phanh lại và nhường đường.</p>
+
+<p><strong>Hình 26.28</strong> (a) Phối hợp hành vi nhập làn. Robot hiểu nếu nó thể hiện ý định rẽ rõ ràng, tài xế người sẽ chậm lại nhường. (b) Robot thỉnh thoảng lui lại để khuyến khích tài xế đi nhanh qua giao lộ.</p>
+
+<p><strong>Dự đoán của con người về robot</strong><br>
+Đổi lại, con người cũng không biết mục tiêu của robot. Để dễ tương tác, robot cần hành động sao cho con người có thể dễ dàng đoán ra ý định thực sự của nó.</p>
+
+<p>Khi robot và người cùng có một mục tiêu \(J_H = J_R\), ta có thể xem đó là một <strong>tác tử liên hợp</strong> (Joint agent). Dù vậy, con người có xu hướng thay đổi ý định ngẫu nhiên trong lúc hợp tác. Do đó, kỹ thuật Điều khiển dự đoán mô hình (MPC) rất hữu ích: robot lên kế hoạch kết hợp, thực hiện bước đầu tiên, quan sát con người, và lập lại kế hoạch nếu người làm khác đi.</p>
+
+<p><strong>Con người như tác tử hộp đen</strong><br>
+Cách thứ hai là coi con người đơn thuần như một yếu tố gây nhiễu môi trường, gọi là chính sách \(\pi_H\) chưa biết. Robot có thể dùng dữ liệu thu thập được để học xấp xỉ \(\pi_H\) rồi vạch ra phương hướng tối ưu.</p>
+
+<h3 id="2682-learning-to-do-what-humans-want">26.8.2 Học cách thực hiện những gì con người muốn</h3>
+
+<p>Trong thực tế, chỉ định một hàm chi phí hoàn hảo từ đầu (như xe phải nhanh, an toàn, nhẹ nhàng, đúng luật...) là cực kỳ khó. Chúng ta có hai hướng để dạy robot.</p>
+
+<p><strong>Học tùy chọn: Học hàm chi phí (Preference learning)</strong><br>
+Cũng dựa trên mô hình toán học tương tự như dự đoán hành vi con người, nếu một người "chạy mẫu" cho xe tự lái, và người đó lái rất cẩn thận, robot có thể suy luận ra rằng hàm chi phí của người này đặt tỷ trọng rất cao cho "Sự an toàn". Bằng cách này, robot hấp thụ hàm chi phí đó và đem áp dụng khi tự vận hành.</p>
+
+<p><strong>Hình 26.29</strong> Học tùy chọn. Dựa trên việc người lái trên đường đất (trái), robot trích xuất hàm chi phí muốn đi trên đường, từ đó áp dụng sang bản đồ mới (phải).</p>
+
+<p><strong>Học chính sách trực tiếp thông qua bắt chước (Imitation Learning)</strong><br>
+Phương pháp thứ hai là không cần học hàm chi phí, chỉ lưu lại bộ dữ liệu (trạng thái, hành động) và sử dụng học có giám sát để tạo một chính sách \(\pi\). Đây gọi là <strong>Học bắt chước</strong> (Imitation learning) hay <strong>Sao chép hành vi</strong> (Behavioral cloning). Thách thức của phương pháp này là <strong>Khả năng tổng quát hóa</strong> (Generalization). Nếu một khi robot mắc sai lầm và văng ra khỏi "đường ray" dữ liệu đã từng được dạy, nó sẽ không biết phải làm gì tiếp theo.</p>

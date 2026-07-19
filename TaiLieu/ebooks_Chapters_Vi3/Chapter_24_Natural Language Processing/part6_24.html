@@ -1,0 +1,58 @@
+<p>đảm bảo tìm thấy bản phân tích cú pháp có xác suất cao nhất, nhưng (với một quá trình triển khai cẩn thận) bộ phân tích cú pháp có thể hoạt động trong thời gian \(\mathcal{O}(n)\) và vẫn tìm thấy bản phân tích tốt nhất trong hầu hết các trường hợp.</p>
+
+<p>Một bộ phân tích cú pháp tìm kiếm theo chùm với \(b = 1\) được gọi là một <strong>bộ phân tích cú pháp tất định (deterministic parser)</strong>. Một cách tiếp cận tất định phổ biến là <strong>phân tích cú pháp dịch-thu gọn (shift-reduce parsing)</strong>, trong đó chúng ta đi qua câu từng từ một, tại mỗi điểm chọn xem nên dịch (shift) từ đó vào một ngăn xếp (stack) các thành phần, hay thu gọn (reduce) (các) thành phần trên cùng trên ngăn xếp theo một quy tắc ngữ pháp. Mỗi kiểu phân tích cú pháp đều có những người ủng hộ riêng trong cộng đồng NLP. Mặc dù có thể chuyển đổi một hệ thống dịch-thu gọn thành một PCFG (và ngược lại), nhưng khi bạn áp dụng học máy vào bài toán quy nạp một ngữ pháp, thiên kiến quy nạp (inductive bias) và do đó là những khái quát hóa mà mỗi hệ thống đưa ra sẽ là khác nhau (Abney và cộng sự, 1999).</p>
+
+<p><strong>Hình 24.7</strong> Một phân tích cú pháp theo kiểu phụ thuộc (trên cùng) và phân tích cú pháp cấu trúc cụm từ tương ứng (dưới cùng) cho câu <em>I detect the smelly wumpus near me</em>.</p>
+
+<h3>24.3.1 Phân tích cú pháp phụ thuộc (Dependency parsing)</h3>
+
+<p>Có một phương pháp tiếp cận cú pháp thay thế được sử dụng rộng rãi gọi là <strong>ngữ pháp phụ thuộc (dependency grammar)</strong>, giả định rằng cấu trúc cú pháp được hình thành bởi các quan hệ nhị phân giữa các mục từ vựng, mà không cần đến các thành phần cú pháp (syntactic constituents). Hình 24.7 cho thấy một câu với cả một cây phân tích cú pháp phụ thuộc và một cây phân tích cấu trúc cụm từ.</p>
+
+<p>Theo một khía cạnh nào đó, ngữ pháp phụ thuộc và ngữ pháp cấu trúc cụm từ chỉ là các biến thể về mặt ký hiệu (notational variants). Nếu cây cấu trúc cụm từ được chú thích với phần trung tâm (head) của mỗi cụm từ, bạn có thể khôi phục cây phụ thuộc từ nó. Ở chiều ngược lại, chúng ta có thể chuyển đổi một cây phụ thuộc thành một cây cấu trúc cụm từ bằng cách đưa ra các danh mục tùy ý (mặc dù chúng ta có thể không phải lúc nào cũng nhận được một cái cây trông tự nhiên theo cách này).</p>
+
+<pre><code>[ [S [NP-2 Her eyes]
+     [VP were
+         [VP glazed
+             [NP *-2]
+             [SBAR-ADV as if
+                 [S [NP she]
+                    [VP did n’t
+                        [VP [VP hear [NP *-1]]
+                            or
+                            [VP [ADVP even] see [NP *-1]]
+                            [NP-1 him]]]]]]]]
+  .]</code></pre>
+<p><strong>Hình 24.8</strong> Cây được chú thích cho câu "Her eyes were glazed as if she didn’t hear or even see him." trích từ Penn Treebank. Lưu ý một hiện tượng ngữ pháp mà chúng ta chưa đề cập đến: sự di chuyển của một cụm từ từ phần này sang phần khác của cây. Cây này phân tích cụm từ "hear or even see him" như bao gồm hai thành phần VP, <code>[VP hear [NP *-1]]</code> và <code>[VP [ADVP even] see [NP *-1]]</code>, cả hai đều có một tân ngữ bị thiếu, được biểu thị là <code>*-1</code>, dùng để tham chiếu đến NP được dán nhãn ở nơi khác trong cây dưới dạng <code>[NP-1 him]</code>. Tương tự, <code>[NP *-2]</code> tham chiếu đến <code>[NP-2 Her eyes]</code>.</p>
+
+<p>Do đó, chúng ta sẽ không ưu tiên ký hiệu này hơn ký hiệu kia chỉ vì nó mạnh hơn; thay vào đó, chúng ta sẽ thích một thứ hơn vì nó tự nhiên hơn — có thể quen thuộc hơn đối với các nhà phát triển hệ thống là con người, hoặc tự nhiên hơn đối với một hệ thống học máy sẽ phải học các cấu trúc đó. Nói chung, các cây cấu trúc cụm từ là tự nhiên đối với các ngôn ngữ (như tiếng Anh) với trật tự từ hầu như cố định; các cây phụ thuộc lại là tự nhiên đối với các ngôn ngữ (như tiếng Latinh) có trật tự từ chủ yếu là tự do, nơi trật tự của các từ được xác định bởi ngữ dụng học (pragmatics) nhiều hơn là bởi các phạm trù cú pháp.</p>
+
+<p>Sự phổ biến của ngữ pháp phụ thuộc ngày nay phần lớn xuất phát từ dự án <strong>Phụ thuộc Phổ quát (Universal Dependencies)</strong> (Nivre và cộng sự, 2016), một dự án treebank nguồn mở định nghĩa một tập hợp các mối quan hệ và cung cấp hàng triệu câu đã được phân tích cú pháp bằng hơn 70 ngôn ngữ.</p>
+
+<h3>24.3.2 Học một bộ phân tích cú pháp từ các ví dụ (Learning a parser from examples)</h3>
+
+<p>Việc xây dựng một ngữ pháp cho một phần đáng kể của tiếng Anh là rất tốn công sức và dễ xảy ra lỗi. Điều này cho thấy rằng việc học các luật ngữ pháp (và xác suất) sẽ tốt hơn là tự viết chúng ra bằng tay. Để áp dụng học có giám sát (supervised learning), chúng ta cần các cặp câu đầu vào/đầu ra và các cây phân tích cú pháp của chúng. Penn Treebank là nguồn dữ liệu nổi tiếng nhất thuộc loại này, với hơn 100 nghìn câu được chú thích bằng cấu trúc cây phân tích cú pháp. Hình 24.8 hiển thị một cây được chú thích từ Penn Treebank.</p>
+
+<p>Cho trước một treebank, chúng ta có thể tạo ra một PCFG chỉ bằng cách đếm số lần mỗi loại nút (node-type) xuất hiện trong một cây (với những lưu ý thông thường về việc làm mịn các số đếm thấp). Trong Hình 24.8, có hai nút có dạng <code>[S[NP...][VP...]]</code>. Chúng ta sẽ đếm những nút này, và tất cả các cây con khác có gốc S trong tập ngữ liệu. Nếu có 1000 nút S trong đó có 600 nút có dạng này, thì chúng ta tạo ra luật:</p>
+
+<p><code>S → NP VP [0.6]</code></p>
+
+<p>Tổng cộng, Penn Treebank có hơn 10.000 loại nút khác nhau. Điều này phản ánh thực tế rằng tiếng Anh là một ngôn ngữ phức tạp, nhưng nó cũng chỉ ra rằng những người chú thích tạo ra treebank này lại ưa chuộng những cái cây phẳng (flat trees), có lẽ phẳng hơn mức chúng ta mong muốn. Ví dụ, cụm từ "the good and the bad" được phân tích dưới dạng một cụm danh từ đơn lẻ chứ không phải là hai cụm danh từ liên kết với nhau, mang lại cho chúng ta quy tắc:</p>
+
+<p><code>NP → Article Noun Conjunction Article Noun</code></p>
+
+<p>Có hàng trăm quy tắc tương tự định nghĩa một cụm danh từ dưới dạng một chuỗi các danh mục với một liên từ ở đâu đó ở giữa; một ngữ pháp súc tích hơn có thể nắm bắt tất cả các quy tắc cụm danh từ liên kết chỉ bằng một quy tắc đơn lẻ:</p>
+
+<p><code>NP → NP Conjunction NP</code></p>
+
+<p>Bod và cộng sự (2003) và Bod (2008) cho thấy cách khôi phục tự động các quy tắc khái quát như thế này, làm giảm đáng kể số lượng quy tắc được trích xuất từ treebank và tạo ra một ngữ pháp cuối cùng có thể khái quát hóa tốt hơn cho các câu chưa từng thấy trước đây. Họ gọi cách tiếp cận của mình là <strong>phân tích cú pháp hướng dữ liệu (data-oriented parsing)</strong>.</p>
+
+<p>Chúng ta đã thấy rằng các treebank không hoàn hảo — chúng chứa các lỗi và có các phân tích cú pháp mang tính đặc thù (idiosyncratic). Cũng rõ ràng rằng việc tạo ra một treebank đòi hỏi rất nhiều công việc khó khăn; điều đó có nghĩa là các treebank sẽ vẫn có kích thước tương đối nhỏ, so với tất cả các văn bản chưa được chú thích bằng cây. Một phương pháp tiếp cận thay thế là <strong>phân tích cú pháp không giám sát (unsupervised parsing)</strong>, trong đó chúng ta học một ngữ pháp mới (hoặc cải thiện một ngữ pháp hiện có) bằng cách sử dụng một tập ngữ liệu các câu không có cây phân tích.</p>
+
+<p>Thuật toán inside–outside (Dodd, 1988), mà chúng ta sẽ không đề cập ở đây, học cách ước lượng các xác suất trong một PCFG từ các câu ví dụ không có cây, tương tự như cách thuật toán forward-backward (Hình 14.4) ước lượng xác suất. Spitkovsky và cộng sự (2010a) mô tả một phương pháp học không giám sát sử dụng <strong>học theo chương trình (curriculum learning)</strong>: bắt đầu với phần dễ của chương trình giảng dạy — những câu 2 từ ngắn gọn không mơ hồ như "He left" có thể dễ dàng được phân tích cú pháp dựa trên kiến thức hoặc chú thích trước đó. Mỗi bản phân tích cú pháp mới của một câu ngắn sẽ mở rộng kiến thức của hệ thống để cuối cùng nó có thể giải quyết các câu 3 từ, rồi 4 từ và cuối cùng là 40 từ.</p>
+
+<p>Chúng ta cũng có thể sử dụng <strong>phân tích cú pháp bán giám sát (semisupervised parsing)</strong>, trong đó chúng ta bắt đầu với một số lượng nhỏ các cây dưới dạng dữ liệu để xây dựng một ngữ pháp ban đầu, sau đó thêm vào một số lượng lớn các câu chưa được phân tích cú pháp để cải thiện ngữ pháp. Phương pháp tiếp cận bán giám sát có thể tận dụng lợi thế của <strong>đóng ngoặc một phần (partial bracketing)</strong>: chúng ta có thể sử dụng các văn bản có sẵn rộng rãi đã được đánh dấu (marked up) bởi các tác giả (chứ không phải bởi các chuyên gia ngôn ngữ học), với một cấu trúc dạng cây một phần, dưới dạng định dạng HTML hoặc các chú thích tương tự. Trong văn bản HTML, hầu hết các dấu ngoặc nhọn tương ứng với một thành phần cú pháp, do đó việc đóng ngoặc một phần có thể giúp học được một ngữ pháp (Pereira và Schabes, 1992; Spitkovsky và cộng sự, 2010b). Xem xét văn bản HTML sau từ một bài báo trên tờ báo:</p>
+
+<pre><code>In 1998, however, as I &lt;a&gt;established in &lt;i&gt;The New Republic&lt;/i&gt;&lt;/a&gt;
+and Bill Clinton just &lt;a&gt;confirmed in his memoirs&lt;/a&gt;, Netanyahu changed his mind</code></pre>
+
+<p>Các từ được bao quanh bởi thẻ <code>&lt;i&gt;&lt;/i&gt;</code> tạo thành một cụm danh từ, và hai chuỗi từ được bao quanh bởi thẻ <code>&lt;a&gt;&lt;/a&gt;</code>, mỗi chuỗi tạo thành cụm động từ.</p>

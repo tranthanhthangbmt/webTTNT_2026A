@@ -1,0 +1,274 @@
+Section 27.2
+Image Formation
+993
+27.2.4 Light and shading
+The brightness of a pixel in the image is a function of the brightness of the surface patch in
+the scene that projects to the pixel. For modern cameras, this function is linear for middling
+intensities of light, but has pronounced nonlinearities for darker and brighter illumination. We
+will use a linear model. Image brightness is a strong, if ambiguous, cue to both the shape and
+the identity of objects. The ambiguity occurs because there are three factors that contribute
+to the amount of light that comes from a point on an object to the image: the overall intensity
+of ambient light); whether the point is facing the light or is in shadow); and the amount of
+Ambient light
+light reﬂected from the point.
+Reﬂection
+People are surprisingly good at disambiguating brightness—they usually can tell the dif-
+ference between a black object in bright light and a white object in shadow, even if both have
+the same overall brightness. However, people sometimes get shading and markings mixed
+up—-a streak of dark makeup under a cheekbone will often look like a shading effect, mak-
+ing the face look thinner.
+Most surfaces reﬂect light by a process of diffuse reﬂection. Diffuse reﬂection scatters
+Diﬀuse reﬂection
+light evenly across the directions leaving a surface, so the brightness of a diffuse surface
+doesn’t depend on the viewing direction. Most cloth has this property, as do most paints,
+rough wooden surfaces, most vegetation, and rough stone or concrete.
+Specular reﬂection causes incoming light to leave a surface in a lobe of directions that
+Specular reﬂection
+is determined by the direction the light arrived from. A mirror is one example. What you see
+depends on the direction in which you look at the mirror. In this case, the lobe of directions
+is very narrow, which is why you can resolve different objects in a mirror.
+For many surfaces, the lobe is broader. These surfaces display small bright patches,
+usually called specularities. As the surface or the light moves, the specularities move, too.
+Specularities
+Away from these patches, the surface behaves as if it is diffuse. Specularities are often seen on
+metal surfaces, painted surfaces, plastic surfaces, and wet surfaces. These are easy to identify,
+because they are small and bright (Figure 27.4). For almost all purposes, it is enough to model
+all surfaces as being diffuse with specularities.
+The main source of illumination outside is the sun, whose rays all travel parallel to one
+another in a known direction because it is so far away. We model this behavior with a distant
+point light source. This is the most important model of lighting, and is quite effective for
+Distant point light
+source
+indoor scenes as well as outdoor scenes. The amount of light collected by a surface patch in
+this model depends on the angle θ between the illumination direction and the normal (per-
+pendicular) to the surfaces (Figure 27.5).
+A diffuse surface patch illuminated by this model will reﬂect some fraction of the light it
+collects, given by the diffuse albedo. For practical surfaces, this lies in the range 0.05-0.95.
+Diﬀuse albedo
+Lambert’s cosine law states the brightness of a diffuse patch is given by
+Lambert’s cosine law
+I = ρI0 cosθ,
+where I0 is the intensity of the light source, θ is the angle between the light source direction
+and the surface normal, and ρ is the diffuse albedo. This law predicts that bright image pixels
+come from surface patches that face the light directly and dark pixels come from patches
+that see the light only tangentially, so that the shading on a surface provides some shape
+information. If the surface cannot see the source, then it is in shadow. Shadows are very
+Shadow
+seldom a uniform black, because the shadowed surface usually receives some light from
+
+
+994
+Chapter 27
+Computer Vision
+Specularities
+Cast shadow
+Diffuse reflection, dark
+Diffuse reflection, bright
+Figure 27.4 This photograph illustrates a variety of illumination effects. There are specular-
+ities on the stainless steel cruet. The onions and carrots are bright diffuse surfaces because
+they face the light direction. The shadows appear at surface points that cannot see the light
+source at all. Inside the pot are some dark diffuse surfaces where the light strikes at a tangen-
+tial angle. (There are also some shadows inside the pot.) Photo by Ryman Cabannes/Image
+Professionals GmbH/Alamy Stock Photo.
+A
+B
+u
+u
+Figure 27.5 Two surface patches are illuminated by a distant point source, whose rays are
+shown as light arrows. Patch A is tilted away from the source (θ is close to 90◦) and collects
+less energy, because it cuts fewer light rays per unit surface area. Patch B, facing the source
+(θ is close to 0◦), collects more energy.
+other sources. Outdoors, the most important source other than the sun is the sky, which
+is quite bright. Indoors, light reﬂected from other surfaces illuminates shadowed patches.
+These interreﬂections can have a signiﬁcant effect on the brightness of other surfaces, too.
+Interreﬂections
+These effects are sometimes modeled by adding a constant ambient illumination term to the
+Ambient illumination
+predicted intensity.
+
+
+Section 27.3
+Simple Image Features
+995
+27.2.5 Color
+Fruit is a bribe that a tree offers to animals to carry its seeds around. Trees that can signal
+when this bribe is ready have an advantage, as do animals that can read these signals. As a
+result, most fruits start green, and turn red or yellow when ripe, and most fruit-eating animals
+can see these color changes. Generally, light arriving at the eye has different amounts of
+energy at different wavelengths, and is represented by a spectral energy density.
+Cameras and the human vision system respond to light at wavelengths ranging from about
+380nm (violet) to about 750nm (red). In color imaging systems, there are different types of
+receptor that respond more or less strongly to different wavelengths. In humans, the sensation
+of color occurs when the vision system compares the responses of receptors near each other
+on the retina. Animal color vision systems typically have relatively few types of receptor,
+and so represent relatively little of the detail in the spectral energy density function (some
+animals have only one type of receptor; some have as many as six types). Human color
+vision is produced by three types of receptor. Most color camera systems use only three types
+of receptor, too, because the images are produced for humans, but some specialized systems
+can produce very detailed measurements of the spectral energy density.
+Because most humans have three types of color-sensitive receptors, the principle of
+trichromacy applies. This idea, ﬁrst proposed by Thomas Young in 1802, states that a human
+Principle of
+trichromacy
+observer can match the visual appearance of any spectral energy density, however complex,
+by mixing appropriate amounts of just three primaries. Primaries are colored light sources,
+Primaries
+chosen so that no mixture of any two will match the third. A common choice is to have one
+red primary, one green, and one blue, abbreviated as RGB. Although a given colored object
+RGB
+may have many component frequencies of light, we can match the color by mixing just the
+three primaries, and most people will agree on the proportions of the mixture. That means
+we can represent color images with just three numbers per pixel—the RGB values.
+For most computer vision applications, it is accurate enough to model a surface as having
+three different (RGB) diffuse albedos and to model light sources as having three (RGB) in-
+tensities. We then apply Lambert’s cosine law to each to get red, green, and blue pixel values.
+This model predicts, correctly, that the same surface will produce different colored image
+patches under different colored lights. In fact, human observers are quite good at ignoring
+the effects of different colored lights and appear to estimate the color the surface would have
+under white light, an effect known as color constancy.
+Color constancy
+27.3 Simple Image Features
+Light reﬂects off objects in the scene to form an image consisting of, say, twelve million
+three-byte pixels. As with all sensors there will be noise in the image, and in any case there is
+a lot of data to deal with. The way to get started analyzing this data is to produce simpliﬁed
+representations that expose what’s important, but reduce detail. Much current practice learns
+these representations from data. But there are four properties of images and video that are
+particularly general: edges, texture, optical ﬂow and segmentation into regions.
+An edge occurs where there is a big difference in pixel intensity across part of an image.
+Building representations of edges involves local operations on an image—you need to com-
+pare a pixel value to some values nearby—and doesn’t require any knowledge about what is
+
+
+996
+Chapter 27
+Computer Vision
+1
+2
+4
+2
+1
+1
+3
+Figure 27.6 Different kinds of edges: (1) depth discontinuities; (2) surface orientation dis-
+continuities; (3) reﬂectance discontinuities; (4) illumination discontinuities (shadows).
+in the image. Thus, edge detection can come early in the pipeline of operations and we call it
+an “early” or “low-level” operation.
+The other operations require handling a larger area of the image. For example, a texture
+description applies to a pool of pixels—to say “stripey,” you need to see some stripes. Optical
+ﬂow represents where pixels move to from one image in a sequence to the next, and this
+can cover a larger area. Segmentation cuts an image into regions of pixels that naturally
+belong together, and doing so requires looking at the whole region. Operations like this are
+sometimes referred to as “mid-level” operations.
+27.3.1 Edges
+Edges are straight lines or curves in the image plane across which there is a “signiﬁcant”
+Edges
+change in image brightness. The goal of edge detection is to abstract away from the messy,
+multi-megabyte image and towards a more compact, abstract representation, as in Figure 27.6.
+Effects in the scene very often result in large changes in image intensity, and so produce edges
+in the image. Depth discontinuities (labeled 1 in the ﬁgure) can cause edges because when
+you cross the discontinuity, the color typically changes. When the surface normal changes
+(labeled 2 in the ﬁgure), the image intensity often changes. When the surface reﬂectance
+changes (labeled 3), the image intensity often changes. Finally, a shadow (labeled 4) is a
+discontinuity in illumination that causes an edge in the image, even though there is not an
+edge in the object. Edge detectors can’t disentangle the cause of the discontinuity, which is
+left to later processing.
+Finding edges requires care. Figure 27.7 (top) shows a one-dimensional crosssection of
+an image perpendicular to an edge, with an edge at x = 50.
+You might differentiate the image and look for places where the magnitude of the deriva-
+tive I′(x) is large. This almost works, but in Figure 27.7 (middle), we see that although there
+is a peak at x=50, there are also subsidiary peaks at other locations (e.g., x=75) that could be
+mistaken for true edges. These arise because of the presence of “noise” in the image. Noise
+Noise
+here means changes to the value of a pixel that don’t have to do with an edge. For example,
+
+
+Section 27.3
+Simple Image Features
+997
+0
+10
+20
+30
+40
+50
+60
+70
+80
+90
+100
+−1
+0
+1
+2
+0
+10
+20
+30
+40
+50
+60
+70
+80
+90
+100
+−1
+0
+1
+0
+10
+20
+30
+40
+50
+60
+70
+80
+90
+100
+−1
+0
+1
+Figure 27.7 Top: Intensity proﬁle I(x) along a one-dimensional section across a step edge.
+Middle: The derivative of intensity, I′(x). Large values of this function correspond to edges,
+but the function is noisy. Bottom: The derivative of a smoothed version of the intensity. The
+noisy candidate edge at x=75 has disappeared.
+there could be thermal noise in the camera; there could be scratches on the object surface that
+change the surface normal at the ﬁnest scale; there could be minor variations in the surface
+albedo; and so on. Each of these effects make the gradient look big, but don’t mean that an
+edge is present. If we “smooth” the image ﬁrst, the spurious peaks are diminished, as we see
+in Figure 27.7 (bottom).
+Smoothing involves using surrounding pixels to suppress noise. We will predict the “true”
+value of our pixel as a weighted sum of nearby pixels, with more weight for the closest pixels.
+A natural choice of weights is a Gaussian ﬁlter. Recall that the zero-mean Gaussian function
+Gaussian ﬁlter
+with standard deviation σ is
+Gσ(x) =
+1
+√
+2πσe−x2/2σ2
+in one dimension, or
+Gσ(x,y) =
+1
+2πσ2 e−(x2+y2)/2σ2 in two dimensions.
+Applying a Gaussian ﬁlter means replacing the intensity I(x0,y0) with the sum, over all (x,y)
+pixels, of I(x,y)Gσ(d), where d is the distance from (x0,y0) to (x,y). This kind of weighted
+sum is so common that there is a special name and notation for it. We say that the function h
+is the convolution of two functions f and g (denoted as h = f ∗g) if we have
+Convolution
+h(x) =
++∞
+∑
+u=−∞
+f(u)g(x−u)
+in one dimension, or
+h(x,y) =
++∞
+∑
+u=−∞
++∞
+∑
+v=−∞
+f(u,v)g(x−u,y−v)
+in two dimensions.
+
+

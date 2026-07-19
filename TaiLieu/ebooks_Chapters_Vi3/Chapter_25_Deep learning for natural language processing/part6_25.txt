@@ -1,0 +1,151 @@
+922
+Chapter 25
+Deep Learning for Natural Language Processing
+vectors—one for each word position. The input to the ﬁrst transformer layer is the sum of the
+word embedding at position t plus the positional embedding corresponding to position t.
+Figure 25.10 illustrates the transformer architecture for POS tagging, applied to the same
+sentence used in Figure 25.3. At the bottom, the word embedding and the positional embed-
+dings are summed to form the input for a three-layer transformer. The transformer produces
+one vector per word, as in RNN-based POS tagging. Each vector is fed into a ﬁnal output
+layer and softmax layer to produce a probability distribution over the tags.
+In this section, we have actually only told half the transformer story: the model we de-
+scribed here is called the transformer encoder. It is useful for text classiﬁcation tasks. The
+Transformer encoder
+full transformer architecture was originally designed as a sequence-to-sequence model for
+machine translation. Therefore, in addition to the encoder, it also includes a transformer
+decoder. The encoder and decoder are nearly identical, except that the decoder uses a ver-
+Transformer decoder
+sion of self-attention where each word can only attend to the words before it, since text is
+generated left-to-right. The decoder also has a second attention module in each transformer
+layer that attends to the output of the transformer encoder.
+25.5 Pretraining and Transfer Learning
+Getting enough data to build a robust model can be a challenge. In computer vision (see
+Chapter 27), that challenge was addressed by assembling large collections of images (such as
+ImageNet) and hand-labeling them.
+For natural language, it is more common to work with text that is unlabeled. The dif-
+ference is in part due to the difﬁculty of labeling: an unskilled worker can easily label an
+image as “cat” or “sunset,” but it requires extensive training to annotate a sentence with part-
+of-speech tags or parse trees. The difference is also due to the abundance of text: the Internet
+adds over 100 billion words of text each day, including digitized books, curated resources
+such as Wikipedia, and uncurated social media posts.
+Projects such as Common Crawl provide easy access to this data. Any running text can
+be used to build n-gram or word embedding models, and some text comes with structure that
+can be helpful for a variety of tasks—for example, there are many FAQ sites with question-
+answer pairs that can be used to train a question-answering system. Similarly, many Web
+sites publish side-by-side translations of texts, which can be used to train machine translation
+systems. Some text even comes with labels of a sort, such as review sites where users annotate
+their text reviews with a 5-star rating system.
+We would prefer not to have to go to the trouble of creating a new data set every time
+we want a new NLP model. In this section, we introduce the idea of pretraining: a form
+Pretraining
+of transfer learning (see Section 22.7.2) in which we use a large amount of shared general-
+domain language data to train an initial version of an NLP model. From there, we can use a
+smaller amount of domain-speciﬁc data (perhaps including some labeled data) to reﬁne the
+model. The reﬁned model can learn the vocabulary, idioms, syntactic structures, and other
+linguistic phenomena that are speciﬁc to the new domain.
+25.5.1 Pretrained word embeddings
+In Section 25.1, we brieﬂy introduced word embeddings. We saw that how similar words
+like banana and apple end up with similar vectors, and we saw that we can solve analogy
+
+
+Section 25.5
+Pretraining and Transfer Learning
+923
+problems with vector subtraction. This indicates that the word embeddings are capturing
+substantial information about the words.
+In this section we will dive into the details of how word embeddings are created using an
+entirely unsupervised process over a large corpus of text. That is in contrast to the embeddings
+from Section 25.1, which were built during the process of supervised part of speech tagging,
+and thus required POS tags that come from expensive hand annotation.
+We will concentrate on one speciﬁc model for word embeddings, the GloVe (Global
+Vectors) model. The model starts by gathering counts of how many times each word appears
+within a window of another word, similar to the skip-gram model. First choose window size
+(perhaps 5 words) and let Xij be the number of times that words i and j co-occur within
+a window, and let Xi be the number of times word i co-occurs with any other word. Let
+Pij =Xi j/Xi be the probability that word j appears in the context of word i. As before, let Ei
+be the word embedding for word i.
+Part of the intuition of the GloVe model is that the relationship between two words can
+best be captured by comparing them both to other words. Consider the words ice and steam.
+Now consider the ratio of their probabilities of co-occurrence with another word, w, that is:
+Pw,ice/Pw,steam .
+When w is the word solid the ratio will be high (meaning solid applies more to ice) and when
+w is the word gas it will be low (meaning gas applies more to steam). And when w is a
+non-content word like the, a word like water that is equally relevant to both, or an equally
+irrelevant word like fashion, the ratio will be close to 1.
+The GloVe model starts with this intuition and goes through some mathematical reason-
+ing (Pennington et al., 2014) that converts ratios of probabilities into vector differences and
+dot products, eventually arriving at the constraint
+Ei ·E′
+k = log(Pij).
+In other words, the dot product of two word vectors is equal to the log probability of their
+co-occurrence. That makes intuitive sense: two nearly-orthogonal vectors have a dot product
+close to 0, and two nearly-identical normalized vectors have a dot product close to 1. There
+is a technical complication wherein the GloVe model creates two word embedding vectors
+for each word, Ei and E′
+i; computing the two and then adding them together at the end helps
+limit overﬁtting.
+Training a model like GloVe is typically much less expensive than training a standard
+neural network: a new model can be trained from billions of words of text in a few hours
+using a standard desktop CPU.
+It is possible to train word embeddings on a speciﬁc domain, and recover knowledge in
+that domain. For example, Tshitoyan et al. (2019) used 3.3 million scientiﬁc abstracts on the
+subject of material science to train a word embedding model. They found that, just as we saw
+that a generic word embedding model can answer “Athens is to Greece as Oslo is to what?”
+with “Norway,” their material science model can answer “NiFe is to ferromagnetic as IrMn
+is to what?” with “antiferromagnetic.”
+Their model does not rely solely on co-occurrence of words; it seems to be capturing
+more complex scientiﬁc knowledge. When asked what chemical compounds can be classiﬁed
+as “thermoelectric” or “topological insulator,” their model is able to answer correctly. For
+example, CsAgGa2Se4 never appears near “thermoelectric” in the corpus, but it does appear
+
+
+924
+Chapter 25
+Deep Learning for Natural Language Processing
+near “chalcogenide,” “band gap,” and “optoelectric,” which are all clues enabling it to be
+classiﬁed as similar to “thermoelectric.” Furthermore, when trained only on abstracts up
+to the year 2008 and asked to pick compounds that are “thermoelectric” but have not yet
+appeared in abstracts, three of the model’s top ﬁve picks were discovered to be thermoelectric
+in papers published between 2009 and 2019.
+25.5.2 Pretrained contextual representations
+Word embeddings are better representations than atomic word tokens, but there is an impor-
+tant issue with polysemous words. For example, the word rose can refer to a ﬂower or the
+past tense of rise. Thus, we expect to ﬁnd at least two entirely distinct clusters of word con-
+texts for rose: one similar to ﬂower names such as dahlia, and one similar to upsurge. No
+single embedding vector can capture both of these simultaneously. Rose is a clear example of
+a word with (at least) two distinct meanings, but other words have subtle shades of meaning
+that depend on context, such as the word need in you need to see this movie versus humans
+need oxygen to survive. And some idiomatic phrases like break the bank are better analyzed
+as a whole rather than as component words.
+Therefore, instead of just learning a word-to-embedding table, we want to train a model to
+generate contextual representations of each word in a sentence. A contextual representation
+Contextual
+representations
+maps both a word and the surrounding context of words into a word embedding vector. In
+other words, if we feed this model the word rose and the context the gardener planted a rose
+bush, it should produce a contextual embedding that is similar (but not necessarily identical)
+to the representation we get with the context the cabbage rose had an unusual fragrance, and
+very different from the representation of rose in the context the river rose ﬁve feet.
+Figure 25.11 shows a recurrent network that creates contextual word embeddings—the
+boxes that are unlabeled in the ﬁgure. We assume we have already built a collection of
+noncontextual word embeddings. We feed in one word at a time, and ask the model to predict
+the next word. So for example in the ﬁgure at the point where we have reached the word
+“car,” the the RNN node at that time step will receive two inputs: the noncontextual word
+embedding for “car” and the context, which encodes information from the previous words
+“The red.” The RNN node will then output a contextual representation for “car.” The network
+as a whole then outputs a prediction for the next word, “is.” We then update the network’s
+weights to minimize the error between the prediction and the actual next word.
+This model is similar to the one for POS tagging in Figure 25.5, with two important
+differences. First, this model is unidirectional (left-to-right), whereas the POS model is bidi-
+rectional. Second, instead of predicting the POS tags for the current word, this model predicts
+the next word using the prior context. Once the model is built, we can use it to retrieve rep-
+resentations for words and pass them on to some other task; we need not continue to predict
+the next word. Note that computing a contextual representations always requires two inputs,
+the current word and the context.
+25.5.3 Masked language models
+A weakness of standard language models such as n-gram models is that the contextualization
+of each word is based only on the previous words of the sentence. Predictions are made from
+left to right. But sometimes context from later in a sentence—for example, feet in the phrase
+rose ﬁve feet—helps to clarify earlier words.
+
+

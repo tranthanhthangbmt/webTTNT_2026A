@@ -1,0 +1,204 @@
+Section 27.7
+Using Computer Vision
+1013
+know where the horizon is in an image, we can rank pedestrians by distance to the camera.
+This works because we know where their feet are, and pedestrians whose feet are closer to
+the horizon in the image are farther away from the camera, and so must be smaller in the
+image. This means we can rule out some detector responses—if a detector ﬁnds a pedestrian
+who is large in the image and whose feet are close to the horizon, it has found an enormous
+pedestrian; these don’t exist, so the detector is wrong. In turn, a reasonably reliable pedestrian
+detector is capable of producing estimates of the horizon, if there are several pedestrians in
+the scene at different distances from the camera. This is because the relative scaling of the
+pedestrians is a cue to where the horizon is. So we can extract a horizon estimate from the
+detector, then use this estimate to prune the pedestrian detector’s mistakes.
+27.7 Using Computer Vision
+Here we survey a range of computer vision applications. There are now many reliable com-
+puter vision tools and toolkits, so the range of applications that are successful and useful is
+extraordinary. Many are developed at home by enthusiasts for special purposes, which is
+testimony to how usable the methods are and how much impact they have. (For example, an
+enthusiast created a great object-detection-based pet door that refuses entry to a cat if it is
+bringing in a dead mouse–a Web search will ﬁnd it for you).
+27.7.1 Understanding what people are doing
+If we could build systems that understood what people are doing by analyzing video, we could
+build human-computer interfaces that watch people and react to their behavior. With these
+interfaces, we could: design buildings and public places better, by collecting and using data
+about what people do in public; build more accurate and less intrusive security surveillance
+systems; build automated sports commentators; make construction sites and workplaces safer
+by generating warnings when people and machines get dangerously close; build computer
+games that make a player get up and move around; and save energy by managing heat and
+light in a building to match where the occupants are and what they are doing.
+The state of the art for some problems is now extremely strong. There are methods that
+can predict the locations of a person’s joints in an image very accurately. Quite good estimates
+of the 3D conﬁguration of that person’s body follow (see Figure 27.16). This works because
+pictures of the body tend to have weak perspective effects, and body segments don’t vary
+much in length, so the foreshortening of a body segment in an image is a good cue to the
+angle between it and the camera plane. With a depth sensor, these estimates can be made fast
+enough to build them into computer game interfaces.
+Classifying what people are doing is harder. Video that shows rather structured behaviors,
+like ballet, gymnastics, or tai chi, where there are quite speciﬁc vocabularies that refer to very
+precisely delineated activities on simple backgrounds, is quite easy to deal with. Good results
+can be obtained with a lot of labeled data and an appropriate convolutional neural network.
+However, it can be difﬁcult to prove that the methods actually work, because they rely so
+strongly on context. For example, a classiﬁer that labels “swimming” sequences very well
+might just be a swimming pool detector, which wouldn’t work for (say) swimmers in rivers.
+More general problems remain open—for example, how to link observations of the body
+and the objects nearby to the goals and intentions of the moving people. One source of
+
+
+1014
+Chapter 27
+Computer Vision
+Figure 27.16 Reconstructing humans from a single image is now practical. Each row shows
+a reconstruction of 3D body shape obtained using a single image. These reconstructions are
+possible because methods can estimate the location of joints, the joint angles in 3D, the shape
+of the body, and the pose of the body with respect to an image. Each row shows the follow-
+ing: far left a picture; center left the picture with the reconstructed body superimposed;
+center right another view of the reconstructed body; and far right yet another view of the
+reconstructed body. The different views of the body make it much harder to conceal errors
+in reconstruction. Figure courtesy of Angjoo Kanazawa, produced by a system described in
+Kanazawa et al. (2018a).
+difﬁculty is that similar behaviors look different, and different behaviors look similar, as
+Figure 27.17 shows.
+Another difﬁculty is caused by time scale. What someone is doing depends quite strongly
+on the time scale, as Figure 27.18 illustrates. Another important effect shown in that ﬁgure
+is that behavior composes—several recognized behaviors may be combined to form a single
+higher-level behavior such as ﬁxing a snack.
+It may also be that unrelated behaviors are going on at the same time, such as singing a
+song while ﬁxing a snack. A challenge is that we don’t have a common vocabulary for the
+pieces of behavior. People tend to think they know a lot of behavior names but can’t produce
+long lists of such words on demand. That makes it harder to get data sets of consistently
+labeled behaviors.
+Learned classiﬁers are guaranteed to behave well only if the training and test data come
+from the same distribution. We have no way of checking that this constraint applies to images,
+but empirically we observe that image classiﬁers and object detectors work very well. But for
+activity data, the relationship between training and test data is more untrustworthy because
+
+
+Section 27.7
+Using Computer Vision
+1015
+Open fridge
+Take something 
+out of fridge
+Figure 27.17 The same action can look very different; and different actions can look similar.
+These examples show actions taken from a data set of natural behaviors; the labels are chosen
+by the curators of the data set, rather than predicted by an algorithm. Top: examples of the
+label “opening fridge,” some shown in closeup and some from afar. Bottom: examples of
+the label “take something out of fridge.” Notice how in both rows the subject’s hand is close
+to the fridge door—telling the difference between the cases requires quite subtle judgment
+about where the hand is and where the door is. Figure courtesy of David Fouhey, taken from
+a data set described in Fouhey et al. (2018).
+Timeline
+Figure 27.18 What you call an action depends on the time scale. The single frame at the
+top is best described as opening the fridge (you don’t gaze at the contents when you close a
+fridge). But if you look at a short clip of video (indicated by the frames in the center row),
+the action is best described as getting milk from the fridge. If you look at a long clip (the
+frames in the bottom row), the action is best described as ﬁxing a snack. Notice that this
+illustrates one way in which behavior composes: getting milk from the fridge is sometimes
+part of ﬁxing a snack, and opening the fridge is usually part of getting milk from the fridge.
+Figure courtesy of David Fouhey, taken from a data set described in Fouhey et al. (2018).
+
+
+1016
+Chapter 27
+Computer Vision
+A baby eating a piece
+of food in his mouth
+A young boy eating
+a piece of cake
+A small bird is perched
+on a branch
+A small brown bear is
+sitting in the grass
+Figure 27.19 Automated image captioning systems produce some good results and some
+failures. The two captions at left describe the respective images well, although “eating ...in
+his mouth” is a disﬂuency that is fairly typical of the recurrent neural network language mod-
+els used by early captioning systems. For the two captions on the right, the captioning system
+seems not to know about squirrels, and so guesses the animal from context; it also fails to
+recognize that the two squirrels are eating. Image credits: geraine/Shutterstock; ESB Pro-
+fessional/Shutterstock; BushAlex/Shutterstock; Maria.Tem/Shutterstock. The images shown
+are similar but not identical to the original images from which the captions were generated.
+For the original images see Aneja et al. (2018).
+people do so many things in so many contexts. For example, suppose we have a pedestrian
+detector that performs well on a large data set. There will be rare phenomena (for example,
+people mounting unicycles) that do not appear in the training set, so we can’t say for sure
+how the detector will work in such cases. The challenge is to prove that the detector is safe
+whatever pedestrians do, which is difﬁcult for current theories of learning.
+27.7.2 Linking pictures and words
+Many people create and share pictures and videos on the Internet. The difﬁculty is ﬁnding
+what you want. Typically, people want to search using words (rather than, say, example
+sketches). Because most pictures don’t come with words attached, it is natural to try and
+build tagging systems that tag images with relevant words. The underlying machinery is
+Tagging system
+straightforward—we apply image classiﬁcation and object detection methods and tag the im-
+age with the output words. But tags aren’t a comprehensive description of what is happening
+in an image. It matters who is doing what, and tags don’t capture this. For example, tagging
+a picture of a cat in the street with the object categories “cat”, “street”, “trash can” and “ﬁsh
+bones” leaves out the information that the cat is pulling the ﬁsh bones out of an open trash
+can on the street.
+As an alternative to tagging, we might build captioning systems—systems that write a
+Captioning systems
+caption of one or more sentences describing the image. The underlying machinery is again
+straightforward—couple a convolutional network (to represent the image) to a recurrent neu-
+ral network or transformer network (to generate sentences), and train the result with a data set
+of captioned images. There are many images with captions available on the Internet; curated
+data sets use human labor to augment each image with additional captions to capture the vari-
+ation in natural language. For example, the COCO (Common Objects in Context) data set is
+a comprehensive collection of over 200,000 images labeled with ﬁve captions per image.
+Current methods for captioning use detectors to ﬁnd a set of words that describe the
+image, and provide those words to a sequence model that is trained to generate a sentence.
+
+
+Section 27.7
+Using Computer Vision
+1017
+Q. What is the cat wearing?
+A. Hat
+Q. What is the weather like?
+A. Rainy
+Q. What surface is this?
+A. Clay
+Q. What toppings are on the pizza?
+A. Mushrooms
+Q. How many holes are in the pizza?
+A. 8
+Q. What letter is on the racket?
+A. w
+Q. What color is the right front leg?
+A. Brown
+Q. Why is the sign bent?
+A. It’s not
+Figure 27.20 Visual question-answering systems produce answers (typically chosen from a
+multiple-choice set) to natural-language questions about images. Top: the system is produc-
+ing quite sensible answers to rather difﬁcult questions about the image. Bottom: less satis-
+factory answers. For example, the system is guessing about the number of holes in a pizza,
+because it doesn’t understand what counts as a hole, and it has real difﬁculty counting. Simi-
+larly, the system selects brown for the cat’s leg because the background is brown and it can’t
+localize the leg properly. Image credits: (Top) Tobyanna/Shutterstock; 679411/Shutterstock;
+ESB Professional/Shutterstock; Africa Studio/Shutterstock; (Bottom) Stuart Russell; Max-
+isport/Shutterstock; Chendongshan/Shutterstock; Scott Biales DitchTheMap/Shutterstock.
+The images shown are similar but not identical to the original images to which the question-
+answering system was applied. For the original images see Goyal et al. (2017).
+The most accurate methods search through the sentences that the model can generate to ﬁnd
+the best, and strong methods appear to require a slow search. Sentences are evaluated with
+a set of scores that check whether the generated sentence (a) uses phrases common in the
+ground truth annotations and (b) doesn’t use other phrases. These scores are hard to use
+directly as a loss function, but reinforcement learning methods can be used to train networks
+that get very good scores. Often there will be an image in the training set whose description
+has the same set of words as an image in the test set; in that case a captioning system can just
+retrieve a valid caption rather than having to generate a new one. Caption writing systems
+produce a mix of excellent results and embarrassing errors (see Figure 27.19).
+Captioning systems can hide their ignorance by omitting to mention details they can’t get
+right or by using contextual cues to guess. For example, captioning systems tend to be poor at
+identifying the gender of people in images, and often guess based on training data statistics.
+That can lead to errors—men also like shopping and women also snowboard. One way to
+establish whether a system has a good representation of what is happening in an image is to
+force it to answer questions about the image. This is a visual question answering or VQA
+Visual question
+answering (VQA)
+system. An alternative is a visual dialog system, which is given a picture, its caption, and a
+Visual dialog
+dialog. The system must then answer the last question in the dialog. As Figure 27.20 shows,
+vision remains extremely hard and VQA systems often make errors.
+
+

@@ -1,0 +1,183 @@
+Section 25.5
+Pretraining and Transfer Learning
+925
+Feedforward
+red
+car
+is
+big
+<eos>
+The
+red
+car
+is
+big
+Feedforward
+Feedforward
+Feedforward
+Feedforward
+Non-contextual
+representations
+(word embeddings)
+Contextual
+representations
+(RNN output)
+Embedding
+lookup
+Embedding
+lookup
+Embedding
+lookup
+Embedding
+lookup
+Embedding
+lookup
+RNN
+RNN
+RNN
+RNN
+RNN
+Figure 25.11 Training contextual representations using a left-to-right language model.
+The
+river
+rose
+five
+feet
+Embedding
+lookup
+RNN
+Embedding
+lookup
+Embedding
+lookup
+Embedding
+lookup
+RNN
+RNN
+RNN
+RNN
+RNN
+RNN
+RNN
+RNN
+RNN
+Feedforward
+MLM
+embedding
+[masked]
+Figure 25.12 Masked language modeling: pretrain a bidirectional model—for example, a
+multilayer RNN—by masking input words and predicting only those masked words.
+One straightforward workaround is to train a separate right-to-left language model that
+contextualizes each word based on subsequent words in the sentence, and then concatenate
+the left-to-right and right-to-left representations. However, such a model fails to combine
+evidence from both directions.
+Instead, we can use a masked language model (MLM). MLMs are trained by masking
+Masked language
+model (MLM)
+(hiding) individual words in the input and asking the model to predict the masked words. For
+this task, one can use a deep bidirectional RNN or transformer on top of the masked sentence.
+For example, given the input sentence “The river rose ﬁve feet” we can mask the middle word
+to get “The river
+ﬁve feet” and ask the model to ﬁll in the blank.
+
+
+926
+Chapter 25
+Deep Learning for Natural Language Processing
+1. What will best separate a mixture of iron ﬁlings and black pepper?
+(a) magnet
+(b) ﬁlter paper
+(c) triple beam balance
+(d) voltmeter
+2. Which form of energy is produced when a rubber band vibrates?
+(a) chemical
+(b) light
+(c) electrical
+(d) sound
+3. Because copper is a metal, it is
+(a) liquid at room temperature
+(b) nonreactive with other substances
+(c) a poor conductor of electricity (d) a good conductor of heat
+4. Which process in an apple tree primarily results from cell division?
+(a) growth
+(b) photosynthesis
+(c) gas exchange
+(d) waste removal
+Figure 25.13 Questions from an 8th grade science exam that the ARISTO system can an-
+swer correctly using an ensemble of methods, with the most inﬂuential being a ROBERTA
+language model. Answering these questions requires knowledge about natural language, the
+structure of multiple-choice tests, commonsense, and science.
+The ﬁnal hidden vectors that correspond to the masked tokens are then used to predict
+the words that were masked—in this example, rose. During training a single sentence can
+be used multiple times with different words masked out. The beauty of this approach is
+that it requires no labeled data; the sentence provides its own label for the masked word. If
+this model is trained on a large corpus of text, it generates pretrained representations that
+perform well across a wide variety of NLP tasks (machine translation, question answering,
+summarization, grammaticality judgments, and others).
+25.6 State of the art
+Deep learning and transfer learning have markedly advanced the state of the art for NLP—so
+much so that one commentator in 2018 declared that “NLP’s ImageNet moment has arrived”
+(Ruder, 2018). The implication is that just as a turning point occurred in 2012 for computer
+vision when deep learning systems produced surprising good results in the ImageNet compe-
+tition, a turning point occurred in 2018 for NLP. The principal impetus for this turning point
+was the ﬁnding that transfer learning works well for natural language problems: a general
+language model can be downloaded and ﬁne-tuned for a speciﬁc task.
+It started with simple word embeddings from systems such as WORD2VEC in 2013 and
+GloVe in 2014. Researchers can download such a model or train their own relatively quickly
+without access to supercomputers. Pretrained contextual representations, on the other hand,
+are orders of magnitude more expensive to train.
+These models became feasible only after hardware advances (GPUs and TPUs) became
+widespread, and in this case researchers were grateful to be able to download models rather
+than having to spend the resources to train their own. The transformer model allowed for
+efﬁcient training of much larger and deeper neural networks than was previously possible
+(this time due to software advances, not hardware). Since 2018, new NLP projects typically
+start with a pretrained transformer model.
+Although these transformer models were trained to predict the next word in a text, they do
+a surprisingly good job at other language tasks. A ROBERTA model with some ﬁne-tuning
+
+
+Section 25.6
+State of the art
+927
+It is a truth universally acknowledged that the earth is not the center of the uni-
+verse. There are those who assert there is. I do not accept them, but others I
+consider to be of the same opinion. The truth is, however, that if there are other
+than the center, and if there are any other living things in the universe and if they
+are not human, then we do not yet have our answers. We have to go on. This page
+gives a simpliﬁed, simpliﬁed answer to the problem. We don’t have all the answers.
+The truth is, however, that the truth is out there.
+When Gregor Samsa woke up one morning, he did not notice anything strange.
+“When my wife is looking at me, I feel like she is looking at a piece of art,” he said.
+“I think she is admiring something I have created.” The idea is that by looking at
+your own life, you learn something important and become a better person. It is a
+theory that emerged from psychologist Daniel Goleman’s work, in which he asked
+“How do you know you’re not a loser?”
+Alice was beginning to get very tired of sitting with her sister on the bank. She
+sat up, yawned, and said, with a loud little scream, “I hope you don’t mind if I keep
+on doing what I should like to do, and if someone asks me which of us will do
+more, don’t tell them that I won’t do much, my dear sister.”
+All happy families are alike; each happy family is like a garden of paradise. The
+only difference between happy families and unhappy families, is that the unhappy
+family doesn’t have any ﬂowers or trees.
+Tell me a story. Tell me a story. Tell me a story. Tell me a story. Tell me a story.
+Tell me a story. Tell me a story. Tell me a story. Tell me a story. Tell me a story.
+Tell me a story. Tell me a story. Please ﬁll out the following details. Thank you...
+Thank you for your interest in this interview. Please wait...
+Figure 25.14 Example completion texts generated by the GPT-2 language model, given the
+prompts in bold. Most of the texts are quite ﬂuent English, at least locally. The ﬁnal example
+demonstrates that sometimes the model just breaks down.
+achieves state-of-the-art results in question answering and reading comprehension tests (Liu
+et al., 2019b). GPT-2, a transformer-like language model with 1.5 billion parameters trained
+on 40GB of Internet text, achieves good results on such diverse tasks as translation between
+French and English, ﬁnding referents of long-distance dependencies, and general-knowledge
+question answering, all without ﬁne-tuning for the particular task. As Figure 25.14 illustrates,
+GPT-2 can generate fairly convincing text given just a few words as a prompt.
+As an example state-of-the-art NLP system, ARISTO (Clark et al., 2019) achieved a score
+of 91.6% on an 8th grade multiple-choice science exam (see Figure 25.13). ARISTO consists
+of an ensemble of solvers: some use information retrieval (similar to a web search engine),
+some do textual entailment and qualitative reasoning, and some use large transformer lan-
+guage models. It turns out that ROBERTA, by itself, scores 88.2% on the test. ARISTO also
+scores 83% on the more advanced 12th grade exam. (A score of 65% is considered “meeting
+the standards” and 85% is “meeting the standards with distinction”.)
+
+

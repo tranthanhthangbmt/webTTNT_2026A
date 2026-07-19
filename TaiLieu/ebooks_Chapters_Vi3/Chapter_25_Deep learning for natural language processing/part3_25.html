@@ -1,0 +1,53 @@
+<p>các từ bù trừ nhau 1 vị trí. Nghĩa là, đối với văn bản huấn luyện “hello world”, đầu vào đầu tiên \(\mathbf{x}_1\) là nhúng từ cho “hello” và đầu ra đầu tiên \(\mathbf{y}_1\) là nhúng từ cho “world”. Chúng ta đang huấn luyện mô hình để dự đoán từ tiếp theo, và kỳ vọng rằng để làm như vậy, nó sẽ sử dụng lớp ẩn để biểu diễn thông tin hữu ích. Như đã giải thích trong Mục 22.6.1, chúng ta tính toán sự khác biệt giữa đầu ra được quan sát và đầu ra thực tế được tính toán bởi mạng, và lan truyền ngược qua thời gian (back-propagate through time), chú ý giữ cho các trọng số giống nhau đối với tất cả các bước thời gian.</p>
+
+<p>Một khi mô hình đã được huấn luyện, chúng ta có thể sử dụng nó để sinh văn bản ngẫu nhiên. Chúng ta cung cấp cho mô hình một từ đầu vào ban đầu \(\mathbf{x}_1\), từ đó nó sẽ tạo ra một đầu ra \(\mathbf{y}_1\) là một phân phối xác suất softmax trên các từ. Chúng ta lấy mẫu (sample) một từ duy nhất từ phân phối, ghi lại từ đó làm đầu ra cho thời điểm \(t\), và đưa nó quay lại làm từ đầu vào tiếp theo \(\mathbf{x}_2\). Chúng ta lặp lại quá trình này miễn là mong muốn. Khi lấy mẫu từ \(\mathbf{y}_1\), chúng ta có một sự lựa chọn: chúng ta luôn có thể chọn từ có khả năng xảy ra cao nhất; chúng ta có thể lấy mẫu theo xác suất của mỗi từ; hoặc chúng ta có thể lấy mẫu vượt mức (oversample) các từ ít có khả năng xảy ra hơn, để đưa thêm sự đa dạng vào đầu ra được sinh ra. Trọng số lấy mẫu là một siêu tham số (hyperparameter) của mô hình.</p>
+
+<p>Dưới đây là một ví dụ về văn bản ngẫu nhiên được sinh ra bởi một mô hình RNN được huấn luyện trên các tác phẩm của Shakespeare (Karpathy, 2015):</p>
+<blockquote>
+<p>Marry, and will, my lord, to weep in such a one were prettiest;<br>
+Yet now I was adopted heir<br>
+Of the world’s lamentable day,<br>
+To watch the next way with his father with his face?</p>
+</blockquote>
+
+<h3>25.2.2 Phân loại với mạng nơ-ron hồi quy (Classification with recurrent neural networks)</h3>
+
+<p>Cũng có thể sử dụng RNN cho các tác vụ ngôn ngữ khác, chẳng hạn như gán nhãn từ loại hoặc giải quyết đồng tham chiếu (coreference resolution). Trong cả hai trường hợp, các lớp đầu vào và lớp ẩn sẽ giống nhau, nhưng đối với bộ gán nhãn POS, đầu ra sẽ là một phân phối softmax trên các nhãn POS, và đối với giải quyết đồng tham chiếu, nó sẽ là một phân phối softmax trên các tiền ngữ (antecedents) có thể có. Ví dụ, khi mạng đến đầu vào "him" trong câu “Eduardo told me that Miguel was very sick so I took him to the hospital”, nó sẽ xuất ra một xác suất cao cho “Miguel”.</p>
+
+<p>Việc huấn luyện một RNN để thực hiện phân loại như thế này được thực hiện theo cùng một cách với mô hình ngôn ngữ. Sự khác biệt duy nhất là dữ liệu huấn luyện sẽ yêu cầu các nhãn—nhãn từ loại hoặc chỉ báo tham chiếu. Điều đó làm cho việc thu thập dữ liệu khó hơn nhiều so với trường hợp của một mô hình ngôn ngữ, nơi mà văn bản chưa được gán nhãn là tất cả những gì chúng ta cần.</p>
+
+<p>Trong một mô hình ngôn ngữ, chúng ta muốn dự đoán từ thứ \(n\) dựa trên các từ trước đó. Nhưng đối với phân loại, không có lý do gì chúng ta phải giới hạn bản thân chỉ nhìn vào các từ trước đó. Việc nhìn xa hơn (look ahead) trong câu có thể rất hữu ích. Trong ví dụ về đồng tham chiếu của chúng ta, người được nhắc tới (referent) "him" sẽ khác nếu câu kết luận bằng “to see Miguel” thay vì “to the hospital”, do đó việc nhìn xa hơn là rất quan trọng. Chúng ta biết từ các thí nghiệm theo dõi mắt rằng người đọc là con người không đọc hoàn toàn từ trái sang phải một cách nghiêm ngặt.</p>
+
+<p>Để nắm bắt ngữ cảnh ở bên phải, chúng ta có thể sử dụng một <strong>RNN hai chiều</strong> (bidirectional RNN), nó kết nối một mô hình phải-sang-trái riêng biệt vào mô hình trái-sang-phải. Một ví dụ về việc sử dụng RNN hai chiều để gán nhãn POS được thể hiện trong <strong>Hình 25.5</strong>.</p>
+
+<p>Trong trường hợp của RNN nhiều lớp, \(\mathbf{z}_t\) sẽ là vectơ ẩn của lớp cuối cùng. Đối với RNN hai chiều, \(\mathbf{z}_t\) thường được lấy làm sự nối ghép (concatenation) của các vectơ từ các mô hình trái-sang-phải và phải-sang-trái.</p>
+
+<p>RNN cũng có thể được sử dụng cho các tác vụ phân loại cấp độ câu (hoặc cấp độ tài liệu), trong đó một đầu ra duy nhất xuất hiện ở cuối, thay vì có một luồng các đầu ra, mỗi đầu ra cho mỗi bước thời gian. Ví dụ trong phân tích cảm xúc (sentiment analysis), mục tiêu là phân loại một văn bản có cảm xúc Tích cực (Positive) hoặc Tiêu cực (Negative). Ví dụ: “This movie was poorly written and poorly acted” (Bộ phim này được viết và diễn xuất rất tệ) sẽ được phân loại là Tiêu cực. (Một số sơ đồ phân tích cảm xúc sử dụng nhiều hơn hai thể loại, hoặc sử dụng một giá trị vô hướng dạng số.)</p>
+
+<p>Việc sử dụng RNN cho một tác vụ cấp độ câu phức tạp hơn một chút, vì chúng ta cần thu được một biểu diễn tổng hợp toàn câu, \(\mathbf{y}\), từ các đầu ra theo từng từ \(\mathbf{y}_t\) của RNN. Cách đơn giản nhất để làm điều này là sử dụng trạng thái ẩn RNN tương ứng với từ cuối cùng của đầu vào, vì RNN sẽ đọc toàn bộ câu tại bước thời gian đó. Tuy nhiên, điều này có thể ngầm làm chệch (bias) mô hình về việc chú ý nhiều hơn đến phần cuối của câu. Một kỹ thuật phổ biến khác là gộp (pool) tất cả các vectơ ẩn. Ví dụ, <strong>gộp trung bình</strong> (average pooling) tính giá trị trung bình theo từng phần tử (element-wise) trên tất cả các vectơ ẩn:</p>
+
+<p>\[ \mathbf{\tilde{z}} = \frac{1}{s} \sum_{t=1}^{s} \mathbf{z}_t \]</p>
+
+<p>Vectơ được gộp \(\mathbf{\tilde{z}}\) gồm \(d\) chiều sau đó có thể được đưa vào một hoặc nhiều lớp truyền thẳng trước khi được đưa vào lớp đầu ra.</p>
+
+<h3>25.2.3 LSTMs cho các tác vụ NLP (LSTMs for NLP tasks)</h3>
+
+<p>Chúng ta đã nói rằng RNN đôi khi giải quyết vấn đề giới hạn ngữ cảnh. Về mặt lý thuyết, bất kỳ thông tin nào cũng có thể được truyền từ một lớp ẩn này sang lớp ẩn tiếp theo trong bất kỳ số bước thời gian nào. Nhưng trong thực tế, thông tin có thể bị mất hoặc bị bóp méo, giống hệt như trong trò chơi truyền tin (telephone), nơi người chơi xếp hàng và người chơi đầu tiên thì thầm một tin nhắn cho người thứ hai, người này lặp lại nó cho người thứ ba, và cứ thế dọc theo hàng. Thông thường, thông điệp được đưa ra ở cuối đã bị hỏng khá nhiều so với thông điệp gốc. Vấn đề này đối với RNN tương tự như bài toán suy giảm đạo hàm (vanishing gradient problem) mà chúng tôi đã mô tả ở trang 807, ngoại trừ việc chúng ta hiện đang xử lý các lớp theo thời gian thay vì các lớp sâu.</p>
+
+<p>Trong Mục 22.6.2, chúng tôi đã giới thiệu mô hình bộ nhớ ngắn hạn dài (long short-term memory - LSTM). Đây là một loại RNN có các đơn vị cổng (gating units) không gặp phải vấn đề sao chép không hoàn hảo một thông điệp từ bước thời gian này sang bước thời gian tiếp theo. Thay vào đó, LSTM có thể chọn nhớ một số phần của đầu vào, sao chép nó sang bước thời gian tiếp theo và quên các phần khác. Xem xét một mô hình ngôn ngữ xử lý một văn bản chẳng hạn như</p>
+<blockquote>
+<p>The athletes, who all won their local qualifiers and advanced to the finals in Tokyo, now ...</p>
+</blockquote>
+<p>Tại thời điểm này, nếu chúng ta hỏi mô hình xem từ tiếp theo nào có xác suất xảy ra cao hơn, “compete” hay “competes”, chúng ta sẽ kỳ vọng nó chọn “compete” vì nó hòa hợp với chủ ngữ số nhiều “The athletes” (Các vận động viên). Một LSTM có thể học cách tạo ra một đặc trưng tiềm ẩn cho ngôi và số của chủ ngữ và sao chép đặc trưng đó về phía trước mà không bị thay đổi cho đến khi nó cần thiết để đưa ra một lựa chọn như thế này. Một RNN thông thường (hoặc một mô hình n-gram về vấn đề đó) thường bị nhầm lẫn trong các câu dài với nhiều từ xen giữa chủ ngữ và động từ.</p>
+
+<h2>25.3 Mô hình Chuỗi sang Chuỗi (Sequence-to-Sequence Models)</h2>
+
+<p>Một trong những tác vụ được nghiên cứu rộng rãi nhất trong NLP là <strong>dịch máy</strong> hay <strong>MT</strong> (machine translation), trong đó mục tiêu là dịch một câu từ một ngôn ngữ nguồn (source language) sang một ngôn ngữ đích (target language)—ví dụ, từ tiếng Tây Ban Nha sang tiếng Anh. Chúng ta huấn luyện một mô hình MT với một kho ngữ liệu lớn gồm các cặp câu nguồn/đích. Mục tiêu sau đó là dịch chính xác các câu mới không có trong dữ liệu huấn luyện của chúng ta.</p>
+
+<p>Chúng ta có thể sử dụng RNN để tạo ra một hệ thống MT không? Chúng Phần lớn chắc chắn có thể mã hóa câu nguồn bằng một RNN. Nếu có sự tương ứng một-một giữa các từ nguồn và từ đích, thì chúng ta có thể coi MT như một tác vụ gán nhãn đơn giản—với từ nguồn “perro” trong tiếng Tây Ban Nha, chúng ta gán nhãn cho nó là từ tiếng Anh tương ứng “dog”. Nhưng trên thực tế, các từ không phải là một-một: trong tiếng Tây Ban Nha, ba từ “caballo de mar” tương ứng với một từ tiếng Anh duy nhất là “seahorse” (cá ngựa), và hai từ “perro grande” dịch thành “big dog”, với thứ tự từ bị đảo ngược. Việc sắp xếp lại từ ngữ thậm chí có thể còn khắc nghiệt hơn; trong tiếng Anh, chủ ngữ thường đứng ở đầu câu, nhưng trong tiếng Fijian, chủ ngữ thường ở cuối. Vậy làm thế nào để chúng ta tạo ra một câu trong ngôn ngữ đích?</p>
+
+<p>Có vẻ như chúng ta nên tạo ra từng từ một, nhưng theo dõi ngữ cảnh để chúng ta có thể nhớ các phần của nguồn chưa được dịch và theo dõi những gì đã được dịch để chúng ta không lặp lại chính mình. Cũng có vẻ như đối với một số câu,</p>
+
+<p><strong>Hình 25.5</strong> Một mạng RNN hai chiều để gán nhãn POS.</p>
+
+<p><strong>Hình 25.6</strong> Mô hình chuỗi sang chuỗi cơ bản. Mỗi khối biểu diễn một bước thời gian LSTM. (Để đơn giản, các lớp nhúng và lớp đầu ra không được hiển thị.) Trên các bước liên tiếp, chúng ta đưa cho mạng các từ của câu nguồn “The man is tall”, theo sau là thẻ &lt;start&gt; để chỉ ra rằng mạng nên bắt đầu tạo câu đích. Trạng thái ẩn cuối cùng ở cuối câu nguồn được sử dụng làm trạng thái ẩn cho sự khởi đầu của câu đích. Sau đó, mỗi từ của câu đích tại thời điểm \(t\) được sử dụng làm đầu vào tại thời điểm \(t + 1\), cho đến khi mạng tạo ra thẻ &lt;end&gt; để chỉ ra rằng quá trình tạo câu đã hoàn tất.</p>

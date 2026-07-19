@@ -1,0 +1,145 @@
+904
+Chapter 24
+Natural Language Processing
+PCFG. Lexicalized PCFGs (Charniak, 1997; Hwa, 1998) combine the best aspects of PCFGs
+and n-gram models. Collins (1999) describes PCFG parsing that is lexicalized with head fea-
+tures, and Johnson (1998) shows how the accuracy of a PCFG depends on the structure of the
+treebank from which its probabilities were learned.
+There have been many attempts to write formal grammars of natural languages, both in
+“pure” linguistics and in computational linguistics. There are several comprehensive but in-
+formal grammars of English (Quirk et al., 1985; McCawley, 1988; Huddleston and Pullum,
+2002). Since the 1980s, there has been a trend toward lexicalization: putting more informa-
+tion in the lexicon and less in the grammar.
+Lexical-functional grammar, or LFG (Bresnan, 1982) was the ﬁrst major grammar for-
+malism to be highly lexicalized. If we carry lexicalization to an extreme, we end up with
+categorial grammar (Clark and Curran, 2004), in which there can be as few as two grammar
+rules, or with dependency grammar (Smith and Eisner, 2008; K¨ubler et al., 2009) in which
+there are no syntactic categories, only relations between words.
+Computerized parsing was ﬁrst demonstrated by Yngve (1955). Efﬁcient algorithms were
+developed in the 1960s, with a few twists since then (Kasami, 1965; Younger, 1967; Earley,
+1970; Graham et al., 1980). Church and Patil (1982) describe syntactic ambiguity and address
+ways to resolve it.
+Klein and Manning (2003) describe A∗parsing, and Pauls and Klein (2009) extend that
+to K-best A∗parsing, in which the result is not a single parse but the K best. Goldberg et al.
+(2013) describe the necessary implementation tricks to make sure that a beam search parser
+is O(n) and not O(n2). Zhu et al. (2013) describe a fast deterministic shift-reduce parser
+for natural languages, and Sagae and Lavie (2006) show how adding search to a shift-reduce
+parser can make it more accurate, at the cost of some speed.
+Today, highly accurate open-source parsers include Google’s Parsey McParseface (Andor
+et al., 2016), the Stanford Parser (Chen and Manning, 2014), the Berkeley Parser (Kitaev and
+Klein, 2018), and the SPACY parser. They all do generalization through neural networks and
+achieve roughly 95% accuracy on Wall Street Journal or Penn Treebank test sets. There is
+some criticism of the ﬁeld that it is focusing too narrowly on measuring performance on a
+few select corpora, and perhaps overﬁtting on them.
+Formal semantic interpretation of natural languages originates within philosophy and
+formal logic, particularly Alfred Tarski’s (1935) work on the semantics of formal languages.
+Bar-Hillel (1954) was the ﬁrst to consider the problems of pragmatics (such as indexicals) and
+propose that they could be handled by formal logic. Richard Montague’s essay “English as a
+formal language” (1970) is a kind of manifesto for the logical analysis of language, but there
+are other books that are more readable (Dowty et al., 1991; Portner and Partee, 2002; Cruse,
+2011). While semantic interpretation programs are designed to pick the most likely inter-
+pretation, literary critics (Empson, 1953; Hobbs, 1990) have been ambiguous about whether
+ambiguity is something to be resolved or cherished. Norvig (1988) discusses the problems of
+considering multiple simultaneous interpretations, rather than settling for a single maximum-
+likelihood interpretation. Lakoff and Johnson (1980) give an engaging analysis and catalog of
+common metaphors in English. Martin (1990) and Gibbs (2006) offer computational models
+of metaphor interpretation.
+The ﬁrst NLP system to solve an actual task was the BASEBALL question answering
+system (Green et al., 1961), which handled questions about a database of baseball statistics.
+
+
+Bibliographical and Historical Notes
+905
+Close after that was Winograd’s (1972) SHRDLU, which handled questions and commands
+about a blocks-world scene, and Woods’s (1973) LUNAR, which answered questions about
+the rocks brought back from the moon by the Apollo program.
+Banko et al. (2002) present the ASKMSR question-answering system; a similar system is
+due to Kwok et al. (2001). Pasca and Harabagiu (2001) discuss a contest-winning question-
+answering system.
+Modern approaches to semantic interpretation usually assume that the mapping from
+syntax to semantics will be learned from examples (Zelle and Mooney, 1996; Zettlemoyer and
+Collins, 2005; Zhao and Huang, 2015). The ﬁrst important result on grammar induction was
+a negative one: Gold (1967) showed that it is not possible to reliably learn an exactly correct
+context-free grammar, given a set of strings from that grammar. Prominent linguists, such as
+Chomsky (1957) and Pinker (2003), have used Gold’s result to argue that there must be an
+innate universal grammar that all children have from birth. The so-called Poverty of the
+Universal grammar
+Stimulus argument says that children aren’t given enough input to learn a CFG, so they must
+already “know” the grammar and be merely tuning some of its parameters.
+While this argument continues to hold sway throughout much of Chomskyan linguistics,
+it has been dismissed by other linguists (Pullum, 1996; Elman et al., 1997) and most computer
+scientists. As early as 1969, Horning showed that it is possible to learn, in the sense of PAC
+learning, a probabilistic context-free grammar. Since then, there have been many convincing
+empirical demonstrations of language learning from positive examples alone, such as learn-
+ing semantic grammars with inductive logic programming (Muggleton and De Raedt, 1994;
+Mooney, 1999), the Ph.D. theses of Sch¨utze (1995) and de Marcken (1996), and the entire
+line of modern language processing systems based on the transformer model (Section 25.4).
+There is an annual International Conference on Grammatical Inference (ICGI).
+James Baker’s DRAGON system (Baker, 1975) could be considered the ﬁrst succesful
+speech recognition system. It was the ﬁrst to use HMMs for speech. After several decades
+of systems based on probabilistic language models, the ﬁeld began to switch to deep neural
+networks (Hinton et al., 2012). Deng (2016) describes how the introduction of deep learning
+enabled rapid improvement in speech recognition, and reﬂects on the implications for other
+NLP tasks. Today deep learning is the dominant approach for all large-scale speech recogni-
+tion systems. Speech recognition can be seen as the ﬁrst application area that highlighted the
+success of deep learning, with computer vision following shortly thereafter.
+Interest in the ﬁeld of information retrieval was spurred by widespread usage of Internet
+searching. Croft et al. (2010) and Manning et al. (2008) provide textbooks that cover the
+basics. The TREC conference hosts an annual competition for IR systems and publishes
+proceedings with results.
+Brin and Page (1998) describe the PageRank algorithm, which takes into account the
+links between pages, and give an overview of the implementation of a Web search engine.
+Silverstein et al. (1998) investigate a log of a billion Web searches. The journal Information
+Retrieval and the proceedings of the annual ﬂagship SIGIR conference cover recent develop-
+ments in the ﬁeld.
+Information extraction has been pushed forward by the annual Message Understanding
+Conferences (MUC), sponsored by the U.S. government. Surveys of template-based systems
+are given by Roche and Schabes (1997), Appelt (1999), and Muslea (1999). Large databases
+of facts were extracted by Craven et al. (2000), Pasca et al. (2006), Mitchell (2007), and
+
+
+906
+Chapter 24
+Natural Language Processing
+Durme and Pasca (2008). Freitag and McCallum (2000) discuss HMMs for Information
+Extraction. Conditional random ﬁelds have also been used for this task (Lafferty et al., 2001;
+McCallum, 2003); a tutorial with practical guidance is given by Sutton and McCallum (2007).
+Sarawagi (2007) gives a comprehensive survey.
+Two early inﬂuential approaches to automated knowledge engineering for NLP were by
+Riloff (1993), who showed that an automatically constructed dictionary performed almost
+as well as a carefully handcrafted domain-speciﬁc dictionary, and by Yarowsky (1995), who
+showed that the task of word sense classiﬁcation could be accomplished through unsupervised
+training on a corpus of unlabeled text with accuracy as good as supervised methods.
+The idea of simultaneously extracting templates and examples from a handful of labeled
+examples was developed independently and simultaneously by Blum and Mitchell (1998),
+who called it cotraining, and by Brin (1998), who called it DIPRE (Dual Iterative Pattern
+Relation Extraction). You can see why the term cotraining has stuck. Similar early work,
+under the name of bootstrapping, was done by Jones et al. (1999). The method was advanced
+by the QXTRACT (Agichtein and Gravano, 2003) and KNOWITALL (Etzioni et al., 2005)
+systems. Machine reading was introduced by Mitchell (2005) and Etzioni et al. (2006) and is
+the focus of the TEXTRUNNER project (Banko et al., 2007; Banko and Etzioni, 2008).
+This chapter has focused on natural language sentences, but it is also possible to do
+information extraction based on the physical structure or geometric layout of text rather than
+on the linguistic structure. Lists, tables, charts, graphs, diagrams, etc., whether encoded in
+HTML or accessed through the visual analysis of pdf documents, are home to data that can
+be extracted and consolidated (Hurst, 2000; Pinto et al., 2003; Cafarella et al., 2008).
+Ken Church (2004) shows that natural language research has cycled between concentrat-
+ing on the data (empiricism) and concentrating on theories (rationalism); he describes the ad-
+vantages of having good language resources and evaluation schemes, but wonders if we have
+gone too far (Church and Hestness, 2019). Early linguists concentrated on actual language
+usage data, including frequency counts. Noam Chomsky (1956) demonstrated the limitations
+of ﬁnite-state models, leading to an emphasis on theoretical studies of syntax, disregarding
+actual language performance. This approach dominated for twenty years, until empiricism
+made a comeback based on the success of work in statistical speech recognition (Jelinek,
+1976). Today, the emphasis on empirical language data continues, and there is heightened
+interest in models that consider higher-level constructs, such as syntactic and semantic rela-
+tions, not just sequences of words. There is also a strong emphasis on deep learning neural
+network models of language, which we will cover in Chapter 25.
+Work on applications of language processing is presented at the biennial Applied Natural
+Language Processing conference (ANLP), the conference on Empirical Methods in Natural
+Language Processing (EMNLP), and the journal Natural Language Engineering. A broad
+range of NLP work appears in the journal Computational Linguistics and its conference,
+ACL, and in the International Computational Linguistics (COLING) conference. Jurafsky
+and Martin (2020) give a comprehensive introduction to speech and NLP.
+
+

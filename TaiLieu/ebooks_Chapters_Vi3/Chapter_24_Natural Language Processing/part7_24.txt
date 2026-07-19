@@ -1,0 +1,151 @@
+892
+Chapter 24
+Natural Language Processing
+24.4 Augmented Grammars
+So far we have dealt with context-free grammars. But not every NP can appear in every
+context with equal probability. The sentence “I ate a banana” is ﬁne, but “Me ate a banana”
+is ungrammatical, and “I ate a bandanna” is unlikely.
+The issue is that our grammar is focused on lexical categories, like Pronoun, but while “I”
+and “me” are both pronouns, only “I” can be the subject of a sentence. Similarly, “banana”
+and “bandanna” are both nouns, but the former is much more likely to be object of “ate”.
+Linguists say that the pronoun “I” is in the subjective case (i.e., is the subject of a verb) and
+“me” is in the objective case3 (i.e., is the object of a verb). They also say that “I” is in the ﬁrst
+person (“you” is second person, and “she” is third person) and is singular (“we” is plural).
+A category like Pronoun that has been augmented with features like “subjective case, ﬁrst
+person singular” is called a subcategory.
+Subcategory
+In this section we show how a grammar can represent this kind of knowledge to make
+ﬁner-grained distinctions about which sentences are more likely. We will also show how to
+construct a representation of the semantics of a phrase, in a compositional way. All of this
+will be accomplished with an augmented grammar in which the nonterminals are not just
+Augmented
+grammar
+atomic symbols like Pronoun or NP, but are structured representations. For example, the
+noun phrase “I” could be represented as NP(Sbj,1S,Speaker), which means “a noun phrase
+that is in the subjective case, ﬁrst person singular, and whose meaning is the speaker of the
+sentence.” In contrast, “me” would be represented as NP(Obj,1S,Speaker), marking the fact
+that it is in the objective case.
+Consider the sequence “Noun and Noun or Noun,” which can be parsed either as “[Noun
+and Noun] or Noun,” or as “Noun and [Noun or Noun].” Our context-free grammar has no
+way to express a preference for one parse over the other, because the rule for conjoined NPs,
+NP →NP Conjunction NP[0.05], will give the same probability to each parse. We would
+like a grammar that prefers the parses “[[spaghetti and meatballs] or lasagna]” and “[spaghetti
+and [pie or cake]]” over the alternative bracketing for each of these phrases.
+A lexicalized PCFG is a type of augmented grammar that allows us to assign probabili-
+Lexicalized PCFG
+ties based on properties of the words in a phrase other than just the syntactic categories. The
+data would be very sparse indeed if the probability of, say, a 40-word sentence depended on
+all 40 words—this is the same problem we noted with n-grams. To simplify, we introduce the
+notion of the head of a phrase—the most important word. Thus, “banana” is the head of the
+Head
+NP “a banana” and “ate” is the head of the VP “ate a banana.” The notation VP(v) denotes a
+phrase with category VP whose head word is v. Here is a lexicalized PCFG:
+VP(v) →Verb(v) NP(n)
+[P1(v,n)]
+VP(v) →Verb(v)
+[P2(v)]
+NP(n) →Article(a) Adjs(j) Noun(n)
+[P3(n,a)]
+NP(n) →NP(n) Conjunction(c) NP(m) [P4(n,c,m)]
+Verb(ate) →ate
+[0.002]
+Noun(banana) →banana
+[0.0007]
+3
+The subjective case is also sometimes called the nominative case and the objective case is sometimes called
+the accusative case. Many languages also make another distinction with a dative case for words in the indirect
+object position.
+
+
+Section 24.4
+Augmented Grammars
+893
+S(v) →NP(Sbj,pn,n) VP(pn,v) | ...
+NP(c,pn,n) →Pronoun(c,pn,n) | Noun(c,pn,n) | ...
+VP(pn,v) →Verb(pn,v) NP(Obj,pn,n) | ...
+PP(head) →Prep(head) NP(Obj,pn,h)
+Pronoun(Sbj,1S,I) →I
+Pronoun(Sbj,1P,we) →we
+Pronoun(Obj,1S,me) →me
+Pronoun(Obj,3P,them) →them
+Verb(3S,see) →see
+Figure 24.9 Part of an augmented grammar that handles case agreement, subject–verb agree-
+ment, and head words. Capitalized names are constants: Sbj, and Obj for subjective and ob-
+jective case; 1S for ﬁrst person singular; 1P and 3P for ﬁrst and third person plural. As usual,
+lowercase names are variables. For simplicity, the probabilities have been omitted.
+Here P1(v,n) means the probability of a VP headed by v joining with an NP headed by n to
+form a VP. We can specify that “ate a banana” is more probable than “ate a bandanna” by
+ensuring that P1(ate,banana) > P1(ate,bandanna). Note that since we are considering only
+phrase heads, the distinction between “ate a banana” and “ate a rancid banana” will not be
+caught by P1. Conceptually, P1 is a huge table of probabilities: if there are 5,000 verbs and
+10,000 nouns in the vocabulary, then P1 requires 50 million entries, but most of them will not
+be stored explicitly; rather they will be derived from smoothing and backoff. For example,
+we can back off from P1(v,n) to a model that depends only on v. Such a model would require
+10,000 times fewer parameters, but can still capture important regularities, such as the fact
+that a transitive verb like “ate” is more likely to be followed by an NP (regardless of the head)
+than an intransitive verb like “sleep.”
+We saw in Section 24.2 that the simple grammar for E0 overgenerates, producing non-
+sentences such as “I saw she” or “I sees her.” To avoid this problem, our grammar would have
+to know that “her,” not “she,” is a valid object of “saw” (or of any other verb) and that “see,”
+not “sees,” is the form of the verb that accompanies the subject “I.”
+We could encode these facts completely in the probability entries, for example making
+P1(v,she) be a very small number, for all verbs v. But it is more concise and modular to
+augment the category NP with additional variables: NP(c,pn,n) is used to represent a noun
+phrase with case c (subjective or objective), person and number pn (e.g., third person singu-
+lar), and head noun n. Figure 24.9 shows an augmented lexicalized grammar that handles
+these additional variables. Let’s consider one grammar rule in detail:
+S(v) →NP(Sbj,pn,n) VP(pn,v) [P5(n,v)].
+This rule says that when an NP is followed by a VP they can form an S, but only if the NP
+has the subjective (Sbj) case and the person and number (pn) of the NP and VP are identical.
+(We say that they are in agreement.) If that holds, then we have an S whose head is the verb
+from the VP. Here is an example lexical rule,
+Pronoun(Sbj,1S,I) →I [0.005]
+which says that “I” is a Pronoun in the subjective case, ﬁrst-person singular, with head “I.”
+
+
+894
+Chapter 24
+Natural Language Processing
+Exp(op(x1,x2)) →Exp(x1) Operator(op) Exp(x2)
+Exp(x) →( Exp(x) )
+Exp(x) →Number(x)
+Number(x) →Digit(x)
+Number(10×x1 +x2) →Number(x1) Digit(x2)
+Operator(+) →+
+Operator(−) →-
+Operator(×) →×
+Operator(÷) →÷
+Digit(0) →0
+Digit(1) →1
+...
+Figure 24.10 A grammar for arithmetic expressions, augmented with semantics. Each vari-
+able xi represents the semantics of a constituent.
+24.4.1 Semantic interpretation
+To show how to add semantics to a grammar, we start with an example that is simpler than En-
+glish: the semantics of arithmetic expressions. Figure 24.10 shows a grammar for arithmetic
+expressions, where each rule is augmented with a single argument indicating the semantic
+interpretation of the phrase. The semantics of a digit such as “3” is the digit itself. The se-
+mantics of the expression “3 + 4” is the operator “+” applied to the semantics of the phrases
+“3” and “4.” The grammar rules obey the principle of compositional semantics—the se-
+Compositional
+semantics
+mantics of a phrase is a function of the semantics of the subphrases. Figure 24.11 shows the
+parse tree for 3+(4÷2) according to this grammar. The root of the parse tree is Exp(5), an
+expression whose semantic interpretation is 5.
+Now let’s move on to the semantics of English, or at least a tiny portion of it. We will use
+ﬁrst-order logic for our semantic representation. So the simple sentence “Ali loves Bo” should
+get the semantic representation Loves(Ali,Bo). But what about the constituent phrases? We
+can represent the NP “Ali” with the logical term Ali. But the VP “loves Bo” is neither a logical
+term nor a complete logical sentence. Intuitively, “loves Bo” is a description that might or
+might not apply to a particular person. (In this case, it applies to Ali.) This means that
+“loves Bo” is a predicate that, when combined with a term that represents a person, yields a
+complete logical sentence.
+Using the λ-notation (see page 277), we can represent “loves Bo” as the predicate
+λx Loves(x,Bo).
+Now we need a rule that says “an NP with semantics n followed by a VP with semantics pred
+yields a sentence whose semantics is the result of applying pred to n:”
+S(pred(n)) →NP(n) VP(pred).
+The rule tells us that the semantic interpretation of “Ali loves Bo” is
+(λx Loves(x,Bo))(Ali),
+
+

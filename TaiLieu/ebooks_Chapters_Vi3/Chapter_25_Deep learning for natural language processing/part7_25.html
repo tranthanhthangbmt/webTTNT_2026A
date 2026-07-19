@@ -1,0 +1,21 @@
+<p>Một cách giải quyết đơn giản là huấn luyện một mô hình ngôn ngữ phải-sang-trái riêng biệt, ngữ cảnh hóa mỗi từ dựa trên các từ tiếp theo trong câu, và sau đó nối ghép các biểu diễn trái-sang-phải và phải-sang-trái. Tuy nhiên, một mô hình như vậy thất bại trong việc kết hợp bằng chứng từ cả hai hướng.</p>
+
+<p>Thay vào đó, chúng ta có thể sử dụng một <strong>mô hình ngôn ngữ bị che</strong> (masked language model - MLM). Các MLM được huấn luyện bằng cách che (ẩn) đi các từ riêng lẻ ở đầu vào và yêu cầu mô hình dự đoán các từ bị che. Đối với tác vụ này, người ta có thể sử dụng một RNN hai chiều sâu (deep bidirectional RNN) hoặc transformer áp dụng trên câu bị che. Ví dụ, cho một câu đầu vào “The river rose five feet”, chúng ta có thể che từ ở giữa để thu được “The river [bị che] five feet” và yêu cầu mô hình điền vào chỗ trống.</p>
+
+<p>Các vectơ ẩn cuối cùng tương ứng với các token bị che sau đó được sử dụng để dự đoán các từ đã bị che—trong ví dụ này là "rose". Trong quá trình huấn luyện, một câu duy nhất có thể được sử dụng nhiều lần với các từ khác nhau bị che đi. Điểm tuyệt vời của phương pháp này là nó không yêu cầu dữ liệu được gán nhãn; bản thân câu cung cấp nhãn riêng cho từ bị che. Nếu mô hình này được huấn luyện trên một kho ngữ liệu văn bản lớn, nó sẽ tạo ra các biểu diễn tiền huấn luyện hoạt động tốt trên nhiều tác vụ NLP (dịch máy, trả lời câu hỏi, tóm tắt, đánh giá tính ngữ pháp, và các tác vụ khác).</p>
+
+<h2>25.6 Tình trạng hiện tại (State of the art)</h2>
+
+<p>Học sâu và học chuyển giao đã thúc đẩy đáng kể tình trạng hiện tại của NLP—đến mức một nhà bình luận vào năm 2018 đã tuyên bố rằng “khoảnh khắc ImageNet của NLP đã đến” (Ruder, 2018). Ngụ ý là giống như một bước ngoặt đã xảy ra vào năm 2012 đối với thị giác máy tính khi các hệ thống học sâu tạo ra kết quả tốt đáng kinh ngạc trong cuộc thi ImageNet, một bước ngoặt cũng đã xảy ra vào năm 2018 đối với NLP. Động lực chính cho bước ngoặt này là phát hiện ra rằng học chuyển giao hoạt động tốt đối với các bài toán ngôn ngữ tự nhiên: một mô hình ngôn ngữ chung có thể được tải xuống và tinh chỉnh cho một tác vụ cụ thể.</p>
+
+<p>Nó bắt đầu với các nhúng từ đơn giản từ các hệ thống như WORD2VEC vào năm 2013 và GloVe vào năm 2014. Các nhà nghiên cứu có thể tải xuống một mô hình như vậy hoặc tự huấn luyện tương đối nhanh chóng mà không cần quyền truy cập vào siêu máy tính. Mặt khác, các biểu diễn ngữ cảnh được tiền huấn luyện tốn kém hơn nhiều bậc độ lớn để huấn luyện.</p>
+
+<p>Các mô hình này chỉ trở nên khả thi sau khi những tiến bộ phần cứng (GPU và TPU) trở nên phổ biến, và trong trường hợp này, các nhà nghiên cứu rất biết ơn khi có thể tải xuống các mô hình thay vì phải tiêu tốn tài nguyên để tự huấn luyện. Mô hình transformer cho phép huấn luyện hiệu quả các mạng nơ-ron lớn hơn và sâu hơn nhiều so với khả năng trước đây (lần này là do những tiến bộ về phần mềm, chứ không phải phần cứng). Kể từ năm 2018, các dự án NLP mới thường bắt đầu bằng một mô hình transformer được tiền huấn luyện.</p>
+
+<p>Mặc dù các mô hình transformer này được huấn luyện để dự đoán từ tiếp theo trong văn bản, chúng lại làm tốt một cách đáng ngạc nhiên trong các tác vụ ngôn ngữ khác. Một mô hình ROBERTA với một số tinh chỉnh</p>
+
+<p><strong>Hình 25.11</strong> Huấn luyện các biểu diễn ngữ cảnh sử dụng một mô hình ngôn ngữ trái-sang-phải.</p>
+
+<p><strong>Hình 25.12</strong> Mô hình hóa ngôn ngữ bị che (Masked language modeling): tiền huấn luyện một mô hình hai chiều—ví dụ, một RNN nhiều lớp—bằng cách che các từ đầu vào và chỉ dự đoán những từ bị che đó.</p>
+
+<p><strong>Hình 25.13</strong> Các câu hỏi từ một bài kiểm tra khoa học lớp 8 mà hệ thống ARISTO có thể trả lời đúng bằng cách sử dụng một tổ hợp (ensemble) các phương pháp, trong đó có ảnh hưởng nhất là mô hình ngôn ngữ ROBERTA. Trả lời các câu hỏi này đòi hỏi kiến thức về ngôn ngữ tự nhiên, cấu trúc của bài kiểm tra trắc nghiệm, tri thức thông thường, và khoa học.</p>

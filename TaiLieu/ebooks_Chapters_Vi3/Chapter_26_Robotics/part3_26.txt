@@ -1,0 +1,296 @@
+944
+Chapter 26
+Robotics
+Xt+1
+Xt
+μt
+Σt
+f(Xt, at)
+f(μt, at)
+Σt+1
+Xt+1
+Xt
+μt
+Σt
+f(Xt, at)
+f(μt, at)
+Σt+1
+Σt+1
+~
+f(Xt, at) = f(μt, at) + Ft(Xt − μt)
+~
+(a)
+(b)
+Figure 26.8 One-dimensional illustration of a linearized motion model: (a) The function f,
+and the projection of a mean µt and a covariance interval (based on Σt) into time t + 1. (b)
+The linearized version is the tangent of f at µt. The projection of the mean µt is correct.
+However, the projected covariance ˜Σt+1 differs from Σt+1.
+robot
+landmark
+Figure 26.9 Localization using the extended Kalman ﬁlter. The robot moves on a straight
+line. As it progresses, its uncertainty in its location estimate increases, as illustrated by the
+error ellipses. When it observes a landmark with known position, the uncertainty is reduced.
+The trend in robotics is clearly towards representations with well-deﬁned semantics.
+Probabilistic techniques outperform other approaches in many hard perceptual problems such
+as localization and mapping. However, statistical techniques are sometimes too cumbersome,
+and simpler solutions may be just as effective in practice. To help decide which approach to
+take, experience working with real physical robots is your best teacher.
+26.4.3 Supervised and unsupervised learning in robot perception
+Machine learning plays an important role in robot perception. This is particularly the case
+when the best internal representation is not known. One common approach is to map high-
+dimensional sensor streams into lower-dimensional spaces using unsupervised machine learn-
+ing methods (see Chapter 19). Such an approach is called low-dimensional embedding.
+Low-dimensional
+embedding
+Machine learning makes it possible to learn sensor and motion models from data, while si-
+multaneously discovering a suitable internal representation.
+Another machine learning technique enables robots to continuously adapt to big changes
+in sensor measurements. Picture yourself walking from a sunlit space into a dark room with
+neon lights. Clearly, things are darker inside. But the change of light source also affects all
+
+
+Section 26.5
+Planning and Control
+945
+(a)
+(b)
+(c)
+Figure 26.10 Sequence of “drivable surface” classiﬁcations using adaptive vision. (a) Only
+the road is classiﬁed as drivable (pink area). The V-shaped blue line shows where the vehicle
+is heading. (b) The vehicle is commanded to drive off the road, and the classiﬁer is beginning
+to classify some of the grass as drivable. (c) The vehicle has updated its model of drivable
+surfaces to correspond to grass as well as road. Courtesy of Sebastian Thrun.
+the colors: neon light has a stronger component of green light than sunlight has. Yet somehow
+we seem not to notice the change. If we walk together with people into a neon-lit room, we
+don’t think that their faces suddenly turned green. Our perception quickly adapts to the new
+lighting conditions, and our brain ignores the differences.
+Adaptive perception techniques enable robots to adjust to such changes. One example
+is shown in Figure 26.10, taken from the autonomous driving domain. Here an unmanned
+ground vehicle adapts its classiﬁer of the concept “drivable surface.” How does this work?
+The robot uses a laser to provide classiﬁcation for a small area immediately in front of the
+robot. When this area is found to be ﬂat in the laser range scan, it is used as a positive training
+example for the concept “drivable surface.” A mixture-of-Gaussians technique similar to the
+EM algorithm discussed in Chapter 21 is then trained to recognize the speciﬁc color and
+texture coefﬁcients of the small sample patch. The images in Figure 26.10 are the result of
+applying this classiﬁer to the full image.
+Methods that make robots collect their own training data (with labels!) are called self-
+supervised. In this instance, the robot uses machine learning to leverage a short-range sensor
+Self-supervised
+learning
+that works well for terrain classiﬁcation into a sensor that can see much farther. That allows
+the robot to drive faster, slowing down only when the sensor model says there is a change in
+the terrain that needs to be examined more carefully by the short-range sensors.
+26.5 Planning and Control
+The robot’s deliberations ultimately come down to deciding how to move, from the abstract
+task level all the way down to the currents that are sent to its motors. In this section, we
+simplify by assuming that perception (and, where needed, prediction) are given, so the world
+is observable. We further assume deterministic transitions (dynamics) of the world.
+We start by separating motion from control. We deﬁne a path as a sequence of points in
+Path
+geometric space that a robot (or a robot part, such as an arm) will follow. This is related to
+the notion of path in Chapter 3, but here we mean a sequence of points in space rather than a
+sequence of discrete actions. The task of ﬁnding a good path is called motion planning.
+
+
+946
+Chapter 26
+Robotics
+y
+x
+R
+O
+y
+x
+Cobs
+O
+Figure 26.11 A simple triangular robot that can translate, and needs to avoid a rectangular
+obstacle. On the left is the workspace, on the right is the conﬁguration space.
+Once we have a path, the task of executing a sequence of actions to follow the path is
+called trajectory tracking control. A trajectory is a path that has a time associated with
+Trajectory tracking
+control
+Trajectory
+each point on the path. A path just says “go from A to B to C, etc.” and a trajectory says
+“start at A, take 1 second to get to B, and another 1.5 seconds to get to C, etc.”
+26.5.1 Conﬁguration space
+Imagine a simple robot, R, in the shape of a right triangle as shown by the lavender triangle in
+the lower left corner of Figure 26.11. The robot needs to plan a path that avoids a rectangular
+obstacle, O. The physical space that a robot moves about in is called the workspace. This
+Workspace
+particular robot can move in any direction in the x −y plane, but cannot rotate. The ﬁgure
+shows ﬁve other possible positions of the robot with dashed outlines; these are each as close
+to the obstacle as the robot can get.
+The body of the robot could be represented as a set of (x,y) points (or (x,y,z) points
+for a three-dimensional robot), as could the obstacle. With this representation, avoiding the
+obstacle means that no point on the robot overlaps any point on the obstacle. Motion planning
+would require calculations on sets of points, which can be complicated and time-consuming.
+We can simplify the calculations by using a representation scheme in which all the points
+that comprise the robot are represented as a single point in an abstract multidimensional
+space, which we call the conﬁguration space, or C-space. The idea is that the set of points
+Conﬁguration space
+C-space
+that comprise the robot can be computed if we know (1) the basic measurements of the robot
+(for our triangle robot, the length of the three sides will do) and (2) the current pose of the
+robot—its position and orientation.
+For our simple triangular robot, two dimensions sufﬁce for the C-space: if we know the
+(x,y) coordinates of a speciﬁc point on the robot—we’ll use the right-angle vertex—then we
+can calculate where every other point of the triangle is (because we know the size and shape of
+the triangle and because the triangle cannot rotate). In the lower-left corner of Figure 26.11,
+the lavender triangle can be represented by the conﬁguration (0,0).
+If we change the rules so that the robot can rotate, then we will need three dimensions,
+(x,y,θ), to be able to calculate where every point is. Here θ is the robot’s angle of rotation
+in the plane. If the robot also had the ability to stretch itself, growing uniformly by a scaling
+factor s, then the C-space would have four dimensions, (x,y,θ,s).
+
+
+Section 26.5
+Planning and Control
+947
+For now we’ll stick with the simple two-dimensional C-space of the non-rotating triangle
+robot. The next task is to ﬁgure out where the points in the obstacle are in C-space. Consider
+the ﬁve dashed-line triangles on the left of Figure 26.11 and notice where the right-angle
+vertex is on each of these. Then imagine all the ways that the triangle could slide about.
+Obviously, the right-angle vertex can’t go inside the obstacle, and neither can it get any
+closer than it is on any of the ﬁve dashed-line triangles. So you can see that the area where
+the right-angle vertex can’t go—the C-space obstacle—is the ﬁve-sided polygon on the right
+C-space obstacle
+of Figure 26.11 labeled Cobs
+In everyday language we speak of there being multiple obstacles for the robot—a table, a
+chair, some walls. But the math notation is a bit easier if we think of all of these as combining
+into one “obstacle” that happens to have disconnected components. In general, the C-space
+obstacle is the set of all points q in C such that, if the robot were placed in that conﬁguration,
+its workspace geometry would intersect the workspace obstacle.
+Let the obstacles in the workspace be the set of points O, and let the set of all points on
+the robot in conﬁguration q be A(q). Then the C-space obstacle is deﬁned as
+Cobs = {q : q ∈C andA(q)∩O̸ = {}}
+and the free space is Cfree = C −Cobs.
+Free space
+The C-space becomes more interesting for robots with moving parts. Consider the two-
+link arm from Figure 26.12(a). It is bolted to a table so the base does not move, but the arm
+has two joints that move independently—we call these degrees of freedom (DOF). Moving
+Degrees of freedom
+(DOF)
+the joints alters the (x,y) coordinates of the elbow, the gripper, and every point on the arm.
+The arm’s conﬁguration space is two-dimensional: (θshou,θelb), where θshou is the angle of
+the shoulder joint, and θelb is the angle of the elbow joint.
+Knowing the conﬁguration for our two-link arm means we can determine where each
+point on the arm is through simple trigonometry. In general, the forward kinematics map-
+Forward kinematics
+ping is a function
+φb : C →W
+that takes in a conﬁguration and outputs the location of a particular point b on the robot when
+the robot is in that conﬁguration. A particularly useful forward kinematics mapping is that for
+the robot’s end effector, φEE. The set of all points on the robot in a particular conﬁguration q
+is denoted by A(q) ⊂W:
+A(q) =
+[
+b
+{φb(q)}.
+The inverse problem, of mapping a desired location for a point on the robot to the conﬁg-
+uration(s) the robot needs to be in for that to happen, is known as inverse kinematics:
+Inverse kinematics
+IKb : x ∈W 7→{q ∈C s.t. φb(q) = x}.
+Sometimes the inverse kinematics mapping might take not just a position, but also a desired
+orientation as input. When we want a manipulator to grasp an object, for instance, we can
+compute a desired position and orientation for its gripper, and use inverse kinematics to de-
+termine a goal conﬁguration for the robot. Then a planner needs to ﬁnd a way to get the robot
+from its current conﬁguration to the goal conﬁguration without intersecting obstacles.
+Workspace obstacles are often depicted as simple geometric forms—especially in robotics
+textbooks, which tend to focus on polygonal obstacles. But how do the obstacles look in con-
+ﬁguration space?
+
+
+948
+Chapter 26
+Robotics
+shou
+elb
+s
+e
+e
+table
+table
+left wall
+vertical
+obstacle
+s
+w
+w
+(a)
+(b)
+Figure 26.12 (a) Workspace representation of a robot arm with two degrees of freedom. The
+workspace is a box with a ﬂat obstacle hanging from the ceiling. (b) Conﬁguration space of
+the same robot. Only white regions in the space are conﬁgurations that are free of collisions.
+The dot in this diagram corresponds to the conﬁguration of the robot shown on the left.
+For the two-link arm, simple obstacles in the workspace, like a vertical line, have very
+complex C-space counterparts, as shown in Figure 26.12(b). The different shadings of the
+occupied space correspond to the different objects in the robot’s workspace: the dark region
+surrounding the entire free space corresponds to conﬁgurations in which the robot collides
+with itself. It is easy to see that extreme values of the shoulder or elbow angles cause such a
+violation. The two oval-shaped regions on both sides of the robot correspond to the table on
+which the robot is mounted. The third oval region corresponds to the left wall.
+Finally, the most interesting object in conﬁguration space is the vertical obstacle that
+hangs from the ceiling and impedes the robot’s motions. This object has a funny shape in
+conﬁguration space: it is highly nonlinear and at places even concave. With a little bit of
+imagination the reader will recognize the shape of the gripper at the upper left end.
+We encourage the reader to pause for a moment and study this diagram. The shape of this
+obstacle in C-space is not at all obvious! The dot inside Figure 26.12(b) marks the conﬁgu-
+ration of the robot in Figure 26.12(a). Figure 26.13 depicts three additional conﬁgurations,
+both in workspace and in conﬁguration space. In conﬁguration conf-1, the gripper is grasping
+the vertical obstacle.
+We see that even if the robot’s workspace is represented by ﬂat polygons, the shape of
+the free space can be very complicated. In practice, therefore, one usually probes a conﬁgu-
+ration space instead of constructing it explicitly. A planner may generate a conﬁguration and
+then test to see if it is in free space by applying the robot kinematics and then checking for
+collisions in workspace coordinates.
+
+
+Section 26.5
+Planning and Control
+949
+conf-3
+conf-1
+conf-2
+conf-3
+conf-2
+conf-1
+e
+s
+w
+w
+table
+table
+vertical
+obstacle
+left wall
+(a)
+(b)
+Figure 26.13 Three robot conﬁgurations, shown in workspace and conﬁguration space.
+26.5.2 Motion planning
+The motion planning problem is that of ﬁnding a plan that takes a robot from one conﬁgura-
+Motion planning
+tion to another without colliding with an obstacle. It is a basic building block for movement
+and manipulation. In Section 26.5.4 we will discuss how to do this under complicated dy-
+namics, like steering a car that may drift off the path if you take a curve too fast. For now, we
+will focus on the simple motion planning problem of ﬁnding a geometric path that is collision
+free. Motion planning is a quintessentially continuous-state search problem, but it is often
+possible to discretize the space and apply the search algorithms from Chapter 3.
+The motion planning problem is sometimes referred to as the piano mover’s problem. It
+Piano mover’s
+problem
+gets its name from a mover’s struggles with getting a large, irregular-shaped piano from one
+room to another without hitting anything. We are given:
+• a workspace world W in either R2 for the plane or R3 for three dimensions,
+• an obstacle region O ⊂W,
+• a robot with a conﬁguration space C and set of points A(q) for q ∈C,
+• a starting conﬁguration qs ∈C, and
+• a goal conﬁguration qg ∈C.
+The obstacle region induces a C-space obstacle Cobs and its corresponding free space Cfree
+deﬁned as in the previous section. We need to ﬁnd a continuous path through free space. We
+will use a parameterized curve, τ(t), to represent the path, where τ(0) = qs and τ(1) = qg
+and τ(t) for every t between 0 and 1 is some point in Cfree. That is, t parameterizes how
+far we are along the path, from start to goal. Note that t acts somewhat like time in that as
+t increases the distance along the path increases, but t is always a point on the interval [0,1]
+and is not measured in seconds.
+
+

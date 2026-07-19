@@ -1,0 +1,40 @@
+<p><strong>Hình 26.30</strong> Giáo viên hướng dẫn đẩy robot xuống thấp để dạy nó phải hoạt động gần mặt bàn hơn.</p>
+<p><strong>Hình 26.31</strong> Giao diện lập trình bằng các khối khối trực quan đặt trong vùng không gian làm việc của robot.</p>
+
+<p>Để khắc phục sự cố đi chệch khỏi dữ liệu huấn luyện, ta có thể dùng thuật toán <strong>DAGGER</strong> (Data Aggregation). Thuật toán bắt đầu bằng dữ liệu của người, huấn luyện \(\pi_1\), rồi cho robot chạy thử \(\pi_1\). Tại những nơi robot làm sai hoặc gặp trạng thái mới, ta yêu cầu con người "gán nhãn" hành động đúng, bổ sung vào kho dữ liệu, và đào tạo tiếp \(\pi_2\). Việc này lặp lại liên tục. Ngoài ra, việc dùng mô hình đối kháng (adversarial training) để phân biệt giữa hành vi thực của người và của robot cũng đang rất phổ biến.</p>
+
+<p><strong>Bài toán tương ứng và các giao diện dạy học (The correspondence problem)</strong><br>
+Khác với ô tô (cả người và máy đều bấm ga, xoay vô lăng), việc bắt chước một cánh tay robot dọn bàn bếp phức tạp hơn nhiều. Người ta không thể dễ dàng sao chép chuyển động 5 ngón tay người vào cái kẹp 2 ngón tay của robot. Đây được gọi là <strong>Bài toán tương ứng</strong> (Correspondence problem).<br>
+Một cách khác là <strong>Dạy học động học</strong> (Kinesthetic teaching): người dùng trực tiếp nắm lấy cánh tay robot và kéo qua kéo lại để ghi dữ liệu. Nó khá khó và tốn sức. Người ta đang tìm đến những cách như: dạy thông qua <strong>Khung hình chính</strong> (Keyframes) (chỉ chỉ ra những mốc quan trọng), hoặc dùng <strong>Lập trình trực quan</strong> (Visual programming) (ví dụ xếp các khối gỗ có mã nhận diện).</p>
+
+<h2 id="269-alternative-robotic-frameworks">26.9 Các khung làm việc thay thế (Alternative Robotic Frameworks)</h2>
+
+<p>Xuyên suốt từ đầu, chúng ta tiếp cận robotics thông qua cách thiết lập hàm phần thưởng và tối ưu nó (qua lập kế hoạch hoặc máy học). Góc nhìn đó gọi là góc nhìn <strong>Cân nhắc</strong> (Deliberative). Trái ngược với nó là góc nhìn <strong>Phản ứng</strong> (Reactive).</p>
+
+<h3 id="2691-reactive-controllers">26.9.1 Bộ điều khiển phản ứng (Reactive controllers)</h3>
+
+<p>Đôi khi, việc viết một quy tắc đơn giản lại dễ hơn việc xây dựng mô hình và lập kế hoạch (tương tự như một Tác tử phản xạ). Ví dụ với robot có chân (Hình 26.32), việc dùng lập kế hoạch trong không gian cấu hình 18 chiều (6 chân x 2 khớp + 6 tọa độ) là bất khả thi về mặt tính toán. Thay vào đó, người ta gán một quy tắc <strong>dáng đi</strong> (Gait): nâng một chân, tiến tới, nếu bị kẹt, rụt lại và nhấc cao hơn. Bộ não của nó là một cỗ máy trạng thái hữu hạn.</p>
+
+<p><strong>Hình 26.32</strong> (a) Genghis, một robot 6 chân (Hexapod robot). (b) Cỗ máy trạng thái hữu hạn (AFSM) điểu khiển một cái chân tự động nhấc cao hơn nếu bị kẹt mà không cần phải lập bản đồ không gian 3D phức tạp.</p>
+
+<h3 id="2692-subsumption-architectures">26.9.2 Kiến trúc bao hàm (Subsumption architectures)</h3>
+
+<p>Khung kiến trúc <strong>Bao hàm</strong> (Subsumption architecture) xây dựng robot thông qua mạng lưới các <strong>Máy trạng thái hữu hạn tăng cường</strong> (AFSM), trong đó có bổ sung thêm các bộ đếm thời gian (đồng hồ).<br>
+Các AFSM được kết nối từ dưới lên. Bắt đầu từ các AFSM điều khiển từng chân, rồi đến cụm AFSM điều phối sự thăng bằng của cả con robot, cuối cùng là AFSM ở lớp cao nhất nhận dạng vật cản để bẻ hướng. Phương pháp này rất mạnh ở khả năng đối phó với môi trường động ngẫu nhiên, không sợ ma sát hay trượt ngã, và chạy ngay trên cảm biến thô.<br>
+Tuy nhiên, nó cũng có khuyết điểm: việc tích hợp các dữ liệu nhớ (bản đồ, quá khứ) rất khó khăn. Hơn nữa, những bộ điều khiển phản ứng này thường chỉ biết làm một nhiệm vụ cứng nhắc (như bọ hung), khó khăn trong việc mở rộng khi muốn đổi sang các nhiệm vụ phức tạp hơn cần tầm nhìn xa rộng.</p>
+
+<h2 id="2610-application-domains">26.10 Các lĩnh vực ứng dụng (Application Domains)</h2>
+
+<p>Công nghệ Robot đang len lỏi khắp mọi nơi.</p>
+
+<p><strong>Hình 26.33</strong> (a) Bệnh nhân dùng giao diện não-máy điều khiển robot lấy đồ uống. (b) Roomba, robot hút bụi thông minh phổ biến nhất.</p>
+<p><strong>Hình 26.34</strong> (a) Robot phẫu thuật Da Vinci. (b) Robot vận chuyển trong bệnh viện.</p>
+
+<ul>
+<li><strong>Chăm sóc gia đình (Home care)</strong>: Xe lăn, cánh tay hỗ trợ, máy hút bụi Roomba, tay giả và khung xương ngoài giúp người khuyết tật vận động trở lại.</li>
+<li><strong>Chăm sóc sức khỏe (Health care)</strong>: Các cánh tay robot vi phẫu thuật như hệ thống Da Vinci giúp việc phẫu thuật an toàn, ít xâm lấn và chính xác hơn bàn tay người.</li>
+<li><strong>Dịch vụ (Services)</strong>: Robot đưa cơm trong khách sạn, bệnh viện. Điển hình là các robot Moxi, TUG hay các hệ thống <strong>Robot hiện diện từ xa</strong> (Telepresence robots) cho phép chúng ta tham gia hội nghị trực tuyến ở khắp nơi trên thế giới.</li>
+<li><strong>Ô tô tự hành (Autonomous cars)</strong>: Là một trong những ứng dụng quy mô lớn nhất hiện nay. Lịch sử của nó có sự nhảy vọt lớn nhờ vào cuộc đua DARPA Grand Challenge năm 2005.</li>
+</ul>
+
+<p><strong>Hình 26.35</strong> (a) Chiếc xe BOSS giành chiến thắng tại DARPA Urban Challenge. (b) Góc nhìn từ xe của Waymo cho thấy nó phải bao quát các phương tiện và người đi bộ để tính toán quỹ đạo.</p>

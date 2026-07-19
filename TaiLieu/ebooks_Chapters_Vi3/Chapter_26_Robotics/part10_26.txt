@@ -1,0 +1,71 @@
+986
+Chapter 26
+Robotics
+Fine-motion planning with limited sensing was investigated by Lozano-Perez et al. (1984)
+and Canny and Reif (1987). Landmark-based navigation (Lazanas and Latombe, 1992) uses
+many of the same ideas in the mobile robot arena. Navigation functions, the robotics version
+of a control policy for deterministic MDPs, were introduced by Koditschek (1987). Key work
+applying POMDP methods (Section 16.4) to motion planning under uncertainty in robotics is
+due to Pineau et al. (2003) and Roy et al. (2005).
+Reinforcement learning in robotics took off with the seminal work by Bagnell and
+Schneider (2001) and Ng et al. (2003), who developed the paradigm in the context of au-
+tonomous helicopter control. Kober et al. (2013) offers an overview of how reinforcement
+learning changes when applied to the robotics problem. Many of the techniques implemented
+on physical systems build approximate dynamics models, dating back to locally weighted
+linear models due to Atkeson et al. (1997). But policy gradients played their role as well,
+enabling (simpliﬁed) humanoid robots to walk (Tedrake et al., 2004), or a robot arm to hit a
+baseball (Peters and Schaal, 2008).
+Levine et al. (2016) demonstrated the ﬁrst deep reinforcement learning application on a
+real robot. At the same time, model-free RL in simulation was being extended to continuous
+domains (Schulman et al., 2015a; Heess et al., 2016; Lillicrap et al., 2015). Other work
+scaled up physical data collection massively to showcase the learning of grasps and dynamics
+models (Pinto and Gupta, 2016; Agrawal et al., 2017; Levine et al., 2018). Transfer from
+simulation to reality or sim-to-real (Sadeghi and Levine, 2016; Andrychowicz et al., 2018a),
+metalearning (Finn et al., 2017), and sample-efﬁcient model-free reinforcement learning
+(Andrychowicz et al., 2018b) are active areas of research.
+Early methods for predicting human actions made use of ﬁltering approaches (Madha-
+van and Schlenoff, 2003), but seminal work by Ziebart et al. (2009) proposed prediction by
+modeling people as approximately rational agents. Sadigh et al. (2016) captured how these
+predictions should actually depend on what the robot decides to do, building toward a game-
+theoretic setting. For collaborative settings, Sisbot et al. (2007) pioneered the idea of account-
+ing for what people want in the robot’s cost function. Nikolaidis and Shah (2013) decomposed
+collaboration into learning how the human will act, but also learning how the human wants
+the robot to act, both achievable from demonstrations. For learning from demonstration see
+Argall et al. (2009). Akgun et al. (2012) and Seﬁdgar et al. (2017) studied teaching by end
+users rather than by experts.
+Tellex et al. (2011) showed how robots can infer what people want from natural language
+instructions. Finally, not only do robots need to infer what people want and plan on doing, but
+people too need to make the same inferences about robots. Dragan et al. (2013) incorporated
+a model of the human’s inferences into robot motion planning.
+The ﬁeld of human–robot interaction is much broader than what we covered in this
+chapter, which focused primarily on the planning and learning aspects. Thomaz et al. (2016)
+provides a survey of interaction more broadly from a computational perspective. Ross et al.
+(2011) describe the DAGGER system.
+The topic of software architectures for robots engenders much religious debate. The
+good old-fashioned AI candidate—the three-layer architecture—dates back to the design of
+Shakey and is reviewed by Gat (1998). The subsumption architecture is due to Brooks (1986),
+although similar ideas were developed independently by Braitenberg, whose book, Vehicles
+(1984), describes a series of simple robots based on the behavioral approach.
+
+
+Bibliographical and Historical Notes
+987
+The success of Brooks’s six-legged walking robot was followed by many other projects.
+Connell, in his Ph.D. thesis (1989), developed an entirely reactive mobile robot that was ca-
+pable of retrieving objects. Extensions of the paradigm to multirobot systems can be found
+in work by Parker (1996) and Mataric (1997). GRL (Horswill, 2000) and COLBERT (Kono-
+lige, 1997) abstract the ideas of concurrent behavior-based robotics into general robot control
+languages. Arkin (1998) surveys some of the most popular approaches in this ﬁeld.
+Two early textbooks, by Dudek and Jenkin (2000) and by Murphy (2000), cover robotics
+generally. More recent overviews are due to Bekey (2008) and Lynch and Park (2017). An ex-
+cellent book on robot manipulation addresses advanced topics such as compliant motion (Ma-
+son, 2001). Robot motion planning is covered in Choset et al. (2005) and LaValle (2006).
+Thrun et al. (2005) introduces probabilistic robotics. The Handbook of Robotics (Siciliano
+and Khatib, 2016) is a massive, comprehensive overview of all of robotics.
+The premiere conference for robotics is Robotics: Science and Systems Conference, fol-
+lowed by the IEEE International Conference on Robotics and Automation. Human–Robot
+Interaction is the premiere venue for interaction. Leading robotics journals include IEEE
+Robotics and Automation, the International Journal of Robotics Research, and Robotics and
+Autonomous Systems.
+
+

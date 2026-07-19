@@ -1,0 +1,144 @@
+Summary
+901
+n-gram counts of speciﬁc words) and could form compositional models throughout the vari-
+ous levels of the deep network to effectively pass information along. Subsequent work using
+the attention-focusing mechanism of the transformer model (Vaswani et al., 2018) increased
+performance further, and a hybrid model incorporating aspects of both these models does
+better still, approaching human-level performance on some language pairs (Wu et al., 2016b;
+Chen et al., 2018).
+Information extraction is the process of acquiring knowledge by skimming a text and
+Information
+extraction
+looking for occurrences of particular classes of objects and for relationships among them.
+A typical task is to extract instances of addresses from Web pages, with database ﬁelds for
+street, city, state, and zip code; or instances of storms from weather reports, with ﬁelds for
+temperature, wind speed, and precipitation. If the source text is well structured (for ex-
+ample, in the form of a table), then simple techniques such as regular expressions can ex-
+tract the information (Cafarella et al., 2008). It gets harder if we are trying to extract all
+facts, rather than a speciﬁc type (such as weather reports); Banko et al. (2007) describe the
+TEXTRUNNER system that performs extraction over an open, expanding set of relations. For
+free-form text, techniques include hidden Markov models and rule-based learning systems
+(as used in TEXTRUNNER and NELL (Never-Ending Language Learning) (Mitchell et al.,
+2018)). More recent systems use recurrent neural networks, taking advantage of the ﬂexibility
+of word embeddings. You can ﬁnd an overview in Kumar (2017).
+Information retrieval is the task of ﬁnding documents that are relevant and important
+Information retrieval
+for a given query. Internet search engines such as Google and Baidu perform this task billions
+of times a day. Three good textbooks on the subject are Manning et al. (2008), Croft et al.
+(2010), and Baeza-Yates and Ribeiro-Neto (2011).
+Question Answering is a different task, in which the query really is a question, such as
+Question Answering
+“Who founded the U.S. Coast Guard?” and the response is not a ranked list of documents but
+rather an actual answer: “Alexander Hamilton.” There have been question-answering systems
+since the 1960s that rely on syntactic parsing as discussed in this chapter, but only since
+2001 have such systems used Web information retrieval to radically increase their breadth of
+coverage. Katz (1997) describes the START parser and question answerer. Banko et al. (2002)
+describe ASKMSR, which was less sophisticated in terms of its syntactic parsing ability, but
+more aggressive in using Web search and sorting through the results. For example, to answer
+“Who founded the U.S. Coast Guard?” it would search for queries such as [* founded the
+U.S. Coast Guard] and [the U.S. Coast Guard was founded by *], and then examine the
+multiple resulting Web pages to pick out a likely response, knowing that the query word
+“who” suggests that the answer should be a person. The Text REtrieval Conference (TREC)
+gathers research on this topic and has hosted competitions on an annual basis since 1991
+(Allan et al., 2017). Recently we have seen other test sets, such as the AI2 ARC test set of
+basic science questions (Clark et al., 2018).
+Summary
+The main points of this chapter are as follows:
+• Probabilistic language models based on n-grams recover a surprising amount of infor-
+mation about a language. They can perform well on such diverse tasks as language
+
+
+902
+Chapter 24
+Natural Language Processing
+identiﬁcation, spelling correction, sentiment analysis, genre classiﬁcation, and named-
+entity recognition.
+• These language models can have millions of features, so preprocessing and smoothing
+the data to reduce noise is important.
+• In building a statistical language system, it is best to devise a model that can make good
+use of available data, even if the model seems overly simplistic.
+• Word embeddings can give a richer representation of words and their similarities.
+• To capture the hierarchical structure of language, phrase structure grammars (and in
+particular, context-free grammars) are useful. The probabilistic context-free grammar
+(PCFG) formalism is widely used, as is the dependency grammar formalism.
+• Sentences in a context-free language can be parsed in O(n3) time by a chart parser
+such as the CYK algorithm, which requires grammar rules to be in Chomsky Normal
+Form. With a small loss in accuracy, natural languages can be parsed in O(n) time,
+using a beam search or a shift-reduce parser.
+• A treebank can be a resource for learning a PCFG grammar with parameters.
+• It is convenient to augment a grammar to handle issues such as subject–verb agreement
+and pronoun case, and to represent information at the level of words rather than just at
+the level of categories.
+• Semantic interpretation can also be handled by an augmented grammar. We can learn
+a semantic grammar from a corpus of questions paired either with the logical form of
+the question, or with the answer.
+• Natural language is complex and difﬁcult to capture in a formal grammar.
+Bibliographical and Historical Notes
+N-gram letter models for language modeling were proposed by Markov (1913). Claude Shan-
+non (Shannon and Weaver, 1949) was the ﬁrst to generate n-gram word models of English.
+The bag-of-words model gets its name from a passage from linguist Zellig Harris (1954),
+“language is not merely a bag of words but a tool with particular properties.” Norvig (2009)
+gives some examples of tasks that can be accomplished with n-gram models.
+Chomsky (1956, 1957) pointed out the limitations of ﬁnite-state models compared with
+context-free models, concluding, “Probabilistic models give no particular insight into some
+of the basic problems of syntactic structure.” This is true, but probabilistic models do provide
+insight into some other basic problems—problems that context-free models ignore. Chom-
+sky’s remarks had the unfortunate effect of scaring many people away from statistical models
+for two decades, until these models reemerged for use in the ﬁeld of speech recognition
+(Jelinek, 1976), and in cognitive science, where optimality theory (Smolensky and Prince,
+1993; Kager, 1999) posited that language works by ﬁnding the most probable candidate that
+optimally satisﬁes competing constraints.
+Add-one smoothing, ﬁrst suggested by Pierre-Simon Laplace (1816), was formalized by
+Jeffreys (1948). Other smoothing techniques include interpolation smoothing (Jelinek and
+Mercer, 1980), Witten–Bell smoothing (1991), Good–Turing smoothing (Church and Gale,
+
+
+Bibliographical and Historical Notes
+903
+1991), Kneser–Ney smoothing (1995, 2004), and stupid backoff (Brants et al., 2007). Chen
+and Goodman (1996) and Goodman (2001) survey smoothing techniques.
+Simple n-gram letter and word models are not the only possible probabilistic models. The
+latent Dirichlet allocation model (Blei et al., 2002; Hoffman et al., 2011) is a probabilistic
+text model that views a document as a mixture of topics, each with its own distribution of
+words. This model can be seen as an extension and rationalization of the latent semantic
+indexing model of Deerwester et al. (1990) and is also related to the multiple-cause mixture
+model of (Sahami et al., 1996). And of course there is great interest in non-probabilistic
+language models, such as the deep learning models covered in Chapter 25.
+Joulin et al. (2016) give a bag of tricks for efﬁcient text classiﬁcation. Joachims (2001)
+uses statistical learning theory and support vector machines to give a theoretical analysis of
+when classiﬁcation will be successful. Apt´e et al. (1994) report an accuracy of 96% in clas-
+sifying Reuters news articles into the “Earnings” category. Koller and Sahami (1997) report
+accuracy up to 95% with a naive Bayes classiﬁer, and up to 98.6% with a Bayes classiﬁer.
+Schapire and Singer (2000) show that simple linear classiﬁers can often achieve accu-
+racy almost as good as more complex models, and run faster. Zhang et al. (2016) describe a
+character-level (rather than word-level) text classiﬁer. Witten et al. (1999) describe compres-
+sion algorithms for classiﬁcation, and show the deep connection between the LZW compres-
+sion algorithm and maximum-entropy language models.
+Wordnet (Fellbaum, 2001) is a publicly available dictionary of about 100,000 words and
+phrases, categorized into parts of speech and linked by semantic relations such as synonym,
+antonym, and part-of. Charniak (1996) and Klein and Manning (2001) discuss parsing with
+treebank grammars. The British National Corpus (Leech et al., 2001) contains 100 million
+words, and the World Wide Web contains several trillion words; Franz and Brants (2006)
+describe the publicly available Google n-gram corpus of 13 million unique words from a
+trillion words of Web text. Buck et al. (2014) describe a similar data set from the Common
+Crawl project. The Penn Treebank (Marcus et al., 1993; Bies et al., 2015) provides parse
+trees for a 3-million-word corpus of English.
+Many of the n-gram model techniques are also used in bioinformatics problems. Bio-
+statistics and probabilistic NLP are coming closer together, as each deals with long, structured
+sequences chosen from an alphabet.
+Early part-of-speech (POS) taggers used a variety of techniques, including rule sets (Brill,
+1992), n-grams (Church, 1988), decision trees (M`arquez and Rodr´ıguez, 1998), HMMs
+(Brants, 2000), and logistic regression (Ratnaparkhi, 1996). Historically, a logistic regres-
+sion model was also called a “maximum entropy Markov model” or MEMM, so some work
+is under that name. Jurafsky and Martin (2020) have a good chapter on POS tagging. Ng and
+Jordan (2002) compare discriminative and generative models for classiﬁcation tasks.
+Like semantic networks, context-free grammars were ﬁrst discovered by ancient Indian
+grammarians (especially Panini, ca. 350 BCE) studying Shastric Sanskrit (Ingerman, 1967).
+They were reinvented by Noam Chomsky (1956) for the analysis of English and indepen-
+dently by John Backus (1959) and Peter Naur for the analysis of Algol-58.
+Probabilistic context-free grammars were ﬁrst investigated by Booth (1969) and Sa-
+lomaa (1969). Algorithms for PCFGs are presented in the excellent short monograph by
+Charniak (1993) and the excellent long textbooks by Manning and Sch¨utze (1999) and Juraf-
+sky and Martin (2020). Baker (1979) introduces the inside–outside algorithm for learning a
+
+

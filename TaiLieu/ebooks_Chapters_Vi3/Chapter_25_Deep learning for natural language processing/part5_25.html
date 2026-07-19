@@ -1,0 +1,48 @@
+<p>việc sử dụng bộ giải mã tham lam để dịch câu tiếng Anh mà chúng ta đã thấy trước đó, "The front door is red", sang tiếng Tây Ban Nha.</p>
+
+<p>Bản dịch chính xác là “La puerta de entrada es roja”—dịch theo nghĩa đen là “The door of entry is red” (Cánh cửa ra vào màu đỏ). Giả sử RNN đích tạo ra chính xác từ đầu tiên "La" cho "The". Tiếp theo, một bộ giải mã tham lam có thể đề xuất "entrada" cho "front". Nhưng đây là một lỗi—trật tự từ trong tiếng Tây Ban Nha phải đặt danh từ "puerta" trước từ bổ nghĩa. Giải mã tham lam thì nhanh—nó chỉ xem xét một lựa chọn tại mỗi bước thời gian và có thể làm như vậy một cách nhanh chóng—nhưng mô hình không có cơ chế để sửa lỗi.</p>
+
+<p>Chúng ta có thể cố gắng cải thiện cơ chế chú ý để nó luôn chú ý đến đúng từ và đoán đúng mọi lúc. Nhưng đối với nhiều câu, thật không khả thi để đoán đúng tất cả các từ ở đầu câu cho đến khi bạn đã thấy những gì ở cuối.</p>
+
+<p>Một cách tiếp cận tốt hơn là tìm kiếm một cách giải mã tối ưu (hoặc ít nhất là một cách tốt) bằng cách sử dụng một trong các thuật toán tìm kiếm từ Chương 3. Một lựa chọn phổ biến là <strong>tìm kiếm chùm tia</strong> (beam search) (xem Mục 4.1.3). Trong bối cảnh giải mã dịch máy, tìm kiếm chùm tia thường giữ lại \(k\) giả thuyết hàng đầu ở mỗi giai đoạn, mở rộng mỗi giả thuyết bằng một từ bằng cách sử dụng \(k\) lựa chọn từ hàng đầu, sau đó chọn \(k\) giả thuyết tốt nhất trong số \(k^2\) giả thuyết mới được tạo ra. Khi tất cả các giả thuyết trong chùm tia tạo ra token &lt;end&gt; đặc biệt, thuật toán sẽ xuất ra giả thuyết có điểm số cao nhất.</p>
+
+<p>Một hình ảnh trực quan về tìm kiếm chùm tia được đưa ra trong <strong>Hình 25.8</strong>. Khi các mô hình học sâu trở nên chính xác hơn, chúng ta thường có thể đủ khả năng sử dụng kích thước chùm tia nhỏ hơn. Các mô hình dịch máy nơ-ron hiện đại nhất sử dụng kích thước chùm tia từ 4 đến 8, trong khi thế hệ cũ của các mô hình dịch máy thống kê thường sử dụng kích thước chùm tia là 100 hoặc hơn.</p>
+
+<h2>25.4 Kiến trúc Transformer (The Transformer Architecture)</h2>
+
+<p>Bài báo có ảnh hưởng lớn “Attention is all you need” (Vaswani et al., 2018) đã giới thiệu <strong>kiến trúc transformer</strong> (transformer architecture), trong đó sử dụng một cơ chế tự chú ý (self-attention) có thể lập mô hình ngữ cảnh khoảng cách xa mà không bị phụ thuộc tuần tự.</p>
+
+<h3>25.4.1 Tự chú ý (Self-attention)</h3>
+
+<p>Trước đây, trong các mô hình chuỗi sang chuỗi, sự chú ý được áp dụng từ RNN đích đến RNN nguồn. <strong>Tự chú ý</strong> mở rộng cơ chế này để mỗi chuỗi trạng thái ẩn cũng chú ý đến chính nó—nguồn với nguồn, và đích với đích. Điều này cho phép mô hình bổ sung thêm khả năng nắm bắt ngữ cảnh khoảng cách xa (và khoảng cách gần) trong mỗi chuỗi.</p>
+
+<p>Cách đơn giản nhất để áp dụng tự chú ý là khi ma trận chú ý được hình thành trực tiếp bởi tích vô hướng (dot product) của các vectơ đầu vào. Tuy nhiên, điều này gây ra vấn đề. Tích vô hướng giữa một vectơ và chính nó sẽ luôn cao, vì vậy mỗi trạng thái ẩn sẽ có xu hướng chú ý nhiều vào chính nó. Transformer giải quyết vấn đề này bằng cách trước tiên chiếu đầu vào thành ba biểu diễn khác nhau bằng ba ma trận trọng số khác nhau:</p>
+<ul>
+  <li>Vectơ truy vấn (Query vector) \(\mathbf{q}_i = \mathbf{W}_q \mathbf{x}_i\) là vectơ đang thực hiện sự chú ý, giống như đích trong cơ chế chú ý tiêu chuẩn.</li>
+  <li>Vectơ khóa (Key vector) \(\mathbf{k}_i = \mathbf{W}_k \mathbf{x}_i\) là vectơ đang được chú ý đến, giống như nguồn trong cơ chế chú ý cơ bản.</li>
+  <li>Vectơ giá trị (Value vector) \(\mathbf{v}_i = \mathbf{W}_v \mathbf{x}_i\) là ngữ cảnh đang được tạo ra.</li>
+</ul>
+
+<p>Trong cơ chế chú ý tiêu chuẩn, các mạng khóa và giá trị là giống hệt nhau, nhưng theo trực giác thì điều hợp lý là chúng phải là các biểu diễn riêng biệt. Kết quả mã hóa của từ thứ \(i\), \(\mathbf{c}_i\), có thể được tính toán bằng cách áp dụng cơ chế chú ý cho các vectơ được chiếu:</p>
+
+<p>
+  \(r_{ij} = (\mathbf{q}_i \cdot \mathbf{k}_j) / \sqrt{d}\) <br>
+  \(a_{ij} = e^{r_{ij}} / (\sum_{k} e^{r_{ik}})\) <br>
+  \(\mathbf{c}_i = \sum_{j} a_{ij} \cdot \mathbf{v}_j\),
+</p>
+
+<p>trong đó \(d\) là số chiều của \(\mathbf{k}\) và \(\mathbf{q}\). Lưu ý rằng \(i\) và \(j\) là các chỉ số trong cùng một câu, vì chúng ta đang mã hóa ngữ cảnh bằng tự chú ý. Trong mỗi lớp transformer, tự chú ý sử dụng các vectơ ẩn từ lớp trước đó, mà ban đầu chính là lớp nhúng.</p>
+
+<p>Có một vài chi tiết đáng nói ở đây. Đầu tiên, cơ chế tự chú ý là không đối xứng, vì \(r_{ij}\) khác với \(r_{ji}\). Thứ hai, hệ số tỷ lệ \(\sqrt{d}\) được thêm vào để cải thiện độ ổn định số học. Thứ ba, việc mã hóa cho tất cả các từ trong một câu có thể được tính toán đồng thời, vì các phương trình trên có thể được biểu diễn bằng các phép toán ma trận có thể được tính toán hiệu quả song song trên phần cứng chuyên dụng hiện đại.</p>
+
+<p>Sự lựa chọn nên sử dụng ngữ cảnh nào được học hoàn toàn từ các ví dụ huấn luyện, chứ không được chỉ định trước. Bản tóm tắt dựa trên ngữ cảnh, \(\mathbf{c}_i\), là tổng trên tất cả các vị trí trước đó trong câu. Về lý thuyết, bất kỳ thông tin nào từ câu cũng có thể xuất hiện trong \(\mathbf{c}_i\), nhưng trong thực tế, đôi khi những thông tin quan trọng bị mất, bởi vì về cơ bản nó được tính trung bình trên toàn bộ câu. Một cách để giải quyết vấn đề đó được gọi là <strong>chú ý đa đầu</strong> (multiheaded attention). Chúng ta chia câu thành \(m\) phần bằng nhau và áp dụng mô hình chú ý cho từng phần trong số \(m\) phần đó. Mỗi phần có tập hợp trọng số riêng của mình. Sau đó, kết quả được nối ghép lại với nhau để tạo thành \(\mathbf{c}_i\). Bằng cách nối ghép thay vì tính tổng, chúng ta giúp một thành phần phụ quan trọng dễ dàng nổi bật hơn.</p>
+
+<h3>25.4.2 Từ tự chú ý đến transformer (From self-attention to transformer)</h3>
+
+<p>Tự chú ý chỉ là một thành phần của mô hình transformer. Mỗi lớp transformer bao gồm một số lớp con (sub-layers). Ở mỗi lớp transformer, tự chú ý được áp dụng đầu tiên. Đầu ra của mô đun chú ý được đưa qua các lớp truyền thẳng (feedforward layers), trong đó các ma trận trọng số truyền thẳng tương tự được áp dụng độc lập ở mỗi vị trí. Một hàm kích hoạt phi tuyến tính, thường là ReLU, được áp dụng sau lớp truyền thẳng đầu tiên. Để giải quyết vấn đề suy giảm đạo hàm tiềm ẩn, hai kết nối thặng dư (residual connections) được thêm vào lớp transformer. Một transformer một lớp được thể hiện trong <strong>Hình 25.9</strong>. Trong thực tế, các mô hình transformer thường</p>
+
+<p><strong>Hình 25.8</strong> Tìm kiếm chùm tia (Beam search) với kích thước chùm \(b=2\). Điểm của mỗi từ là xác suất logarit do lớp softmax của RNN đích tạo ra, và điểm của mỗi giả thuyết là tổng điểm của các từ. Ở bước thời gian 3, giả thuyết có điểm cao nhất "La entrada" chỉ có thể tạo ra các phần tiếp theo có xác suất thấp, vì vậy nó bị "rơi khỏi chùm tia" (falls off the beam).</p>
+
+<p><strong>Hình 25.9</strong> Một transformer một lớp bao gồm cơ chế tự chú ý, mạng truyền thẳng và các kết nối thặng dư.</p>
+
+<p><strong>Hình 25.10</strong> Sử dụng kiến trúc transformer cho việc gán nhãn từ loại (POS tagging).</p>

@@ -1,0 +1,54 @@
+<p>cho thấy sự xuất hiện cụ thể này của "cut" là một động từ thời quá khứ; và sau đó, chúng ta có thể hy vọng rằng các vectơ nhúng sẽ nắm bắt được khía cạnh tham chiếu quá khứ của các trạng từ.</p>
+
+<p>Gán nhãn POS (từ loại) đóng vai trò là một ví dụ giới thiệu tốt về ứng dụng của học sâu đối với NLP, mà không có sự phức tạp của các tác vụ khó hơn như trả lời câu hỏi (xem Mục 25.5.3). Cho trước một kho ngữ liệu gồm các câu đã được gán nhãn POS, chúng ta học các tham số cho nhúng từ và bộ gán nhãn POS đồng thời. Quá trình này hoạt động như sau:</p>
+
+<ol>
+  <li>Chọn chiều rộng \(w\) (một số từ lẻ) cho cửa sổ dự đoán (prediction window) sẽ được sử dụng để gán nhãn mỗi từ. Một giá trị điển hình là \(w=5\), nghĩa là nhãn được dự đoán dựa trên từ đó cộng với hai từ bên trái và hai từ bên phải. Chia mỗi câu trong kho ngữ liệu của bạn thành các cửa sổ chồng lấp có độ dài \(w\). Mỗi cửa sổ tạo ra một mẫu huấn luyện bao gồm \(w\) từ ở đầu vào và thể loại POS của từ ở giữa ở đầu ra.</li>
+  <li>Tạo một từ vựng gồm tất cả các từ token duy nhất xuất hiện nhiều hơn, ví dụ, 5 lần trong dữ liệu huấn luyện. Ký hiệu tổng số từ trong từ vựng là \(v\).</li>
+  <li>Sắp xếp từ vựng này theo một thứ tự tùy ý nào đó (có thể theo bảng chữ cái).</li>
+  <li>Chọn một giá trị \(d\) là kích thước của mỗi vectơ nhúng từ.</li>
+  <li>Tạo một ma trận trọng số mới kích thước \(v \times d\) gọi là \(\mathbf{E}\). Đây là ma trận nhúng từ (word embedding matrix). Hàng \(i\) của \(\mathbf{E}\) là nhúng từ của từ thứ \(i\) trong từ vựng. Khởi tạo \(\mathbf{E}\) ngẫu nhiên (hoặc từ các vectơ được huấn luyện trước).</li>
+  <li>Thiết lập một mạng nơ-ron xuất ra một nhãn từ loại, như hiển thị trong <strong>Hình 25.3</strong>. Lớp đầu tiên sẽ bao gồm \(w\) bản sao của ma trận nhúng. Chúng ta có thể sử dụng hai lớp ẩn bổ sung, \(\mathbf{z}_1\) và \(\mathbf{z}_2\) (với các ma trận trọng số tương ứng là \(\mathbf{W}_1\) và \(\mathbf{W}_2\)), theo sau bởi một lớp softmax tạo ra một phân phối xác suất đầu ra \(\mathbf{\hat{y}}\) trên các thể loại từ loại có thể có cho từ ở giữa:
+    <p>
+      \(\mathbf{z}_1 = \sigma(\mathbf{W}_1 \mathbf{x})\)<br>
+      \(\mathbf{z}_2 = \sigma(\mathbf{W}_2 \mathbf{z}_1)\)<br>
+      \(\mathbf{\hat{y}} = \text{softmax}(\mathbf{W}_{\text{out}} \mathbf{z}_2)\).
+    </p>
+  </li>
+  <li>Để mã hóa một chuỗi \(w\) từ thành một vectơ đầu vào, chỉ cần tra cứu nhúng cho mỗi từ và nối (concatenate) các vectơ nhúng lại. Kết quả là một vectơ đầu vào giá trị thực \(\mathbf{x}\) có độ dài \(w \times d\). Mặc dù một từ nhất định sẽ có cùng một vectơ nhúng dù nó xuất hiện ở vị trí đầu tiên, cuối cùng hay ở đâu đó ở giữa, mỗi nhúng sẽ được nhân với một phần khác nhau của lớp ẩn đầu tiên; do đó, chúng ta đang ngầm định mã hóa vị trí tương đối của mỗi từ.</li>
+  <li>Huấn luyện các trọng số \(\mathbf{E}\) và các ma trận trọng số khác \(\mathbf{W}_1\), \(\mathbf{W}_2\), và \(\mathbf{W}_{\text{out}}\) bằng cách sử dụng thuật toán suy giảm đạo hàm (gradient descent). Nếu mọi thứ diễn ra tốt đẹp, từ ở giữa, "cut", sẽ được gán nhãn là một động từ thời quá khứ, dựa trên bằng chứng trong cửa sổ, bao gồm từ chỉ quá khứ thời gian "yesterday" (hôm qua), đại từ chủ ngữ ngôi thứ ba "they" (họ) ngay trước "cut", v.v.</li>
+</ol>
+
+<p>Một giải pháp thay thế cho các nhúng từ là mô hình cấp độ ký tự (character-level model), trong đó đầu vào là một chuỗi các ký tự, mỗi ký tự được mã hóa dưới dạng một vectơ one-hot. Một mô hình như vậy phải học cách các ký tự kết hợp với nhau để tạo thành từ. Phần lớn công việc trong NLP vẫn gắn liền với việc mã hóa ở cấp độ từ thay vì cấp độ ký tự.</p>
+
+<h2>25.2 Mạng nơ-ron hồi quy cho NLP (Recurrent Neural Networks for NLP)</h2>
+
+<p>Chúng ta hiện đã có một biểu diễn tốt cho các từ đơn lẻ độc lập, nhưng ngôn ngữ bao gồm một chuỗi các từ có thứ tự, trong đó ngữ cảnh của các từ xung quanh rất quan trọng. Đối với các tác vụ đơn giản như gán nhãn từ loại, một cửa sổ kích thước nhỏ và cố định gồm khoảng năm từ thường cung cấp đủ ngữ cảnh.</p>
+
+<p>Các tác vụ phức tạp hơn như trả lời câu hỏi hoặc giải quyết tham chiếu (reference resolution) có thể cần hàng chục từ làm ngữ cảnh. Ví dụ, trong câu “Eduardo told me that Miguel was very sick so I took him to the hospital” (Eduardo nói với tôi rằng Miguel đang ốm nặng nên tôi đã đưa anh ấy đến bệnh viện), việc biết rằng "him" (anh ấy) đề cập đến Miguel chứ không phải Eduardo đòi hỏi ngữ cảnh kéo dài từ từ đầu tiên đến từ cuối cùng của câu gồm 14 từ.</p>
+
+<h3>25.2.1 Mô hình ngôn ngữ với mạng nơ-ron hồi quy (Language models with recurrent neural networks)</h3>
+
+<p>Chúng ta sẽ bắt đầu với vấn đề tạo ra một mô hình ngôn ngữ với ngữ cảnh đủ lớn. Hãy nhớ lại rằng mô hình ngôn ngữ là một phân phối xác suất trên các chuỗi từ. Nó cho phép chúng ta dự đoán từ tiếp theo trong một văn bản dựa trên tất cả các từ trước đó, và thường được sử dụng như một khối xây dựng (building block) cho các tác vụ phức tạp hơn.</p>
+
+<p>Việc xây dựng một mô hình ngôn ngữ với mô hình n-gram (như ở Mục 24.1) hoặc một mạng truyền thẳng (feedforward network) với cửa sổ cố định gồm \(n\) từ có thể gặp khó khăn do vấn đề về ngữ cảnh: ngữ cảnh bắt buộc sẽ vượt quá kích thước cửa sổ cố định hoặc mô hình sẽ có quá nhiều tham số, hoặc cả hai.</p>
+
+<p>Ngoài ra, mạng truyền thẳng còn có vấn đề về sự bất đối xứng: bất cứ điều gì nó học được, giả sử, về sự xuất hiện của từ "him" là từ thứ 12 của câu, nó sẽ phải học lại cho sự xuất hiện của "him" ở các vị trí khác trong câu, vì các trọng số là khác nhau đối với mỗi vị trí từ.</p>
+
+<p>Trong Mục 22.6, chúng ta đã giới thiệu <strong>mạng nơ-ron hồi quy</strong> hay <strong>RNN</strong> (recurrent neural network), được thiết kế để xử lý dữ liệu chuỗi thời gian, từng dữ liệu một. Điều này gợi ý rằng RNN có thể hữu ích cho việc xử lý ngôn ngữ, từng từ một. Chúng ta lặp lại Hình 22.8 ở đây dưới dạng <strong>Hình 25.4</strong>.</p>
+
+<p>Trong một mô hình ngôn ngữ RNN, mỗi từ đầu vào được mã hóa dưới dạng một vectơ nhúng từ, \(\mathbf{x}_t\). Có một lớp ẩn \(\mathbf{z}_t\) được truyền làm đầu vào từ bước thời gian này sang bước thời gian tiếp theo. Chúng ta quan tâm đến việc thực hiện phân loại đa lớp (multiclass classification): các lớp là các từ trong từ vựng. Do đó, đầu ra \(\mathbf{y}_t\) sẽ là một phân phối xác suất softmax trên các giá trị có thể có của từ tiếp theo trong câu.</p>
+
+<p>Kiến trúc RNN giải quyết vấn đề có quá nhiều tham số. Số lượng tham số trong các ma trận trọng số \(\mathbf{W}_{z,z}\), \(\mathbf{W}_{x,z}\), và \(\mathbf{W}_{z,y}\) không đổi, bất kể số lượng từ là bao nhiêu—nó là \(O(1)\). Điều này trái ngược với mạng truyền thẳng, vốn có \(O(n)\) tham số, và các mô hình n-gram, vốn có \(O(v^n)\) tham số, trong đó \(v\) là kích thước của từ vựng.</p>
+
+<p>Kiến trúc RNN cũng giải quyết vấn đề về sự bất đối xứng, vì các trọng số giống nhau cho mọi vị trí từ.</p>
+
+<p>Kiến trúc RNN đôi khi cũng có thể giải quyết vấn đề giới hạn ngữ cảnh. Về mặt lý thuyết, không có giới hạn về việc mô hình có thể nhìn lại quá khứ bao xa ở đầu vào. Mỗi lần cập nhật lớp ẩn \(\mathbf{z}_t\) đều có quyền truy cập vào cả từ đầu vào hiện tại \(\mathbf{x}_t\) và lớp ẩn trước đó \(\mathbf{z}_{t-1}\), điều đó có nghĩa là thông tin về bất kỳ từ nào trong đầu vào đều có thể được giữ trong lớp ẩn vô thời hạn, được sao chép (hoặc sửa đổi cho phù hợp) từ một bước thời gian sang bước thời gian tiếp theo. Tất nhiên, không gian lưu trữ trong \(\mathbf{z}\) có hạn, do đó nó không thể ghi nhớ mọi thứ về tất cả các từ trước đó.</p>
+
+<p>Trong thực tế, các mô hình RNN hoạt động tốt trên nhiều tác vụ khác nhau, nhưng không phải trên tất cả các tác vụ. Rất khó để dự đoán liệu chúng có thành công cho một vấn đề cụ thể hay không. Một yếu tố đóng góp vào sự thành công là quá trình huấn luyện khuyến khích mạng phân bổ không gian lưu trữ trong \(\mathbf{z}\) cho các khía cạnh của đầu vào sẽ thực sự chứng minh được tính hữu ích.</p>
+
+<p>Để huấn luyện một mô hình ngôn ngữ RNN, chúng ta sử dụng quá trình huấn luyện được mô tả trong Mục 22.6.1. Các đầu vào, \(\mathbf{x}_t\), là các từ trong một kho ngữ liệu huấn luyện văn bản và các đầu ra được quan sát cũng chính là các từ đó, nhưng được dịch chuyển.</p>
+
+<p><strong>Hình 25.3</strong> Mô hình truyền thẳng gán nhãn từ loại (Feedforward part-of-speech tagging model). Mô hình này lấy một cửa sổ gồm 5 từ làm đầu vào và dự đoán nhãn của từ ở giữa—ở đây là từ "cut". Mô hình có khả năng giải thích vị trí của từ bởi vì mỗi nhúng từ trong 5 đầu vào được nhân với một phần khác nhau của lớp ẩn đầu tiên. Các giá trị tham số cho các nhúng từ và cho ba lớp đều được học đồng thời trong quá trình huấn luyện.</p>
+
+<p><strong>Hình 25.4</strong> (a) Sơ đồ giản lược của một RNN trong đó lớp ẩn \(\mathbf{z}\) có các kết nối hồi quy; ký hiệu \(\Delta\) biểu thị sự trì hoãn (delay). Mỗi đầu vào \(\mathbf{x}\) là vectơ nhúng từ của từ tiếp theo trong câu. Mỗi đầu ra \(\mathbf{y}\) là đầu ra cho bước thời gian đó. (b) Cùng một mạng nhưng được trải ra (unrolled) qua ba bước thời gian để tạo ra một mạng truyền thẳng. Lưu ý rằng các trọng số được chia sẻ trên tất cả các bước thời gian.</p>

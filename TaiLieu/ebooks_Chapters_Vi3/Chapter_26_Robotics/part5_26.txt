@@ -1,0 +1,323 @@
+956
+Chapter 26
+Robotics
+function1 over paths. That is, we want to minimize the cost function J(τ), where τ(0) = qs
+and τ(1) = qg.
+J is called a functional because it is a function over functions. The argument to J is
+τ, which is itself a function: τ(t) takes as input a point in the [0,1] interval and maps it to
+a conﬁguration. A standard cost functional trades off between two important aspects of the
+robot’s motion: collision avoidance and efﬁciency,
+J = Jobs +λJeff
+where the efﬁciency Jeff measures the length of the path and may also measure smoothness. A
+convenient way to deﬁne efﬁciency is with a quadratic: it integrates the squared ﬁrst derivative
+of τ (we will see in a bit why this does in fact incentivize short paths):
+Jeff =
+Z 1
+0
+1
+2∥˙τ(s)∥2ds.
+For the obstacle term, assume we can compute the distance d(x) from any point x ∈W to
+the nearest obstacle edge. This distance is positive outside of obstacles, 0 at the edge, and
+negative inside. This is called a signed distance ﬁeld. We can now deﬁne a cost ﬁeld in the
+Signed distance ﬁeld
+workspace, call it c, that has high cost inside of obstacles, and a small cost right outside. With
+this cost, we can make points in the workspace really hate being inside obstacles, and dislike
+being right next to them (avoiding the visibility graph problem of their always hanging out
+by the edges of obstacles). Of course, our robot is not a point in the workspace, so we have
+some more work to do—we need to consider all points b on the robot’s body:
+Jobs =
+Z 1
+0
+Z
+b c(φb(τ(s))
+|
+{z
+}
+∈W
+)∥d
+ds φb(τ(s))
+|
+{z
+}
+∈W
+∥db ds.
+This is called a path integral—it does not just integrate c along the way for each body point,
+Path integral
+but it multiplies by the derivative to make the cost invariant to retiming of the path. Imagine a
+robot sweeping through the cost ﬁeld, accumulating cost as is moves. Regardless of how fast
+or slow the arm moves through the ﬁeld, it must accumulate the exact same cost.
+The simplest way to solve the optimization problem above and ﬁnd a path is gradient
+descent. If you are wondering how to take gradients of functionals with respect to functions,
+something called the calculus of variations is here to help. It is especially easy for functionals
+of the form
+J[τ] =
+Z 1
+0 F(s,τ(s), ˙τ(s))ds
+which are integrals of functions that depend just on the parameter s, the value of the function
+at s, and the derivative of the function at s. In such a case, the Euler-Lagrange equation
+Euler-Lagrange
+equation
+says that the gradient is
+∇τJ(s) =
+∂F
+∂τ(s)(s)−d
+dt
+∂F
+∂˙τ(s)(s).
+If we look closely at Jeff and Jobs, they both follow this pattern. In particular for Jeff , we have
+F(s,τ(s), ˙τ(s)) = ∥˙τ(s)∥2. To get a bit more comfortable with this, let’s compute the gradient
+1
+Roboticists like to minimize a cost function J, whereas in other parts of AI we try to maximize a utility function
+U or a reward R.
+
+
+Section 26.5
+Planning and Control
+957
+Figure 26.20 Trajectory optimization for motion planning. Two point-obstacles with circu-
+lar bands of decreasing cost around them. The optimizer starts with the straight line trajectory,
+and lets the obstacles bend the line away from collisions, ﬁnding the minimum path through
+the cost ﬁeld.
+for Jeff only. We see that F does not have a direct dependence on τ(s), so the ﬁrst term in the
+formula is 0. We are left with
+∇τJ(s) = 0−d
+dt ˙τ(s)
+since the partial of F with respect to ˙τ(s) is ˙τ(s).
+Notice how we made things easier for ourselves when deﬁning Jeff —it’s a nice quadratic
+of the derivative (and we even put a 1
+2 in front so that the 2 nicely cancels out). In practice,
+you will see this trick happen a lot for optimization—the art is not just in choosing how to
+optimize the cost function, but also in choosing a cost function that will play nicely with how
+you will optimize it. Simplifying our gradient, we get
+∇τJ(s) = −¨τ(s).
+Now, since Jeff is a quadratic, setting this gradient to 0 gives us the solution for τ if we
+didn’t have to deal with obstacles. Integrating once, we get that the ﬁrst derivative needs
+to be constant; integrating again we get that τ(s) = a · s + b, with a and b determined by
+the endpoint constraints for τ(0) and τ(1). The optimal path with respect to Jeff is thus the
+straight line from start to goal! It is indeed the most efﬁcient way to go from one to the other
+if there are no obstacles to worry about.
+Of course, the addition of Jobs is what makes things difﬁcult—and we will spare you
+deriving its gradient here. The robot would typically initialize its path to be a straight line,
+which would plow right through some obstacles. It would then calculate the gradient of the
+cost about the current path, and the gradient would serve to push the path away from the
+obstacles (Figure 26.20). Keep in mind that gradient descent will only ﬁnd a locally optimal
+solution—just like hill climbing. Methods such as simulated annealing (Section 4.1.2) can be
+used for exploration, to make it more likely that the local optimum is a good one.
+26.5.3 Trajectory tracking control
+We have covered how to plan motions, but not how to actually move—to apply current to
+motors, to produce torque, to move the robot. This is the realm of control theory, a ﬁeld
+Control theory
+of increasing importance in AI. There are two main questions to deal with: how do we turn
+
+
+958
+Chapter 26
+Robotics
+Figure 26.21 The task of reaching to grasp a bottle solved with a trajectory optimizer. Left:
+the initial trajectory, plotted for the end effector. Middle: the ﬁnal trajectory after optimiza-
+tion. Right: the goal conﬁguration. Courtesy of Anca Dragan. See Ratliff et al. (2009).
+a mathematical description of a path into a sequence of actions in the real world (open-loop
+control), and how do we make sure that we are staying on track (closed-loop control)?
+From conﬁgurations to torques for open-loop tracking: Our path τ(t) gives us conﬁg-
+urations. The robot starts at rest at qs = τ(0). From there the robot’s motors will turn currents
+into torques, leading to motion. But what torques should the robot aim for, such that it ends
+up at qg = τ(1)?
+This is where the idea of a dynamics model (or transition model) comes in. We can give
+Dynamics model
+the robot a function f that computes the effects torques have on the conﬁguration. Remem-
+ber F = ma from physics? Well, there is something like that for torques too, in the form
+u = f −1(q, ˙q, ¨q), with u a torque, ˙q a velocity, and ¨q an acceleration.2 If the robot is at conﬁg-
+uration q and velocity ˙q, and applied torque u, that would lead to acceleration ¨q = f(q, ˙q,u).
+The tuple (q, ˙q) is a dynamic state, because it includes velocity, whereas q is the kinematic
+Dynamic state
+state and is not sufﬁcient for computing exactly what torque to apply. f is a deterministic
+Kinematic state
+dynamics model in the MDP over dynamic states with torques as actions. f −1 is the inverse
+dynamics, telling us what torque to apply if we want a particular acceleration, which leads
+Inverse dynamics
+to a change in velocity and thus a change in dynamic state.
+Now, naively, we could think of t ∈[0,1] as “time” on a scale from 0 to 1 and select our
+torque using inverse dynamics:
+u(t) = f −1(τ(t), ˙τ(t), ¨τ(t))
+(26.2)
+assuming that the robot starts at (τ(0), ˙τ(0)). In reality though, things are not that easy.
+The path τ was created as a sequence of points, without taking velocities and accelera-
+tions into account. As such, the path may not satisfy ˙τ(0) = 0 (the robot starts at 0 velocity),
+or even that τ is differentiable (let alone twice differentiable). Further, the meaning of the
+endpoint “1” is unclear: how many seconds does that map to?
+In practice, before we even think of tracking a reference path, we usually retime it, that
+Retiming
+is, transform it into a trajectory ξ(t) that maps the interval [0,T] for some time duration T
+into points in the conﬁguration space C. (The symbol ξ is the Greek letter Xi.) Retiming is
+trickier than you might think, but there are approximate ways to do it, for instance by picking
+a maximum velocity and acceleration, and using a proﬁle that accelerates to that maximum
+2
+We omit the details of f −1 here, but they involve mass, inertia, gravity, and Coriolis and centrifugal forces.
+
+
+Section 26.5
+Planning and Control
+959
+(a)
+(b)
+(c)
+Figure 26.22 Robot arm control using (a) proportional control with gain factor 1.0, (b) pro-
+portional control with gain factor 0.1, and (c) PD (proportional derivative) control with gain
+factors 0.3 for the proportional component and 0.8 for the differential component. In all cases
+the robot arm tries to follow the smooth line path, but in (a) and (b) deviates substantially from
+the path.
+velocity, stays there as long as it can, and then decelerates back to 0. Assuming we can do
+this, Equation (26.2) above can be rewritten as
+u(t) = f −1(ξ(t), ˙ξ(t), ¨ξ(t)).
+(26.3)
+Even with the change from τ to ξ, an actual trajectory, the equation of applying torques from
+above (called a control law) has a problem in practice. Thinking back to the reinforcement
+Control law
+learning section, you might guess what it is. The equation works great in the situation where
+f is exact, but pesky reality gets in the way as usual: in real systems, we can’t measure masses
+and inertias exactly, and f might not properly account for physical phenomena like stiction in
+Stiction
+the motors (the friction that tends to prevent stationary surfaces from being set in motion—to
+make them stick). So, when the robot arm starts applying those torques but f is wrong, the
+errors accumulate and you deviate further and further from the reference path.
+Rather than just letting those errors accumulate, a robot can use a control process that
+looks at where it thinks it is, compares that to where it wanted to be, and applies a torque to
+minimize the error.
+A controller that provides force in negative proportion to the observed error is known as
+a proportional controller or P controller for short. The equation for the force is:
+P controller
+u(t) = KP(ξ(t)−qt)
+where qt is the current conﬁguration, and KP is a constant representing the gain factor of the
+Gain factor
+controller. KP regulates how strongly the controller corrects for deviations between the actual
+state qt and the desired state ξ(t).
+Figure 26.22(a) illustrates what can go wrong with proportional control. Whenever a de-
+viation occurs—whether due to noise or to constraints on the forces the robot can apply—the
+robot provides an opposing force whose magnitude is proportional to this deviation. Intu-
+itively, this might appear plausible, since deviations should be compensated by a counterforce
+to keep the robot on track. However, as Figure 26.22(a) illustrates, a proportional controller
+can cause the robot to apply too much force, overshooting the desired path and zig-zagging
+
+
+960
+Chapter 26
+Robotics
+back and forth. This is the result of the natural inertia of the robot: once driven back to its
+reference position the robot has a velocity that can’t instantaneously be stopped.
+In Figure 26.22(a), the parameter KP = 1. At ﬁrst glance, one might think that choosing
+a smaller value for KP would remedy the problem, giving the robot a gentler approach to
+the desired path. Unfortunately, this is not the case. Figure 26.22(b) shows a trajectory for
+KP = .1, still exhibiting oscillatory behavior. The lower value of the gain parameter helps, but
+does not solve the problem. In fact, in the absence of friction, the P controller is essentially a
+spring law; so it will oscillate indeﬁnitely around a ﬁxed target location.
+There are a number of controllers that are superior to the simple proportional control law.
+A controller is said to be stable if small perturbations lead to a bounded error between the
+Stable
+robot and the reference signal. It is said to be strictly stable if it is able to return to and then
+Strictly stable
+stay on its reference path upon such perturbations. Our P controller appears to be stable but
+not strictly stable, since it fails to stay anywhere near its reference trajectory.
+The simplest controller that achieves strict stability in our domain is a PD controller.
+PD controller
+The letter ‘P’ stands again for proportional, and ‘D’ stands for derivative. PD controllers are
+described by the following equation:
+u(t) = KP(ξ(t)−qt)+KD( ˙ξ(t)−˙qt).
+(26.4)
+As this equation suggests, PD controllers extend P controllers by a differential component,
+which adds to the value of u(t) a term that is proportional to the ﬁrst derivative of the error
+ξ(t) −qt over time. What is the effect of such a term? In general, a derivative term damp-
+ens the system that is being controlled. To see this, consider a situation where the error is
+changing rapidly over time, as is the case for our P controller above. The derivative of this
+error will then counteract the proportional term, which will reduce the overall response to
+the perturbation. However, if the same error persists and does not change, the derivative will
+vanish and the proportional term dominates the choice of control.
+Figure 26.22(c) shows the result of applying this PD controller to our robot arm, using as
+gain parameters KP = .3 and KD = .8. Clearly, the resulting path is much smoother, and does
+not exhibit any obvious oscillations.
+PD controllers do have failure modes, however. In particular, PD controllers may fail to
+regulate an error down to zero, even in the absence of external perturbations. Often such a
+situation is the result of a systematic external force that is not part of the model. For example,
+an autonomous car driving on a banked surface may ﬁnd itself systematically pulled to one
+side. Wear and tear in robot arms causes similar systematic errors. In such situations, an
+over-proportional feedback is required to drive the error closer to zero. The solution to this
+problem lies in adding a third term to the control law, based on the integrated error over time:
+u(t) = KP(ξ(t)−qt)+KI
+Z t
+0 (ξ(s)−qs)ds+KD( ˙ξ(t)−˙qt).
+(26.5)
+Here KI is a third gain parameter. The term
+R t
+0(ξ(s) calculates the integral of the error over
+time. The effect of this term is that long-lasting deviations between the reference signal and
+the actual state are corrected. Integral terms, then, ensure that a controller does not exhibit
+systematic long-term error, although they do pose a danger of oscillatory behavior.
+A controller with all three terms is called a PID controller (for proportional integral
+PID controller
+derivative). PID controllers are widely used in industry, for a variety of control problems.
+Think of the three terms as follows—proportional: try harder the farther away you are from
+
+
+Section 26.5
+Planning and Control
+961
+the path; derivative: try even harder if the error is increasing; integral: try harder if you
+haven’t made progress for a long time.
+A middle ground between open-loop control based on inverse dynamics and closed-loop
+PID control is called computed torque control. We compute the torque our model thinks we
+Computed torque
+control
+will need, but compensate for model inaccuracy with proportional error terms:
+u(t) = f −1(ξ(t), ˙ξ(t), ¨ξ(t))
+|
+{z
+}
+feedforward
++m(ξ(t))
+ KP(ξ(t)−qt)+KD( ˙ξ(t)−˙qt)
+
+|
+{z
+}
+feedback
+.
+(26.6)
+The ﬁrst term is called the feedforward component because it looks forward to where the
+Feedforward
+component
+robot needs to go and computes what torque might be required. The second is the feedback
+component because it feeds the current error in the dynamic state back into the control law.
+Feedback
+component
+m(q) is the inertia matrix at conﬁguration q—unlike normal PD control, the gains change
+with the conﬁguration of the system.
+Plans versus policies
+Let’s take a step back and make sure we understand the analogy between what happened so far
+in this chapter and what we learned in the search, MDP, and reinforcement learning chapters.
+With motion in robotics, we are really considering an underlying MDP where the states are
+dynamic states (conﬁguration and velocity), and the actions are control inputs, usually in
+the form of torques. If you take another look at our control laws above, they are policies,
+not plans—they tell the robot what action to take from any state it might reach. However,
+they are usually far from optimal policies. Because the dynamic state is continuous and high
+dimensional (as is the action space), optimal policies are computationally difﬁcult to extract.
+Instead, what we did here is to break up the problem. We come up with a plan ﬁrst, in
+a simpliﬁed state and action space: we use only the kinematic state, and assume that states
+are reachable from one another without paying attention to the underlying dynamics. This is
+motion planning, and it gives us the reference path. If we knew the dynamics perfectly, we
+could turn this into a plan for the original state and action space with Equation (26.3).
+But because our dynamics model is typically erroneous, we turn it instead into a policy
+that tries to follow the plan—getting back to it when it drifts away. When doing this, we
+introduce suboptimality in two ways: ﬁrst by planning without considering dynamics, and
+second by assuming that if we deviate from the plan, the optimal thing to do is to return to
+the original plan. In what follows, we describe techniques that compute policies directly over
+the dynamic state, avoiding the separation altogether.
+26.5.4 Optimal control
+Rather than using a planner to create a kinematic path, and only worrying about the dynamics
+of the system after the fact, here we discuss how we might be able to do it all at once. We’ll
+take the trajectory optimization problem for kinematic paths, and turn it into true trajectory
+optimization with dynamics: we will optimize directly over the actions, taking the dynamics
+(or transitions) into account.
+This brings us much closer to what we’ve seen in the search and MDP chapters. If we
+know the system’s dynamics, then we can ﬁnd a sequence of actions to execute, as we did in
+Chapter 3. If we’re not sure, then we might want a policy, as in Chapter 16.
+
+

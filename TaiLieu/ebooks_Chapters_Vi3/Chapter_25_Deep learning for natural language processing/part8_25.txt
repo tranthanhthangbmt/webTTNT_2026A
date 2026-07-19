@@ -1,0 +1,145 @@
+928
+Chapter 25
+Deep Learning for Natural Language Processing
+There are limitations of ARISTO. It deals only with multiple-choice questions, not essay
+questions, and it can neither read nor generate diagrams.1
+T5 (the Text-to-Text Transfer Transformer) is designed to produce textual responses to
+various kinds of textual input. It includes a standard encoder–decoder transformer model,
+pretrained on 35 billion words from the 750 GB Colossal Clean Crawled Corpus (C4). This
+unlabeled training is designed to give the model generalizable linguistic knowledge that will
+be useful for multiple speciﬁc tasks. T5 is then trained for each task with input consisting of
+the task name, followed by a colon and some content. For example, when given “translate
+English to German: That is good,” it produces as output “Das ist gut.” For some tasks, the
+input is marked up; for example in the Winograd Schema Challenge, the input highlights a
+pronoun with an ambiguous referent. Given the input “referent: The city councilmen refused
+the demonstrators a permit because they feared violence,” the correct response is “The city
+councilmen” (not “the demonstrators”).
+Much work remains to be done to improve NLP systems. One issue is that transformer
+models rely on only a narrow context, limited to a few hundred words. Some experimental
+approaches are trying to extend that context; the Reformer system (Kitaev et al., 2020) can
+handle context of up to a million words.
+Recent results have shown that using more training data results in better models—for
+example, ROBERTA achieved state-of-the-art results after training on 2.2 trillion words. If
+using more textual data is better, what would happen if we included other types of data:
+structured databases, numerical data, images, and video? We would need a breakthrough in
+hardware processing speeds to train on a large corpus of video, and we may need several
+breakthroughs in AI as well.
+The curious reader may wonder why we learned about grammars, parsing, and semantic
+interpretation in the previous chapter, only to discard those notions in favor of purely data-
+driven models in this chapter? At present, the answer is simply that the data-driven models
+are easier to develop and maintain, and score better on standard benchmarks, compared to
+the hand-built systems that can be constructed using a reasonable amount of human effort
+with the approaches described in Chapter 24. It may be that transformer models and their
+relatives are learning latent representations that capture the same basic ideas as grammars
+and semantic information, or it may be that something entirely different is happening within
+these enormous models; we simply don’t know. We do know that a system that is trained with
+textual data is easier to maintain and to adapt to new domains and new natural languages than
+a system that relies on hand-crafted features.
+It may also be the case that future breakthroughs in explicit grammatical and semantic
+modeling will cause the pendulum to swing back. Perhaps more likely is the emergence of
+hybrid approaches that combine the best concepts from both chapters. For example, Kitaev
+and Klein (2018) used an attention mechanism to improve a traditional constituency parser,
+achieving the best result ever recorded on the Penn Treebank test set. Similarly, Ringgaard
+et al. (2017) demonstrate how a dependency parser can be improved with word embeddings
+and a recurrent neural network. Their system, SLING, parses directly into a semantic frame
+representation, mitigating the problem of errors building up in a traditional pipeline system.
+1
+It has been pointed out that in some multiple-choice exams, it is possible to get a good score even without
+looking at the questions, because there are tell-tale signs in the incorrect answers (Gururangan et al., 2018). That
+seems to be true for visual question answering as well (Chao et al., 2018) .
+
+
+Bibliographical and Historical Notes
+929
+There is certainly room for improvement: not only do NLP systems still lag human per-
+formance on many tasks, but they do so after processing thousands of times more text than
+any human could read in a lifetime. This suggests that there is plenty of scope for new insights
+from linguists, psychologists, and NLP researchers.
+Summary
+The key points of this chapter are as follows:
+• Continuous representations of words with word embeddings are more robust than dis-
+crete atomic representations, and can be pretrained using unlabeled text data.
+• Recurrent neural networks can effectively model local and long-distance context by
+retaining relevant information in their hidden-state vectors.
+• Sequence-to-sequence models can be used for machine translation and text generation
+problems.
+• Transformer models use self-attention and can model long-distance context as well as
+local context. They can make effective use of hardware matrix multiplication.
+• Transfer learning that includes pretrained contextual word embeddings allows models to
+be developed from very large unlabeled corpora and applied to a range of tasks. Models
+that are pretrained to predict missing words can handle other tasks such as question
+answering and textual entailment, after ﬁne-tuning for the target domain.
+Bibliographical and Historical Notes
+The distribution of words and phrases in natural language follow Zipf’s Law (Zipf, 1935,
+1949): the frequency of the nth most popular word is roughly inversely proportional to n.
+That means we have a data sparsity problem: even with billions of words of training data, we
+are constantly running into novel words and phrases that were not seen before.
+Generalization to novel words and phrases is aided by representations that capture the
+basic insight that words with similar meanings appear in similar contexts. Deerwester et al.
+(1990) projected words into low-dimensional vectors by decomposing the co-occurrence ma-
+trix formed by words and the documents the words appear in. Another possibility is to treat
+the surrounding words—say, a 5-word window—as context. Brown et al. (1992) grouped
+words into hierarchical clusters according to the bigram context of words; this has proven to
+be effective for tasks such as named entity recognition (Turian et al., 2010). The WORD2VEC
+system (Mikolov et al., 2013) was the ﬁrst signiﬁcant demonstration of the advantages of
+word embeddings obtained from training neural networks. The GloVe word embedding vec-
+tors (Pennington et al., 2014) were obtained by operating directly on a word co-occurrence
+matrix obtained from billions of words of text. Levy and Goldberg (2014) explain why and
+how these word embeddings are able to capture linguistic regularities.
+Bengio et al. (2003) pioneered the use of neural networks for language models, proposing
+to combine “(1) a distributed representation for each word along with (2) the probability func-
+tion for word sequences, expressed in terms of these representations.” Mikolov et al. (2010)
+demonstrated the use of RNNs for modeling local context in language models. Jozefowicz
+
+
+930
+Chapter 25
+Deep Learning for Natural Language Processing
+et al. (2016) showed how an RNN trained on a billion words can outperform carefully hand-
+crafted n-gram models. Contextual representations for words were emphasized by Peters
+et al. (2018), who called them ELMO (Embeddings from Language Models) representations.
+Note that some authors compare language models by measuring their perplexity. The
+Perplexity
+perplexity of a probability distribution is 2H, where H is the entropy of the distribution (see
+Section 19.3.3). A language model with lower perplexity is, all other things being equal, a
+better model. But in practice, all other things are rarely equal. Therefore it is more informa-
+tive to measure performance on a real task rather than relying on perplexity.
+Howard and Ruder (2018) describe the ULMFIT (Universal Language Model Fine-
+tuning) framework, which makes it easier to ﬁne-tune a pretrained language model without
+requiring a vast corpus of target-domain documents. Ruder et al. (2019) give a tutorial on
+transfer learning for NLP.
+Mikolov et al. (2010) introduced the idea of using RNNs for NLP, and Sutskever et al.
+(2015) introduced the idea of sequence to sequence learning with deep networks. Zhu et al.
+(2017) and (Liu et al., 2018b) showed that an unsupervised approach works, and makes
+data collection much easier. It was soon found that these kinds of models could perform
+surprisingly well at a variety of tasks, for example, image captioning (Karpathy and Fei-Fei,
+2015; Vinyals et al., 2017b).
+Devlin et al. (2018) showed that transformer models pretrained with the masked language
+modeling objective can be directly used for multiple tasks. The model was called BERT
+(Bidirectional Encoder Representations from Transformers). Pretrained BERT models can be
+ﬁne-tuned for particular domains and particular tasks, including question answering, named
+entity recognition, text classiﬁcation, sentiment analysis, and natural language inference.
+The XLNET system (Yang et al., 2019) improves on BERT by eliminating a discrepancy
+between the pretraining and ﬁne-tuning. The ERNIE 2.0 framework (Sun et al., 2019) extracts
+more from the training data by considering sentence order and the presence of named entities,
+rather than just co-occurrence of words, and was shown to outperform BERT and XLNET.
+In response, researchers revisited and improved on BERT: the ROBERTA system (Liu et al.,
+2019b) used more data and different hyperparameters and training procedures, and found that
+it could match XLNET. The Reformer system (Kitaev et al., 2020) extends the range of the
+context that can be considered all the way up to a million words. Meanwhile, ALBERT (A
+Lite BERT) went in the other direction, reducing the number of parameters from 108 million
+to 12 million (so as to ﬁt on mobile devices) while maintaining high accuracy.
+The XLM system (Lample and Conneau, 2019) is a transformer model with training
+data from multiple languages. This is useful for machine translation, but also provides more
+robust representations for monolingual tasks. Two other important systems, GPT-2 (Radford
+et al., 2019) and T5 (Raffel et al., 2019), were described in the chapter. The later paper also
+introduced the 35 billion word Colossal Clean Crawled Corpus (C4).
+Various promising improvements on pretraining algorithms have been proposed (Yang
+et al., 2019; Liu et al., 2019b). Pretrained contextual models are described by Peters et al.
+(2018) and Dai and Le (2016).
+The GLUE (General Language Understanding Evaluation) benchmark, a collection of
+tasks and tools for evaluating NLP systems, was introduced by Wang et al. (2018a). Tasks
+include question answering, sentiment analysis, textual entailment, translation, and parsing.
+Transformer models have so dominated the leaderboard (the human baseline is way down at
+
+

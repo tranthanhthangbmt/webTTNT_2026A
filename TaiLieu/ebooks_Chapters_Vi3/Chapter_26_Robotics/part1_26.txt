@@ -1,0 +1,279 @@
+CHAPTER 26
+ROBOTICS
+In which agents are endowed with sensors and physical effectors with which to move about
+and make mischief in the real world.
+26.1 Robots
+Robots are physical agents that perform tasks by manipulating the physical world. To do
+Robot
+so, they are equipped with effectors such as legs, wheels, joints, and grippers. Effectors are
+Eﬀector
+designed to assert physical forces on the environment. When they do this, a few things may
+happen: the robot’s state might change (e.g., a car spins its wheels and makes progress on the
+road as a result), the state of the environment might change (e.g., a robot arm uses its gripper
+to push a mug across the counter), and even the state of the people around the robot might
+change (e.g., an exoskeleton moves and that changes the conﬁguration of a person’s leg; or
+a mobile robot makes progress toward the elevator doors, and a person notices and is nice
+enough to move out of the way, or even push the button for the robot).
+Robots are also equipped with sensors, which enable them to perceive their environment.
+Sensor
+Present-day robotics employs a diverse set of sensors, including cameras, radars, lasers, and
+microphones to measure the state of the environment and of the people around it; and gyro-
+scopes, strain and torque sensors, and accelerometers to measure the robot’s own state.
+Maximizing expected utility for a robot means choosing how to actuate its effectors to
+assert the right physical forces—the ones that will lead to changes in state that accumulate as
+much expected reward as possible. Ultimately, robots are trying to accomplish some task in
+the physical world.
+Robots operate in environments that are partially observable and stochastic: cameras
+cannot see around corners, and gears can slip. Moreover, the people acting in that same
+environment are unpredictable, so the robot needs to make predictions about them.
+Robots usually model their environment with a continuous state space (the robot’s po-
+sition has continuous coordinates) and a continuous action space (the amount of current a
+robot sends to its motor is also measured in continuous units). Some robots operate in high-
+dimensional spaces: cars need to know the position, orientation, and velocity of themselves
+and the nearby agents; robot arms have six or seven joints that can each be independently
+moved; and robots that mimic the human body have hundreds of joints.
+Robotic learning is constrained because the real world stubbornly refuses to operate faster
+than real time. In a simulated environment, it is possible to use learning algorithms (such as
+the Q-learning algorithm described in Chapter 23) to learn in a few hours from millions of
+trials. In a real environment, it might take years to run these trials, and the robot cannot risk
+(and thus cannot learn from) a trial that might cause harm. Thus, transferring what has been
+
+
+Section 26.2
+Robot Hardware
+933
+(a)
+(b)
+Figure 26.1 (a) An industrial robotic arm with a custom end-effector. Image credit: Ma-
+cor/123RF. (b) A Kinova® JACO® Assistive Robot arm mounted on a wheelchair. Kinova
+and JACO are trademarks of Kinova, Inc.
+learned in simulation to a real robot in the real world—the sim-to-real problem—is an active
+area of research. Practical robotic systems need to embody prior knowledge about the robot,
+the physical environment, and the tasks to be performed so that the robot can learn quickly
+and perform safely.
+Robotics brings together many of the concepts we have seen in this book, including prob-
+abilistic state estimation, perception, planning, unsupervised learning, reinforcement learn-
+ing, and game theory. For some of these concepts robotics serves as a challenging example
+application. For other concepts this chapter breaks new ground, for instance in introducing
+the continuous version of techniques that we previously saw only in the discrete case.
+26.2 Robot Hardware
+So far in this book, we have taken the agent architecture—sensors, effectors, and processors—
+as given, and have concentrated on the agent program. But the success of real robots depends
+at least as much on the design of sensors and effectors that are appropriate for the task.
+26.2.1 Types of robots from the hardware perspective
+When you think of a robot, you might imagine something with a head and two arms, moving
+around on legs or wheels. Such anthropomorphic robots have been popularized in ﬁction
+Anthropomorphic
+robot
+such as the movie The Terminator and the cartoon The Jetsons. But real robots come in many
+shapes and sizes.
+Manipulators are just robot arms. They do not necessarily have to be attached to a robot
+Manipulator
+body; they might simply be bolted onto a table or a ﬂoor, as they are in factories (Figure 26.1
+(a)). Some have a large payload, like those assembling cars, while others, like wheelchair-
+mountable arms that assist people with motor impairments (Figure 26.1(b)), can carry less
+but are safer in human environments.
+
+
+934
+Chapter 26
+Robotics
+(a)
+(b)
+Figure 26.2 (a) NASA’s Curiosity rover taking a selﬁe on Mars. Image courtesy of NASA.
+(b) A Skydio drone accompanying a family on a bike ride. Image courtesy of Skydio.
+Mobile robots are those that use wheels, legs, or rotors to move about the environment.
+Mobile robot
+Quadcopter drones are a type of unmanned aerial vehicle (UAV); autonomous underwa-
+Quadcopter drone
+UAV
+ter vehicles (AUVs) roam the oceans. But many mobile robots stay indoors and move on
+AUV
+wheels, like a vacuum cleaner or a towel delivery robot in a hotel. Their outdoor counterparts
+include autonomous cars or rovers that explore new terrain, even on the surface of Mars
+Autonomous car
+Rover
+(Figure 26.2). Finally, legged robots are meant to traverse rough terrain that is inaccessible
+Legged robot
+with wheels. The downside is that controlling legs to do the right thing is more challenging
+than spinning wheels.
+Other kinds of robots include prostheses, exoskeletons, robots with wings, swarms, and
+intelligent environments in which the robot is the entire room.
+26.2.2 Sensing the world
+Sensors are the perceptual interface between robot and environment. Passive sensors, such
+Passive sensor
+as cameras, are true observers of the environment: they capture signals that are generated
+by other sources in the environment. Active sensors, such as sonar, send energy into the
+Active sensor
+environment. They rely on the fact that this energy is reﬂected back to the sensor. Active
+sensors tend to provide more information than passive sensors, but at the expense of increased
+power consumption and with a danger of interference when multiple active sensors are used
+at the same time. We also distinguish whether a sensor is directed at sensing the environment,
+the robot’s location, or the robot’s internal conﬁguration.
+Range ﬁnders are sensors that measure the distance to nearby objects. Sonar sensors
+Range ﬁnder
+Sonar
+are active range ﬁnders that emit directional sound waves, which are reﬂected by objects,
+with some of the sound making it back to the sensor. The time and intensity of the returning
+signal indicates the distance to nearby objects. Sonar is the technology of choice for au-
+tonomous underwater vehicles, and was popular in the early days of indoor robotics. Stereo
+vision (see Section 27.6) relies on multiple cameras to image the environment from slightly
+Stereo vision
+
+
+Section 26.2
+Robot Hardware
+935
+(a)
+(b)
+Figure 26.3 (a) Time-of-ﬂight camera; image courtesy of Mesa Imaging GmbH. (b) 3D
+range image obtained with this camera. The range image makes it possible to detect obstacles
+and objects in a robot’s vicinity. Image courtesy of Willow Garage, LLC.
+different viewpoints, analyzing the resulting parallax in these images to compute the range of
+surrounding objects.
+For mobile ground robots, sonar and stereo vision are now rarely used, because they are
+not reliably accurate. The Kinect is a popular low-cost sensor that combines a camera and a
+structured light projector, which projects a pattern of grid lines onto a scene. The camera
+Structured light
+sees how the grid lines bend, giving the robot information about the shape of the objects in
+the scene. If desired, the projection can be infrared light, so as not to interfere with other
+sensors (such as human eyes).
+Most ground robots are now equipped with active optical range ﬁnders. Just like sonar
+sensors, optical range sensors emit active signals (light) and measure the time until a reﬂection
+of this signal arrives back at the sensor. Figure 26.3(a) shows a time-of-ﬂight camera. This
+Time-of-ﬂight
+camera
+camera acquires range images like the one shown in Figure 26.3(b) at up to 60 frames per
+second. Autonomous cars often use scanning lidars (short for light detection and ranging)—
+Scanning lidar
+active sensors that emit laser beams and sense the reﬂected beam, giving range measurements
+accurate to within a centimeter at a range of 100 meters. They use complex arrangements of
+mirrors or rotating elements to sweep the beam across the environment and build a map.
+Scanning lidars tend to work better than time-of-ﬂight cameras at longer ranges, and tend to
+perform better in bright daylight.
+Radar is often the range ﬁnding sensor of choice for air vehicles (autonomous or not).
+Radar
+Radar sensors can measure distances up to kilometers, and have an advantage over optical
+sensors in that they can see through fog. On the close end of range sensing are tactile sensors
+Tactile sensor
+such as whiskers, bump panels, and touch-sensitive skin. These sensors measure range based
+on physical contact, and can be deployed only for sensing objects very close to the robot.
+A second important class is location sensors. Most location sensors use range sensing
+Location sensor
+as a primary component to determine location. Outdoors, the Global Positioning System
+Global Positioning
+System
+(GPS) is the most common solution to the localization problem. GPS measures the distance to
+
+
+936
+Chapter 26
+Robotics
+satellites that emit pulsed signals. At present, there are 31 operational GPS satellites in orbit,
+and 24 GLONASS satellites, the Russian counterpart. GPS receivers can recover the distance
+to a satellite by analyzing phase shifts. By triangulating signals from multiple satellites, GPS
+receivers can determine their absolute location on Earth to within a few meters. Differential
+GPS involves a second ground receiver with known location, providing millimeter accuracy
+Diﬀerential GPS
+under ideal conditions.
+Unfortunately, GPS does not work indoors or underwater. Indoors, localization is often
+achieved by attaching beacons in the environment at known locations. Many indoor environ-
+ments are full of wireless base stations, which can help robots localize through the analysis of
+the wireless signal. Underwater, active sonar beacons can provide a sense of location, using
+sound to inform AUVs of their relative distances to those beacons.
+The third important class is proprioceptive sensors, which inform the robot of its own
+Proprioceptive
+sensor
+motion. To measure the exact conﬁguration of a robotic joint, motors are often equipped with
+shaft decoders that accurately measure the angular motion of a shaft. On robot arms, shaft
+Shaft decoder
+decoders help track the position of joints. On mobile robots, shaft decoders report wheel rev-
+olutions for odometry—the measurement of distance traveled. Unfortunately, wheels tend to
+Odometry
+drift and slip, so odometry is accurate only over short distances. External forces, such as wind
+and ocean currents, increase positional uncertainty. Inertial sensors, such as gyroscopes, re-
+Inertial sensor
+duce uncertainty by relying on the resistance of mass to the change of velocity.
+Other important aspects of robot state are measured by force sensors and torque sensors.
+Force sensor
+Torque sensor
+These are indispensable when robots handle fragile objects or objects whose exact size and
+shape are unknown. Imagine a one-ton robotic manipulator screwing in a light bulb. It would
+be all too easy to apply too much force and break the bulb. Force sensors allow the robot
+to sense how hard it is gripping the bulb, and torque sensors allow it to sense how hard it is
+turning. High-quality sensors can measure forces in all three translational and three rotational
+directions. They do this at a frequency of several hundred times a second so that a robot can
+quickly detect unexpected forces and correct its actions before it breaks a light bulb. However,
+it can be a challenge to outﬁt a robot with high-end sensors and the computational power to
+monitor them.
+26.2.3 Producing motion
+The mechanism that initiates the motion of an effector is called an actuator; examples include
+Actuator
+transmissions, gears, cables, and linkages. The most common type of actuator is the electric
+actuator, which uses electricity to spin up a motor. These are predominantly used in systems
+that need rotational motion, like joints on a robot arm. Hydraulic actuators use pressurized
+Hydraulic actuator
+hydraulic ﬂuid (like oil or water) and pneumatic actuators use compressed air to generate
+Pneumatic actuator
+mechanical motion.
+Actuators are often used to move joints, which connect rigid bodies (links). Arms and
+legs have such joints. In revolute joints, one link rotates with respect to the other. In pris-
+Revolute joint
+matic joints, one link slides along the other. Both of these are single-axis joints (one axis
+Prismatic joint
+of motion). Other kinds of joints include spherical, cylindrical, and planar joints, which are
+multi-axis joints.
+To interact with objects in the environment, robots use grippers. The most basic type
+of gripper is the parallel jaw gripper, with two ﬁngers and a single actuator that moves
+Parallel jaw gripper
+the ﬁngers together to grasp objects. This effector is both loved and hated for its simplicity.
+
+
+Section 26.3
+What kind of problem is robotics solving?
+937
+Three-ﬁngered grippers offer slightly more ﬂexibility while maintaining simplicity. At the
+other end of the spectrum are humanoid (anthropomorphic) hands. For instance, the Shadow
+Dexterous Hand has a total of 20 actuators. This offers a lot more ﬂexibility for complex
+manipulation, including in-hand manipulator maneuvers (think of picking up your cell phone
+and rotating it in-hand to orient it right-side up), but this ﬂexibility comes at a price—learning
+to control these complex grippers is more challenging.
+26.3 What kind of problem is robotics solving?
+Now that we know what the robot hardware might be, we’re ready to consider the agent
+software that drives the hardware to achieve our goals. We ﬁrst need to decide the computa-
+tional framework for this agent. We have talked about search in deterministic environments,
+MDPs for stochastic but fully observable environments, POMDPs for partial observability,
+and games for situations in which the agent is not acting in isolation. Given a computational
+framework, we need to instantiate its ingredients: reward or utility functions, states, actions,
+observation spaces, etc.
+We have already noted that robotics problems are nondeterministic, partially observable,
+and multiagent. Using the game-theoretic notions from Chapter 17, we can see that some-
+times the agents are cooperative and sometimes they are competitive. In a narrow corridor
+where only one agent can go ﬁrst, a robot and a person collaborate because they both want
+to make sure they don’t bump into each other. But in some cases they might compete a bit to
+reach their destination quickly. If the robot is too polite and always makes room, it might get
+stuck in crowded situations and never reach its goal.
+Therefore, when robots act in isolation and know their environment, the problem they
+are solving can be formulated as an MDP; when they are missing information it becomes a
+POMDP; and when they act around people it can often be formulated as a game.
+What is the robot’s reward function in this formulation? Usually the robot is acting in
+service of a human—for example delivering a meal to a hospital patient for the patient’s
+reward, not its own. For most robotics settings, even though robot designers might try to
+specify a good enough proxy reward function, the true reward function lies with the user
+whom the robot is supposed to help. The robot will either need to decipher the user’s desires,
+or rely on an engineer to specify an approximation of the user’s desires.
+As for the robot’s action, state, and observation spaces, the most general form is that
+observations are raw sensor feeds (e.g., the images coming in from cameras, or the laser hits
+coming in from lidar); actions are raw electric currents being sent to the motors; and state is
+what the robot needs to know for its decision making. This means there is a huge gap between
+the low-level percepts and motor controls, and the high-level plans the robot needs to make.
+To bridge the gap, roboticists decouple aspects of the problem to simplify it.
+For instance, we know that when we solve POMDPs properly, perception and action
+interact: perception informs which actions make sense, but action also informs perception,
+with agents taking actions to gather information when that information has value in later
+time steps. However, robots often separate perception from action, consuming the outputs
+of perception and pretending they will not get any more information in the future. Further,
+hierarchical planning is called for, because a high-level goal like “get to the cafeteria” is far
+removed from a motor command like “rotate the main axle 1 ◦,”
+
+

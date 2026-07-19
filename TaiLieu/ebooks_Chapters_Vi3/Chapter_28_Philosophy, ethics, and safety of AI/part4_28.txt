@@ -1,0 +1,205 @@
+1044
+Chapter 28
+Philosophy, Ethics, and Safety of AI
+• Group fairness: A requirement that two classes are treated similarly, as measured by
+some summary statistic.
+• Fairness through unawareness: If we delete the race and gender attributes from the
+data set, then it might seem that the system cannot discriminate on those attributes.
+Unfortunately, we know that machine learning models can predict latent variables (such
+as race and gender) given other correlated variables (such as zip code and occupation).
+Furthermore, deleting those attributes makes it impossible to verify equal opportunity
+or equal outcomes. Still, some countries (e.g., Germany) have chosen this approach for
+their demographic statistics (whether or not machine learning models are involved).
+• Equal outcome: The idea that each demographic class gets the same results; they have
+demographic parity. For example, suppose we have to decide whether we should
+Demographic parity
+approve loan applications; the goal is to approve those applicants who will pay back
+the loan and not those who will default on the loan. Demographic parity says that
+both males and females should have the same percentage of loans approved. Note that
+this is a group fairness criterion that does nothing to ensure individual fairness; a well-
+qualiﬁed applicant might be denied and a poorly-qualiﬁed applicant might be approved,
+as long as the overall percentages are equal. Also, this approach favors redress of past
+biases over accuracy of prediction. If a man and a woman are equal in every way, except
+the woman receives a lower salary for the same job, should she be approved because she
+would be equal if not for historical biases, or should she be denied because the lower
+salary does in fact make her more likely to default?
+• Equal opportunity: The idea that the people who truly have the ability to pay back
+the loan should have an equal chance of being correctly classiﬁed as such, regardless of
+their sex. This approach is also called “balance.” It can lead to unequal outcomes and
+ignores the effect of bias in the societal processes that produced the training data.
+• Equal impact: People with similar likelihood to pay back the loan should have the
+same expected utility, regardless of the class they belong to. This goes beyond equal
+opportunity in that it considers both the beneﬁts of a true prediction and the costs of a
+false prediction.
+Let us examine how these issues play out in a particular context. COMPAS is a com-
+mercial system for recidivism (re-offense) scoring. It assigns to a defendant in a criminal
+case a risk score, which is then used by a judge to help make decisions: Is it safe to release
+the defendant before trial, or should they be held in jail? If convicted, how long should the
+sentence be? Should parole be granted? Given the signiﬁcance of these decisions, the system
+has been the subject of intense scrutiny (Dressel and Farid, 2018).
+COMPAS is designed to be well calibrated: all the individuals who are given the same
+Well calibrated
+score by the algorithm should have approximately the same probability of re-offending, re-
+gardless of race. For example, among all people that the model assigns a risk score of 7 out
+of 10, 60% of whites and 61% of blacks re-offend. The designers thus claim that it meets the
+desired fairness goal.
+On the other hand, COMPAS does not achieve equal opportunity: the proportion of
+those who did not re-offend but were falsely rated as high-risk was 45% for blacks and 23%
+for whites. In the case State v. Loomis, where a judge relied on COMPAS to determine the
+sentence of the defendant, Loomis argued that the secretive inner workings of the algorithm
+
+
+Section 28.3
+The Ethics of AI
+1045
+violated his due process rights. Though the Wisconsin Supreme Court found that the sentence
+given would be no different without COMPAS in this case, it did issue warnings about the
+algorithm’s accuracy and risks to minority defendants. Other researchers have questioned
+whether it is appropriate to use algorithms in applications such as sentencing.
+We could hope for an algorithm that is both well calibrated and equal opportunity, but,
+as Kleinberg et al. (2016) show, that is impossible. If the base classes are different, then
+any algorithm that is well calibrated will necessarily not provide equal opportunity, and vice
+versa. How can we weigh the two criteria? Equal impact is one possibility. In the case of
+COMPAS, this means weighing the negative utility of defendants being falsely classiﬁed as
+high risk and losing their freedom, versus the cost to society of an additional crime being
+committed, and ﬁnding the point that optimizes the tradeoff. This is complicated because
+there are multiple costs to consider. There are individual costs—a defendant who is wrong-
+fully held in jail suffers a loss, as does the victim of a defendant who was wrongfully released
+and re-offends. But beyond that there are group costs—everyone has a certain fear that they
+will be wrongfully jailed, or will be the victim of a crime, and all taxpayers contribute to the
+costs of jails and courts. If we give value to those fears and costs in proportion to the size of
+a group, then utility for the majority may come at the expense of a minority.
+Another problem with the whole idea of recidivism scoring, regardless of the model used,
+is that we don’t have unbiased ground truth data. The data does not tell us who has committed
+a crime—all we know is who has been convicted of a crime. If the arresting ofﬁcers, judge,
+or jury is biased, then the data will be biased. If more ofﬁcers patrol some locations, then
+the data will be biased against people in those locations. Only defendants who are released
+are candidates to recommit, so if the judges making the release decisions are biased, the data
+may be biased. If you assume that behind the biased data set there is an underlying, unknown,
+unbiased data set which has been corrupted by an agent with biases, then there are techniques
+to recover an approximation to the unbiased data. Jiang and Nachum (2019) describe various
+scenarios and the techniques involved.
+One more risk is that machine learning can be used to justify bias. If decisions are made
+by a biased human after consulting with a machine learning system, the human can say “here
+is how my interpretation of the model supports my decision, so you shouldn’t question my
+decision.” But other interpretations could lead to an opposite decision.
+Sometimes fairness means that we should reconsider the objective function, not the data
+or the algorithm. For example, in making job hiring decisions, if the objective is to hire
+candidates with the best qualiﬁcations in hand, we risk unfairly rewarding those who have
+had advantageous educational opportunities throughout their lives, thereby enforcing class
+boundaries. But if the objective is to hire candidates with the best ability to learn on the job,
+we have a better chance to cut across class boundaries and choose from a broader pool. Many
+companies have programs designed for such applicants, and ﬁnd that after a year of training,
+the employees hired this way do as well as the traditional candidates. Similarly, just 18% of
+computer science graduates in the U.S. are women, but some schools, such as Harvey Mudd
+University, have achieved 50% parity with an approach that is focused on encouraging and
+retaining those who start the computer science program, especially those who start with less
+programming experience.
+A ﬁnal complication is deciding which classes deserve protection. In the U.S., the Fair
+Housing Act recognized seven protected classes: race, color, religion, national origin, sex,
+
+
+1046
+Chapter 28
+Philosophy, Ethics, and Safety of AI
+disability, and familial status. Other local, state, and federal laws recognize other classes,
+including sexual orientation, and pregnancy, marital, and veteran status. Is it fair that these
+classes count for some laws and not others? International human rights law, which encom-
+passes a broad set of protected classes, is a potential framework to harmonize protections
+across various groups.
+Even in the absence of societal bias, sample size disparity can lead to biased results.
+Sample size disparity
+In most data sets there will be fewer training examples of minority class individuals than
+of majority class individuals. Machine learning algorithms give better accuracy with more
+training data, so that means that members of minority classes will experience lower accuracy.
+For example, Buolamwini and Gebru (2018) examined a computer vision gender identiﬁca-
+tion service, and found that it had near-perfect accuracy for light-skinned males, and a 33%
+error rate for dark-skinned females. A constrained model may not be able to simultaneously
+ﬁt both the majority and minority class—a linear regression model might minimize average
+error by ﬁtting just the majority class, and in an SVM model, the support vectors might all
+correspond to majority class members.
+Bias can also come into play in the software development process (whether or not the
+software involves machine learning). Engineers who are debugging a system are more likely
+to notice and ﬁx those problems that are applicable to themselves. For example, it is difﬁcult
+to notice that a user interface design won’t work for colorblind people unless you are in fact
+colorblind, or that an Urdu language translation is faulty if you don’t speak Urdu.
+How can we defend against these biases? First, understand the limits of the data you are
+using. It has been suggested that data sets (Gebru et al., 2018; Hind et al., 2018) and models
+(Mitchell et al., 2019) should come with annotations: declarations of provenance, security,
+conformity, and ﬁtness for use. This is similar to the data sheets that accompany electronic
+Data sheet
+components such as resistors; they allow designers to decide what components to use. In
+addition to the data sheets, it is important to train engineers to be aware of issues of fairness
+and bias, both in school and with on-the-job training. Having a diversity of engineers from
+different backgrounds makes it easier for them to notice problems in the data or models. A
+study by the AI Now Institute (West et al., 2019) found that only 18% of authors at leading
+AI conferences and 20% of AI professors are women. Black AI workers are at less than 4%.
+Rates at industry research labs are similar. Diversity could be increased by programs earlier
+in the pipeline—in college or high school—and by greater awareness at the professional level.
+Joy Buolamwini founded the Algorithmic Justice League to raise awareness of this issue and
+develop practices for accountability.
+A second idea is to de-bias the data (Zemel et al., 2013). We could over-sample from
+minority classes to defend against sample size disparity. Techniques such as SMOTE, the
+synthetic minority over-sampling technique (Chawla et al., 2002) or ADASYN, the adaptive
+synthetic sampling approach for imbalanced learning (He et al., 2008), provide principled
+ways of oversampling. We could examine the provenance of data and, for example, eliminate
+examples from judges who have exhibited bias in their past court cases. Some analysts object
+to the idea of discarding data, and instead would recommend building a hierarchical model of
+the data that includes sources of bias, so they can be modeled and compensated for. Google
+and NeurIPS have attempted to raise awareness of this issue by sponsoring the Inclusive
+Images Competition, in which competitors train a network on a data set of labeled images
+collected in North America and Europe, and then test it on images taken from all around the
+
+
+Section 28.3
+The Ethics of AI
+1047
+world. The issue is that given this data set, it is easy to apply the label “bride” to a woman
+in a standard Western wedding dress, but harder to recognize traditional African and Indian
+matrimonial dress.
+A third idea is to invent new machine learning models and algorithms that are more resis-
+tant to bias; and the ﬁnal idea is to let a system make initial recommendations that may be bi-
+ased, but then train a second system to de-bias the recommendations of the ﬁrst one. Bellamy
+et al. (2018) introduced the IBM AI FAIRNESS 360 system, which provides a framework for
+all of these ideas. We expect there will be increased use of tools like this in the future.
+How do you make sure that the systems you build will be fair? A set of best practices has
+been emerging (although they are not always followed):
+• Make sure that the software engineers talk with social scientists and domain experts to
+understand the issues and perspectives, and consider fairness from the start.
+• Create an environment that fosters the development of a diverse pool of software engi-
+neers that are representative of society.
+• Deﬁne what groups your system will support: different language speakers, different age
+groups, different abilities with sight and hearing, etc.
+• Optimize for an objective function that incorporates fairness.
+• Examine your data for prejudice and for correlations between protected attributes and
+other attributes.
+• Understand how any human annotation of data is done, design goals for annotation
+accuracy, and verify that the goals are met.
+• Don’t just track overall metrics for your system; make sure you track metrics for sub-
+groups that might be victims of bias.
+• Include system tests that reﬂect the experience of minority group users.
+• Have a feedback loop so that when fairness problems come up, they are dealt with.
+28.3.4 Trust and transparency
+It is one challenge to make an AI system accurate, fair, safe, and secure; a different chal-
+lenge to convince everyone else that you have done so. People need to be able to trust the
+Trust
+systems they use. A PwC survey in 2017 found that 76% of businesses were slowing the
+adoption of AI because of trustworthiness concerns. In Section 19.9.4 we covered some of
+the engineering approaches to trust; here we discuss the policy issues.
+To earn trust, any engineered systems must go through a veriﬁcation and validation
+Veriﬁcation and
+validation
+(V&V) process. Veriﬁcation means that the product satisﬁes the speciﬁcations. Validation
+means ensuring that the speciﬁcations actually meet the needs of the user and other affected
+parties. We have an elaborate V&V methodology for engineering in general, and for tradi-
+tional software development done by human coders; much of that is applicable to AI systems.
+But machine learning systems are different and demand a different V&V process, which has
+not yet been fully developed. We need to verify the data that these systems learn from; we
+need to verify the accuracy and fairness of the results, even in the face of uncertainty that
+makes an exact result unknowable; and we need to verify that adversaries cannot unduly
+inﬂuence the model, nor steal information by querying the resulting model.
+One instrument of trust is certiﬁcation; for example, Underwriters Laboratories (UL)
+Certiﬁcation
+was founded in 1894 at a time when consumers were apprehensive about the risks of electric
+
+

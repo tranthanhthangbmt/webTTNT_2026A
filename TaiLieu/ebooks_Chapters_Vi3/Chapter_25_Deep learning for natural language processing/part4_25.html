@@ -1,0 +1,52 @@
+<p>chúng ta phải xử lý toàn bộ câu nguồn trước khi bắt đầu sinh ra câu đích. Nói cách khác, việc sinh ra mỗi từ đích là có điều kiện phụ thuộc vào toàn bộ câu nguồn và vào tất cả các từ đích đã được sinh ra trước đó.</p>
+
+<p>Điều này đem lại cho việc sinh văn bản phục vụ dịch máy một sự kết nối chặt chẽ với một mô hình ngôn ngữ RNN tiêu chuẩn, như đã được mô tả trong Mục 25.2. Chắc chắn, nếu chúng ta đã huấn luyện một RNN trên văn bản tiếng Anh, nó sẽ có nhiều khả năng tạo ra "big dog" hơn là "dog big". Tuy nhiên, chúng ta không muốn tạo ra bất kỳ câu tiếng Anh ngẫu nhiên nào; chúng ta muốn tạo ra một câu đích tương ứng với câu nguồn. Cách đơn giản nhất để làm điều đó là sử dụng hai mạng RNN, một cho nguồn và một cho đích. Chúng ta chạy RNN nguồn trên câu nguồn và sau đó sử dụng trạng thái ẩn cuối cùng từ RNN nguồn làm trạng thái ẩn ban đầu cho RNN đích. Bằng cách này, mỗi từ đích được ngầm định coi là có điều kiện dựa trên cả toàn bộ câu nguồn và các từ đích trước đó.</p>
+
+<p>Kiến trúc mạng nơ-ron này được gọi là một <strong>mô hình chuỗi sang chuỗi cơ bản</strong> (basic sequence-to-sequence model), một ví dụ về nó được thể hiện trong Hình 25.6. Các mô hình chuỗi sang chuỗi được sử dụng phổ biến nhất cho dịch máy, nhưng cũng có thể được sử dụng cho một số tác vụ khác, như tự động tạo chú thích văn bản từ một hình ảnh, hoặc tóm tắt: viết lại một văn bản dài thành một văn bản ngắn hơn mà vẫn giữ nguyên ý nghĩa.</p>
+
+<p>Các mô hình chuỗi sang chuỗi cơ bản là một bước đột phá đáng kể trong NLP nói chung và dịch máy nói riêng. Theo Wu et al. (2016b), phương pháp này đã dẫn đến việc giảm 60% lỗi so với các phương pháp dịch máy trước đó. Nhưng các mô hình này mắc phải ba thiếu sót chính:</p>
+<ul>
+  <li><strong>Xu hướng thiên vị ngữ cảnh gần (Nearby context bias)</strong>: bất kể các mạng RNN muốn ghi nhớ điều gì về quá khứ, chúng phải điều chỉnh vào trong trạng thái ẩn của mình. Ví dụ, giả sử một RNN đang xử lý từ (hoặc bước thời gian) 57 trong một chuỗi dài 70 từ. Trạng thái ẩn nhiều khả năng sẽ chứa nhiều thông tin về từ ở bước thời gian 56 hơn là từ ở bước thời gian 5, bởi vì mỗi lần cập nhật vectơ ẩn, nó phải thay thế một lượng thông tin hiện có bằng thông tin mới. Hành vi này là một phần trong chủ ý thiết kế của mô hình, và thường có ý nghĩa đối với NLP, vì ngữ cảnh gần thường quan trọng hơn. Tuy nhiên, ngữ cảnh xa cũng có thể quan trọng không kém, và có thể bị mất trong một mô hình RNN; thậm chí các mạng LSTM cũng gặp khó khăn với nhiệm vụ này.</li>
+  <li><strong>Giới hạn kích thước ngữ cảnh cố định (Fixed context size limit)</strong>: Trong một mô hình dịch RNN, toàn bộ câu nguồn bị nén vào một vectơ trạng thái ẩn có số chiều cố định duy nhất. Một LSTM được sử dụng trong mô hình NLP hiện đại nhất thường có khoảng 1024 chiều, và nếu chúng ta phải biểu diễn, giả sử, một câu 64 từ trong 1024 chiều, điều này chỉ cung cấp cho chúng ta 16 chiều cho mỗi từ—không đủ cho các câu phức tạp. Tăng kích thước vectơ trạng thái ẩn có thể dẫn đến việc huấn luyện chậm và quá khớp (overfitting).</li>
+  <li><strong>Xử lý tuần tự chậm hơn (Slower sequential processing)</strong>: Như đã thảo luận trong Mục 22.3, các mạng nơ-ron đạt được hiệu suất đáng kể nhờ xử lý dữ liệu huấn luyện theo từng lô (batches) để tận dụng phần cứng hiệu quả cho tính toán ma trận. Ngược lại, RNN dường như bị hạn chế ở việc vận hành trên dữ liệu huấn luyện từng từ một.</li>
+</ul>
+
+<h3>25.3.1 Cơ chế chú ý (Attention)</h3>
+
+<p>Sẽ ra sao nếu RNN đích được tạo điều kiện dựa trên tất cả các vectơ ẩn từ RNN nguồn, thay vì chỉ dựa vào vectơ cuối cùng? Điều này sẽ giảm bớt những hạn chế của thiên vị ngữ cảnh gần và giới hạn kích thước ngữ cảnh cố định, cho phép mô hình truy cập bất kỳ từ nào trước đó một cách tốt như nhau. Một cách để đạt được quyền truy cập này là ghép nối tất cả các vectơ ẩn của RNN nguồn. Tuy nhiên, điều này sẽ gây ra sự gia tăng khổng lồ về số lượng trọng số, đi kèm với sự gia tăng về thời gian tính toán và cũng có khả năng bị quá khớp. Thay vào đó, chúng ta có thể tận dụng thực tế là khi RNN đích đang tạo ra đích từng từ một, có khả năng chỉ một phần nhỏ của nguồn thực sự có liên quan đến mỗi từ đích.</p>
+
+<p>Điều quan trọng là, RNN đích phải chú ý đến các phần khác nhau của nguồn cho mỗi từ. Giả sử một mạng được huấn luyện để dịch tiếng Anh sang tiếng Tây Ban Nha. Nó được cung cấp các từ “The front door is red” (Cánh cửa trước màu đỏ) theo sau là một điểm đánh dấu kết thúc câu, nghĩa là đã đến lúc bắt đầu xuất ra các từ tiếng Tây Ban Nha. Vì vậy, lý tưởng nhất là ban đầu nó nên chú ý đến từ “The” và tạo ra “La”, sau đó chú ý đến “door” và xuất ra “puerta”, v.v.</p>
+
+<p>Chúng ta có thể chính thức hóa khái niệm này với một thành phần mạng nơ-ron được gọi là <strong>sự chú ý</strong> (attention), có thể được sử dụng để tạo ra một "bản tóm tắt dựa trên ngữ cảnh" của câu nguồn thành một biểu diễn có số chiều cố định. Vectơ ngữ cảnh \(\mathbf{c}_i\) chứa thông tin liên quan nhất để tạo ra từ đích tiếp theo, và sẽ được sử dụng làm đầu vào bổ sung cho RNN đích. Một mô hình chuỗi sang chuỗi sử dụng sự chú ý được gọi là một <strong>mô hình chuỗi sang chuỗi có sự chú ý</strong> (attentional sequence-to-sequence model). Nếu RNN đích tiêu chuẩn được viết là:</p>
+
+<p>\[ \mathbf{h}_i = \text{RNN}(\mathbf{h}_{i-1}, \mathbf{x}_i), \]</p>
+
+<p>RNN đích cho mô hình chuỗi sang chuỗi có sự chú ý có thể được viết là:</p>
+
+<p>\[ \mathbf{h}_i = \text{RNN}(\mathbf{h}_{i-1}, [\mathbf{x}_i; \mathbf{c}_i]) \]</p>
+
+<p>trong đó \([\mathbf{x}_i; \mathbf{c}_i]\) là sự nối ghép của đầu vào và các vectơ ngữ cảnh \(\mathbf{c}_i\), được định nghĩa là:</p>
+
+<p>
+  \(r_{ij} = \mathbf{h}_{i-1} \cdot \mathbf{s}_j\) <br>
+  \(a_{ij} = e^{r_{ij}} / (\sum_{k} e^{r_{ik}})\) <br>
+  \(\mathbf{c}_i = \sum_{j} a_{ij} \cdot \mathbf{s}_j\)
+</p>
+
+<p>trong đó \(\mathbf{h}_{i-1}\) là vectơ RNN đích sẽ được sử dụng để dự đoán từ ở bước thời gian \(i\), và \(\mathbf{s}_j\) là đầu ra của vectơ RNN nguồn cho từ nguồn (hoặc bước thời gian) \(j\). Cả \(\mathbf{h}_{i-1}\) và \(\mathbf{s}_j\) đều là các vectơ \(d\) chiều, trong đó \(d\) là kích thước ẩn. Do đó, giá trị của \(r_{ij}\) là "điểm số chú ý" thô giữa trạng thái đích hiện tại và từ nguồn \(j\). Các điểm số này sau đó được chuẩn hóa thành một xác suất \(a_{ij}\) bằng cách sử dụng softmax trên tất cả các từ nguồn. Cuối cùng, các xác suất này được sử dụng để tạo ra trung bình có trọng số của các vectơ RNN nguồn, \(\mathbf{c}_i\) (một vectơ \(d\) chiều khác).</p>
+
+<p>Một ví dụ về mô hình chuỗi sang chuỗi có sự chú ý được trình bày trong <strong>Hình 25.7 (a)</strong>. Có một vài chi tiết quan trọng cần hiểu. Đầu tiên, bản thân thành phần sự chú ý không có trọng số nào được học và hỗ trợ các chuỗi có độ dài thay đổi ở cả hai phía nguồn và đích. Thứ hai, giống như hầu hết các kỹ thuật mô hình mạng nơ-ron khác mà chúng ta đã học, sự chú ý hoàn toàn là tiềm ẩn. Lập trình viên không ra lệnh cho thông tin nào sẽ được sử dụng khi nào; mô hình sẽ học được nên sử dụng cái gì. Sự chú ý cũng có thể được kết hợp với các mạng RNN nhiều lớp. Trong trường hợp đó, thông thường sự chú ý được áp dụng ở mỗi lớp.</p>
+
+<p>Sự công thức hóa xác suất softmax cho sự chú ý phục vụ ba mục đích. Thứ nhất, nó làm cho sự chú ý có thể lấy đạo hàm, điều này cần thiết để nó được sử dụng với lan truyền ngược (back-propagation). Mặc dù bản thân sự chú ý không có trọng số nào được học, các đạo hàm (gradients) vẫn luân chuyển ngược lại thông qua sự chú ý tới các RNN nguồn và đích. Thứ hai, việc công thức hóa xác suất cho phép mô hình nắm bắt được một số loại ngữ cảnh hóa khoảng cách xa mà RNN nguồn có thể chưa nắm bắt được, vì sự chú ý có thể xem xét toàn bộ chuỗi nguồn cùng một lúc, và học cách giữ lại những gì quan trọng và bỏ qua phần còn lại. Thứ ba, sự chú ý theo xác suất cho phép mạng biểu diễn sự không chắc chắn—nếu mạng không biết chính xác từ nguồn nào cần dịch tiếp theo, nó có thể phân bổ các xác suất chú ý lên một số tùy chọn, và sau đó thực sự chọn từ sử dụng RNN đích.</p>
+
+<p>Không giống như hầu hết các thành phần của mạng nơ-ron, các xác suất chú ý thường có thể được con người giải thích và có ý nghĩa theo trực giác. Ví dụ, trong trường hợp dịch máy, các xác suất chú ý thường tương ứng với việc gióng hàng từng từ (word-to-word alignments) mà con người sẽ tạo ra. Điều này được thể hiện trong <strong>Hình 25.7(b)</strong>.</p>
+
+<p>Các mô hình chuỗi sang chuỗi phù hợp tự nhiên cho dịch máy, nhưng gần như bất kỳ tác vụ ngôn ngữ tự nhiên nào cũng có thể được mã hóa thành bài toán chuỗi sang chuỗi. Ví dụ, một hệ thống trả lời câu hỏi có thể được huấn luyện dựa trên đầu vào bao gồm một câu hỏi theo sau là một dấu phân cách rồi đến câu trả lời.</p>
+
+<h3>25.3.2 Giải mã (Decoding)</h3>
+
+<p>Tại thời điểm huấn luyện, một mô hình chuỗi sang chuỗi cố gắng tối đa hóa xác suất của mỗi từ trong câu đích huấn luyện, với điều kiện dựa trên nguồn và tất cả các từ đích trước đó. Một khi quá trình huấn luyện hoàn tất, chúng ta được cung cấp một câu nguồn và mục tiêu của chúng ta là tạo ra câu đích tương ứng. Như thể hiện trong Hình 25.7, chúng ta có thể tạo ra đích từng từ một, và sau đó cấp lại đầu vào là từ mà chúng ta vừa tạo ra ở bước thời gian tiếp theo. Thủ tục này được gọi là <strong>giải mã</strong> (decoding).</p>
+
+<p>Dạng giải mã đơn giản nhất là chọn từ có xác suất cao nhất tại mỗi bước thời gian và sau đó đưa từ này làm đầu vào cho bước thời gian tiếp theo. Điều này được gọi là <strong>giải mã tham lam</strong> (greedy decoding) vì sau mỗi từ đích được sinh ra, hệ thống đã hoàn toàn cam kết với giả thuyết mà nó đã tạo ra cho đến nay. Vấn đề là mục tiêu của giải mã là tối đa hóa xác suất của toàn bộ chuỗi đích, điều mà giải mã tham lam có thể không đạt được. Ví dụ, hãy xem xét</p>
+
+<p><strong>Hình 25.7</strong> (a) Mô hình chuỗi sang chuỗi có sự chú ý để dịch từ tiếng Anh sang tiếng Tây Ban Nha. Các đường đứt nét biểu thị sự chú ý. (b) Ví dụ về ma trận xác suất sự chú ý cho một cặp câu song ngữ, với các hộp sẫm màu hơn biểu thị giá trị \(a_{ij}\) cao hơn. Các xác suất sự chú ý có tổng bằng một trên mỗi cột.</p>

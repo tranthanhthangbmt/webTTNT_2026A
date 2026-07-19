@@ -1,0 +1,31 @@
+<h2 id="266-planning-uncertain-movements">26.6 Lập kế hoạch với các chuyển động bất định (Planning Uncertain Movements)</h2>
+
+<p>Trong robotics, sự bất định phát sinh do tính quan sát một phần của môi trường và do tác động ngẫu nhiên của các thao tác. Phần lớn các robot hiện đại đều xấp xỉ bài toán này bằng cách chọn giả thuyết trạng thái có khả năng cao nhất và thực hiện lập kế hoạch như thể môi trường là tất định.</p>
+
+<p>Tuy nhiên, nếu giả thuyết có khả năng cao nhất bị thay đổi nhiều, việc bám theo kế hoạch cũ sẽ không hiệu quả. Giải pháp là <strong>Lập kế hoạch lại trực tuyến</strong> (Online replanning). Rất nhiều robot sử dụng kỹ thuật <strong>Điều khiển dự đoán mô hình</strong> (Model Predictive Control - <strong>MPC</strong>), trong đó chúng lập kế hoạch cho một khung thời gian ngắn nhưng liên tục lập lại kế hoạch ở mỗi bước.</p>
+
+<p>Sự bất định cũng đòi hỏi những <strong>hành động thu thập thông tin</strong>. Khung lập kế hoạch thông thường thiếu khả năng dự trù "giá trị của thông tin". Vì vậy, các nhà thiết kế tạo ra các <strong>chuyển động có phòng vệ</strong> (Guarded movements). Ví dụ, yêu cầu robot giơ tay ra trước cho đến khi chạm một bề mặt rồi mới tiếp tục lập kế hoạch cho mục tiêu chính.</p>
+
+<p><strong>Hình 26.23</strong> Môi trường 2D với lỗ cắm hẹp và nón bất định. Nếu đi thẳng xuống, robot có thể trượt và không biết phải di chuyển qua trái hay phải.</p>
+<p><strong>Hình 26.24</strong> Một chuyển động có phòng vệ. Chủ đích điều khiển robot đi lệch hẳn sang trái tường trước.</p>
+<p><strong>Hình 26.25</strong> Chuyển động tiếp theo. Robot được điều khiển trượt theo tường, chắc chắn sẽ rơi xuống lỗ mà không bị lạc hướng bất chấp nhiễu điều khiển.</p>
+
+<p>Một kỹ thuật khác là định vị chi phí vào những vùng an toàn, ví dụ quy tắc <strong>"hàng hải ven bờ"</strong> (Coastal navigation) yêu cầu robot đi sát các điểm chuẩn (landmarks) để có thể định vị mình thay vì ra vùng mở, hoặc cộng thẳng yếu tố "tăng cường thông tin" vào hàm chi phí.</p>
+
+<h2 id="267-reinforcement-learning-in-robotics">26.7 Học tăng cường trong Robot (Reinforcement Learning in Robotics)</h2>
+
+<p>Cho đến nay, chúng ta xem xét robot đã có sẵn mô hình động lực học của thế giới. Nhưng thường thì mô hình này rất khó viết thành các phương trình rõ ràng, đưa chúng ta tới với lĩnh vực <strong>học tăng cường</strong> (Reinforcement Learning - RL).</p>
+
+<p>Thách thức lớn nhất khi áp dụng RL cho robot là <em>độ phức tạp về số lượng mẫu thực tế</em> (sample complexity). Thuật toán có thể chơi hàng triệu ván cờ trên mô phỏng trong vài giờ, nhưng thế giới thực luôn trôi qua với tốc độ 1 giây mỗi giây, khiến cho thời gian học trên robot thực tế tốn kém và mạo hiểm.</p>
+
+<h3 id="2671-exploiting-models">26.7.1 Khai thác mô hình (Exploiting models)</h3>
+
+<p>Cách tốt nhất để giảm thời gian thử nghiệm là dùng những gì đã biết về vật lý. Có thể dùng RL dựa trên mô hình (Model-based RL) để vừa tối ưu chính sách vừa cải thiện các tham số chưa biết (khối lượng, ma sát...).</p>
+
+<p>Ta cũng có thể học hoàn toàn trên môi trường mô phỏng (simulation) rồi chuyển chính sách (policy) sang robot thật (quá trình gọi là <strong>sim-to-real</strong>). Để vượt qua khoảng cách giữa mô phỏng và thực tế (reality gap), ta áp dụng kỹ thuật <strong>ngẫu nhiên hóa miền</strong> (Domain randomization). Bằng cách cho robot tập với đủ loại mức ma sát, nhiễu sáng, màu sắc khác nhau trong mô phỏng, robot sẽ tạo ra một chính sách đủ bền vững cho môi trường vật lý. Cuối cùng, có các phương pháp kết hợp mô hình cục bộ với chính sách mạng nơ-ron sâu trực tiếp từ ảnh pixel (end-to-end learning).</p>
+
+<p><strong>Hình 26.26</strong> Huấn luyện chính sách bền vững. (a) Đa dạng hóa các tham số và ánh sáng trong mô phỏng. (b) Tay robot thật. (c) Kết quả huấn luyện sim-to-real.</p>
+
+<h3 id="2672-exploiting-other-information">26.7.2 Khai thác thông tin khác</h3>
+
+<p>Một cách khác để tăng tốc học tăng cường là tái sử dụng các kỹ năng thay vì điều khiển từng mức mô-men xoắn. Các kỹ năng cấp cao được gọi là <strong>Hành động nguyên thủy</strong> (Motion primitive). Ví dụ, nếu robot đá bóng đã biết kỹ năng "chuyền bóng cho điểm x, y", nó chỉ cần học cách khi nào nên áp dụng kỹ năng đó thay vì học lại cách xoay từng khớp cổ chân. Chúng ta cũng có thể dựa vào con người để khởi tạo mô hình học cho robot.</p>

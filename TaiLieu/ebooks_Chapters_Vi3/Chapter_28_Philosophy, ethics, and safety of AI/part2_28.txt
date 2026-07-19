@@ -1,0 +1,207 @@
+1036
+Chapter 28
+Philosophy, Ethics, and Safety of AI
+fact that ships do swim (“privet”) in Russian ampliﬁes this point.) English speakers have
+not yet settled on a precise deﬁnition for the word “think”—does it require “a brain” or just
+“brain-like parts?”
+Again, the issue was addressed by Turing. He notes that we never have any direct ev-
+idence about the internal mental states of other humans—a kind of mental solipsism. Nev-
+ertheless, Turing says, “Instead of arguing continually over this point, it is usual to have the
+polite convention that everyone thinks.” Turing argues that we would also extend the polite
+Polite convention
+convention to machines, if only we had experience with ones that act intelligently. How-
+ever, now that we do have some experience, it seems that our willingness to ascribe sentience
+depends at least as much on humanoid appearance and voice as on pure intelligence.
+28.2.1 The Chinese room
+The philosopher John Searle rejects the polite convention. His famous Chinese room argu-
+Chinese room
+ment (Searle, 1990) goes as follows: Imagine a human, who understands only English, inside
+a room that contains a rule book, written in English, and various stacks of paper. Pieces of
+paper containing indecipherable symbols are slipped under the door to the room. The human
+follows the instructions in the rule book, ﬁnding symbols in the stacks, writing symbols on
+new pieces of paper, rearranging the stacks, and so on. Eventually, the instructions will cause
+one or more symbols to be transcribed onto a piece of paper that is passed back to the outside
+world. From the outside, we see a system that is taking input in the form of Chinese sentences
+and generating ﬂuent, intelligent Chinese responses.
+Searle then argues: it is given that the human does not understand Chinese. The rule book
+and the stacks of paper, being just pieces of paper, do not understand Chinese. Therefore,
+there is no understanding of Chinese. And Searle says that the Chinese room is doing the
+same thing that a computer would do, so therefore computers generate no understanding.
+Searle (1980) is a proponent of biological naturalism, according to which mental states
+Biological naturalism
+are high-level emergent features that are caused by low-level physical processes in the neu-
+rons, and it is the (unspeciﬁed) properties of the neurons that matter: according to Searle’s
+biases, neurons have “it” and transistors do not. There have been many refutations of Searle’s
+argument, but no consensus. His argument could equally well be used (perhaps by robots) to
+argue that a human cannot have true understanding; after all, a human is made out of cells,
+the cells do not understand, therefore there is no understanding. In fact, that is the plot of
+Terry Bisson’s (1990) science ﬁction story They’re Made Out of Meat, in which alien robots
+explore Earth and can’t believe that hunks of meat could possibly be sentient. How they can
+be remains a mystery.
+28.2.2 Consciousness and qualia
+Running through all the debates about strong AI is the issue of consciousness: awareness
+Consciousness
+of the outside world, and of the self, and the subjective experience of living. The technical
+term for the intrinsic nature of experiences is qualia (from the Latin word meaning, roughly,
+Qualia
+“of what kind”). The big question is whether machines can have qualia. In the movie 2001,
+when astronaut David Bowman is disconnecting the “cognitive circuits” of the HAL 9000
+computer, it says “I’m afraid, Dave. Dave, my mind is going. I can feel it.” Does HAL
+actually have feelings (and deserve sympathy)? Or is the reply just an algorithmic response,
+no different from “Error 404: not found”?
+
+
+Section 28.3
+The Ethics of AI
+1037
+There is a similar question for animals: pet owners are certain that their dog or cat has
+consciousness, but not all scientists agree. Crickets change their behavior based on tempera-
+ture, but few people would say that crickets experience the feeling of being warm or cold.
+One reason that the problem of consciousness is hard is that it remains ill-deﬁned, even
+after centuries of debate. But help may be on the way. Recently philosophers have teamed
+with neuroscientists under the auspices of the Templeton Foundation to start a series of ex-
+periments that could resolve some of the issues. Advocates of two leading theories of con-
+sciousness (global workspace theory and integrated information theory) have agreed that the
+experiments could conﬁrm one theory over the other—a rarity in philosophy.
+Alan Turing (1950) concedes that the question of consciousness is a difﬁcult one, but
+denies that it has much relevance to the practice of AI: “I do not wish to give the impression
+that I think there is no mystery about consciousness ... But I do not think these mysteries
+necessarily need to be solved before we can answer the question with which we are concerned
+in this paper.” We agree with Turing—we are interested in creating programs that behave
+intelligently. Individual aspects of consciousness—awareness, self-awareness, attention—
+can be programmed and can be part of an intelligent machine. The additional project of
+making a machine conscious in exactly the way humans are is not one that we are equipped
+to take on. We do agree that behaving intelligently will require some degree of awareness,
+which will differ from task to task, and that tasks involving interaction with humans will
+require a model of human subjective experience.
+In the matter of modeling experience, humans have a clear advantage over machines,
+because they can use their own subjective apparatus to appreciate the subjective experience
+of others. For example, if you want to know what it’s like when someone hits their thumb
+with a hammer, you can hit your thumb with a hammer. Machines have no such capability—
+although unlike humans, they can run each other’s code.
+28.3 The Ethics of AI
+Given that AI is a powerful technology, we have a moral obligation to use it well, to promote
+the positive aspects and avoid or mitigate the negative ones.
+The positive aspects are many. For example, AI can save lives through improved med-
+ical diagnosis, new medical discoveries, better prediction of extreme weather events, and
+safer driving with driver assistance and (eventually) self-driving technologies. There are also
+many opportunities to improve lives. Microsoft’s AI for Humanitarian Action program ap-
+plies AI to recovering from natural disasters, addressing the needs of children, protecting
+refugees, and promoting human rights. Google’s AI for Social Good program supports work
+on rainforest protection, human rights jurisprudence, pollution monitoring, measurement of
+fossil fuel emissions, crisis counseling, news fact checking, suicide prevention, recycling, and
+other issues. The University of Chicago’s Center for Data Science for Social Good applies
+machine learning to problems in criminal justice, economic development, education, public
+health, energy, and environment.
+AI applications in crop management and food production help feed the world. Optimiza-
+tion of business processes using machine learning will make businesses more productive,
+increasing wealth and providing more employment. Automation can replace the tedious and
+dangerous tasks that many workers face, and free them to concentrate on more interesting
+
+
+1038
+Chapter 28
+Philosophy, Ethics, and Safety of AI
+aspects. People with disabilities will beneﬁt from AI-based assistance in seeing, hearing, and
+mobility. Machine translation already allows people from different cultures to communicate.
+Software-based AI solutions have near zero marginal cost of production, and so have the po-
+tential to democratize access to advanced technology (even as other aspects of software have
+the potential to centralize power).
+Despite these many positive aspects, we shouldn’t ignore the negatives. Many new tech-
+nologies have had unintended negative side effects: nuclear ﬁssion brought Chernobyl and
+Negative side eﬀects
+the threat of global destruction; the internal combustion engine brought air pollution, global
+warming, and the paving of paradise. Other technologies can have negative effects even when
+used as intended, such as sarin gas, AR-15 riﬂes, and telephone solicitation. Automation will
+create wealth, but under current economic conditions much of that wealth will ﬂow to the
+owners of the automated systems, leading to increased income inequality. This can be dis-
+ruptive to a well-functioning society. In developing countries, the traditional path to growth
+through low-cost manufacturing for export may be cut off, as wealthy countries adopt fully
+automated manufacturing facilities on-shore. Our ethical and governance decisions will dic-
+tate the level of inequality that AI will engender.
+All scientists and engineers face ethical considerations of what projects they should or
+should not take on, and how they can make sure the execution of the project is safe and bene-
+ﬁcial. In 2010, the UK’s Engineering and Physical Sciences Research Council held a meeting
+to develop a set of Principles of Robotics. In subsequent years other government agencies,
+nonproﬁt organizations, and companies created similar sets of principles. The gist is that ev-
+ery organization that creates AI technology, and everyone in the organization, has a responsi-
+bility to make sure the technology contributes to good, not harm. The most commonly-cited
+principles are:
+Ensure safety
+Establish accountability
+Ensure fairness
+Uphold human rights and values
+Respect privacy
+Reﬂect diversity/inclusion
+Promote collaboration
+Avoid concentration of power
+Provide transparency
+Acknowledge legal/policy implications
+Limit harmful uses of AI
+Contemplate implications for employment
+Note that many of the principles, such as “ensure safety,” have applicability to all software or
+hardware systems, not just AI systems. Several principles are worded in a vague way, making
+them difﬁcult to measure or enforce. That is in part because AI is a big ﬁeld with many
+subﬁelds, each of which has a different set of historical norms and different relationships
+between the AI developers and the stakeholders. Mittelstadt (2019) suggests that the subﬁelds
+should each develop more speciﬁc actionable guidelines and case precedents.
+28.3.1 Lethal autonomous weapons
+The UN deﬁnes a lethal autonomous weapon as one that locates, selects, and engages (i.e.,
+kills) human targets without human supervision. Various weapons fulﬁll some of these cri-
+teria. For example, land mines have been used since the 17th century: they can select and
+engage targets in a limited sense according to the degree of pressure exerted or the quan-
+tity of metal present, but they cannot go out and locate targets by themselves. (Land mines
+are banned under the Ottawa Treaty.) Guided missiles, in use since the 1940s, can chase
+targets, but they have to be pointed in the right general direction by a human. Auto-ﬁring
+
+
+Section 28.3
+The Ethics of AI
+1039
+radar-controlled guns have been used to defend naval ships since the 1970s; they are mainly
+intended to destroy incoming missiles, but they could also attack manned aircraft. Although
+the word “autonomous” is often used to describe unmanned air vehicles or drones, most such
+weapons are both remotely piloted and require human actuation of the lethal payload.
+At the time of writing, several weapons systems seem to have crossed the line into full au-
+tonomy. For example Israel’s Harop missile is a “loitering munition” with a ten-foot wingspan
+and a ﬁfty-pound warhead. It searches for up to six hours in a given geographical region for
+any target that meets a given criterion and then destroys it. The criterion could be “emits
+a radar signal resembling antiaircraft radar” or “looks like a tank.” The Turkish manufac-
+turer STM advertises its Kargu quadcopter—which carries up to 1.5kg of explosives—as
+capable of “Autonomous hit . . . targets selected on images ...tracking moving targets ...anti-
+personnel . . . face recognition.”
+Autonomous weapons have been called the “third revolution in warfare” after gunpowder
+and nuclear weapons. Their military potential is obvious. For example, few experts doubt
+that autonomous ﬁghter aircraft would defeat any human pilot. Autonomous aircraft, tanks,
+and submarines can be cheaper, faster, more maneuverable, and have longer range than their
+manned counterparts.
+Since 2014, the United Nations in Geneva has conducted regular discussions under the
+auspices of the Convention on Certain Conventional Weapons (CCW) on the question of
+whether to ban lethal autonomous weapons. At the time of writing, 30 nations, ranging
+in size from China to the Holy See, have declared their support for an international treaty,
+while other key countries—including Israel, Russia, South Korea, and the United States—are
+opposed to a ban.
+The debate over autonomous weapons includes legal, ethical and practical aspects. The
+legal issues are governed primarily by the CCW, which requires the possibility of discrim-
+inating between combatants and non-combatants, the judgment of military necessity for an
+attack, and the assessment of proportionality between the military value of a target and the
+possibility of collateral damage. The feasibility of meeting these criteria is an engineering
+question—one whose answer will undoubtedly change over time. At present, discrimination
+seems feasible in some circumstances and will undoubtedly improve rapidly, but necessity
+and proportionality are not presently feasible: they require that machines make subjective
+and situational judgments that are considerably more difﬁcult than the relatively simple tasks
+of searching for and engaging potential targets. For these reasons, it would be legal to use
+autonomous weapons only in circumstances where a human operator can reasonably predict
+that the execution of the mission will not result in civilians being targeted or the weapons
+conducting unnecessary or disproportionate attacks. This means that, for the time being, only
+very restricted missions could be undertaken by autonomous weapons.
+On the ethical side, some ﬁnd it simply morally unacceptable to delegate the decision to
+kill humans to a machine. For example, Germany’s ambassador in Geneva has stated that
+it “will not accept that the decision over life and death is taken solely by an autonomous
+system” while Japan “has no plan to develop robots with humans out of the loop, which may
+be capable of committing murder.” Gen. Paul Selva, at the time the second-ranking military
+ofﬁcer in the United States, said in 2017, “I don’t think it’s reasonable for us to put robots
+in charge of whether or not we take a human life.” Finally, Ant´onio Guterres, the head of
+the United Nations, stated in 2019 that “machines with the power and discretion to take lives
+
+

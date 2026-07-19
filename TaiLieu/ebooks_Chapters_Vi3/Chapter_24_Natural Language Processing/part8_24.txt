@@ -1,0 +1,161 @@
+Section 24.4
+Augmented Grammars
+895
+Operator(÷)
+3
+(
+)
+4
+2
++
+Number(2)
+Digit(2)
+Number(4)
+Digit(4)
+Operator(+)
+Digit(3)
+Number(3)
+Exp(5)
+Exp(2)
+Exp(2)
+Exp(4)
+Exp(2)
+Exp(3)
+÷
+Figure 24.11 Parse tree with semantic interpretations for the string “3+(4÷2)”.
+S(pred(n)) →NP(n) VP(pred)
+VP(pred(n)) →Verb(pred) NP(n)
+NP(n) →Name(n)
+Name(Ali) →Ali
+Name(Bo) →Bo
+Verb(λy λx Loves(x,y)) →loves
+Ali
+loves
+Bo
+Name(Ali)
+Name(Bo)
+NP(Bo)
+NP(Ali)
+S(Loves(Ali, Bo))
+Verb(λy λ x Loves(x, y))
+VP(λx Loves(x, Bo))
+(a)
+(b)
+Figure 24.12 (a) A grammar that can derive a parse tree and semantic interpretation for “Ali
+loves Bo” (and three other sentences). Each category is augmented with a single argument
+representing the semantics. (b) A parse tree with semantic interpretations for the string “Ali
+loves Bo.”
+which is equivalent to Loves(Ali,Bo). Technically, we say that this is a β-reduction of the
+lambda function application.
+The rest of the semantics follows in a straightforward way from the choices we have made
+so far. Because VPs are represented as predicates, verbs should be predicates as well. The
+verb “loves” is represented as λy λx Loves(x,y), the predicate that, when given the argument
+Bo, returns the predicate λx Loves(x,Bo). We end up with the grammar and parse tree shown
+in Figure 24.12. In a more complete grammar, we would put all the augmentations (seman-
+tics, case, person-number, and head) together into one set of rules. Here we show only the
+semantic augmentation to make it clearer how the rules work.
+
+
+896
+Chapter 24
+Natural Language Processing
+24.4.2 Learning semantic grammars
+Unfortunately, the Penn Treebank does not include semantic representations of its sentences,
+just syntactic trees. So if we are going to learn a semantic grammar, we will need a different
+source of examples. Zettlemoyer and Collins (2005) describe a system that learns a grammar
+for a question-answering system from examples that consist of a sentence paired with the
+semantic form for the sentence:
+• Sentence: What states border Texas?
+• Logical Form: λx.state(x)∧λx.borders(x,Texas)
+Given a large collection of pairs like this and a little bit of hand-coded knowledge for each
+new domain, the system generates plausible lexical entries (for example, that “Texas” and
+“state” are nouns such that state(Texas) is true), and simultaneously learns parameters for a
+grammar that allows the system to parse sentences into semantic representations. Zettlemoyer
+and Collins’s system achieved 79% accuracy on two different test sets of unseen sentences.
+Zhao and Huang (2015) demonstrate a shift-reduce parser that runs faster, and achieves 85%
+to 89% accuracy.
+A limitation of these systems is that the training data includes logical forms. These are
+expensive to create, requiring human annotators with specialized expertise—not everyone
+understands the subtleties of lambda calculus and predicate logic. It is much easier to gather
+examples of question/answer pairs:
+• Question: What states border Texas?
+• Answer: Louisiana, Arkansas, Oklahoma, New Mexico.
+• Question: How many times would Rhode Island ﬁt into California?
+• Answer: 135
+Such question/answer pairs are quite common on the Web, so a large database can be put
+together without human experts. Using this large source of data it is possible to build parsers
+that outperform those that use a small database of annotated logical forms (Liang et al., 2011;
+Liang and Potts, 2015). The key approach described in these papers is to invent an internal
+logical form that is compositional but does not allow an exponentially large search space.
+24.5 Complications of Real Natural Language
+The grammar of real English is endlessly complex (and other languages are equally complex).
+We will brieﬂy mention some of the topics that contribute to this complexity.
+Quantiﬁcation: Consider the sentence “Every agent feels a breeze.” The sentence has
+Quantiﬁcation
+only one syntactic parse under E0, but it is semantically ambiguous: is there one breeze
+that is felt by all the agents, or does each agent feel a separate personal breeze? The two
+interpretations can be represented as
+∀a a∈Agents ⇒
+∃b b∈Breezes∧Feel(a,b) ;
+∃b b∈Breezes∧∀a a∈Agents ⇒
+Feel(a,b).
+
+
+Section 24.5
+Complications of Real Natural Language
+897
+One standard approach to quantiﬁcation is for the grammar to deﬁne not an actual logical
+semantic sentence, but rather a quasi-logical form that is then turned into a logical sentence
+Quasi-logical form
+by algorithms outside of the parsing process. Those algorithms can have preference rules for
+choosing one quantiﬁer scope over another—preferences that need not be reﬂected directly
+in the grammar.
+Pragmatics: We have shown how an agent can perceive a string of words and use a
+Pragmatics
+grammar to derive a set of possible semantic interpretations. Now we address the problem
+of completing the interpretation by adding context-dependent information about the current
+situation. The most obvious need for pragmatic information is in resolving the meaning of
+indexicals, which are phrases that refer directly to the current situation. For example, in the
+Indexical
+sentence “I am in Boston today,” both “I” and “today” are indexicals. The word “I” would
+be represented by Speaker, a ﬂuent that refers to different objects at different times, and it
+would be up to the hearer to resolve the referent of the ﬂuent—that is not considered part of
+the grammar but rather an issue of pragmatics.
+Another part of pragmatics is interpreting the speaker’s intent. The speaker’s utterance
+is considered a speech act, and it is up to the hearer to decipher what type of action it is—a
+Speech act
+question, a statement, a promise, a warning, a command, and so on. A command such as
+“go to 2 2” implicitly refers to the hearer. So far, our grammar for S covers only declarative
+sentences. We can extend it to cover commands—a command is a verb phrase where the
+subject is implicitly the hearer of the command:
+S(Command(pred(Hearer))) →VP(pred).
+Long-distance dependencies: In Figure 24.8 we saw that “she didn’t hear or even see
+Long-distance
+dependencies
+him” was parsed with two gaps where an NP is missing, but refers to the NP “him.” We can
+use the symbol
+to represent the gaps: “she didn’t [hear
+or even see ] him.” In general,
+the distance between the gap and the NP it refers to can be arbitrarily long: in “Who did the
+agent tell you to give the gold to ?” the gap refers to “Who,” which is 11 words away.
+A complex system of augmented rules can be used to make sure that the missing NPs
+match up properly. The rules are complex; for example, you can’t have a gap in one branch
+of an NP conjunction: “What did she play [NP Dungeons and ]?” is ungrammatical. But
+you can have the same gap in both branches of a VP conjunction, as in the sentence “What
+did you [VP [VP smell ] and [VP shoot an arrow at ]]?”
+Time and tense: Suppose we want to represent the difference between “Ali loves Bo”
+Time and tense
+and “Ali loved Bo.” English uses verb tenses (past, present, and future) to indicate the relative
+time of an event. One good choice to represent the time of events is the event calculus notation
+of Section 10.3. In event calculus we have
+Ali loves Bo: E1 ∈Loves(Ali,Bo)∧During(Now,Extent(E1))
+Ali loved Bo: E2 ∈Loves(Ali,Bo)∧After(Now,Extent(E2)).
+This suggests that our two lexical rules for the words “loves” and “loved” should be these:
+Verb(λy λx e∈Loves(x,y)∧During(Now,e)) →loves
+Verb(λy λx e∈Loves(x,y)∧After(Now,e)) →loved.
+Other than this change, everything else about the grammar remains the same, which is en-
+couraging news; it suggests we are on the right track if we can so easily add a complication
+like the tense of verbs (although we have just scratched the surface of a complete grammar
+for time and tense).
+
+

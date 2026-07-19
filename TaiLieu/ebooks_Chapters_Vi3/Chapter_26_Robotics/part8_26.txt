@@ -1,0 +1,249 @@
+974
+Chapter 26
+Robotics
+Figure 26.30 A human teacher pushes the robot down to teach it to stay closer to the ta-
+ble. The robot appropriately updates its understanding of the desired cost function and starts
+optimizing it. Courtesy of Anca Dragan. See Bajcsy et al. (2017).
+Figure 26.31 A programming interface that involves placing specially designed blocks in
+the robot’s workspace to select objects and specify high-level actions. Images courtesy of
+Maya Cakmak. See Seﬁdgar et al. (2017).
+The ALVINN autonomous car project used this approach, and found that even when
+starting from a state in D, π will make small errors, which will take the car off the demon-
+strated trajectory. There, π will make a larger error, which will take the car even further off
+the desired course.
+We can address this at training time if we interleave collecting labels and learning: start
+with a demonstration, learn a policy, then roll out that policy and ask the human for what
+action to take at every state along the way, then repeat. The robot then learns how to correct
+its mistakes as it deviates from the human’s desired actions.
+Alternatively, we can address it by leveraging reinforcement learning. The robot can ﬁt a
+dynamics model based on the demonstrations, and then use optimal control (Section 26.5.4)
+to generate a policy that optimizes for staying close to the demonstration. A version of this
+has been used to perform very challenging maneuvers at an expert level in a small radio-
+controlled helicopter (see Figure 23.9(b)).
+The DAGGER (Data Aggregation) system starts with a human expert demonstration.
+From that it learns a policy, π1 and uses the policy to generate a data set D. Then from
+D it generates a new policy π2 that best imitates the original human data. This repeats, and
+
+
+Section 26.9
+Alternative Robotic Frameworks
+975
+on the nth iteration it uses πn to generate more data, to be added to D, which is then used to
+create πn+1. In other words, at each iteration the system gathers new data under the current
+policy and trains the next policy using all the data gathered so far.
+Related recent techniques use adversarial training: they alternate between training a
+classiﬁer to distinguish between the robot’s learned policy and the human’s demonstrations,
+and training a new robot policy via reinforcement learning to fool the classiﬁer. These ad-
+vances enable the robot to handle states that are near demonstrations, but generalization to
+far-off states or to new dynamics is a work in progress.
+Teaching interfaces and the correspondence problem. So far, we have imagined the
+case of an autonomous car or an autonomous helicopter, for which human demonstrations use
+the same actions that the robot can take itself: accelerating, braking, and steering. But what
+happens if we do this for tasks like cleaning up the kitchen table? We have two choices here:
+either the person demonstrates using their own body while the robot watches, or the person
+physically guides the robot’s effectors.
+The ﬁrst approach is appealing because it comes naturally to end users. Unfortunately,
+it suffers from the correspondence problem: how to map human actions onto robot actions.
+Correspondence
+problem
+People have different kinematics and dynamics than robots. Not only does that make it dif-
+ﬁcult to translate or retarget human motion onto robot motion (e.g., retargeting a ﬁve-ﬁnger
+human grasp to a two-ﬁnger robot grasp), but often the high-level strategy a person might use
+is not appropriate for the robot.
+The second approach, where the human teacher moves the robot’s effectors into the right
+positions, is called kinesthetic teaching. It is not easy for humans to teach this way, espe-
+Kinesthetic teaching
+cially to teach robots with multiple joints. The teacher needs to coordinate all the degrees of
+freedom as it is guiding the arm through the task. Researchers have thus investigated alter-
+natives, like demonstrating keyframes as opposed to continuous trajectories, as well as the
+Keyframe
+use of visual programming to enable end users to program primitives for a task rather than
+Visual programming
+demonstrate from scratch (Figure 26.31). Sometimes both approaches are combined.
+26.9 Alternative Robotic Frameworks
+Thus far, we have taken a view of robotics based on the notion of deﬁning or learning a
+reward function, and having the robot optimize that reward function (be it via planning or
+learning), sometimes in coordination or collaboration with humans. This is a deliberative
+Deliberative
+view of robotics, to be contrasted with a reactive view.
+Reactive
+26.9.1 Reactive controllers
+In some cases, it is easier to set up a good policy for a robot than to model the world and plan.
+Then, instead of a rational agent, we have a reﬂex agent.
+For example, picture a legged robot that attempts to lift a leg over an obstacle. We could
+give this robot a rule that says lift the leg a small height h and move it forward, and if the leg
+encounters an obstacle, move it back and start again at a higher height. You could say that h
+is modeling an aspect of the world, but we can also think of h as an auxiliary variable of the
+robot controller, devoid of direct physical meaning.
+One such example is the six-legged (hexapod) robot, shown in Figure 26.32(a), designed
+for walking through rough terrain. The robot’s sensors are inadequate to obtain accurate
+
+
+976
+Chapter 26
+Robotics
+S1
+S2
+S4
+S3
+push backward
+lift up
+set down
+retract, lift higher
+move
+forward
+no
+yes
+stuck?
+(a)
+(b)
+Figure 26.32 (a) Genghis, a hexapod robot. (Image courtesy of Rodney A. Brooks.) (b) An
+augmented ﬁnite state machine (AFSM) that controls one leg. The AFSM reacts to sensor
+feedback: if a leg is stuck during the forward swinging phase, it will be lifted increasingly
+higher.
+models of the terrain for path planning. Moreover, even if we added high-precision cameras
+and rangeﬁnders, the 12 degrees of freedom (two for each leg) would render the resulting
+path planning problem computationally difﬁcult.
+It is possible, nonetheless, to specify a controller directly without an explicit environ-
+mental model. (We have already seen this with the PD controller, which was able to keep a
+complex robot arm on target without an explicit model of the robot dynamics.)
+For the hexapod robot we ﬁrst choose a gait, or pattern of movement of the limbs. One
+Gait
+statically stable gait is to ﬁrst move the right front, right rear, and left center legs forward
+(keeping the other three ﬁxed), and then move the other three. This gait works well on
+ﬂat terrain. On rugged terrain, obstacles may prevent a leg from swinging forward. This
+problem can be overcome by a remarkably simple control rule: when a leg’s forward motion
+is blocked, simply retract it, lift it higher, and try again. The resulting controller is shown in
+Figure 26.32(b) as a simple ﬁnite state machine; it constitutes a reﬂex agent with state, where
+the internal state is represented by the index of the current machine state (s1 through s4).
+26.9.2 Subsumption architectures
+The subsumption architecture (Brooks, 1986) is a framework for assembling reactive con-
+Subsumption
+architecture
+trollers out of ﬁnite state machines. Nodes in these machines may contain tests for certain
+sensor variables, in which case the execution trace of a ﬁnite state machine is conditioned
+on the outcome of such a test. Arcs can be tagged with messages that will be generated
+when traversing them, and that are sent to the robot’s motors or to other ﬁnite state machines.
+Additionally, ﬁnite state machines possess internal timers (clocks) that control the time it
+takes to traverse an arc. The resulting machines are called augmented ﬁnite state machines
+(AFSMs), where the augmentation refers to the use of clocks.
+Augmented ﬁnite
+state machine
+(AFSM)
+An example of a simple AFSM is the four-state machine we just talked about, shown in
+Figure 26.32(b). This AFSM implements a cyclic controller, whose execution mostly does
+not rely on environmental feedback. The forward swing phase, however, does rely on sensor
+feedback. If the leg is stuck, meaning that it has failed to execute the forward swing, the
+
+
+Section 26.9
+Alternative Robotic Frameworks
+977
+robot retracts the leg, lifts it up a little higher, and attempts to execute the forward swing once
+again. Thus, the controller is able to react to contingencies arising from the interplay of the
+robot and its environment.
+The subsumption architecture offers additional primitives for synchronizing AFSMs, and
+for combining output values of multiple, possibly conﬂicting AFSMs. In this way, it enables
+the programmer to compose increasingly complex controllers in a bottom-up fashion. In
+our example, we might begin with AFSMs for individual legs, followed by an AFSM for
+coordinating multiple legs. On top of this, we might implement higher-level behaviors such
+as collision avoidance, which might involve backing up and turning.
+The idea of composing robot controllers from AFSMs is quite intriguing. Imagine how
+difﬁcult it would be to generate the same behavior with any of the conﬁguration-space path-
+planning algorithms described in the previous section. First, we would need an accurate
+model of the terrain. The conﬁguration space of a robot with six legs, each of which is driven
+by two independent motors, totals 18 dimensions (12 dimensions for the conﬁguration of the
+legs, and six for the location and orientation of the robot relative to its environment). Even
+if our computers were fast enough to ﬁnd paths in such high-dimensional spaces, we would
+have to worry about nasty effects such as the robot sliding down a slope.
+Because of such stochastic effects, a single path through conﬁguration space would al-
+most certainly be too brittle, and even a PID controller might not be able to cope with such
+contingencies. In other words, generating motion behavior deliberately is simply too complex
+a problem in some cases for present-day robot motion planning algorithms.
+Unfortunately, the subsumption architecture has its own problems. First, the AFSMs
+are driven by raw sensor input, an arrangement that works if the sensor data is reliable and
+contains all necessary information for decision making, but fails if sensor data has to be
+integrated in nontrivial ways over time. Subsumption-style controllers have therefore mostly
+been applied to simple tasks, such as following a wall or moving toward visible light sources.
+Second, the lack of deliberation makes it difﬁcult to change the robot’s goals. A robot
+with a subsumption architecture usually does just one task, and it has no notion of how to
+modify its controls to accommodate different goals (just like the dung beetle on page 59).
+Third, in many real-world problems, the policy we want is often too complex to encode
+explicitly. Think about the example from Figure 26.28, of an autonomous car needing to
+negotiate a lane change with a human driver. We might start off with a simple policy that
+goes into the target lane. But when we test the car, we ﬁnd out that not every driver in the
+target lane will slow down to let the car in. We might then add a bit more complexity: make
+the car nudge towards the target lane, wait for a response form the driver in that lane, and
+then either proceed or retreat back. But then we test the car, and realize that the nudging
+needs to happen at a different speed depending on the speed of the vehicle in the target lane,
+on whether there is another vehicle in front in the target lane, on whether there is a vehicle
+behind the car in the initial, and so on. The number of conditions that we need to consider
+to determine the right course of action can be very large, even for such a deceptively simple
+maneuver. This in turn presents scalability challenges for subsumption-style architectures.
+All that said, robotics is a complex problem with many approaches: deliberative, reactive,
+or a mixture thereof; based on physics, cognitive models, data, or a mixture thereof. The right
+approach is still a subject for debate, scientiﬁc inquiry, and engineering prowess.
+
+
+978
+Chapter 26
+Robotics
+(a)
+(b)
+Figure 26.33 (a) A patient with a brain–machine interface controlling a robot arm to grab a
+drink. Image courtesy of Brown University. (b) Roomba, the robot vacuum cleaner. Photo
+by HANDOUT/KRT/Newscom.
+26.10 Application Domains
+Robotic technology is already permeating our world, and has the potential to improve our
+independence, health, and productivity. Here are some example applications.
+Home care: Robots have started to enter the home to care for older adults and people
+with motor impairments, assisting them with activities of daily living and enabling them to
+live more independently. These include wheelchairs and wheelchair-mounted arms like the
+Kinova arm from Figure 26.1(b). Even though they start off as being operated by a human di-
+rectly, these robots are gaining more and more autonomy. On the horizon are robots operated
+by brain–machine interfaces, which have been shown to enable people with quadriplegia to
+use a robot arm to grasp objects and even feed themselves (Figure 26.33(a)). Related to these
+are prosthetic limbs that intelligently respond to our actions, and exoskeletons that give us
+superhuman strength or enable people who can’t control their muscles from the waist down
+to walk again.
+Personal robots are meant to assist us with daily tasks like cleaning and organizing, free-
+ing up our time. Although manipulation still has a way to go before it can operate seamlessly
+in messy, unstructured human environments, navigation has made some headway. In particu-
+lar, many homes already enjoy a mobile robot vacuum cleaner like the one in Figure 26.33(b).
+Health care: Robots assist and augment surgeons, enabling more precise, minimally
+invasive, safer procedures with better patient outcomes. The Da Vinci surgical robot from
+Figure 26.34(a) is now widely deployed at hospitals in the U.S.
+Services: Mobile robots help out in ofﬁce buildings, hotels, and hospitals. Savioke has
+put robots in hotels delivering products like towels or toothpaste to your room. The Help-
+mate and TUG robots carry food and medicine in hospitals (Figure 26.34(b)), while Dili-
+gent Robotics’ Moxi robot helps out nurses with back-end logistical responsibilities. Co-Bot
+roams the halls of Carnegie Mellon University, ready to guide you to someone’s ofﬁce. We
+can also use telepresence robots like the Beam to attend meetings and conferences remotely,
+Telepresence robots
+or check in on our grandparents.
+
+
+Section 26.10
+Application Domains
+979
+(a)
+(b)
+Figure 26.34 (a) Surgical robot in the operating room. Photo by Patrick Landmann/Science
+Source. (b) Hospital delivery robot. Photo by Wired.
+(a)
+(b)
+Figure 26.35 (a) Autonomous car BOSS which won the DARPA Urban Challenge. Photo
+by Tangi Quemener/AFP/Getty Images/Newscom. Courtesy of Sebastian Thrun. (b) Aerial
+view showing the perception and predictions of the Waymo autonomous car (white vehicle
+with green track). Other vehicles (blue boxes) and pedestrians (orange boxes) are shown with
+anticipated trajectories. Road/sidewalk boundaries are in yellow. Photo courtesy of Waymo.
+Autonomous cars: Some of us are occasionally distracted while driving, by cell phone
+calls, texts, or other distractions. The sad result: more than a million people die every year in
+trafﬁc accidents. Further, many of us spend a lot of time driving and would like to recapture
+some of that time. All this has led to a massive ongoing effort to deploy autonomous cars.
+Prototypes have existed since the 1980s, but progress was stimulated by the 2005 DARPA
+Grand Challenge, an autonomous vehicle race over 200 challenging kilometers of unre-
+hearsed desert terrain. Stanford’s Stanley vehicle completed the course in less than seven
+hours, winning a $2 million prize and a place in the National Museum of American History.
+
+

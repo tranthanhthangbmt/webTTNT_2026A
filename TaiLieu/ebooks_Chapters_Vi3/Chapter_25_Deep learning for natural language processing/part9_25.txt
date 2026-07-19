@@ -1,0 +1,49 @@
+Bibliographical and Historical Notes
+931
+ninth place) that a new version, SUPERGLUE (Wang et al., 2019), was introduced with tasks
+that are designed to be harder for computers, but still easy for humans.
+At the end of 2019, T5 was the overall leader with a score of 89.3, just half a point
+below the human baseline of 89.8. On three of the ten tasks, T5 actually exceeds human
+performance: yes/no question answering (such as “Is France the same time zone as the UK?”)
+and two reading comprehension tasks involving answering questions after reading either a
+paragraph or a news article.
+Machine translation is a major application of language models. In 1933, Petr Troyanskii
+received a patent for a “translating machine,” but there were no computers available to imple-
+ment his ideas. In 1947, Warren Weaver, drawing on work in cryptography and information
+theory, wrote to Norbert Wiener: “When I look at an article in Russian, I say: ‘This is really
+written in English, but it has been coded in strange symbols. I will now proceed to decode.”’
+The community proceeded to try to decode in this way, but they didn’t have sufﬁcient data
+and computing resources to make the approach practical.
+In the 1970s that began to change, and the SYSTRAN system (Toma, 1977) was the ﬁrst
+commercially successful machine translation system. SYSTRAN relied on lexical and gram-
+matical rules hand-crafted by linguists as well as on training data. In the 1980s, the com-
+munity embraced purely statistical models based on frequency of words and phrases (Brown
+et al., 1988; Koehn, 2009). Once training sets reached billions or trillions of tokens (Brants
+et al., 2007), this yielded systems that produced comprehensible but not ﬂuent results (Och
+and Ney, 2004; Zollmann et al., 2008). Och and Ney (2002) show how discriminative training
+led to an advance in machine translation in the early 2000s.
+Sutskever et al. (2015) ﬁrst showed that it is possible to learn an end-to-end sequence-
+to-sequence neural model for machine translation. Bahdanau et al. (2015) demonstrated the
+advantage of a model that jointly learns to align sentences in the source and target language
+and to translate between the languages. Vaswani et al. (2018) showed that neural machine
+translation systems can further be improved by replacing LSTMs with transformer archi-
+tectures, which use the attention mechanism to capture context. These neural translation
+systems quickly overtook statistical phrase-based methods, and the transformer architecture
+soon spread to other NLP tasks.
+Research on question answering was facilitated by the creation of SQUAD, the ﬁrst
+large-scale data set for training and testing question-answering systems (Rajpurkar et al.,
+2016). Since then, a number of deep learning models have been developed for this task (Seo
+et al., 2017; Keskar et al., 2019). The ARISTO system (Clark et al., 2019) uses deep learn-
+ing in conjunction with an ensemble of other tactics. Since 2018, the majority of question-
+answering models use pretrained language representations, leading to a noticeable improve-
+ment over earlier systems.
+Natural language inference is the task of judging whether a hypothesis (dogs need to
+eat) is entailed by a premise (all animals need to eat). This task was popularized by the
+PASCAL Challenge (Dagan et al., 2005). Large-scale data sets are now available (Bowman
+et al., 2015; Williams et al., 2018). Systems based on pretrained models such as ELMO and
+BERT currently provide the best performance on language inference tasks.
+The Conference on Computational Natural Language Learning (CoNLL) focuses on
+learning for NLP. All the conferences and journals mentioned in Chapter 24 now include
+papers on deep learning, which now has a dominant position in the ﬁeld of NLP.
+
+

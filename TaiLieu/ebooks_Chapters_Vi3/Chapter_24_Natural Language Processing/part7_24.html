@@ -1,0 +1,74 @@
+<h2>24.4 Ngữ pháp Tăng cường (Augmented Grammars)</h2>
+
+<p>Cho đến nay, chúng ta đã làm việc với các ngữ pháp phi ngữ cảnh (context-free grammars). Nhưng không phải Cụm danh từ (NP) nào cũng có thể xuất hiện trong mọi ngữ cảnh với xác suất ngang nhau. Câu "I ate a banana" (Tôi đã ăn một quả chuối) thì ổn, nhưng "Me ate a banana" (Tân ngữ 'Tôi' đã ăn một quả chuối) thì sai ngữ pháp, và "I ate a bandanna" (Tôi đã ăn một chiếc khăn rằn) thì khó có khả năng xảy ra.</p>
+
+<p>Vấn đề là ở chỗ ngữ pháp của chúng ta tập trung vào các phạm trù từ vựng (lexical categories), chẳng hạn như <code>Pronoun</code> (Đại từ), nhưng mặc dù cả "I" và "me" đều là đại từ, chỉ có "I" mới có thể làm chủ ngữ của một câu. Tương tự, "banana" và "bandanna" đều là danh từ, nhưng từ trước có nhiều khả năng làm tân ngữ của "ate" hơn nhiều so với từ sau. Các nhà ngôn ngữ học cho biết đại từ "I" ở cách chủ ngữ (subjective case - tức là chủ ngữ của một động từ) và "me" ở cách tân ngữ (objective case - tức là tân ngữ của một động từ). Họ cũng nói rằng "I" ở ngôi thứ nhất số ít ("you" là ngôi thứ hai, và "she" là ngôi thứ ba) ("we" là số nhiều). Một danh mục giống như <code>Pronoun</code> nếu được tăng cường thêm bằng các đặc trưng như "cách chủ ngữ, ngôi thứ nhất số ít" thì được gọi là một <strong>tiểu mục (subcategory)</strong>.</p>
+
+<p>Trong phần này, chúng tôi chỉ ra cách một ngữ pháp có thể biểu diễn loại kiến thức này để đưa ra những phân biệt chi tiết (finer-grained) hơn về việc những câu nào có khả năng xảy ra hơn. Chúng tôi cũng sẽ chỉ ra cách xây dựng một biểu diễn ngữ nghĩa của một cụm từ, theo phương thức hợp thành (compositional). Tất cả những điều này sẽ đạt được bằng một <strong>ngữ pháp tăng cường (augmented grammar)</strong>, trong đó các ký hiệu không kết thúc không chỉ là các ký hiệu nguyên tử như <code>Pronoun</code> hoặc <code>NP</code>, mà là các biểu diễn có cấu trúc. Ví dụ: cụm danh từ "I" có thể được biểu diễn là <code>NP(Sbj, 1S, Speaker)</code>, có nghĩa là "một cụm danh từ ở cách chủ ngữ, ngôi thứ nhất số ít, và có ngữ nghĩa là người nói của câu". Ngược lại, "me" sẽ được biểu diễn là <code>NP(Obj, 1S, Speaker)</code>, đánh dấu thực tế rằng nó đang ở cách tân ngữ.</p>
+
+<p>Xem xét chuỗi "Noun and Noun or Noun", chuỗi này có thể được phân tích cú pháp thành "[Noun and Noun] or Noun" hoặc "Noun and [Noun or Noun]". Ngữ pháp phi ngữ cảnh của chúng ta không có cách nào để bày tỏ sự ưu tiên cho cách phân tích này hơn cách phân tích kia, bởi vì quy tắc cho các cụm NP liên kết với nhau, <code>NP → NP Conjunction NP [0.05]</code>, sẽ mang lại cùng một mức xác suất cho mỗi bản phân tích. Chúng ta sẽ muốn có một ngữ pháp thích các phân tích cú pháp "[[spaghetti and meatballs] or lasagna]" và "[spaghetti and [pie or cake]]" hơn là các cách đóng ngoặc thay thế cho mỗi cụm từ này.</p>
+
+<p>Một <strong>PCFG được từ vựng hóa (lexicalized PCFG)</strong> là một loại ngữ pháp tăng cường cho phép chúng ta gán các xác suất dựa trên thuộc tính của các từ trong một cụm từ chứ không chỉ dựa vào các phạm trù cú pháp. Dữ liệu thực sự sẽ rất thưa thớt (sparse) nếu xác suất của, giả sử, một câu 40 từ phụ thuộc vào toàn bộ 40 từ — đây là cùng một vấn đề mà chúng ta đã ghi nhận với các n-gram. Để đơn giản hóa, chúng ta giới thiệu khái niệm <strong>phần trung tâm (head)</strong> của một cụm từ — từ quan trọng nhất. Vì vậy, "banana" là phần head của NP "a banana" và "ate" là phần head của VP "ate a banana". Ký hiệu <code>VP(v)</code> biểu thị một cụm từ có danh mục <code>VP</code> với từ trung tâm là <code>v</code>. Dưới đây là một lexicalized PCFG:</p>
+
+<pre><code>VP(v) → Verb(v) NP(n)                  [P1(v, n)]
+VP(v) → Verb(v)                        [P2(v)]
+NP(n) → Article(a) Adjs(j) Noun(n)     [P3(n, a)]
+NP(n) → NP(n) Conjunction(c) NP(m)     [P4(n, c, m)]
+Verb(ate) → ate                        [0.002]
+Noun(banana) → banana                  [0.0007]</code></pre>
+
+<pre><code>S(v) → NP(Sbj, pn, n) VP(pn, v) | ...
+NP(c, pn, n) → Pronoun(c, pn, n) | Noun(c, pn, n) | ...
+VP(pn, v) → Verb(pn, v) NP(Obj, pn, n) | ...
+PP(head) → Prep(head) NP(Obj, pn, h)
+Pronoun(Sbj, 1S, I) → I
+Pronoun(Sbj, 1P, we) → we
+Pronoun(Obj, 1S, me) → me
+Pronoun(Obj, 3P, them) → them
+Verb(3S, see) → see</code></pre>
+<p><strong>Hình 24.9</strong> Một phần của một ngữ pháp tăng cường xử lý sự phù hợp về cách (case agreement), sự phù hợp giữa chủ ngữ-động từ (subject-verb agreement), và các từ trung tâm (head words). Các tên viết hoa là hằng số: <code>Sbj</code>, và <code>Obj</code> ứng với cách chủ ngữ (subjective) và cách tân ngữ (objective); <code>1S</code> cho ngôi thứ nhất số ít; <code>1P</code> và <code>3P</code> cho ngôi thứ nhất và ngôi thứ ba số nhiều. Như thường lệ, các tên viết thường là các biến (variables). Để đơn giản, các giá trị xác suất đã được lược bỏ.</p>
+
+<p>Ở đây <code>P1(v, n)</code> có nghĩa là xác suất của một <code>VP</code> (cụm động từ) có phần head là <code>v</code> kết hợp với một <code>NP</code> (cụm danh từ) có phần head là <code>n</code> để tạo thành một <code>VP</code>. Chúng ta có thể chỉ định rằng "ate a banana" (ăn một quả chuối) có khả năng xảy ra cao hơn "ate a bandanna" (ăn một cái khăn rằn) bằng cách đảm bảo rằng <code>P1(ate, banana) &gt; P1(ate, bandanna)</code>. Lưu ý rằng vì chúng ta chỉ đang xem xét các từ trung tâm (phrase heads), sự khác biệt giữa "ate a banana" và "ate a rancid banana" (ăn một quả chuối ôi thiu) sẽ không được bắt gặp bởi <code>P1</code>. Về mặt khái niệm, <code>P1</code> là một bảng xác suất khổng lồ: nếu có 5.000 động từ và 10.000 danh từ trong từ vựng, thì <code>P1</code> yêu cầu 50 triệu mục, nhưng hầu hết chúng sẽ không được lưu trữ một cách tường minh; thay vào đó chúng sẽ được suy ra từ quá trình làm mịn (smoothing) và lùi bước (backoff). Ví dụ: chúng ta có thể lùi bước từ <code>P1(v, n)</code> xuống một mô hình chỉ phụ thuộc vào <code>v</code>. Một mô hình như vậy sẽ yêu cầu số lượng tham số ít hơn 10.000 lần, nhưng vẫn có thể nắm bắt được những quy luật quan trọng, chẳng hạn như thực tế là một ngoại động từ như "ate" (ăn) có khả năng được theo sau bởi một <code>NP</code> (bất kể head là gì) cao hơn so với một nội động từ như "sleep" (ngủ).</p>
+
+<p>Chúng ta đã thấy trong Phần 24.2 rằng ngữ pháp đơn giản cho \(\mathcal{E}_0\) sinh ra thừa, tạo ra những câu phi nghĩa như "I saw she" hoặc "I sees her". Để tránh vấn đề này, ngữ pháp của chúng ta phải biết rằng "her" chứ không phải "she" là một tân ngữ hợp lệ của "saw" (hoặc của bất kỳ động từ nào khác) và "see" chứ không phải "sees" là dạng động từ đi kèm với chủ ngữ "I".</p>
+
+<p>Chúng ta có thể mã hóa những sự thật này một cách hoàn chỉnh vào trong các mục xác suất, ví dụ như đặt <code>P1(v, she)</code> là một con số rất nhỏ cho mọi động từ <code>v</code>. Nhưng sẽ gọn gàng và mang tính module hơn nếu tăng cường danh mục <code>NP</code> bằng các biến bổ sung: <code>NP(c, pn, n)</code> được sử dụng để đại diện cho một cụm danh từ có cách <code>c</code> (chủ ngữ hoặc tân ngữ), ngôi và số <code>pn</code> (ví dụ: ngôi thứ ba số ít), và danh từ trung tâm <code>n</code>. Hình 24.9 hiển thị một ngữ pháp được từ vựng hóa tăng cường nhằm xử lý các biến bổ sung này. Hãy xem xét chi tiết một quy tắc ngữ pháp:</p>
+
+<p><code>S(v) → NP(Sbj, pn, n) VP(pn, v) [P5(n, v)]</code></p>
+
+<p>Quy tắc này nói rằng khi một <code>NP</code> được theo sau bởi một <code>VP</code>, chúng có thể tạo thành một <code>S</code> (Câu), nhưng chỉ khi <code>NP</code> có cách chủ ngữ (<code>Sbj</code>) và ngôi cũng như số (<code>pn</code>) của <code>NP</code> và <code>VP</code> giống hệt nhau. (Chúng ta nói rằng chúng có sự hòa hợp - in agreement). Nếu điều đó thỏa mãn, chúng ta có một câu <code>S</code> có phần đầu là động từ từ <code>VP</code>. Đây là một ví dụ về luật từ vựng:</p>
+
+<p><code>Pronoun(Sbj, 1S, I) → I [0.005]</code></p>
+<p>luật này nói rằng "I" là một Đại từ (<code>Pronoun</code>) ở cách chủ ngữ, ngôi thứ nhất số ít, với từ trung tâm là "I".</p>
+
+<pre><code>Exp(op(x1, x2)) → Exp(x1) Operator(op) Exp(x2)
+Exp(x) → ( Exp(x) )
+Exp(x) → Number(x)
+Number(x) → Digit(x)
+Number(10 × x1 + x2) → Number(x1) Digit(x2)
+Operator(+) → +
+Operator(−) → -
+Operator(×) → ×
+Operator(÷) → ÷
+Digit(0) → 0
+Digit(1) → 1
+...</code></pre>
+<p><strong>Hình 24.10</strong> Một ngữ pháp cho các biểu thức số học, được tăng cường thêm với ngữ nghĩa. Mỗi biến \(x_i\) đại diện cho ngữ nghĩa của một thành phần cấu tạo.</p>
+
+<h3>24.4.1 Diễn giải ngữ nghĩa (Semantic interpretation)</h3>
+
+<p>Để chỉ ra cách thêm ngữ nghĩa vào một ngữ pháp, chúng ta bắt đầu bằng một ví dụ đơn giản hơn tiếng Anh: ngữ nghĩa của các biểu thức số học. Hình 24.10 cho thấy một ngữ pháp cho các biểu thức số học, trong đó mỗi quy tắc được tăng cường bằng một đối số duy nhất biểu thị sự diễn giải ngữ nghĩa của cụm từ đó. Ngữ nghĩa của một chữ số chẳng hạn như "3" là chính chữ số đó. Ngữ nghĩa của biểu thức "3 + 4" là toán tử "+" được áp dụng cho ngữ nghĩa của các cụm từ "3" và "4". Các luật ngữ pháp tuân theo nguyên tắc của <strong>ngữ nghĩa hợp thành (compositional semantics)</strong> — ngữ nghĩa của một cụm từ là một hàm chức năng của ngữ nghĩa của các cụm từ con của nó. Hình 24.11 hiển thị cây phân tích cú pháp cho <code>3 + (4 ÷ 2)</code> theo ngữ pháp này. Nút gốc của cây phân tích là <code>Exp(5)</code>, một biểu thức có diễn giải ngữ nghĩa là 5.</p>
+
+<p>Bây giờ chúng ta hãy chuyển sang ngữ nghĩa của tiếng Anh, hoặc ít nhất là một phần nhỏ của nó. Chúng ta sẽ sử dụng logic bậc nhất (first-order logic) cho việc biểu diễn ngữ nghĩa. Vì vậy, câu đơn giản "Ali loves Bo" sẽ nhận được biểu diễn ngữ nghĩa là <code>Loves(Ali, Bo)</code>. Nhưng còn các cụm từ thành phần thì sao? Chúng ta có thể biểu diễn <code>NP</code> "Ali" bằng một term logic <code>Ali</code>. Nhưng <code>VP</code> "loves Bo" thì vừa không phải là một term logic vừa không phải là một câu logic hoàn chỉnh. Về mặt trực giác, "loves Bo" là một mô tả có thể áp dụng hoặc không áp dụng cho một người cụ thể. (Trong trường hợp này, nó áp dụng cho Ali). Điều này có nghĩa là "loves Bo" là một vị từ (predicate) mà khi kết hợp với một term đại diện cho một người, sẽ tạo ra một câu logic hoàn chỉnh.</p>
+
+<p>Sử dụng ký hiệu \(\lambda\) (xem trang 277), chúng ta có thể biểu diễn "loves Bo" dưới dạng vị từ:</p>
+
+<p>$$\lambda x \ Loves(x, \text{Bo})$$</p>
+
+<p>Bây giờ chúng ta cần một quy tắc nói rằng "một <code>NP</code> với ngữ nghĩa <code>n</code> theo sau bởi một <code>VP</code> với ngữ nghĩa <code>pred</code> tạo ra một câu có ngữ nghĩa là kết quả của việc áp dụng <code>pred</code> cho <code>n</code>":</p>
+
+<p><code>S(pred(n)) → NP(n) VP(pred)</code></p>
+
+<p>Luật này nói cho chúng ta biết rằng việc diễn giải ngữ nghĩa của "Ali loves Bo" là:</p>
+
+<p>$$(\lambda x \ Loves(x, \text{Bo}))(\text{Ali})$$</p>

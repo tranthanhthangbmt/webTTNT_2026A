@@ -1,0 +1,171 @@
+886
+Chapter 24
+Natural Language Processing
+Unfortunately, the grammar overgenerates: that is, it generates sentences that are not gram-
+Overgeneration
+matical, such as “Me go I.” It also undergenerates: there are many sentences of English that
+Undergeneration
+it rejects, such as “I think the wumpus is smelly.” We will see how to learn a better grammar
+later; for now we concentrate on what we can do with this very simple grammar.
+24.2.1 The lexicon of E0
+The lexicon, or list of allowable words, is deﬁned in Figure 24.3. Each of the lexical cate-
+Lexicon
+gories ends in ... to indicate that there are other words in the category. For nouns, names,
+verbs, adjectives, and adverbs, it is infeasible even in principle to list all the words. Not only
+are there tens of thousands of members in each class, but new ones—like humblebrag or
+microbiome—are being added constantly. These ﬁve categories are called open classes. Pro-
+Open class
+nouns, relative pronouns, articles, prepositions, and conjunctions are called closed classes;
+Closed class
+they have a small number of words (a dozen or so), and change over the course of centuries,
+not months. For example, “thee” and “thou” were commonly used pronouns in the 17th cen-
+tury, were on the decline in the 19th century, and are seen today only in poetry and some
+regional dialects.
+24.3 Parsing
+Parsing is the process of analyzing a string of words to uncover its phrase structure, according
+Parsing
+to the rules of a grammar. We can think of it as a search for a valid parse tree whose leaves
+are the words of the string. Figure 24.4 shows that we can start with the S symbol and search
+top down, or we can start with the words and search bottom up. Pure top-down or bottom-up
+parsing strategies can be inefﬁcient, however, because they can end up repeating effort in
+areas of the search space that lead to dead ends. Consider the following two sentences:
+Have the students in section 2 of Computer Science 101 take the exam.
+Have the students in section 2 of Computer Science 101 taken the exam?
+Even though they share the ﬁrst 10 words, these sentences have very different parses, because
+the ﬁrst is a command and the second is a question. A left-to-right parsing algorithm would
+have to guess whether the ﬁrst word is part of a command or a question and will not be able
+to tell if the guess is correct until at least the eleventh word, take or taken. If the algorithm
+guesses wrong, it will have to backtrack all the way to the ﬁrst word and reanalyze the whole
+sentence under the other interpretation.
+To avoid this source of inefﬁciency we can use dynamic programming: every time we
+analyze a substring, store the results so we won’t have to reanalyze it later. For example, once
+we discover that “the students in section 2 of Computer Science 101” is an NP, we can record
+that result in a data structure known as a chart. An algorithm that does this is called a chart
+parser. Because we are dealing with context-free grammars, any phrase that was found in
+Chart parser
+the context of one branch of the search tree can work just as well in any other branch of the
+search tree. There are many types of chart parsers; we describe a probabilistic version of a
+bottom-up chart parsing algorithm called the CYK algorithm, after its inventors, Ali Cocke,
+CYK algorithm
+Daniel Younger, and Tadeo Kasami.2
+2
+Sometimes the authors are credited in the order CKY.
+
+
+Section 24.3
+Parsing
+887
+List of items
+Rule
+S
+NP VP
+S →NP VP
+NP VP Adjective
+VP →VP Adjective
+NP Verb Adjective
+VP →Verb
+NP Verb dead
+Adjective →dead
+NP is dead
+Verb →is
+Article Noun is dead
+NP →Article Noun
+Article wumpus is dead
+Noun →wumpus
+the wumpus is dead
+Article →the
+Figure 24.4 Parsing the string “The wumpus is dead” as a sentence, according to the gram-
+mar E0. Viewed as a top-down parse, we start with S, and on each step match one nontermi-
+nal X with a rule of the form (X →Y ...) and replace X in the list of items with Y ...; for
+example replacing S with the sequence NP VP. Viewed as a bottom-up parse, we start with
+the words “the wumpus is dead”, and on each step match a string of tokens such as (Y ...)
+against a rule of the form (X →Y ...) and replace the tokens with X; for example replacing
+“the” with Article or Article Noun with NP.
+The CYK algorithm is shown in Figure 24.5. It requires a grammar with all rules in one
+of two very speciﬁc formats: lexical rules of the form X →word [p], and syntactic rules of
+the form X →Y Z [p], with exactly two categories on the right-hand side. This grammar
+format, called Chomsky Normal Form, may seem restrictive, but it is not: any context-free
+Chomsky Normal
+Form
+grammar can be automatically transformed into Chomsky Normal Form. Exercise 24.CNFX
+leads you through the process.
+The CYK algorithm uses space of O(n2m) for the P and T tables, where n is the number of
+words in the sentence, and m is the number of nonterminal symbols in the grammar, and takes
+time O(n3m). If we want an algorithm that is guaranteed to work for all possible context-
+free grammars, then we can’t do any better than that. But actually we only want to parse
+natural languages, not all possible grammars. Natural languages have evolved to be easy
+to understand in real time, not to be as tricky as possible, so it seems that they should be
+amenable to a faster parsing algorithm.
+To try to get to O(n), we can apply A∗search in a fairly straightforward way: each state is
+a list of items (words or categories), as shown in Figure 24.4. The start state is a list of words,
+and a goal state is the single item S. The cost of a state is the inverse of its probability as
+deﬁned by the rules applied so far, and there are various heuristics to estimate the remaining
+distance to the goal; the best heuristics in current use come from machine learning applied to
+a corpus of sentences.
+With the A∗algorithm we don’t have to search the entire state space, and we are guaran-
+teed that the ﬁrst parse found will be the most probable (assuming an admissible heuristic).
+This will usually be faster than CYK, but (depending on the details of the grammar) still
+slower than O(n). An example result of a parse is shown in Figure 24.6.
+Just as with part-of-speech tagging, we can use a beam search for parsing, where at
+any time we consider only the b most probable alternative parses. This means we are not
+
+
+888
+Chapter 24
+Natural Language Processing
+function CYK-PARSE(words,grammar) returns a table of parse trees
+inputs: words, a list of words
+grammar, a structure with LEXICALRULES and GRAMMARRULES
+T ←a table
+// T[X, i, k] is most probable X tree spanning wordsi:k
+P←a table, initially all 0
+// P[X, i, k] is probability of tree T[X, i, k]
+// Insert lexical categories for each word.
+for i = 1 to LEN(words) do
+for each (X, p) in grammar.LEXICALRULES(wordsi) do
+P[X, i, i]←p
+T[X, i, i]←TREE(X, wordsi)
+// Construct Xi:k from Yi:j + Zj+1:k, shortest spans ﬁrst.
+for each (i, j, k) in SUBSPANS(LEN(words)) do
+for each (X, Y, Z, p) in grammar.GRAMMARRULES do
+PYZ ←P[Y, i, j] × P[Z, j+1, k] × p
+if PYZ > P[X, i, k] do
+P[X, i, k]←PYZ
+T[X, i, k]←TREE(X, T[Y, i, j], T[Z, j + 1, k])
+return T
+function SUBSPANS(N) yields (i, j, k) tuples
+for length = 2 to N do
+for i = 1 to N + 1 −length do
+k←i + length −1
+for j = i to k −1 do
+yield (i, j, k)
+Figure 24.5 The CYK algorithm for parsing. Given a sequence of words, it ﬁnds the most
+probable parse tree for the sequence and its subsequences. The table P[X,i,k] gives the prob-
+ability of the most probable tree of category X spanning wordsi:k. The output table T[X, i, k]
+contains the most probable tree of category X spanning positions i to k inclusive. The func-
+tion SUBSPANS returns all tuples (i,j,k) covering a span of wordsi:k, with i ≤j < k, listing the
+tuples by increasing length of the i : k span, so that when we go to combine two shorter spans
+into a longer one, the shorter spans are already in the table. LEXICALRULES(word) returns a
+collection of (X, p) pairs, one for each rule of the form X →word [p], and GRAMMARRULES
+gives (X,Y,Z,p) tuples, one for each grammar rule of the form X →Y Z [p].
+Article
+Noun
+wumpus
+Verb
+NP
+VP
+S
+Every
+smells
+0.25
+0.90
+ 0.05
+ 0.15
+ 0.10
+ 0.40
+Figure 24.6 Parse tree for the sentence “Every wumpus smells” according to the grammar
+E0. Each interior node of the tree is labeled with its probability. The probability of the tree as
+a whole is 0.9×0.25×0.05×0.15×0.40×0.10=0.0000675. The tree can also be written
+in linear form as [S [NP [Article every][Noun wumpus]][VP [Verb smells]]].
+
+

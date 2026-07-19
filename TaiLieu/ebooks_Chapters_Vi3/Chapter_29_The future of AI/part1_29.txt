@@ -1,0 +1,184 @@
+CHAPTER 29
+THE FUTURE OF AI
+In which we try to see a short distance ahead.
+In Chapter 2, we decided to view AI as the task of designing approximately rational agents. A
+variety of different agent designs were considered, ranging from reﬂex agents to knowledge-
+based decision-theoretic agents to deep learning agents using reinforcement learning. There is
+also variety in the component technologies from which these designs are assembled: logical,
+probabilistic, or neural reasoning; atomic, factored, or structured representations of states;
+various learning algorithms from various types of data; sensors and actuators to interact with
+the world. Finally, we have seen a variety of applications, in medicine, ﬁnance, transportation,
+communication, and other ﬁelds. There has been progress on all these fronts, both in our
+scientiﬁc understanding and in our technological capabilities.
+Most experts are optimistic about continued progress; as we saw on page 46, the median
+estimate is for approximately human-level AI across a broad variety of tasks somewhere in
+the next 50 to 100 years. Within the next decade, AI is predicted to add trillions of dollars to
+the economy each year. But as we also saw, there are some critics who think general AI is
+centuries off, and there are numerous ethical concerns about the fairness, equity, and lethality
+of AI. In this chapter, we ask: where are we headed and what remains to be done? We do
+that by asking whether we have the right components, architectures, and goals to make AI a
+successful technology that delivers beneﬁts to the world.
+29.1 AI Components
+This section examines the components of AI systems and the extent to which each of them
+might accelerate or hinder future progress.
+Sensors and actuators
+For much of the history of AI, direct access to the world has been glaringly absent. With a
+few notable exceptions, AI systems were built in such a way that humans had to supply the
+inputs and interpret the outputs. Meanwhile, robotic systems focused on low-level tasks in
+which high-level reasoning and planning were largely ignored and the need for perception
+was minimized. This was partly due to the great expense and engineering effort required to
+get real robots to work at all, and partly because of the lack of sufﬁcient processing power
+and sufﬁciently effective algorithms to handle high-bandwidth visual input.
+The situation has changed rapidly in recent years with the availability of ready-made
+programmable robots. These, in turn, have beneﬁted from compact reliable motor drives and
+improved sensors. The cost of lidar for a self-driving car has fallen from $75,000 to $1,000,
+
+
+1064
+Chapter 29
+The Future of AI
+and a single-chip version may reach $10 per unit (Poulton and Watts, 2016). Radar sensors,
+once capable of only coarse-grained detection, are now sensitive enough to count the number
+of sheets in a stack of paper (Yeo et al., 2018).
+The demand for better image processing in cellphone cameras has given us inexpensive
+high-resolution cameras for use in robotics. MEMS (micro-electromechanical systems) tech-
+nology has supplied miniaturized accelerometers, gyroscopes, and actuators small enough to
+ﬁt in artiﬁcial ﬂying insects (Floreano et al., 2009; Fuller et al., 2014). It may be possible to
+combine millions of MEMS devices to produce powerful macroscopic actuators. 3-D printing
+(Muth et al., 2014) and bioprinting (Kolesky et al., 2014) have made it easier to experiment
+with prototypes.
+Thus, we see that AI systems are at the cusp of moving from primarily software-only sys-
+tems to useful embedded robotic systems. The state of robotics today is roughly comparable
+to the state of personal computers in the early 1980s: at that time personal computers were
+becoming available, but it would take another decade before they became commonplace. It is
+likely that ﬂexible, intelligent robots will ﬁrst make strides in industry (where environments
+are more controlled, tasks are more repetitive, and the value of an investment is easier to
+measure) before the home market (where there is more variability in environment and tasks).
+Representing the state of the world
+Keeping track of the world requires perception as well as updating of internal representations.
+Chapter 4 showed how to keep track of atomic state representations; Chapter 7 described
+how to do it for factored (propositional) state representations; Chapter 10 extended this to
+ﬁrst-order logic; and Chapter 14 described probabilistic reasoning over time in uncertain
+environments. Chapter 22 introduced recurrent neural networks, which are also capable of
+maintaining a state representation over time.
+Current ﬁltering and perception algorithms can be combined to do a reasonable job of rec-
+ognizing objects (“that’s a cat”) and reporting low-level predicates (“the cup is on the table”).
+Recognizing higher-level actions, such as “Dr. Russell is having a cup of tea with Dr. Norvig
+while discussing plans for next week,” is more difﬁcult. Currently it can sometimes be done
+(see Figure 27.17 on page 1015) given enough training examples, but future progress will
+require techniques that generalize to novel situations without requiring exhaustive examples
+(Poppe, 2010; Kang and Wildes, 2016).
+Another problem is that although the approximate ﬁltering algorithms from Chapter 14
+can handle quite large environments, they are still dealing with a factored representation—
+they have random variables, but do not represent objects and relations explicitly. Also, their
+notion of time is restricted to step-by-step change; given the recent trajectory of a ball, we
+can predict where it will be at time t + 1, but it is difﬁcult to represent the abstract idea that
+what goes up must come down.
+Section 18.1 explained how probability and ﬁrst-order logic can be combined to solve
+these problems; Section 18.2 showed how we can handle uncertainty about the identity of
+objects; and Chapter 27 showed how recurrent neural networks enable computer vision to
+track the world; but we don’t yet have a good way of putting all these techniques together.
+Chapter 25 showed how word embeddings and similar representations can free us from the
+strict bounds of concepts deﬁned by necessary and sufﬁcient conditions. It remains a daunting
+task to deﬁne general, reusable representation schemes for complex domains.
+
+
+Section 29.1
+AI Components
+1065
+Selecting actions
+The primary difﬁculty in action selection in the real world is coping with long-term plans—
+such as graduating from college in four years—that consist of billions of primitive steps.
+Search algorithms that consider sequences of primitive actions scale only to tens or perhaps
+hundreds of steps. It is only by imposing hierarchical structure on behavior that we humans
+cope at all. We saw in Section 11.4 how to use hierarchical representations to handle problems
+of this scale; furthermore, work in hierarchical reinforcement learning has succeeded in
+combining these ideas with the MDP formalism described in Chapter 16.
+As yet, these methods have not been extended to the partially observable case (POMDPs).
+Moreover, algorithms for solving POMDPs are typically using the same atomic state repre-
+sentation we used for the search algorithms of Chapter 3. There is clearly a great deal of
+work to do here, but the technical foundations are largely in place for making progress. The
+main missing element is an effective method for constructing the hierarchical representations
+of state and behavior that are necessary for decision making over long time scales.
+Deciding what we want
+Chapter 3 introduced search algorithms to ﬁnd a goal state. But goal-based agents are brittle
+when the environment is uncertain, and when there are multiple factors to consider. In princi-
+ple, utility-maximization agents address those issues in a completely general way. The ﬁelds
+of economics and game theory, as well as AI, make use of this insight: just declare what you
+want to optimize, and what each action does, and we can compute the optimal action.
+In practice, however, we now realize that the task of picking the right utility function is a
+challenging problem in its own right. Imagine, for example, the complex web of interacting
+preferences that must be understood by an agent operating as an ofﬁce assistant for a human
+being. The problem is exacerbated by the fact that each human is different, so an agent just
+“out of the box” will not have enough experience with any one individual to learn an accurate
+preference model; it will necessarily need to operate under preference uncertainty. Further
+complexity arises if we want to ensure that our agents are acting in a way that is fair and
+equitable for society, rather than just one individual.
+We do not yet have much experience with building complex real-world preference mod-
+els, let alone probability distributions over such models. Although there are factored for-
+malisms, similar to Bayes nets, that are intended to decompose preferences over complex
+states, it has proven difﬁcult to use these formalisms in practice. One reason may be that
+preferences over states are really compiled from preferences over state histories, which are
+described by reward functions (see Chapter 16). Even if the reward function is simple, the
+corresponding utility function may be very complex.
+This suggests that we take seriously the task of knowledge engineering for reward func-
+tions as a way of conveying to our agents what we want them to do. The idea of inverse
+reinforcement learning (Section 23.6) is one approach to this problem when we have an
+expert who can perform a task, but not explain it. We could also use better languages for
+expressing what we want. For example, in robotics, linear temporal logic makes it easier to
+say what things we want to happen in the near future, what things we want to avoid, and what
+states we want to persist forever (Littman et al., 2017). We need better ways of saying what
+we want and better ways for robots to interpret the information we provide.
+
+
+1066
+Chapter 29
+The Future of AI
+The computer industry as a whole has developed a powerful ecosystem for aggregating
+user preferences. When you click on something in an app, online game, social network, or
+shopping site, that serves as a recommendation that you (and your similar peers) would like
+to see similar things in the future. (Or it might be that the site is confusing and you clicked
+on the wrong thing—the data are always noisy.) The feedback inherent in this system makes
+it very effective in the short run for picking out ever more addictive games and videos.
+But these systems often fail to provide an easy way of opting out—your device will auto-
+play a relevant video, but it is less likely to tell you “maybe it is time to put away your devices
+and take a relaxing walk in nature.” A shopping site will help you ﬁnd clothes that match your
+style, but will not address world peace or ending hunger and poverty. To the extent that the
+menu of choices is driven by companies trying to proﬁt from a customer’s attention, the menu
+will remain incomplete.
+However, companies do respond to customers’ interests, and many customers have voiced
+the opinion that they are interested in a fair and sustainable world. Tim O’Reilly explains why
+proﬁt is not the only motive with the following analogy: “Money is like gasoline during a road
+trip. You don’t want to run out of gas on your trip, but you’re not doing a tour of gas stations.
+You have to pay attention to money, but it shouldn’t be about the money.”
+Tristan Harris’s time well spent movement at the Center for Humane Technology is a
+Time well spent
+step towards giving us more well-rounded choices (Harris, 2016). The movement addresses
+an issue that was recognized by Herbert Simon in 1971: “A wealth of information creates a
+poverty of attention.” Perhaps in the future we will have personal agents that stick up for
+Personal agent
+our true long-term interests rather than the interests of the corporations whose apps currently
+ﬁll our devices. It will be the agent’s job to mediate the offerings of various vendors, protect
+us from addictive attention-grabbers, and guide us towards the goals that really matter to us.
+Learning
+Chapters 19, 21, 22, and 23 described how agents can learn. Current algorithms can cope
+with quite large problems, reaching or exceeding human capabilities in many tasks—as long
+as we have sufﬁcient training examples and we are dealing with a predeﬁned vocabulary of
+features and concepts. But learning can stall when data are sparse, or unsupervised, or when
+we are dealing with complex representations.
+Much of the recent resurgence of AI in the popular press and in industry is due to the
+success of deep learning (Chapter 22). On the one hand, this can be seen as the incremental
+maturation of the subﬁeld of neural networks. On the other hand, we can see it as a rev-
+olutionary leap in capabilities spurred by a conﬂuence of factors: the availability of more
+training data thanks to the Internet, increased processing power from specialized hardware,
+and a few algorithmic tricks, such as generative adversarial networks (GANs), batch normal-
+ization, dropout, and the rectiﬁed linear (ReLU) activation function.
+The future should see continued emphasis on improving deep learning for the tasks it
+excels at, and also extending it to cover other tasks. The brand name “deep learning” has
+proven to be so popular that we should expect its use to continue, even if the mix of techniques
+that fuel it changes considerably.
+We have seen the emergence of the ﬁeld of data science as the conﬂuence of statistics,
+programming, and domain expertise. While we can expect to see continued development in
+the tools and techniques necessary to acquire, manage, and maintain big data, we will also
+
+

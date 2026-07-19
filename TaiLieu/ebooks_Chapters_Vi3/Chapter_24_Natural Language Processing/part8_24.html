@@ -1,0 +1,80 @@
+<p><strong>Hình 24.11</strong> Cây phân tích cú pháp kèm diễn giải ngữ nghĩa cho chuỗi <code>3 + (4 ÷ 2)</code>.</p>
+
+<pre><code>S(pred(n)) → NP(n) VP(pred)
+VP(pred(n)) → Verb(pred) NP(n)
+NP(n) → Name(n)
+Name(Ali) → Ali
+Name(Bo) → Bo
+Verb(λy λx Loves(x, y)) → loves</code></pre>
+<p>(a)</p>
+
+<pre><code>            S(Loves(Ali, Bo))
+           /                 \
+    NP(Ali)               VP(λx Loves(x, Bo))
+       |                   /                 \
+  Name(Ali)  Verb(λy λx Loves(x, y))      NP(Bo)
+       |                   |                   |
+      Ali                loves             Name(Bo)
+                                               |
+                                              Bo</code></pre>
+<p>(b)</p>
+<p><strong>Hình 24.12</strong> (a) Một ngữ pháp có thể dẫn xuất ra một cây phân tích cú pháp và diễn giải ngữ nghĩa cho "Ali loves Bo" (và ba câu khác). Mỗi danh mục được tăng cường với một đối số duy nhất đại diện cho ngữ nghĩa. (b) Một cây phân tích cú pháp có diễn giải ngữ nghĩa cho chuỗi "Ali loves Bo".</p>
+
+<p>tương đương với <code>Loves(Ali, Bo)</code>. Về mặt kỹ thuật, chúng ta nói rằng đây là một phép rút gọn \(\beta\) (\(\beta\)-reduction) của việc áp dụng hàm lambda.</p>
+
+<p>Phần còn lại của ngữ nghĩa tuân theo một cách trực tiếp từ những lựa chọn mà chúng ta đã thực hiện cho đến nay. Bởi vì các <code>VP</code> được biểu diễn dưới dạng các vị từ (predicates), các động từ cũng nên là các vị từ. Động từ "loves" được biểu diễn dưới dạng \(\lambda y \lambda x \ Loves(x, y)\), tức là vị từ mà, khi được cung cấp đối số là <code>Bo</code>, sẽ trả về vị từ \(\lambda x \ Loves(x, \text{Bo})\). Cuối cùng chúng ta có ngữ pháp và cây phân tích cú pháp được hiển thị trong Hình 24.12. Trong một ngữ pháp hoàn chỉnh hơn, chúng ta sẽ gộp tất cả các yếu tố tăng cường (ngữ nghĩa, cách, ngôi-số, và từ trung tâm) lại với nhau thành một tập hợp các quy tắc duy nhất. Ở đây chúng tôi chỉ hiển thị phần tăng cường ngữ nghĩa để làm rõ hơn cách các quy tắc này hoạt động.</p>
+
+<h3>24.4.2 Học các ngữ pháp ngữ nghĩa (Learning semantic grammars)</h3>
+
+<p>Thật không may, Penn Treebank không bao gồm các biểu diễn ngữ nghĩa cho các câu của nó, mà chỉ có các cây cú pháp. Vì vậy, nếu chúng ta định học một ngữ pháp ngữ nghĩa, chúng ta sẽ cần một nguồn ví dụ khác. Zettlemoyer và Collins (2005) mô tả một hệ thống học một ngữ pháp cho hệ thống hỏi-đáp từ các ví dụ, bao gồm một câu được ghép nối với dạng ngữ nghĩa cho câu đó:</p>
+<ul>
+<li><strong>Câu (Sentence):</strong> What states border Texas?</li>
+<li><strong>Dạng Logic (Logical Form):</strong> \(\lambda x.\text{state}(x) \land \lambda x.\text{borders}(x, \text{Texas})\)</li>
+</ul>
+
+<p>Cho trước một tập hợp lớn các cặp như thế này và một chút kiến thức được lập trình thủ công (hand-coded knowledge) cho mỗi miền mới, hệ thống sẽ tạo ra các mục từ vựng hợp lý (ví dụ: "Texas" và "state" là các danh từ sao cho <code>state(Texas)</code> là đúng), đồng thời học các tham số cho một ngữ pháp cho phép hệ thống phân tích các câu thành các biểu diễn ngữ nghĩa. Hệ thống của Zettlemoyer và Collins đã đạt độ chính xác 79% trên hai tập kiểm tra khác nhau gồm các câu chưa từng thấy. Zhao và Huang (2015) minh họa một bộ phân tích cú pháp dịch-thu gọn chạy nhanh hơn và đạt độ chính xác từ 85% đến 89%.</p>
+
+<p>Hạn chế của các hệ thống này là dữ liệu huấn luyện bao gồm các dạng logic. Việc tạo ra chúng rất tốn kém, đòi hỏi những người chú thích là con người phải có chuyên môn sâu — không phải ai cũng hiểu được những điều tinh tế của phép tính lambda và logic vị từ. Việc thu thập các ví dụ về các cặp câu hỏi/câu trả lời sẽ dễ dàng hơn nhiều:</p>
+<ul>
+<li><strong>Câu hỏi (Question):</strong> What states border Texas?</li>
+<li><strong>Câu trả lời (Answer):</strong> Louisiana, Arkansas, Oklahoma, New Mexico.</li>
+<li><strong>Câu hỏi (Question):</strong> How many times would Rhode Island fit into California?</li>
+<li><strong>Câu trả lời (Answer):</strong> 135</li>
+</ul>
+
+<p>Những cặp câu hỏi/trả lời như vậy khá phổ biến trên Web, do đó một cơ sở dữ liệu lớn có thể được tổng hợp lại mà không cần tới các chuyên gia con người. Bằng cách sử dụng nguồn dữ liệu lớn này, người ta có thể xây dựng các bộ phân tích cú pháp vượt trội hơn so với những bộ sử dụng một cơ sở dữ liệu nhỏ các dạng logic được chú thích (Liang và cộng sự, 2011; Liang và Potts, 2015). Cách tiếp cận cốt lõi được mô tả trong các bài báo này là phát minh ra một dạng logic bên trong có tính chất hợp thành (compositional) nhưng không cho phép một không gian tìm kiếm lớn theo cấp số nhân.</p>
+
+<h2>24.5 Những phức tạp của ngôn ngữ tự nhiên thực tế (Complications of Real Natural Language)</h2>
+
+<p>Ngữ pháp của tiếng Anh thực tế phức tạp vô tận (và các ngôn ngữ khác cũng phức tạp không kém). Chúng tôi sẽ đề cập ngắn gọn về một số chủ đề góp phần tạo nên sự phức tạp này.</p>
+
+<p><strong>Lượng hóa (Quantification)</strong>: Xem xét câu "Every agent feels a breeze" (Mọi tác nhân đều cảm thấy một luồng gió). Câu này chỉ có một phân tích cú pháp theo \(\mathcal{E}_0\), nhưng nó mơ hồ về mặt ngữ nghĩa: có phải có một luồng gió duy nhất mà tất cả các tác nhân đều cảm thấy, hay mỗi tác nhân lại cảm thấy một luồng gió riêng biệt của mình? Hai cách diễn giải có thể được biểu diễn như sau:</p>
+<ul>
+<li>\(\forall a \ a \in \text{Agents} \Rightarrow \exists b \ b \in \text{Breezes} \land \text{Feel}(a, b)\)</li>
+<li>\(\exists b \ b \in \text{Breezes} \land \forall a \ a \in \text{Agents} \Rightarrow \text{Feel}(a, b)\)</li>
+</ul>
+
+<p>Một phương pháp tiếp cận tiêu chuẩn đối với lượng hóa là để cho ngữ pháp không định nghĩa một câu ngữ nghĩa logic thực sự, mà thay vào đó là một <strong>dạng bán logic (quasi-logical form)</strong> sau đó được biến thành một câu logic bởi các thuật toán bên ngoài quá trình phân tích cú pháp. Các thuật toán đó có thể có các quy tắc ưu tiên để chọn phạm vi lượng từ này so với phạm vi lượng từ khác — những sự ưu tiên không cần phải được phản ánh trực tiếp trong ngữ pháp.</p>
+
+<p><strong>Ngữ dụng học (Pragmatics)</strong>: Chúng ta đã chỉ ra cách một tác nhân có thể nhận thức một chuỗi các từ và sử dụng một ngữ pháp để dẫn xuất ra một tập hợp các diễn giải ngữ nghĩa khả dĩ. Bây giờ chúng ta giải quyết bài toán hoàn thiện diễn giải bằng cách bổ sung thông tin phụ thuộc ngữ cảnh về tình huống hiện tại. Nhu cầu rõ ràng nhất đối với thông tin ngữ dụng là trong việc giải quyết ý nghĩa của các <strong>từ chỉ xuất (indexicals)</strong>, là các cụm từ tham chiếu trực tiếp đến tình huống hiện tại. Ví dụ, trong câu "I am in Boston today", cả "I" và "today" đều là từ chỉ xuất. Từ "I" sẽ được biểu diễn bởi <code>Speaker</code> (Người nói), một fluent (đại lượng thay đổi theo thời gian) tham chiếu đến các đối tượng khác nhau ở các thời điểm khác nhau, và người nghe sẽ phải tự giải quyết xem đối tượng được tham chiếu của fluent đó là gì — điều đó không được coi là một phần của ngữ pháp mà đúng hơn là một vấn đề của ngữ dụng học.</p>
+
+<p>Một phần khác của ngữ dụng học là diễn giải ý định của người nói. Lời phát biểu của người nói được coi là một <strong>hành động nói (speech act)</strong>, và người nghe phải giải mã xem đó là loại hành động gì — một câu hỏi, một lời phát biểu, một lời hứa, một lời cảnh báo, một mệnh lệnh, v.v. Một mệnh lệnh chẳng hạn như "go to 2 2" ngầm ám chỉ người nghe. Cho đến nay, ngữ pháp cho \(S\) của chúng ta chỉ bao gồm các câu trần thuật (declarative sentences). Chúng ta có thể mở rộng nó để bao hàm các câu mệnh lệnh — một câu mệnh lệnh là một cụm động từ trong đó chủ ngữ ngầm định là người nghe của mệnh lệnh đó:</p>
+
+<p><code>S(Command(pred(Hearer))) → VP(pred)</code></p>
+
+<p><strong>Phụ thuộc khoảng cách xa (Long-distance dependencies)</strong>: Trong Hình 24.8, chúng ta đã thấy rằng "she didn't hear or even see him" được phân tích cú pháp với hai khoảng trống nơi thiếu một <code>NP</code>, nhưng lại tham chiếu đến <code>NP</code> "him". Chúng ta có thể sử dụng biểu tượng \(\square\) để biểu diễn các khoảng trống: "she didn't [hear \(\square\) or even see \(\square\)] him". Nói chung, khoảng cách giữa khoảng trống và NP mà nó tham chiếu có thể dài tùy ý: trong câu "Who did the agent tell you to give the gold to \(\square\)?" khoảng trống tham chiếu đến "Who", cách đó 11 từ.</p>
+
+<p>Một hệ thống phức tạp gồm các quy tắc tăng cường có thể được sử dụng để đảm bảo rằng các NP bị thiếu được ghép nối khớp nhau một cách chính xác. Các quy tắc này rất phức tạp; ví dụ, bạn không thể có khoảng trống trong một nhánh của liên từ <code>NP</code>: "What did she play [NP Dungeons and \(\square\)]?" là câu sai ngữ pháp. Nhưng bạn có thể có cùng một khoảng trống ở cả hai nhánh của liên từ <code>VP</code>, như trong câu "What did you [VP [VP smell \(\square\)] and [VP shoot an arrow at \(\square\)]]?".</p>
+
+<p><strong>Thời gian và thì (Time and tense)</strong>: Giả sử chúng ta muốn biểu diễn sự khác biệt giữa "Ali loves Bo" và "Ali loved Bo." Tiếng Anh sử dụng thì của động từ (past, present, và future) để chỉ thời gian tương đối của một sự kiện. Một lựa chọn tốt để biểu diễn thời gian của các sự kiện là ký hiệu phép tính sự kiện (event calculus) trong Phần 10.3. Trong phép tính sự kiện chúng ta có:</p>
+<ul>
+<li>Ali loves Bo: \(E_1 \in \text{Loves}(\text{Ali}, \text{Bo}) \land \text{During}(\text{Now}, \text{Extent}(E_1))\)</li>
+<li>Ali loved Bo: \(E_2 \in \text{Loves}(\text{Ali}, \text{Bo}) \land \text{After}(\text{Now}, \text{Extent}(E_2))\)</li>
+</ul>
+
+<p>Điều này cho thấy hai quy tắc từ vựng của chúng ta đối với các từ "loves" và "loved" nên là như sau:</p>
+
+<pre><code>Verb(λy λx e ∈ Loves(x, y) ∧ During(Now, e)) → loves
+Verb(λy λx e ∈ Loves(x, y) ∧ After(Now, e)) → loved.</code></pre>
+
+<p>Ngoài sự thay đổi này ra, mọi thứ khác về ngữ pháp vẫn giữ nguyên, đây là một tin đáng khích lệ; nó cho thấy chúng ta đang đi đúng hướng nếu chúng ta có thể dễ dàng thêm một chi tiết phức tạp như thì của động từ (mặc dù chúng ta mới chỉ chạm vào bề nổi của một ngữ pháp hoàn chỉnh cho thời gian và thì).</p>

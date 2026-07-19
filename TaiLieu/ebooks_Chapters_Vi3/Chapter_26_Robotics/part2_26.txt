@@ -1,0 +1,280 @@
+938
+Chapter 26
+Robotics
+In robotics we often use a three-level hierarchy. The task planning level decides a plan
+Task planning
+or policy for high-level actions, sometimes called action primitives or subgoals: move to the
+door, open it, go to the elevator, press the button, etc. Then motion planning is in charge of
+ﬁnding a path that gets the robot from one point to another, achieving each subgoal. Finally,
+control is used to achieve the planned motion using the robot’s actuators. Since the task
+Control
+planning level is typically deﬁned over discrete states and actions, in this chapter we will
+focus primarily on motion planning and control.
+Separately, preference learning is in charge of estimating an end user’s objective, and
+Preference learning
+people prediction is used to forecast the actions of other people in the robot’s environment.
+People prediction
+All these combine to determine the robot’s behavior.
+Whenever we split a problem into separate pieces we reduce complexity, but we give up
+opportunities for the pieces to help each other. Action can help improve perception, and also
+determine what kind of perception is useful. Similarly, decisions at the motion level might
+not be the best when accounting for how that motion will be tracked; or decisions at the task
+level might render the task plan uninstantiatable at the motion level. So, with progress in
+these separate areas comes the push to reintegrate them: to do motion planning and control
+together, to do task and motion planning together, and to reintegrate perception, prediction,
+and action—closing the feedback loop. Robotics today is about continuing progress in each
+area while also building on this progress to achieve better integration.
+26.4 Robotic Perception
+Perception is the process by which robots map sensor measurements into internal representa-
+tions of the environment. Much of it uses the computer vision techniques from the previous
+chapter. But perception for robotics must deal with additional sensors like lidar and tactile
+sensors.
+Perception is difﬁcult because sensors are noisy and the environment is partially observ-
+able, unpredictable, and often dynamic. In other words, robots have all the problems of state
+estimation (or ﬁltering) that we discussed in Section 14.2. As a rule of thumb, good internal
+representations for robots have three properties:
+1. They contain enough information for the robot to make good decisions.
+2. They are structured so that they can be updated efﬁciently.
+3. They are natural in the sense that internal variables correspond to natural state variables
+in the physical world.
+In Chapter 14, we saw that Kalman ﬁlters, HMMs, and dynamic Bayes nets can represent the
+transition and sensor models of a partially observable environment, and we described both
+exact and approximate algorithms for updating the belief state—the posterior probability
+distribution over the environment state variables. Several dynamic Bayes net models for
+this process were shown in Chapter 14. For robotics problems, we include the robot’s own
+past actions as observed variables in the model. Figure 26.4 shows the notation used in this
+chapter: Xt is the state of the environment (including the robot) at time t, Zt is the observation
+received at time t, and At is the action taken after the observation is received.
+We would like to compute the new belief state, P(Xt+1 | z1:t+1,a1:t), from the current
+belief state, P(Xt | z1:t,a1:t−1), and the new observation zt+1. We did this in Section 14.2,
+
+
+Section 26.4
+Robotic Perception
+939
+Figure 26.4 Robot perception can be viewed as temporal inference from sequences of ac-
+tions and measurements, as illustrated by this dynamic decision network.
+but there are two differences here: we condition on the actions as well as the observations,
+and we deal with continuous rather than discrete variables. Thus, we modify the recursive
+ﬁltering equation (14.5 on page 485) to use integration rather than summation:
+P(Xt+1 | z1:t+1,a1:t)
+= αP(zt+1 | Xt+1)
+Z
+P(Xt+1 | xt,at) P(xt | z1:t,a1:t−1) dxt .
+(26.1)
+This equation states that the posterior over the state variables X at time t + 1 is calculated
+recursively from the corresponding estimate one time step earlier. This calculation involves
+the previous action at and the current sensor measurement zt+1. For example, if our goal is
+to develop a soccer-playing robot, Xt+1 might include the location of the soccer ball relative
+to the robot. The posterior P(Xt |z1:t,a1:t−1) is a probability distribution over all states that
+captures what we know from past sensor measurements and controls. Equation (26.1) tells us
+how to recursively estimate this location, by incrementally folding in sensor measurements
+(e.g., camera images) and robot motion commands. The probability P(Xt+1 | xt,at) is called
+the transition model or motion model, and P(zt+1 | Xt+1) is the sensor model.
+Motion model
+26.4.1 Localization and mapping
+Localization is the problem of ﬁnding out where things are—including the robot itself. To
+Localization
+keep things simple, let us consider a mobile robot that moves slowly in a ﬂat two-dimensional
+world. Let us also assume the robot is given an exact map of the environment. (An example
+of such a map appears in Figure 26.7.) The pose of such a mobile robot is deﬁned by its
+two Cartesian coordinates with values x and y and its heading with value θ, as illustrated in
+Figure 26.5(a). If we arrange those three values in a vector, then any particular state is given
+by Xt =(xt,yt,θt)⊤. So far so good.
+In the kinematic approximation, each action consists of the “instantaneous” speciﬁcation
+of two velocities—a translational velocity vt and a rotational velocity ωt. For small time
+intervals ∆t, a crude deterministic model of the motion of such robots is given by
+ˆXt+1 = f(Xt,vt,ωt
+|{z}
+at
+) = Xt +
+
+
+vt∆t cosθt
+vt∆t sinθt
+ωt∆t
+
+.
+
+
+940
+Chapter 26
+Robotics
+xi, yi
+vt ¢t
+xt11
+h(xt)
+xt
+t11
+t ¢t
+ut
+u
+v
+Z1
+Z2
+Z3
+Z4
+(a)
+(b)
+Figure 26.5 (a) A simpliﬁed kinematic model of a mobile robot. The robot is shown as a
+circle with an interior radius line marking the forward direction. The state xt consists of the
+(xt,yt) position (shown implicitly) and the orientation θt. The new state xt+1 is obtained by
+an update in position of vt∆t and in orientation of ωt∆t. Also shown is a landmark at (xi,yi)
+observed at time t. (b) The range-scan sensor model. Two possible robot poses are shown for
+a given range scan (z1,z2,z3,z4). It is much more likely that the pose on the left generated
+the range scan than the pose on the right.
+The notation ˆX refers to a deterministic state prediction. Of course, physical robots are
+somewhat unpredictable. This is commonly modeled by a Gaussian distribution with mean
+f(Xt,vt,ωt) and covariance Σx. (See Appendix A for a mathematical deﬁnition.)
+P(Xt+1 | Xt,vt,ωt) = N( ˆXt+1,Σx).
+This probability distribution is the robot’s motion model. It models the effects of the motion
+at on the location of the robot.
+Next, we need a sensor model. We will consider two kinds of sensor models. The ﬁrst
+assumes that the sensors detect stable, recognizable features of the environment called land-
+marks. For each landmark, the range and bearing are reported. Suppose the robot’s state
+Landmark
+is xt =(xt,yt,θt)⊤and it senses a landmark whose location is known to be (xi,yi)⊤. With-
+out noise, a prediction of the range and bearing can be calculated by simple geometry (see
+Figure 26.5(a)):
+ˆzt = h(xt) =
+ p
+(xt −xi)2 +(yt −yi)2
+arctan yi−yt
+xi−xt −θt
+!
+.
+Again, noise distorts our measurements. To keep things simple, assume Gaussian noise with
+covariance Σz, giving us the sensor model
+P(zt | xt) = N(ˆzt,Σz).
+A somewhat different sensor model is used for a sensor array of range sensors, each of
+Sensor array
+which has a ﬁxed bearing relative to the robot. Such sensors produce a vector of range values
+zt = (z1,...,zM)⊤.
+Given a pose xt, let ˆzj be the computed range along the jth beam direction from xt to the
+nearest obstacle. As before, this will be corrupted by Gaussian noise. Typically, we assume
+
+
+Section 26.4
+Robotic Perception
+941
+function MONTE-CARLO-LOCALIZATIONa, z, N, P(X′|X, v, ω), P(z|z∗), map
+returns a set of samples, S, for the next time step
+inputs: a, robot velocities v and ω
+z, a vector of M range scan data points
+P(X′|X, v, ω), motion model
+P(z|z∗), a range sensor noise model
+map, a 2D map of the environment
+persistent: S, a vector of N samples
+local variables: W, a vector of N weights
+S′, a temporary vector of N samples
+if S is empty then
+for i = 1 to N do
+// initialization phase
+S[i]←sample from P(X0)
+for i = 1 to N do
+// update cycle
+S′[i]←sample from P(X′|X = S[i],v,ω)
+W[i]←1
+for j = 1 to M do
+z∗←RAYCAST( j, X = S′[i], map)
+W[i]←W[i] · P(z j| z∗)
+S←WEIGHTED-SAMPLE-WITH-REPLACEMENT(N, S′, W)
+return S
+Figure 26.6 A Monte Carlo localization algorithm using a range-scan sensor model with
+independent noise.
+that the errors for the different beam directions are independent and identically distributed,
+so we have
+P(zt | xt) = α
+M
+∏
+j=1
+e−(zj−ˆzj)/2σ2.
+Figure 26.5(b) shows an example of a four-beam range scan and two possible robot poses,
+one of which is reasonably likely to have produced the observed scan and one of which is not.
+Comparing the range-scan model to the landmark model, we see that the range-scan model
+has the advantage that there is no need to identify a landmark before the range scan can be
+interpreted; indeed, in Figure 26.5(b), the robot faces a featureless wall. On the other hand,
+if there are visible, identiﬁable landmarks, they may provide instant localization.
+Section 14.4 described the Kalman ﬁlter, which represents the belief state as a single
+multivariate Gaussian, and the particle ﬁlter, which represents the belief state by a collection
+of particles that correspond to states. Most modern localization algorithms use one of these
+two representations of the robot’s belief P(Xt | z1:t,a1:t−1).
+Localization using particle ﬁltering is called Monte Carlo localization, or MCL. The
+Monte Carlo
+localization
+MCL algorithm is an instance of the particle-ﬁltering algorithm of Figure 14.17 (page 510).
+All we need to do is supply the appropriate motion model and sensor model. Figure 26.6
+shows one version using the range-scan sensor model. The operation of the algorithm is
+illustrated in Figure 26.7 as the robot ﬁnds out where it is inside an ofﬁce building. In the ﬁrst
+image, the particles are uniformly distributed based on the prior, indicating global uncertainty
+
+
+942
+Chapter 26
+Robotics
+about the robot’s position. In the second image, the ﬁrst set of measurements arrives and the
+particles form clusters in the areas of high posterior belief. In the third, enough measurements
+are available to push all the particles to a single location.
+The Kalman ﬁlter is the other major way to localize. A Kalman ﬁlter represents the
+posterior P(Xt | z1:t,a1:t−1) by a Gaussian. The mean of this Gaussian will be denoted µt and
+its covariance Σt. The main problem with Gaussian beliefs is that they are closed only under
+linear motion models f and linear measurement models h. For nonlinear f or h, the result of
+updating a ﬁlter is in general not Gaussian. Thus, localization algorithms using the Kalman
+ﬁlter linearize the motion and sensor models. Linearization is a local approximation of a
+Linearization
+nonlinear function by a linear function. Figure 26.8 illustrates the concept of linearization
+for a (one-dimensional) robot motion model. On the left, it depicts a nonlinear motion model
+f(xt,at) (the control at is omitted in this graph since it plays no role in the linearization). On
+the right, this function is approximated by a linear function ˜f(xt,at). This linear function is
+tangent to f at the point µt, the mean of our state estimate at time t. Such a linearization
+is called ﬁrst degree Taylor expansion. A Kalman ﬁlter that linearizes f and h via Taylor
+Taylor expansion
+expansion is called an extended Kalman ﬁlter (or EKF). Figure 26.9 shows a sequence of
+estimates of a robot running an extended Kalman ﬁlter localization algorithm.
+As the robot moves, the uncertainty in its location estimate increases, as shown by the
+error ellipses. Its error decreases as it senses the range and bearing to a landmark with known
+location and increases again as the robot loses sight of the landmark. EKF algorithms work
+well if landmarks are easily identiﬁed. Otherwise, the posterior distribution may be multi-
+modal, as in Figure 26.7(b). The problem of needing to know the identity of landmarks is an
+instance of the data association problem discussed in Figure 18.3.
+In some situations, no map of the environment is available. Then the robot will have to
+acquire a map. This is a bit of a chicken-and-egg problem: the navigating robot will have to
+determine its location relative to a map it doesn’t quite know, at the same time building this
+map while it doesn’t quite know its actual location. This problem is important for many robot
+applications, and it has been studied extensively under the name simultaneous localization
+and mapping, abbreviated as SLAM.
+Simultaneous
+localization and
+mapping
+SLAM problems are solved using many different probabilistic techniques, including the
+extended Kalman ﬁlter discussed above. Using the EKF is straightforward: just augment
+the state vector to include the locations of the landmarks in the environment. Luckily, the
+EKF update scales quadratically, so for small maps (e.g., a few hundred landmarks) the com-
+putation is quite feasible. Richer maps are often obtained using graph relaxation methods,
+similar to the Bayesian network inference techniques discussed in Chapter 13. Expectation–
+maximization is also used for SLAM.
+26.4.2 Other types of perception
+Not all of robot perception is about localization or mapping. Robots also perceive temper-
+ature, odors, sound, and so on. Many of these quantities can be estimated using variants of
+dynamic Bayes networks. All that is required for such estimators are conditional probability
+distributions that characterize the evolution of state variables over time, and sensor models
+that describe the relation of measurements to state variables.
+It is also possible to program a robot as a reactive agent, without explicitly reasoning
+about probability distributions over states. We cover that approach in Section 26.9.1.
+
+
+Section 26.4
+Robotic Perception
+943
+Robot position
+(a)
+Robot position
+(b)
+Robot position
+(c)
+Figure 26.7 Monte Carlo localization, a particle ﬁltering algorithm for mobile robot localiza-
+tion. (a) Initial, global uncertainty. (b) Approximately bimodal uncertainty after navigating
+in the (symmetric) corridor. (c) Unimodal uncertainty after entering a room and ﬁnding it to
+be distinctive.
+
+

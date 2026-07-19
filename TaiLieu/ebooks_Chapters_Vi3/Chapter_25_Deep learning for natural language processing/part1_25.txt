@@ -1,0 +1,194 @@
+CHAPTER 25
+DEEP LEARNING FOR NATURAL
+LANGUAGE PROCESSING
+In which deep neural networks perform a variety of language tasks, capturing the structure
+of natural language as well as its ﬂuidity.
+Chapter 24 explained the key elements of natural language, including grammar and semantics.
+Systems based on parsing and semantic analysis have demonstrated success on many tasks,
+but their performance is limited by the endless complexity of linguistic phenomena in real
+text. Given the vast amount of text available in machine-readable form, it makes sense to
+consider whether approaches based on data-driven machine learning can be more effective.
+We explore this hypothesis using the tools provided by deep learning systems (Chapter 22).
+We begin in Section 25.1 by showing how learning can be improved by representing
+words as points in a high-dimensional space, rather than as atomic values. Section 25.2
+covers the use of recurrent neural networks to capture meaning and long-distance context as
+text is processed sequentially. Section 25.3 focuses primarily on machine translation, one of
+the major successes of deep learning applied to NLP. Sections 25.4 and 25.5 cover models
+that can be trained from large amounts of unlabeled text and then applied to speciﬁc tasks,
+often achieving state-of-the-art performance. Finally, Section 25.6 takes stock of where we
+are and how the ﬁeld may progress.
+25.1 Word Embeddings
+We would like a representation of words that does not require manual feature engineering, but
+allows for generalization between related words—words that are related syntactically (“col-
+orless” and “ideal” are both adjectives), semantically (“cat” and “kitten” are both felines),
+topically (“sunny” and “sleet” are both weather terms), in terms of sentiment (“awesome”
+has opposite sentiment to “cringeworthy”), or otherwise.
+How should we encode a word into an input vector x for use in a neural network? As
+explained in Section 22.2.1 (page 807), we could use a one-hot vector—that is, we encode
+the ith word in the dictionary with a 1 bit in the ith input position and a 0 in all the other
+positions. But such a representation would not capture the similarity between words.
+Following the linguist John R. Firth’s (1957) maxim, “You shall know a word by the com-
+pany it keeps,” we could represent each word with a vector of n-gram counts of all the phrases
+that the word appears in. However, raw n-gram counts are cumbersome. With a 100,000-word
+vocabulary, there are 1025 5-grams to keep track of (although vectors in this 1025-dimensional
+space would be quite sparse—most of the counts would be zero). We would get better gen-
+
+
+908
+Chapter 25
+Deep Learning for Natural Language Processing
+eralization if we reduced this to a smaller-size vector, perhaps with just a few hundred di-
+mensions. We call this smaller, dense vector a word embedding: a low-dimensional vector
+Word embedding
+representing a word. Word embeddings are learned automatically from the data. (We will see
+later how this is done.) What are these learned word embeddings like? On the one hand, each
+one is just a vector of numbers, where the individual dimensions and their numeric values do
+not have discernible meanings:
+“aardvark” =
+[−0.7,+0.2,−3.2,...]
+“abacus”
+=
+[+0.5,+0.9,−1.3,...]
+···
+“zyzzyva” = [−0.1,+0.8,−0.4,...].
+On the other hand, the feature space has the property that similar words end up having similar
+vectors. We can see that in Figure 25.1, where there are separate clusters for country, kinship,
+transportation, and food words.
+It turns out, for reasons we do not completely understand, that the word embedding vec-
+tors have additional properties beyond mere proximity for similar words. For example, sup-
+pose we look at the vectors A for Athens and B for Greece. For these words the vector
+difference B−A seems to encode the country/capital relationship. Other pairs—France and
+Paris, Russia and Moscow, Zambia and Lusaka—have essentially the same vector difference.
+We can use this property to solve word analogy problems such as “Athens is to Greece
+as Oslo is to [what]?” Writing C for the Oslo vector and D for the unknown, we hypothesize
+that B −A=D −C, giving us D=C + (B −A). And when we compute this new vector D,
+we ﬁnd that it is closer to “Norway” than to any other word. Figure 25.2 shows that this type
+of vector arithmetic works for many relationships.
+However, there is no guarantee that a particular word embedding algorithm run on a par-
+ticular corpus will capture a particular semantic relationship. Word embeddings are popular
+because they have proven to be a good representation for downstream language tasks (such
+as question answering or translation or summarization), not because they are guaranteed to
+answer analogy questions on their own.
+Using word embedding vectors rather than one-hot encodings of words turns out to be
+helpful for essentially all applications of deep learning to NLP tasks. Indeed, in many cases
+it is possible to use generic pretrained vectors, obtained from any of several suppliers, for
+one’s particular NLP task. At the time of writing, the commonly used vector dictionaries
+include WORD2VEC, GloVe (Global Vectors), and FASTTEXT, which has embeddings for
+157 languages. Using a pretrained model can save a great deal of time and effort. For more
+on these resources, see Section 25.5.1.
+It is also possible to train your own word vectors; this is usually done at the same time as
+training a network for a particular task. Unlike generic pretrained embeddings, word embed-
+dings produced for a speciﬁc task can be trained on a carefully selected corpus and will tend
+to emphasize aspects of words that are useful for the task. Suppose, for example, that the
+task is part-of-speech (POS) tagging (see Section 24.1.6). Recall that this involves predicting
+the correct part of speech for each word in a sentence. Although this is a simple task, it is
+nontrivial because many words can be tagged in multiple ways—for example, the word cut
+can be a present-tense verb (transitive or intransitive), a past-tense verb, an inﬁnitive verb, a
+past participle, an adjective, or a noun. If a nearby temporal adverb refers to the past, that
+
+
+Section 25.1
+Word Embeddings
+909
+france greece
+germany
+nephew
+niece
+aunt
+uncle
+car
+bicycle
+truck
+apple
+banana
+pizza
+Figure 25.1 Word embedding vectors computed by the GloVe algorithm trained on 6 billion
+words of text. 100-dimensional word vectors are projected down onto two dimensions in this
+visualization. Similar words appear near each other.
+A
+B
+C
+D=C+(B−A)
+Relationship
+Athens
+Greece
+Oslo
+Norway
+Capital
+Astana
+Kazakhstan
+Harare
+Zimbabwe
+Capital
+Angola
+kwanza
+Iran
+rial
+Currency
+copper
+Cu
+gold
+Au
+Atomic Symbol
+Microsoft
+Windows
+Google
+Android
+Operating System
+New York
+New York Times
+Baltimore
+Baltimore Sun
+Newspaper
+Berlusconi
+Silvio
+Obama
+Barack
+First name
+Switzerland
+Swiss
+Cambodia
+Cambodian
+Nationality
+Einstein
+scientist
+Picasso
+painter
+Occupation
+brother
+sister
+grandson
+granddaughter
+Family Relation
+Chicago
+Illinois
+Stockton
+California
+State
+possibly
+impossibly
+ethical
+unethical
+Negative
+mouse
+mice
+dollar
+dollars
+Plural
+easy
+easiest
+lucky
+luckiest
+Superlative
+walking
+walked
+swimming
+swam
+Past tense
+Figure 25.2 A word embedding model can sometimes answer the question “A is to B as C
+is to [what]?” with vector arithmetic: given the word embedding vectors for the words A, B,
+and C, compute the vector D=C+(B−A) and look up the word that is closest to D. (The
+answers in column D were computed automatically by the model. The descriptions in the
+“Relationship” column were added by hand.) Adapted from Mikolov et al. (2013, 2014).
+
+

@@ -1,0 +1,135 @@
+910
+Chapter 25
+Deep Learning for Natural Language Processing
+Yesterday
+they
+cut
+the
+rope
+Embedding
+lookup
+Embedding
+lookup
+Embedding
+lookup
+Embedding
+lookup
+Embedding
+lookup
+Hidden Layer 1
+Class = PastTenseVerb
+Hidden Layer 2
+Output Layer
+Figure 25.3 Feedforward part-of-speech tagging model. This model takes a 5-word window
+as input and predicts the tag of the word in the middle—here, cut. The model is able to
+account for word position because each of the 5 input embeddings is multiplied by a different
+part of the ﬁrst hidden layer. The parameter values for the word embeddings and for the three
+layers are all learned simultaneously during training.
+suggests that this particular occurrence of cut is a past-tense verb; and we might hope, then,
+that the embedding will capture the past-referring aspect of adverbs.
+POS tagging serves as a good introduction to the application of deep learning to NLP,
+without the complications of more complex tasks like question answering (see Section 25.5.3).
+Given a corpus of sentences with POS tags, we learn the parameters for the word embeddings
+and the POS tagger simultaneously. The process works as follows:
+1. Choose the width w (an odd number of words) for the prediction window to be used
+to tag each word. A typical value is w=5, meaning that the tag is predicted based on
+the word plus the two words to the left and the two words to the right. Split every
+sentence in your corpus into overlapping windows of length w. Each window produces
+one training example consisting of the w words as input and the POS category of the
+middle word as output.
+2. Create a vocabulary of all of the unique word tokens that occur more than, say, 5 times
+in the training data. Denote the total number of words in the vocabulary as v.
+3. Sort this vocabulary in any arbitrary order (perhaps alphabetically).
+4. Choose a value d as the size of each word embedding vector.
+5. Create a new v-by-d weight matrix called E. This is the word embedding matrix. Row
+i of E is the word embedding of the ith word in the vocabulary. Initialize E randomly
+(or from pretrained vectors).
+6. Set up a neural network that outputs a part of speech label, as shown in Figure 25.3. The
+ﬁrst layer will consist of w copies of the embedding matrix. We might use two additional
+hidden layers, z1 and z2 (with weight matrices W1 and W2, respectively), followed by
+
+
+Section 25.2
+Recurrent Neural Networks for NLP
+911
+a softmax layer yielding an output probability distribution ˆy over the possible part-of-
+speech categories for the middle word:
+z1 = σ(W1x)
+z2 = σ(W2z1)
+ˆy = softmax(Woutz2).
+7. To encode a sequence of w words into an input vector, simply look up the embedding
+for each word and concatenate the embedding vectors. The result is a real-valued in-
+put vector x of length wd. Even though a given word will have the same embedding
+vector whether it occurs in the ﬁrst position, the last, or somewhere in between, each
+embedding will be multiplied by a different part of the ﬁrst hidden layer; therefore we
+are implicitly encoding the relative position of each word.
+8. Train the weights E and the other weight matrices W1, W2, and Wout using gradient
+descent. If all goes well, the middle word, cut, will be labeled as a past-tense verb, based
+on the evidence in the window, which includes the temporal past word “yesterday,” the
+third-person subject pronoun “they” immediately before cut, and so on.
+An alternative to word embeddings is a character-level model in which the input is a se-
+quence of characters, each encoded as a one-hot vector. Such a model has to learn how
+characters come together to form words. The majority of work in NLP sticks with word-level
+rather than character-level encodings.
+25.2 Recurrent Neural Networks for NLP
+We now have a good representation for single words in isolation, but language consists of
+an ordered sequence of words in which the context of surrounding words is important. For
+simple tasks like part of speech tagging, a small, ﬁxed-size window of perhaps ﬁve words
+usually provides enough context.
+More complex tasks such as question answering or reference resolution may require
+dozens of words as context. For example, in the sentence “Eduardo told me that Miguel
+was very sick so I took him to the hospital,” knowing that him refers to Miguel and not
+Eduardo requires context that spans from the ﬁrst to the last word of the 14-word sentence.
+25.2.1 Language models with recurrent neural networks
+We’ll start with the problem of creating a language model with sufﬁcient context. Recall that
+a language model is a probability distribution over sequences of words. It allows us to predict
+the next word in a text given all the previous words, and is often used as a building block for
+more complex tasks.
+Building a language model with either an n-gram model (as in Section 24.1) or a feedfor-
+ward network with a ﬁxed window of n words can run into difﬁculty due to the problem of
+context: either the required context will exceed the ﬁxed window size or the model will have
+too many parameters, or both.
+In addition, a feedforward network has the problem of asymmetry: whatever it learns
+about, say, the appearance of the word him as the 12th word of the sentence it will have to
+relearn for the appearance of him at other positions in the sentence, because the weights are
+different for each word position.
+
+
+912
+Chapter 25
+Deep Learning for Natural Language Processing
+Δ
+Figure 25.4 (a) Schematic diagram of an RNN where the hidden layer z has recurrent con-
+nections; the ∆symbol indicates a delay. Each input x is the word embedding vector of the
+next word in the sentence. Each output y is the output for that time step. (b) The same net-
+work unrolled over three timesteps to create a feedforward network. Note that the weights
+are shared across all timesteps.
+In Section 22.6, we introduced the recurrent neural network or RNN, which is designed
+to process time-series data, one datum at a time. This suggests that RNNs might be useful for
+processing language, one word at a time. We repeat Figure 22.8 here as Figure 25.4.
+In an RNN language model each input word is encoded as a word embedding vector, xi.
+There is a hidden layer zt which gets passed as input from one time step to the next. We are
+interested in doing multiclass classiﬁcation: the classes are the words of the vocabulary. Thus
+the output yt will be a softmax probability distribution over the possible values of the next
+word in the sentence.
+The RNN architecture solves the problem of too many parameters. The number of param-
+eters in the weight matrixes w,z,z, w,x,z, and w,z,y stays constant, regardless of the number of
+words—it is O(1). This is in contrast to feedforward networks, which have O(n) parameters,
+and n-gram models, which have O(vn) parameters, where v is the size of the vocabulary.
+The RNN architecture also solves the problem of asymmetry, because the weights are the
+same for every word position.
+The RNN architecture can sometimes solve the limited context problem as well. In theory
+there is no limit to how far back in the input the model can look. Each update of the hidden
+layer zt has access to both the current input word xt and the previous hidden layer zt−1,
+which means that information about any word in the input can be kept in the hidden layer
+indeﬁnitely, copied over (or modiﬁed as appropriate) from one time step to the next. Of
+course, there is a limited amount of storage in z, so it can’t remember everything about all the
+previous words.
+In practice RNN models perform well on a variety of tasks, but not on all tasks. It can be
+hard to predict whether they will be succesful for a given problem. One factor that contributes
+to success is that the training process encourages the network to allocate storage space in z to
+the aspects of the input that will actually prove to be useful.
+To train an RNN language model, we use the training process described in Section 22.6.1.
+The inputs, xt, are the words in a training corpus of text, and the observed outputs are the same
+
+

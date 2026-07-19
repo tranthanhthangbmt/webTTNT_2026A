@@ -1,0 +1,288 @@
+980
+Chapter 26
+Robotics
+(a)
+(b)
+Figure 26.36 (a) A robot mapping an abandoned coal mine. (b) A 3D map of the mine
+acquired by the robot. Courtesy of Sebastian Thrun.
+Figure 26.35(a) depicts BOSS, which in 2007 won the DARPA Urban Challenge, a compli-
+cated road race on city streets where robots faced other robots and had to obey trafﬁc rules.
+In 2009, Google started an autonomous driving project (featuring many of the researchers
+who had worked on Stanley and BOSS), which has now spun off as Waymo. In 2018 Waymo
+started driverless testing (with nobody in the driver seat) in the suburbs of Pheonix, Ari-
+zona. In the meantime, other autonomous driving companies and ride-sharing companies
+are working on developing their own technology, while car manufacturers have been selling
+cars with more and more assistive intelligence, such as Tesla’s driver assist, which is meant
+Driver assist
+for highway driving. Other companies are targeting non-highway driving applications in-
+cluding college campuses and retirement communities. Still other companies are focused on
+non-passenger applications such as trucking, grocery delivery, and valet parking.
+Entertainment: Disney has been using robots (under the name animatronics) in their
+Animatronics
+parks since 1963. Originally, these robots were restricted to hand-designed, open-loop, un-
+varying motion (and speech), but since 2009 a version called autonomatronics can generate
+Autonomatronics
+autonomous actions. Robots also take the form of intelligent toys for children; for example,
+Anki’s Cozmo plays games with children and may pound the table with frustration when it
+loses. Finally, quadrotors like Skydio’s R1 from Figure 26.2(b) act as personal photographers
+and videographers, following us around to take action shots as we ski or bike.
+Exploration and hazardous environments: Robots have gone where no human has
+gone before, including the surface of Mars. Robotic arms assist astronauts in deploying and
+retrieving satellites and in building the International Space Station. Robots also help explore
+under the sea. They are routinely used to acquire maps of sunken ships. Figure 26.36 shows
+a robot mapping an abandoned coal mine, along with a 3D model of the mine acquired using
+range sensors. In 1996, a team of researches released a legged robot into the crater of an
+active volcano to acquire data for climate research. Robots are becoming very effective tools
+for gathering information in domains that are difﬁcult (or dangerous) for people to access.
+Robots have assisted people in cleaning up nuclear waste, most notably in Three Mile
+Island, Chernobyl, and Fukushima. Robots were present after the collapse of the World Trade
+
+
+Summary
+981
+Center, where they entered structures deemed too dangerous for human search and rescue
+crews. Here too, these robots are initially deployed via teleoperation, and as technology
+advances they are becoming more and more autonomous, with a human operator in charge
+but not having to specify every single command.
+Industry: The majority of robots today are deployed in factories, automating tasks that
+are difﬁcult, dangerous, or dull for humans. (The majority of factory robots are in automobile
+factories.) Automating these tasks is a positive in terms of efﬁciently producing what society
+needs. At the same time, it also means displacing some human workers from their jobs. This
+has important policy and economics implications—the need for retraining and education, the
+need for a fair division of resources, etc. These topics are discussed further in Section 28.3.5.
+Summary
+Robotics is about physically embodied agents, which can change the state of the physical
+world. In this chapter, we have learned the following:
+• The most common types of robots are manipulators (robot arms) and mobile robots.
+They have sensors for perceiving the world and actuators that produce motion, which
+then affects the world via effectors.
+• The general robotics problem involves stochasticity (which can be handled by MDPs),
+partial observability (which can be handled by POMDPs), and acting with and around
+other agents (which can be handled with game theory). The problem is made even
+harder by the fact that most robots work in continuous and high-dimensional state and
+action spaces. They also operate in the real world, which refuses to run faster than real
+time and in which failures lead to real things being damaged, with no “undo” capability.
+• Ideally, the robot would solve the entire problem in one go: observations in the form
+of raw sensor feeds go in, and actions in the form of torques or currents to the motors
+come out. In practice though, this is too daunting, and roboticists typically decouple
+different aspects of the problem and treat them independently.
+• We typically separate perception (estimation) from action (motion generation). Percep-
+tion in robotics involves computer vision to recognize the surroundings through cam-
+eras, but also localization and mapping.
+• Robotic perception concerns itself with estimating decision-relevant quantities from
+sensor data. To do so, we need an internal representation and a method for updating
+this internal representation over time.
+• Probabilistic ﬁltering algorithms such as particle ﬁlters and Kalman ﬁlters are useful
+for robot perception. These techniques maintain the belief state, a posterior distribution
+over state variables.
+• For generating motion, we use conﬁguration spaces, where a point speciﬁes everything
+we need to know to locate every body point on the robot. For instance, for a robot arm
+with two joints, a conﬁguration consists of the two joint angles.
+• We typically decouple the motion generation problem into motion planning, concerned
+with producing a plan, and trajectory tracking control, concerned with producing a
+policy for control inputs (actuator commands) that results in executing the plan.
+
+
+982
+Chapter 26
+Robotics
+• Motion planning can be solved via graph search using cell decomposition; using ran-
+domized motion planning algorithms, which sample milestones in the continuous
+conﬁguration space; or using trajectory optimization, which can iteratively push a
+straight-line path out of collision by leveraging a signed distance ﬁeld.
+• A path found by a search algorithm can be executed using the path as the reference
+trajectory for a PID controller, which constantly corrects for errors between where the
+robot is and where it is supposed to be, or via computed torque control, which adds a
+feedforward term that makes use of inverse dynamics to compute roughly what torque
+to send to make progress along the trajectory.
+• Optimal control unites motion planning and trajectory tracking by computing an op-
+timal trajectory directly over control inputs. This is especially easy when we have
+quadratic costs and linear dynamics, resulting in a linear quadratic regulator (LQR).
+Popular methods make use of this by linearizing the dynamics and computing second-
+order approximations of the cost (ILQR).
+• Planning under uncertainty unites perception and action by online replanning (such as
+model predictive control) and information gathering actions that aid perception.
+• Reinforcement learning is applied in robotics, with techniques striving to reduce the
+required number of interactions with the real world. Such techniques tend to exploit
+models, be it estimating models and using them to plan, or training policies that are
+robust with respect to different possible model parameters.
+• Interaction with humans requires the ability to coordinate the robot’s actions with
+theirs, which can be formulated as a game. We usually decompose the solution into
+prediction, in which we use the person’s ongoing actions to estimate what they will
+do in the future, and action, in which we use the predictions to compute the optimal
+motion for the robot.
+• Helping humans also requires the ability to learn or infer what they want. Robots can
+approach this by learning the desired cost function they should optimize from human
+input, such as demonstrations, corrections, or instruction in natural language. Alterna-
+tively, robots can imitate human behavior, and use reinforcement learning to help tackle
+the challenge of generalization to new states.
+Bibliographical and Historical Notes
+The word robot was popularized by Czech playwright Karel ˇCapek in his 1920 play R.U.R.
+(Rossum’s Universal Robots). The robots, which were grown chemically rather than con-
+structed mechanically, end up resenting their masters and decide to take over. It appears that
+it was ˇCapek’s brother, Josef, who ﬁrst combined the Czech words “robota” (obligatory work)
+and “robotnik” (serf) to yield “robot” in his 1917 short story Opilec (Glanc, 1978). The term
+robotics was invented for a science ﬁction story (Asimov, 1950).
+The idea of an autonomous machine predates the word “robot” by thousands of years. In
+7th century BCE Greek mythology, a robot named Talos was built by Hephaistos, the Greek
+god of metallurgy, to protect the island of Crete. The legend is that the sorceress Medea
+defeated Talos by promising him immortality but then draining his life ﬂuid. Thus, this is the
+
+
+Bibliographical and Historical Notes
+983
+ﬁrst example of a robot making a mistake in the process of changing its objective function.
+In 322 BCE, Aristotle anticipated technological unemployment, speculating “If every tool,
+when ordered, or even of its own accord, could do the work that beﬁts it...then there would
+be no need either of apprentices for the master workers or of slaves for the lords.”
+In the 3rd century BCE an actual humanoid robot called the Servant of Philon could pour
+wine or water into a cup; a series of valves cut off the ﬂow at the right time. Wonderful
+automata were built in the 18th century—Jacques Vaucanson’s mechanical duck from 1738
+being one early example—but the complex behaviors they exhibited were entirely ﬁxed in
+advance. Possibly the earliest example of a programmable robot-like device was the Jacquard
+loom (1805), described on page 33.
+Grey Walter’s “turtle,” built in 1948, could be considered the ﬁrst autonomous mobile
+robot, although its control system was not programmable. The “Hopkins Beast,” built in
+1960 at Johns Hopkins University, was much more sophisticated; it had sonar and photocell
+sensors, pattern-recognition hardware, and could recognize the cover plate of a standard AC
+power outlet. It was capable of searching for outlets, plugging itself in, and then recharging
+its batteries! Still, the Beast had a limited repertoire of skills.
+The ﬁrst general-purpose mobile robot was “Shakey,” developed at what was then the
+Stanford Research Institute (now SRI) in the late 1960s (Fikes and Nilsson, 1971; Nilsson,
+1984). Shakey was the ﬁrst robot to integrate perception, planning, and execution, and much
+subsequent research in AI was inﬂuenced by this remarkable achievement. Shakey appears
+on the cover of this book with project leader Charlie Rosen (1917–2002). Other inﬂuential
+projects include the Stanford Cart and the CMU Rover (Moravec, 1983). Cox and Wilfong
+(1990) describe classic work on autonomous vehicles.
+The ﬁrst commercial robot was an arm called UNIMATE, for universal automation, de-
+veloped by Joseph Engelberger and George Devol in their compnay, Unimation. In 1961, the
+ﬁrst UNIMATE robot was sold to General Motors for use in manufacturing TV picture tubes.
+1961 was also the year when Devol obtained the ﬁrst U.S. patent on a robot.
+In 1973, Toyota and Nissan started using an updated version of UNIMATE for auto body
+spot welding. This initiated a major revolution in automobile manufacturing that took place
+mostly in Japan and the U.S., and that is still ongoing. Unimation followed up in 1978 with
+the development of the Puma robot (Programmable Universal Machine for Assembly), which
+was the de facto standard for robotic manipulation for the two decades that followed. About
+500,000 robots are sold each year, with half of those going to the automotive industry.
+In manipulation, the ﬁrst major effort at creating a hand–eye machine was Heinrich
+Ernst’s MH-1, described in his MIT Ph.D. thesis (Ernst, 1961). The Machine Intelligence
+project at Edinburgh also demonstrated an impressive early system for vision-based assem-
+bly called FREDDY (Michie, 1972).
+Research on mobile robotics has been stimulated by several important competitions.
+AAAI’s annual mobile robot competition began in 1992. The ﬁrst competition winner was
+CARMEL (Congdon et al., 1992). Progress has been steady and impressive: in recent com-
+petitions robots entered the conference complex, found their way to the registration desk,
+registered for the conference, and even gave a short talk.
+The RoboCup competition, launched in 1995 by Kitano and colleagues (1997), aims
+to “develop a team of fully autonomous humanoid robots that can win against the human
+world champion team in soccer” by 2050. Some competitions use wheeled robots, some
+
+
+984
+Chapter 26
+Robotics
+humanoid robots, and some software simulations. Stone (2016) describes recent innovations
+in RoboCup.
+The DARPA Grand Challenge, organized by DARPA in 2004 and 2005, required au-
+tonomous vehicles to travel more than 200 kilometers through the desert in less than ten
+hours (Buehler et al., 2006). In the original event in 2004, no robot traveled more than eight
+miles, leading many to believe the prize would never be claimed. In 2005, Stanford’s robot
+Stanley won the competition in just under seven hours (Thrun, 2006). DARPA then orga-
+nized the Urban Challenge, a competition in which robots had to navigate 60 miles in an
+urban environment with other trafﬁc. Carnegie Mellon University’s robot BOSS took ﬁrst
+place and claimed the $2 million prize (Urmson and Whittaker, 2008). Early pioneers in the
+development of robotic cars included Dickmanns and Zapp (1987) and Pomerleau (1993).
+The ﬁeld of robotic mapping has evolved from two distinct origins. The ﬁrst thread
+began with work by Smith and Cheeseman (1986), who applied Kalman ﬁlters to the simulta-
+neous localization and mapping (SLAM) problem. This algorithm was ﬁrst implemented by
+Moutarlier and Chatila (1989) and later extended by Leonard and Durrant-Whyte (1992); see
+Dissanayake et al. (2001) for an overview of early Kalman ﬁlter variations. The second thread
+began with the development of the occupancy grid representation for probabilistic mapping,
+Occupancy grid
+which speciﬁes the probability that each (x,y) location is occupied by an obstacle (Moravec
+and Elfes, 1985).
+Kuipers and Levitt (1988) were among the ﬁrst to propose topological rather than metric
+mapping, motivated by models of human spatial cognition. A seminal paper by Lu and Milios
+(1997) recognized the sparseness of the simultaneous localization and mapping problem,
+which gave rise to the development of nonlinear optimization techniques by Konolige (2004)
+and Montemerlo and Thrun (2004), as well as hierarchical methods by Bosse et al. (2004).
+Shatkay and Kaelbling (1997) and Thrun et al. (1998) introduced the EM algorithm into the
+ﬁeld of robotic mapping for data association. An overview of probabilistic mapping methods
+can be found in (Thrun et al., 2005).
+Early mobile robot localization techniques are surveyed by Borenstein et al. (1996).
+Although Kalman ﬁltering was well known as a localization method in control theory for
+decades, the general probabilistic formulation of the localization problem did not appear in
+the AI literature until much later, through the work of Tom Dean and colleagues (Dean et al.,
+1990) and of Simmons and Koenig (1995). The latter work introduced the term Markov
+localization. The ﬁrst real-world application of this technique was by Burgard et al. (1999),
+Markov localization
+through a series of robots that were deployed in museums. Monte Carlo localization based
+on particle ﬁlters was developed by Fox et al. (1999) and is now widely used. The Rao-
+Blackwellized particle ﬁlter combines particle ﬁltering for robot localization with exact
+Rao-Blackwellized
+particle ﬁlter
+ﬁltering for map building (Murphy and Russell, 2001; Montemerlo et al., 2002).
+A great deal of early work on motion planning focused on geometric algorithms for de-
+terministic and fully observable motion planning problems. The PSPACE-hardness of robot
+motion planning was shown in a seminal paper by Reif (1979). The conﬁguration space rep-
+resentation is due to Lozano-Perez (1983). A series of papers by Schwartz and Sharir on what
+they called piano movers problems (Schwartz et al., 1987) was highly inﬂuential.
+Piano movers
+Recursive cell decomposition for conﬁguration space planning was originated in the work
+of Brooks and Lozano-Perez (1985) and improved signiﬁcantly by Zhu and Latombe (1991).
+The earliest skeletonization algorithms were based on Voronoi diagrams (Rowat, 1979) and
+
+
+Bibliographical and Historical Notes
+985
+visibility graphs (Wesley and Lozano-Perez, 1979). Guibas et al. (1992) developed efﬁcient
+Visibility graph
+techniques for calculating Voronoi diagrams incrementally, and Choset (1996) generalized
+Voronoi diagrams to broader motion planning problems.
+John Canny (1988) established the ﬁrst singly exponential algorithm for motion planning.
+The seminal text by Latombe (1991) covers a variety of approaches to motion planning, as
+do the texts by Choset et al. (2005) and LaValle (2006). Kavraki et al. (1996) developed the
+theory of probabilistic roadmaps. Kuffner and LaValle (2000) developed rapidly exploring
+random trees (RRTs).
+Involving optimization in geometric motion planning began with elastic bands (Quinlan
+and Khatib, 1993), which reﬁne paths when the conﬁguration-space obstacles change. Ratliff
+et al. (2009) formulated the idea as the solution to an optimal control problem, allowing
+the initial trajectory to start in collision, and deforming it by mapping workspace obstacle
+gradients via the Jacobian into the conﬁguration space. Schulman et al. (2013) proposed a
+practical second-order alternative.
+The control of robots as dynamical systems—whether for manipulation or navigation—
+has generated a vast literature. While this chapter explained the basics of trajectory tracking
+control and optimal control, it left out entire subﬁelds, including adaptive control, robust
+control, and Lyapunov analysis. Rather than assuming everything about the system is known
+a priori, adaptive control aims to adapt the dynamics parameters and/or the control law online.
+Robust control, on the other hand, aims to design controllers that perform well in spite of
+uncertainty and external disturbances.
+Lyapunov analysis was originally developed in the 1890s for the stability analysis of
+general nonlinear systems, but it was not until the early 1930s that control theorists realized
+its true potential. With the development of optimization methods, Lyapunov analysis was
+extended to control barrier functions, which lend themselves nicely to modern optimization
+tools. These methods are widely used in modern robotics for real-time controller design and
+safety analysis.
+Crucial works in robotic control include a trilogy on impedance control by Hogan (1985)
+and a general study of robot dynamics by Featherstone (1987). Dean and Wellman (1991)
+were among the ﬁrst to try to tie together control theory and AI planning systems. Three clas-
+sic textbooks on the mathematics of robot manipulation are due to Paul (1981), Craig (1989),
+and Yoshikawa (1990). Control for manipulation is covered by Murray (2017).
+The area of grasping is also important in robotics—the problem of determining a stable
+grasp is quite difﬁcult (Mason and Salisbury, 1985). Competent grasping requires touch sens-
+ing, or haptic feedback, to determine contact forces and detect slip (Fearing and Hollerbach,
+Haptic feedback
+1985). Understanding how to grasp the the wide variety of objects in the world is a daunting
+task. (Bousmalis et al., 2017) describe a system that combines real-world experimentation
+with simulations guided by sim-to-real transfer to produce robust grasping.
+Potential-ﬁeld control, which attempts to solve the motion planning and control problems
+simultaneously, was developed for robotics by Khatib (1986). In mobile robotics, this idea
+was viewed as a practical solution to the collision avoidance problem, and was later extended
+into an algorithm called vector ﬁeld histograms by Borenstein (1991).
+Vector ﬁeld
+histogram
+ILQR is currently widely used at the intersection of motion planning and control and is
+due to Li and Todorov (2004). It is a variant of the much older differential dynamic program-
+ming technique (Jacobson and Mayne, 1970).
+
+

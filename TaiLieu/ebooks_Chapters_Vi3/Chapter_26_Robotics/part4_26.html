@@ -1,0 +1,37 @@
+<h2 id="265-planning-and-control">26.5 Lập kế hoạch và Điều khiển (Planning and Control)</h2>
+
+<p>Mọi tính toán của robot cuối cùng đều dẫn đến quyết định di chuyển như thế nào, từ mức độ lập kế hoạch tác vụ trừu tượng cho đến dòng điện gửi tới động cơ. Trong phần này, ta giả định quá trình nhận thức (perception) đã hoàn tất và môi trường có tính quan sát toàn phần. Đồng thời, giả định rằng các động lực học (dynamics) chuyển tiếp của môi trường là tất định.</p>
+
+<p>Bắt đầu bằng việc tách biệt giữa chuyển động (motion) và điều khiển (control). Ta định nghĩa <strong>đường đi</strong> (Path) là một chuỗi các điểm trong không gian hình học mà một robot (hoặc một bộ phận của robot, như cánh tay) sẽ tuân theo. Ở đây ta xem nó như một đường cong trong không gian vật lý thay vì một chuỗi các hành động rời rạc. Việc tìm kiếm một đường đi tốt được gọi là <strong>lập kế hoạch chuyển động</strong> (Motion planning).</p>
+
+<p>Sau khi có được đường đi, nhiệm vụ thực thi chuỗi hành động để bám theo đường đi đó gọi là <strong>điều khiển bám quỹ đạo</strong> (Trajectory tracking control). <strong>Quỹ đạo</strong> (Trajectory) là một đường đi có gắn thời gian cho từng điểm. Đường đi (path) chỉ nói "đi từ A đến B rồi C," trong khi quỹ đạo (trajectory) chỉ định "bắt đầu ở A, mất 1 giây để đến B, và thêm 1.5 giây nữa để đến C."</p>
+
+<h3 id="2651-configuration-space">26.5.1 Không gian cấu hình (Configuration space)</h3>
+
+<p><strong>Hình 26.11</strong> Một robot hình tam giác đơn giản chỉ có thể tịnh tiến, cần tránh chướng ngại vật hình chữ nhật. Bên trái là không gian làm việc (workspace), bên phải là không gian cấu hình (configuration space).</p>
+
+<p>Không gian vật lý mà robot di chuyển được gọi là <strong>không gian làm việc</strong> (Workspace). Nếu coi robot như một tập hợp tọa độ \((x,y)\), các phép tính để tránh va chạm sẽ rất chậm chạp. Ta có thể đơn giản hóa bằng cách biểu diễn tất cả các điểm cấu thành robot dưới dạng một điểm duy nhất trong một không gian đa chiều trừu tượng gọi là <strong>không gian cấu hình</strong> (Configuration space, hay C-space).</p>
+
+<p>Với một robot tam giác không xoay, 2 chiều tọa độ \((x,y)\) là đủ cho không gian cấu hình. Nếu robot có thể xoay, ta cần không gian 3 chiều \((x, y, \theta)\). 
+Bất kỳ điểm nào trong C-space khiến thân robot va chạm vào chướng ngại vật trong workspace sẽ tạo nên các <strong>chướng ngại vật trong C-space</strong> (C-space obstacle). Không gian còn lại được gọi là <strong>không gian tự do</strong> (Free space).</p>
+
+<p>Với cánh tay robot 2 liên kết, mỗi khớp nối có thể di chuyển độc lập được gọi là <strong>bậc tự do</strong> (Degrees of freedom - DOF). 
+Để xác định vị trí mọi điểm trên cánh tay từ các góc của khớp, ta dùng ánh xạ <strong>động học thuận</strong> (Forward kinematics). Ngược lại, để chuyển một tọa độ không gian (x, y) thành các góc của khớp robot, ta giải bài toán <strong>động học nghịch</strong> (Inverse kinematics).</p>
+
+<p><strong>Hình 26.12</strong> (a) Không gian làm việc của cánh tay 2 bậc tự do. (b) Không gian cấu hình của nó. Vùng màu tối là các trạng thái va chạm.
+<strong>Hình 26.13</strong> Minh họa thêm ba cấu hình robot khác trong cả workspace và C-space.</p>
+
+<h3 id="2652-motion-planning">26.5.2 Lập kế hoạch chuyển động (Motion planning)</h3>
+
+<p>Lập kế hoạch chuyển động là tìm kiếm một kế hoạch đưa robot từ cấu hình này sang cấu hình khác mà không va chạm. Bài toán này kinh điển đến mức thường được gọi là <strong>bài toán người chuyển đàn piano</strong> (Piano mover's problem). Cho không gian làm việc \(W\), vùng chướng ngại vật \(O\), và các cấu hình ban đầu \(q_s\) cùng đích \(q_g\). Ta cần tìm một đường đi liên tục \(\tau(t)\) đi trong vùng không gian tự do.</p>
+
+<p><strong>Hình 26.14</strong> Đồ thị tầm nhìn (Visibility graph). Đường đi nối các đỉnh không bị chướng ngại vật cản tầm nhìn.</p>
+
+<p><strong>Đồ thị tầm nhìn (Visibility graphs)</strong>: Trải qua các đỉnh đa giác, ta nối mọi đỉnh có thể "nhìn thấy" nhau (không cắt qua đa giác). Cách này đảm bảo đường đi ngắn nhất, nhưng có rủi ro đi quá sát mép chướng ngại vật.</p>
+
+<p><strong>Hình 26.15</strong> Sơ đồ Voronoi (Voronoi diagram) chứa các đường cách đều hai hoặc nhiều chướng ngại vật.</p>
+
+<p><strong>Sơ đồ Voronoi (Voronoi diagrams)</strong>: Thay vì bám sát mép, phương pháp này ép đường đi nằm cách xa chướng ngại vật nhất có thể bằng cách tạo ra các vùng cách đều chúng.</p>
+
+<p><strong>Hình 26.16</strong> (a) Hàm giá trị và đường đi tìm được cho không gian cấu hình được lưới hóa (grid cell). (b) Phục hồi cùng đường đi đó trong không gian làm việc.
+<strong>Phân rã lưới (Cell decomposition)</strong>: Phân chia không gian thành các ô và giải quyết bài toán thông qua tìm kiếm đường đi (như \(A^*\)) trên các ô đó. Rất phổ biến nhưng gặp vấn đề về "lời nguyền chiều không gian" khi số lượng chiều của robot tăng cao.</p>

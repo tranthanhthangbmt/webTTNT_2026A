@@ -1,0 +1,193 @@
+1056
+Chapter 28
+Philosophy, Ethics, and Safety of AI
+It is, however, quite a leap to extrapolate all the way from the rapidly decreasing cost
+of computation to a singularity. So far, every technology has followed an S-shaped curve,
+where the exponential growth eventually tapers off. Sometimes new technologies step in
+when the old ones plateau, but sometimes it is not possible to keep the growth going, for
+technical, political, or sociological reasons. For example, the technology of ﬂight advanced
+dramatically from the Wright brothers’ ﬂight in 1903 to the moon landing in 1969, but has
+had no breakthroughs of comparable magnitude since then.
+Another obstacle in the way of ultraintelligent machines taking over the world is the
+world. More speciﬁcally, some kinds of progress require not just thinking but acting in the
+physical world. (Kevin Kelly calls the overemphasis on pure intelligence thinkism.) An ul-
+Thinkism
+traintelligent machine tasked with creating a grand uniﬁed theory of physics might be capable
+of cleverly manipulating equations a billion times faster than Einstein, but to make any real
+progress, it would still need to raise millions of dollars to build a more powerful supercollider
+and run physical experiments over the course of months or years. Only then could it start
+analyzing the data and theorizing. Depending on how the data turn out, the next step might
+require raising additional billions of dollars for an interstellar probe mission that would take
+centuries to complete. The “ultraintelligent thinking” part of this whole process might actu-
+ally be the least important part. As another example, an ultraintelligent machine tasked with
+bringing peace to the Middle East might just end up getting 1000 times more frustrated than
+a human envoy. As yet, we don’t know how many of the big problems are like mathematics
+and how many are like the Middle East.
+While some people fear the singularity, others relish it. The transhumanism social
+Transhumanism
+movement looks forward to a future in which humans are merged with—or replaced by—
+robotic and biotech inventions. Ray Kurzweil writes in The Singularity is Near (2005):
+The Singularity will allow us to transcend these limitations of our biological bodies and
+brain. We will gain power over our fates. ...We will be able to live as long as we want
+...We will fully understand human thinking and will vastly extend and expand its reach.
+By the end of this century, the nonbiological portion of our intelligence will be trillions
+of trillions of times more powerful than unaided human intelligence.
+Similarly, when asked whether robots will inherit the Earth, Marvin Minsky said “yes, but
+they will be our children.” These possibilities present a challenge for most moral theorists,
+who take the preservation of human life and the human species to be a good thing. Kurzweil
+also notes the potential dangers, writing “But the Singularity will also amplify the ability to
+act on our destructive inclinations, so its full story has not yet been written.” We humans
+would do well to make sure that any intelligent machine we design today that might evolve
+into an ultraintelligent machine will do so in a way that ends up treating us well. As Eric
+Brynjolfsson puts it, “The future is not preordained by machines. It’s created by humans.”
+Summary
+This chapter has addressed the following issues:
+• Philosophers use the term weak AI for the hypothesis that machines could possibly
+behave intelligently, and strong AI for the hypothesis that such machines would count
+as having actual minds (as opposed to simulated minds).
+
+
+Bibliographical and Historical Notes
+1057
+• Alan Turing rejected the question “Can machines think?” and replaced it with a be-
+havioral test. He anticipated many objections to the possibility of thinking machines.
+Few AI researchers pay attention to the Turing test, preferring to concentrate on their
+systems’ performance on practical tasks, rather than the ability to imitate humans.
+• Consciousness remains a mystery.
+• AI is a powerful technology, and as such it poses potential dangers, through lethal au-
+tonomous weapons, security and privacy breaches, unintended side effects, uninten-
+tional errors, and malignant misuse. Those who work with AI technology have an
+ethical imperative to responsibly reduce those dangers.
+• AI systems must be able to demonstrate they are fair, trustworthy, and transparent.
+• There are multiple aspects of fairness, and it is impossible to maximize all of them at
+once. So a ﬁrst step is to decide what counts as fair.
+• Automation is already changing the way people work. As a society, we will have to
+deal with these changes.
+Bibliographical and Historical Notes
+Weak AI: When Alan Turing (1950) proposed the possibility of AI, he also posed many of
+the key philosophical questions, and provided possible replies. But various philosophers had
+raised similar issues long before AI was invented. Maurice Merleau-Ponty’s Phenomenology
+of Perception (1945) stressed the importance of the body and the subjective interpretation of
+reality afforded by our senses, and Martin Heidegger’s Being and Time (1927) asked what it
+means to actually be an agent. In the computer age, Alva Noe (2009) and Andy Clark (2015)
+propose that our brains form a rather minimal representation of the world, use the world itself
+on a just-in-time basis to maintain the illusion of a detailed internal model, and use props
+in the world (such as paper and pencil as well as computers) to increase the capabilities of
+the mind. Pfeifer et al. (2006) and Lakoff and Johnson (1999) present arguments for how
+the body helps shape cognition. Speaking of bodies, Levy (2008), Danaher and McArthur
+(2017), and Devlin (2018) address the issue of robot sex.
+Strong AI: Ren´e Descartes is known for his dualistic view of the human mind, but ironi-
+cally his historical inﬂuence was toward mechanism and physicalism. He explicitly conceived
+of animals as automata, and he anticipated the Turing test, writing “it is not conceivable [that
+a machine] should produce different arrangements of words so as to give an appropriately
+meaningful answer to whatever is said in its presence, as even the dullest of men can do”
+(Descartes, 1637). Descartes’s spirited defense of the animals-as-automata viewpoint ac-
+tually had the effect of making it easier to conceive of humans as automata as well, even
+though he himself did not take this step. The book L’Homme Machine (La Mettrie, 1748)
+did explicitly argue that humans are automata. As far back as Homer (circa 700 BCE), the
+Greek legends envisioned automata such as the bronze giant Talos and considered the issue
+of biotechne, or life through craft (Mayor, 2018).
+The Turing test (Turing, 1950) has been debated (Shieber, 2004), anthologized (Epstein
+et al., 2008), and criticized (Shieber, 1994; Ford and Hayes, 1995). Bringsjord (2008) gives
+advice for a Turing test judge, and Christian (2011) for a human contestant. The annual
+Loebner Prize competition is the longest-running Turing test-like contest; Steve Worswick’s
+
+
+1058
+Chapter 28
+Philosophy, Ethics, and Safety of AI
+MITSUKU won four in a row from 2016 to 2019. The Chinese room has been debated end-
+lessly (Searle, 1980; Chalmers, 1992; Preston and Bishop, 2002). Hern´andez-Orallo (2016)
+gives an overview of approaches to measuring AI progress, and Chollet (2019) proposes a
+measure of intelligence based on skill-acquisition efﬁciency.
+Consciousness remains a vexing problem for philosophers, neuroscientists, and anyone
+who has pondered their own existence. Block (2009), Churchland (2013) and Dehaene (2014)
+provide overviews of the major theories. Crick and Koch (2003) add their expertise in biol-
+ogy and neuroscience to the debate, and Gazzaniga (2018) shows what can be learned from
+studying brain disabilities in hospital cases. Koch (2019) gives a theory of consciousness—
+“intelligence is about doing while experience is about being”—that includes most animals,
+but not computers. Giulio Tononi and his colleagues propose integrated information theory
+(Oizumi et al., 2014). Damasio (1999) has a theory based on three levels: emotion, feeling,
+and feeling a feeling. Bryson (2012) shows the value of conscious attention for the process
+of learning action selection.
+The philosophical literature on minds, brains, and related topics is large and jargon-ﬁlled.
+The Encyclopedia of Philosophy (Edwards, 1967) is an impressively authoritative and very
+useful navigation aid. The Cambridge Dictionary of Philosophy (Audi, 1999) is shorter and
+more accessible, and the online Stanford Encyclopedia of Philosophy offers many excellent
+articles and up-to-date references. The MIT Encyclopedia of Cognitive Science (Wilson and
+Keil, 1999) covers the philosophy, biology, and psychology of mind. There are multiple intro-
+ductions to the philosophical “AI question” (Haugeland, 1985; Boden, 1990; Copeland, 1993;
+McCorduck, 2004; Minsky, 2007). The Behavioral and Brain Sciences, abbreviated BBS, is
+a major journal devoted to philosophical and scientiﬁc debates about AI and neuroscience.
+Science ﬁction writer Isaac Asimov (1942, 1950) was one of the ﬁrst to address the issue
+of robot ethics, with his laws of robotics:
+0. A robot may not harm humanity, or through inaction, allow humanity to come to harm.
+1. A robot may not injure a human being or, through inaction, allow a human being to
+come to harm.
+2. A robot must obey orders given to it by human beings, except where such orders would
+conﬂict with the First Law.
+3. A robot must protect its own existence as long as such protection does not conﬂict with
+the First or Second Law.
+At ﬁrst glance, these laws seem reasonable. But the trick is how to implement them. Should
+a robot allow a human to cross the street, or eat junk food, if the human might conceivably
+come to harm? In Asimov’s story Runaround (1942), humans need to debug a robot that is
+found wandering in a circle, acting “drunk.” They work out that the circle deﬁnes the locus of
+points that balance the second law (the robot was ordered to fetch some selenium at the center
+of the circle) with the third law (there is a danger there that threatens the robot’s existence).4
+This suggests that the laws are not logical absolutes, but rather are weighed against each
+other, with a higher weight for the earlier laws. As this was 1942, before the emergence of
+4
+Science ﬁction writers are in broad agreement that robots are very bad at resolving contradictions. In 2001, the
+HAL 9000 computer becomes homicidal due to a conﬂict in its orders, and in the Star Trek episode “I, Mudd,”
+Captain Kirk tells an enemy robot that “Everything Harry tells you is a lie,” and Harry says “I am lying.” At this,
+smoke comes out of the robot’s head and it shuts down.
+
+
+Bibliographical and Historical Notes
+1059
+digital computers, Asimov was probably thinking of an architecture based on control theory
+via analog computing.
+Weld and Etzioni (1994) analyze Asimov’s laws and suggest some ways to modify the
+planning techniques of Chapter 11 to generate plans that do no harm. Asimov has considered
+many of the ethical issues around technology; in his 1958 story The Feeling of Power he
+tackles the issue of automation leading to a lapse of human skill—a technician rediscovers
+the lost art of multiplication—as well as the dilemma of what to do when the rediscovery is
+applied to warfare.
+Norbert Wiener’s book God & Golem, Inc. (1964) correctly predicted that computers
+would achieve expert-level performance at games and other tasks, and that specifying what it
+is that we want would prove to be difﬁcult. Wiener writes:
+While it is always possible to ask for something other than we really want, this
+possibility is most serious when the process by which we are to obtain our wish
+is indirect, and the degree to which we have obtained our wish is not clear until
+the very end. Usually we realize our wishes, insofar as we do actually realize
+them, by a feedback process, in which we compare the degree of attainment of
+intermediate goals with our anticipation of them. In this process, the feedback
+goes through us, and we can turn back before it is too late. If the feedback is
+built into a machine that cannot be inspected until the ﬁnal goal is attained, the
+possibilities for catastrophe are greatly increased. I should very much hate to ride
+on the ﬁrst trial of an automobile regulated by photoelectric feedback devices,
+unless there were somewhere a handle by which I could take over control if I
+found myself driving smack into a tree.
+We summarized codes of ethics in the chapter, but the list of organizations that have is-
+sued sets of principles is growing rapidly, and now includes Apple, DeepMind, Facebook,
+Google, IBM, Microsoft, the Organisation for Economic Co-operation and Development
+(OECD), the United Nations Educational, Scientiﬁc and Cultural Organization (UNESCO),
+the U.S. Ofﬁce of Science and Technology Policy the Beijing Academy of Artiﬁcial Intelli-
+gence (BAAI), the Institute of Electrical and Electronics Engineers (IEEE), the Association
+of Computing Machinery (ACM), the World Economic Forum, the Group of Twenty (G20),
+OpenAI, the Machine Intelligence Research Institute (MIRI), AI4People, the Centre for the
+Study of Existential Risk, the Center for Human-Compatible AI, the Center for Humane Tech-
+nology, the Partnership on AI, the AI Now Institute, the Future of Life Institute, the Future
+of Humanity Institute, the European Union, and at least 42 national governments. We have
+the handbook on the Ethics of Computing (Berleur and Brunnstein, 2001) and introductions
+to the topic of AI ethics in book (Boddington, 2017) and survey (Etzioni and Etzioni, 2017a)
+form. The Journal of Artiﬁcial Intelligence and Law and AI and Society cover ethical issues.
+We’ll now look at some of the individual issues.
+Lethal autonomous weapons: P. W. Singer’s Wired for War (2009) raised ethical, legal,
+and technical issues around robots on the battleﬁeld. Paul Scharre’s Army of None (2018),
+written by one of the authors of current US policy on autonomous weapons, offers a balanced
+and authoritative view. Etzioni and Etzioni (2017b) address the question of whether artiﬁ-
+cial intelligence should be regulated; they recommend a pause in the development of lethal
+autonomous weapons, and an international discussion on the subject of regulation.
+
+

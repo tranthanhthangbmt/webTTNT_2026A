@@ -1,0 +1,207 @@
+1040
+Chapter 28
+Philosophy, Ethics, and Safety of AI
+without human involvement are politically unacceptable, morally repugnant and should be
+prohibited by international law.”
+More than 140 NGOs in over 60 countries are part of the Campaign to Stop Killer Robots,
+and an open letter organized in 2015 by the Future of Life Institute organized an open letter
+was signed by over 4,000 AI researchers2 and 22,000 others.
+Against this, it can be argued that as technology improves it ought to be possible to de-
+velop weapons that are less likely than human soldiers or pilots to cause civilian casualties.
+(There is also the important beneﬁt that autonomous weapons reduce the need for human sol-
+diers and pilots to risk death.) Autonomous systems will not succumb to fatigue, frustration,
+hysteria, fear, anger, or revenge, and need not “shoot ﬁrst, ask questions later” (Arkin, 2015).
+Just as guided munitions have reduced collateral damage compared to unguided bombs, one
+may expect intelligent weapons to further improve the precision of attacks. (Against this, see
+Benjamin (2013) for an analysis of drone warfare casualties.) This, apparently, is the position
+of the United States in the latest round of negotiations in Geneva.
+Perhaps counterintuitively, the United States is also one of the few nations whose own
+policies currently preclude the use of autonomous weapons. The 2011 U.S. Department of
+Defense (DOD) roadmap says: “For the foreseeable future, decisions over the use of force
+[by autonomous systems] and the choice of which individual targets to engage with lethal
+force will be retained under human control.” The primary reason for this policy is practical:
+autonomous systems are not reliable enough to be trusted with military decisions.
+The issue of reliability came to the fore on September 26, 1983, when Soviet missile
+ofﬁcer Stanislav Petrov’s computer display ﬂashed an alert of an incoming missile attack.
+According to protocol, Petrov should have initiated a nuclear counterattack, but he suspected
+the alert was a bug and treated it as such. He was correct, and World War III was (narrowly)
+averted. We don’t know what would have happened if there had been no human in the loop.
+Reliability is a very serious concern for military commanders, who know well the com-
+plexity of battleﬁeld situations. Machine learning systems that operate ﬂawlessly in training
+may perform poorly when deployed. Cyberattacks against autonomous weapons could result
+in friendly-ﬁre casualties; disconnecting the weapon from all communication may prevent
+that (assuming it has not already been compromised), but then the weapon cannot be recalled
+if it is malfunctioning.
+The overriding practical issue with autonomous weapons is that they they are scalable
+weapons of mass destruction, in the sense that the scale of an attack that can be launched is
+proportional to the amount of hardware one can afford to deploy. A quadcopter two inches
+in diameter can carry a lethal explosive charge, and one million can ﬁt in a regular shipping
+container. Precisely because they are autonomous, these weapons would not need one million
+human supervisors to do their work.
+As weapons of mass destruction, scalable autonomous weapons have advantages for the
+attacker compared to nuclear weapons and carpet bombing: they leave property intact and can
+be applied selectively to eliminate only those who might threaten an occupying force. They
+could certainly be used to wipe out an entire ethnic group or all the adherents of a particular
+religion. In many situations, they would also be untraceable. These characteristics make them
+particularly attractive to non-state actors.
+2
+Including the two authors of this book.
+
+
+Section 28.3
+The Ethics of AI
+1041
+These considerations—particularly those characteristics that advantage the attacker—
+suggest that autonomous weapons will reduce global and national security for all parties.
+The rational response for governments seems to be to engage in arms control discussions
+rather than an arms race.
+The process of designing a treaty is not without its difﬁculties, however. AI is a dual
+use technology: AI technologies that have peaceful applications such as ﬂight control, vi-
+Dual use
+sual tracking, mapping, navigation, and multiagent planning, can easily be applied to military
+purposes. It is easy to turn an autonomous quadcopter into a weapon simply by attaching
+an explosive and commanding it to seek out a target. Dealing with this will require care-
+ful implementation of compliance regimes with industry cooperation, as has already been
+demonstrated with some success by the Chemical Weapons Convention.
+28.3.2 Surveillance, security, and privacy
+In 1976, Joseph Weizenbaum warned that automated speech recognition technology could
+lead to widespread wiretapping, and hence to a loss of civil liberties. Today, that threat has
+been realized, with most electronic communication going through central servers that can
+be monitored, and cities packed with microphones and cameras that can identify and track
+individuals based on their voice, face, and gait. Surveillance that used to require expensive
+and scarce human resources can now be done at a mass scale by machines.
+As of 2018, there were as many as 350 million surveillance cameras in China and 70
+Surveillance camera
+million in the United States. China and other countries have begun exporting surveillance
+technology to low-tech countries, some with reputations for mistreating their citizens and
+disproportionately targeting marginalized communities. AI engineers should be clear on what
+uses of surveillance are compatible with human rights, and decline to work on applications
+that are incompatible.
+As more of our institutions operate online, we become more vulnerable to cybercrime
+(phishing, credit card fraud, botnets, ransomware) and cyberterrorism (including potentially
+deadly attacks such as shutting down hospitals and power plants or commandeering self-
+driving cars). Machine learning can be a powerful tool for both sides in the cybersecurity
+Cybersecurity
+battle. Attackers can use automation to probe for insecurities and they can apply reinforce-
+ment learning for phishing attempts and automated blackmail. Defenders can use unsuper-
+vised learning to detect anomalous incoming trafﬁc patterns (Chandola et al., 2009; Malhotra
+et al., 2015) and various machine learning techniques to detect fraud (Fawcett and Provost,
+1997; Bolton and Hand, 2002). As attacks get more sophisticated, there is a greater responsi-
+bility for all engineers, not just the security experts, to design secure systems from the start.
+One forecast (Kanal, 2017) puts the market for machine learning in cybersecurity at about
+$100 billion by 2021.
+As we interact with computers for increasing amounts of our daily lives, more data on us
+is being collected by governments and corporations. Data collectors have a moral and legal
+responsibility to be good stewards of the data they hold. In the U.S., the Health Insurance
+Portability and Accountability Act (HIPAA) and the Family Educational Rights and Privacy
+Act (FERPA) protect the privacy of medical and student records. The European Union’s
+General Data Protection Regulation (GDPR) mandates that companies design their systems
+with protection of data in mind and requires that they obtain user consent for any collection
+or processing of data.
+
+
+1042
+Chapter 28
+Philosophy, Ethics, and Safety of AI
+Balanced against the individual’s right to privacy is the value that society gains from
+sharing data. We want to be able to stop terrorists without oppressing peaceful dissent, and
+we want to cure diseases without compromising any individual’s right to keep their health
+history private. One key practice is de-identiﬁcation: eliminating personally identifying in-
+De-identiﬁcation
+formation (such as name and social security number) so that medical researchers can use the
+data to advance the common good. The problem is that the shared de-identiﬁed data may
+be subject to re-identiﬁcation. For example, if the data strips out the name, social security
+number, and street address, but includes date of birth, gender, and zip code, then, as shown by
+Latanya Sweeney (2000), 87% of the U.S. population can be uniquely re-identiﬁed. Sweeney
+emphasized this point by re-identifying the health record for the governor of her state when
+he was admitted to the hospital. In the Netﬂix Prize competition, de-identiﬁed records of in-
+Netﬂix Prize
+dividual movie ratings were released, and competitors were asked to come up with a machine
+learning algorithm that could accurately predict which movies an individual would like. But
+researchers were able to re-identify individual users by matching the date of a rating in the
+Netﬂix database with the date of a similar ranking in the Internet Movie Database (IMDB),
+where users sometimes use their actual names (Narayanan and Shmatikov, 2006).
+This risk can be mitigated somewhat by generalizing ﬁelds: for example, replacing the
+exact birth date with just the year of birth, or a broader range like “20-30 years old.” Deleting
+a ﬁeld altogether can be seen as a form of generalizing to “any.” But generalization alone
+does not guarantee that records are safe from re-identiﬁcation; it may be that there is only
+one person in zip code 94720 who is 90–100 years old. A useful property is k-anonymity:
+K-anonymity
+a database is k-anonymized if every record in the database is indistinguishable from at least
+k −1 other records. If there are records that are more unique than this, they would have to be
+further generalized.
+An alternative to sharing de-identiﬁed records is to keep all records private, but allow
+aggregate querying. An API for queries against the database is provided, and valid queries
+Aggregate querying
+receive a response that summarizes the data with a count or average. But no response is
+given if it would violate certain guarantees of privacy. For example, we could allow an
+epidemiologist to ask, for each zip code, the percentage of people with cancer. For zip codes
+with at least n people a percentage would be given (with a small amount of random noise),
+but no response would be given for zip codes with fewer than n people..
+Care must be taken to protect against de-identiﬁcation using multiple queries. For exam-
+ple, if the query “average salary and number of employees of XYZ company age 30-40” gives
+the response [$81,234, 12] and the query “average salary and number of employees of XYZ
+company age 30-41” gives the response [$81,199, 13], and if we use LinkedIn to ﬁnd the one
+41-year-old at XYZ company, then we have successfully identiﬁed them, and can compute
+their exact salary, even though all the responses involved 12 or more people. The system must
+be carefully designed to protect against this, with a combination of limits on the queries that
+can be asked (perhaps only a predeﬁned set of non-overlapping age ranges can be queried)
+and the precision of the results (perhaps both queries give the answer “about $81,000”).
+A stronger guarantee is differential privacy, which assures that an attacker cannot use
+Diﬀerential privacy
+queries to re-identify any individual in the database, even if the attacker can make multiple
+queries and has access to separate linking databases. The query response employs a random-
+ized algorithm that adds a small amount of noise to the result. Given a database D, any record
+in the database r, any query Q, and a possible response y to the query, we say that the database
+
+
+Section 28.3
+The Ethics of AI
+1043
+D has ϵ–differential privacy if the log probability of the response y varies by less than ϵ when
+we add the record r:
+|logP(Q(D)=y)−logP(Q(D+r)=y)| ≤ϵ.
+In other words, whether any one person decides to participate in the data base or not makes
+no appreciable difference to the answers anyone can get, and therefore there is no privacy
+disincentive to participate. Many databases are designed to guarantee differential privacy.
+So far we have considered the issue of sharing de-identiﬁed data from a central database.
+An approach called federated learning (Koneˇcn`y et al., 2016) has no central database; in-
+Federated learning
+stead, users maintain their own local databases that keep their data private. However, they
+can share parameters of a machine learning model that is enhanced with their data, without
+the risk of revealing any of the private data. Imagine a speech understanding application that
+users can run locally on their phone. The application contains a baseline neural network,
+which is then improved by local training on the words that are heard on the user’s phone.
+Periodically, the owners of the application poll a subset of the users and ask them for the
+parameter values of their improved local network, but not for any of their raw data. The
+parameter values are combined together to form a new improved model which is then made
+available to all users, so that they all get the beneﬁt of the training that is done by other users.
+For this scheme to preserve privacy, we have to be able to guarantee that the model
+parameters shared by each user cannot be reverse-engineered. If we sent the raw parameters,
+there is a chance that an adversary inspecting them could deduce whether, say, a certain word
+had been heard by the user’s phone. One way to eliminate this risk is with secure aggregation
+Secure aggregation
+(Bonawitz et al., 2017). The idea is that the central server doesn’t need to know the exact
+parameter value from each distributed user; it only needs to know the average value for each
+parameter, over all polled users. So each user can disguise their parameter values by adding
+a unique mask to each value; as long as the sum of the masks is zero, the central server will
+be able to compute the correct average. Details of the protocol make sure that it is efﬁcient
+in terms of communication (less than half the bits transmitted correspond to masking), is
+robust to individual users failing to respond, and is secure in the face of adversarial users,
+eavesdroppers, or even an adversarial central server.
+28.3.3 Fairness and bias
+Machine learning is augmenting and sometimes replacing human decision-making in im-
+portant situations: whose loan gets approved, to what neighborhoods police ofﬁcers are de-
+ployed, who gets pretrial release or parole. But machine learning models can perpetuate
+societal bias. Consider the example of an algorithm to predict whether criminal defendants
+Societal bias
+are likely to re-offend, and thus whether they should be released before trial. It could well be
+that such a system picks up the racial or gender prejudices of human judges from the exam-
+ples in the training set. Designers of machine learning systems have a moral responsibility to
+ensure that their systems are in fact fair. In regulated domains such as credit, education, em-
+ployment, and housing, they have a legal responsibility as well. But what is fairness? There
+are multiple criteria; here are six of the most commonly-used concepts:
+• Individual fairness: A requirement that individuals are treated similarly to other simi-
+lar individuals, regardless of what class they are in.
+
+

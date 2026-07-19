@@ -1,0 +1,287 @@
+880
+Chapter 24
+Natural Language Processing
+Tag
+Word
+Description
+Tag
+Word
+Description
+CC
+and
+Coordinating conjunction
+PRP$
+your
+Possessive pronoun
+CD
+three
+Cardinal number
+RB
+quickly
+Adverb
+DT
+the
+Determiner
+RBR
+quicker
+Adverb, comparative
+EX
+there
+Existential there
+RBS
+quickest
+Adverb, superlative
+FW
+per se
+Foreign word
+RP
+off
+Particle
+IN
+of
+Preposition
+SYM
++
+Symbol
+JJ
+purple
+Adjective
+TO
+to
+to
+JJR
+better
+Adjective, comparative
+UH
+eureka
+Interjection
+JJS
+best
+Adjective, superlative
+VB
+talk
+Verb, base form
+LS
+1
+List item marker
+VBD
+talked
+Verb, past tense
+MD
+should
+Modal
+VBG
+talking
+Verb, gerund
+NN
+kitten
+Noun, singular or mass
+VBN
+talked
+Verb, past participle
+NNS
+kittens
+Noun, plural
+VBP
+talk
+Verb, non-3rd-sing
+NNP
+Ali
+Proper noun, singular
+VBZ
+talks
+Verb, 3rd-sing
+NNPS
+Fords
+Proper noun, plural
+WDT
+which
+Wh-determiner
+PDT
+all
+Predeterminer
+WP
+who
+Wh-pronoun
+POS
+’s
+Possessive ending
+WP$
+whose
+Possessive wh-pronoun
+PRP
+you
+Personal pronoun
+WRB
+where
+Wh-adverb
+$
+$
+Dollar sign
+#
+#
+Pound sign
+“
+‘
+Left quote
+”
+’
+Right quote
+(
+[
+Left parenthesis
+)
+]
+Right parenthesis
+,
+,
+Comma
+.
+!
+Sentence end
+:
+;
+Mid-sentence punctuation
+Figure 24.1 Part-of-speech tags (with an example word for each tag) for the Penn Treebank
+corpus (Marcus et al., 1993). Here “3rd-sing” is an abbreviation for “third person singular
+present tense.”
+24.1.6 Part-of-speech (POS) tagging
+One basic way to categorize words is by their part of speech (POS), also called lexical
+Part of speech
+(POS)
+category or tag: noun, verb, adjective, and so on. Parts of speech allow language models
+to capture generalizations such as “adjectives generally come before nouns in English.” (In
+other languages, such as French, it is the other way around (generally)).
+Everyone agrees that “noun” and “verb” are parts of speech, but when we get into the
+details there is no one deﬁnitive list. Figure 24.1 shows the 45 tags used in the Penn Tree-
+bank, a corpus of over three million words of text annotated with part-of-speech tags. As we
+Penn Treebank
+will see later, the Penn Treebank also annotates many sentences with syntactic parse trees,
+from which the corpus gets its name. Here is an excerpt saying that “from” is tagged as a
+preposition (IN), “the” as a determiner (DT), and so on:
+From the start , it
+took
+a
+person with great qualities to
+succeed
+IN
+DT NN
+, PRP VBD DT NN
+IN
+JJ
+NNS
+TO VB
+The task of assigning a part of speech to each word in a sentence is called part-of-speech
+
+
+Section 24.1
+Language Models
+881
+tagging. Although not very interesting in its own right, it is a useful ﬁrst step in many other
+Part-of-speech
+tagging
+NLP tasks, such as question answering or translation. Even for a simple task like text-to-
+speech synthesis, it is important to know that the noun “record” is pronounced differently
+from the verb “record.” In this section we will see how two familiar models can be applied to
+the tagging task, and in Chapter 25 we will consider a third model.
+One common model for POS tagging is the hidden Markov model (HMM). Recall from
+Section 14.3 that a hidden Markov model takes in a temporal sequence of evidence observa-
+tions and predicts the most likely hidden states that could have produced that sequence. In
+the HMM example on page 491, the evidence consisted of observations of a person carrying
+an umbrella (or not), and the hidden state was rain (or not) in the outside world. For POS
+tagging, the evidence is the sequence of words, W1:N, and the hidden states are the lexical
+categories, C1:N.
+The HMM is a generative model that says that the way to produce language is to start in
+one state, such as IN, the state for prepositions, and then make two choices: what word (such
+as from) should be emitted, and what state (such as DT) should come next. The model does
+not consider any context other than the current part-of-speech state, nor does it have any idea
+of what the sentence is actually trying to convey. And yet it is a useful model—if we apply
+the Viterbi algorithm (Section 14.2.3) to ﬁnd the most probable sequence of hidden states
+Viterbi algorithm
+(tags), we ﬁnd that the tagging achieves very high accuracy; usually around 97%.
+To create a HMM for POS tagging, we need the transition model, which gives the prob-
+ability of one part of speech following another, P(Ct |Ct−1), and the sensor model, P(Wt |Ct).
+For example, P(Ct =VB|Ct−1 =MD)=0.8 means that given a modal verb (such as would),
+we can expect the following word to be a verb (such as think) with probability 0.8. Where
+does the 0.8 number come from? Just as with n-gram models, from counts in the corpus,
+with appropriate smoothing. It turns out that there are 13124 instances of MD in the Penn
+Treebank, and 10471 of them are followed by a VB.
+For the sensor model, P(Wt =would|Ct =MD)=0.1 means that when we are choosing a
+modal verb, we will choose would 10% of the time. These numbers also come from corpus
+counts, with smoothing.
+A weakness of HMM models is that everything we know about language has to be ex-
+pressed in terms of the transition and sensor models. The part of speech for the current word
+is determined solely by the probabilities in these two models and by the part of speech of
+the previous word. There is no easy way for a system developer to say, for example, that
+any word that ends in “ous” is likely an adjective, nor that in the phrase “attorney general,”
+attorney is a noun, not an adjective.
+Fortunately, logistic regression does have the ability to represent information like this.
+Recall from Section 19.6.5 that in a logistic regression model, the input is a vector, x, of
+feature values. We then take the dot product, w·x, of those features with a pretrained vector
+of weights w, and transform that sum into a number between 0 and 1 that can be interpreted
+as the probability that the input is a positive example of a category.
+The weights in the logistic regression model correspond to how predictive each feature
+is for each category; the weight values are learned by gradient descent. For POS tagging
+we would build 45 different logistic regression models, one for each part of speech, and ask
+each model how probable it is that the example word is a member of that category, given the
+feature values for that word in its particular context.
+
+
+882
+Chapter 24
+Natural Language Processing
+The question then is what should the features be? POS taggers typically use binary-
+valued features that encode information about the word being tagged, wi (and perhaps other
+nearby words), as well as the category that was assigned to the previous word, ci−1 (and
+perhaps the category of earlier words). Features can depend on the exact identity of a word,
+some aspects of the way it is spelled, or some attribute from a dictionary entry. A set of POS
+tagging features might include:
+wi−1 =“I”
+wi+1 =“for”
+wi−1 =“you”
+ci−1 =IN
+wi ends with “ous”
+wi contains a hyphen
+wi ends with “ly”
+wi contains a digit
+wi starts with “un”
+wi is all uppercase
+wi−2 = “to” and ci−1 =VB
+wi−2 has attribute PRESENT
+wi−1 = “I” and wi+1 =“to”
+wi−2 has attribute PAST
+For example, the word “walk” can be a noun or a verb, but in “I walk to school,” the feature
+in the last row, left column could be used to classify “walk” as a verb (VBP). As another
+example, the word “cut” can be either a noun (NN), past tense verb (VBD), or present tense
+verb (VBP). Given the sentence “Yesterday I cut the rope,” the feature in the last row, right
+column could help tag “cut” as VBD, while in the sentence “Now I cut the rope,” the feature
+above that one could help tag “cut” as VBP.
+All together, there might be a million features, but for any given word, only a few dozen
+will be nonzero. The features are usually hand-crafted by a human system designer who
+thinks up interesting feature templates.
+Logistic regression does not have the notion of a sequence of inputs—you give it a single
+feature vector (information about a single word) and it produces an output (a tag). But we
+can force logistic regression to handle a sequence with a greedy search: start by choosing
+the most likely category for the ﬁrst word, and proceed to the rest of the words in left-to-right
+order. At each step the category ci is assigned according to
+ci =
+argmax
+c′∈Categories
+P(c′ |w1:N,c1:i−1).
+That is, the classiﬁer is allowed to look at any of the non-category features for any of the
+words anywhere in the sentence (because these features are all ﬁxed), as well as any previ-
+ously assigned categories.
+Note that the greedy search makes a deﬁnitive category choice for each word, and then
+moves on to the next word; if that choice is contradicted by evidence later in the sentence,
+there is no possibility to go back and reverse the choice. That makes the algorithm fast. The
+Viterbi algorithm, in contrast, keeps a table of all possible category choices at each step, and
+always has the option of changing. That makes the algorithm more accurate, but slower.
+For both algorithms, a compromise is a beam search, in which we consider every possible
+category at each time step, but then only keep the b most likely tags, dropping the other
+less-likely tags. Changing b trades off speed versus accuracy.
+Naive Bayes and Hidden Markov models are generative models (see Section 21.2.3).
+That is, they learn a joint probability distribution, P(W,C), and we can generate a random
+sentence by sampling from that probability distribution to get a ﬁrst word (with category) of
+the sentence, and then adding words one at a time.
+
+

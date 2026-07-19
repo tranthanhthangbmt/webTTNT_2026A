@@ -1,0 +1,87 @@
+<p>Mặt khác, hồi quy logistic là một <strong>mô hình phân biệt (discriminative model)</strong>. Nó học một phân phối xác suất có điều kiện \(P(C|W)\), nghĩa là nó có thể gán danh mục cho một chuỗi từ đầu vào, nhưng nó không thể sinh ra các câu ngẫu nhiên. Nói chung, các nhà nghiên cứu đã phát hiện ra rằng các mô hình phân biệt có tỷ lệ lỗi thấp hơn, có lẽ vì chúng mô hình hóa trực tiếp đầu ra mong muốn và có lẽ vì chúng giúp các nhà phân tích dễ dàng tạo ra các đặc trưng bổ sung hơn. Tuy nhiên, các mô hình sinh (generative models) lại có xu hướng hội tụ nhanh hơn, và do đó có thể được ưu tiên khi thời gian huấn luyện có sẵn là ngắn, hoặc khi dữ liệu huấn luyện bị hạn chế.</p>
+
+<h3>24.1.7 So sánh các mô hình ngôn ngữ (Comparing language models)</h3>
+
+<p>Để cảm nhận xem các mô hình n-gram khác nhau trông như thế nào, chúng tôi đã xây dựng các mô hình unigram (tức là túi từ), bigram, trigram và 4-gram trên các từ trong cuốn sách này và sau đó lấy mẫu ngẫu nhiên các chuỗi từ từ mỗi mô hình trong số bốn mô hình đó:</p>
+<ul>
+<li><strong>\(n = 1\):</strong> logical are as are confusion a may right tries agent goal the was</li>
+<li><strong>\(n = 2\):</strong> systems are very similar computational approach would be represented</li>
+<li><strong>\(n = 3\):</strong> planning and scheduling are integrated the success of naive Bayes model is</li>
+<li><strong>\(n = 4\):</strong> taking advantage of the structure of Bayesian networks and developed various languages for writing “templates” with logical variables, from which large networks could be constructed automatically for each problem instance</li>
+</ul>
+
+<p>Từ mẫu nhỏ này, rõ ràng có thể thấy mô hình unigram là một phép xấp xỉ rất tệ đối với cả tiếng Anh nói chung và với một cuốn sách giáo khoa AI nói riêng, còn mô hình 4-gram thì tuy chưa hoàn hảo nhưng đã tốt hơn nhiều. Tiếp theo, để chứng minh cách các mẫu chuyển đổi giữa các nguồn huấn luyện (và chắc chắn không chỉ để cho vui), chúng tôi đã thêm văn bản của Kinh thánh King James vào mô hình 4-gram, mang lại những mẫu ngẫu nhiên sau đây:</p>
+<ul>
+<li>Prove that any 3-SAT problem can be reduced to simpler ones using the laws of thy God.</li>
+<li>Masters, give unto your servants that which is true iff both P and Q in any model m by a simple experiment: put your hand unto, ye and your households for it is pleasant.</li>
+<li>Many will intreat the LORD your God, Saying, No; but we will ignore this issue for now; Chapters 7 and 8 suggest methods for compactly representing very large belief states.</li>
+<li>And it came to pass, as if it had no successors.</li>
+<li>The direct utility estimation is just an instance of the general or algorithm in which new function symbols are constructed “on the fly.” For example, the first child of the Holy Ghost.</li>
+</ul>
+
+<p>Có một giới hạn đối với các mô hình n-gram — khi \(n\) tăng lên, chúng sẽ tạo ra thứ ngôn ngữ trôi chảy hơn, nhưng chúng có xu hướng sao chép lại nguyên văn các đoạn văn dài từ dữ liệu huấn luyện, thay vì tạo ra các văn bản mới lạ. Các mô hình ngôn ngữ với các biểu diễn cấu trúc từ và ngữ cảnh phức tạp hơn có thể làm tốt hơn. Phần còn lại của chương này minh họa cách mà ngữ pháp có thể cải thiện một mô hình ngôn ngữ, và Chương 25 chỉ ra cách các phương pháp học sâu (deep learning) gần đây đã tạo ra các mô hình ngôn ngữ ấn tượng. Một mô hình học sâu như vậy là <strong>GPT-2</strong>, có thể tạo ra các mẫu tiếng Anh trôi chảy khi được cung cấp một đoạn gợi ý (prompt). Chúng tôi đã cung cấp cho GPT-2 hai câu đầu tiên của đoạn văn này để làm prompt; nó đã tạo ra hai đoạn mẫu sau:</p>
+<ul>
+<li><em>Numerous studies have shown that the best language models that can generate language are those that use neural networks, and in particular that use deep learning to model speech. I have used one of these models to generate hundreds of sentences in multiple languages, and it has the ability to generate almost perfect translations of my training sentences. It’s a great model to have, and will save you a lot of time in the future when you need to translate between many languages.</em></li>
+<li><em>These models can also do better if their samples are chosen at random, rather than by an expert in the domain. However, as a general rule, n-gram and language models that include a large number of features tend to produce text better, since these features contribute the most to language learning. To measure the performance of a model, I’ve made some sample sentences that I’d like to train to better understand speech and language models. You can read them to get a grasp of how the model predicts.</em></li>
+</ul>
+
+<p>Chúng ta thấy rằng những đoạn văn này đa dạng và trôi chảy về mặt ngữ pháp; hơn nữa, chúng bám sát các chủ đề liên quan đến câu gợi ý ban đầu. Nhưng các câu không dựa trên nhau để thúc đẩy một luận điểm mạch lạc. Mô hình ngôn ngữ GPT-2 được biết đến với tên gọi mô hình <strong>transformer</strong>, vốn sẽ được đề cập ở Phần 25.4; các ví dụ khác về GPT-2 nằm ở Hình 25.14.</p>
+
+<p>Một mô hình transformer khác là <strong>Ngôn ngữ Transformer có Điều kiện (Conditional Transformer Language), CTRL</strong>. Nó có thể được kiểm soát linh hoạt hơn; trong các mẫu sau, CTRL đã được yêu cầu tạo văn bản trong chuyên mục <em>đánh giá sản phẩm</em>, với xếp hạng lần lượt là 1 và 4 (trên 5) được chỉ định trước:</p>
+<ul>
+<li><strong>1.0:</strong> I bought this for my son who is a huge fan of the show. He was so excited to get it and when he opened it, we were all very disappointed. The quality of the product is terrible. It looks like something you would buy at a dollar store.</li>
+<li><strong>4.0:</strong> I bought this for my husband and he loves it. He has a small wrist so it is hard to find watches that fit him well. This one fits perfectly.</li>
+</ul>
+
+<h2>24.2 Ngữ pháp (Grammar)</h2>
+
+<p>Trong Chương 7, chúng ta đã sử dụng Hình thức Backus–Naur (Backus–Naur Form - BNF) để viết ra một ngữ pháp cho ngôn ngữ của logic bậc nhất. Một ngữ pháp là một tập hợp các quy tắc xác định cấu trúc cây của các cụm từ cho phép, và một ngôn ngữ là tập hợp các câu tuân theo các quy tắc đó.</p>
+
+<p>Các ngôn ngữ tự nhiên không hoạt động chính xác giống như ngôn ngữ hình thức của logic bậc nhất — chúng không có ranh giới cứng nhắc giữa các câu hợp lệ và không hợp lệ, cũng như không có một cấu trúc cây rạch ròi duy nhất cho mỗi câu. Tuy nhiên, cấu trúc thứ bậc đóng vai trò quan trọng trong ngôn ngữ tự nhiên. Từ "Stocks" trong câu "Stocks rallied on Monday" không chỉ là một từ, cũng không chỉ là một danh từ; trong câu này nó còn cấu thành một cụm danh từ (noun phrase), đóng vai trò làm chủ ngữ cho cụm động từ (verb phrase) theo sau. Các <strong>phạm trù cú pháp (syntactic category)</strong> chẳng hạn như cụm danh từ hoặc cụm động từ giúp ràng buộc các từ có thể xuất hiện tại mỗi điểm bên trong câu, và <strong>cấu trúc cụm từ (phrase structure)</strong> cung cấp một khuôn khổ cho ngữ nghĩa của câu.</p>
+
+<p>Có nhiều mô hình ngôn ngữ cạnh tranh nhau được dựa trên ý tưởng về cấu trúc cú pháp phân cấp; trong phần này, chúng ta sẽ mô tả một mô hình phổ biến có tên là <strong>ngữ pháp phi ngữ cảnh xác suất (probabilistic context-free grammar), hay PCFG</strong>. Một ngữ pháp xác suất gán một mức xác suất cho mỗi chuỗi, và "phi ngữ cảnh" (context-free) có nghĩa là bất kỳ quy tắc nào cũng có thể được sử dụng trong mọi ngữ cảnh: các quy tắc cho một cụm danh từ ở đầu câu cũng giống như quy tắc cho một cụm danh từ khác ở cuối câu, và nếu cùng một cụm từ xuất hiện ở hai vị trí, nó phải có cùng một xác suất mỗi lần. Chúng ta sẽ định nghĩa một ngữ pháp PCFG cho một phân mảnh nhỏ của tiếng Anh, vốn phù hợp cho giao tiếp giữa các tác nhân khám phá thế giới Wumpus. Chúng ta gọi ngôn ngữ này là \(\mathcal{E}_0\) (xem Hình 24.2). Một quy tắc ngữ pháp như:</p>
+
+<pre><code>Adjs → Adjective      [0.80]
+     | Adjective Adjs [0.20]</code></pre>
+
+<p>có nghĩa là danh mục cú pháp <code>Adjs</code> có thể bao gồm một <code>Adjective</code> (Tính từ) duy nhất với xác suất 0.80, hoặc một <code>Adjective</code> theo sau bởi một chuỗi tạo thành một <code>Adjs</code> với xác suất 0.20.</p>
+
+<pre><code>S → NP VP           [0.90]  I + feel a breeze
+  | S Conj S        [0.10]  I feel a breeze + and + It stinks
+
+NP → Pronoun        [0.25]  I
+  | Name            [0.10]  Ali
+  | Noun            [0.10]  pits
+  | Article Noun    [0.25]  the + wumpus
+  | Article Adjs Noun [0.05] the + smelly dead + wumpus
+  | Digit Digit     [0.05]  3 4
+  | NP PP           [0.10]  the wumpus + in 1 3
+  | NP RelClause    [0.05]  the wumpus + that is smelly
+  | NP Conj NP      [0.05]  the wumpus + and + I
+
+VP → Verb           [0.40]  stinks
+  | VP NP           [0.35]  feel + a breeze
+  | VP Adjective    [0.05]  smells + dead
+  | VP PP           [0.10]  is + in 1 3
+  | VP Adverb       [0.10]  go + ahead
+
+Adjs → Adjective    [0.80]  smelly
+  | Adjective Adjs  [0.20]  smelly + dead
+
+PP → Prep NP        [1.00]  to + the east
+
+RelClause → RelPro VP [1.00] that + is smelly</code></pre>
+<p><strong>Hình 24.2</strong> Ngữ pháp cho \(\mathcal{E}_0\), kèm ví dụ cho mỗi luật. Các phạm trù cú pháp là câu (Sentence - S), cụm danh từ (Noun phrase - NP), cụm động từ (Verb phrase - VP), danh sách tính từ (Adjs), cụm giới từ (Prepositional phrase - PP), và mệnh đề quan hệ (Relative clause - RelClause).</p>
+
+<pre><code>Noun       → stench [0.05] | breeze [0.10] | wumpus [0.15] | pits [0.05] | ...
+Verb       → is [0.10] | feel [0.10] | smells [0.10] | stinks [0.05] | ...
+Adjective  → right [0.10] | dead [0.05] | smelly [0.02] | breezy [0.02]...
+Adverb     → here [0.05] | ahead [0.05] | nearby [0.02] | ...
+Pronoun    → me [0.10] | you [0.03] | I [0.10] | it [0.10] | ...
+RelPro     → that [0.40] | which [0.15] | who [0.20] | whom [0.02] | ...
+Name       → Ali [0.01] | Bo [0.01] | Boston [0.01] | ...
+Article    → the [0.40] | a [0.30] | an [0.10] | every [0.05] | ...
+Prep       → to [0.20] | in [0.10] | on [0.05] | near [0.10] | ...
+Conj       → and [0.50] | or [0.10] | but [0.20] | yet [0.02] | ...
+Digit      → 0 [0.20] | 1 [0.20] | 2 [0.20] | 3 [0.20] | 4 [0.20] | ...</code></pre>
+<p><strong>Hình 24.3</strong> Từ vựng cho \(\mathcal{E}_0\). RelPro là viết tắt của Đại từ quan hệ (relative pronoun), Prep cho Giới từ (preposition), và Conj cho Liên từ (conjunction). Tổng của các xác suất trong mỗi danh mục luôn bằng 1.</p>

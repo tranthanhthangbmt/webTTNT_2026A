@@ -1,0 +1,141 @@
+CHAPTER 24
+NATURAL LANGUAGE PROCESSING
+In which we see how a computer can use natural language to communicate with humans
+and learn from what they have written.
+About 100,000 years ago, humans learned how to speak, and about 5,000 years ago they
+learned to write. The complexity and diversity of human language sets Homo sapiens apart
+from all other species. Of course there are other attributes that are uniquely human: no other
+species wears clothes, creates art, or spends two hours a day on social media in the way that
+humans do. But when Alan Turing proposed his test for intelligence, he based it on language,
+not art or haberdashery, perhaps because of its universal scope and because language captures
+so much of intelligent behavior: a speaker (or writer) has the goal of communicating some
+knowledge, then plans some language that represents the knowledge, and acts to achieve
+the goal. The listener (or reader) perceives the language, and infers the intended meaning.
+This type of communication via language has allowed civilization to grow; it is our main
+means of passing along cultural, legal, scientiﬁc, and technological knowledge. There are
+three primary reasons for computers to do natural language processing (NLP):
+Natural language
+processing (NLP)
+• To communicate with humans. In many situations it is convenient for humans to use
+speech to interact with computers, and in most situations it is more convenient to use
+natural language rather than a formal language such as ﬁrst-order predicate calculus.
+• To learn.
+Humans have written down a lot of knowledge using natural language.
+Wikipedia alone has 30 million pages of facts such as “Bush babies are small nocturnal
+primates,” whereas there are hardly any sources of facts like this written in formal logic.
+If we want our system to know a lot, it had better understand natural language.
+• To advance the scientiﬁc understanding of languages and language use, using the tools
+of AI in conjunction with linguistics, cognitive psychology, and neuroscience.
+In this chapter we examine various mathematical models for language, and discuss the tasks
+that can be achieved using them.
+24.1 Language Models
+Formal languages, such as ﬁrst-order logic, are precisely deﬁned, as we saw in Chapter 8. A
+grammar deﬁnes the syntax of legal sentences and semantic rules deﬁne the meaning.
+Natural languages, such as English or Chinese, cannot be so neatly characterized:
+• Language judgments vary from person to person and time to time. Everyone agrees that
+“Not to be invited is sad” is a grammatical sentence of English, but people disagree on
+the grammaticality of “To be not invited is sad.”
+
+
+Section 24.1
+Language Models
+875
+• Natural language is ambiguous (“He saw her duck” can mean either that she owns a
+waterfowl, or that she made a downwards evasive move) and vague (“That’s great!”
+does not specify precisely how great it is, nor what it is).
+• The mapping from symbols to objects is not formally deﬁned. In ﬁrst-order logic, two
+uses of the symbol “Richard” must refer to the same person, but in natural language two
+occurrences of the same word or phrase may refer to different things in the world.
+If we can’t make a deﬁnitive Boolean distinction between grammatical and ungrammati-
+cal strings, we can at least say how likely or unlikely each one is.
+We deﬁne a language model as a probability distribution describing the likelihood of
+Language model
+any string. Such a model should say that “Do I dare disturb the universe?” has a reasonable
+probability as a string of English, but “Universe dare the I disturb do?” is extremely unlikely.
+With a language model, we can predict what words are likely to come next in a text, and
+thereby suggest completions for an email or text message. We can compute which alterations
+to a text would make it more probable, and thereby suggest spelling or grammar corrections.
+With a pair of models, we can compute the most probable translation of a sentence. With
+some example question/answer pairs as training data, we can compute the most likely answer
+to a question. So language models are at the heart of a broad range of natural language tasks.
+The language modeling task itself also serves as a common benchmark to measure progress
+in language understanding.
+Natural languages are complex, so any language model will be, at best, an approximation.
+The linguist Edward Sapir said “No language is tyrannically consistent. All grammars leak”
+(Sapir, 1921). The philosopher Donald Davidson said “there is no such thing as language, not
+if a language is . . . a clearly deﬁned shared structure” (Davidson, 1986), by which he meant
+there is no one deﬁnitive language model for English in the way that there is for Python 3.8;
+we all have different models, but we still somehow manage to muddle through and commu-
+nicate. In this section we cover simplistic language models that are clearly wrong, but still
+manage to be useful for certain tasks.
+24.1.1 The bag-of-words model
+Section 12.6.1 explained how a naive Bayes model based on the presence of speciﬁc words
+could reliably classify sentences into categories; for example sentence (1) below is catego-
+rized as business, and (2) as weather.
+1. Stocks rallied on Monday, with major indexes gaining 1% as optimism persisted over
+the ﬁrst quarter earnings season.
+2. Heavy rain continued to pound much of the east coast on Monday, with ﬂood warnings
+issued in New York City and other locations.
+This section revisits the naive Bayes model, casting it as a full language model. That means
+we don’t just want to know what category is most likely for each sentence; we want a joint
+probability distribution over all sentences and categories. That suggests we should consider
+all the words in the sentence. Given a sentence consisting of the words w1,w2,...wN (which
+we will write as w1:N, as in Chapter 14), the naive Bayes formula (Equation (12.21)) gives us
+P(Class|w1:N) = α P(Class)∏
+j
+P(w j |Class).
+The application of naive Bayes to strings of words is called the bag-of-words model. It is
+Bag-of-words model
+
+
+876
+Chapter 24
+Natural Language Processing
+a generative model that describes a process for generating a sentence: Imagine that for each
+category (business, weather, etc.) we have a bag full of words (you can imagine each word
+written on a slip of paper inside the bag; the more common the word, the more slips it is
+duplicated on). To generate text, ﬁrst select one of the bags and discard the others. Reach
+into that bag and pull out a word at random; this will be the ﬁrst word of the sentence. Then
+put the word back and draw a second word. Repeat until an end-of-sentence indicator (e.g., a
+period) is drawn.
+This model is clearly wrong: it falsely assumes that each word is independent of the
+others, and therefore it does not generate coherent English sentences. But it does allow us to
+do classiﬁcation with good accuracy using the naive Bayes formula: the words “stocks” and
+“earnings” are clear evidence for the business section, while “rain” and “cloudy” suggest the
+weather section.
+We can learn the prior probabilities needed for this model via supervised training on a
+body or corpus of text, where each segment of text is labeled with a class. A corpus typically
+Corpus
+consists of at least a million words of text, and at least tens of thousands of distinct vocabulary
+words. Recently we are seeing even larger corpuses being used, such as the 2.5 billion words
+in Wikipedia or the 14 billion word iWeb corpus scraped from 22 million web pages.
+From a corpus we can estimate the prior probability of each category, P(Class), by count-
+ing how common each category is. We can also use counts to estimate the conditional prob-
+ability of each word given the category, P(wj |Class). For example, if we’ve seen 3000 texts
+and 300 of them were classiﬁed as business, then we can estimate P(Class = business) ≈
+300/3000 = 0.1. And if within the business category we have seen 100,000 words and
+the word “stocks” appeared 700 times, then we can estimate P(stocks|Class=business) ≈
+700/100,000=0.007. Estimation by counting works well when we have high counts (and
+low variance), but we will see in Section 24.1.4 a better way to estimate probabilities when
+the counts are low.
+Sometimes a different machine learning approach, such as logistic regression, neural
+networks, or support vector machines, can work even better than naive Bayes. The features of
+the machine learning model are the words in the vocabulary: “a,” “aardvark,” ..., “zyzzyva,”
+and the values are the number of times each word appears in the text (or sometimes just a
+Boolean value indicating whether the word appears or not). That makes the feature vector
+large and sparse—we might have 100,000 words in the language model, and thus a feature
+vector of length 100,000, but for a short text almost all the features will be zero.
+As we have seen, some machine learning models work better when we do feature selec-
+tion, limiting ourselves to a subset of the words as features. We could drop words that are
+very rare (and thus have high variance in their predictive powers), as well as words that are
+common to all classes (such as “the”) but don’t discriminate between classes. We can also
+mix other features in with our word-based features; for example if we are classifying email
+messages we could add features for the sender, the time the message was sent, the words
+in the subject header, the presence of nonstandard punctuation, the percentage of uppercase
+letters, whether there is an attachment, and so on.
+Note it is not trivial to decide what a word is. Is “aren’t” one word, or should it be broken
+up as “aren/’/t” or “are/n’t,” or something else? The process of dividing a text into a sequence
+of words is called tokenization.
+Tokenization
+
+

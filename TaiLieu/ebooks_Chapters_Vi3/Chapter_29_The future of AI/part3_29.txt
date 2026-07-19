@@ -1,0 +1,118 @@
+Section 29.2
+AI Architectures
+1071
+The truly gargantuan power of today’s machines tempts one to think that we could bypass
+all the clever devices and rely more on brute force. So let’s try to counteract this tendency.
+We begin with what physicists believe to be the speed of the ultimate 1kg computing device:
+about 1051 operations per second, or a billion trillion trillion times faster than the fastest su-
+percomputer as of 2020 (Lloyd, 2000).1 Then we propose a simple task: enumerating strings
+of English words, much as Borges proposed in The Library of Babel. Borges stipulated books
+of 410 pages. Would that be feasible? Not quite. In fact, the computer running for a year
+could enumerate only the 11-word strings.
+Now consider the fact that a detailed plan for a human life consists of (very roughly)
+twenty trillion potential muscle actuations (Russell, 2019), and you begin to see the scale
+of the problem. A computer that is a billion trillion trillion times more powerful than the
+human brain is much further from being rational than a slug is from overtaking the starship
+Enterprise traveling at warp nine.
+With these considerations in mind, it seems that the goal of building rational agents is
+perhaps a little too ambitious. Rather than aiming for something that cannot possibly exist,
+we should consider a different normative target—one that necessarily exists. Recall from
+Chapter 2 the following simple idea:
+agent = architecture+program.
+Now ﬁx the agent architecture (the underlying machine capabilities, perhaps with a ﬁxed soft-
+ware layer on top) and allow the agent program to vary over all possible programs that the
+architecture can support. In any given task environment, one of these programs (or an equiv-
+alence class of them) delivers the best possible performance—perhaps not close to perfect
+rationality, but still better than any other agent program. We say that this program satisﬁes
+the criterion of bounded optimality. Clearly it exists, and clearly it constitutes a desirable
+Bounded optimality
+goal. The trick is ﬁnding it, or something close to it.
+For some elementary classes of agent programs in simple real-time environments, it is
+possible to identify bounded-optimal agent programs (Etzioni, 1989; Russell and Subrama-
+nian, 1995). The success of Monte Carlo tree search has revived interest in metalevel decision
+making, and there is reason to hope that bounded optimality within more complex families of
+agent programs can be achieved by techniques such as metalevel reinforcement learning. It
+should also be possible to develop a constructive theory of architecture, beginning with theo-
+rems on the bounded optimality of suitable methods of combining different bounded-optimal
+components such as reﬂex and action–value systems.
+General AI
+Much of the progress in AI in the 21st century so far has been guided by competition on nar-
+row tasks, such as the DARPA Grand Challenge for autonomous cars, the ImageNet object
+recognition competition, or playing Go, chess, poker, or Jeopardy! against a world cham-
+pion. For each separate task, we build a separate AI system, usually with a separate machine
+learning model trained from scratch with data collected speciﬁcally for this task. But a truly
+intelligent agent should be able to do more than one thing. Alan Turing (1950) proposed his
+list (page 1033) and science ﬁction author Robert Heinlein (1973) countered with:
+1
+We gloss over the fact that this device consumes the entire energy output of a star and operates at a billion
+degrees centigrade.
+
+
+1072
+Chapter 29
+The Future of AI
+A human being should be able to change a diaper, plan an invasion, butcher a hog,
+conn a ship, design a building, write a sonnet, balance accounts, build a wall, set
+a bone, comfort the dying, take orders, give orders, cooperate, act alone, solve
+equations, analyse a new problem, pitch manure, program a computer, cook a
+tasty meal, ﬁght efﬁciently, die gallantly. Specialization is for insects.
+So far, no AI system measures up to either of these lists, and some proponents of general or
+human-level AI (HLAI) insist that continued work on speciﬁc tasks (or on individual com-
+ponents) will not be enough to reach mastery on a wide variety of tasks; that we will need a
+fundamentally new approach. It seems to us that numerous new breakthroughs will indeed be
+necessary, but overall, AI as a ﬁeld has made a reasonable exploration/exploitation tradeoff,
+assembling a portfolio of components, improving on particular tasks, while also exploring
+promising and sometimes far-out new ideas.
+It would have been a mistake to tell the Wright brothers in 1903 to stop work on their
+single-task airplane and design an “artiﬁcial general ﬂight” machine that can take off verti-
+cally, ﬂy faster than sound, carry hundreds of passengers, and land on the moon. It also would
+have been a mistake to follow up their ﬁrst ﬂight with an annual competition to make spruce
+wood biplanes incrementally better.
+We have seen that work on components can spur new ideas; for example, generative
+adversarial networks (GANs) and transformer language models each opened up new areas of
+research. We have also seen steps towards “diversity of behaviour.” For example, machine
+translation systems in the 1990s were built one at a time for each language pair (such as
+French to English), but today a single system can identifying the input text as being one of a
+hundred languages, and translate it into any of 100 target languages. Another natural language
+system can perform ﬁve distinct tasks with one joint model (Hashimoto et al., 2016).
+AI engineering
+The ﬁeld of computer programming started with a few extraordinary pioneers. But it didn’t
+reach the status of a major industry until a practice of software engineering was developed,
+with a powerful collection of widely available tools, and a thriving ecosystem of teachers,
+students, practitioners, entrepreneurs, investors, and customers.
+The AI industry has not yet reached that level of maturity. We do have a variety of pow-
+erful tools and frameworks, such as TensorFlow, Keras, PyTorch, CAFFE, Scikit-Learn and
+SCIPY. But many of the most promising approaches, such as GANs and deep reinforcement
+learning, have proven to be difﬁcult to work with—they require experience and a degree of
+ﬁddling to get them to train properly in a new domain. We don’t have enough experts to do
+this across all the domains where we need it, and we don’t yet have the tools and ecosystem
+to let less-expert practitioners succeed.
+Google’s Jeff Dean sees a future where we will want machine learning to handle millions
+of tasks; it won’t be feasible to develop each of them from scratch, so he suggests that rather
+than building each new system from scratch, we should start with a single huge system and,
+for each new task, extract from it the parts that are relevant to the task. We have seen some
+steps in this direction, such as the transformer language models (e.g., BERT, GPT-2) with
+billions of parameters, and an “outrageously large” ensemble neural network architecture
+that scales up to 68 billion parameters in one experiment (Shazeer et al., 2017). Much work
+remains to be done.
+
+
+Section 29.2
+AI Architectures
+1073
+The future
+Which way will the future go? Science ﬁction authors seem to favor dystopian futures over
+utopian ones, probably because they make for more interesting plots. So far, AI seems to ﬁt
+in with other powerful revolutionary technologies such as printing, plumbing, air travel, and
+telephony. All these technologies have made positive impacts, but also have some unintended
+side effects that disproportionately impact disadvantaged classes. We would do well to invest
+in minimizing the negative impacts.
+AI is also different from previous revolutionary technologies. Improving printing, plumb-
+ing, air travel, and telephony to their logical limits would not produce anything to threaten
+human supremacy in the world. Improving AI to its logical limit certainly could.
+In conclusion, AI has made great progress in its short history, but the ﬁnal sentence of
+Alan Turing’s (1950) essay on Computing Machinery and Intelligence is still valid today:
+We can see only a short distance ahead,
+but we can see that much remains to be done.
+
+

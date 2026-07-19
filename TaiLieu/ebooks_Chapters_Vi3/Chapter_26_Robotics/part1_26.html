@@ -1,0 +1,33 @@
+<h1 id="chapter-26-robotics">CHƯƠNG 26. ROBOTICS (ROBOT)</h1>
+
+<p><em>Trong đó các tác tử được trang bị các cảm biến và cơ cấu chấp hành vật lý để di chuyển và tác động vào thế giới thực.</em></p>
+
+<h2 id="261-robots">26.1 Robots (Giới thiệu về Robot)</h2>
+
+<p>Robot là các tác tử vật lý thực hiện nhiệm vụ bằng cách thao tác trên thế giới thực. Để thực hiện điều đó, chúng được trang bị các cơ cấu chấp hành (<strong>effectors</strong>) như chân, bánh xe, khớp nối, và bộ gắp (grippers). Cơ cấu chấp hành được thiết kế để tác dụng các lực vật lý lên môi trường. Khi thực hiện, có thể xảy ra một số điều: trạng thái của robot có thể thay đổi (ví dụ: ô tô xoay bánh và tiến lên phía trước trên đường), trạng thái của môi trường có thể thay đổi (ví dụ: một cánh tay robot dùng bộ gắp để đẩy cốc nước trên bàn), và thậm chí trạng thái của những người xung quanh robot có thể thay đổi (ví dụ: khung xương ngoài di chuyển làm thay đổi tư thế chân của con người; hoặc một robot di động tiến về phía cửa thang máy, và một người chú ý đến, tử tế nhường đường hoặc thậm chí bấm nút thang máy giúp robot).</p>
+
+<p>Robot cũng được trang bị các cảm biến (<strong>sensors</strong>), giúp chúng nhận biết môi trường xung quanh. Ngành chế tạo robot hiện đại sử dụng nhiều loại cảm biến đa dạng, bao gồm camera, radar, laser và micro để đo đạc trạng thái của môi trường và con người xung quanh; cùng các con quay hồi chuyển, cảm biến biến dạng, cảm biến lực xoắn, và gia tốc kế để đo trạng thái bên trong của chính robot.</p>
+
+<p>Cực đại hóa độ hữu dụng kỳ vọng (expected utility) cho một robot có nghĩa là chọn cách kích hoạt các cơ cấu chấp hành để tạo ra các lực vật lý phù hợp — những lực này sẽ dẫn đến những thay đổi trạng thái tích lũy được nhiều phần thưởng kỳ vọng nhất có thể. Xét cho cùng, robot luôn cố gắng hoàn thành một nhiệm vụ nào đó trong thế giới vật lý.</p>
+
+<p>Robot hoạt động trong các môi trường quan sát được một phần và mang tính ngẫu nhiên: camera không thể nhìn qua các góc tường, và các bánh răng có thể bị trượt. Hơn nữa, những người hành động trong cùng môi trường đó lại khó dự đoán, vì vậy robot cần phải đưa ra dự đoán về họ.</p>
+
+<p>Robot thường mô hình hóa môi trường của chúng bằng một không gian trạng thái liên tục (vị trí của robot có tọa độ liên tục) và một không gian hành động liên tục (lượng dòng điện mà robot gửi đến động cơ cũng được đo bằng các đơn vị liên tục). Một số robot hoạt động trong không gian nhiều chiều: ô tô tự lái cần biết vị trí, hướng và vận tốc của chính nó và của các tác tử xung quanh; cánh tay robot có sáu hoặc bảy khớp có thể di chuyển độc lập; và các robot mô phỏng cơ thể người có tới hàng trăm khớp nối.</p>
+
+<p>Việc học của robot bị hạn chế vì thế giới thực từ chối hoạt động nhanh hơn thời gian thực. Trong môi trường mô phỏng, ta có thể sử dụng các thuật toán học (như thuật toán Q-learning được mô tả ở Chương 23) để học trong vài giờ từ hàng triệu lần thử. Tuy nhiên trong môi trường thực, có thể mất nhiều năm để chạy ngần ấy lần thử, và robot không thể mạo hiểm (và do đó không thể học từ) một lần thử có thể gây hư hỏng. Do vậy, việc chuyển đổi những gì đã học trong mô phỏng sang một robot thực tế trong thế giới thực — bài toán <strong>sim-to-real</strong> (mô phỏng sang thực tế) — là một lĩnh vực nghiên cứu rất sôi động. Các hệ thống robot ứng dụng thực tiễn cần được tích hợp các tri thức tiên nghiệm về robot, môi trường vật lý, và các nhiệm vụ cần thực hiện để robot có thể học nhanh và hoạt động an toàn.</p>
+
+<p>Lĩnh vực Robotics tập hợp nhiều khái niệm mà chúng ta đã thấy trong cuốn sách này, bao gồm ước lượng trạng thái xác suất, nhận thức, lập kế hoạch, học không giám sát, học tăng cường và lý thuyết trò chơi. Đối với một số khái niệm, robotics đóng vai trò như một ứng dụng thực tiễn đầy thách thức. Với một số khái niệm khác, chương này sẽ mở ra các khía cạnh mới, ví dụ như giới thiệu phiên bản liên tục của các kỹ thuật mà trước đây chúng ta chỉ thấy trong các trường hợp rời rạc.</p>
+
+<p><strong>Hình 26.1</strong> (a) Một cánh tay robot công nghiệp với cơ cấu chấp hành ở đầu (end-effector) tùy chỉnh. Nguồn ảnh: Macor/123RF. (b) Một cánh tay robot hỗ trợ Kinova® JACO® được gắn trên xe lăn. Kinova và JACO là nhãn hiệu của Kinova, Inc.</p>
+
+<h2 id="262-robot-hardware">26.2 Robot Hardware (Phần cứng Robot)</h2>
+
+<p>Từ đầu cuốn sách đến nay, chúng ta xem kiến trúc của tác tử — cảm biến, cơ cấu chấp hành, và bộ xử lý — là có sẵn, và chủ yếu tập trung vào chương trình tác tử. Nhưng sự thành công của các robot thực sự phụ thuộc rất nhiều vào thiết kế của các cảm biến và cơ cấu chấp hành sao cho phù hợp với nhiệm vụ.</p>
+
+<h3 id="2621-types-of-robots">26.2.1 Phân loại robot theo phần cứng (Types of robots from the hardware perspective)</h3>
+
+<p>Khi nghĩ về một con robot, bạn có thể hình dung ra một thứ gì đó có một đầu và hai tay, di chuyển xung quanh bằng chân hoặc bằng bánh xe. Những <strong>robot hình người</strong> (Anthropomorphic robots) như vậy đã được phổ biến trong các tác phẩm hư cấu như bộ phim <em>The Terminator</em> hay phim hoạt hình <em>The Jetsons</em>. Tuy nhiên các robot ngoài đời thực thì có vô số hình dáng và kích cỡ khác nhau.</p>
+
+<p><strong>Cánh tay robot</strong> (Manipulators) thực chất chỉ là những cánh tay robot. Chúng không nhất thiết phải gắn vào một thân robot; chúng có thể chỉ cần bắt vít vào bàn hoặc sàn nhà, giống như trong các nhà máy (<strong>Hình 26.1(a)</strong>). Một số có khả năng mang vác khối lượng lớn, như các robot lắp ráp ô tô, trong khi một số khác, chẳng hạn như cánh tay gắn trên xe lăn để hỗ trợ người khuyết tật vận động (<strong>Hình 26.1(b)</strong>), nâng được nhẹ hơn nhưng lại an toàn hơn khi làm việc trong môi trường có con người.</p>
+
+<p><strong>Hình 26.2</strong> (a) Xe tự hành Curiosity của NASA đang chụp ảnh selfie trên Sao Hỏa. Ảnh được cung cấp bởi NASA. (b) Dron Skydio bay theo hỗ trợ gia đình trong chuyến đạp xe. Ảnh được cung cấp bởi Skydio.</p>

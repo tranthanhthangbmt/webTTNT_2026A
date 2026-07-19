@@ -1,0 +1,183 @@
+916
+Chapter 25
+Deep Learning for Natural Language Processing
+we have to process the entire source sentence before starting to generate the target. In other
+words, the generation of each target word is conditional on the entire source sentence and on
+all previously generated target words.
+This gives text generation for MT a close connection to a standard RNN language model,
+as described in Section 25.2. Certainly, if we had trained an RNN on English text, it would
+be more likely to generate “big dog” than “dog big.” However, we don’t want to generate
+just any random target language sentence; we want to generate a target language sentence
+that corresponds to the source language sentence. The simplest way to do that is to use two
+RNNs, one for the source and one for the target. We run the source RNN over the source
+sentence and then use the ﬁnal hidden state from the source RNN as the initial hidden state
+for the target RNN. This way, each target word is implicitly conditioned on both the entire
+source sentence and the previous target words.
+This neural network architecture is called a basic sequence-to-sequence model, an ex-
+Sequence-to-
+sequence
+model
+ample of which is shown in Figure 25.6. Sequence-to-sequence models are most commonly
+used for machine translation, but can also be used for a number of other tasks, like automati-
+cally generating a text caption from an image, or summarization: rewriting a long text into a
+shorter one that maintains the same meaning.
+Basic sequence-to-sequence models were a signiﬁcant breakthrough in NLP and MT
+speciﬁcally. According to Wu et al. (2016b) the approach led to a 60% error reduction over
+the previous MT methods. But these models suffer from three major shortcomings:
+• Nearby context bias: whatever RNNs want to remember about the past, they have to ﬁt
+into their hidden state. For example, let’s say an RNN is processing word (or timestep)
+57 in a 70-word sequence. The hidden state will likely contain more information about
+the word at timestep 56 than the word at timestep 5, because each time the hidden vector
+is updated it has to replace some amount of existing information with new information.
+This behavior is part of the intentional design of the model, and often makes sense for
+NLP, since nearby context is typically more important. However, far-away context can
+be crucial as well, and can get lost in an RNN model; even LSTMs have difﬁculty with
+this task.
+• Fixed context size limit: In an RNN translation model the entire source sentence is
+compressed into a single ﬁxed-dimensional hidden state vector. An LSTM used in
+a state-of-the-art NLP model typically has around 1024 dimensions, and if we have to
+represent, say, a 64-word sentence in 1024 dimensions, this only gives us 16 dimensions
+per word—not enough for complex sentences. Increasing the hidden state vector size
+can lead to slow training and overﬁtting.
+• Slower sequential processing: As discussed in Section 22.3, neural networks realize
+considerable efﬁciency gains by processing the training data in batches so as to take
+advantage of efﬁcient hardware support for matrix arithmetic. RNNs, on the other hand,
+seem to be constrained to operate on the training data one word at a time.
+25.3.1 Attention
+What if the target RNN were conditioned on all of the hidden vectors from the source RNN,
+rather than just the last one? This would mitigate the shortcomings of nearby context bias and
+ﬁxed context size limits, allowing the model to access any previous word equally well. One
+way to achieve this access is to concatenate all of the source RNN hidden vectors. However,
+
+
+Section 25.3
+Sequence-to-Sequence Models
+917
+(a)
+The
+front
+door
+is
+red
+<start>
+La
+La
+puerta
+Source
+LSTM
+Source
+LSTM
+Source
+LSTM
+Source
+LSTM
+Source
+LSTM
+Target
+Attentional
+LSTM
+Target
+Attentional
+LSTM
+…
+La
+puerta
+de
+entrada
+es
+roja
+The
+front
+door
+is
+red
+(b)
+Figure 25.7 (a) Attentional sequence-to-sequence model for English-to-Spanish translation.
+The dashed lines represent attention. (b) Example of attention probability matrix for a bilin-
+gual sentence pair, with darker boxes representing higher values of aij. The attention proba-
+bilities sum to one over each column.
+this would cause a huge increase in the number of weights, with a concomitant increase in
+computation time and potentially overﬁtting as well. Instead, we can take advantage of the
+fact that when the target RNN is generating the target one word at a time, it is likely that only
+a small part of the source is actually relevant to each target word.
+Crucially, the target RNN must pay attention to different parts of the source for every
+word. Suppose a network is trained to translate English to Spanish. It is given the words
+“The front door is red” followed by an end of sentence marker, which means it is time to start
+outputting Spanish words. So ideally it should ﬁrst pay attention to “The” and generate “La,”
+then pay attention to “door” and output “puerta,” and so on.
+We can formalize this concept with a neural network component called attention, which
+Attention
+can be used to create a “context-based summarization” of the source sentence into a ﬁxed-
+dimensional representation. The context vector ci contains the most relevant information
+for generating the next target word, and will be used as an additional input to the target
+RNN. A sequence-to-sequence model that uses attention is called an attentional sequence-
+to-sequence model. If the standard target RNN is written as:
+Attentional
+sequence-to-
+sequence
+model
+hi = RNN(hi−1,xi),
+the target RNN for attentional sequence-to-sequence models can be written as:
+hi = RNN(hi−1,[xi;ci])
+where [xi;ci] is the concatenation of the input and context vectors, ci, deﬁned as:
+ri j = hi−1 ·sj
+ai j = erij/(∑
+k
+erik)
+ci = ∑
+j
+aij ·sj
+
+
+918
+Chapter 25
+Deep Learning for Natural Language Processing
+where hi−1 is the target RNN vector that is going to be used for predicting the word at timestep
+i, and sj is the output of the source RNN vector for the source word (or timestep) j. Both hi−1
+and sj are d-dimensional vectors, where d is the hidden size. The value of ri j is therefore the
+raw “attention score” between the current target state and the source word j. These scores are
+then normalized into a probability ai j using a softmax over all source words. Finally, these
+probabilities are used to generate a weighted average of the source RNN vectors, ci (another
+d-dimensional vector).
+An example of an attentional sequence-to-sequence model is given in Figure 25.7 (a).
+There are a few important details to understand. First, the attention component itself has no
+learned weights and supports variable-length sequences on both the source and target side.
+Second, like most of the other neural network modeling techniques we’ve learned about,
+attention is entirely latent. The programmer does not dictate what information gets used
+when; the model learns what to use. Attention can also be combined with multilayer RNNs.
+Typically attention is applied at each layer in that case.
+The probabilistic softmax formulation for attention serves three purposes. First, it makes
+attention differentiable, which is necessary for it to be used with back-propagation. Even
+though attention itself has no learned weights, the gradients still ﬂow back through attention
+to the source and target RNNs. Second, the probabilistic formulation allows the model to
+capture certain types of long-distance contextualization that may have not been captured by
+the source RNN, since attention can consider the entire source sequence at once, and learn to
+keep what is important and ignore the rest. Third, probabilistic attention allows the network
+to represent uncertainty—if the network does not know exactly what source word to translate
+next, it can distribute the attention probabilities over several options, and then actually choose
+the word using the target RNN.
+Unlike most components of neural networks, attention probabilities are often interpretable
+by humans and intuitively meaningful. For example, in the case of machine translation, the
+attention probabilities often correspond to the word-to-word alignments that a human would
+generate. This is shown in Figure 25.7(b).
+Sequence-to-sequence models are a natural for machine translation, but almost any nat-
+ural language task can be encoded as a sequence-to-sequence problem.
+For example, a
+question-answering system can be trained on input consisting of a question followed by a
+delimiter followed by the answer.
+25.3.2 Decoding
+At training time, a sequence-to-sequence model attempts to maximize the probability of each
+word in the target training sentence, conditioned on the source and all of the previous target
+words. Once training is complete, we are given a source sentence, and our goal is to generate
+the corresponding target sentence. As shown in Figure 25.7, we can generate the target one
+word at a time, and then feed back in the word that we generated at the next timestep. This
+procedure is called decoding.
+Decoding
+The simplest form of decoding is to select the highest probability word at each timestep
+and then feed this word as input to the next timestep. This is called greedy decoding because
+Greedy decoding
+after each target word is generated, the system has fully committed to the hypothesis that it
+has produced so far. The problem is that the goal of decoding is to maximize the probability
+of the entire target sequence, which greedy decoding may not achieve. For example, consider
+
+

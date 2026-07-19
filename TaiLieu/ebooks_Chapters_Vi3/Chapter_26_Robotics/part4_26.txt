@@ -1,0 +1,244 @@
+950
+Chapter 26
+Robotics
+qg
+qs
+Figure 26.14 A visibility graph. Lines connect every pair of vertices that can “see” each
+other—lines that don’t go through an obstacle. The shortest path must lie upon these lines.
+The motion planning problem can be made more complex in various ways: deﬁning the
+goal as a set of possible conﬁgurations rather than a single conﬁguration; deﬁning the goal
+in the workspace rather than the C-space; deﬁning a cost function (e.g., path length) to be
+minimized; satisfying constraints (e.g., if the path involves carrying a cup of coffee, making
+sure that the cup is always oriented upright so the coffee does not spill).
+The spaces of motion planning: Let’s take a step back and make sure we understand the
+spaces involved in motion planning. First, there is the workspace or world W. Points in W are
+points in the everyday three-dimensional world. Next, we have the space of conﬁgurations,
+C. Points q in C are d-dimensional, with d the robot’s number of degrees of freedom, and
+map to sets of points A(q) in W. Finally, there is the space of paths. The space of paths is a
+space of functions. Each point in this space maps to an entire curve through C-space. This
+space is ∞-dimensional! Intuitively, we need d dimensions for each conﬁguration along the
+path, and there are as many conﬁgurations on a path as there are points in the number line
+interval [0,1]. Now let’s consider some ways of solving the motion planning problem.
+Visibility graphs
+For the simpliﬁed case of two-dimensional conﬁguration spaces and polygonal C-space ob-
+stacles, visibility graphs are a convenient way to solve the motion planning problem with a
+Visibility graph
+guaranteed shortest-path solution. Let Vobs ⊂C be the set of vertices of the polygons making
+up Cobs, and let V = Vobs ∪{qs,qg}.
+We construct a graph G = (V,E) on the vertex set V with edges ei j ∈E connecting a
+vertex vi to another vertex vj if the line connecting the two vertices is collision-free—that is,
+if {λvi +(1−λ)v j : λ ∈[0,1]}∩Cobs = {}. When this happens, we say the two vertices “can
+see each other,” which is where “visibility” graphs got their name.
+To solve the motion planning problem, all we need to do is run a discrete graph search
+(e.g., best-ﬁrst search) on the graph G with starting state qs and goal qg. In Figure 26.14
+we see a visibility graph and an optimal three-step solution. An optimal search on visibility
+graphs will always give us the optimal path (if one exists), or report failure if no path exists.
+Voronoi diagrams
+Visibility graphs encourage paths that run immediately adjacent to an obstacle—if you had to
+walk around a table to get to the door, the shortest path would be to stick as close to the table
+as possible. However, if motion or sensing is nondeterministic, that would put you at risk of
+bumping into the table. One way to address this is to pretend that the robot’s body is a bit
+
+
+Section 26.5
+Planning and Control
+951
+Figure 26.15 A Voronoi diagram showing the set of points (black lines) equidistant to two
+or more obstacles in conﬁguration space.
+larger than it actually is, providing a buffer zone. Another way is to accept that path length
+is not the only metric we want to optimize. Section 26.8.2 shows how to learn a good metric
+from human examples of behavior.
+A third way is to use a different technique, one that puts paths as far away from obstacles
+as possible rather than hugging close to them. A Voronoi diagram is a representation that
+Voronoi diagram
+allows us to do just that. To get an idea for what a Voronoi diagram does, consider a space
+where the obstacles are, say, a dozen small points scattered about a plane. Now surround each
+of the obstacle points with a region consisting of all the points in the plane that are closer to
+Region
+that obstacle point than to any other obstacle point. Thus, the regions partition the plane. The
+Voronoi diagram consists of the set of regions, and the Voronoi graph consists of the edges
+Voronoi graph
+and vertices of the regions.
+When obstacles are areas, not points, everything stays pretty much the same. Each region
+still contains all the points that are closer to one obstacle than to any other, where distance is
+measured to the closest point on an obstacle. The boundaries between regions still correspond
+to points that are equidistant between two obstacles, but now the boundary may be a curve
+rather than a straight line. Computing these boundaries can be prohibitively expensive in
+high-dimensional spaces.
+To solve the motion planning problem, we connect the start point qs to the closest point
+on the Voronoi graph via a straight line, and the same for the goal point qg. We then use
+discrete graph search to ﬁnd the shortest path on the graph. For problems like navigating
+through corridors indoors, this gives a nice path that goes down the middle of the corridor.
+However, in outdoor settings it can come up with inefﬁcient paths, for example suggesting an
+unnecessary 100 meter detour to stick to the middle of a wide-open 200-meter space.
+
+
+952
+Chapter 26
+Robotics
+start
+goal
+start
+goal
+(a)
+(b)
+Figure 26.16 (a) Value function and path found for a discrete grid cell approximation of the
+conﬁguration space. (b) The same path visualized in workspace coordinates. Notice how the
+robot bends its elbow to avoid a collision with the vertical obstacle.
+Cell decomposition
+An alternative approach to motion planning is to discretize the C-space. Cell decomposition
+Cell decomposition
+methods decompose the free space into a ﬁnite number of contiguous regions, called cells.
+These cells are designed so that the path-planning problem within a single cell can be solved
+by simple means (e.g., moving along a straight line). The path-planning problem then be-
+comes a discrete graph search problem (as with visibility graphs and Voronoi graphs) to ﬁnd
+a path through a sequence of cells.
+The simplest cell decomposition consists of a regularly spaced grid. Figure 26.16(a)
+shows a square grid decomposition of the space and a solution path that is optimal for this
+grid size. Grayscale shading indicates the value of each free-space grid cell—the cost of
+the shortest path from that cell to the goal. (These values can be computed by a deterministic
+form of the VALUE-ITERATION algorithm given in Figure 16.6 on page 563.) Figure 26.16(b)
+shows the corresponding workspace trajectory for the arm. Of course, we could also use the
+A∗algorithm to ﬁnd a shortest path.
+This grid decomposition has the advantage that it is simple to implement, but it suffers
+from three limitations. First, it is workable only for low-dimensional conﬁguration spaces,
+because the number of grid cells increases exponentially with d, the number of dimensions.
+(Sounds familiar? This is the curse of dimensionality.) Second, paths through discretized
+state space will not always be smooth. We see in Figure 26.16(a) that the diagonal parts of
+the path are jagged and hence very difﬁcult for the robot to follow accurately. The robot can
+attempt to smooth out the solution path, but this is far from straightforward.
+Third, there is the problem of what to do with cells that are “mixed”—that is, neither
+entirely within free space nor entirely within occupied space. A solution path that includes
+
+
+Section 26.5
+Planning and Control
+953
+such a cell may not be a real solution, because there may be no way to safely cross the
+cell. This would make the path planner unsound. On the other hand, if we insist that only
+completely free cells may be used, the planner will be incomplete, because it might be the
+case that the only paths to the goal go through mixed cells—it might be that a corridor is
+actually wide enough for the robot to pass, but the corridor is covered only by mixed cells.
+The ﬁrst approach to this problem is further subdivision of the mixed cells—perhaps
+using cells of half the original size. This can be continued recursively until a path is found
+that lies entirely within free cells. This method works well and is complete if there is a way to
+decide if a given cell is a mixed cell, which is easy only if the conﬁguration space boundaries
+have relatively simple mathematical descriptions.
+It is important to note that cell decomposition does not necessarily require explicitly rep-
+resenting the obstacle space Cobs. We can decide to include a cell or not by using a collision
+checker. This is a crucial notion to motion planning. A collision checker is a function γ(q)
+Collision checker
+that maps to 1 if the conﬁguration collides with an obstacle, and 0 otherwise. It is much easier
+to check whether a speciﬁc conﬁguration is in collision than to explicitly construct the entire
+obstacle space Cobs.
+Examining the solution path shown in Figure 26.16(a), we can see an additional difﬁculty
+that will have to be resolved. The path contains arbitrarily sharp corners, but a physical robot
+has momentum and cannot change direction instantaneously. This problem can be solved by
+storing, for each grid cell, the exact continuous state (position and velocity) that was attained
+when the cell was reached in the search. Assume further that when propagating information
+to nearby grid cells, we use this continuous state as a basis, and apply the continuous robot
+motion model for jumping to nearby cells. So we don’t make an instantaneous 90◦turn; we
+make a rounded turn governed by the laws of motion. We can now guarantee that the resulting
+trajectory is smooth and can indeed be executed by the robot. One algorithm that implements
+this is hybrid A∗.
+Hybrid A∗
+Randomized motion planning
+Randomized motion planning does graph search on a random decomposition of the conﬁgu-
+ration space, rather than a regular cell decomposition. The key idea is to sample a random set
+of points and to create edges between them if there is a very simple way to get from one to
+the other (e.g., via a straight line) without colliding; then we can search on this graph.
+A probabilistic roadmap (PRM) algorithm is one way to leverage this idea. We assume
+Probabilistic
+roadmap (PRM)
+access to a collision checker γ (deﬁned on page 953), and to a simple planner B(q1,q2) that
+Simple planner
+returns a path from q1 to q2 (or failure) but does so quickly. This simple planner is not going
+to be complete—it might return failure even if a solution actually exists. Its job is to quickly
+try to connect q1 and q2 and let the main algorithm know if it succeeds. We will use it to
+deﬁne whether an edge exists between two vertices.
+The algorithm starts by sampling M milestones—points in Cfree—in addition to the
+Milestone
+points qs and qg. It uses rejection sampling, where conﬁgurations are sampled randomly
+and collision-checked using γ until a total of M milestones are found. Next, the algorithm
+uses the simple planner to try to connect pairs of milestones. If the simple planner returns
+success, then an edge between the pair is added to the graph; otherwise, the graph remains as
+is. We try to connect each milestone either to its k nearest neighbors (we call this k-PRM), or
+to all milestones in a sphere of a radius r. Finally, the algorithm searches for a path on this
+
+
+954
+Chapter 26
+Robotics
+qg
+qg
+qg
+qg
+qs
+qs
+qs
+qs
+Figure 26.17 The probabilistic roadmap (PRM) algorithm. Top left: the start and goal con-
+ﬁgurations. Top right: sample M collision-free milestones (here M = 5). Bottom left: con-
+nect each milestone to its k nearest neighbors (here k = 3). Bottom right: ﬁnd the shortest
+path from the start to the goal on the resulting graph.
+graph from qs to qg. If no path is found, then M more milestones are sampled, added to the
+graph, and the process is repeated.
+Figure 26.17 shows a roadmap with the path found between two conﬁgurations. PRMs
+are not complete, but they are what is called probabilistically complete—they will eventu-
+Probabilistically
+complete
+ally ﬁnd a path, if one exists. Intuitively, this is because they keep sampling more milestones.
+PRMs work well even in high-dimensional conﬁguration spaces.
+PRMs are also popular for multi-query planning, in which we have multiple motion
+Multi-query planning
+planning problems within the same C-space. Often, once the robot reaches a goal, it is called
+upon to reach another goal in the same workspace. PRMs are really useful, because the robot
+can dedicate time up front to constructing a roadmap, and amortize the use of that roadmap
+over multiple queries.
+Rapidly-exploring random trees
+An extension of PRMs called rapidly exploring random trees (RRTs) is popular for single-
+Rapidly exploring
+random trees
+(RRTs)
+query planning. We incrementally build two trees, one with qs as the root and one with qg
+as the root. Random milestones are chosen, and an attempt is made to connect each new
+milestone to the existing trees. If a milestone connects both trees, that means a solution has
+been found, as in Figure 26.18. If not, the algorithm ﬁnds the closest point in each tree and
+adds to the tree a new edge that extends from the point by a distance δ towards the milestone.
+This tends to grow the tree towards previously unexplored sections of the space.
+Roboticists love RRTs for their ease of use. However, RRT solutions are typically nonop-
+timal and lack smoothness. Therefore, RRTs are often followed by a post-processing step.
+The most common one is “short-cutting,” in which we randomly select one of the vertices on
+the solution path and try to remove it by connecting its neighbors to each other (via the simple
+
+
+Section 26.5
+Planning and Control
+955
+qg
+qs
+qsample
+Figure 26.18 The bidirectional RRT algorithm constructs two trees (one from the start, the
+other from the goal) by incrementally connecting each sample to the closest node in each
+tree, if the connection is possible. When a sample connects to both trees, that means we have
+found a solution path.
+(a)
+(b)
+(c)
+Figure 26.19 Snapshots of a trajectory produced by an RRT and post-processed with short-
+cutting. Courtesy of Anca Dragan.
+planner). We do this repeatedly for as many steps as we have compute time for. Even then,
+the trajectories might look a little unnatural due to the random positions of the milestone that
+were selected, as shown in Figure 26.19.
+RRT∗is a modiﬁcation to RRT that makes the algorithm asymptotically optimal: the
+RRT∗
+solution converges to the optimal solution as more and more milestones are sampled. The
+key idea is to pick the nearest neighbor based on a notion of cost to come rather than distance
+from the milestone only, and to rewire the tree, swapping parents of older vertices if it is
+cheaper to reach them via the new milestone.
+Trajectory optimization for kinematic planning
+Randomized sampling algorithms tend to ﬁrst construct a complex but feasible path and then
+optimize it. Trajectory optimization does the opposite: it starts with a simple but infeasible
+path, and then works to push it out of collision. The goal is to ﬁnd a path that optimizes a cost
+
+

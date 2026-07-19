@@ -1,0 +1,253 @@
+1008
+Chapter 27
+Computer Vision
+Box non-max
+suppression
+ROI pool
+Neural net
+feature 
+stack
+Crop
+ROIs
+Image
+Box proposal
+network
+Non-max
+suppression
+Bounding box
+regression
+Neural net
+classifier
+0.9
+0.7
+Figure 27.13 Faster RCNN uses two networks. A picture of a young Nelson Mandela is
+fed into the object detector. One network computes “objectness” scores of candidate image
+boxes, called “anchor boxes,” centered at a grid point. There are nine anchor boxes (three
+scales, three aspect ratios) at each grid point. For the example image, an inner green box and
+an outer blue box have passed the objectness test. The second network is a feature stack that
+computes a representation of the image suitable for classiﬁcation. The boxes with highest
+objectness score are cut from the feature map, standardized in size with ROI pooling, and
+passed to a classiﬁer. The blue box has a higher score than the green box and overlaps it, so
+the green box is rejected by non-maximum suppression. Finally, bounding box regression the
+blue box so that it ﬁts the face. This means that the relatively coarse sampling of locations,
+scales, and aspect ratios does not weaken accuracy. Photo by Sipa/Shutterstock.
+27.6 The 3D World
+Images show a 2D picture of a 3D world. But this 2D picture is rich with cues about the 3D
+world. One kind of cue occurs when we have multiple pictures of the same world, and can
+match points between pictures. Another kind of cue is available within a single picture.
+27.6.1 3D cues from multiple views
+Two pictures of objects in a 3D world are better than one for several reasons:
+• If you have two images of the same scene taken from different viewpoints and you know
+enough about the two cameras, you can construct a 3D model—a collection of points
+with their coordinates in 3 dimensions—by ﬁguring out which point in the ﬁrst view
+corresponds to which point in the second view and applying some geometry. This is
+true for almost all pairs of viewing directions and almost all kinds of camera.
+• If you have two views of enough points, and you know which point in the ﬁrst view
+corresponds to which point in the second view, you do not need to know much about
+
+
+Section 27.6
+The 3D World
+1009
+the cameras to construct a 3D model. Two views of two points gives you four x,y co-
+ordinates, and you only need three coordinates to specify a point in 3D space; the extra
+coordinate comes in helpful to ﬁgure out what you need to know about the cameras.
+This is true for almost all pairs of viewing directions and almost all kinds of camera.
+The key problem is to establish which point in the ﬁrst view corresponds to which in the
+second view. Detailed descriptions of the local appearance of a point using simple texture
+features (like those in section 27.3.2) are often enough to match points. For example, in a
+scene of trafﬁc on a street, there might be only one green light visible in two images taken
+of the scene; we can then hypothesize that these correspond to each other. The geometry of
+multiple camera views is very well understood (but sadly too complicated to expound here).
+The theory produces geometric constraints on which point in one image can match with which
+point in the other. Other constraints can be obtained by reasoning about the smoothness of
+the reconstructed surfaces.
+There are two ways of getting multiple views of a scene. One is to have two cameras
+or two eyes (section 27.6.2). Another is to move (section 27.6.3). If you have more than
+two views, you can recover both the geometry of the world and the details of the view very
+accurately. Section 27.7.3 discusses some applications for this technology.
+27.6.2 Binocular stereopsis
+Most vertebrates have two eyes. This is useful for redundancy in case of a lost eye, but it
+helps in other ways too. Most prey have eyes on the side of the head to enable a wider ﬁeld of
+vision. Predators have the eyes in the front, enabling them to use binocular stereopsis. Hold
+Binocular stereopsis
+both index ﬁngers up in front of your face, with one eye closed, and adjust them so the front
+ﬁnger occludes the other ﬁnger in the open eye’s view. Now swap eyes; you should notice that
+the ﬁngers have shifted position with respect to one another. This shifting of position from
+left view to right view is known as disparity. In the right choice of coordinate system, if we
+Disparity
+superimpose left and right images of an object at some depth, the object shifts horizontally in
+the superimposed image, and the size of the shift is the reciprocal of the depth. You can see
+this in Figure 27.14, where the nearest point of the pyramid is shifted to the left in the right
+image and to the right in the left image.
+To measure disparity we need to solve the correspondence problem—to determine for a
+point in the left image, its “partner” in the right image which results from the projection of
+the same scene point. This is analogous to what is done in measuring optical ﬂow, and the
+most simple-minded approaches are somewhat similar. These methods search for blocks of
+left and right pixels that match, using the sum of squared differences (as in Section 27.3.3).
+More sophisticated methods use more detailed texture representations of blocks of pixels (as
+in Section 27.3.2). In practice, we use much more sophisticated algorithms, which exploit
+additional constraints.
+Assuming that we can measure disparity, how does this yield information about depth
+in the scene? We will need to work out the geometrical relationship between disparity and
+depth. We will consider ﬁrst the case when both the eyes (or cameras) are looking forward
+with their optical axes parallel. The relationship of the right camera to the left camera is then
+just a displacement along the x-axis by an amount b, the baseline. We can use the optical
+Baseline
+ﬂow equations from Section 27.3.3, if we think of this as resulting from a translation vector
+T acting for time δt, with Tx = b/δt and Ty = Tz = 0. The horizontal and vertical disparity
+
+
+1010
+Chapter 27
+Computer Vision
+Perceived object
+Right image
+(a)
+(b)
+Left image
+Disparity
+Left
+Right
+Figure 27.14 Translating a camera parallel to the image plane causes image features to move
+in the camera plane. The disparity in positions that results is a cue to depth. If we superimpose
+left and right images, as in (b), we see the disparity.
+are given by the optical ﬂow components, multiplied by the time step δt, H = vx δt, V = vy δt.
+Carrying out the substitutions, we get the result that H = b/Z, V = 0. In other words, the
+horizontal disparity is equal to the ratio of the baseline to the depth, and the vertical disparity
+is zero. We can recover the depth Z given that we know b, and can measure H.
+Under normal viewing conditions, humans ﬁxate; that is, there is some point in the scene
+Fixate
+at which the optical axes of the two eyes intersect. Figure 27.15 shows two eyes ﬁxated
+at a point P0, which is at a distance Z from the midpoint of the eyes. For convenience,
+we will compute the angular disparity, measured in radians. The disparity at the point of
+ﬁxation P0 is zero. For some other point P in the scene that is δZ farther away, we can
+compute the angular displacements of the left and right images of P, which we will call PL
+and PR, respectively. If each of these is displaced by an angle δθ/2 relative to P0, then the
+displacement between PL and PR, which is the disparity of P, is just δθ. From Figure 27.15,
+tanθ = b/2
+Z and tan(θ −δθ/2) =
+b/2
+Z+δZ, but for small angles, tanθ ≈θ, so
+δθ/2 = b/2
+Z −
+b/2
+Z +δZ ≈bδZ
+2Z2
+and, since the actual disparity is δθ, we have
+disparity = bδZ
+Z2
+In humans, the baseline b is about 6 cm. Suppose that Z is about 100 cm and that the
+smallest detectable δθ (corresponding to the size of a single pixel) is about 5 seconds of arc,
+giving a δZ of 0.4 mm. For Z = 30 cm, we get the impressively small value δZ = 0.036 mm.
+That is, at a distance of 30 cm, humans can discriminate depths that differ by as little as 0.036
+mm, enabling us to thread needles and the like.
+
+
+Section 27.6
+The 3D World
+1011
+b
+du/2
+dZ
+P
+P0
+PR
+PL
+Left
+eye
+Z
+Right
+eye
+u
+Figure 27.15 The relation between disparity and depth in stereopsis. The centers of projec-
+tion of the two eyes are distance b apart, and the optical axes intersect at the ﬁxation point
+P0. The point P in the scene projects to points PL and PR in the two eyes. In angular terms,
+the disparity between these is δθ (the diagram shows two angles of δθ/2).
+27.6.3 3D cues from a moving camera
+Assume we have a camera moving in a scene. Take Figure 27.14 and label the left image
+“Time t” and the right image “Time t +1”. The geometry has not changed, so all the material
+from the discussion of stereopsis also applies when a camera moves. What we called disparity
+in that section is now thought of as apparent motion in the image, and called optical ﬂow. This
+is a source of information for both the movement of the camera and the geometry of the scene.
+To understand this, we state (without proof) an equation that relates the optical ﬂow to the
+viewer’s translational velocity T and the depth in the scene.
+The optical ﬂow ﬁeld is a vector ﬁeld of velocities in the image, (vx(x,y),vy(x,y)). Ex-
+pressions for these components, in a coordinate frame centered on the camera and assuming
+a focal length of f =1, are
+vx(x,y) = −Tx +xTz
+Z(x,y)
+and
+vy(x,y) = −Ty +yTz
+Z(x,y)
+.
+where Z(x,y) is the z-coordinate (that is, depth) of the point in the scene corresponding to the
+point in the image at (x,y).
+Note that both components of the optical ﬂow, vx(x,y) and vy(x,y), are zero at the point
+x = Tx/Tz,y = Ty/Tz. This point is called the focus of expansion of the ﬂow ﬁeld. Suppose
+Focus of expansion
+we change the origin in the x–y plane to lie at the focus of expansion; then the expressions
+for optical ﬂow take on a particularly simple form. Let (x′,y′) be the new coordinates deﬁned
+by x′ = x−Tx/Tz, y′ = y−Ty/Tz. Then
+vx(x′,y′) =
+x′Tz
+Z(x′,y′),
+vy(x′,y′) =
+y′Tz
+Z(x′,y′) .
+Note that there is a scale factor ambiguity here (which is why assuming a focal length of
+f =1 is harmless). If the camera was moving twice as fast, and every object in the scene was
+twice as big and at twice the distance to the camera, the optical ﬂow ﬁeld would be exactly
+the same. But we can still extract quite useful information.
+
+
+1012
+Chapter 27
+Computer Vision
+1. Suppose you are a ﬂy trying to land on a wall and you want useful information from
+the optical ﬂow ﬁeld. The optical ﬂow ﬁeld cannot tell you the distance to the wall or
+the velocity to the wall, because of the scale ambiguity. But if you divide the distance
+by the velocity, the scale ambiguity cancels. The result is the time to contact, given by
+Z/Tz, and is very useful indeed to control the landing approach. There is considerable
+experimental evidence that many different animal species exploit this cue.
+2. Consider two points at depths Z1, Z2 respectively. We may not know the absolute value
+of either of these, but by considering the inverse of the ratio of the optical ﬂow magni-
+tudes at these points, we can determine the depth ratio Z1/Z2. This is the cue of motion
+parallax, one we use when we look out of the side window of a moving car or train and
+infer that the slower-moving parts of the landscape are farther away.
+27.6.4 3D cues from one view
+Even a single image provides a rich collection of information about the 3D world. This is
+true even if the image is just a line drawing. Line drawings have fascinated vision scientists,
+because people have a sense of 3D shape and layout even though the drawing seems to contain
+very little information to choose from the vast collection of scenes that could produce the
+same drawing. Occlusion is one key source of information: if there is evidence in the picture
+that one object occludes another, then the occluding object is closer to the eye.
+In images of real scenes, texture is a strong cue to 3D structure. Section 27.3.2 stated that
+texture is a repetitive pattern of texels. Although the distribution of texels may be uniform on
+objects in the scene—for example, pebbles on a beach—it may not be uniform in image—
+the farther pebbles appear smaller than the nearer pebbles. As another example, think about
+a piece of polka-dot fabric. All the dots are the same size and shape on the fabric, but in
+a perspective view some dots are ellipses due to foreshortening. Modern methods exploit
+these cues by learning a mapping from images to 3D structure (Section 27.7.4), rather than
+reasoning directly about the underlying mathematics of texture.
+Shading—variation in the intensity of light received from different portions of a surface
+in a scene—is determined by the geometry of the scene and by the reﬂectance properties of
+the surfaces. There is very good evidence that shading is a cue to 3D shape. The physical
+argument is easy. From the physical model of section 27.2.4, we know that if a surface normal
+points toward the light source, the surface is brighter, and if it points away, the surface is
+darker. This argument gets more complicated if the reﬂectance of the surface isn’t known,
+and the illumination ﬁeld isn’t even, but humans seem to be able to get a useful perception of
+shape from shading. We know frustratingly little about algorithms to do this.
+If there is a familiar object in the picture, what it looks like depends very strongly on its
+pose, that is, its position and orientation with respect to the viewer. There are straightforward
+Pose
+algorithms for recovering pose from correspondences between points on an object and points
+on a model of the object. Recovering the pose of a known object has many applications. For
+instance, in an industrial manipulation task, the robot arm cannot pick up an object until the
+pose is known. Robotic surgery applications depend on exactly computing the transforma-
+tions between the camera’s position and the positions of the surgical tool and the patient (to
+yield the transformation from the tool’s position to the patient’s position).
+Spatial relations between objects are another important cue. Here is an example. All
+pedestrians are about the same height, and they tend to stand on a ground plane. If we
+
+

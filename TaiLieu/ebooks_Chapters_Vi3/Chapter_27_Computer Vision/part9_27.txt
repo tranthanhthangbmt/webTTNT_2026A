@@ -1,0 +1,182 @@
+1028
+Chapter 27
+Computer Vision
+see depth if the images presented to the left and right eyes are slightly different was demon-
+strated by Wheatstone’s (1838) invention of the stereoscope. The device immediately became
+popular in parlors and salons throughout Europe.
+The essential concept of binocular stereopsis—that two images of a scene taken from
+slightly different viewpoints carry information sufﬁcient to obtain a three-dimensional re-
+construction of the scene—was exploited in the ﬁeld of photogrammetry. Key mathematical
+results were obtained; for example, Kruppa (1913) proved that, given two views of ﬁve dis-
+tinct points in a scene, one could reconstruct the rotation and translation between the two
+camera positions as well as the depth of the scene (up to a scale factor).
+Although the geometry of stereopsis had been understood for a long time, the corre-
+spondence problem in photogrammetry used to be solved by humans trying to match up
+corresponding points. The amazing ability of humans in solving the correspondence problem
+was illustrated by Julesz’s (1971) random dot stereograms. The ﬁeld of computer vision has
+devoted much effort towards an automatic solution of the correspondence problem.
+In the ﬁrst half of the 20th century, the most signiﬁcant research results in vision were
+obtained by the Gestalt school of psychology, led by Max Wertheimer. They pointed out the
+importance of perceptual organization: for a human, the image is not a collection of pointillist
+photoreceptor outputs (pixels), rather it is organized into coherent groups. The computer
+vision task of ﬁnding regions and curves traces back to this insight. The Gestaltists also drew
+attention to the “ﬁgure-ground” phenomenon—a contour separating two image regions that
+in the world are at different depths appears to belong only to the nearer region, the “ﬁgure,”
+and not to the farther region, the “ground.”
+The gestalt work was carried on by J. J. Gibson (1950, 1979), who pointed out the impor-
+tance of optical ﬂow and texture gradients in the estimation of environmental variables such
+as surface slant and tilt. He reemphasized the importance of the stimulus and how rich it was.
+Gibson, Olum, and Rosenblatt (1955) pointed out that the optical ﬂow ﬁeld contained enough
+information to determine the motion of the observer relative to the environment. Gibson par-
+ticularly emphasized the role of the active observer, whose self-directed movement facilitates
+the pickup of information about the external environment.
+Computer vision dates back to the 1960s. Roberts’s (1963) thesis at MIT on perceiving
+cubes and other blocks-world objects was one of the earliest publications in the ﬁeld. Roberts
+introduced several key ideas, including edge detection and model-based matching.
+In the 1960s and 1970s progress was slow, hampered by the lack of computational and
+storage resources. Low-level visual processing received a lot of attention, with techniques
+drawn from related ﬁelds such as signal processing, pattern recognition, and data clustering.
+Edge detection was treated as an essential ﬁrst step in image processing, as it reduced
+the amount of data to be processed. The widely used Canny edge detection technique was
+introduced by John Canny (1986). Martin, Fowlkes, and Malik (2004) showed how to com-
+bine multiple clues, such as brightness, texture and color, in a machine learning framework
+to better ﬁnd boundary curves.
+The closely related problem of ﬁnding regions of coherent brightness, color, and texture
+naturally lends itself to formulations where ﬁnding the best partition becomes an optimization
+problem. Three leading examples are based on Markov Random Fields due to Geman and
+Geman (1984), the variational formulation of Mumford and Shah (1989), and normalized
+cuts by Shi and Malik (2000).
+
+
+Bibliographical and Historical Notes
+1029
+Through much of the 1960s, 1970s, and 1980s, there were two distinct paradigms in
+which visual recognition was pursued, dictated by different perspectives on what was per-
+ceived to be the primary problem. Computer vision research on object recognition largely fo-
+cused on issues arising from the projection of three-dimensional objects onto two-dimensional
+images. The idea of alignment, also ﬁrst introduced by Roberts, resurfaced in the 1980s in
+the work of Lowe (1987) and Huttenlocher and Ullman (1990).
+The pattern recognition community took a different approach, viewing the 3D–to–2D
+aspects of the problem as insigniﬁcant. Their motivating examples were in domains such
+as optical character recognition and handwritten zip code recognition, in which the primary
+concern is that of learning the typical variations characteristic of a class of objects and sep-
+arating them from other classes. We can trace neural net architectures for image analysis
+back to Hubel and Wiesel’s (1962, 1968) studies of the visual cortex in cats and monkeys.
+They developed a hierarchical model of the visual pathway with neurons in lower areas of the
+brain (especially the area called V1) responding to features such as oriented edges and bars,
+and neurons in higher areas responding to more speciﬁc stimuli (“grandmother cells” in the
+cartoon version).
+Fukushima (1980) proposed a neural network architecture for pattern recognition explic-
+itly motivated by Hubel and Wiesel’s hierarchy. His model had alternating layers of simple
+cells and complex cells, thus incorporating downsampling, and also had shift invariance, thus
+incorporating convolutional structure. LeCun et al. (1989) took the additional step of using
+back-propagation to train the weights of this network, and what we today call convolutional
+neural networks were born. See LeCun et al. (1995) for a comparison of approaches.
+Starting in the late 1990s, accompanying a much greater role of probabilistic modeling
+and statistical machine learning in the ﬁeld of artiﬁcial intelligence in general, there was a
+rapprochement between these two traditions. Two lines of work contributed signiﬁcantly.
+One was research on face detection (Rowley et al., 1998; Viola and Jones, 2004) that demon-
+strated the power of pattern recognition techniques on clearly important and useful tasks.
+The other was the development of point descriptors, which enable the construction of
+feature vectors from parts of objects (Schmid and Mohr, 1996). There are three key strategies
+to build a good local point descriptor: one uses orientations to get illumination invariance; one
+needs to describe image structure close to a point in detail, and further away only roughly; and
+one needs to use spatial histograms to suppress variations caused by small errors in locating
+the point. Lowe’s (2004) SIFT descriptor exploited these ideas very effectively; another
+popular variant was the HOG descriptor due to Dalal and Triggs (2005).
+The 1990s and 2000s saw a continuing debate between the devotees of clever feature
+design such as SIFT and HOG and the aﬁcionados of neural networks who believed that good
+features should emerge automatically from end-to-end training. The way to settle such a
+debate is through benchmarks on standard data sets, and in the 2000s results on a standard
+object detection data set, PASCAL VOC, argued in favor of hand-designed features. This
+changed when Krizhevsky et al. (2013) showed that on the task of image classiﬁcation on the
+ImageNet data set, their neural network (called AlexNet) gave signiﬁcantly lower error rates
+than the mainstream computer vision techniques.
+What was the secret sauce behind the success of AlexNet? Besides the technical innova-
+tions (such as the use of ReLU activation units) we must give a lot of credit to big data and
+big computation. By big data we mean the availability of large data sets with category labels,
+
+
+1030
+Chapter 27
+Computer Vision
+such as ImageNet, which provided the training data for these large, deep networks with mil-
+lions of parameters. Previous data sets like Caltech-101 or PASCAL VOC didn’t have enough
+training data, and MNIST and CIFAR were regarded as “toy data sets” by the computer vi-
+sion community. This strand of labeling data sets for benchmarking and for extracting image
+statistics itself was enabled by the desire of people to upload their photo collections to the
+Internet on sites such as Flickr. The way big computation proved most helpful was through
+GPUs, a hardware development initially driven by the needs of the video game industry.
+Within a year or two, the evidence was quite clear. For example, the region-based con-
+volutional neural network (RCNN) work of Girshick et al. (2016) showed that the AlexNet
+architecture could be modiﬁed, by making use of computer vision ideas such as region pro-
+posals, to make possible state-of-the-art object detection on PASCAL VOC. We have realized
+that generally deeper networks work better and that overﬁtting fears are overblown. We have
+new techniques such as batch normalization to deal with regularization.
+The reconstruction of three-dimensional structure from multiple views has its roots in
+the photogrammetry literature. In the computer vision era, Ullman (1979), and Longuet-
+Higgins (1981) are inﬂuential early works. Concerns about the stability of structure from
+motion were signiﬁcantly allayed by the work of Tomasi and Kanade (1992) who showed that
+with the use of multiple frames, and the resulting wide baseline, shape could be recovered
+quite accurately.
+A conceptual innovation introduced in the 1990s was the study of projective structure
+from motion. Here camera calibration is not necessary, as was shown by Faugeras (1992).
+This discovery is related to the introduction of the use of geometrical invariants in object
+recognition, as surveyed by Mundy and Zisserman (1992), and the development of afﬁne
+structure from motion by Koenderink and Van Doorn (1991).
+In the 1990s, with great increase in computer speed and storage and the widespread avail-
+ability of digital video, motion analysis found many new applications. Building geometrical
+models of real-world scenes for rendering by computer graphics techniques proved particu-
+larly popular, led by reconstruction algorithms such as the one developed by Debevec et al.
+(1996). The books by Hartley and Zisserman (2000) and Faugeras et al. (2001) provide a
+comprehensive treatment of the geometry of multiple views.
+Humans can perceive shape and spatial layout from a single image, and modeling this
+has proved to be quite a challenge for computer vision researchers. Inferring shape from
+shading was ﬁrst studied by Berthold Horn (1970), and Horn and Brooks (1989) present an
+extensive survey of the main papers from a period when this was a much studied problem.
+Gibson (1950) was the ﬁrst to propose texture gradients as a cue to shape. The mathematics
+of occluding contours, and more generally understanding the visual events in the projection
+of smooth curved objects, owes much to the work of Koenderink and van Doorn, which ﬁnds
+an extensive treatment in Koenderink’s (1990) Solid Shape.
+More recently, attention has turned to treating the problem of shape and surface recovery
+from a single image as a probabilistic inference problem, where geometrical cues are not
+modeled explicitly, but used implicitly in a learning framework. A good example is the work
+of Hoiem et al. (2007); recently this has been reworked using deep neural networks.
+Turning now to the applications of computer vision for guiding action, Dickmanns and
+Zapp (1987) ﬁrst demonstrated a self-driving car driving on freeways at high speeds; Pomer-
+leau (1993) achieved similar performance using a neural network approach. Today building
+
+
+Bibliographical and Historical Notes
+1031
+self-driving cars is a big business, with the established car companies competing with new
+entrants such as Baidu, Cruise, Didi, Google Waymo, Lyft, Mobileye, Nuro, Nvidia, Sam-
+sung, Tata, Tesla, Uber, and Voyage to market systems that provide capabilities ranging from
+driver assistance to full autonomy.
+For the reader interested in human vision, Vision Science: Photons to Phenomenology by
+Stephen Palmer (1999) provides the best comprehensive treatment; Visual Perception: Phys-
+iology, Psychology and Ecology by Vicki Bruce, Patrick Green, and Mark Georgeson (2003)
+is a shorter textbook. The books Eye, Brain and Vision by David Hubel (1988) and Per-
+ception by Irvin Rock (1984) are friendly introductions centered on neurophysiology and
+perception respectively. David Marr’s book Vision (Marr, 1982) played a historical role in
+connecting computer vision to the traditional areas of biological vision—psychophysics and
+neurobiology. While many of his speciﬁc models for tasks such as edge detection and ob-
+ject recognition haven’t stood the test of time, the theoretical perspective where each task is
+analyzed at an informational, computational, and implementation level is still illuminating.
+For the ﬁeld of computer vision, the most comprehensive textbooks available today are
+Computer Vision: A Modern Approach (Forsyth and Ponce, 2002) and Computer Vision:
+Algorithms and Applications (Szeliski, 2011). Geometrical problems in computer vision are
+treated thoroughly in Multiple View Geometry in Computer Vision (Hartley and Zisserman,
+2000). These books were written before the deep learning revolution, so for the latest results,
+consult the primary literature.
+Two of the main journals for computer vision are the IEEE Transactions on Pattern Anal-
+ysis and Machine Intelligence and the International Journal of Computer Vision. Computer
+vision conferences include ICCV (International Conference on Computer Vision), CVPR
+(Computer Vision and Pattern Recognition), and ECCV (European Conference on Com-
+puter Vision). Research with a signiﬁcant machine learning component is also published
+at NeurIPS (Neural Information Processing Systems), and work on the interface with com-
+puter graphics often appears at the ACM SIGGRAPH (Special Interest Group in Graphics)
+conference. Many vision papers appear as preprints on the arXiv server, and early reports of
+new results appear in blogs from the major research labs.
+
+

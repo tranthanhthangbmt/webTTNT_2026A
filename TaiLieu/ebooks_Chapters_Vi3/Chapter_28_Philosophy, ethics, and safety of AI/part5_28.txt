@@ -1,0 +1,205 @@
+1048
+Chapter 28
+Philosophy, Ethics, and Safety of AI
+power. UL certiﬁcation of appliances gave consumers increased trust, and in fact UL is now
+considering entering the business of product testing and certiﬁcation for AI.
+Other industries have long had safety standards. For example, ISO 26262 is an interna-
+tional standard for the safety of automobiles, describing how to develop, produce, operate,
+and service vehicles in a safe way. The AI industry is not yet at this level of clarity, although
+there are some frameworks in progress, such as IEEE P7001, a standard deﬁning ethical de-
+sign for artiﬁcial intelligence and autonomous systems (Bryson and Winﬁeld, 2017). There is
+ongoing debate about what kind of certiﬁcation is necessary, and to what extent it should be
+done by the government, by professional organizations like IEEE, by independent certiﬁers
+such as UL, or through self-regulation by the product companies.
+Another aspect of trust is transparency: consumers want to know what is going on
+Transparency
+inside a system, and that the system is not working against them, whether due to intentional
+malice, an unintentional bug, or pervasive societal bias that is recapitulated by the system. In
+some cases this transparency is delivered directly to the consumer. In other cases their are
+intellectual property issues that keep some aspects of the system hidden to consumers, but
+open to regulators and certiﬁcation agencies.
+When an AI system turns you down for a loan, you deserve an explanation. In Europe,
+the GDPR enforces this for you. An AI system that can explain itself is called explainable AI
+(XAI). A good explanation has several properties: it should be understandable and convincing
+Explainable AI (XAI)
+to the user, it should accurately reﬂect the reasoning of the system, it should be complete, and
+it should be speciﬁc in that different users with different conditions or different outcomes
+should get different explanations.
+It is quite easy to give a decision algorithm access to its own deliberative processes,
+simply by recording them and making them available as data structures. This means that
+machines may eventually be able to give better explanations of their decisions than humans
+can. Moreover, we can take steps to certify that the machine’s explanations are not deceptions
+(intentional or self-deception), something that is more difﬁcult with a human.
+An explanation is a helpful but not sufﬁcient ingredient to trust. One issue is that expla-
+nations are not decisions: they are stories about decisions. As discussed in Section 19.9.4, we
+say that a system is interpretable if we can inspect the source code of the model and see what
+it is doing, and we say it is explainable if we can make up a story about what it is doing—even
+if the system itself is an uninterpretable black box. To explain an uninterpretable black box,
+we need to build, debug, and test a separate explanation system, and make sure it is in sync
+with the original system. And because humans love a good story, we are all too willing to be
+swayed by an explanation that sounds good. Take any political controversy of the day, and
+you can always ﬁnd two so-called experts with diametrically opposed explanations, both of
+which are internally consistent.
+A ﬁnal issue is that an explanation about one case does not give you a summary over
+other cases. If the bank explains, “Sorry, you didn’t get the loan because you have a history
+of previous ﬁnancial problems,” you don’t know if that explanation is accurate or if the bank is
+secretly biased against you for some reason. In this case, you require not just an explanation,
+but also an audit of past decisions, with aggregated statistics across various demographic
+groups, to see if their approval rates are balanced.
+Part of transparency is knowing whether you are interacting with an AI system or a hu-
+man. Toby Walsh (2015) proposed that “an autonomous system should be designed so that
+
+
+Section 28.3
+The Ethics of AI
+1049
+it is unlikely to be mistaken for anything besides an autonomous system, and should identify
+itself at the start of any interaction.” He called this the “red ﬂag” law, in honor of the UK’s
+1865 Locomotive Act, which required any motorized vehicle to have a person with a red ﬂag
+walk in front of it, to signal the oncoming danger.
+In 2019, California enacted a law stating that “It shall be unlawful for any person to use
+a bot to communicate or interact with another person in California online, with the intent to
+mislead the other person about its artiﬁcial identity.”
+28.3.5 The future of work
+From the ﬁrst agricultural revolution (10,000 BCE) to the industrial revolution (late 18th
+century) to the green revolution in food production (1950s), new technologies have changed
+the way humanity works and lives. A primary concern arising from the advance of AI is that
+human labor will become obsolete. Aristotle, in Book I of his Politics, presents the main
+point quite clearly:
+For if every instrument could accomplish its own work, obeying or anticipating the will
+of others . . .if, in like manner, the shuttle would weave and the plectrum touch the lyre
+without a hand to guide them, chief workmen would not want servants, nor masters slaves.
+Everyone agrees with Aristotle’s observation that there is an immediate reduction in employ-
+ment when an employer ﬁnds a mechanical method to perform work previously done by a
+person. The issue is whether the so-called compensation effects that ensue—and that tend to
+increase employment—will eventually make up for this reduction. The primary compensa-
+tion effect is the increase in overall wealth from greater productivity, which leads in turn to
+greater demand for goods and tends to increase employment. For example, PwC (Rao and
+Verweij, 2017) predicts that AI contribute $15 trillion annually to global GDP by 2030. The
+healthcare and automotive/transportation industries stand to gain the most in the short term.
+However, the advantages of automation have not yet taken over in our economy: the current
+rate of growth in labor productivity is actually below historical standards. Brynjolfsson et al.
+(2018) attempt to explain this paradox by suggesting that the lag between the development of
+basic technology and its implementation in the economy is longer than commonly supposed.
+Technological innovations have historically put some people out of work. Weavers were
+replaced by automated looms in the 1810s, leading to the Luddite protests. The Luddites were
+not against technology per se; they just wanted the machines to be used by skilled workers
+paid a good wage to make high-quality goods, rather than by unskilled workers to make poor-
+quality goods at low wages. The global destruction of jobs in the 1930s led John Maynard
+Keynes to coin the term technological unemployment. In both cases, and several others,
+Technological
+unemployment
+employment levels eventally recovered.
+The mainstream economic view for most of the 20th century was that technological em-
+ployment was at most a short-term phenomenon. Increased productivity would always lead
+to increased wealth and increased demand, and thus net job growth. A commonly cited ex-
+ample is that of bank tellers: although ATMs replaced humans in the job of counting out cash
+for withdrawals, that made it cheaper to operate a bank branch, so the number of branches
+increased, leading to more bank employees overall. The nature of the work also changed, be-
+coming less routine and requiring more advanced business skills. The net effect of automation
+seems to be in eliminating tasks rather than jobs.
+
+
+1050
+Chapter 28
+Philosophy, Ethics, and Safety of AI
+The majority of commenters predict that the same will hold true with AI technology, at
+least in the short run. Gartner, McKinsey, Forbes, the World Economic Forum, and the Pew
+Research Center each released reports in 2018 predicting a net increase in jobs due to AI-
+driven automation. But some analysts think that this time around, things will be different. In
+2019, IBM predicted that 120 million workers would need retraining due to automation by
+2022, and Oxford Economics predicted that 20 million manufacturing jobs could be lost to
+automation by 2030.
+Frey and Osborne (2017) survey 702 different occupations, and estimate that 47% of them
+are at risk of being automated, meaning that at least some of the tasks in the occupation can
+be performed by machine. For example, almost 3% of the workforce in the U.S. are vehicle
+drivers, and in some districts, as much as 15% of the male workforce are drivers. As we saw in
+Chapter 26, the task of driving is likely to be eliminated by driverless cars/trucks/buses/taxis.
+It is important to distinguish between occupations and the tasks within those occupations.
+McKinsey estimates that only 5% of occupations are fully automatable, but that 60% of oc-
+cupations can have about 30% of their tasks automated. For example, future truck drivers
+will spend less time holding the steering wheel and more time making sure that the goods
+are picked up and delivered properly; serving as customer service representatives and sales-
+people at either end of the journey; and perhaps managing convoys of, say, three robotic
+trucks. Replacing three drivers with one convoy manager implies a net loss in employment,
+but if transportation costs decrease, there will be more demand, which wins some of the
+jobs back—but perhaps not all of them. As another example, despite many advances in ap-
+plying machine learning to the problem of medical imaging, radiologists have so far been
+augmented, not replaced, by these tools. Ultimately, there is a choice of how to make use of
+automation: do we want to focus on cutting cost, and thus see job loss as a positive; or do we
+want to focus on improving quality, making life better for the worker and the customer?
+It is difﬁcult to predict exact timelines for automation, but currently, and for the next
+few years, the emphasis is on automation of structured analytical tasks, such as reading x-ray
+images, customer relationship management (e.g., bots that automatically sort customer com-
+plaints and respond with suggested remedies), and business process automation that com-
+Business process
+automation
+bines text documents and structured data to make business decisions and improve workﬂow.
+Over time, we will see more automation with physical robots, ﬁrst in controlled warehouse
+environments, then in more uncertain environments, building to a signiﬁcant portion of the
+marketplace by around 2030.
+As populations in developed countries grow older, the ratio between workers and retirees
+changes. In 2015 there were less than 30 retirees per 100 workers; by 2050 there may be
+over 60 per 100 workers. Care for the elderly will be an increasingly important role, one that
+can partially be ﬁlled by AI. Moreover, if we want to maintain the current standard of living,
+it will also be necessary to make the remaining workers more productive; automation seems
+like the best opportunity to do that.
+Even if automation has a multi-trillion-dollar net positive impact, there may still be prob-
+lems due to the pace of change. Consider how change came to the farming industry: in 1900,
+Pace of change
+over 40% of the U.S. workforce was in agriculture, but by 2000 that had fallen to 2%.3 That
+3
+In 2010, although only 2% of the U.S. workforce were actual farmers, over 25% of the population (80 million
+people) played the FARMVILLE game at least once.
+
+
+Section 28.3
+The Ethics of AI
+1051
+is a huge disruption in the way we work, but it happened over a period of 100 years, and thus
+across generations, not in the lifetime of one worker.
+Workers whose jobs are automated away this decade may have to retrain for a new pro-
+fession within a few years—and then perhaps see their new profession automated and face
+yet another retraining period. Some may be happy to leave their old profession—we see that
+as the economy improves, trucking companies need to offer new incentives to hire enough
+drivers—but workers will be apprehensive about their new roles. To handle this, we as a soci-
+ety need to provide lifelong education, perhaps relying in part on online education driven by
+artiﬁcial intelligence (Martin, 2012). Bessen (2015) argues that workers will not see increases
+in income until they are trained to implement the new technologies, a process that takes time.
+Technology tends to magnify income inequality. In an information economy marked
+Income inequality
+by high-bandwidth global communication and zero-marginal-cost replication of intellectual
+property (what Frank and Cook (1996) call the “Winner-Take-All Society”), rewards tend to
+be concentrated. If farmer Ali is 10% better than farmer Bo, then Ali gets about 10% more
+income: Ali can charge slightly more for superior goods, but there is a limit on how much
+can be produced on the land, and how far it can be shipped. But if software app developer
+Cary is 10% better than Dana, it may be that Cary ends up with 99% of the global market. AI
+increases the pace of technological innovation and thus contributes to this overall trend, but
+AI also holds the promise of allowing us to take some time off and let our automated agents
+handle things for a while. Tim Ferriss (2007) recommends using automation and outsourcing
+to achieve a four-hour work week.
+Before the industrial revolution, people worked as farmers or in other crafts, but didn’t
+report to a job at a place of work and put in hours for an employer. But today, most adults
+in developed countries do just that, and the job serves three purposes: it fuels the production
+of the goods that society needs to ﬂourish, it provides the income that the worker needs to
+live, and it gives the worker a sense of purpose, accomplishment, and social integration. With
+increasing automation, it may be that these three purposes become disaggregated—society’s
+needs will be served in part by automation, and in the long run, individuals will get their
+sense of purpose from contributions other than work. Their income needs can be served by
+social policies that include a combination of free or inexpensive access to social services and
+education, portable health care, retirement, and education accounts, progressive tax rates,
+earned income tax credits, negative income tax, or universal basic income.
+28.3.6 Robot rights
+The question of robot consciousness, discussed in Section 28.2, is critical to the question of
+what rights, if any, robots should have. If they have no consciousness, no qualia, then few
+would argue that they deserve rights.
+But if robots can feel pain, if they can dread death, if they are considered “persons,” then
+the argument can be made (e.g., by Sparrow (2004)) that they have rights and deserve to have
+their rights recognized, just as slaves, women, and other historically oppressed groups have
+fought to have their rights recognized. The issue of robot personhood is often considered in
+ﬁction: from Pygmalion to Copp´elia to Pinocchio to the movies AI and Centennial Man, we
+have the legend of a doll/robot coming to life and striving to be accepted as a human with
+human rights. In real life, Saudi Arabia made headlines by giving honorary citizenship to
+Sophia, a human-looking puppet capable of speaking preprogrammed lines.
+
+

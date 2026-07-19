@@ -1,0 +1,190 @@
+Section 27.7
+Using Computer Vision
+1023
+Figure 27.26 Style transfer: The content of a photo of a cat is combined with the style of an
+abstract painting to yield a new image of the cat rendered in the abstract style (right). The
+painting is Wassily Kandinsky’s Lyrisches or The Lyrical (public domain); the cat is Cosmo.
+Figure 27.27 GAN generated images of lung X-rays. On the left, a pair consisting of a real
+X-ray and a GAN-generated X-ray. On the right, results of a test asking radiologists, given
+a pair of X-rays as seen on the left, to tell which is the real X-ray. On average, they chose
+correctly 61% of the time, somewhat better than chance. But they differed in their accuracy—
+the chart on the right shows the error rate for 12 different radiologists; one of them had an
+error rate near 0% and another had 80% errors. The size of each dot indicates the number
+of images each radiologist viewed. Figure courtesy of Alex Schwing, produced by a system
+described in Deshpande et al. (2019).
+a radiologist would not be surprised by how often (say) pneumonia appears. The new data
+set should be different, in the sense that it does not reveal personally identiﬁable information.
+The new data set should be controllable, so that the frequencies of effects can be adjusted
+to reﬂect the communities of interest. For example, pneumonias are more common in the
+elderly than in young adults. Each of these goals is technically difﬁcult to reach, but image
+data sets have been created that fool practicing radiologists some of the time (Figure 27.27).
+
+
+1024
+Chapter 27
+Computer Vision
+27.7.6 Controlling movement with vision
+One of the principal uses of vision is to provide information both for manipulating objects—
+picking them up, grasping them, twirling them, and so on—and for navigating while avoiding
+obstacles. The ability to use vision for these purposes is present in the most primitive of
+animal visual systems. In many cases, the visual system is minimal, in the sense that it
+extracts from the available light ﬁeld just the information the animal needs to inform its
+behavior. Quite probably, modern vision systems evolved from early, primitive organisms
+that used a photosensitive spot at one end in order to orient themselves toward (or away from)
+the light. We saw in Section 27.6 that ﬂies use a very simple optical ﬂow detection system to
+land on walls.
+Suppose that, rather than landing on walls, we want to build a self-driving car. This is
+a project that places much greater demands on the perceptual system. Perception in a self-
+driving car has to support the following tasks:
+• Lateral control: Ensure that the vehicle remains securely within its lane or changes
+lanes smoothly when required.
+• Longitudinal control: Ensure that there is a safe distance to the vehicle in front.
+• Obstacle avoidance: Monitor vehicles in neighboring lanes and be prepared for evasive
+maneuvers. Detect pedestrians and allow them to cross safely.
+• Obey trafﬁc signals: These include trafﬁc lights, stop signs, speed limit signs, and
+police hand signals.
+The problem for a driver (human or computer) is to generate appropriate steering, accelera-
+tion, and braking actions to best accomplish these tasks.
+To make good decisions, the driver should construct a model of the world and the objects
+in it. Figure 27.28 shows some of the visual inferences that are necessary to build this model.
+For lateral control, the driver needs to maintain a representation of the position and orientation
+of the car relative to the lane. For longitudinal control, the driver needs to keep a safe distance
+from the vehicle in front (which may not be easy to identify on, say, curving multilane roads).
+Obstacle avoidance and following trafﬁc signals require additional inferences.
+Roads were designed for humans who navigate using vision, so it should in principle be
+possible to drive using vision alone. However, in practice, commercial self-driving cars use
+a variety of sensors, including cameras, lidars, radars, and microphones. A lidar or radar en-
+ables direct measurement of depth, which can be more accurate than the vision-only methods
+of Section 27.6. Having multiple sensors increases performance in general, and is particu-
+larly important in conditions of poor visibility; for example, radar can cut through fog that
+blocks cameras and lidars. Microphones can detect approaching vehicles (especially ones
+with sirens) before they become visible.
+There has also been much research on mobile robots navigating in indoor and outdoor
+environments. Applications abound, such as the last mile of package or pizza delivery. Tra-
+ditional approaches break this task up into two stages as shown in Figure 27.29:
+• Map building: Simultaneous Localization and Mapping or SLAM (see page 942) is
+the task of constructing a 3D model of the world, including the location of the robot in
+the world (or more speciﬁcally, the location of each of the robot’s cameras). This model
+(typically represented as a point cloud of obstacles) can be built from a series of images
+from different camera positions.
+
+
+Section 27.7
+Using Computer Vision
+1025
+Figure 27.28 Mobileye’s camera-based sensing for autonomous vehicles. Top row: Two
+images from a front-facing camera, taken a few seconds apart. The green area is the free
+space—the area to which the vehicle could physically move in the immediate future. Objects
+are displayed with 3D bounding boxes deﬁning their sides (red for the rear, blue for the right
+side, yellow for the left side, and green for the front). Objects include vehicles, pedestrians,
+the inner edge of the self-lane marks (necessary for lateral control), other painted road and
+crosswalk marks, trafﬁc signs, and trafﬁc lights. Not shown are animals, poles and cones,
+sidewalks, railings, and general objects (e.g., a couch that fell from the back of a truck). Each
+object is then marked with a 3D position and velocity. Bottom row: A full physical model of
+the environment, rendered from the detected objects. (Images show Mobileye’s vision-only
+system results). Images courtesy of Mobileye.
+• Path planning: Once the robot has access to this 3D map and can localize itself in it,
+the objective becomes one of ﬁnding a collision-free trajectory from the current position
+to the goal location (see Section 26.6).
+Many variants of this general approach have been explored. For instance, in the cognitive
+mapping and planning approach, the two stages of map building and path planning are two
+modules in a neural network that is trained end-to-end to minimize a loss function. Such a
+system does not have to build a complete map—which is often redundant and unnecessary—
+if all you need is enough information to navigate from point A to point B without colliding
+with obstacles.
+
+
+1026
+Chapter 27
+Computer Vision
+Action to 
+Execute
+Goal (3m, 4m)
+Mapper
+Planner
+Action to 
+Execute
+Ego-motion
+Mapper
+Planner
+Belief about the world
+Figure 27.29 Navigation is tackled by decomposition into two problems: mapping and plan-
+ning. With each successive time step, information from sensors is used to incrementally build
+an uncertain model of the world. This model along with the goal speciﬁcation is passed to
+a planner that outputs the next action that the robot should take in order to achieve the goal.
+Models of the world can be purely geometric (as in classical SLAM), or semantic (as ob-
+tained via learning), or even topological (based on landmarks). The actual robot appears on
+the right. Figures courtesy of Saurabh Gupta.
+Summary
+Although perception appears to be an effortless activity for humans, it requires a signiﬁcant
+amount of sophisticated computation. The goal of vision is to extract information needed for
+tasks such as manipulation, navigation, and object recognition.
+• The geometry and optics of image formation is well understood. Given a description of
+a 3D scene, we can easily produce a picture of it from some arbitrary camera position—
+this is the graphics problem. The inverse problem, the computer vision problem—
+taking a picture and turning it into a 3D description—is more difﬁcult.
+• Representations of images capture edges, texture, optical ﬂow, and regions. These yield
+cues to the boundaries of objects and to correspondence between images.
+• Convolutional neural networks produce accurate image classiﬁers that use learned fea-
+tures. Rather roughly, the features are patterns of patterns of patterns.... It is hard to
+predict when these classiﬁers will work well, because the test data may be unlike the
+training data in some important way. Experience teaches that they are often accurate
+enough to use in practice.
+• Image classiﬁers can be turned into object detectors. One classiﬁer scores boxes in an
+image for objectness; another then decides whether an object is in the box, and what
+object it is. Object detection methods aren’t perfect, but are usable for a wide variety of
+applications.
+• With more than one view of a scene, it is possible to recover the 3D structure of the
+scene and the relationship between views. In many cases, it is possible to recover 3D
+geometry from a single view.
+• The methods of computer vision are being very widely applied.
+
+
+Bibliographical and Historical Notes
+1027
+Bibliographical and Historical Notes
+This chapter has concentrated on vision, but other perceptual channels have been studied and
+put to use in robotics. For auditory perception (hearing), we have already covered speech
+recognition, and there has also been considerable work on music perception (Koelsch and
+Siebel, 2005) and machine learning of music (Engel et al., 2017) as well as on machine
+learning for sounds in general (Sharan and Moir, 2016).
+Tactile perception or touch (Luo et al., 2017) is important in robotics and is discussed in
+Chapter 26. Automated olfactory perception (smell) has seen less work, but it has been shown
+that deep learning models can learn to predict smells based on the structure of molecules
+(Sanchez-Lengeling et al., 2019).
+Systematic attempts to understand human vision can be traced back to ancient times.
+Euclid (ca. 300 BCE) wrote about natural perspective—the mapping that associates, with
+each point P in the three-dimensional world, the direction of the ray OP joining the center
+of projection O to the point P. He was well aware of the notion of motion parallax. Ancient
+Roman paintings, such as the ones perserved by the eruption of Vesuvius in 79 CE, used an
+informal kind of perspective, with more than one horizon line.
+The mathematical understanding of perspective projection, this time in the context of
+projection onto planar surfaces, had its next signiﬁcant advance in the 15th century in Re-
+naissance Italy. Brunelleschi is usually credited with creating the ﬁrst paintings based on
+geometrically correct projection of a three-dimensional scene in about 1413. In 1435, Alberti
+codiﬁed the rules and inspired generations of artists. Particularly notable in their develop-
+ment of the science of perspective, as it was called in those days, were Leonardo da Vinci and
+Albrecht D¨urer. Leonardo’s late 15th-century descriptions of the interplay of light and shade
+(chiaroscuro), umbra and penumbra regions of shadows, and aerial perspective are still worth
+reading in translation (Kemp, 1989).
+Although perspective was known to the Greeks, they were curiously confused by the role
+of the eyes in vision. Aristotle thought of the eyes as devices emitting rays, rather in the
+manner of modern laser range ﬁnders. This mistaken view was laid to rest by the work of
+Arab scientists, such as Alhazen, in the 10th century.
+The development of various kinds of cameras followed. These consisted of rooms (cam-
+era is Latin for “chamber”) where light would be let in through a small hole in one wall to
+cast an image of the scene outside on the opposite wall. Of course, in all these cameras, the
+image was inverted, which caused no end of confusion. If the eye was to be thought of as
+such an imaging device, how do we see right side up? This enigma exercised the greatest
+minds of the era (including Leonardo). It took the work of Kepler and Descartes to settle the
+question. Descartes placed an eye from which the opaque cuticle had been removed in a hole
+in a window shutter. The result was an inverted image formed on a piece of paper laid out
+on the retina. Although the retinal image is indeed inverted, this does not cause a problem
+because the brain interprets the image the right way. In modern jargon, one just has to access
+the data structure appropriately.
+The next major advances in the understanding of vision took place in the 19th century.
+The work of Helmholtz and Wundt, described in Chapter 1, established psychophysical ex-
+perimentation as a rigorous scientiﬁc discipline. Through the work of Young, Maxwell, and
+Helmholtz, a trichromatic theory of color vision was established. The fact that humans can
+
+
