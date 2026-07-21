@@ -1,0 +1,84 @@
+Slide 1: CHƯƠNG 05: BÀI TOÁN THỎA MÃN RÀNG BUỘC
+Người 1: Xin chào! Hôm nay chúng ta bước sang Chương 5: Bài toán thỏa mãn ràng buộc, tiếng Anh gọi là Constraint Satisfaction Problems, viết tắt là CSP. Đây là một hướng tiếp cận hoàn toàn khác biệt so với các thuật toán tìm đường mà ta học từ đầu khóa.
+Người 2: Dạ thưa thầy, ở các chương trước mình toàn vẽ cây không gian trạng thái rồi mò mẫm đi tìm đích. Cái "Thỏa mãn ràng buộc" này có gì khác biệt ạ?
+
+Slide 2: NỘI DUNG CHƯƠNG 5
+Người 1: Khác rất nhiều! Thay vì coi trạng thái là một cái hộp đen và ta không biết bên trong có gì, CSP phẫu thuật trực tiếp cấu trúc của trạng thái ra thành các biến độc lập. Nội dung hôm nay gồm Định nghĩa CSP, Kỹ thuật suy diễn lan truyền, Giải thuật Quay lui thông minh, Tìm kiếm cục bộ và thủ thuật tách Đồ thị.
+
+Slide 3: 5.1 ĐỊNH NGHĨA CSP
+Người 1: Đầu tiên là định nghĩa. Cấu trúc của một bài toán CSP là một bộ 3 quyền lực: Tập Biến X, Tập Miền giá trị Đê, và Tập Ràng buộc Xê.
+Người 2: Có nghĩa là bài toán sẽ có n biến từ X 1 đến X n. Mỗi biến X i sẽ được gắp một giá trị trong một cái túi Đê i. Và điều kiện chọn là không được vi phạm luật trong tập Ràng buộc Xê phải không ạ?
+Người 1: Rất chuẩn xác! Nghiệm của bài toán là đi gán được màu sắc, giá trị cho tất cả các biến sao cho mọi ràng buộc đều vui vẻ thỏa mãn.
+
+Slide 4: VÍ DỤ: BÀI TOÁN TÔ MÀU BẢN ĐỒ
+Người 1: Hãy lấy ví dụ tô màu bản đồ nước Úc. Biến X là các bang: Tây Úc, Bắc Úc, Queensland, Victoria, vân vân. Miền giá trị Đê của mỗi bang là 3 màu: Đỏ, Xanh lá, Xanh dương. Và Ràng buộc Xê là: Các bang đứng cạnh nhau cấm được có cùng màu!
+Người 2: Vậy tức là nếu Tây Úc tô màu Đỏ, thì Bắc Úc phải là Xanh lá hoặc Xanh dương, phương trình toán học là: WA khác NT. Trò chơi này giống hệt điền Sudoku đúng không thầy?
+
+Slide 5: ĐỒ THỊ RÀNG BUỘC (CONSTRAINT GRAPH)
+Người 1: Đúng vậy! Và để cho máy tính có thể lập trình được, người ta biểu diễn nó dưới dạng "Đồ thị ràng buộc". Tròn tròn là các nút biến. Cạnh nối giữa hai nút là đại diện cho sợi dây ràng buộc giữa hai biến đó. Cứ hai bang nào giáp ranh, ta kéo một đường dây.
+
+Slide 6: CÁC LOẠI RÀNG BUỘC
+Người 1: Phân tích sâu hơn, ràng buộc có rất nhiều thể loại. "Ràng buộc đơn" là chỉ ép uổng một biến duy nhất, ví dụ bang SA cấm không được dùng màu xanh lá. "Ràng buộc nhị phân" thì dính dáng đến 2 biến, như SA khác WA. Và cao cấp nhất là "Ràng buộc đa nguyên" bắt một đám đông nhiều biến phải làm theo luật. Ngoài ra, còn có loại gán mềm để giải các bài toán tối ưu.
+
+Slide 7: VÍ DỤ: RÀNG BUỘC ĐA NGUYÊN (SUDOKU)
+Người 1: Và đây là chân dung ví dụ điển hình nhất của Ràng buộc đa nguyên: Sudoku! Ràng buộc "Tất cả phải khác nhau" (All-diff) ép cả một hàng 9 ô, hoặc một cột 9 ô, hay một vùng 3 nhân 3 phải mang toàn bộ các con số khác nhau. Hàng triệu người đang giải CSP mỗi ngày mà không hề hay biết!
+
+Slide 8: 5.2 SUY DIỄN CSP: LAN TRUYỀN RÀNG BUỘC
+Người 1: Giờ sang cách giải. Điểm ăn tiền của CSP là nó không gán nhắm mắt nhắm mũi rồi sai thì xóa. Nó dùng "Suy diễn" để nhổ cỏ tận gốc. Kỹ thuật này gọi là "Lan truyền ràng buộc".
+Người 2: Lan truyền nghĩa là sao ạ? 
+Người 1: Nghĩa là nếu em giới hạn lựa chọn của biến A, nó sẽ tự động thu hẹp lựa chọn của biến B, và B lại tiếp tục thu hẹp C. Khái niệm quan trọng nhất ở đây là "Tính nhất quán cung": Cung từ X i tới X j là nhất quán nếu với mọi giá trị của X i, luôn tìm được một lối thoát phù hợp bên X j.
+
+Slide 9: THUẬT TOÁN AC-3
+Người 1: Thuật toán nổi tiếng nhất để cày nát tính nhất quán cung là AC-3. Đầu tiên nó quăng tất cả các cung vào một hàng đợi. Rồi bốc từng cung từ X i tới X j ra kiểm tra. Nếu nó loại bỏ một giá trị bất hợp lý của X i, nó lập tức đẩy tất cả các cung nối ngược vào X i trở lại hàng đợi để rà soát lại! Hiệu ứng domino sẽ xóa sổ mọi giá trị sai lệch.
+
+Slide 10: HÌNH ẢNH THUẬT TOÁN NHẤT QUÁN CUNG AC-3
+Người 1: Mời các em xem mã giả trên slide. Bằng vòng lặp "While", AC-3 rà quét toàn bộ mạng lưới đồ thị. Điều kì diệu là, trong nhiều bài toán CSP dễ, chỉ việc chạy AC-3 thôi là các miền giá trị sẽ teo tóp lại chỉ còn duy nhất 1 đáp án đúng cho mỗi biến, giải xong bài toán mà không tốn một bước tìm kiếm nào!
+
+Slide 11: 5.3 TÌM KIẾM QUAY LUI (BACKTRACKING SEARCH)
+Người 2: Vậy nếu AC-3 vắt kiệt sức mà mỗi biến vẫn còn 2, 3 giá trị thì sao thầy? Nó vẫn chưa ra kết quả cuối cùng!
+Người 1: Lúc đó ta bắt buộc dùng "Tìm kiếm Quay lui" (Backtracking). Nó sẽ thử nhón một giá trị cho biến X. Nếu đi tiếp phát hiện bế tắc vô nghiệm, nó "quay lui" về quá khứ và đổi giá trị khác. Nó khôn hơn thuật toán chiều sâu cổ điển ở chỗ: Nó không duyệt bừa bãi toàn cục, mà chỉ thử những gán ghép đã qua bộ lọc ràng buộc.
+
+Slide 12: THUẬT TOÁN TÌM KIẾM QUAY LUI
+Người 1: Hình ảnh mã giả của Backtracking. Điểm mấu chốt nằm ở hàm Select Unassigned Variable để chọn biến tiếp theo, và vòng lặp duyệt các giá trị trong miền Domain. Nếu một phép gán gây lỗi, lập tức xóa nó khỏi tập gán Assignment và thử cái mới. Đơn giản nhưng cực kỳ uy lực!
+
+Slide 13: CÂY TÌM KIẾM QUAY LUI
+Người 1: Hãy nhìn cây quyết định này. Đỉnh là chưa tô màu. Ta tô đỏ cho WA. Xong tới NT ta tô xanh lá. Đến Q, ta thử tô đỏ (bị vi phạm ràng buộc), nó lập tức đánh dấu gạch chéo loại bỏ! Nó chỉ nảy nở nhánh ở những giá trị hợp lệ. Việc cắt tỉa các nhánh chết ngay từ trong trứng nước giúp giảm hàng tỷ phép duyệt dư thừa.
+
+Slide 14: CẢI THIỆN BACKTRACKING: HEURISTICS
+Người 1: Để Backtracking đạt tốc độ bàn thờ, người ta độ thêm Heuristics. Thứ nhất là MRV (Minimum Remaining Values), hễ biến nào còn ít đường sống nhất thì ưu tiên gán trước để tránh đêm dài lắm mộng. Thứ hai là Degree, biến nào giao du nhiều bạn bè nhất thì xử trước. Và cuối cùng LCV, nên chọn cái giá trị nào mà ít gây thù chuốc oán, ít chặn đường sống của hàng xóm nhất.
+Người 2: Wow, nguyên lý MRV và LCV này dùng để tự chơi Sudoku bằng tay siêu đỉnh thưa thầy! Cứ ô nào còn đúng 2 số thì điền trước!
+
+Slide 15: DUY TRÌ TÍNH NHẤT QUÁN TRONG TÌM KIẾM
+Người 1: Không dừng ở đó, ta trộn suy diễn vào tìm kiếm. Kỹ thuật "Forward Checking": Vừa mới gán biến X xong, lập tức rọi đèn pha quét sạch các giá trị mâu thuẫn của hàng xóm xung quanh. Nếu thấy hàng xóm không còn đường sống (miền giá trị rỗng), lập tức quay xe luôn, đỡ mất công đi tiếp!
+
+Slide 16: 5.4 TÌM KIẾM CỤC BỘ CHO CSP
+Người 1: Các em còn nhớ thuật toán Tìm kiếm cục bộ Leo đồi ở Chương 4 không? CSP là mảnh đất màu mỡ cho nó. Đầu tiên ta nhắm mắt gán ngẫu nhiên bừa bãi toàn bộ các biến, mặc kệ vi phạm. Sau đó, ta từ từ gỡ rối. Và thuật toán thần thánh ở đây mang tên: Min-Conflicts!
+
+Slide 17: THUẬT TOÁN MIN-CONFLICTS
+Người 1: Thuật toán Min-Conflicts hoạt động như sau: Nó bốc bừa một biến đang bị lỗi vi phạm. Sau đó nó quét qua các giá trị thay thế, và chọn đúng cái giá trị nào làm cho TỔNG số lượng xung đột trên toàn cục tụt xuống thấp nhất. Nó như một người thợ gỡ rối tơ vò, từng bước một tháo gỡ điểm kẹt.
+
+Slide 18: MÔ PHỎNG MIN-CONFLICTS VỚI 8-QUEENS
+Người 1: Sức mạnh của Min-Conflicts khủng khiếp đến mức: Bài toán n Quân hậu, dù n lên đến 1 triệu con hậu, nó giải trong tích tắc! Các em nhìn hình: Hậu ở cột thứ 3 đang bị tấn công dữ dội. Bằng cách dời nó xuống ô có chỉ số Min-Conflicts bằng 0, bàn cờ đã được gỡ rối êm đẹp.
+
+Slide 19: 5.5 SỨC MẠNH CỦA CẤU TRÚC BÀI TOÁN
+Người 1: Phần cuối cùng, ta nói về mẹo chia để trị. Các em nhìn lên bản đồ nước Úc. Đảo Tasmania (chữ T) nằm chơ vơ một mình không dính tới ai. Nghĩa là đồ thị có một "thành phần rời rạc".
+Người 2: Dạ nếu rời rạc thì ta cứ việc tách nó ra thành 2 bài toán con giải cho khỏe, đúng không thầy?
+Người 1: Quá thông minh! Việc xẻ bài toán giúp hạ độ phức tạp khủng khiếp từ O lớn của đê mũ n xuống chỉ còn O lớn của c nhân đê mũ n chia c. Một phép màu của toán học tổ hợp.
+
+Slide 20: GIẢI CSP TRÊN CẤU TRÚC CÂY
+Người 1: Còn nếu đồ thị của em may mắn mang cấu trúc dạng Cây (không có vòng tròn khép kín), thì xin chúc mừng! Bài toán đó có thể giải quyết dứt điểm với chi phí thời gian tuyến tính, chỉ là O lớn của n nhân đê bình phương.
+
+Slide 21: THUẬT TOÁN GIẢI CSP TRÊN CÂY
+Người 1: Để giải trên cây, mã giả thể hiện: Đầu tiên xếp hàng các biến từ Gốc đến Lá. Bước 1: chạy ngược từ lá lên gốc để ép mọi cung cha con phải nhất quán. Bước 2: chạy xuôi từ gốc xuống lá nhặt giá trị. Không bao giờ phải quay lui một bước nào! Nó êm ru như một con lạch nhỏ.
+
+Slide 22: KỸ THUẬT CUTSET CONDITIONING
+Người 2: Nhưng thầy ơi, thực tế mấy khi được cấu trúc cây đẹp thế ạ? Ở bản đồ Úc kia tạo thành một vòng tròn to đùng đó thôi.
+Người 1: Thế mới sinh ra tiểu xảo Cutset Conditioning! Ta lấy ngón tay "đè" cứng bang Nam Úc (SA) lại, ép nó một màu cố định rồi nhổ nó khỏi đồ thị. Bùm! Các bang còn lại lập tức bị đứt dây và bung ra thành dạng Cây thẳng đuột! Sau đó ta mượn tuyệt chiêu Giải CSP trên cây ở slide trước để xử lý nhanh gọn lẹ.
+
+Slide 23: PHÂN RÃ CÂY (TREE DECOMPOSITION)
+Người 1: Một cách chia khác là Phân rã cây (Tree Decomposition). Ta gom một đống biến lại thành từng cục (Cluster) sao cho đồ thị các cục ấy tạo thành Cây. Mỗi cục đóng vai trò như một siêu-biến khổng lồ, chứa mọi ràng buộc bên trong nó.
+
+Slide 24: TÓM TẮT CHƯƠNG 5
+Người 1: Kết thúc chương 5! Tổng kết lại, mô hình CSP gồm Biến, Miền và Ràng buộc. Ta dùng hàm AC-3 để cắt tỉa miền giá trị vô dụng. Nếu bí, ta đẩy vào Tìm kiếm Quay lui (Backtracking) kết hợp Forward Checking và Heuristic MRV để tăng tốc. Hoặc dùng Min-Conflicts để gỡ rối cục bộ với tốc độ tên lửa. Cuối cùng, nếu chặt đồ thị thành Cây được thì giải siêu lẹ.
+Người 2: Quả thực, nhờ việc cấu trúc rõ ràng các biến mà CSP thông minh hơn hẳn kiểu duyệt mù mờ thầy ạ. Cảm ơn thầy vì bài giảng rất ấn tượng!
+Người 1: Chào các em, chúc các em áp dụng hiệu quả kỹ năng rà soát ràng buộc này vào cuộc sống thực tiễn! Hẹn gặp ở chương tiếp theo.

@@ -46,7 +46,7 @@ Các dự đoán sử dụng mức trung bình có trọng số khả năng đ�
 Không cần phải chọn một giả thuyết dự đoán tốt nhất!
 
 ---
-## Ví dụ
+### Ví dụ
 
 Giả sử có năm loại túi kẹo:
   
@@ -60,9 +60,9 @@ Giả sử có năm loại túi kẹo:
   
 10\% là \mat{$h_5$}: 100\% kẹo chanh
 
-![Hình ảnh](../TaiLieu/slide_md/figures/candy-kinds.png)
+<img src="../TaiLieu/slide_md/figures/candy-kinds.png" style="width:100%; height:auto;">
 
-Sau đó, chúng tôi quan sát những viên kẹo được rút ra từ một số túi:  ![Hình ảnh](../TaiLieu/slide_md/figures/candy-obs.png)
+Sau đó, chúng tôi quan sát những viên kẹo được rút ra từ một số túi:  <img src="../TaiLieu/slide_md/figures/candy-obs.png" style="width:100%; height:auto;">
 
 Đó là loại túi gì? Kẹo tiếp theo sẽ có hương vị gì?
 
@@ -111,9 +111,9 @@ Tức là, chỉ cần lấy dữ liệu phù hợp nhất; giống hệt với 
 ML là phương pháp học thống kê "chuẩn" (không phải Bayesian)
 
 ---
-## Học tham số ML trong mạng Bayes
+### Học tham số ML trong mạng Bayes
 
-Túi từ nhà sản xuất mới; phần \mat{$\theta$} của kẹo anh đào?in\raisebox{-1.25in}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/ml-network1.png)} 
+Túi từ nhà sản xuất mới; phần \mat{$\theta$} của kẹo anh đào?in\raisebox{-1.25in}[0pt][0pt]{<img src="../TaiLieu/slide_md/figures/ml-network1.png" style="width:100%; height:auto;">} 
 
 Bất kỳ \mat{$\theta$} nào cũng có thể xảy ra: sự liên tục của các giả thuyết \mat{$h_{\theta}$} 
 
@@ -138,9 +138,9 @@ Tối đa hóa w.r.t. \mat{$\theta$}---điều này dễ dàng hơn đối với
 Có vẻ hợp lý nhưng gây ra vấn đề với số 0!
 
 ---
-## Nhiều tham số
+### Nhiều tham số
 
-Giấy gói màu đỏ/xanh phụ thuộc xác suất vào hương vị: \hspace*{0.75in}in\raisebox{-2.5in}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/ml-network2.png)} 
+Giấy gói màu đỏ/xanh phụ thuộc xác suất vào hương vị: \hspace*{0.75in}in\raisebox{-2.5in}[0pt][0pt]{<img src="../TaiLieu/slide_md/figures/ml-network2.png" style="width:100%; height:auto;">} 
 
 Ví dụ: khả năng xảy ra với kẹo anh đào trong giấy gói màu xanh lá cây:
 \mat{\begin{eqnarray*}

@@ -130,7 +130,7 @@ Phụ thuộc vào <u> sự ưu tiên (preferences)</u> của tôi đối với 
 <u>Lý thuyết quyết định (Lý thuyết quyết định)</u> = lý thuyết hữu ích + lý thuyết xác thực
 
 ---
-##  Các vật phẩm đầu tiên của màn trình diễn
+###  Các vật phẩm đầu tiên của màn trình diễn
 
 Với bất kỳ mệnh đề $A$, $B$ nào
 
@@ -140,7 +140,7 @@ Với bất kỳ mệnh đề $A$, $B$ nào
 
 3. $P(A \lor B) = P(A) + P(B) - P(A\land B)$
 
-![Hình ảnh](../TaiLieu/slide_md/figures/axiom3-venn.png)
+<img src="../TaiLieu/slide_md/figures/axiom3-venn.png" style="width:100%; height:auto;">
 
 de Finetti (1931): một tác tử đặt theo phạm vi xác thực
 những vấn đề đầu tiên này có thể bị buộc phải đặt số tiền bị mất bất kể kết quả như thế nào.

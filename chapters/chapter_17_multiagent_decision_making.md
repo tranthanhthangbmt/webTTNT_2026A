@@ -26,6 +26,11 @@
   <iframe src="TaiLieu/slide_4th/Chapter17_4th.pdf" width="100%" height="100%"></iframe>
 </div>
 
+#### **Video**
+
+<div class="pdf-container" style="margin-bottom: 20px;">
+  <iframe src="video/Chapter17/index.html" width="100%" height="100%"></iframe>
+</div>
 
 #### **Trắc nghiệm**
 *(Chưa có bài tập trắc nghiệm)*
@@ -153,7 +158,7 @@ page <a class="pageRef" title="" href="#">vi-contraction-equation</a> states th
 
 ---
 
-##### Bài tập 17.9
+###### Bài tập 17.9
 
 This exercise considers two-player MDPs that correspond to zero-sum,
 turn-taking games like those in

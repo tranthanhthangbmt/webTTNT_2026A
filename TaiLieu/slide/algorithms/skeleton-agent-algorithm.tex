@@ -1,9 +1,0 @@
-\code{
-\func{Skeleton-Agent}{{\ts}\var{percept}}{hành\_động}
-    \firststatic{memory}{bộ nhớ của tác nhân về thế giới}
-\bodysep
-    \setq{\var{memory}}{\prog{Update-Memory}(\var{memory{\ac}percept})}
-    \setq{\var{hành\_động}}{\prog{Choose-Best-Action}(\var{memory})}
-    \setq{\var{memory}}{\prog{Update-Memory}(\var{memory{\ac}hành\_động})}
-    \key{return} \var{hành\_động}
-}

@@ -26,6 +26,11 @@
   <iframe src="TaiLieu/slide_4th/Chapter14_4th.pdf" width="100%" height="100%"></iframe>
 </div>
 
+#### **Video**
+
+<div class="pdf-container" style="margin-bottom: 20px;">
+  <iframe src="video/Chapter14/index.html" width="100%" height="100%"></iframe>
+</div>
 
 #### **Trắc nghiệm**
 *(Chưa có bài tập trắc nghiệm)*
@@ -163,7 +168,7 @@ Figure <a class="insideBookFigRef" target="_blank" href="https://aimacode.githu
 
 ---
 
-##### Bài tập 14.6
+###### Bài tập 14.6
 
 Suppose that in a Bayesian network containing an unobserved variable
 $Y$, all the variables in the Markov blanket ${MB}(Y)$ have been
@@ -224,7 +229,7 @@ $m$ of a random mutation flipping the handedness.<br>
 
 ---
 
-##### Bài tập 14.8
+###### Bài tập 14.8
 
 The <b>Markov
 blanket</b> of a variable is defined on page <a href="#">markov-blanket-page</a>.
@@ -382,7 +387,7 @@ Figure <a class="insideExercisesFigRef"  href="#telescope-nets-figure">telescop
 
 ---
 
-##### Bài tập 14.15
+###### Bài tập 14.15
 
 Consider the network shown in
 Figure <a class="insideExercisesFigRef" href="#telescope-nets-figure">telescope-nets-figure</a>(ii), and assume that the
@@ -402,7 +407,7 @@ ${\textbf{P}}(N{{\,|\,}}M_1{{\,=\,}}2,M_2{{\,=\,}}2)$.<br>
 
 ---
 
-##### Bài tập 14.16
+###### Bài tập 14.16
 
 Consider the Bayes net shown in Figure <a class="insideExercisesFigRef" href="#politics-figure">politics-figure</a><br>.
 

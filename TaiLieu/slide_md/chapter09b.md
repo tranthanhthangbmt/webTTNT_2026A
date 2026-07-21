@@ -61,7 +61,7 @@ Có tồn tại một thuật toán đầy đủ không?
 | 1965 | Robinson | thuật toán "thực tiễn" cho FOL---giải phân tích |
 
 ---
-## Phân tích (Độ phân giải)
+### Phân tích (Độ phân giải)
 
 Kéo theo logic bậc một chỉ là <u>nửa quyết định (semicidable)</u>:
   
@@ -87,7 +87,7 @@ Phân giải sử dụng $KB$, $\lnot
 Quy tắc suy diễn phân giải hợp hai mệnh đề để tạo ra một mệnh đề mới:
 
 in
-![Hình ảnh](../TaiLieu/slide_md/figures/resolve-clauses.png)
+<img src="../TaiLieu/slide_md/figures/resolve-clauses.png" style="width:100%; height:auto;">
 
 Sự suy diễn tiếp continue cho đến khi một <u>mệnh đề trống (mệnh đề trống)</u> được suy ra (mâu mạnh)
 
@@ -212,9 +212,9 @@ Ví dụ: để chứng minh $Rich(me)$, thêm $\lnot Rich(me)$ vào CNF KB
 \end{formula}
 
 ---
-## Chứng minh phân giải 
+### Chứng minh phân giải 
 
-![Hình ảnh](../TaiLieu/slide_md/figures/rich-proof.png)
+<img src="../TaiLieu/slide_md/figures/rich-proof.png" style="width:100%; height:auto;">
 
 ---
 ## Logic trình nhập

@@ -22,7 +22,7 @@
 - Giá trị của thông tin
 
 ---
-## Tùy chọn
+### Tùy chọn
 
 Đại lý chọn trong số \defn{giải thưởng} (\mat{$A$}, \mat{$B$}, v.v.) và 
 \defn{xổ số}, tức là các tình huống có giải thưởng không chắc chắn
@@ -31,7 +31,7 @@ Xổ số \mat{$L = [p,A;\ (1-p),B]$}
 
  
 
-![Hình ảnh](../TaiLieu/slide_md/figures/lottery.png)
+<img src="../TaiLieu/slide_md/figures/lottery.png" style="width:100%; height:auto;">
 
 Ký hiệu:
   
@@ -73,7 +73,7 @@ Các ràng buộc:
 \mat{$A \pref B \implies (p \geq q \lequiv [p,A;\ 1-p,B] \prefeq [q,A;\ 1-q,B])$}
 
 ---
-## Tiếp theo là sở thích hợp lý.
+### Tiếp theo là sở thích hợp lý.
 
 Vi phạm các ràng buộc dẫn đến sự phi lý hiển nhiên
 
@@ -91,7 +91,7 @@ sẽ trả (giả sử) 1 xu để có được \mat{$C$}
 
  
 
-\  &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;  ![Hình ảnh](../TaiLieu/slide_md/figures/cash-machine.png)
+\  &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;  <img src="../TaiLieu/slide_md/figures/cash-machine.png" style="width:100%; height:auto;">
 
 ---
 ## Tối đa hóa tiện ích mong đợi
@@ -117,7 +117,7 @@ mà không bao giờ đại diện hay thao túng các tiện ích và xác su�
 Ví dụ: bảng tra cứu tictactoe hoàn hảo
 
 ---
-## Tiện ích
+### Tiện ích
 
 Tiện ích ánh xạ trạng thái thành số thực. Những con số nào?
 
@@ -131,7 +131,7 @@ Cách tiếp cận tiêu chuẩn để đánh giá tiện ích con người:
   
   điều chỉnh xác suất xổ số \mat{$p$} cho đến \mat{$A \indiff L_p$}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/micromort.png)
+<img src="../TaiLieu/slide_md/figures/micromort.png" style="width:100%; height:auto;">
 
 ---
 ## Cân tiện ích
@@ -155,7 +155,7 @@ Chỉ với các giải thưởng xác định (không có lựa chọn xổ s�
 \defn{Tiện ích thứ tự} có thể được xác định, tức là tổng thứ tự các giải thưởng
 
 ---
-## Tiền
+### Tiền
 
 Tiền không *không* hoạt động như một chức năng tiện ích
 
@@ -168,23 +168,23 @@ giải thưởng \mat{$x$} và xổ số \mat{$[p,{\DollarSign}M;\ (1-p),{\Dolla
 
 Dữ liệu thực nghiệm điển hình, được ngoại suy với hành vi \defn{dễ xảy ra rủi ro}:
 
-![Hình ảnh](../TaiLieu/slide_md/figures/beard-utility.png)
+<img src="../TaiLieu/slide_md/figures/beard-utility.png" style="width:100%; height:auto;">
 
 ---
-## Tiện ích nhóm sinh viên
+### Tiện ích nhóm sinh viên
 
 Với mỗi \mat{$x$}, điều chỉnh \mat{$p$} cho đến khi một nửa lớp bỏ phiếu xổ số (M=10.000)
 
-![Hình ảnh](../TaiLieu/slide_md/figures/student-utility.png)
+<img src="../TaiLieu/slide_md/figures/student-utility.png" style="width:100%; height:auto;">
 
 ---
-## Mạng quyết định
+### Mạng quyết định
 
 Thêm \defn{nút hành động} và \defn{nút tiện ích} vào mạng niềm tin
 
 để cho phép đưa ra quyết định hợp lý
 
-![Hình ảnh](../TaiLieu/slide_md/figures/airport-id.png)
+<img src="../TaiLieu/slide_md/figures/airport-id.png" style="width:100%; height:auto;">
 
 Thuật toán:
   
@@ -213,7 +213,7 @@ nhận dạng đầy đủ của \mat{$U(x_1,\ldots,x_n)$}
 và rút ra các dạng kinh điển cho \mat{$U(x_1,\ldots,x_n)$}
 
 ---
-## Sự thống trị nghiêm ngặt
+### Sự thống trị nghiêm ngặt
 
 Thông thường xác định các thuộc tính sao cho \mat{$U$} là \defn{đơn điệu} trong mỗi thuộc tính
 
@@ -221,7 +221,7 @@ Thông thường xác định các thuộc tính sao cho \mat{$U$} là \defn{đ�
     
 \mat{$\All{i} X_i(B) \geq X_i(A)$}  &nbsp;&nbsp;  (và do đó \mat{$U(B) \geq U(A)$})
 
-![Hình ảnh](../TaiLieu/slide_md/figures/strict-dominance.png)
+<img src="../TaiLieu/slide_md/figures/strict-dominance.png" style="width:100%; height:auto;">
 
 Sự thống trị chặt chẽ hiếm khi được áp dụng trong thực tế
 
@@ -267,34 +267,34 @@ Có thể chú thích mạng lưới niềm tin với thông tin thống trị n
       P(Y|x_1,\mbf{z})$} chiếm ưu thế ngẫu nhiên \mat{$ P(Y|x_2,\mbf{z})$}
 
 ---
-## Gán nhãn các cung + hoặc --
+### Gán nhãn các cung + hoặc --
 
-![Hình ảnh](../TaiLieu/slide_md/figures/insurance-qpn01.png)
-
----
-## Gán nhãn các cung + hoặc --
-
-![Hình ảnh](../TaiLieu/slide_md/figures/insurance-qpn02.png)
+<img src="../TaiLieu/slide_md/figures/insurance-qpn01.png" style="width:100%; height:auto;">
 
 ---
-## Gán nhãn các cung + hoặc --
+### Gán nhãn các cung + hoặc --
 
-![Hình ảnh](../TaiLieu/slide_md/figures/insurance-qpn03.png)
-
----
-## Gán nhãn các cung + hoặc --
-
-![Hình ảnh](../TaiLieu/slide_md/figures/insurance-qpn04.png)
+<img src="../TaiLieu/slide_md/figures/insurance-qpn02.png" style="width:100%; height:auto;">
 
 ---
-## Gán nhãn các cung + hoặc --
+### Gán nhãn các cung + hoặc --
 
-![Hình ảnh](../TaiLieu/slide_md/figures/insurance-qpn05.png)
+<img src="../TaiLieu/slide_md/figures/insurance-qpn03.png" style="width:100%; height:auto;">
 
 ---
-## Gán nhãn các cung + hoặc --
+### Gán nhãn các cung + hoặc --
 
-![Hình ảnh](../TaiLieu/slide_md/figures/insurance-qpn06.png)
+<img src="../TaiLieu/slide_md/figures/insurance-qpn04.png" style="width:100%; height:auto;">
+
+---
+### Gán nhãn các cung + hoặc --
+
+<img src="../TaiLieu/slide_md/figures/insurance-qpn05.png" style="width:100%; height:auto;">
+
+---
+### Gán nhãn các cung + hoặc --
+
+<img src="../TaiLieu/slide_md/figures/insurance-qpn06.png" style="width:100%; height:auto;">
 
 ---
 ## Cấu trúc ưu tiên: Xác định
@@ -426,7 +426,7 @@ tối đa hóa VPI cho mỗi người chọn một không phải lúc nào cũng
 \mat{$\implies$} thu thập bằng chứng trở thành vấn đề quyết định *tuần tự*
 
 ---
-## Hành vi định tính
+### Hành vi định tính
 
 a) Sự lựa chọn là hiển nhiên, thông tin có giá trị rất ít
 
@@ -436,4 +436,4 @@ c) Sự lựa chọn không rõ ràng, thông tin ít có giá trị
 
  
 
-![Hình ảnh](../TaiLieu/slide_md/figures/3cases.png)
+<img src="../TaiLieu/slide_md/figures/3cases.png" style="width:100%; height:auto;">

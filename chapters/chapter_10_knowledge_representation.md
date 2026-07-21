@@ -17,6 +17,13 @@
 *(Chưa có slide)*
 
 
+
+#### **Video**
+
+<div class="pdf-container" style="margin-bottom: 20px;">
+  <iframe src="video/Chapter10/index.html" width="100%" height="100%"></iframe>
+</div>
+
 #### **Trắc nghiệm**
 *(Chưa có bài tập trắc nghiệm)*
 
@@ -112,7 +119,7 @@ height.<br>
 
 ---
 
-##### Bài tập 10.5
+###### Bài tập 10.5
 
 The original {Strips} planner was designed to control Shakey the robot.
 Figure <a class="insideExercisesFigRef" href="#shakey-figure">shakey-figure</a> shows a version of Shakey’s world

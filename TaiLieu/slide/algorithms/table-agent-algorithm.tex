@@ -1,9 +1,0 @@
-\code{
-\func{Table-Driven-Agent}{{\ts}\var{percept}}{\var{action}}
-    \firststatic{percepts}{a sequence, initially empty}
-    \static{table}{a table, indexed by percept sequences, initially fully specified}
-\bodysep
-    append \var{percept} to the end of \var{percepts}
-    \setq{\var{action}}{\prog{Lookup}({\ts}\var{percepts{\ac}table})}
-    \key{return} \var{action}
-}

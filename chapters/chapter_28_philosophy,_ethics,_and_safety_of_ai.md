@@ -17,6 +17,13 @@
 *(Chưa có slide)*
 
 
+
+#### **Video**
+
+<div class="pdf-container" style="margin-bottom: 20px;">
+  <iframe src="video/Chapter28/index.html" width="100%" height="100%"></iframe>
+</div>
+
 #### **Trắc nghiệm**
 *(Chưa có bài tập trắc nghiệm)*
 

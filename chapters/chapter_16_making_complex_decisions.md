@@ -18,6 +18,11 @@
   <iframe src="TaiLieu/slide_4th/Chapter16_4th.pdf" width="100%" height="100%"></iframe>
 </div>
 
+#### **Video**
+
+<div class="pdf-container" style="margin-bottom: 20px;">
+  <iframe src="video/Chapter16/index.html" width="100%" height="100%"></iframe>
+</div>
 
 #### **Trắc nghiệm**
 *(Chưa có bài tập trắc nghiệm)*
@@ -164,7 +169,7 @@ individuals.
 
 ---
 
-##### Bài tập 16.6
+###### Bài tập 16.6
 
 The Surprise Candy Company makes candy in
 two flavors: 75% are strawberry flavor and 25% are anchovy flavor. Each

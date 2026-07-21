@@ -1,0 +1,120 @@
+Slide 1: CHƯƠNG 07: TÁC NHÂN LOGIC
+Người 1: Chào các em. Chào mừng đến với Chương 7. Từ đầu kỳ đến giờ, chúng ta toàn bắt AI tìm đường bằng cách vét cạn cây đồ thị. Nhưng con người đâu có tư duy kiểu duyệt đồ thị! Khi vào phòng thi, chúng ta dùng tư duy phân tích, suy luận logic. Hôm nay, chúng ta sẽ bắt AI phải biết "suy nghĩ" như con người. Đó là lĩnh vực Tác nhân Logic!
+Người 2: Có phải nghĩa là thay vì đi bừa rồi thử sai, AI sẽ phân tích các dữ kiện xung quanh rồi rút ra kết luận chắc chắn phải không thưa thầy?
+
+Slide 2: NỘI DUNG CHƯƠNG 7
+Người 1: Đúng vậy! Chương 7 sẽ hướng dẫn các em xây dựng AI tư duy. Ta sẽ bắt đầu bằng khái niệm Tác nhân dựa trên Tri thức. Sau đó, ta thả nó vào một bài test sinh tồn kinh điển mang tên "Thế giới Wumpus". Để sống sót, AI phải hiểu Logic học cơ bản, thông thạo Logic Mệnh đề, và cuối cùng là tự động Chứng minh các định lý toán học để chốt hạ quyết định.
+
+Slide 3: 7.1 TÁC NHÂN DỰA TRÊN TRI THỨC
+Người 1: Ở AI, tác nhân tư duy được gọi là Knowledge-Based Agents, tức là Tác nhân dựa trên Tri thức. Trong não của nó không chứa đồ thị, mà chứa một "Cơ sở tri thức" (Knowledge Base - gọi tắt là Ca Bê). Ca Bê là một cuốn từ điển khổng lồ ghi lại những sự thật về thế giới. 
+Người 2: Vậy làm sao nó nghĩ ra được ý tưởng mới ạ?
+Người 1: Nó dùng "Cơ chế suy diễn" (Inference Engine). Nó đem các sự thật trong Ca Bê nhào nặn theo định lý toán học để rút ra sự thật mới mà trước đó không ai dạy cho nó!
+
+Slide 4: 7.1 TÁC NHÂN DỰA TRÊN TRI THỨC (TIẾP THEO)
+Người 1: Tác nhân giao tiếp với não bộ của chính nó qua 2 lệnh kinh điển: TELL và ASK. Lệnh TELL dùng để bơm thông tin vào đầu. Ví dụ khi mắt nó nhìn thấy trời mưa, nó TELL với não: "Đang có mưa". Khi chuẩn bị ra khỏi nhà, nó ASK não: "Tôi có nên mang ô không?". Và cơ chế suy diễn trong não sẽ trả lời kết quả cho nó.
+
+Slide 5: KIẾN TRÚC TÁC NHÂN TRI THỨC
+Người 1: Sơ đồ này cho thấy vòng lặp hoàn chỉnh. Mắt nhận Percept từ môi trường. Bơm (TELL) nó vào Cơ sở tri thức. Dùng Cơ chế suy luận logic để hỏi (ASK) xem Action tiếp theo nên làm gì. Rồi TELL lại cho não bộ biết là mình đã làm hành động đó, và cuối cùng xuất lệnh ra Hành động vật lý. Cực kỳ giống tư duy con người!
+
+Slide 6: 7.2 THẾ GIỚI WUMPUS (WUMPUS WORLD)
+Người 1: Để thử độ thông minh của AI, khoa học ném nó vào Mê cung Wumpus 4x4. Nó phải đi tìm vàng. Nhưng ở đây có một con quái vật Wumpus ăn thịt người, và rải rác các Hố sâu không đáy (Pit). 
+Người 2: Game này nếu bước nhầm là chết luôn thì làm sao đi thưa thầy?
+Người 1: Vũ khí duy nhất của nó là 5 giác quan! Gần Wumpus thì có Mùi hôi (Stench). Gần Hố sâu thì có Gió nhẹ (Breeze). Nếu có vàng sẽ Thấy lấp lánh (Glitter). AI được trang bị đúng 1 mũi tên để bắn chết Wumpus. 
+
+Slide 7: MÔ PHỎNG THẾ GIỚI WUMPUS
+Người 1: Hình ảnh đồ họa của thế giới Wumpus. Các em thấy con Wumpus nằm ở ô 1 phẩy 3. Nó tỏa mùi hôi ra các ô xung quanh chữ thập. Hố sâu ở ô 3 phẩy 1 thì tỏa gió mát ra xung quanh. Mục tiêu là mò mẫm lấy vàng ở ô 2 phẩy 3 rồi thoát ra cửa an toàn.
+
+Slide 8: KHÁM PHÁ THẾ GIỚI WUMPUS
+Người 1: Tại sao không dùng thuật toán A sao ở đây? Vì nó không biết bản đồ! Nó đi tới đâu thì bản đồ mới mở ra tới đó.
+Hãy xem nó tư duy logic: Khởi đầu ở ô 1 phẩy 1, nó không ngửi thấy mùi, không có gió. Nó lập tức "Suy luận logic" được rằng: Các ô bên cạnh 1 phẩy 2 và 2 phẩy 1 tuyệt đối an toàn. Khi bước sang 2 phẩy 1, nó thấy Gió mát. Nó suy ra ngay lập tức: Chắc chắn có ít nhất 1 Hố sâu ở ô phía trên hoặc bên phải!
+Người 2: À, em hiểu, tức là nó dùng logic để loại trừ và "chứng minh" sự an toàn của một ô trước khi mạo hiểm thò chân vào!
+
+Slide 9: BƯỚC ĐẦU TIÊN TRONG THẾ GIỚI WUMPUS
+Người 1: Đây là hình ảnh bước chân đầu tiên. Ở ô 1 phẩy 1, màn hình ghi chữ OK an toàn. Tác nhân đã dán nhãn các ô cạnh bên là OK và rón rén bước sang ô phải, tức là ô 2 phẩy 1. Tại đây nó phát hiện B (Gió mát). Lập tức, nó cắm cờ cảnh báo P chấm hỏi ở ô 2 phẩy 2 và 3 phẩy 1, nghi ngờ có hố! Nó quá sợ hãi nên phải đi vòng lại lên ô 1 phẩy 2.
+
+Slide 10: QUÁ TRÌNH KẾT HỢP CẢM NHẬN
+Người 1: Lên ô 1 phẩy 2, nó phát hiện Mùi hôi S. Vậy Wumpus ở đâu? Theo logic cũ, Wumpus có thể ở 1 phẩy 3 hoặc 2 phẩy 2. 
+NHƯNG, hồi nãy ở ô 2 phẩy 1 không hề có mùi hôi, nên 2 phẩy 2 chắc chắn không có Wumpus. Dùng phương pháp loại trừ, nó chốt hạ: Quái vật đang chui rúc ở ô 1 phẩy 3! 
+Đồng thời, ô 1 phẩy 2 không có gió, nên 2 phẩy 2 chắc chắn không có hố! Vậy ô 2 phẩy 2 là ô an toàn tuyệt đối 100%!
+
+Slide 11: 7.3 LOGIC HỌC CƠ BẢN
+Người 1: Sự sắc sảo của Tác nhân nãy giờ bắt nguồn từ Toán học Logic. Có 2 khái niệm cốt lõi: Entailment (Kéo theo logic) và Inference (Suy diễn). Kéo theo logic viết là: an-pha kéo theo bê-ta. Nghĩa là bất cứ khi nào mệnh đề an-pha đúng thì bê-ta bắt buộc phải đúng.
+Còn Suy diễn viết là: Ca Bê suy ra an-pha bằng thuật toán y. Tức là cái máy tính chạy thuật toán y có khả năng tự tính ra được kết quả an-pha từ Ca Bê.
+
+Slide 12: MÔ HÌNH THẾ GIỚI (MODELS)
+Người 1: Biểu đồ Venn này mô tả Entailment. Vòng tròn ngoài cùng là tất cả các thế giới (Model) làm cho kết luận an-pha trở thành đúng. Vòng tròn nhỏ bên trong là các thế giới thỏa mãn Ca Bê. Vì vòng tròn Ca Bê nằm lọt thỏm trong vòng tròn an-pha, nên toán học chứng minh chắc chắn Ca Bê kéo theo an-pha!
+
+Slide 13: QUÁ TRÌNH SUY LUẬN CƠ BẢN
+Người 1: Sơ đồ này cho thấy sự giao thoa. Thế giới thực nằm bên dưới, nơi ta hành động vật lý sinh ra kết quả. Nhưng AI không thử vật lý (vì hụt chân là chết). Nó nâng bản sao thế giới lên Não bộ (Biểu diễn logic), dùng Suy diễn Logic để chạy thử nghiệm, ra kết luận an-pha, rồi mới đối chiếu lại thế giới thực.
+
+Slide 14: 7.4 LOGIC MỆNH ĐỀ (PROPOSITIONAL LOGIC)
+Người 1: Ngôn ngữ đầu tiên là Logic Mệnh đề. Đơn giản cực kỳ, mọi thứ chỉ có thể Đúng hoặc Sai. Các phép toán dùng ký hiệu: Pê và Quy, Pê hoặc Quy, Phủ định của Pê, Pê suy ra Quy, và Pê tương đương Quy. Nhờ ngôn ngữ này, ta biên dịch toàn bộ thế giới Wumpus thành phương trình. Ví dụ: "Không có hố ở ô 1 phẩy 1" viết là: phủ định của Pê 1 1.
+
+Slide 15: NGỮ PHÁP LOGIC MỆNH ĐỀ
+Người 1: Bảng BNF này mô tả chính xác ngữ pháp (Syntax). Máy tính dịch các dấu ngoặc và phép toán theo thứ tự ưu tiên y hệt như phép cộng trừ nhân chia. Phủ định tính trước, rồi đến VÀ, HOẶC, Suy ra, và cuối cùng là Tương đương.
+
+Slide 16: CÁC TƯƠNG ĐƯƠNG LOGIC CHUẨN
+Người 1: Đây là "bảng cửu chương" của dân học Logic. Các định lý đại số Boolean kinh điển. Như định lý De Morgan: Phủ định của (an-pha và bê-ta) tương đương Phủ định an-pha hoặc Phủ định bê-ta. Nó là công cụ để máy tính biến đổi các phương trình.
+
+Slide 17: BẢNG CHÂN TRỊ (TRUTH TABLE)
+Người 2: Dạ em nhớ hồi cấp 3 có học lập "Bảng chân trị" để kiểm tra tính đúng sai của một phương trình dài thưa thầy!
+Người 1: Chính xác. Bảng chân trị vét cạn mọi trường hợp. Mệnh đề Suy ra (mũi tên) rất đặc biệt: Pê suy ra Quy chỉ bị Sai duy nhất khi Pê là Đúng nhưng Quy lại Sai. Còn lại nó luôn Đúng! Cột cuối cùng chứng minh Pê hoặc Quy là một mệnh đề luôn Đúng khi kết hợp với phép tương đương.
+
+Slide 18: BẢNG CHÂN TRỊ CHO CƠ SỞ TRI THỨC
+Người 1: Để chứng minh Tác nhân nghĩ đúng, ta vẽ bảng chân trị cho toàn bộ các ô trong Wumpus. Ở đây ta có 7 biến Pê. Vậy bảng có 2 mũ 7 bằng 128 dòng! Những dòng nào làm cho toàn bộ Ca Bê màu xanh trở thành Đúng (T) thì dòng đó là thế giới hợp lệ. Các em nhìn các dòng hợp lệ, kết luận an-pha 1 luôn chứa giá trị F. Máy tính chứng minh được an-pha 1 là Sai.
+
+Slide 19: THUẬT TOÁN KIỂM TRA BẢNG CHÂN TRỊ
+Người 1: Mã giả TT-Entails trên màn hình chính là thuật toán đệ quy vét cạn Bảng chân trị bằng máy tính. Nó phân nhánh thử T và F cho từng biến một. Rất chắc chắn, không bao giờ sai. Nhưng tốc độ thì quá rùa bò.
+
+Slide 20: 7.5 CHỨNG MINH ĐỊNH LÝ MỆNH ĐỀ
+Người 1: Vì bảng chân trị có độ phức tạp hàm mũ O lớn của 2 mũ n. Nếu có 100 ô vuông, số dòng trong bảng sẽ lớn hơn cả số nguyên tử trong vũ trụ!
+Người 2: Vậy làm sao AI suy luận nhanh được ạ? Chắc chắn phải có thuật toán dùng công thức đại số logic để triệt tiêu phương trình giống như con người giải toán phải không thầy?
+Người 1: Cực kỳ nhạy bén! Phương pháp đó gọi là Chứng minh Định lý (Theorem Proving). Ta không vét cạn nữa, ta áp dụng công thức để rút gọn!
+
+Slide 21: THUẬT TOÁN PHÂN GIẢI (RESOLUTION)
+Người 1: Thuật toán kinh điển nhất tên là Phân giải. Nó yêu cầu mọi câu logic phải chuẩn hóa về dạng Xê Nờ Ép (Tức là các ngoặc HOẶC nối với nhau bằng chữ VÀ). Ví dụ: A hoặc B, và với phủ định của B hoặc C. 
+Khi đứng cạnh nhau, chữ B dương và Phủ định B sẽ tự động triệt tiêu nhau tan biến vào hư vô, sinh ra câu kết luận ngắn gọn: A hoặc C. 
+Người 2: Quá đỉnh! Vậy ta dùng "Chứng minh phản chứng" bằng cách nhét phủ định của kết luận vào phương trình, nếu nó triệt tiêu nhau đến tận cùng sinh ra Rỗng (Vô lý), thì kết luận ban đầu chắc chắn là Đúng!
+
+Slide 22: DẠNG CHUẨN TẮC CNF
+Người 1: Dạng chuẩn tắc Xê Nờ Ép yêu cầu kỹ năng biến đổi cực kỳ thuần thục. Loại bỏ dấu tương đương, dấu suy ra, đẩy dấu phủ định vào trong bằng De Morgan, và phân phối dấu ngoặc. Hình trên minh họa các luật ngữ pháp để đảm bảo mọi biểu thức luôn đưa được về dạng Xê Nờ Ép hợp lệ.
+
+Slide 23: VÍ DỤ THUẬT TOÁN PHÂN GIẢI CNF
+Người 1: Đây là quá trình Phân giải chém giết nhau. Phương trình xuất phát từ trên cùng. Pê 1 1 chém với Phủ định Pê 1 1, rụng đi. Tiếp tục rớt xuống cấn tiếp với các biến khác, triệt tiêu dần dần cho đến khi gặp 2 mệnh đề trái dấu cuối cùng đập nhau vỡ nát, sinh ra ô vuông Rỗng. Phản chứng thành công!
+
+Slide 24: ỨNG DỤNG THUẬT TOÁN PHÂN GIẢI
+Người 1: Đây là sơ đồ chạy thuật toán Phân giải PL-Resolution trong thực tế C++ hay Python. Nó liên tục kết cặp các mệnh đề trong kho Ca Bê lại với nhau để sinh ra khoệnh đề mới (Resolvents). Nếu phát hiện mệnh đề Rỗng, thuật toán reo lên True! Còn nếu chạy mãi không sinh được Rỗng mà hết cặp kết hợp thì báo False. 
+
+Slide 25: MỆNH ĐỀ HORN VÀ SUY DIỄN
+Người 1: Để tăng tốc độ suy luận kinh hoàng hơn nữa, người ta phát minh ra Mệnh đề Horn. Mệnh đề Horn bị giới hạn chỉ chứa tối đa 1 biến dương tính (Positive Literal). Nhờ giới hạn này, việc suy luận trở thành thao tác chạy trên cây Đồ thị AND-OR cực kỳ tuyến tính và siêu nhanh. Thuật toán Prolog nổi tiếng được xây dựng hoàn toàn từ mệnh đề Horn.
+
+Slide 26: 7.6 - 7.7 TÁC NHÂN LOGIC MỆNH ĐỀ
+Người 1: Sau khi ráp bộ não suy luận vào, Tác nhân Wumpus thực sự sống dậy. Khi nó ngửi thấy Gió ở 2 phẩy 1. Khai báo quy tắc vào não: Bê 2 1 tương đương với Pê 1 1, hoặc Pê 2 2, hoặc Pê 3 1, hoặc Pê 1 2. Tự động máy tính sẽ chạy thuật toán Phân giải để rút ra kết luận đi nước tiếp theo.
+Người 2: Tuyệt vời quá thầy! Nhưng em thấy khai báo kiểu này tốn sức quá. Bản đồ Wumpus 4x4 thì viết được, chứ lỡ bản đồ Liên Minh Huyền Thoại khổng lồ thì mình phải viết thủ công từng phương trình cho hàng triệu ô vuông ạ?
+Người 1: Chính xác. Đó là Điểm yếu chí mạng của Logic mệnh đề. Nó không có khái niệm "MỌI" hoặc "TỒN TẠI". Nó rất cục mịch. Ta sẽ học cách khắc phục ở chương sau.
+
+Slide 27: ĐỒ THỊ MẠCH ĐIỆN LOGIC (LOGIC CIRCUITS)
+Người 1: Hình ảnh này mô tả Mệnh đề Horn trong thực tế không khác gì Mạch điện tử số (Digital Logic Circuits) của CPU máy tính. Dòng điện mang giá trị True đi qua các cổng AND, cổng OR để tự động bật sáng đèn LED kết luận ở đỉnh. Sự hội tụ giữa Trí tuệ nhân tạo và Điện tử bán dẫn.
+
+Slide 28: BỘ GIẢI SAT VÀ THUẬT TOÁN DPLL
+Người 1: Giải các phương trình Logic phức tạp chính là Bài toán SAT huyền thoại (Bài toán thỏa mãn Boolean). Mặc dù là bài toán NP-Khó (siêu khó giải), nhưng nhờ kĩ thuật Quay lui DPLL, nó cắt tỉa các nhánh sai cực nhanh. Bộ giải SAT (SAT Solver) hiện đại giải được các phương trình chứa hàng triệu biến!
+
+Slide 29: TÌM KIẾM CỤC BỘ: WALKSAT
+Người 1: Nếu lười giải chính xác, ta dùng Tìm kiếm Cục bộ tên là WALKSAT. Tung đồng xu, ngẫu nhiên lật giá trị True False của một biến để cố gắng xoa dịu các mệnh đề đang bị sai. Nhờ thuật toán "chạy lung tung" (Random walk) này, nhiều khi lại tìm ra nghiệm SAT vô cùng nhanh chóng.
+
+Slide 30: CHUYỂN PHA TRONG BÀI TOÁN SAT
+Người 1: Nghiên cứu chuyên sâu về SAT chỉ ra một hiện tượng thú vị gọi là "Chuyển pha" (Phase Transition). Các em nhìn đồ thị: khi tỷ lệ số lượng Mệnh đề chia cho số lượng Biến đạt đến điểm cực đại ở mốc 4.3, thời gian chạy của máy tính tăng vọt lên thành một ngọn núi khổng lồ. Ở khu vực này bài toán SAT trở nên khó giải mã nhất.
+
+Slide 31: TÁC NHÂN WUMPUS LAI (HYBRID AGENT)
+Người 1: Thực tế, để hoàn thiện AI, người ta phải trộn lẫn Tìm kiếm đường đi A sao và Suy diễn logic lại thành Tác nhân Lai (Hybrid Agent). Não bộ chạy Phân giải logic để lọc ra 1 danh sách các ô an toàn. Xong ném danh sách đó cho thuật toán A sao để A sao lập kế hoạch tìm đường đi ngắn nhất đến các ô an toàn đó! Một bộ não hoàn hảo.
+
+Slide 32: QUẢN LÝ TRẠNG THÁI NIỀM TIN
+Người 1: Khi môi trường lớn lên, việc lưu trữ Bảng chân trị là bất khả thi. AI hiện đại sử dụng Trạng thái Niềm tin gần đúng bằng định dạng 1-CNF. Nó hy sinh một phần độ chính xác, giữ lại một "xấp xỉ bảo thủ" (Conservative Approximation) để não bộ không bị tràn RAM.
+
+Slide 33: LẬP KẾ HOẠCH VỚI SAT (SATPLAN)
+Người 1: Bằng công cụ SAT, ta có thể giải quyết các bài toán Kế hoạch đường đi (Planning) đỉnh cao. SATPLAN mã hóa toàn bộ hành động, thời gian và mục tiêu thành một đống phương trình Logic Mệnh đề. Bấm máy giải phương trình, nếu ra True thì đường đi chính là nghiệm của bài toán!
+
+Slide 34: TÓM TẮT CHƯƠNG 7
+Người 1: Tóm lại, Tác nhân Tri thức giúp AI thông minh bằng cách suy luận từ các dữ kiện có sẵn. Wumpus World chứng minh sức mạnh của Logic khi tìm đường trong bóng tối. Logic mệnh đề là ngôn ngữ nền tảng cơ bản. Và bằng các thuật toán Phân giải CNF, hoặc SAT Solver như DPLL và WALKSAT, AI có khả năng giải những hệ phương trình khổng lồ mà não con người không thể đỡ nổi.
+Người 2: Dạ vâng, bài học đã cho em thấy rõ làm thế nào máy tính có thể tự "nghĩ" ra thông tin mới dựa trên các luật lệ toán học cứng nhắc. 
+Người 1: Tốt lắm, chúng ta đã đi được một chặng đường dài. Hôm nay lớp mình nghỉ ở đây nhé! Hẹn gặp lại các em!

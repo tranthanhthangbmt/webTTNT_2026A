@@ -20,13 +20,13 @@
 - Ứng dụng của mạng nơ-ron
 
 ---
-## Bộ não
+### Bộ não
 
 \mat{$10^{11}$} tế bào thần kinh thuộc loại \mat{${}> 20$}, khớp thần kinh \mat{$10^{14}$}, thời gian chu kỳ 1ms--10ms
 
 Tín hiệu ồn ào 'đoàn tàu gai' của điện thế
 
-![Hình ảnh](../TaiLieu/slide_md/figures/neuron.png)
+<img src="../TaiLieu/slide_md/figures/neuron.png" style="width:100%; height:auto;">
 
 ---
 ## McCulloch--Pitts "đơn vị"
@@ -86,9 +86,9 @@ Mạng chuyển tiếp nguồn cấp dữ liệu thực hiện các chức năng
   $\implies$ có trạng thái bên trong (như flip-flop), có thể dao động, v.v.
 
 ---
-## Ví dụ về chuyển tiếp nguồn cấp dữ liệu
+### Ví dụ về chuyển tiếp nguồn cấp dữ liệu
 
-![Hình ảnh](../TaiLieu/slide_md/figures/neural-net.png)
+<img src="../TaiLieu/slide_md/figures/neural-net.png" style="width:100%; height:auto;">
 
 Mạng chuyển tiếp nguồn cấp dữ liệu = một họ các hàm phi tuyến được tham số hóa:
 \mat{\begin{eqnarray*}

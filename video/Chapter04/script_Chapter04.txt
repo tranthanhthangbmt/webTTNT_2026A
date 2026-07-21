@@ -1,0 +1,122 @@
+Slide 1: CHƯƠNG 04: TÌM KIẾM TRONG MÔI TRƯỜNG PHỨC TẠP
+Người 1: Chào các em. Ở chương 3, chúng ta đã giải quyết thành công bài toán tìm đường với giả định môi trường rất lý tưởng: quan sát được hoàn toàn, tất định và tĩnh. Tuy nhiên, thực tế hiếm khi đẹp như vậy. Hôm nay, ở Chương 4, chúng ta sẽ bước vào những môi trường phức tạp và khắc nghiệt hơn rất nhiều.
+Người 2: Dạ thưa thầy, môi trường phức tạp nghĩa là máy tính không thể biết trước mọi thứ, hoặc bản thân kết quả của hành động cũng mang tính hên xui phải không ạ?
+
+Slide 2: NỘI DUNG CHƯƠNG 4
+Người 1: Đúng thế. Mục lục hôm nay gồm 5 phần chính. Phần 4.1 và 4.2 sẽ giới thiệu trường phái Tìm kiếm Cục bộ, áp dụng cho cả không gian rời rạc và liên tục. Phần 4.3 đối phó với hành động không tất định, tức là hên xui. Phần 4.4 xử lý tình huống bị mù dở, quan sát một phần. Và phần 4.5 là khi tác nhân hoàn toàn không biết gì về môi trường, phải tự mình mò mẫm trực tuyến.
+
+Slide 3: 4.1 TÌM KIẾM CỤC BỘ (LOCAL SEARCH)
+Người 1: Đầu tiên là Tìm kiếm cục bộ. Trái ngược với thuật toán A sao luôn phải lưu lại con đường đi để truy xuất, thì ở rất nhiều bài toán như 8 Quân hậu hay Lập lịch, chúng ta chả cần quan tâm các bước đi trước đó. Ta chỉ cần "Trạng thái đích" cuối cùng. 
+Người 2: Em hiểu rồi. Vậy "Tìm kiếm cục bộ" là thuật toán chỉ ghi nhớ một trạng thái hiện tại, rồi từ từ chỉnh sửa nó sang trạng thái hàng xóm tốt hơn, phải không ạ?
+Người 1: Quá chuẩn! Nhờ thế, bộ nhớ của nó vô cùng mỏng nhẹ, thường chỉ là O lớn của một. 
+
+Slide 4: CẢNH QUAN KHÔNG GIAN TRẠNG THÁI
+Người 1: Hãy tưởng tượng không gian trạng thái như một dãy núi nhấp nhô. Trục ngang là các cấu hình trạng thái, trục dọc là Hàm mục tiêu hoặc Hàm chi phí. Nếu là Hàm mục tiêu, ta phải leo lên Cực đại toàn cục. Nếu là Hàm chi phí, ta phải mò xuống hố sâu nhất là Cực tiểu toàn cục.
+
+Slide 5: THUẬT TOÁN LEO ĐỒI (HILL-CLIMBING SEARCH)
+Người 1: Thuật toán đầu tiên và nổi tiếng nhất là Leo Đồi. Chiến lược cực kỳ đơn giản: Từ vị trí hiện tại, luôn nhìn sang hàng xóm xung quanh, hễ thấy ai cao hơn thì bước sang. Cứ đi lên miết cho đến khi không còn ai cao hơn thì dừng. Đỉnh đó chính là kết quả!
+Người 2: Dạ nhưng em thấy chiến lược "tham lam" này rất dễ bị lừa. Nhỡ nó leo lên một ngọn đồi nhỏ xíu rồi tưởng đó là đỉnh Everest thì sao thưa thầy? Đó là Cực đại cục bộ!
+
+Slide 6: MÃ GIẢ THUẬT TOÁN LEO ĐỒI
+Người 1: Đó chính xác là điểm yếu chí mạng của nó. Các em xem mã giả. Vòng lặp liên tục tìm ra cấu hình lân cận có 'Value' cao nhất. Nếu nó không cao hơn trạng thái hiện tại 'current', thuật toán vội vàng trả về 'current' và kết thúc. Nó không bao giờ chịu đi lùi để tìm đường khác.
+
+Slide 7: VÍ DỤ THUẬT TOÁN LEO ĐỒI: 8-QUEENS
+Người 1: Hãy xem ví dụ 8 Quân hậu. Hàm mục tiêu ở đây là Min-conflicts, tức là đếm số lượng cặp hậu đang cắn nhau. Số càng nhỏ càng tốt. Thuật toán sẽ thử di chuyển một quân hậu sao cho số cặp cắn nhau giảm xuống. Cứ làm vậy, nó sẽ nhanh chóng trượt xuống đáy của hàm chi phí.
+
+Slide 8: KHÓ KHĂN CỦA THUẬT TOÁN LEO ĐỒI
+Người 1: Tuy nhiên, ngoài Cực đại cục bộ, Leo đồi còn sợ Sườn dốc bằng (Ridges) và Cao nguyên (Plateaux). Các em nhìn hình sườn dốc nhọn này, nếu ta đi thẳng thì rất khó, máy tính sẽ liên tục phải đi zigzag tốn rất nhiều bước mới lết lên được đỉnh, hoặc bị mắc kẹt trên một bình nguyên bằng phẳng không biết đi hướng nào.
+
+Slide 9: LUYỆN KIM NHÂN TẠO (SIMULATED ANNEALING)
+Người 2: Vậy làm sao để thuật toán thoát khỏi ngọn đồi giả mạo đó ạ? Chắc chắn nó phải được phép "đi xuống" tạm thời phải không thầy?
+Người 1: Đúng. Đó là lúc "Luyện kim nhân tạo" ra đời. Lấy cảm hứng từ quá trình làm nguội kim loại. Thuật toán sử dụng một biến nhiệt độ Tê giảm dần. Nếu hàng xóm tốt hơn, nó luôn đi tới. Nhưng nếu hàng xóm tệ hơn, tức đen-ta E nhỏ hơn không, nó vẫn chấp nhận đi lùi với một xác suất p bằng e mũ đen-ta E chia Tê. Khi Tê giảm dần về không, nó hội tụ tuyệt đối!
+
+Slide 10: THUẬT TOÁN LUYỆN KIM NHÂN TẠO
+Người 1: Hình ảnh mã giả Luyện kim. Các em thấy hàm tính xác suất. Ở nhiệt độ cao ban đầu, xác suất rất lớn, thuật toán đi lại hỗn loạn như phân tử bị đun nóng, nhảy múa vượt qua các đồi núi. Về sau Tê lạnh đi, xác suất rất nhỏ, nó sẽ ổn định và chốt hạ tại cực đại toàn cục. Ý tưởng này đem lại giải thưởng danh giá cho tác giả.
+
+Slide 11: CHÙM TIA CỤC BỘ VÀ THUẬT TOÁN DI TRUYỀN
+Người 1: Một hướng nâng cấp khác là "Tìm kiếm Chùm tia" (Beam Search). Thay vì duy trì một trạng thái, ta cho bộ nhớ duy trì ca trạng thái cùng lúc. Từ ca trạng thái đó, sinh ra tất cả các con, rồi chỉ lọc lại ca cá thể tốt nhất.
+Người 2: Dạ thưa thầy, nghe rất giống chọn lọc tự nhiên sinh học! Có phải đó là nền tảng của "Thuật toán Di truyền" không ạ?
+Người 1: Rất sắc sảo! Thuật toán Di truyền chính là bản nâng cấp có tính ngẫu nhiên của Chùm tia. Nó mô phỏng sự tiến hóa qua Quần thể, Lai ghép và Đột biến.
+
+Slide 12: MÔ PHỎNG THUẬT TOÁN DI TRUYỀN
+Người 1: Quan sát hình. Ban đầu ta có Quần thể gồm các chuỗi gen. Ta đo độ thích nghi Fitness của chúng. Chọn ra những con khỏe mạnh nhất. Lai ghép chéo gen giữa chúng để sinh ra con cái. Đôi khi có vài Đột biến ngẫu nhiên. Cứ lặp đi lặp lại hàng vạn thế hệ, quần thể sẽ tiến hóa đến đáp án hoàn hảo!
+
+Slide 13: LAI GHÉP TRONG THUẬT TOÁN DI TRUYỀN
+Người 1: Phóng to quá trình lai ghép ở 8 Quân hậu. Chuỗi gen là vị trí của các quân cờ. Ta cắt đôi gen của Bố và gen của Mẹ, rồi ráp chéo lại với nhau. Việc lai ghép giúp thế hệ con kế thừa được "các cụm cấu trúc tốt" từ cả hai phía, điều mà thuật toán Leo đồi đơn lẻ không làm được.
+
+Slide 14: MÃ GIẢ THUẬT TOÁN DI TRUYỀN
+Người 1: Còn đây là mã giả. Thuật toán Di truyền đã mở ra một ngành học riêng biệt trong AI. Mặc dù cấu trúc hàm ngẫu nhiên khá kì dị so với Toán học cổ điển, nhưng sức mạnh giải mã của nó cho những bài toán khổng lồ như thiết kế ăng-ten, tối ưu khí động học là không thể phủ nhận.
+
+Slide 15: 4.2 TÌM KIẾM CỤC BỘ TRONG KHÔNG GIAN LIÊN TỤC
+Người 1: Không chỉ có không gian rời rạc, AI còn đối diện không gian Liên tục như góc quay vô hạn của cánh tay robot. Lúc này ta dùng phép Vi phân. Công thức Xuống dốc Gradient huyền thoại: x mới bằng x trừ đi alpha nhân đạo hàm bậc nhất của hàm ép theo biến x. Alpha là tốc độ học. Bằng cách trượt theo độ dốc đạo hàm, ta lao thẳng xuống đáy cực tiểu.
+
+Slide 16: 4.3 TÁC NHÂN VỚI HÀNH ĐỘNG KHÔNG TẤT ĐỊNH
+Người 1: Bây giờ, ta rời bỏ môi trường tĩnh tại để bước vào sự hỗn loạn. Nếu hành động là "Hên xui" (Không tất định). Ví dụ xe đang rẽ phải, nhưng cán vũng lầy nên trượt sang trái!
+Người 2: Vậy thì "Kế hoạch đường đi" không còn đúng nữa, vì AI không thể cam kết nó sẽ đứng ở vị trí A sau khi đi thẳng. Kế hoạch phải đổi thành một kịch bản "Nếu - Thì" phải không ạ?
+
+Slide 17: KHÔNG GIAN TRẠNG THÁI MÁY HÚT BỤI KHÔNG TẤT ĐỊNH
+Người 1: Đúng vậy! Kế hoạch giờ gọi là "Chiến lược dự phòng" (Contingency plan). Lại nhìn vào máy hút bụi. Máy hút bụi bị lỗi: Đôi khi hút bụi ở ô A lại vô tình làm bẩn ô B, hoặc ngược lại. Đồ thị lúc này trở nên rất đa hình.
+
+Slide 18: MÔ HÌNH CÂY AND-OR
+Người 1: Để giải quyết, khoa học AI dùng "Cây AND-OR". Khác với cây thường. Nút OR là nơi Tác nhân được chọn hành động. Nút AND là nơi Môi trường trả về ngẫu nhiên các hệ quả.
+Người 2: Tức là tại nút OR, ta chọn 1 đường tốt nhất, còn tại nút AND, ta bắt buộc phải tìm ra giải pháp xử lý "tất cả" các hệ quả hên xui do môi trường ném vào, có đúng không thầy?
+
+Slide 19: THUẬT TOÁN TÌM KIẾM ĐỒ THỊ AND-OR
+Người 1: Tuyệt vời! Em bắt đúng bản chất vấn đề. Slide này là thuật toán AND-OR. Nó dùng đệ quy xoay vòng. Gọi hàm OR, hàm OR gọi hàm AND, hàm AND lại kiểm tra mọi hệ quả và gọi tiếp hàm OR. Kết quả trả về không phải là 1 chuỗi, mà là một Cây quyết định dự phòng khổng lồ.
+
+Slide 20: ĐỒ THỊ TÌM KIẾM CHỨA CHU TRÌNH
+Người 1: Khắc nghiệt hơn, nếu máy hút bụi bị trơn trượt, lệnh đi Sang Phải có thể khiến nó vẫn đứng im tại chỗ cũ! Điều này tạo ra một vòng lặp vĩnh viễn (Chu trình) trên sơ đồ. Thuật toán AND-OR phải biết phát hiện vòng lặp và đánh dấu thất bại để không bị treo máy.
+
+Slide 21: 4.4 TÌM KIẾM VỚI QUAN SÁT MỘT PHẦN
+Người 1: Bước sang phần 4.4, ta xét sự cố "Mù thông tin". Tác nhân bị hỏng cảm biến, nó không biết nó đang ở đâu!
+Người 2: Nếu không biết ở đâu thì làm sao lập kế hoạch tìm đường thưa thầy?
+Người 1: Nó dùng khái niệm "Trạng thái Niềm tin" (Belief state). Thay vì nói "Tôi đang ở ô A", nó nói "Tôi đang ở trong một tập hợp gồm ô A, B, và C". Sau đó, nó tính: bê phẩy bằng hàm dự đoán của bê và hành động a. Khi có thêm cảm biến loé lên, nó tính tiếp bê hai phẩy bằng hàm cập nhật của bê phẩy và dữ liệu cảm biến. 
+
+Slide 22: DỰ ĐOÁN TRẠNG THÁI NIỀM TIN (KHÔNG CẢM BIẾN)
+Người 1: Hình ảnh trên minh họa bước Dự đoán. Bắt đầu, nó bị mù hoàn toàn, nằm ở 1 trong 8 trạng thái. Nó quyết định thực hiện hành động Sang Phải. Kể cả bị mù, logic vật lý nói rằng: sau khi đi sang phải, chắc chắn nó đang nằm ở cột bên phải. Tập Niềm tin đã thu hẹp lại!
+
+Slide 23: CẬP NHẬT TRẠNG THÁI NIỀM TIN
+Người 1: Biểu đồ này chỉ ra toàn bộ sự luân chuyển của các tập Niềm tin. Bằng cách suy luận ngược, tác nhân hoàn toàn có thể lắng đọng tập niềm tin từ 8 cấu hình rơi xuống chỉ còn 1 cấu hình duy nhất. Nghĩa là nó có thể tìm ra chính xác vị trí của mình mà không cần cảm biến! Một ma thuật của toán học logic.
+
+Slide 24: QUAN SÁT MỘT PHẦN VỚI CẢM BIẾN CỤC BỘ
+Người 1: Trong trường hợp có Cảm biến cục bộ, tức là cảm biến chỉ nhìn thấy một phần. Ví dụ nó nhận thức được nó đang đứng ở ô Trái.
+Người 2: Vậy khi nhận thức được điều đó, nó lập tức dùng phép giao tập hợp để loại bỏ toàn bộ những cấu hình nào mâu thuẫn, làm tập Niềm tin nhỏ lại ngay lập tức phải không thầy?
+
+Slide 25: CÂY TÌM KIẾM AND-OR VỚI CẢM BIẾN CỤC BỘ
+Người 1: Rất nhanh trí! Sơ đồ này cho thấy cách Cây AND-OR áp dụng với Niềm tin. Khối hành động sinh ra một tập kết quả. Sau đó khối Nhận thức sẽ tách cái tập bự đó ra thành các tập con nhỏ hơn, giúp Tác nhân dần bóc tách được vấn đề và xử lý kịch bản cho từng nhánh riêng rẽ.
+
+Slide 26: DUY TRÌ TRẠNG THÁI NIỀM TIN
+Người 1: Vậy, quy trình cốt lõi là Chu kỳ Dự đoán - Cập nhật liên tục. Trạng thái niềm tin bê bị tác động bởi Hành động thành bê phẩy qua hàm dự đoán. Sau đó Cảm biến cập nhật bê phẩy thành thế hệ tiếp theo. Vòng lặp này giúp AI không bao giờ bị lạc lối trong tâm trí của chính nó.
+
+Slide 27: ỨNG DỤNG: XÁC ĐỊNH VỊ TRÍ ROBOT
+Người 2: Dạ em đã từng xem robot hút bụi ở nhà. Lúc đầu nó cứ đi loanh quanh mù mờ, nhưng một lúc sau nó bắt đầu tự vẽ ra được bản đồ nhà và biết rõ vị trí của nó. Có phải nó dùng thuật toán này không ạ?
+Người 1: Hoàn toàn đúng. Quá trình đó gọi là Xác định vị trí (Localization). Trên hình, các vùng màu xám là những nơi robot "tin rằng" nó có thể đứng. Sau vài lần di chuyển và cảm biến va chạm phản hồi, các vùng xám hội tụ lại thành một chấm đen duy nhất. Tự nó đã "nhìn thấy" chính mình.
+
+Slide 28: 4.5 MÔI TRƯỜNG CHƯA BIẾT & KHÁM PHÁ TRỰC TUYẾN
+Người 1: Phần cuối cùng 4.5. Nếu tất cả những gì nãy giờ ta học là Tìm kiếm Ngoại tuyến - AI nằm nhà nhắm mắt nhẩm tính đường đi rồi mới chạy. Thì giờ là Tìm kiếm Trực tuyến - Đi đến đâu dò đường tới đó trong một bản đồ hoàn toàn chưa được vẽ.
+Người 2: Đi kiểu này giống như lạc vào rừng nguyên sinh. Nguy hiểm lớn nhất chắc chắn là bị rơi xuống vực thẳm hoặc chui vào hang cụt không có lối ra thưa thầy!
+
+Slide 29: HỆ QUẢ CỦA DEAD-ENDS TRONG ONLINE SEARCH
+Người 1: Đúng thế! Hãy nhìn hình, một khi robot đi sai lầm vào nhánh cụt bên phải mà đường đó là đường 1 chiều, nó vĩnh viễn bị giam cầm. Trong tìm kiếm ngoại tuyến, thuật toán có thể xóa nhánh cụt khỏi cây và coi như chưa có gì xảy ra. Nhưng ở trực tuyến, robot bằng xương bằng thịt vật lý đã bước vào ngõ cụt thì trò chơi kết thúc.
+
+Slide 30: ĐIỂM MÙ VÔ TẬN TRONG MÔI TRƯỜNG THỰC TẾ
+Người 1: Không gian vật lý rất tàn nhẫn. Nhìn 2 sơ đồ, tác nhân có thể bị xoay vòng trong một nhà lồng hoặc kẹt giữa những bức tường. Vì vậy, trong Tìm kiếm trực tuyến, người ta giả định bắt buộc Môi trường phải an toàn, hoặc tác nhân có thể đảo ngược hành động để quay lại điểm cũ an toàn.
+
+Slide 31: KHÁM PHÁ THEO CHIỀU SÂU TRỰC TUYẾN
+Người 1: Dưới giả định an toàn đó, thuật toán DFS trực tuyến ra đời. Thay vì dùng Ngăn xếp ảo trong máy, nó dùng chính cơ thể vật lý của nó đi tới trước, xây dựng bản đồ trong não, và khi gặp ngõ cụt, nó lùi cơ thể lại. Nó hoạt động tốt nhưng đôi khi đi những con đường cực kì tốn kém.
+
+Slide 32: KHÓ KHĂN CỦA THUẬT TOÁN NGẪU NHIÊN
+Người 1: Một cách khác là Khám phá ngẫu nhiên (Random Walk). Hễ đến ngã ba thì tung đồng xu chọn hướng. 
+Người 2: Thuật toán tung đồng xu này rất ngớ ngẩn nhưng bộ nhớ của nó bằng không. Dù vậy, theo hình minh họa, nếu muốn ngẫu nhiên trượt dọc theo hành lang này, số bước phải mất sẽ tăng theo hàm mũ, cực kì hao tốn năng lượng thưa thầy!
+
+Slide 33: HỌC HEURISTIC TRỰC TUYẾN (LRTA*)
+Người 1: Vì thế, đỉnh cao của tìm kiếm trực tuyến là LRTA sao - Học Heuristic theo thời gian thực. Tác nhân vừa đi, vừa "trừng phạt" (tức là tăng giá trị cập nhật) vào những nút vô ích, khiến cho đường cụt ngày càng trở nên đắt đỏ.
+Người 2: À, em hiểu, nhờ lưu lại cái "giá trị đau thương" đó, tác nhân sẽ có xu hướng tản ra khám phá các vùng đất mới thay vì đi luẩn quẩn ở chỗ cũ. Học từ sai lầm là đây!
+
+Slide 34: THUẬT TOÁN LRTA*
+Người 1: Đây là mã giả của khối óc vĩ đại đó. Nó liên tục lấy giá trị H của các hàng xóm, cộng với chi phí bước đi, và lấy giá trị cực tiểu tốt nhất đó để ghi đè cập nhật lại giá trị H cho chính cái nút nó đang đứng trước khi nó dời đi. Nó tự động cập nhật bản đồ tri thức của chính mình.
+
+Slide 35: TÓM TẮT CHƯƠNG 4
+Người 1: Bài học tới đây là kết thúc! Tóm lược lại, ở không gian quá khổng lồ, Tìm kiếm Cục bộ như Leo đồi hay Di truyền là vị cứu tinh cực kì nhẹ bén. Với không gian Liên tục, ta dùng đạo hàm. Khi môi trường hên xui, ta trồng Cây AND-OR để dự phòng kịch bản. Khi bị mù thông tin, ta tính toán Trạng thái Niềm tin. Và cuối cùng, với miền đất lạ, tác nhân Tìm kiếm trực tuyến dùng thuật toán học LRTA sao để vừa học vừa đi.
+Người 2: Hôm nay kiến thức vô cùng sát thực tế thưa thầy. Chúng em đã biết cách xử lý khi cảm biến nhiễu hoặc khi môi trường đổ lỗi. Em cảm ơn thầy vì một chương học cực kỳ hấp dẫn!
+Người 1: Thầy rất vui vì sự hào hứng của các em. Những kiến thức này chính là cốt lõi của các hệ thống Robot tự hành hiện đại ngoài kia. Chào các em và hẹn gặp lại ở Chương sau!

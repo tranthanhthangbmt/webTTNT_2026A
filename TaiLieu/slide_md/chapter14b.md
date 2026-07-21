@@ -38,12 +38,12 @@
 \defn{Giải thích}: tại sao tôi cần động cơ khởi động mới?
 
 ---
-## Suy luận bằng phép liệt kê
+### Suy luận bằng phép liệt kê
 
 Cách hơi thông minh để tính tổng các biến từ khớp
 mà không thực sự xây dựng sự biểu diễn rõ ràng của nó
 
-Truy vấn đơn giản trên mạng trộm:\hspace*{2.5in}in\raisebox{-1.5in}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/burglary-small.png)
+Truy vấn đơn giản trên mạng trộm:\hspace*{2.5in}in\raisebox{-1.5in}[0pt][0pt]{<img src="../TaiLieu/slide_md/figures/burglary-small.png" style="width:100%; height:auto;">
 
 \mat{$P(B|j,m)$}
 
@@ -92,9 +92,9 @@ function Enumerate-All(\v{vars), $\e$}{a real number}
 ```
 
 ---
-## Cây đánh giá
+### Cây đánh giá
 
-![Hình ảnh](../TaiLieu/slide_md/figures/enumeration-tree.png)
+<img src="../TaiLieu/slide_md/figures/enumeration-tree.png" style="width:100%; height:auto;">
 
 Việc liệt kê không hiệu quả: tính toán lặp đi lặp lại 
   
@@ -175,9 +175,9 @@ function Elimination-Ask(\v{X), \e, \v{bn}}{a distribution over \v{X}}
 ```
 
 ---
-## Các biến không liên quan
+### Các biến không liên quan
 
-Hãy xem xét truy vấn \mat{$P(JohnCalls|Burglary\eq true)$}\hspace*{1.0in}in\raisebox{-1.5in}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/burglary-small.png)}
+Hãy xem xét truy vấn \mat{$P(JohnCalls|Burglary\eq true)$}\hspace*{1.0in}in\raisebox{-1.5in}[0pt][0pt]{<img src="../TaiLieu/slide_md/figures/burglary-small.png" style="width:100%; height:auto;">}
 \mat{\[
   P(J|b) = 
   pha P(b) \sum_e P(e) \sum_a P(a|b,e) P(J|a) \sum_m P(m|a)
@@ -195,20 +195,20 @@ vì vậy \mat{$MaryCalls$} không liên quan
 (So sánh điều này với chuỗi ngược từ truy vấn trong KB mệnh đề Horn)
 
 ---
-## Các biến không liên quan tiếp.
+### Các biến không liên quan tiếp.
 
 Defn: \underline{biểu đồ đạo đức} của Bayes net: kết hôn với tất cả cha mẹ và mũi tên thả
 
 Định nghĩa: \mat{$\A$} được phân tách bằng \underline{m} khỏi \mat{$\B$} bởi \mat{$\C$} nếu được phân tách bằng \mat{$\C$} trong biểu đồ đạo đức
 
-Thm 2: \mat{$Y$} không liên quan nếu m được phân tách khỏi \mat{$X$} bởi \mat{$\E$}\hspace*{1.0in}in\raisebox{-1.5in}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/burglary-moral.png)}
+Thm 2: \mat{$Y$} không liên quan nếu m được phân tách khỏi \mat{$X$} bởi \mat{$\E$}\hspace*{1.0in}in\raisebox{-1.5in}[0pt][0pt]{<img src="../TaiLieu/slide_md/figures/burglary-moral.png" style="width:100%; height:auto;">}
 
 Đối với \mat{$P(JohnCalls|Alarm\eq true)$}, cả 
 
 \mat{$Burglary$} và \mat{$Earthquake$} không liên quan
 
 ---
-## Độ phức tạp của suy luận chính xác
+### Độ phức tạp của suy luận chính xác
 
 \defn{Mạng được kết nối đơn} (hoặc \defn{polytrees}):
   
@@ -222,14 +222,14 @@ Thm 2: \mat{$Y$} không liên quan nếu m được phân tách khỏi \mat{$X$}
   
   -- tương đương với *đếm* kiểu 3SAT \mat{$\implies$} \#P-complete
 
-![Hình ảnh](../TaiLieu/slide_md/figures/bn-3sat.png)
+<img src="../TaiLieu/slide_md/figures/bn-3sat.png" style="width:100%; height:auto;">
 
 ---
-## Suy luận bằng mô phỏng ngẫu nhiên
+### Suy luận bằng mô phỏng ngẫu nhiên
 
 Ý tưởng cơ bản:
   
-  1) Vẽ \mat{$N$} mẫu từ phân phối lấy mẫu \mat{$S$}\hspace*{1.5in}in\raisebox{-1.5in}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/coin-flip.png)
+  1) Vẽ \mat{$N$} mẫu từ phân phối lấy mẫu \mat{$S$}\hspace*{1.5in}in\raisebox{-1.5in}[0pt][0pt]{<img src="../TaiLieu/slide_md/figures/coin-flip.png" style="width:100%; height:auto;">
   
   2) Tính xác suất hậu nghiệm gần đúng \mat{$\hat P$}
   
@@ -262,39 +262,39 @@ function Prior-Sample(\v{bn)}{an event sampled from \v{bn}}
 ```
 
 ---
-## Ví dụ
+### Ví dụ
 
-![Hình ảnh](../TaiLieu/slide_md/figures/rain-prior-sample1.png)
-
----
-## Ví dụ
-
-![Hình ảnh](../TaiLieu/slide_md/figures/rain-prior-sample2.png)
+<img src="../TaiLieu/slide_md/figures/rain-prior-sample1.png" style="width:100%; height:auto;">
 
 ---
-## Ví dụ
+### Ví dụ
 
-![Hình ảnh](../TaiLieu/slide_md/figures/rain-prior-sample3.png)
-
----
-## Ví dụ
-
-![Hình ảnh](../TaiLieu/slide_md/figures/rain-prior-sample4.png)
+<img src="../TaiLieu/slide_md/figures/rain-prior-sample2.png" style="width:100%; height:auto;">
 
 ---
-## Ví dụ
+### Ví dụ
 
-![Hình ảnh](../TaiLieu/slide_md/figures/rain-prior-sample5.png)
-
----
-## Ví dụ
-
-![Hình ảnh](../TaiLieu/slide_md/figures/rain-prior-sample6.png)
+<img src="../TaiLieu/slide_md/figures/rain-prior-sample3.png" style="width:100%; height:auto;">
 
 ---
-## Ví dụ
+### Ví dụ
 
-![Hình ảnh](../TaiLieu/slide_md/figures/rain-prior-sample7.png)
+<img src="../TaiLieu/slide_md/figures/rain-prior-sample4.png" style="width:100%; height:auto;">
+
+---
+### Ví dụ
+
+<img src="../TaiLieu/slide_md/figures/rain-prior-sample5.png" style="width:100%; height:auto;">
+
+---
+### Ví dụ
+
+<img src="../TaiLieu/slide_md/figures/rain-prior-sample6.png" style="width:100%; height:auto;">
+
+---
+### Ví dụ
+
+<img src="../TaiLieu/slide_md/figures/rain-prior-sample7.png" style="width:100%; height:auto;">
 
 ---
 ## Lấy mẫu từ mạng trống tiếp theo.
@@ -400,62 +400,62 @@ function Weighted-Sample(\v{bn), \v{\e}}{an event and a weight}
 ```
 
 ---
-## Ví dụ về trọng số khả năng
+### Ví dụ về trọng số khả năng
 
-![Hình ảnh](../TaiLieu/slide_md/figures/rain-lw-sample1.png)
-
-\mat{$w = 1.0$}
-
----
-## Ví dụ về trọng số khả năng
-
-![Hình ảnh](../TaiLieu/slide_md/figures/rain-lw-sample2.png)
+<img src="../TaiLieu/slide_md/figures/rain-lw-sample1.png" style="width:100%; height:auto;">
 
 \mat{$w = 1.0$}
 
 ---
-## Ví dụ về trọng số khả năng
+### Ví dụ về trọng số khả năng
 
-![Hình ảnh](../TaiLieu/slide_md/figures/rain-lw-sample3.png)
+<img src="../TaiLieu/slide_md/figures/rain-lw-sample2.png" style="width:100%; height:auto;">
 
 \mat{$w = 1.0$}
 
 ---
-## Ví dụ về trọng số khả năng
+### Ví dụ về trọng số khả năng
 
-![Hình ảnh](../TaiLieu/slide_md/figures/rain-lw-sample3.png)
+<img src="../TaiLieu/slide_md/figures/rain-lw-sample3.png" style="width:100%; height:auto;">
+
+\mat{$w = 1.0$}
+
+---
+### Ví dụ về trọng số khả năng
+
+<img src="../TaiLieu/slide_md/figures/rain-lw-sample3.png" style="width:100%; height:auto;">
 
 \mat{$w = 1.0 \stimes 0.1$}
 
 ---
-## Ví dụ về trọng số khả năng
+### Ví dụ về trọng số khả năng
 
-![Hình ảnh](../TaiLieu/slide_md/figures/rain-lw-sample4.png)
-
-\mat{$w = 1.0 \stimes 0.1$}
-
----
-## Ví dụ về trọng số khả năng
-
-![Hình ảnh](../TaiLieu/slide_md/figures/rain-lw-sample5.png)
+<img src="../TaiLieu/slide_md/figures/rain-lw-sample4.png" style="width:100%; height:auto;">
 
 \mat{$w = 1.0 \stimes 0.1$}
 
 ---
-## Ví dụ về trọng số khả năng
+### Ví dụ về trọng số khả năng
 
-![Hình ảnh](../TaiLieu/slide_md/figures/rain-lw-sample5.png)
+<img src="../TaiLieu/slide_md/figures/rain-lw-sample5.png" style="width:100%; height:auto;">
+
+\mat{$w = 1.0 \stimes 0.1$}
+
+---
+### Ví dụ về trọng số khả năng
+
+<img src="../TaiLieu/slide_md/figures/rain-lw-sample5.png" style="width:100%; height:auto;">
 
 \mat{$w = 1.0 \stimes 0.1 \stimes 0.99 = 0.099$}
 
 ---
-## Phân tích trọng số khả năng
+### Phân tích trọng số khả năng
 
 Xác suất lấy mẫu cho \prog{WeightedSample} là
   
   \mat{$S_{WS}(\mbf{z},\e) = \myprod_{i\eq 1}^l P(z_i|\parents(Z_i))$}
 
-Lưu ý: chỉ chú ý đến bằng chứng trong *tổ tiên*\hspace*{0.3in}in\raisebox{-1.3in}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/rain-lw2.png)
+Lưu ý: chỉ chú ý đến bằng chứng trong *tổ tiên*\hspace*{0.3in}in\raisebox{-1.3in}[0pt][0pt]{<img src="../TaiLieu/slide_md/figures/rain-lw2.png" style="width:100%; height:auto;">
     
     \mat{$\implies$} đâu đó "ở giữa" trước và
     
@@ -507,11 +507,11 @@ function MCMC-Ask(\v{X), \v{\e}, \v{bn}, \v{N}}{an estimate of $P(\v{X}|\v{\e})$
 Cũng có thể chọn một biến để lấy mẫu ngẫu nhiên mỗi lần
 
 ---
-## Chuỗi Markov
+### Chuỗi Markov
 
 Với \mat{$Sprinkler\eq true,WetGrass\eq true$}, có bốn trạng thái:
 
-![Hình ảnh](../TaiLieu/slide_md/figures/rain-chain.png)
+<img src="../TaiLieu/slide_md/figures/rain-chain.png" style="width:100%; height:auto;">
 
 Đi loanh quanh một lúc, tính trung bình những gì bạn nhìn thấy
 
@@ -539,9 +539,9 @@ Phần thời gian dài hạn dành cho mỗi trạng thái chính xác là
 tỷ lệ thuận với xác suất sau của nó
 
 ---
-## Lấy mẫu chăn Markov
+### Lấy mẫu chăn Markov
 
-Chăn Markov của \mat{$Cloudy$} là\hspace*{2.3in}in\raisebox{-1.3in}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/rain-lw1.png)
+Chăn Markov của \mat{$Cloudy$} là\hspace*{2.3in}in\raisebox{-1.3in}[0pt][0pt]{<img src="../TaiLieu/slide_md/figures/rain-lw1.png" style="width:100%; height:auto;">
     
     \mat{$Sprinkler$} và \mat{$Rain$}
 

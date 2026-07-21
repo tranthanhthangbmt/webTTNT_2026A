@@ -38,17 +38,17 @@ giữ một trạng thái “hiện tại” duy nhất, cố gắng cải thi�
 Không gian cố định, thích hợp cho việc tìm kiếm trực tuyến cũng như ngoại tuyến
 
 ---
-## Ví dụ: Vấn đề của nhân viên bán hàng khi đi du lịch
+### Ví dụ: Vấn đề của nhân viên bán hàng khi đi du lịch
 
 Bắt đầu với bất kỳ chuyến tham quan hoàn chỉnh nào, thực hiện trao đổi theo cặp
 
-![Hình ảnh](../TaiLieu/slide_md/figures/tsp-sequence.png)
+<img src="../TaiLieu/slide_md/figures/tsp-sequence.png" style="width:100%; height:auto;">
 
 Các biến thể của phương pháp này đạt được trong khoảng 1\% mức tối ưu rất nhanh chóng với
 hàng ngàn thành phố
 
 ---
-## Ví dụ: \mat{$n$
+### Ví dụ: \mat{$n$
 -quân hậu}
 
 Đặt quân hậu \mat{$n$} lên bàn \mat{$n \times n$} không có hai quân hậu
@@ -58,7 +58,7 @@ hàng, cột hoặc đường chéo
 
 Di chuyển một nữ hoàng để giảm số lượng xung đột
 
-![Hình ảnh](../TaiLieu/slide_md/figures/4queens-iterative.png)
+<img src="../TaiLieu/slide_md/figures/4queens-iterative.png" style="width:100%; height:auto;">
 
 Hầu như luôn giải quyết được các vấn đề của \mat{$n$}-nữ hoàng gần như ngay lập tức
 
@@ -84,11 +84,11 @@ function Hill-Climbing(problem) returns a state that is a local maximum
 ```
 
 ---
-## Leo đồi tiếp.
+### Leo đồi tiếp.
 
 Hữu ích khi xem xét \defn{cảnh quan không gian trạng thái}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/hill-climbing.png)
+<img src="../TaiLieu/slide_md/figures/hill-climbing.png" style="width:100%; height:auto;">
 
 \defn{ Leo đồi khởi động lại ngẫu nhiên } vượt qua cực đại cục bộ---hoàn thành tầm thường
 
@@ -156,20 +156,20 @@ Các tìm kiếm tìm thấy trạng thái tốt tuyển dụng các tìm kiếm
 Hãy quan sát sự tương tự gần gũi với chọn lọc tự nhiên!
 
 ---
-## Thuật toán di truyền
+### Thuật toán di truyền
 
 = tìm kiếm chùm cục bộ ngẫu nhiên + tạo các trạng thái kế tiếp từ *cặp * trạng thái
 
-![Hình ảnh](../TaiLieu/slide_md/figures/genetic.png)
+<img src="../TaiLieu/slide_md/figures/genetic.png" style="width:100%; height:auto;">
 
 ---
-## Thuật toán di truyền tiếp.
+### Thuật toán di truyền tiếp.
 
 GA yêu cầu các trạng thái được mã hóa dưới dạng chuỗi (\defn{GPs} sử dụng \note{programs})
 
 Crossover giúp *iff chuỗi con là các thành phần có ý nghĩa*
 
-![Hình ảnh](../TaiLieu/slide_md/figures/8queens-crossover.png)
+<img src="../TaiLieu/slide_md/figures/8queens-crossover.png" style="width:100%; height:auto;">
 
 Sự tiến hóa của GA $\neq$: ví dụ: gen thực mã hóa bộ máy sao chép!
 

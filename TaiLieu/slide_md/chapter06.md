@@ -47,17 +47,17 @@ Kế hoạch tấn công:
 \end{itemize}
 
 ---
-## Các loại trò chơi
+### Các loại trò chơi
 
-![Hình ảnh](../TaiLieu/slide_md/figures/game-types.png)
-
----
-## Cây trò chơi (2 người chơi, xác định, lượt)
-
-![Hình ảnh](../TaiLieu/slide_md/figures/tictactoe.png)
+<img src="../TaiLieu/slide_md/figures/game-types.png" style="width:100%; height:auto;">
 
 ---
-## Cực tiểu
+### Cây trò chơi (2 người chơi, xác định, lượt)
+
+<img src="../TaiLieu/slide_md/figures/tictactoe.png" style="width:100%; height:auto;">
+
+---
+### Cực tiểu
 
 Chơi hoàn hảo cho các trò chơi xác định, thông tin hoàn hảo
 
@@ -67,7 +67,7 @@ Chơi hoàn hảo cho các trò chơi xác định, thông tin hoàn hảo
 
 Ví dụ: trò chơi 2 lớp:
 
-![Hình ảnh](../TaiLieu/slide_md/figures/minimax.png)
+<img src="../TaiLieu/slide_md/figures/minimax.png" style="width:100%; height:auto;">
 
 ---
 ## Thuật toán Minimax
@@ -143,42 +143,42 @@ $\Rightarrow$ giải pháp chính xác hoàn toàn không khả thi
 Nhưng chúng ta có cần khám phá mọi con đường không?
 
 ---
-## $
+### $
   pha$--$\beta$ ví dụ về cắt tỉa
 
 $\beta$
 
-![Hình ảnh](../TaiLieu/slide_md/figures/alpha-beta-progress1.png)
+<img src="../TaiLieu/slide_md/figures/alpha-beta-progress1.png" style="width:100%; height:auto;">
 
 ---
-## $
+### $
   pha$--$\beta$ ví dụ về cắt tỉa
 
-![Hình ảnh](../TaiLieu/slide_md/figures/alpha-beta-progress2.png)
+<img src="../TaiLieu/slide_md/figures/alpha-beta-progress2.png" style="width:100%; height:auto;">
 
 ---
-## $
+### $
   pha$--$\beta$ ví dụ về cắt tỉa
 
-![Hình ảnh](../TaiLieu/slide_md/figures/alpha-beta-progress3.png)
+<img src="../TaiLieu/slide_md/figures/alpha-beta-progress3.png" style="width:100%; height:auto;">
 
 ---
-## $
+### $
   pha$--$\beta$ ví dụ về cắt tỉa
 
-![Hình ảnh](../TaiLieu/slide_md/figures/alpha-beta-progress4.png)
+<img src="../TaiLieu/slide_md/figures/alpha-beta-progress4.png" style="width:100%; height:auto;">
 
 ---
-## $
+### $
   pha$--$\beta$ ví dụ về cắt tỉa
 
-![Hình ảnh](../TaiLieu/slide_md/figures/alpha-beta-progress5.png)
+<img src="../TaiLieu/slide_md/figures/alpha-beta-progress5.png" style="width:100%; height:auto;">
 
 ---
-## Tại sao lại gọi là $
+### Tại sao lại gọi là $
   pha$--
 
-![Hình ảnh](../TaiLieu/slide_md/figures/alpha-beta-general.png)
+<img src="../TaiLieu/slide_md/figures/alpha-beta-general.png" style="width:100%; height:auto;">
 
 \mat{$
   pha$} là giá trị tốt nhất (đến **max**) được tìm thấy ở xa đường dẫn hiện tại
@@ -259,9 +259,9 @@ $\Rightarrow$ $
   pha$--$\beta$ đạt độ sâu 8 $\Rightarrow$ chương trình cờ vua khá hay
 
 ---
-## Chức năng đánh giá
+### Chức năng đánh giá
 
-![Hình ảnh](../TaiLieu/slide_md/figures/chess-evaluation-bc.png)
+<img src="../TaiLieu/slide_md/figures/chess-evaluation-bc.png" style="width:100%; height:auto;">
 
 Đối với cờ vua, thường là tổng trọng số \note{tuyến tính} của \defn{features}
 \mat{\[
@@ -272,9 +272,9 @@ ví dụ: \mat{$w_1 = 9$} với
 \mat{$f_1(s)$} = (số quân hậu trắng) -- (số quân hậu đen),\ \ v.v.
 
 ---
-## Lạc đề: Giá trị chính xác không quan trọng
+### Lạc đề: Giá trị chính xác không quan trọng
 
-![Hình ảnh](../TaiLieu/slide_md/figures/ordinal-utility.png)
+<img src="../TaiLieu/slide_md/figures/ordinal-utility.png" style="width:100%; height:auto;">
 
 Hành vi được bảo toàn dưới bất kỳ phép biến đổi *đơn điệu* nào của
 **Đánh giá**
@@ -304,18 +304,18 @@ tệ. Trong go, $b > 300$, vì vậy hầu hết các chương trình đều s�
 đề xuất những động thái hợp lý.
 
 ---
-## Trò chơi không xác định: cờ thỏ cáo
+### Trò chơi không xác định: cờ thỏ cáo
 
-![Hình ảnh](../TaiLieu/slide_md/figures/backgammon-position.png)
+<img src="../TaiLieu/slide_md/figures/backgammon-position.png" style="width:100%; height:auto;">
 
 ---
-## Trò chơi không xác định nói chung
+### Trò chơi không xác định nói chung
 
 Trong các trò chơi không xác định, cơ hội được tạo ra bởi xúc xắc, xáo bài
 
 Ví dụ đơn giản hóa với việc lật đồng xu:
 
-![Hình ảnh](../TaiLieu/slide_md/figures/expectiminimax-simple.png)
+<img src="../TaiLieu/slide_md/figures/expectiminimax-simple.png" style="width:100%; height:auto;">
 
 ---
 ## Thuật toán cho trò chơi không xác định
@@ -391,25 +391,25 @@ GIB, chương trình cầu nối tốt nhất hiện nay, gần đúng với ý 
 2) chọn hành động thắng trung bình hầu hết các thủ thuật 
 
 ---
-## Ví dụ
+### Ví dụ
 
 Bài bốn lá bài/tay bài huýt sáo/trái tim, **Max** chơi trước
 
-![Hình ảnh](../TaiLieu/slide_md/figures/card-tree1.png)
+<img src="../TaiLieu/slide_md/figures/card-tree1.png" style="width:100%; height:auto;">
 
 ---
-## Ví dụ
+### Ví dụ
 
 Bài bốn lá bài/tay bài huýt sáo/trái tim, **Max** chơi trước
 
-![Hình ảnh](../TaiLieu/slide_md/figures/card-tree2.png)
+<img src="../TaiLieu/slide_md/figures/card-tree2.png" style="width:100%; height:auto;">
 
 ---
-## Ví dụ
+### Ví dụ
 
 Bài bốn lá bài/tay bài huýt sáo/trái tim, **Max** chơi trước
 
-![Hình ảnh](../TaiLieu/slide_md/figures/card-tree3.png)
+<img src="../TaiLieu/slide_md/figures/card-tree3.png" style="width:100%; height:auto;">
 
 ---
 ## Ví dụ thông thường
@@ -507,107 +507,107 @@ Chúng minh họa một số điểm quan trọng về AI
 Trò chơi dành cho AI cũng như giải đua xe lớn dành cho thiết kế ô tô
 
 ---
-## Cắt tỉa cây trò chơi không xác định
+### Cắt tỉa cây trò chơi không xác định
 
 Có thể sử dụng phiên bản cắt tỉa $
   pha$-$\beta$:
 
-![Hình ảnh](../TaiLieu/slide_md/figures/expectiminimax-pruning1.png)
+<img src="../TaiLieu/slide_md/figures/expectiminimax-pruning1.png" style="width:100%; height:auto;">
 
 ---
-## Cắt tỉa cây trò chơi không xác định
+### Cắt tỉa cây trò chơi không xác định
 
 Có thể sử dụng phiên bản cắt tỉa $
   pha$-$\beta$:
 
-![Hình ảnh](../TaiLieu/slide_md/figures/expectiminimax-pruning2.png)
+<img src="../TaiLieu/slide_md/figures/expectiminimax-pruning2.png" style="width:100%; height:auto;">
 
 ---
-## Cắt tỉa cây trò chơi không xác định
+### Cắt tỉa cây trò chơi không xác định
 
 Có thể sử dụng phiên bản cắt tỉa $
   pha$-$\beta$:
 
-![Hình ảnh](../TaiLieu/slide_md/figures/expectiminimax-pruning3.png)
+<img src="../TaiLieu/slide_md/figures/expectiminimax-pruning3.png" style="width:100%; height:auto;">
 
 ---
-## Cắt tỉa cây trò chơi không xác định
+### Cắt tỉa cây trò chơi không xác định
 
 Có thể sử dụng phiên bản cắt tỉa $
   pha$-$\beta$:
 
-![Hình ảnh](../TaiLieu/slide_md/figures/expectiminimax-pruning4.png)
+<img src="../TaiLieu/slide_md/figures/expectiminimax-pruning4.png" style="width:100%; height:auto;">
 
 ---
-## Cắt tỉa cây trò chơi không xác định
+### Cắt tỉa cây trò chơi không xác định
 
 Có thể sử dụng phiên bản cắt tỉa $
   pha$-$\beta$:
 
-![Hình ảnh](../TaiLieu/slide_md/figures/expectiminimax-pruning5.png)
+<img src="../TaiLieu/slide_md/figures/expectiminimax-pruning5.png" style="width:100%; height:auto;">
 
 ---
-## Cắt tỉa cây trò chơi không xác định
+### Cắt tỉa cây trò chơi không xác định
 
 Có thể sử dụng phiên bản cắt tỉa $
   pha$-$\beta$:
 
-![Hình ảnh](../TaiLieu/slide_md/figures/expectiminimax-pruning6.png)
+<img src="../TaiLieu/slide_md/figures/expectiminimax-pruning6.png" style="width:100%; height:auto;">
 
 ---
-## Cắt tỉa cây trò chơi không xác định
+### Cắt tỉa cây trò chơi không xác định
 
 Có thể sử dụng phiên bản cắt tỉa $
   pha$-$\beta$:
 
-![Hình ảnh](../TaiLieu/slide_md/figures/expectiminimax-pruning7.png)
+<img src="../TaiLieu/slide_md/figures/expectiminimax-pruning7.png" style="width:100%; height:auto;">
 
 ---
-## Cắt tỉa cây trò chơi không xác định
+### Cắt tỉa cây trò chơi không xác định
 
 Có thể sử dụng phiên bản cắt tỉa $
   pha$-$\beta$:
 
-![Hình ảnh](../TaiLieu/slide_md/figures/expectiminimax-pruning8.png)
+<img src="../TaiLieu/slide_md/figures/expectiminimax-pruning8.png" style="width:100%; height:auto;">
 
 ---
-## Tiếp tục cắt tỉa
+### Tiếp tục cắt tỉa
 
 Việc cắt tỉa xảy ra nhiều hơn nếu chúng ta có thể ràng buộc các giá trị lá
 
-![Hình ảnh](../TaiLieu/slide_md/figures/expectiminimax-bounded1.png)
+<img src="../TaiLieu/slide_md/figures/expectiminimax-bounded1.png" style="width:100%; height:auto;">
 
 ---
-## Tiếp tục cắt tỉa
+### Tiếp tục cắt tỉa
 
 Việc cắt tỉa xảy ra nhiều hơn nếu chúng ta có thể ràng buộc các giá trị lá
 
-![Hình ảnh](../TaiLieu/slide_md/figures/expectiminimax-bounded2.png)
+<img src="../TaiLieu/slide_md/figures/expectiminimax-bounded2.png" style="width:100%; height:auto;">
 
 ---
-## Tiếp tục cắt tỉa
+### Tiếp tục cắt tỉa
 
 Việc cắt tỉa xảy ra nhiều hơn nếu chúng ta có thể ràng buộc các giá trị lá
 
-![Hình ảnh](../TaiLieu/slide_md/figures/expectiminimax-bounded3.png)
+<img src="../TaiLieu/slide_md/figures/expectiminimax-bounded3.png" style="width:100%; height:auto;">
 
 ---
-## Tiếp tục cắt tỉa
+### Tiếp tục cắt tỉa
 
 Việc cắt tỉa xảy ra nhiều hơn nếu chúng ta có thể ràng buộc các giá trị lá
 
-![Hình ảnh](../TaiLieu/slide_md/figures/expectiminimax-bounded4.png)
+<img src="../TaiLieu/slide_md/figures/expectiminimax-bounded4.png" style="width:100%; height:auto;">
 
 ---
-## Tiếp tục cắt tỉa
+### Tiếp tục cắt tỉa
 
 Việc cắt tỉa xảy ra nhiều hơn nếu chúng ta có thể ràng buộc các giá trị lá
 
-![Hình ảnh](../TaiLieu/slide_md/figures/expectiminimax-bounded5.png)
+<img src="../TaiLieu/slide_md/figures/expectiminimax-bounded5.png" style="width:100%; height:auto;">
 
 ---
-## Tiếp tục cắt tỉa
+### Tiếp tục cắt tỉa
 
 Việc cắt tỉa xảy ra nhiều hơn nếu chúng ta có thể ràng buộc các giá trị lá
 
-![Hình ảnh](../TaiLieu/slide_md/figures/expectiminimax-bounded6.png)
+<img src="../TaiLieu/slide_md/figures/expectiminimax-bounded6.png" style="width:100%; height:auto;">

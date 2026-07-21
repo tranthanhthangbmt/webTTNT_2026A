@@ -1,0 +1,95 @@
+Slide 1: CHƯƠNG 11: LẬP KẾ HOẠCH TỰ ĐỘNG
+Người 1: Chào các em! Ở các bài trước, ta đã thấy AI giải quyết bài toán bằng cách lao đầu vào mò mẫm đường đi. Nhưng với những dự án khổng lồ như đưa tàu vũ trụ lên sao Hỏa hay xây dựng một tòa nhà, mò mẫm là tự sát. AI phải biết Lập Kế Hoạch (Planning).
+Người 2: Tức là nó phải vạch ra chiến lược dài hạn từ A đến Z, biết trước bước nào làm trước, bước nào làm sau trước khi thực sự bắt tay vào làm đúng không thưa thầy?
+
+Slide 2: NỘI DUNG CHƯƠNG 11
+Người 1: Chính xác! Chương 11 này sẽ giải phẫu cỗ máy Lập kế hoạch. Nội dung gồm 6 phần: Cú pháp của Lập kế hoạch cổ điển. Các thuật toán sinh kế hoạch. Cách nới lỏng bài toán để làm Heuristic. Khái niệm lập kế hoạch phân cấp (Từ trên xuống dưới). Cách đối phó khi kế hoạch đổ bể. Và cuối cùng là tích hợp Yếu tố Thời gian và Tài nguyên.
+
+Slide 3: 11.1 LẬP KẾ HOẠCH CỔ ĐIỂN (CLASSICAL PLANNING)
+Người 1: Lập kế hoạch cổ điển hiểu đơn giản là: Tôi có trạng thái Hiện tại, tôi có Mục tiêu, hãy đưa tôi một chuỗi Hành động.
+Ngôn ngữ chuẩn quốc tế để lập trình việc này tên là Pê Đê Đê Lờ (PDDL). Nó mô tả thế giới qua 2 thứ:
+Trạng thái: Bằng các phương trình logic.
+Hành động: Mỗi hành động sẽ có "Tiền điều kiện" (Nếu có cái này thì mới được làm) và "Hiệu ứng" (Làm xong thì sinh ra cái gì mới, xóa cái gì cũ).
+
+Slide 4: VÍ DỤ PDDL: VẬN CHUYỂN HÀNG KHÔNG
+Người 1: Mời các em nhìn ví dụ Pê Đê Đê Lờ đầu tiên: Vận chuyển hàng không. Ta có biến Hàng Hóa C và Máy bay P. 
+Hành động "Load" (Chất hàng lên) yêu cầu Tiền điều kiện là Hàng và Máy bay phải ở cùng một Sân bay. Khi thực hiện xong, Hiệu ứng sinh ra là: Hàng hóa đang nằm trong máy bay, và Hàng hóa không còn nằm ở Sân bay nữa. Cú pháp rất tường minh!
+
+Slide 5: VÍ DỤ PDDL: LỐP DỰ PHÒNG
+Người 1: Bài toán kinh điển thứ 2: Lắp lốp dự phòng. Mục tiêu là xe phải có lốp tốt gắn trên trục.
+Hành động "Tháo lốp xẹp" có Tiền điều kiện là: Lốp xẹp đang gắn trên trục. Hiệu ứng: Trục trống không, và lốp xẹp nằm trên mặt đất. 
+Người 2: Việc chia nhỏ hành động ra thành Tiền điều kiện và Hiệu ứng thế này giúp máy tính tự biết cách lắp ghép các hành động lại với nhau như chơi Lego vậy!
+
+Slide 6: THẾ GIỚI KHỐI VUÔNG (BLOCKS WORLD)
+Người 1: Bài toán kinh điển số 3 là Thế giới Khối vuông. Ở đây có một con robot chỉ có 1 cánh tay. Nó phải nhấc các khối gỗ A B C và xếp chồng lên nhau. 
+Luật chơi là tay robot chỉ nhấc được 1 khối mỗi lần. Và khối nào bị đè lên trên thì không thể bị nhấc. Bài toán này trông dễ với trẻ con nhưng lại từng làm điên đầu các thuật toán AI đời đầu!
+
+Slide 7: KẾ HOẠCH XÂY THÁP KHỐI VUÔNG
+Người 1: Hình ảnh này là một Kế hoạch xây tháp hoàn chỉnh. Từ trạng thái ngổn ngang ban đầu. Robot phải dỡ khối C ra khỏi khối A. Sau đó nhặt khối B đặt lên khối C. Rồi nhặt khối A đặt lên khối B. AI sẽ tự động sinh ra chuỗi kế hoạch này thông qua các thuật toán mà ta sắp học.
+
+Slide 8: 11.2 CÁC THUẬT TOÁN LẬP KẾ HOẠCH CỔ ĐIỂN
+Người 1: Có 2 thuật toán cơ bản: 
+Một là Tìm kiếm Tiến: Từ vạch xuất phát, thử mọi hành động có thể cho đến khi chạm đích. Cách này cực kỳ chậm vì bị bùng nổ tổ hợp.
+Hai là Tìm kiếm Lùi: Bắt đầu từ Đích! Xem hành động nào tạo ra cái Đích đó. Rồi lại xem hành động nào tạo ra cái Tiền điều kiện của hành động kia. Lùi dần lùi dần về điểm xuất phát. Cách này loại bỏ được vô vàn hành động vô ích!
+
+Slide 9: TÌM KIẾM TIẾN VÀ LÙI TRONG LẬP KẾ HOẠCH
+Người 1: Biểu đồ trên mô tả Tìm kiếm Tiến và Tìm kiếm Lùi. Trong thực tế, các bộ Lập kế hoạch hiện đại thích dùng Tìm kiếm Tiến hơn, vì họ đã phát minh ra được các hàm Heuristic cực kì sắc bén để dẫn đường cho máy tính đi thẳng đến đích mà không bị lạc.
+
+Slide 10: 11.3 CÁC HÀM TỰ SUY (HEURISTICS) CHO LẬP KẾ HOẠCH
+Người 1: Vậy làm sao AI tự nghĩ ra Heuristic hát ét-xì? Bằng một tuyệt chiêu gọi là "Nới lỏng" (Relaxation).
+Thay vì giải bài toán thật rất khó, máy tính sẽ giải một bài toán "dễ hơn", rồi lấy số bước của bài toán dễ đó làm chi phí Heuristic.
+Người 2: Tức là máy tính tự "ăn gian" nới lỏng luật chơi để ước lượng khoảng cách ạ? Nó ăn gian bằng cách nào thưa thầy?
+Người 1: Thường nó sẽ lờ đi các Tiền điều kiện khắt khe, hoặc xóa bỏ các "Hiệu ứng phủ định" (Những thứ bị phá hủy sau hành động). 
+
+Slide 11: HEURISTIC: BỎ QUA DANH SÁCH XÓA
+Người 1: Sơ đồ này minh họa việc Bỏ qua Danh sách Xóa. Ví dụ, để đổ móng nhà, em phải phá căn nhà cũ đi. Việc phá nhà cũ là một hiệu ứng bị xóa (Negative effect). Máy tính sẽ "ăn gian" tưởng tượng ra một thế giới song song: Nơi em có thể xây nhà mới mà KHÔNG cần phá nhà cũ! Nó sẽ giải bài toán ảo tưởng đó siêu nhanh để làm La bàn định hướng cho bài toán thật. 
+
+Slide 12: 11.4 LẬP KẾ HOẠCH PHÂN CẤP (HIERARCHICAL PLANNING)
+Người 1: Tuy nhiên, nếu áp dụng lập kế hoạch cổ điển cho một công việc như "Đi du lịch nghỉ dưỡng 2 tuần", AI sẽ bị chết đuối trong hàng tỷ thao tác nhỏ như xỏ giày, gọi xe, trả tiền. 
+Con người không tư duy như thế! Ta tư duy Phân cấp. Ta tạo ra một Kế hoạch Cấp cao: Đi taxi ra sân bay, bay đến Hawaii, nhận phòng khách sạn. 
+Người 2: Xong rồi mình mới bẻ nhỏ cái "Đi taxi" ra thành các hành động nguyên thủy như: Gọi điện, Mở cửa, Lên xe. Đúng không ạ?
+Người 1: Quá chuẩn! Khái niệm đó gọi là Hành động Cấp cao (Hát Lờ A). Quá trình bẻ nhỏ gọi là Tinh chỉnh (Refinement).
+
+Slide 13: TINH CHỈNH HÀNH ĐỘNG CẤP CAO
+Người 1: Hình ảnh này mô tả việc Tinh chỉnh Hát Lờ A "Tới sân bay SFO". Nó bẻ ra thành: Mở app Uber, Đặt xe, Lên xe, Tới nơi.
+Điều tuyệt vời là những đoạn kế hoạch này có thể được lưu vào Thư viện. Lần sau AI muốn ra sân bay, nó chỉ việc lôi đoạn mã này ra ráp vào, không phải suy nghĩ lại từ đầu!
+
+Slide 14: THUẬT TOÁN TÌM KIẾM LẬP KẾ HOẠCH PHÂN CẤP
+Người 1: Đây là thuật toán Tìm kiếm Phân cấp. Nó hoạt động y hệt thuật toán duyệt Đồ thị theo chiều rộng, nhưng thay vì duyệt điểm ảnh, nó duyệt các Hành động Cấp cao, liên tục tinh chỉnh bẻ nhỏ chúng ra cho đến khi toàn bộ kế hoạch chỉ còn là các lệnh nguyên thủy có thể thực thi ngay lập tức.
+
+Slide 15: TẬP HỢP CÓ THỂ ĐẠT ĐƯỢC (REACHABLE SETS)
+Người 1: Đồ thị này minh họa Không gian trạng thái của việc Tinh chỉnh. Thay vì phải duyệt từng bước li ti ngoằn ngoèo, Kế hoạch Cấp cao nhảy vọt một phát từ trạng thái A sang hẳn trạng thái B ở cách xa hàng ngàn km. Giúp AI nhìn nhận đại cục rất tốt.
+
+Slide 16: ĐẠT MỤC TIÊU VỚI MÔ TẢ XẤP XỈ
+Người 1: Sơ đồ này chứng minh rằng bằng các mô tả xấp xỉ, AI có thể tự tin tuyên bố: "Tôi chắc chắn Kế hoạch này sẽ thành công", ngay cả khi nó chưa thèm bẻ nhỏ chi tiết bên trong! Nó giúp bộ não bỏ qua các bước kiểm tra vụn vặt mất thời gian.
+
+Slide 17: 11.5 LẬP KẾ HOẠCH TRONG MÔI TRƯỜNG KHÔNG TẤT ĐỊNH
+Người 1: Kế hoạch là một chuyện, nhưng đời không như mơ. Đang đi Uber ra sân bay thì nổ lốp xe! 
+Để đối phó, AI có 3 hướng giải quyết. Thứ nhất là Kế hoạch Phi cảm biến: Nghĩ ra một kế hoạch bá đạo bao trùm mọi rủi ro. Mù tịt cũng làm được.
+Thứ hai là Kế hoạch Dự phòng: Viết sẵn nhánh IF-ELSE. "Nếu nổ lốp thì gọi xe khác".
+Thứ ba là Giám sát Trực tuyến: Vừa làm vừa nhìn. Nếu thấy sai thì lập tức kêu gọi tính toán Lập kế hoạch lại (Re-planning).
+
+Slide 18: LẬP KẾ HOẠCH PHÂN CẤP VỚI NGỮ NGHĨA THIÊN THẦN
+Người 1: Mã giả này là bản nâng cấp của thuật toán Phân cấp, sử dụng "Ngữ nghĩa Thiên thần" (Angelic Semantics). Chữ Thiên thần ở đây ngụ ý AI sẽ lạc quan giả định rằng trong các lựa chọn rẽ nhánh mờ mịt, nó sẽ luôn vớ được nhánh tốt nhất. Kỹ thuật này giúp cắt tỉa bớt sự tính toán dư thừa.
+
+Slide 19: GIÁM SÁT HÀNH ĐỘNG (ACTION MONITORING)
+Người 1: Sơ đồ khối của quá trình Giám sát Hành động. Kế hoạch (Plan) được nạp vào để Thực thi (Execute). Song song đó, mắt AI liên tục cập nhật Trạng thái hiện tại. Nếu Trạng thái bị chệch khỏi đường ray, nó lập tức kích hoạt khối Re-plan (Lập kế hoạch lại từ đầu) để tự cứu mình!
+
+Slide 20: 11.6 THỜI GIAN, LỊCH TRÌNH VÀ TÀI NGUYÊN
+Người 1: Cuối cùng, Pê Đê Đê Lờ cơ bản bị mù thời gian. Nó nghĩ các hành động nối đuôi nhau.
+Thực tế, em có thể làm nhiều việc song song. Ví dụ máy 1 sản xuất gầm xe, máy 2 sản xuất vô lăng. Bài toán AI lúc này chuyển thành: Lập lịch biểu Công việc (Job-shop scheduling) dưới sự hạn hẹp của Thời gian và Tài nguyên.
+
+Slide 21: BÀI TOÁN LẬP LỊCH BIỂU CÔNG VIỆC
+Người 1: Hình ảnh bài toán lắp ráp 2 cái ô tô. Ta có các ràng buộc tài nguyên cực kì gắt gao: Phải kiểm tra động cơ xong thì mới được gắn vô lăng. Chỉ có đúng 1 cái máy ráp động cơ. AI phải sắp xếp sao cho không máy nào bị rảnh rỗi, và thời gian hoàn thành 2 xe là nhanh nhất!
+
+Slide 22: RÀNG BUỘC THỜI GIAN VÀ ĐƯỜNG GĂNG (CRITICAL PATH)
+Người 1: Để giải bài toán trên, người ta dùng Phương pháp Đường găng (Cê Pê Mờ).
+Đường găng là chuỗi các công việc nối tiếp nhau quyết định thời gian sinh tử của dự án. Trên Đường găng, Thời gian Trễ (Slack) bằng Không! Mọi sự chậm trễ trên đường này sẽ làm cả dự án bị muộn theo!
+
+Slide 23: GIẢI PHÁP LẬP LỊCH TỐI ƯU
+Người 1: Bằng các thuật toán AI rẽ nhánh, máy tính đã vẽ ra biểu đồ Gantt hoàn hảo này. Chiếc xe thứ nhất hoàn thành ở phút 85. Chiếc thứ hai hoàn thành ở phút 115. Các công việc đan xen kẽ nhau tận dụng tối đa tài nguyên máy móc. Không một bộ óc con người nào có thể tự nhẩm ra lịch trình hoàn mỹ này trong vài giây cả.
+
+Slide 24: TÓM TẮT CHƯƠNG 11
+Người 1: Chốt lại, AI không chỉ biết phá án logic mà còn là một Giám đốc quản lý dự án xuất chúng. Bằng ngôn ngữ Pê Đê Đê Lờ, nó bẻ nhỏ thế giới. Nó dùng Heuristic nới lỏng để tìm đường. Nó lập kế hoạch Phân cấp như con người. Và dùng thuật toán Đường găng Cê Pê Mờ để tối ưu hóa thời gian và tài nguyên xưởng sản xuất!
+Người 2: Quả thực, ứng dụng của chương này vào hệ thống tự động hóa và chuỗi cung ứng là không thể đong đếm được. Em cảm ơn thầy!
+Người 1: Rất tốt, mong các em nắm vững bài này để làm đồ án cuối kỳ. Tạm biệt lớp!

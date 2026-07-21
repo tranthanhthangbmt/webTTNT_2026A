@@ -140,9 +140,9 @@ nếu \note{đối tượng} được đề cập bởi \mat{$term_1,\ldots,term
 nằm trong mối quan hệ \note{} được đề cập bởi \mat{$predicate$}
 
 ---
-## Mô hình cho FOL: Ví dụ
+### Mô hình cho FOL: Ví dụ
 
-![Hình ảnh](../TaiLieu/slide_md/figures/fol-model.png)
+<img src="../TaiLieu/slide_md/figures/fol-model.png" style="width:100%; height:auto;">
 
 ---
 ## Ví dụ về sự thật
@@ -426,7 +426,7 @@ liệu những quảng trường ở xa hố có thể mát mẻ không
       \mat{$\All{y}  Breezy(y)  \lequiv [\Exi{x} Pit(x) \land Adjacent(x,y)]$}
 
 ---
-## Theo dõi sự thay đổi
+### Theo dõi sự thay đổi
 
 Sự thật tồn tại trong \defn{tình huống}, thay vì vĩnh viễn
 
@@ -442,7 +442,7 @@ Các tình huống được kết nối bằng chức năng \mat{$Result$}
 
 \mat{$Result(a,s)$} là tình huống xảy ra do thực hiện \mat{$a$} trong \mat{$s$}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/situations2.png)
+<img src="../TaiLieu/slide_md/figures/situations2.png" style="width:100%; height:auto;">
 
 ---
 ## Mô tả hành động I

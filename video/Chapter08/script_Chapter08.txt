@@ -1,0 +1,76 @@
+Slide 1: CHƯƠNG 08: LOGIC BẬC NHẤT (FIRST-ORDER LOGIC)
+Người 1: Chào các em! Ở bài trước ta thấy Logic Mệnh đề có điểm nghẽn là không thể khai báo quy luật phổ quát. Hôm nay ta sẽ học "Logic Bậc Nhất", viết tắt là FOL. Đây là bước tiến vĩ đại giúp AI hiểu được thế giới bằng ngôn ngữ linh hoạt hệt như tiếng mẹ đẻ của con người!
+Người 2: Có phải Logic Bậc Nhất sẽ có công thức dạng "Mọi người đều phải chết", thay vì khai báo từng người một không ạ?
+
+Slide 2: NỘI DUNG CHƯƠNG 8
+Người 1: Hoàn toàn chính xác! Để hiểu nó, ta đi qua 4 phần. Đầu tiên ta xem lại nhược điểm của Logic Mệnh đề. Phần thứ hai rất quan trọng: Cú pháp và Ngữ pháp của FOL. Thứ ba là cách thiết lập tri thức. Và cuối cùng là Kỹ nghệ Tri thức, biến sự vật thực tế ngoài đời thành phương trình.
+
+Slide 3: 8.1 HẠN CHẾ CỦA LOGIC MỆNH ĐỀ
+Người 1: Nhắc lại một chút, Logic Mệnh đề rất dễ lập trình và các máy tính hiện đại có thể giải nó cực nhanh.
+Người 2: Dạ vâng, nhưng hôm trước thầy bảo để miêu tả Mê cung 10x10 thì ta phải viết cả ngàn phương trình thủ công. 
+Người 1: Đúng vậy! Lý do là Logic Mệnh đề nhìn thế giới thành từng khối "sự thật" nguyên khối rời rạc. Nó chả biết "Ô 2 phẩy 1" và "Ô 2 phẩy 2" là cùng một thứ gọi là "Ô". Nó không có tính khái quát, dẫn tới sự bùng nổ phương trình toán học khi thế giới phình to ra.
+
+Slide 4: SỰ KHÁC BIỆT VỀ BIỂU DIỄN THẾ GIỚI
+Người 1: Sơ đồ này cho ta thấy sự khác biệt về Khả năng Biểu diễn. Logic Mệnh đề chỉ chứa Fact, tức là Sự thật. Trong khi FOL được thiết kế sâu sắc hơn, nó chia thế giới thành Đối tượng (Object), Quan hệ (Relation) và Các phép biến đổi. 
+
+Slide 5: 8.2 CÚ PHÁP VÀ NGỮ NGHĨA CỦA LOGIC BẬC NHẤT
+Người 1: Vũ khí tối thượng của FOL là khả năng chia nhỏ thực tại thành 3 phần:
+Thứ nhất: Đối tượng. Bất cứ thứ gì sờ được, đặt tên được. Ví dụ: con người, căn nhà, cái hố.
+Thứ hai: Quan hệ. Sự liên kết giữa 2 đối tượng trả về Đúng hoặc Sai. Ví dụ: "Là anh em của", "lớn hơn".
+Thứ ba: Hàm số. Biến đối tượng này thành đối tượng khác. Ví dụ: "Cha của".
+Người 2: Vậy nếu em nói "Cha của Richard là anh em với vua John". Thì Richard và John là Đối tượng, "Hàm Cha của Richard" là Hàm số. Và "Quan hệ Anh em giữa Cha của Richard và John" là Quan hệ đúng không thầy?
+Người 1: Quá xuất sắc! Em đã nắm được cốt lõi ngôn ngữ của vạn vật.
+
+Slide 6: KÝ HIỆU CÚ PHÁP CỦA FOL
+Người 1: Sơ đồ BNF này miêu tả chặt chẽ ngữ pháp toán học của FOL. Nhìn có vẻ rối rắm nhưng thực ra nó chỉ tuân theo quy tắc chia nhỏ làm 3 phần như thầy vừa nói. Ta sẽ xem chi tiết ở slide tiếp theo.
+
+Slide 7: KÝ HIỆU CÚ PHÁP CỦA FOL (TIẾP THEO)
+Người 1: Các ký hiệu chuẩn quốc tế như sau:
+Hằng số để gọi tên một vật duy nhất, viết hoa chữ cái đầu. Ví dụ: Richard.
+Biến số là các đại từ nhân xưng, viết thường. Ví dụ: ích, y dài, zét.
+Vị từ thì đóng vai trò là Quan hệ. Ví dụ: Vị từ Vua của ích. 
+Và tất nhiên, FOL vẫn dùng ké 5 cổng Logic cũ: phủ định, và, hoặc, suy ra, tương đương.
+
+Slide 8: CÁC LƯỢNG TỪ (QUANTIFIERS)
+Người 1: Bây giờ là báu vật của FOL: Lượng từ! 
+Lượng từ Phổ quát ký hiệu là chữ A viết ngược, đọc là "Với mọi". Ví dụ: Với mọi ích, nếu ích là Vua thì suy ra ích là Người. Nhớ kĩ: Với mọi thì luôn đi kèm dấu Suy ra!
+Lượng từ Tồn tại ký hiệu là chữ E viết ngược. Đọc là "Tồn tại". Ví dụ: Tồn tại y dài sao cho y dài là Vương miện và y dài Đội trên đầu John. Nhớ kĩ: Tồn tại thì luôn đi kèm với dấu VÀ!
+
+Slide 9: LƯỢNG TỪ LỒNG NHAU (NESTED QUANTIFIERS)
+Người 2: Thầy ơi, lỡ em trộn cả hai lượng từ vào một câu thì sao ạ?
+Người 1: Khi đó ta tạo ra được những triết lý cực kì sâu sắc! Cùng xem nhé:
+Với mọi ích, tồn tại y dài sao cho ích Yêu y dài. Nghĩa là: Mọi người đều có một tình yêu của đời mình. 
+Nhưng nếu đảo ngược lại: Tồn tại y dài, sao cho với mọi ích, thì ích Yêu y dài. Nghĩa là: Cả thế giới này đều yêu chung một người duy nhất đó!
+Người 2: Wow, chỉ cần đảo thứ tự "Với mọi" và "Tồn tại" mà ý nghĩa khác một trời một vực!
+Người 1: Đúng vậy! Và nhớ luật De Morgan: Với mọi ích, phủ định của Pê ích, tương đương với Không tồn tại ích nào thỏa mãn Pê ích. Và ngược lại: Tồn tại ích sao cho phủ định của Pê ích, tương đương với Không phải với mọi ích đều thỏa mãn Pê ích.
+
+Slide 10: NGỮ NGHĨA VÀ GIẢI NGHĨA TRONG FOL
+Người 1: Hình ảnh này mô tả Ngữ nghĩa của 1 phương trình FOL. Một mô hình vật lý ở ngoài thực tế có 5 đối tượng: Vua John, Vua Richard, Cái vương miện... Các Vị từ và Quan hệ đóng vai trò là những sợi dây thừng móc các đối tượng đó lại với nhau. AI sẽ dựa vào phương trình để vẽ ra các sợi dây thừng này trong não.
+
+Slide 11: 8.3 SỬ DỤNG LOGIC BẬC NHẤT
+Người 1: Bây giờ, ta ứng dụng nó vào Mê cung Wumpus World hôm trước. Giờ ta không viết thủ công nữa. Ta dùng luật khái quát:
+Với mọi ích và thời gian tê, nếu nhận thấy Lấp lánh tại tê, suy ra Hành động Nhặt tại tê!
+Người 2: Tuyệt quá, một phương trình bé xíu này có thể dùng cho hàng vạn ô vuông trong bản đồ mà không cần copy paste ra hàng vạn dòng! AI biết được hễ cứ lấp lánh là nhặt nhặt nhặt!
+
+Slide 12: TẬP HỢP CÁC MÔ HÌNH TRONG FOL
+Người 1: Slide này cho thấy sự đa dạng của FOL. Nếu em chỉ định nghĩa 2 đối tượng là R và J. Máy tính có thể tự động bành trướng ra vô vàn mô hình vũ trụ song song: Vũ trụ mà R trùng với J, Vũ trụ R khác J, Vũ trụ R anh em với J, v vân v vân.
+
+Slide 13: NGỮ NGHĨA CƠ SỞ DỮ LIỆU
+Người 1: Tuy nhiên trong Cơ sở Dữ liệu (Database), ta phải quy ước chặt chẽ hơn. R khác J, và ai được liệt kê thì mới có thật (Closed-world assumption). Nếu không, AI sẽ tốn quá nhiều RAM để suy nghĩ về những thế giới ảo tưởng không tồn tại.
+
+Slide 14: QUY TẮC CHẨN ĐOÁN VÀ QUY TẮC NHÂN QUẢ
+Người 1: Khi thiết kế tri thức, các em phải cực kỳ cẩn thận chiều mũi tên "Suy ra".
+Quy tắc Chẩn đoán là nhìn Kết quả đoán Nguyên nhân: Với mọi ét-xì, nếu ét-xì có Gió, suy ra tồn tại ô e-rờ sao cho e-rờ kề bên ét-xì và e-rờ có Hố.
+Quy tắc Nhân quả thì ngược lại: Với mọi e-rờ, nếu e-rờ có Hố, suy ra với mọi ét-xì, nếu ét-xì kề bên e-rờ thì ét-xì có Gió. 
+Quy tắc Nhân quả thì AI dễ hiểu hơn, nhưng Quy tắc Chẩn đoán lại giống cách bác sĩ chẩn bệnh ở người hơn.
+
+Slide 15: 8.4 KỸ NGHỆ TRI THỨC TRONG FOL
+Người 1: Làm sao để chuyển đổi thế giới thực thành các đoạn code toán học này? Đó là ngành "Kỹ nghệ tri thức" - Knowledge Engineering. Có 7 bước cơ bản: Từ xác định bài toán, chuẩn hóa từ vựng, viết định lý, đến đặt câu hỏi (ASK), và cuối cùng là kiểm lỗi sửa bug nếu AI trả lời sai thực tế.
+
+Slide 16: ỨNG DỤNG KỸ NGHỆ TRI THỨC: HỆ THỐNG MẠCH
+Người 1: Ứng dụng khổng lồ của FOL là kiểm thử phần cứng bán dẫn. Các kỹ sư của Intel dùng FOL để biến toàn bộ mạch điện tử thành phương trình logic. AI sẽ dựa vào phương trình FOL để dò ra đoạn dây điện nào đang bị đứt ngầm trong một CPU có hàng tỷ bóng bán dẫn! Không có con người nào dò tay nổi bảng mạch này.
+
+Slide 17: TÓM TẮT CHƯƠNG 8
+Người 1: Tổng kết lại: FOL khắc phục hoàn hảo điểm yếu của Logic mệnh đề bằng cách chẻ thế giới ra thành Đối tượng, Quan hệ và Hàm số. Với sức mạnh của các lượng từ "Với mọi" và "Tồn tại", một phương trình FOL có sức mạnh khái quát hóa hàng tỷ trường hợp cụ thể. Các chuyên gia Kỹ nghệ Tri thức dùng ngôn ngữ này để dạy AI vận hành bệnh viện, chuẩn đoán bệnh hay sửa vi mạch máy tính!
+Người 2: Quả thực FOL giống hệt ngôn ngữ tự nhiên của con người thầy ạ, nhưng chặt chẽ và không có ngoại lệ. Cảm ơn thầy vì bài giảng rất ấn tượng!
+Người 1: Rất vui vì các em đã hiểu sâu sắc. Chào các em, chúc các em áp dụng hiệu quả nhé!

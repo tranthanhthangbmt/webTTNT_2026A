@@ -107,12 +107,12 @@ Công thức xác suất của SLAM:
  tiến hành như đối với việc bản địa hóa
 
 ---
-## Tiếp theo ánh xạ 
+### Tiếp theo ánh xạ 
 
  &nbsp;&nbsp;&nbsp;&nbsp; 
 
-\epsfysize=0.37\textheight![Hình ảnh](../TaiLieu/slide_md/figures/arena033.png) &nbsp;&nbsp;&nbsp;&nbsp; \epsfysize=0.37\textheight![Hình ảnh](../TaiLieu/slide_md/figures/arena034.png)
-\epsfysize=0.37\textheight![Hình ảnh](../TaiLieu/slide_md/figures/arena033.png) &nbsp;&nbsp;&nbsp;&nbsp; \epsfysize=0.37\textheight![Hình ảnh](../TaiLieu/slide_md/figures/arena034.png)
+\epsfysize=0.37\textheight<img src="../TaiLieu/slide_md/figures/arena033.png" style="width:100%; height:auto;"> &nbsp;&nbsp;&nbsp;&nbsp; \epsfysize=0.37\textheight<img src="../TaiLieu/slide_md/figures/arena034.png" style="width:100%; height:auto;">
+\epsfysize=0.37\textheight<img src="../TaiLieu/slide_md/figures/arena033.png" style="width:100%; height:auto;"> &nbsp;&nbsp;&nbsp;&nbsp; \epsfysize=0.37\textheight<img src="../TaiLieu/slide_md/figures/arena034.png" style="width:100%; height:auto;">
 
 ---
 ## Ví dụ về bản đồ 3D
@@ -225,7 +225,7 @@ Harris \& Wolpert (*Nature*, 1998): nhiễu phụ thuộc vào tín hiệu
 giải thích hồ sơ vận tốc mắt chớp một cách hoàn hảo
 
 ---
-## Cài đặt
+### Cài đặt
 
 Giả sử một bộ điều khiển có các tham số điều khiển "dự kiến" $\theta_0$
 
@@ -233,7 +233,7 @@ bị hỏng do nhiễu, tạo ra $\theta$ được rút ra từ $P_{\theta_0}$
 
 Đầu ra (ví dụ: khoảng cách từ mục tiêu) $y = F(\theta)$; 
 
-![Hình ảnh](../TaiLieu/slide_md/figures/arm-setup.png)
+<img src="../TaiLieu/slide_md/figures/arm-setup.png" style="width:100%; height:auto;">
 
 ---
 ## Thuật toán học đơn giản: Độ dốc ngẫu nhiên
@@ -266,24 +266,24 @@ $P_{\theta_0}(\theta) = N(\theta_0,\Sigma)$, chúng tôi thu được
 \]
 
 ---
-## Thuật toán đang làm gì
+### Thuật toán đang làm gì
 
-![Hình ảnh](../TaiLieu/slide_md/figures/control-noise-distort.png)
-
----
-## Kết quả cho bộ điều khiển 2--D
-
- ![Hình ảnh](../TaiLieu/slide_md/figures/progress3-theta.png) 
+<img src="../TaiLieu/slide_md/figures/control-noise-distort.png" style="width:100%; height:auto;">
 
 ---
-## Kết quả cho bộ điều khiển 2--D
+### Kết quả cho bộ điều khiển 2--D
 
- ![Hình ảnh](../TaiLieu/slide_md/figures/progress3-theta-zoom.png) 
+ <img src="../TaiLieu/slide_md/figures/progress3-theta.png" style="width:100%; height:auto;"> 
 
 ---
-## Kết quả cho bộ điều khiển 2--D
+### Kết quả cho bộ điều khiển 2--D
 
- ![Hình ảnh](../TaiLieu/slide_md/figures/progress3-score.png) 
+ <img src="../TaiLieu/slide_md/figures/progress3-theta-zoom.png" style="width:100%; height:auto;"> 
+
+---
+### Kết quả cho bộ điều khiển 2--D
+
+ <img src="../TaiLieu/slide_md/figures/progress3-score.png" style="width:100%; height:auto;"> 
 
 ---
 ## Tóm tắt

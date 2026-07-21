@@ -18,6 +18,11 @@
   <iframe src="TaiLieu/slide/chapter25.pdf" width="100%" height="100%"></iframe>
 </div>
 
+#### **Video**
+
+<div class="pdf-container" style="margin-bottom: 20px;">
+  <iframe src="video/Chapter25/index.html" width="100%" height="100%"></iframe>
+</div>
 
 #### **Trắc nghiệm**
 *(Chưa có bài tập trắc nghiệm)*
@@ -83,7 +88,7 @@ probability distribution over $X$.<br>
 
 ---
 
-##### Bài tập 25.2
+###### Bài tập 25.2
 
 Implement Monte Carlo localization for a
 simulated robot with range sensors. A grid map and range data are
@@ -174,7 +179,7 @@ for 10 interesting maps. What is the complexity of your algorithm?
 
 ---
 
-##### Bài tập 25.8
+###### Bài tập 25.8
 
 This exercise explores the relationship between
 workspace and configuration space using the examples shown in
@@ -242,7 +247,7 @@ Figure <a class="insideExercisesFigRef"  href="#FigEx2">FigEx2</a>.
 
 ---
 
-##### Bài tập 25.9
+###### Bài tập 25.9
 
 Consider a mobile robot moving on a horizontal surface. Suppose that the
 robot can execute two kinds of motions:<br>

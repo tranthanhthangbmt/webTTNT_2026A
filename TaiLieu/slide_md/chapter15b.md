@@ -66,13 +66,13 @@ ARPAbet được thiết kế cho tiếng Anh Mỹ
 Ví dụ: " trần " là [s iy l ih ng] / [s iy l ix ng] / [s iy l en]
 
 ---
-## Âm thanh lời nói
+### Âm thanh lời nói
 
 Tín hiệu thô là độ dịch chuyển của micrô theo hàm thời gian;
 
 được xử lý thành các khung hình 30ms \defn{} chồng chéo, mỗi khung được mô tả bởi \defn{features}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/sr-acoustic-frames.png)
+<img src="../TaiLieu/slide_md/figures/sr-acoustic-frames.png" style="width:100%; height:auto;">
 
 Các tính năng của khung thường là \defn{formants} --- các đỉnh trong phổ công suất
 
@@ -102,18 +102,18 @@ có quán tính và không thể chuyển đổi tức thời giữa các vị t
 Ví dụ: [t] trong "thứ tám" có lưỡi chạm vào răng cửa
 
 ---
-## Ví dụ về mẫu điện thoại
+### Ví dụ về mẫu điện thoại
 
-![Hình ảnh](../TaiLieu/slide_md/figures/sr-hmm.png)
+<img src="../TaiLieu/slide_md/figures/sr-hmm.png" style="width:100%; height:auto;">
 
 ---
-## Mô hình phát âm từ
+### Mô hình phát âm từ
 
 Mỗi từ được mô tả như một sự phân bố qua các chuỗi điện thoại
 
 Phân phối được biểu diễn dưới dạng mô hình chuyển tiếp HMM
 
-![Hình ảnh](../TaiLieu/slide_md/figures/sr-tomato-b.png)
+<img src="../TaiLieu/slide_md/figures/sr-tomato-b.png" style="width:100%; height:auto;">
 
 \mat{\begin{formula}
 P([towmeytow]|\mbox{"tomato"}) = P([towmaatow]|\mbox{"tomato"}) = 0.1 
@@ -195,9 +195,9 @@ Jelinek đã phát minh ra A$^*$ vào năm 1969 một cách để tìm chuỗi t
    trong đó " chi phí bước " là \mat{$-\log P(w_i|w_{i-1})$}
 
 ---
-## DBN để nhận dạng giọng nói
+### DBN để nhận dạng giọng nói
 
-![Hình ảnh](../TaiLieu/slide_md/figures/speech-dbn.png)
+<img src="../TaiLieu/slide_md/figures/speech-dbn.png" style="width:100%; height:auto;">
 
 Cũng dễ dàng thêm các biến cho, ví dụ: giới tính, giọng nói, tốc độ.
 

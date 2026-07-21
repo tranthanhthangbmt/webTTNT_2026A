@@ -21,11 +21,11 @@
 - Giám sát và lập kế hoạch lại
 
 ---
-## Thế giới thực
+### Thế giới thực
 
-![Hình ảnh](../TaiLieu/slide_md/figures/flat-tire-picture.png)
+<img src="../TaiLieu/slide_md/figures/flat-tire-picture.png" style="width:100%; height:auto;">
 
-![Hình ảnh](../TaiLieu/slide_md/figures/flat-tire-model.png)
+<img src="../TaiLieu/slide_md/figures/flat-tire-model.png" style="width:100%; height:auto;">
 
 ---
 ## Có vấn đề xảy ra
@@ -84,14 +84,14 @@
        
 
 ---
-## Lập kế hoạch phù hợp
+### Lập kế hoạch phù hợp
 
 Tìm kiếm trong không gian của \txb{trạng thái niềm tin} (tập hợp các trạng thái thực tế có thể có)
 
-![Hình ảnh](../TaiLieu/slide_md/figures/vacuum2-sets.png)
+<img src="../TaiLieu/slide_md/figures/vacuum2-sets.png" style="width:100%; height:auto;">
 
 ---
-## Lập kế hoạch có điều kiện
+### Lập kế hoạch có điều kiện
 
 Nếu thế giới không xác định hoặc có thể quan sát được một phần
   
@@ -99,7 +99,7 @@ Nếu thế giới không xác định hoặc có thể quan sát được một
   
   tức là, \txr*chia tách * trạng thái niềm tin
 
-![Hình ảnh](../TaiLieu/slide_md/figures/contingent-percepts.png)
+<img src="../TaiLieu/slide_md/figures/contingent-percepts.png" style="width:100%; height:auto;">
 
 ---
 ## Lập kế hoạch có điều kiện tiếp theo.
@@ -119,18 +119,18 @@ Cần \txr*một số * kế hoạch cho \txr*mọi * nhận thức có thể
 AND--OR tìm kiếm cây (rất giống với thuật toán xâu chuỗi ngược)
 
 ---
-## Ví dụ
+### Ví dụ
 
 Double Murphy: hút hoặc đến có thể làm bẩn một hình vuông sạch sẽ
 
-![Hình ảnh](../TaiLieu/slide_md/figures/vacuum-cond-plan.png)
+<img src="../TaiLieu/slide_md/figures/vacuum-cond-plan.png" style="width:100%; height:auto;">
 
 ---
-## Ví dụ
+### Ví dụ
 
 Triple Murphy: đôi khi cũng đứng yên thay vì di chuyển
 
-![Hình ảnh](../TaiLieu/slide_md/figures/vacuum-loop-plan.png)
+<img src="../TaiLieu/slide_md/figures/vacuum-loop-plan.png" style="width:100%; height:auto;">
 
 $[L_1:\ Left, \condstep{AtR}{L_1}{[\condstep{CleanL}{\noplan}{Suck}]}]$
 
@@ -158,49 +158,49 @@ IPEM (Lập kế hoạch, thực thi và giám sát tích hợp):
   liên kết từ các hành động được thay thế bằng liên kết từ $Start$ khi hoàn tất
 
 ---
-## Ví dụ
+### Ví dụ
 
-\centerline{\raisebox{-0.9\textheight}[0pt][0pt]{\epsfysize=0.95\textheight![Hình ảnh](../TaiLieu/slide_md/figures/plan-preconditions1.png)}
-
----
-## Ví dụ
-
-\centerline{\raisebox{-0.9\textheight}[0pt][0pt]{\epsfysize=0.95\textheight![Hình ảnh](../TaiLieu/slide_md/figures/plan-preconditions2.png)}
+\centerline{\raisebox{-0.9\textheight}[0pt][0pt]{\epsfysize=0.95\textheight<img src="../TaiLieu/slide_md/figures/plan-preconditions1.png" style="width:100%; height:auto;">}
 
 ---
-## Ví dụ
+### Ví dụ
 
-\centerline{\raisebox{-0.9\textheight}[0pt][0pt]{\epsfysize=0.95\textheight![Hình ảnh](../TaiLieu/slide_md/figures/plan-preconditions3.png)}
-
----
-## Ví dụ
-
-\centerline{\raisebox{-0.9\textheight}[0pt][0pt]{\epsfysize=0.95\textheight![Hình ảnh](../TaiLieu/slide_md/figures/plan-preconditions4.png)}
+\centerline{\raisebox{-0.9\textheight}[0pt][0pt]{\epsfysize=0.95\textheight<img src="../TaiLieu/slide_md/figures/plan-preconditions2.png" style="width:100%; height:auto;">}
 
 ---
-## Ví dụ
+### Ví dụ
 
-\centerline{\raisebox{-0.9\textheight}[0pt][0pt]{\epsfysize=0.95\textheight![Hình ảnh](../TaiLieu/slide_md/figures/plan-preconditions5.png)}
-
----
-## Ví dụ
-
-\centerline{\raisebox{-0.9\textheight}[0pt][0pt]{\epsfysize=0.95\textheight![Hình ảnh](../TaiLieu/slide_md/figures/plan-preconditions6.png)}
+\centerline{\raisebox{-0.9\textheight}[0pt][0pt]{\epsfysize=0.95\textheight<img src="../TaiLieu/slide_md/figures/plan-preconditions3.png" style="width:100%; height:auto;">}
 
 ---
-## Hành vi mới nổi 
+### Ví dụ
 
-![Hình ảnh](../TaiLieu/slide_md/figures/replanning-paint2.png)
-
----
-## Hành vi mới nổi 
-
-![Hình ảnh](../TaiLieu/slide_md/figures/replanning-paint3.png)
+\centerline{\raisebox{-0.9\textheight}[0pt][0pt]{\epsfysize=0.95\textheight<img src="../TaiLieu/slide_md/figures/plan-preconditions4.png" style="width:100%; height:auto;">}
 
 ---
-## Hành vi mới nổi 
+### Ví dụ
 
-![Hình ảnh](../TaiLieu/slide_md/figures/replanning-paint3.png)
+\centerline{\raisebox{-0.9\textheight}[0pt][0pt]{\epsfysize=0.95\textheight<img src="../TaiLieu/slide_md/figures/plan-preconditions5.png" style="width:100%; height:auto;">}
+
+---
+### Ví dụ
+
+\centerline{\raisebox{-0.9\textheight}[0pt][0pt]{\epsfysize=0.95\textheight<img src="../TaiLieu/slide_md/figures/plan-preconditions6.png" style="width:100%; height:auto;">}
+
+---
+### Hành vi mới nổi 
+
+<img src="../TaiLieu/slide_md/figures/replanning-paint2.png" style="width:100%; height:auto;">
+
+---
+### Hành vi mới nổi 
+
+<img src="../TaiLieu/slide_md/figures/replanning-paint3.png" style="width:100%; height:auto;">
+
+---
+### Hành vi mới nổi 
+
+<img src="../TaiLieu/slide_md/figures/replanning-paint3.png" style="width:100%; height:auto;">
 
 Hành vi "Lặp lại cho đến khi thành công" \txr*xuất hiện* từ sự tương tác giữa 
 giám sát/lập kế hoạch lại thiết kế đại lý và môi trường không hợp tác

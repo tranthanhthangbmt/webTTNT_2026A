@@ -29,9 +29,9 @@
  -- độ phân giải
 
 ---
-## Cơ sở kiến thức
+### Cơ sở kiến thức
 
-![Hình ảnh](../TaiLieu/slide_md/figures/kbs.png)
+<img src="../TaiLieu/slide_md/figures/kbs.png" style="width:100%; height:auto;">
 
 \defn{Cơ sở kiến thức} = tập hợp \defn{câu} trong ngôn ngữ *trang trọng*
 
@@ -77,7 +77,7 @@ Suy ra những thuộc tính ẩn giấu của thế giới
 Suy ra những hành động phù hợp
 
 ---
-## Mô tả Wumpus World PEAS
+### Mô tả Wumpus World PEAS
 
 \note{Thước đo hiệu suất} 
   
@@ -103,7 +103,7 @@ Thả vàng rơi vào cùng một ô vuông
 
  
 
-![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-world.png)
+<img src="../TaiLieu/slide_md/figures/wumpus-world.png" style="width:100%; height:auto;">
 
 \note{Thiết bị truyền động} Rẽ trái, Rẽ phải,
     
@@ -187,50 +187,50 @@ Thả vàng rơi vào cùng một ô vuông
 <u>Single-agent</u>?? Có---Wumpus về cơ bản là một tính năng tự nhiên
 
 ---
-## Khám phá thế giới wumpus
+### Khám phá thế giới wumpus
 
-![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-seq0.png)
-
----
-## Khám phá thế giới wumpus
-
-![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-seq1.png)
+<img src="../TaiLieu/slide_md/figures/wumpus-seq0.png" style="width:100%; height:auto;">
 
 ---
-## Khám phá thế giới wumpus
+### Khám phá thế giới wumpus
 
-![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-seq2.png)
-
----
-## Khám phá thế giới wumpus
-
-![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-seq3.png)
+<img src="../TaiLieu/slide_md/figures/wumpus-seq1.png" style="width:100%; height:auto;">
 
 ---
-## Khám phá thế giới wumpus
+### Khám phá thế giới wumpus
 
-![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-seq4.png)
-
----
-## Khám phá thế giới wumpus
-
-![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-seq5.png)
+<img src="../TaiLieu/slide_md/figures/wumpus-seq2.png" style="width:100%; height:auto;">
 
 ---
-## Khám phá thế giới wumpus
+### Khám phá thế giới wumpus
 
-![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-seq6.png)
-
----
-## Khám phá thế giới wumpus
-
-![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-seq7.png)
+<img src="../TaiLieu/slide_md/figures/wumpus-seq3.png" style="width:100%; height:auto;">
 
 ---
-## Các điểm chật khác
+### Khám phá thế giới wumpus
+
+<img src="../TaiLieu/slide_md/figures/wumpus-seq4.png" style="width:100%; height:auto;">
+
+---
+### Khám phá thế giới wumpus
+
+<img src="../TaiLieu/slide_md/figures/wumpus-seq5.png" style="width:100%; height:auto;">
+
+---
+### Khám phá thế giới wumpus
+
+<img src="../TaiLieu/slide_md/figures/wumpus-seq6.png" style="width:100%; height:auto;">
+
+---
+### Khám phá thế giới wumpus
+
+<img src="../TaiLieu/slide_md/figures/wumpus-seq7.png" style="width:100%; height:auto;">
+
+---
+### Các điểm chật khác
 
 in
-\raisebox{-0.5in}[2.5in]{![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-bb.png)}
+\raisebox{-0.5in}[2.5in]{<img src="../TaiLieu/slide_md/figures/wumpus-bb.png" style="width:100%; height:auto;">}
  
 
 Gió vào (1,2) và (2,1)
@@ -244,7 +244,7 @@ Giả sử các hố phân bố đồng đều,
      
 
 in
-![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-s.png)
+<img src="../TaiLieu/slide_md/figures/wumpus-s.png" style="width:100%; height:auto;">
  
 
 Mùi trong (1,1) 
@@ -312,7 +312,7 @@ dựa trên *ngữ nghĩa*
 Lưu ý: bộ não xử lý cú pháp *cú pháp * (thuộc loại nào đó)
 
 ---
-## Mẫu 
+### Mẫu 
 
 Các nhà logic học thường nghĩ theo các mô hình \defn{}, chính thức là 
 
@@ -338,10 +338,10 @@ Ví dụ: \mat{$KB$} = Người khổng lồ thắng và Quỷ đỏ thắng
 
  
 in
-\raisebox{-2in}[0in]{![Hình ảnh](../TaiLieu/slide_md/figures/model-inclusion.png)}
+\raisebox{-2in}[0in]{<img src="../TaiLieu/slide_md/figures/model-inclusion.png" style="width:100%; height:auto;">}
 
 ---
-## Sự đòi hỏi trong thế giới wumpus
+### Sự đòi hỏi trong thế giới wumpus
 
 Tình huống sau khi không phát hiện được gì trong [1,1],
 
@@ -353,26 +353,26 @@ giả sử chỉ có hố
 
  
 
-![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-seq1c-alt.png)
+<img src="../TaiLieu/slide_md/figures/wumpus-seq1c-alt.png" style="width:100%; height:auto;">
 
 3 lựa chọn Boolean $\implies$ 8 mô hình có thể
 
 ---
-## Mẫu Wumpus
+### Mẫu Wumpus
 
-![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-models1.png)
+<img src="../TaiLieu/slide_md/figures/wumpus-models1.png" style="width:100%; height:auto;">
 
 ---
-## Mẫu Wumpus
+### Mẫu Wumpus
 
-![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-models2.png)
+<img src="../TaiLieu/slide_md/figures/wumpus-models2.png" style="width:100%; height:auto;">
 
 \mat{$KB$} = quy tắc của thế giới wumpus + quan sát
 
 ---
-## Mẫu Wumpus
+### Mẫu Wumpus
 
-![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-models3.png)
+<img src="../TaiLieu/slide_md/figures/wumpus-models3.png" style="width:100%; height:auto;">
 
 \mat{$KB$} = quy tắc của thế giới wumpus + quan sát
 
@@ -381,16 +381,16 @@ giả sử chỉ có hố
   pha_1$}, được chứng minh bằng \defn{kiểm tra mô hình}
 
 ---
-## Mẫu Wumpus
+### Mẫu Wumpus
 
-![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-models2.png)
+<img src="../TaiLieu/slide_md/figures/wumpus-models2.png" style="width:100%; height:auto;">
 
 \mat{$KB$} = quy tắc của thế giới wumpus + quan sát
 
 ---
-## Mẫu Wumpus
+### Mẫu Wumpus
 
-![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-models4.png)
+<img src="../TaiLieu/slide_md/figures/wumpus-models4.png" style="width:100%; height:auto;">
 
 \mat{$KB$} = quy tắc của thế giới wumpus + quan sát
 
@@ -728,7 +728,7 @@ Có thể được sử dụng với \defn{xâu chuỗi thuận} hoặc \defn{x�
 Các thuật toán này rất tự nhiên và chạy trong thời gian *tuyến tính*
 
 ---
-## Chuyển tiếp 
+### Chuyển tiếp 
 
 Ý tưởng: kích hoạt bất kỳ quy tắc nào có tiền đề được thỏa mãn trong \mat{$KB$},
     
@@ -749,7 +749,7 @@ Các thuật toán này rất tự nhiên và chạy trong thời gian *tuyến 
 [4pt]
 \tab\tab\tab\tab\tab\tab$B$
 
- ![Hình ảnh](../TaiLieu/slide_md/figures/pl-horn-example.png) 
+ <img src="../TaiLieu/slide_md/figures/pl-horn-example.png" style="width:100%; height:auto;"> 
 
 ---
 ## Thuật toán chuỗi chuyển tiếp
@@ -775,44 +775,44 @@ function PL-FC-Entails?(\v{KB), \v{q}}{\v{true} or \v{false}}
 ```
 
 ---
-##  Ví dụ về chuỗi chuyển tiếp 
+###  Ví dụ về chuỗi chuyển tiếp 
 
-![Hình ảnh](../TaiLieu/slide_md/figures/fc-horn-example01c.png)
-
----
-##  Ví dụ về chuỗi chuyển tiếp 
-
-![Hình ảnh](../TaiLieu/slide_md/figures/fc-horn-example02c.png)
+<img src="../TaiLieu/slide_md/figures/fc-horn-example01c.png" style="width:100%; height:auto;">
 
 ---
-##  Ví dụ về chuỗi chuyển tiếp 
+###  Ví dụ về chuỗi chuyển tiếp 
 
-![Hình ảnh](../TaiLieu/slide_md/figures/fc-horn-example03c.png)
-
----
-##  Ví dụ về chuỗi chuyển tiếp 
-
-![Hình ảnh](../TaiLieu/slide_md/figures/fc-horn-example04c.png)
+<img src="../TaiLieu/slide_md/figures/fc-horn-example02c.png" style="width:100%; height:auto;">
 
 ---
-##  Ví dụ về chuỗi chuyển tiếp 
+###  Ví dụ về chuỗi chuyển tiếp 
 
-![Hình ảnh](../TaiLieu/slide_md/figures/fc-horn-example05c.png)
-
----
-##  Ví dụ về chuỗi chuyển tiếp 
-
-![Hình ảnh](../TaiLieu/slide_md/figures/fc-horn-example06c.png)
+<img src="../TaiLieu/slide_md/figures/fc-horn-example03c.png" style="width:100%; height:auto;">
 
 ---
-##  Ví dụ về chuỗi chuyển tiếp 
+###  Ví dụ về chuỗi chuyển tiếp 
 
-![Hình ảnh](../TaiLieu/slide_md/figures/fc-horn-example07c.png)
+<img src="../TaiLieu/slide_md/figures/fc-horn-example04c.png" style="width:100%; height:auto;">
 
 ---
-##  Ví dụ về chuỗi chuyển tiếp 
+###  Ví dụ về chuỗi chuyển tiếp 
 
-![Hình ảnh](../TaiLieu/slide_md/figures/fc-horn-example08c.png)
+<img src="../TaiLieu/slide_md/figures/fc-horn-example05c.png" style="width:100%; height:auto;">
+
+---
+###  Ví dụ về chuỗi chuyển tiếp 
+
+<img src="../TaiLieu/slide_md/figures/fc-horn-example06c.png" style="width:100%; height:auto;">
+
+---
+###  Ví dụ về chuỗi chuyển tiếp 
+
+<img src="../TaiLieu/slide_md/figures/fc-horn-example07c.png" style="width:100%; height:auto;">
+
+---
+###  Ví dụ về chuỗi chuyển tiếp 
+
+<img src="../TaiLieu/slide_md/figures/fc-horn-example08c.png" style="width:100%; height:auto;">
 
 ---
 ## Bằng chứng về tính đầy đủ
@@ -858,59 +858,59 @@ Tránh làm việc lặp lại: kiểm tra xem mục tiêu phụ mới
   2) đã thất bại
 
 ---
-## Ví dụ về chuỗi ngược
+### Ví dụ về chuỗi ngược
 
-![Hình ảnh](../TaiLieu/slide_md/figures/bc-horn-example01c.png)
-
----
-## Ví dụ về chuỗi ngược
-
-![Hình ảnh](../TaiLieu/slide_md/figures/bc-horn-example02c.png)
+<img src="../TaiLieu/slide_md/figures/bc-horn-example01c.png" style="width:100%; height:auto;">
 
 ---
-## Ví dụ về chuỗi ngược
+### Ví dụ về chuỗi ngược
 
-![Hình ảnh](../TaiLieu/slide_md/figures/bc-horn-example03c.png)
-
----
-## Ví dụ về chuỗi ngược
-
-![Hình ảnh](../TaiLieu/slide_md/figures/bc-horn-example04c.png)
+<img src="../TaiLieu/slide_md/figures/bc-horn-example02c.png" style="width:100%; height:auto;">
 
 ---
-## Ví dụ về chuỗi ngược
+### Ví dụ về chuỗi ngược
 
-![Hình ảnh](../TaiLieu/slide_md/figures/bc-horn-example03c.png)
-
----
-## Ví dụ về chuỗi ngược
-
-![Hình ảnh](../TaiLieu/slide_md/figures/bc-horn-example05c.png)
+<img src="../TaiLieu/slide_md/figures/bc-horn-example03c.png" style="width:100%; height:auto;">
 
 ---
-## Ví dụ về chuỗi ngược
+### Ví dụ về chuỗi ngược
 
-![Hình ảnh](../TaiLieu/slide_md/figures/bc-horn-example06c.png)
-
----
-## Ví dụ về chuỗi ngược
-
-![Hình ảnh](../TaiLieu/slide_md/figures/bc-horn-example07c.png)
+<img src="../TaiLieu/slide_md/figures/bc-horn-example04c.png" style="width:100%; height:auto;">
 
 ---
-## Ví dụ về chuỗi ngược
+### Ví dụ về chuỗi ngược
 
-![Hình ảnh](../TaiLieu/slide_md/figures/bc-horn-example08c.png)
-
----
-## Ví dụ về chuỗi ngược
-
-![Hình ảnh](../TaiLieu/slide_md/figures/bc-horn-example09c.png)
+<img src="../TaiLieu/slide_md/figures/bc-horn-example03c.png" style="width:100%; height:auto;">
 
 ---
-## Ví dụ về chuỗi ngược
+### Ví dụ về chuỗi ngược
 
-![Hình ảnh](../TaiLieu/slide_md/figures/bc-horn-example10c.png)
+<img src="../TaiLieu/slide_md/figures/bc-horn-example05c.png" style="width:100%; height:auto;">
+
+---
+### Ví dụ về chuỗi ngược
+
+<img src="../TaiLieu/slide_md/figures/bc-horn-example06c.png" style="width:100%; height:auto;">
+
+---
+### Ví dụ về chuỗi ngược
+
+<img src="../TaiLieu/slide_md/figures/bc-horn-example07c.png" style="width:100%; height:auto;">
+
+---
+### Ví dụ về chuỗi ngược
+
+<img src="../TaiLieu/slide_md/figures/bc-horn-example08c.png" style="width:100%; height:auto;">
+
+---
+### Ví dụ về chuỗi ngược
+
+<img src="../TaiLieu/slide_md/figures/bc-horn-example09c.png" style="width:100%; height:auto;">
+
+---
+### Ví dụ về chuỗi ngược
+
+<img src="../TaiLieu/slide_md/figures/bc-horn-example10c.png" style="width:100%; height:auto;">
 
 ---
 ## Xâu chuỗi tiến và  lùi 
@@ -928,7 +928,7 @@ ví dụ: Chìa khóa của tôi đâu? Làm thế nào để tôi vào được
 Độ phức tạp của BC có thể *nhỏ hơn nhiều* so với kích thước tuyến tính của KB
 
 ---
-## Độ phân giải
+### Độ phân giải
 
 \defn{Dạng liên hợp thông thường} (CNF---phổ thông)
     
@@ -943,7 +943,7 @@ ví dụ: Chìa khóa của tôi đâu? Làm thế nào để tôi vào được
         {\ell_1 \lor \cdots\lor \ell_{i-1}\lor \ell_{i+1}\lor\cdots\lor \ell_k
         \lor m_1 \lor \cdots \lor m_{j-1}\lor m_{j+1}\lor\cdots\lor m_n}
 \]}
-trong đó \mat{$\ell_i$} và \mat{$m_j$} là các chữ bổ sung. Ví dụ:in\raisebox{-1.5in}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-seq5c.png)}
+trong đó \mat{$\ell_i$} và \mat{$m_j$} là các chữ bổ sung. Ví dụ:in\raisebox{-1.5in}[0pt][0pt]{<img src="../TaiLieu/slide_md/figures/wumpus-seq5c.png" style="width:100%; height:auto;">}
 \mat{\[
    \frac{P_{1,3} \lor P_{2,2}, &nbsp;&nbsp;&nbsp;&nbsp; \lnot P_{2,2}}
        {P_{1,3}}
@@ -1009,13 +1009,13 @@ function PL-Resolution(\v{KB), \(
 ```
 
 ---
-## Ví dụ về độ phân giải
+### Ví dụ về độ phân giải
 
 \mat{$KB = (B_{1,1} \lequiv (P_{1,2} \lor P_{2,1})) \land \lnot B_{1,1}$}
 \mat{$
   pha = \lnot P_{1,2}$}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-resolution.png)
+<img src="../TaiLieu/slide_md/figures/wumpus-resolution.png" style="width:100%; height:auto;">
 
 ---
 ## Tóm tắt

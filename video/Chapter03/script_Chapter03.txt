@@ -1,0 +1,158 @@
+Slide 1: CHƯƠNG 03: GIẢI QUYẾT VẤN ĐỀ BẰNG TÌM KIẾM
+Người 1: Xin chào các em! Chúng ta lại gặp nhau ở Chương 3. Sau khi tìm hiểu về các kiến trúc tác nhân ở Chương 2, hôm nay chúng ta sẽ giải quyết câu hỏi: "Làm thế nào để tác nhân đạt được mục tiêu khi môi trường đòi hỏi sự tính toán xa?". Câu trả lời nằm ở chuyên đề: Giải quyết vấn đề bằng Tìm kiếm.
+Người 2: Dạ thưa thầy, khái niệm "Tìm kiếm" ở đây có giống như chúng ta tìm kiếm thông tin trên Google không ạ?
+
+Slide 2: NỘI DUNG CHƯƠNG 3
+Người 1: Khác biệt hoàn toàn đấy! Nhìn vào mục lục, tìm kiếm trong AI là quá trình thuật toán mô phỏng các chuỗi hành động trong một không gian toán học để vạch ra đường đi tối ưu. Chúng ta sẽ lướt qua 6 phần: Từ định hình tác nhân giải quyết vấn đề, xem xét các bài toán ví dụ, tìm hiểu cơ chế thuật toán chung, rồi đào sâu vào hai trường phái: Tìm kiếm Không thông tin, và Tìm kiếm Có thông tin với Hàm Heuristic.
+
+Slide 3: 3.1 CÁC TÁC NHÂN GIẢI QUYẾT VẤN ĐỀ
+Người 1: Bắt đầu với phần một. "Tác nhân giải quyết vấn đề" thực chất là một dạng của Tác nhân dựa trên mục tiêu mà ta đã học. Nó hoạt động theo chu trình 4 bước rất bài bản: Đầu tiên là "Định hình mục tiêu", tức là biết mình muốn tới đâu. Thứ hai là "Định hình bài toán", xác định môi trường và luật chơi. 
+Người 2: Có phải bước thứ ba "Tìm kiếm" chính là lúc bộ não AI chạy các thuật toán để vạch ra chuỗi hành động, rồi bước thứ tư là "Thực thi" chuỗi đó ngoài đời thực không thầy?
+Người 1: Rất chính xác! 
+
+Slide 4: CÔNG THỨC BÀI TOÁN (PROBLEM FORMULATION)
+Người 1: Một bài toán AI cần được quy chuẩn thành 5 yếu tố toán học. Một là Trạng thái ban đầu. Hai là Tập các hành động hợp lệ, kí hiệu là tập A của s. Ba là Mô hình chuyển đổi, kí hiệu là hàm T của s và a bằng s phẩy. Bốn là Hàm kiểm tra mục tiêu. 
+Người 2: Dạ yếu tố thứ 5 là "Chi phí đường đi", kí hiệu là hàm chi phí c của s, a và s phẩy. Hàm này để máy tính phân biệt đường nào đi tốn kém hơn, từ đó chọn được đường tối ưu nhất phải không ạ?
+
+Slide 5: VÍ DỤ BÀI TOÁN TÌM ĐƯỜNG Ở ROMANIA
+Người 1: Đúng thế. Các em nhìn lên bản đồ Romania. Đây là bài toán kinh điển: Tìm đường từ thành phố Arad đến Bucharest. Trạng thái ban đầu là Arad, kiểm tra mục tiêu là xem có đến Bucharest chưa, hành động là di chuyển qua các thành phố kề, và chi phí đường đi chính là khoảng cách km ghi trên các đoạn đường.
+
+Slide 6: 3.2 CÁC BÀI TOÁN VÍ DỤ (TOY PROBLEMS)
+Người 1: Bên cạnh bản đồ, người ta dùng "Toy problems" - tức là bài toán mẫu - để thử nghiệm thuật toán. Lại nói về máy hút bụi 2 ô. Không gian trạng thái là tổ hợp vị trí và độ bẩn, tổng cộng có hai nhân hai mũ hai bằng tám trạng thái.
+Người 2: Tám trạng thái này tạo thành một đồ thị kết nối bằng các hành động Trái, Phải, Hút. Mục tiêu là chạy tới trạng thái mà cả 2 ô đều sạch.
+
+Slide 7: CÁC BÀI TOÁN VÍ DỤ (TOY PROBLEMS - TIẾP THEO)
+Người 1: Hai ví dụ kinh điển khác là Trượt ngói tám mảnh (8-puzzle) và 8 Quân hậu (8-Queens). Trượt ngói 8 mảnh có không gian trạng thái lên tới chín giai thừa chia hai, bằng một trăm tám mươi mốt ngàn bốn trăm bốn mươi cấu hình hợp lệ.
+Người 2: Đối với cờ vua 8 Hậu, ta phải đặt 8 quân lên bàn cờ sao cho không quân nào khống chế quân nào. Việc giải nó bằng tư duy logic con người khá mệt, nhưng lại cực kỳ phù hợp để test các thuật toán tìm kiếm.
+
+Slide 8: HÌNH ẢNH BÀI TOÁN 8-PUZZLE VÀ 8-QUEENS
+Người 1: Các em hãy nhìn vào hình minh họa trên slide này để hình dung rõ hơn. Bên trái là trạng thái xuất phát và mục tiêu của trò trượt ngói 8 mảnh. Bên phải là ví dụ về một bàn cờ 8 quân hậu đã giải thành công. Việc hình dung trực quan không gian trạng thái này là bước đệm quan trọng trước khi ta viết code tìm kiếm.
+
+Slide 9: 3.3 THUẬT TOÁN TÌM KIẾM (SEARCH ALGORITHMS)
+Người 1: Vậy thuật toán tìm kiếm hoạt động thế nào? Hãy hiểu rằng không gian trạng thái là một cái mạng lưới khổng lồ. Thuật toán sẽ tiến hành trồng một "Cây tìm kiếm" lên mạng lưới đó. Gốc rễ của cây là trạng thái xuất phát.
+Người 2: Các nút (Node) trên cây sẽ chứa trạng thái, nhưng đồng thời chứa thông tin về độ sâu và chi phí từ gốc, kí hiệu là g của n. Việc "Khai triển" là sinh ra các nút con. Và "Biên" (Frontier) là những chiếc lá chưa được khám phá!
+
+Slide 10: VÍ DỤ DUYỆT CÂY TÌM KIẾM
+Người 1: Các em nhìn lên hình minh họa. Bắt đầu từ Arad, chúng ta "khai triển" nó, sinh ra 3 nhánh là Sibiu, Timisoara và Zerind. Ba thành phố này giờ nằm trong Biên. Thuật toán sẽ tiếp tục chọn 1 trong 3 nút này để đi tiếp, và cứ thế cây tìm kiếm vươn dài ra cho đến khi chạm được Bucharest.
+
+Slide 11: TÌM KIẾM ĐỒ THỊ (GRAPH SEARCH)
+Người 1: Thế nhưng, không gian thực tế hiếm khi là Cây, mà là Đồ thị, tức là có những con đường vòng tròn, đi luẩn quẩn trở lại chỗ cũ. Nếu cứ mở rộng nhắm mắt, cây tìm kiếm sẽ dài vô tận.
+Người 2: Giải pháp là ta cần duy trì một "Tập đã duyệt" (Explored set) để ghi nhớ những thành phố đã từng đi qua, như vậy AI sẽ không bao giờ mắc kẹt vào vòng lặp vô hạn. Đó chính là Tìm kiếm đồ thị!
+
+Slide 12: SỰ PHÂN TÁCH TRONG TÌM KIẾM ĐỒ THỊ
+Người 1: Chính xác. Sơ đồ này cho thấy Thuộc tính tách biệt. Cấu trúc Tìm kiếm đồ thị chia không gian làm 3 vùng rạch ròi: Vùng trắng là chưa biết tới, Vùng xám là Biên - tức là đang nằm chờ khai triển, và Vùng đen là Tập đã duyệt - đã xét xong. Vùng xám Biên sẽ lan dần như một vết dầu loang ra khắp vùng trắng.
+
+Slide 13: THUẬT TOÁN TÌM KIẾM CÂY VÀ ĐỒ THỊ
+Người 1: Đây là hai dòng mã giả cơ bản cho Cây và Đồ thị. Điểm khác biệt duy nhất là Đồ thị có thêm cấu trúc dữ liệu Set để kiểm tra xem một nút đã nằm trong Explored hay chưa trước khi đẩy nó vào Frontier. Sự cải tiến nhỏ này lại là tấm khiên bảo vệ sống còn của AI.
+
+Slide 14: ĐÁNH GIÁ THUẬT TOÁN TÌM KIẾM
+Người 1: Một kĩ sư giỏi khi chọn thuật toán phải đánh giá 4 tiêu chí. Một là Tính hoàn thiện: Có chắc chắn tìm ra nghiệm không? Hai là Tính tối ưu: Đường tìm được có ngắn nhất không? Ba là Thời gian chạy. Và Bốn là Bộ nhớ ngốn bao nhiêu.
+Người 2: Dạ, trong đó có các biến số: bê là hệ số rẽ nhánh trung bình, đê là độ sâu của nghiệm nông nhất, và mờ là chiều dài tối đa của đường đi. 
+
+Slide 15: 3.4 CHIẾN LƯỢC TÌM KIẾM KHÔNG THÔNG TIN
+Người 1: Bây giờ ta bước vào nhánh đầu tiên: Tìm kiếm Không thông tin (hay Tìm kiếm mù). "Mù" ở đây nghĩa là AI hoàn toàn không có giác quan định hướng, nó không biết nó đang ở gần hay ở xa mục tiêu, nó chỉ biết cứ đi và kiểm tra thử. Chúng ta sẽ duyệt qua 4 chiến lược tiêu biểu là BFS, UCS, DFS, và IDS.
+
+Slide 16: TÌM KIẾM THEO CHIỀU RỘNG (BFS)
+Người 1: Đầu tiên là BFS (Tìm kiếm theo chiều rộng). Nguyên tắc của nó là vét cạn. Nó quét sạch các nút ở tầng một, rồi mới xuống tầng hai, rồi tầng ba. Để làm được vậy, nó dùng Hàng đợi Queue kiểu "Vào trước, Ra trước" cho Frontier.
+Người 2: Cách quét này đảm bảo Tính hoàn thiện và Tính tối ưu. Nhưng bù lại, chi phí thời gian và không gian đều là O lớn của bê mũ đê. Tức là bộ nhớ sẽ bùng nổ theo hàm mũ! 
+
+Slide 17: CÂY TÌM KIẾM CHIỀU RỘNG (BFS)
+Người 1: Đây là hình minh họa cách BFS ăn dần theo từng tầng. Các em có thể thấy toàn bộ các nút ở tầng độ sâu hiện tại đều phải được lưu trữ trong bộ nhớ Frontier. Nếu bài toán có bê bằng 10, đê bằng 5, thì riêng tầng cuối cùng đã có 100 ngàn nút nằm trong RAM!
+
+Slide 18: THUẬT TOÁN TÌM KIẾM THEO CHIỀU RỘNG
+Người 1: Slide này trình bày mã giả thuật toán. Điểm cốt lõi nhất nằm ở chỗ nó kiểm tra mục tiêu "ngay khi sinh ra một nút", chứ không đợi đến khi rút nút đó ra khỏi Queue. Điều này giúp BFS kết thúc sớm hơn một nhịp. Tuy vậy, điểm nghẽn bộ nhớ khiến nó hiếm khi dùng cho bài toán lớn.
+
+Slide 19: TÌM KIẾM CHI PHÍ ĐỒNG NHẤT (UCS)
+Người 1: Nâng cấp hơn BFS là thuật toán UCS (hay Dijkstra). Thay vì mở nông nhất, UCS mở nút có chi phí đường đi từ đầu - tức là g của n - nhỏ nhất. Cấu trúc dữ liệu là Hàng đợi ưu tiên.
+Người 2: UCS luôn đảm bảo đường đi tìm được là cực tiểu chi phí! Nhưng độ phức tạp của nó là O lớn của bê mũ một cộng phần nguyên của C sao chia cho epsilon. Nhìn công thức thì nếu chi phí bước đi rất nhỏ, UCS sẽ quét một không gian mênh mông thưa thầy.
+
+Slide 20: VÍ DỤ TÌM KIẾM CHI PHÍ ĐỒNG NHẤT
+Người 1: Đúng vậy. Hãy nhìn ví dụ bản đồ này. Từ Sibiu, BFS sẽ chọn đi Fagaras vì đó là đường 1 bước (chi phí 99). Nhưng UCS sẽ phân tích và chọn đường vòng qua Rimnicu Vilcea (chi phí 80) rồi mới tới Pitesti (chi phí 97). Tổng là 177, UCS luôn cam kết sự tối ưu về đường dài.
+
+Slide 21: CÂY TÌM KIẾM CHI PHÍ ĐỒNG NHẤT (UCS)
+Người 1: Trong sơ đồ này, UCS phát triển theo các đường viền đồng tâm của hàm chi phí tổng g của n. Giống như nước chảy tràn từ một điểm thấp, nó sẽ ngập đều những nơi có độ cao tương đương trước khi dâng lên cao hơn.
+
+Slide 22: TÌM KIẾM THEO CHIỀU SÂU (DFS)
+Người 1: Trái ngược với BFS, ta có Tìm kiếm theo Chiều sâu DFS. Nguyên lý là đâm thẳng một mạch tới đáy. Nếu chạm ngõ cụt thì mới quay lui. Do đó nó dùng cấu trúc Ngăn xếp LIFO.
+Người 2: Đặc điểm tuyệt vời nhất của DFS là cực kỳ tiết kiệm RAM. Nó chỉ cần O lớn của bê nhân mờ bộ nhớ. Nhưng đổi lại, nó không đảm bảo tối ưu, và thời gian chạy tệ nhất có thể là O lớn của bê mũ mờ, một con số thảm họa nếu mờ rất lớn.
+
+Slide 23: CÂY TÌM KIẾM CHIỀU SÂU (DFS)
+Người 1: Nhìn vào hình minh họa, thuật toán men theo nhánh tận cùng bên trái. Đâm tới tận cùng, nếu không phải mục tiêu, nó xóa nhánh đó khỏi bộ nhớ, lùi lại 1 bước, đâm nhánh kế tiếp. Sự "xóa đi làm lại" này giúp giải phóng RAM liên tục.
+
+Slide 24: TÌM KIẾM SÂU LẶP DẦN (ITERATIVE DEEPENING - IDS)
+Người 1: Vậy có cách nào vừa lấy được bộ nhớ siêu rẻ của DFS, vừa lấy được sự đảm bảo tối ưu của BFS không? Có! Đó là sự kết hợp mang tên IDS: Tìm kiếm sâu lặp dần.
+Người 2: Thuật toán IDS yêu cầu chạy DFS với giới hạn độ sâu là 0, không thấy thì chạy lại từ đầu với độ sâu là 1, rồi 2... Cách tiếp cận "chạy đi chạy lại" này mang lại tính hoàn thiện tuyệt đối và độ phức tạp không gian chỉ là O lớn của bê nhân đê. 
+
+Slide 25: THUẬT TOÁN TÌM KIẾM SÂU GIỚI HẠN
+Người 1: Để làm được IDS, trước tiên ta phải viết hàm "Tìm kiếm sâu giới hạn" (Depth-Limited Search). Hàm này thực chất là DFS, nhưng được gắn thêm một bộ đếm. Khi chạm đến 'limit' cho trước, nó ép thuật toán trả về trạng thái Cutoff (nghĩa là cắt cụt), quay đầu không đi tiếp nữa.
+
+Slide 26: THUẬT TOÁN TÌM KIẾM SÂU LẶP DẦN (IDS)
+Người 1: Dựa trên DLS, thuật toán IDS chỉ việc dùng một vòng lặp FOR với độ sâu depth tăng từ 0 đến vô cực. Ở mỗi vòng lặp, nó gọi hàm DLS ở trên. Khá đơn giản phải không?
+
+Slide 27: MINH HỌA TÌM KIẾM SÂU LẶP DẦN (IDS)
+Người 1: Hình ảnh này cho thấy sự mở rộng của limit. Ở vòng 1, nó chặn ở mức 1. Vòng 2, nó nới rào chắn xuống mức 2. Cứ thế, nó vét cạn không gian như BFS, nhưng bộ nhớ tại mỗi thời điểm chỉ là một sợi chỉ mỏng manh của DFS.
+
+Slide 28: MINH HỌA CHI TIẾT TÌM KIẾM SÂU LẶP DẦN
+Người 1: Slide này phóng to 4 vòng lặp đầu tiên trên một cây nhị phân. Dù các em thấy phần phía trên bị tính lặp lại nhiều lần, nhưng thực tế phần lớn số lượng nút lại nằm ở tầng dưới cùng. Cho nên sự tính trùng lặp này hao phí chỉ khoảng 11% thời gian, một cái giá quá rẻ để đánh đổi lấy sự giải phóng cực lớn về RAM!
+
+Slide 29: 3.5 TÌM KIẾM CÓ THÔNG TIN (HEURISTIC SEARCH)
+Người 1: Và bây giờ, chúng ta bước sang cấp độ thông minh thực sự: Tìm kiếm Có thông tin. Các thuật toán ở đây không nhắm mắt đi bừa, mà được trang bị "Hàm Heuristic", kí hiệu là hắt của n. Hàm này làm nhiệm vụ dự đoán, "ước lượng" chi phí rẻ nhất từ vị trí hiện tại n tới thẳng đích.
+Người 2: Ví dụ với bản đồ Romania, một cái hàm hắt ếch lờ đê của n đơn giản nhất là Khoảng cách đường chim bay. Mặc dù thực tế phải đi đường vòng vèo, nhưng đường chim bay cho AI một cái "định hướng" rất tốt về phương hướng tới đích.
+
+Slide 30: TÌM KIẾM THAM LAM (GREEDY BEST-FIRST SEARCH)
+Người 1: Thuật toán đầu tiên dùng Heuristic là Greedy Search - Tìm kiếm Tham lam. Nó dùng hàm đánh giá ép của n đúng bằng hàm ước lượng hắt của n. Tức là tại mỗi ngã rẽ, nó nhắm mắt chọn con đường trông có vẻ gần mục tiêu nhất theo đường chim bay!
+Người 2: Em thấy kiểu "tham lam" này rất thực tế và đi rất nhanh. Tuy nhiên, nó bị một điểm yếu là chỉ chăm chăm vào "khoảng cách còn lại" mà bỏ quên việc nó đang phải đi một đường vòng rất tốn xăng, dẫn đến kết quả không tối ưu.
+
+Slide 31: ĐỒ THỊ TÌM KIẾM THAM LAM
+Người 1: Nhìn sơ đồ đi từ Arad đến Bucharest bằng Greedy Search. Arad chọn Sibiu vì đường chim bay từ Sibiu tới đích là 253, nhỏ nhất. Từ Sibiu, nó chọn Fagaras vì đường chim bay từ Fagaras tới đích là 176, cực kỳ hứa hẹn. Thuật toán lao thẳng tới đích như một mũi tên. Nhanh, nhưng không phải đường ngắn nhất!
+
+Slide 32: TÌM KIẾM A* (A-STAR SEARCH)
+Người 1: Để vá lỗ hổng của Greedy, khoa học AI sản sinh ra viên ngọc quý nhất mang tên Tìm kiếm A sao (A-Star). A sao dùng hàm đánh giá tổng quát: ép của n bằng g của n cộng hắt của n.
+Người 2: Tuyệt vời! g của n là chi phí thực tế đã bỏ ra từ đầu đến n, còn hắt của n là chi phí ước lượng rẻ nhất đi tiếp. Vậy ép của n chính là tổng chi phí trọn gói của một chuyến đi nếu đi ngang qua n.
+
+Slide 33: ĐỒ THỊ TÌM KIẾM A*
+Người 1: Nhìn lại đồ thị, từ Sibiu, A sao có thể nhắm tới Fagaras hoặc Rimnicu Vilcea. Mặc dù đường chim bay từ Fagaras (176) thấp hơn Vilcea (193), nhưng do đoạn đường đi tới Fagaras thực tế mất tới 99km, nên tổng ép của n qua Fagaras là 415, trong khi qua Vilcea chỉ là 413. A sao khôn ngoan bẻ lái sang nhánh Vilcea, và kết quả là nó tìm ra con đường tối ưu thực sự!
+
+Slide 34: 3.6 ĐIỀU KIỆN CỦA HÀM HEURISTIC
+Người 1: Sức mạnh của A sao là tuyệt đối, nhưng nó chỉ phát huy nếu kĩ sư thiết kế ra được một hàm Heuristic tốt, thỏa mãn các điều kiện. Một là Chấp nhận được (Admissible): không nhỏ hơn hoặc bằng hắt của n, và hắt của n nhỏ hơn hoặc bằng hắt sao của n (tức chi phí thực tế ngắn nhất). Tóm lại, cấm ước lượng khống giá cao hơn thực tế.
+Người 2: Điều kiện số hai là Tính Nhất quán (Consistent): hắt của n nhỏ hơn hoặc bằng chi phí c của n phẩy a phẩy n phẩy cộng hắt của n phẩy. (Dạ em đọc lại là c của n, a, n phẩy). Điều này để đảm bảo rằng A sao hoạt động hoàn hảo trên Đồ thị.
+
+Slide 35: TÍNH NHẤT QUÁN CỦA HÀM HEURISTIC
+Người 1: Đúng thế. Các em nhìn tam giác trên slide. Nó phát biểu một điều hiển nhiên: Ước lượng khoảng cách thẳng từ A tới đích, không bao giờ được lớn hơn khoảng cách thực tế từ A qua B cộng với ước lượng từ B tới đích. Bất đẳng thức tam giác này tạo nên hàm Consistent.
+
+Slide 36: CÁC ĐƯỜNG ĐỒNG MỨC TRONG A*
+Người 1: Trực quan hóa A sao trên bản đồ, nó không lan tỏa hình tròn tốn kém như thuật toán UCS, mà nó kéo giãn thành các đường viền đồng mức hình elip, thuôn nhọn mũi về phía mục tiêu Bucharest. Nhờ vậy, A sao lướt qua một số lượng nút cực nhỏ so với những chiến lược tìm kiếm mù.
+
+Slide 37: SỰ VƯỢT TRỘI CỦA HEURISTIC (DOMINANCE)
+Người 1: Có nhiều hàm Heuristic cùng đúng cho một bài toán, vậy chọn hàm nào? Trong AI, ta có định lý Vượt trội (Dominance). Nếu với mọi n, hàm hắt hai của n lớn hơn hoặc bằng hắt một của n (và vẫn nằm dưới ngưỡng chi phí thực), thì hắt hai được gọi là Dominates, tức là vượt trội.
+Người 2: Có phải vì hắt hai lớn hơn, tức là nó ước lượng sát với sự thực hơn, do đó A sao dùng hắt hai sẽ tỉa bớt được nhiều nhánh vô ích hơn, và chạy nhanh hơn rất nhiều phải không thưa thầy?
+
+Slide 38: TÌM KIẾM A* CÓ TRỌNG SỐ (WEIGHTED A*)
+Người 1: Chuẩn xác. Tuy nhiên có những trường hợp người ta hy sinh tính tối ưu để đổi lấy tốc độ cực hạn. Đó là dùng Weighted A sao. Thay vì cộng bằng nhau, người ta nhân trọng số W vào hắt của n. Kết quả, thuật toán lướt như tia chớp thẳng tới đích, đường tìm được có thể dài hơn đôi chút, nhưng lại cực kì thực dụng.
+
+Slide 39: TÌM KIẾM TỐT NHẤT ĐẦU TIÊN ĐỆ QUY (RBFS)
+Người 1: Nhưng A sao vướng vào một lời nguyền: Nó phải lưu toàn bộ các nút sinh ra vào bộ nhớ, nên bị tràn RAM với các bài quá lớn. Giới khoa học tạo ra thuật toán RBFS, mang bản chất tính toán của A sao nhưng dùng cơ chế Đệ quy theo chiều sâu để dọn sạch bộ nhớ.
+
+Slide 40: CÁC GIAI ĐOẠN CỦA RBFS
+Người 1: Hãy xem RBFS. Khi nó tiến xuống một đường và thấy giá trị ép của n tăng cao hơn con số "Back-up" từ nhánh phụ, nó lập tức từ bỏ nhánh hiện tại, rút ngược về, cập nhật lại giá trị tốt nhất cho nút cha, và đổi hướng sang nhánh phụ có triển vọng hơn. Cực kỳ thông minh và linh động.
+
+Slide 41: TÌM KIẾM HAI CHIỀU (BIDIRECTIONAL SEARCH)
+Người 1: Một đột phá sáng tạo khác là Tìm kiếm 2 chiều. Tại sao chỉ xuất phát từ điểm khởi đầu? Ta tung ra 2 toán quân, một đội đi từ A, một đội xuất phát ngược từ Bích, và chúng sẽ gặp nhau ở giữa. Nhờ vậy, độ sâu giảm đi một nửa, không gian tìm kiếm được thu hẹp lại tới bê mũ đê trên 2. Hiệu suất tăng hàng vĩ mô!
+
+Slide 42: VÍ DỤ: HEURISTIC CHO BÀI TOÁN 8-PUZZLE
+Người 1: Ứng dụng cụ thể Dominance vào bài 8 mảnh ngói. Hàm hắt một đếm số ô sai vị trí. Hàm hắt hai đếm tổng khoảng cách Manhattan của các ô. Rõ ràng hàm Manhattan hắt hai lúc nào cũng cho ra con số lớn hơn hắt một, nên hắt hai vượt trội. Khi thử nghiệm thực tế, A sao với hắt hai mở ít nút hơn hắt một đến hàng ngàn lần.
+
+Slide 43: VÍ DỤ BÀI TOÁN 8-PUZZLE CỤ THỂ
+Người 1: Đây là cấu hình ví dụ cần 26 bước để giải. Nếu dùng BFS thông thường, ta phải duyệt qua hơn 3 triệu nút, máy tính sẽ đứng hình. Nhưng nếu áp dụng A sao với Manhattan Heuristic, AI sẽ lướt mượt mà và tìm ra nghiệm chỉ trong vài chục mili giây.
+
+Slide 44: CƠ SỞ DỮ LIỆU MẪU (PATTERN DATABASES)
+Người 2: Nhưng thiết kế hàm Heuristic tốt thật sự khó thưa thầy. Có phương pháp tự động nào để máy tự tìm ra hàm Heuristic không ạ?
+Người 1: Khoa học giải quyết bằng "Cơ sở dữ liệu mẫu". Người ta tạo ra một Bài toán nới lỏng - ví dụ chỉ quan tâm đưa 4 mảnh góc vào đúng vị trí, bỏ mặc các mảnh khác. Máy sẽ giải vét cạn trước bài toán nhỏ này, lưu kết quả vào DataBase, và dùng đó làm số liệu ước lượng Heuristic cực kỳ chính xác cho bài toán gốc.
+
+Slide 45: TÍNH TOÁN TRƯỚC (PRECOMPUTATION)
+Người 1: Và đó cũng là nguyên lý đằng sau các ứng dụng như Google Maps. Họ không dùng A sao thuần túy duyệt qua hàng triệu nút giao thông mỗi lần bạn bấm tìm đường. Họ tính toán trước (Precompute) các đường liên kết siêu tốc (như xa lộ), lưu trữ sẵn dưới dạng Heuristic. Khi người dùng truy vấn, thuật toán rút số liệu ra và bay vèo đến đích.
+
+Slide 46: TÓM TẮT CHƯƠNG 3
+Người 1: Tổng kết Chương 3! Từ định nghĩa Không gian trạng thái, chúng ta đã nắm vững các chiến lược Tìm kiếm Mù quáng với đại diện xuất sắc là IDS. Quan trọng nhất, ngôi vương thuộc về thuật toán A sao có thông tin, kết hợp giữa tốc độ và sự tối ưu tuyệt đối thông qua các Hàm Heuristic Admissible.
+Người 2: Bài học hôm nay thật sự là một cuộc cách mạng về thuật toán thưa thầy. Từ việc lúng túng vét cạn tốn bộ nhớ đến việc máy tính biết định hướng tối ưu như con người thông qua hàm ước lượng Heuristic. Em đã sẵn sàng để code nghiệm thu A sao!
+Người 1: Cảm ơn sự tập trung của em. Hãy mang tư duy tối ưu này vào phòng Lab. Hẹn gặp lại các em ở Chương 4!

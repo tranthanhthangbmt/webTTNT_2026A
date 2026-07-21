@@ -480,19 +480,19 @@ function FOL-FC-Ask(\v{KB), $
 ```
 
 ---
-## Chứng minh xích chuyển tiếp
+### Chứng minh xích chuyển tiếp
 
-![Hình ảnh](../TaiLieu/slide_md/figures/crime-fc1c.png)
-
----
-## Chứng minh xích chuyển tiếp
-
-![Hình ảnh](../TaiLieu/slide_md/figures/crime-fc2c.png)
+<img src="../TaiLieu/slide_md/figures/crime-fc1c.png" style="width:100%; height:auto;">
 
 ---
-## Chứng minh xích chuyển tiếp
+### Chứng minh xích chuyển tiếp
 
-![Hình ảnh](../TaiLieu/slide_md/figures/crime-fc3c.png)
+<img src="../TaiLieu/slide_md/figures/crime-fc2c.png" style="width:100%; height:auto;">
+
+---
+### Chứng minh xích chuyển tiếp
+
+<img src="../TaiLieu/slide_md/figures/crime-fc3c.png" style="width:100%; height:auto;">
 
 ---
 ##  Thuộc tính của chuỗi thuận 
@@ -530,9 +530,9 @@ Việc kết hợp các tiền đề liên kết với các sự kiện đã bi�
 Chuỗi chuyển tiếp được sử dụng rộng rãi trong cơ sở dữ liệu suy diễn \defn{}
 
 ---
-## Ví dụ về khớp cứng
+### Ví dụ về khớp cứng
 
- ![Hình ảnh](../TaiLieu/slide_md/figures/australia-csp.png) 
+ <img src="../TaiLieu/slide_md/figures/australia-csp.png" style="width:100%; height:auto;"> 
 
 \hđiền
 
@@ -585,39 +585,39 @@ function FOL-BC-Ask(KB, goals, \(\theta\)) returns a set of substitutions
 ```
 
 ---
-## Ví dụ về chuỗi ngược
+### Ví dụ về chuỗi ngược
 
-![Hình ảnh](../TaiLieu/slide_md/figures/crime-bc01c.png)
-
----
-## Ví dụ về chuỗi ngược
-
-![Hình ảnh](../TaiLieu/slide_md/figures/crime-bc02c.png)
+<img src="../TaiLieu/slide_md/figures/crime-bc01c.png" style="width:100%; height:auto;">
 
 ---
-## Ví dụ về chuỗi ngược
+### Ví dụ về chuỗi ngược
 
-![Hình ảnh](../TaiLieu/slide_md/figures/crime-bc03c.png)
-
----
-## Ví dụ về chuỗi ngược
-
-![Hình ảnh](../TaiLieu/slide_md/figures/crime-bc04c.png)
+<img src="../TaiLieu/slide_md/figures/crime-bc02c.png" style="width:100%; height:auto;">
 
 ---
-## Ví dụ về chuỗi ngược
+### Ví dụ về chuỗi ngược
 
-![Hình ảnh](../TaiLieu/slide_md/figures/crime-bc05c.png)
-
----
-## Ví dụ về chuỗi ngược
-
-![Hình ảnh](../TaiLieu/slide_md/figures/crime-bc06c.png)
+<img src="../TaiLieu/slide_md/figures/crime-bc03c.png" style="width:100%; height:auto;">
 
 ---
-## Ví dụ về chuỗi ngược
+### Ví dụ về chuỗi ngược
 
-![Hình ảnh](../TaiLieu/slide_md/figures/crime-bc07c.png)
+<img src="../TaiLieu/slide_md/figures/crime-bc04c.png" style="width:100%; height:auto;">
+
+---
+### Ví dụ về chuỗi ngược
+
+<img src="../TaiLieu/slide_md/figures/crime-bc05c.png" style="width:100%; height:auto;">
+
+---
+### Ví dụ về chuỗi ngược
+
+<img src="../TaiLieu/slide_md/figures/crime-bc06c.png" style="width:100%; height:auto;">
+
+---
+### Ví dụ về chuỗi ngược
+
+<img src="../TaiLieu/slide_md/figures/crime-bc07c.png" style="width:100%; height:auto;">
 
 ---
 ##  Thuộc tính của chuỗi ngược 
@@ -776,6 +776,6 @@ Ai yêu thương mọi loài vật thì sẽ có người yêu thương:
 \]}
 
 ---
-##  Chứng minh độ phân giải: mệnh đề xác định 
+###  Chứng minh độ phân giải: mệnh đề xác định 
 
-![Hình ảnh](../TaiLieu/slide_md/figures/crime-resolution.png)
+<img src="../TaiLieu/slide_md/figures/crime-resolution.png" style="width:100%; height:auto;">

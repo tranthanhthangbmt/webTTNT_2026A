@@ -1,0 +1,67 @@
+Slide 1: CHƯƠNG 10: BIỂU DIỄN TRI THỨC
+Người 1: Chào các em! Ở chương trước, ta đã dùng Logic Bậc Nhất (FOL) để biểu diễn các quy luật hẹp trong Thế giới Wumpus. Tuy nhiên, nếu muốn tạo ra một AI thông thái như Google hay ChatGPT, ta phải dạy cho nó quy luật của TOÀN BỘ vũ trụ! Quá trình khổng lồ đó mang tên: Biểu diễn Tri thức.
+Người 2: Có phải là mình sẽ nạp toàn bộ Bách khoa toàn thư Wikipedia vào não AI dưới dạng phương trình toán học không thầy?
+
+Slide 2: NỘI DUNG CHƯƠNG 10
+Người 1: Em hình dung rất đúng hướng! Hôm nay ta sẽ học 5 phần. Đầu tiên là Kỹ thuật xây dựng Bản thể vũ trụ. Thứ 2 là cách phân loại các tập hợp và đối tượng. Thứ 3 là cách tích hợp Trục thời gian vào sự kiện. Thứ 4 là giải quyết sự nhiễu loạn về niềm tin. Và cuối cùng là cách vẽ nó ra thành Mạng ngữ nghĩa để con người dễ đọc hơn.
+
+Slide 3: 10.1 KỸ THUẬT TRI THỨC BẢN THỂ (ONTOLOGICAL ENGINEERING)
+Người 1: Trong Triết học, "Bản thể học" (Ontology) là khoa học nghiên cứu về sự tồn tại. Trong AI, Kỹ thuật Tri thức Bản thể là việc ta phân chia toàn bộ vạn vật trong vũ trụ thành các tầng lớp, danh mục, thuộc tính và liên kết chúng lại với nhau thành một mạng lưới khổng lồ.
+Nhờ mạng lưới này, AI hiểu được những quy luật hiển nhiên mà không ai thèm dạy. Ví dụ: Con người thì cần ăn. Vật rắn thì không đi xuyên qua được. Quá khứ thì không thể đảo ngược.
+
+Slide 4: CÂY PHÂN LOẠI THƯỢNG TẦNG (UPPER ONTOLOGY)
+Người 1: Đây là sơ đồ Cây Phân loại Thượng tầng. Ở trên cùng đỉnh chóp là chữ "Sự vật" (Thing). Tức là bất cứ cái gì tồn tại. Dưới nó chẻ ra làm 2: Sự vật Trừu tượng (như con số, tập hợp) và Sự vật Vật lý (như không gian, thời gian, con người, sự kiện). Sơ đồ này là cái móng nhà để xây dựng mọi hệ thống AI bách khoa toàn thư.
+
+Slide 5: 10.2 PHÂN LOẠI VÀ ĐỐI TƯỢNG
+Người 1: Con người suy luận rất nhanh nhờ khả năng gom nhóm thành các Phân loại (Categories). 
+Trong AI, biểu diễn phân loại qua 2 dạng. Dạng Thuộc tính: "Hàm Quả bóng rổ của bê". Dạng Tập hợp: "bê thuộc tập hợp Bóng rổ".
+Và giữa các tập hợp có những mối quan hệ bất di bất dịch:
+Quan hệ Tập con: Bóng rổ là tập con của Bóng.
+Quan hệ Rời rạc: Động vật giao với Thực vật bằng Rỗng (Không có sinh vật nào vừa là cây vừa là thú).
+Và quan hệ Phân rã cạn kiệt: Động vật bằng Động vật ăn cỏ hợp với Động vật ăn thịt hợp với Động vật ăn tạp. Đầy đủ 100%!
+
+Slide 6: THÀNH PHẦN VẬT LÝ (PART-OF RELATION)
+Người 2: Dạ thưa thầy, Tập con là quan hệ trừu tượng, thế còn các vật lý nối vào nhau thì biểu diễn thế nào ạ? Chẳng hạn như bánh xe là một phần của cái ô tô.
+Người 1: Rất chuẩn! Khi đó ta dùng Quan hệ Thành phần (Part-Of). Ví dụ: Thành phần của Bucharest và Romania (Tức là thành phố Bucharest nằm trong nước Romania). 
+Nó có Tính bắc cầu logic cực mạnh: Với mọi ích y zét, nếu ích là thành phần của y và y là thành phần của zét, suy ra ích là thành phần của zét! AI tự suy ra Bucharest nằm ở Châu Âu mà không cần ai dạy!
+
+Slide 7: 10.3 BIỂU DIỄN SỰ KIỆN VÀ THỜI GIAN
+Người 1: Thế giới không đứng yên. Để biểu diễn sự thay đổi theo thời gian, ta thêm biến Thời gian (S) vào hàm số.
+Thay vì nói: "Cầm Vàng". Ta phải viết chặt chẽ: "Cầm Vàng tại Ét-xì không" (Tức là tại đúng thời điểm S0, nó đang cầm vàng).
+Hoặc định nghĩa rõ ràng: Sự kiện E xảy ra trong Khoảng từ tê 1 đến tê 2. Nó Bắt đầu một trạng thái tại tê 1 và Kết thúc trạng thái đó tại tê 2.
+
+Slide 8: CÁC VỊ TỪ TRÊN KHOẢNG THỜI GIAN
+Người 1: Sơ đồ này là các Vị từ của Allen về Khoảng thời gian. Nó liệt kê mọi trường hợp giao nhau của 2 sự kiện: Gặp nhau (Meet), Xảy ra trước (Before), Xảy ra sau (After), Diễn ra trong lúc (During). Toán học hóa thời gian giúp AI biết sắp xếp lịch trình làm việc không bị chồng chéo.
+
+Slide 9: TRỤC THỜI GIAN CỦA SỰ KIỆN
+Người 1: Nhìn vào Trục thời gian này, "Tổng thống Mỹ" không phải là một người cố định! Nó là một trạng thái. Từ 1993 đến 2001, Clinton là Tổng thống. Từ 2001 đến 2009, Bush là Tổng thống. Việc gắn trục thời gian giúp AI phân tích lịch sử mà không bị báo lỗi mâu thuẫn dữ liệu.
+
+Slide 10: 10.4 THỰC THỂ NIỀM TIN (MENTAL EVENTS)
+Người 1: Tiếp theo là một nghịch lý cực kì đau đầu trong AI: Niềm tin. Lấy ví dụ: Lois Lane tin rằng Superman biết bay. AI viết là: "Lois Biết rằng Superman Bay".
+Nhưng ở thế giới vật lý, Superman và Clark Kent là một người. AI tự động dùng phép thế biến và suy ra: Lois Biết rằng Clark Kent Bay!
+Người 2: Ôi chết, sai bét rồi thầy! Trong phim, cô nàng Lois hoàn toàn không biết anh phóng viên Clark Kent yếu đuối kia là Superman! Nếu AI thay biến kiểu đó thì nó phá hỏng toàn bộ cốt truyện!
+Người 1: Đúng vậy! Sự thiếu hiểu biết của con người làm thuật toán FOL thông thường bị phá sản. Giải pháp là ta phải dùng Logic Nhận thức (Epistemic Logic). Các chữ "Biết" và "Tin rằng" trở thành một cái lồng khóa chặt, cấm AI không được tự ý thực hiện phép thế toán học ở bên trong cái lồng đó!
+
+Slide 11: 10.5 HỆ THỐNG SUY DIỄN CHO DANH MỤC
+Người 1: Ở phần cuối, ta nói về cách giao tiếp với các hệ thống đồ sộ này. Nếu bắt con người ngồi đọc hàng tỷ dòng mã FOL ngoằn ngoèo thì chắc chắn kỹ sư sẽ bị nổ não.
+Do đó, các nhà khoa học đẻ ra "Mạng Ngữ nghĩa" (Semantic Networks). Vẽ mọi thứ thành các Nút vòng tròn và Nối với nhau bằng Mũi tên. Sức mạnh lớn nhất của Mạng ngữ nghĩa là tính Kế thừa.
+
+Slide 12: CẤU TRÚC CƠ BẢN MẠNG NGỮ NGHĨA
+Người 1: Sơ đồ này vẽ 4 người: John, Mary và chân của họ. Thay vì đọc phương trình, em chỉ cần nhìn mũi tên. John (Mũi tên Hướng tới) Người. Mary (Mũi tên Hướng tới) Người. Rất trực quan và dễ sửa lỗi.
+
+Slide 13: MÔ PHỎNG MẠNG NGỮ NGHĨA
+Người 1: Đồ thị này minh họa tính Kế thừa cực mạnh. Ở nhánh Mẹ (Người), có mũi tên ghi chữ "Có chân". Suy ra các nhánh con như John và Mary tự động được kế thừa đặc tính "Có chân" mà người lập trình không cần phải vẽ thêm mũi tên nào nữa! Việc này tiết kiệm hàng ngàn dòng code dư thừa.
+
+Slide 14: LOGIC MÔ TẢ (DESCRIPTION LOGIC)
+Người 1: Từ cốt lõi của Mạng ngữ nghĩa, thế giới Internet hiện đại đã xây dựng nên "Logic Mô tả". Nó là ngôn ngữ của Semantic Web, dùng để định nghĩa các khái niệm cực kỳ ngắn gọn.
+Thay vì viết FOL dài loằng ngoằng: "Với mọi ích, ích là Độc thân tương đương với ích là Nam và ích là Người lớn và phủ định ích đã Kết hôn".
+Trong Logic mô tả, vứt bỏ toàn bộ biến x đi, viết trực diện thành tập hợp: "Độc thân tương đương với Nam giao với Người lớn giao với Phủ định của Kết hôn". 
+Người 2: Ui, công thức này nhìn hệt như Toán Tập hợp hồi cấp 2, dễ nhìn hơn hẳn cái đống Lượng từ FOL rắc rối thầy ạ!
+
+Slide 15: CÚ PHÁP LOGIC MÔ TẢ
+Người 1: Hình ảnh cuối cùng là bảng mã Cú pháp của CLASSIC - một ngôn ngữ Logic mô tả tiêu biểu. Các em có thể thấy thay vì dùng VÀ / HOẶC, nó dùng dấu GIAO và HỢP. Các siêu máy tính xử lý Web ngữ nghĩa đang áp dụng chuẩn này để biến hàng tỷ trang Web toàn cầu thành một Cơ sở tri thức khổng lồ có thể tự động trả lời mọi câu hỏi của người dùng.
+
+Slide 16: TÓM TẮT CHƯƠNG 10
+Người 1: Tổng kết Chương 10! Để nhét vũ trụ vào não AI, ta dùng Bản thể học để sắp xếp Đối tượng, Tập hợp, và Thành phần vật lý. Ta dùng Event Calculus để tích hợp Thời gian. Ta dùng Modal Logic để xử lý ảo giác Niềm tin của con người. Và để mọi thứ dễ nhìn, ta vẽ Mạng Ngữ nghĩa và dùng Logic Mô tả làm ngôn ngữ. Đó là toàn bộ bản thiết kế của một bộ não siêu trí tuệ AI.
+Người 2: Cảm ơn thầy! Bài học hôm nay thực sự đã mở rộng tầm mắt của em về cách người ta xây dựng các hệ thống AI Bách khoa toàn thư. 
+Người 1: Rất tốt, các em hãy ôn tập kỹ vì đây là nền tảng của AI hiện đại. Buổi học hôm nay kết thúc, chào các em!

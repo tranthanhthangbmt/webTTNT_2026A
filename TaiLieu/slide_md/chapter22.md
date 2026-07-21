@@ -37,7 +37,7 @@ Searle (1969) *Hành vi lời nói*
 Tại sao?
 
 ---
-## Giao tiếp
+### Giao tiếp
 
 Chế độ xem "Cổ điển" (trước 1953):
   
@@ -53,10 +53,10 @@ Austin (1962) *Cách thực hiện mọi việc bằng từ ngữ*
 
 Searle (1969) *Hành vi lời nói*
 
-Tại sao? \hspace*{5.5in}in\raisebox{-1.5in}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/lamppost.png)}
+Tại sao? \hspace*{5.5in}in\raisebox{-1.5in}[0pt][0pt]{<img src="../TaiLieu/slide_md/figures/lamppost.png" style="width:100%; height:auto;">}
 
 ---
-## Giao tiếp
+### Giao tiếp
 
 Chế độ xem "Cổ điển" (trước 1953):
   
@@ -72,10 +72,10 @@ Austin (1962) *Cách thực hiện mọi việc bằng từ ngữ*
 
 Searle (1969) *Hành vi lời nói*
 
-Tại sao? \hspace*{5.5in}in\raisebox{-1.5in}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/lamppost+dog.png)}
+Tại sao? \hspace*{5.5in}in\raisebox{-1.5in}[0pt][0pt]{<img src="../TaiLieu/slide_md/figures/lamppost+dog.png" style="width:100%; height:auto;">}
 
 ---
-## Giao tiếp
+### Giao tiếp
 
 Chế độ xem "Cổ điển" (trước 1953):
   
@@ -91,14 +91,14 @@ Austin (1962) *Cách thực hiện mọi việc bằng từ ngữ*
 
 Searle (1969) *Hành vi lời nói*
 
-Tại sao? \hspace*{5.5in}in\raisebox{-1.5in}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/lamppost+dog.png)}
+Tại sao? \hspace*{5.5in}in\raisebox{-1.5in}[0pt][0pt]{<img src="../TaiLieu/slide_md/figures/lamppost+dog.png" style="width:100%; height:auto;">}
 
 * Để thay đổi hành động của các tác nhân khác*
 
 ---
-## Hành động lời nói
+### Hành động lời nói
 
-![Hình ảnh](../TaiLieu/slide_md/figures/utterance.png)
+<img src="../TaiLieu/slide_md/figures/utterance.png" style="width:100%; height:auto;">
 
 Hành vi lời nói đạt được mục đích của người nói:
   
@@ -315,11 +315,11 @@ breeze + and + I smell a wumpus}
 \end{array}\]
 
 ---
-## Đánh giá về mặt ngữ pháp
+### Đánh giá về mặt ngữ pháp
 
 Ngôn ngữ hình thức \mat{$L_1$} có thể khác với ngôn ngữ tự nhiên \mat{$L_2$}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/language-learning.png)
+<img src="../TaiLieu/slide_md/figures/language-learning.png" style="width:100%; height:auto;">
 
 Điều chỉnh \mat{$L_1$} để đồng ý với \mat{$L_2$} là một vấn đề cần học hỏi!
 
@@ -335,39 +335,39 @@ Thỏa thuận liên chủ thể có phần đáng tin cậy, độc lập với
 Ngữ pháp thực sự 10--500 trang, không đủ ngay cả đối với tiếng Anh " chuẩn "
 
 ---
-## Cây phân tích cú pháp
+### Cây phân tích cú pháp
 
 Trình bày cấu trúc ngữ pháp của câu
 
-![Hình ảnh](../TaiLieu/slide_md/figures/parse-tree1.png)
+<img src="../TaiLieu/slide_md/figures/parse-tree1.png" style="width:100%; height:auto;">
 
 ---
-## Cây phân tích cú pháp
+### Cây phân tích cú pháp
 
 Trình bày cấu trúc ngữ pháp của câu
 
-![Hình ảnh](../TaiLieu/slide_md/figures/parse-tree2.png)
+<img src="../TaiLieu/slide_md/figures/parse-tree2.png" style="width:100%; height:auto;">
 
 ---
-## Cây phân tích cú pháp
+### Cây phân tích cú pháp
 
 Trình bày cấu trúc ngữ pháp của câu
 
-![Hình ảnh](../TaiLieu/slide_md/figures/parse-tree3.png)
+<img src="../TaiLieu/slide_md/figures/parse-tree3.png" style="width:100%; height:auto;">
 
 ---
-## Cây phân tích cú pháp
+### Cây phân tích cú pháp
 
 Trình bày cấu trúc ngữ pháp của câu
 
-![Hình ảnh](../TaiLieu/slide_md/figures/parse-tree4.png)
+<img src="../TaiLieu/slide_md/figures/parse-tree4.png" style="width:100%; height:auto;">
 
 ---
-## Cây phân tích cú pháp
+### Cây phân tích cú pháp
 
 Trình bày cấu trúc ngữ pháp của câu
 
-![Hình ảnh](../TaiLieu/slide_md/figures/parse-tree5.png)
+<img src="../TaiLieu/slide_md/figures/parse-tree5.png" style="width:100%; height:auto;">
 
 ---
 ## Cú pháp trong NLP

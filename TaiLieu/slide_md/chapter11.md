@@ -17,13 +17,13 @@
 - Lập kế hoạch theo thứ tự từng phần
 
 ---
-## Tìm kiếm và lập kế hoạch
+### Tìm kiếm và lập kế hoạch
 
 Xét nhiệm vụ \txr*lấy sữa, chuối và máy khoan không dây*
 
 Các thuật toán tìm kiếm tiêu chuẩn dường như thất bại thảm hại:
 
-![Hình ảnh](../TaiLieu/slide_md/figures/supermarket1.png)
+<img src="../TaiLieu/slide_md/figures/supermarket1.png" style="width:100%; height:auto;">
 
 Kiểm tra mục tiêu/kinh nghiệm sau thực tế không đầy đủ
 
@@ -47,11 +47,11 @@ Hệ thống lập kế hoạch thực hiện những việc sau:
 | {\bf Kế hoạch} | Trình tự từ $S_0$ | Ràng buộc về hành động |
 
 ---
-## Toán tử STRIPS
+### Toán tử STRIPS
 
 Mô tả hành động được sắp xếp gọn gàng, ngôn ngữ hạn chế
 
-**Hành động**: $Buy(x)$\raisebox{-1.5in}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/operator-schema2.png)
+**Hành động**: $Buy(x)$\raisebox{-1.5in}[0pt][0pt]{<img src="../TaiLieu/slide_md/figures/operator-schema2.png" style="width:100%; height:auto;">
 
 **Điều kiện tiên quyết**: $At(p), Sells(p,x)$
 
@@ -91,19 +91,19 @@ Một điều kiện tiên quyết đã đạt được \txb{} nếu đó là hi
 và không có bước \txb{ nào có thể can thiệp } có thể hoàn tác nó
 
 ---
-## Ví dụ
+### Ví dụ
 
-\centerline{\raisebox{-0.9\textheight}[0pt][0pt]{\epsfysize=0.95\textheight![Hình ảnh](../TaiLieu/slide_md/figures/plan-construction1.png)}
-
----
-## Ví dụ
-
-\centerline{\raisebox{-0.9\textheight}[0pt][0pt]{\epsfysize=0.95\textheight![Hình ảnh](../TaiLieu/slide_md/figures/plan-construction2.png)}
+\centerline{\raisebox{-0.9\textheight}[0pt][0pt]{\epsfysize=0.95\textheight<img src="../TaiLieu/slide_md/figures/plan-construction1.png" style="width:100%; height:auto;">}
 
 ---
-## Ví dụ
+### Ví dụ
 
-\centerline{\raisebox{-0.9\textheight}[0pt][0pt]{\epsfysize=0.95\textheight![Hình ảnh](../TaiLieu/slide_md/figures/plan-construction3.png)}
+\centerline{\raisebox{-0.9\textheight}[0pt][0pt]{\epsfysize=0.95\textheight<img src="../TaiLieu/slide_md/figures/plan-construction2.png" style="width:100%; height:auto;">}
+
+---
+### Ví dụ
+
+\centerline{\raisebox{-0.9\textheight}[0pt][0pt]{\epsfysize=0.95\textheight<img src="../TaiLieu/slide_md/figures/plan-construction3.png" style="width:100%; height:auto;">}
 
 ---
 ## Quy trình lập kế hoạch
@@ -168,12 +168,12 @@ function Select-Subgoal(plan) returns $S_{need, c$}
 ```
 
 ---
-## Tấn công và thăng chức/hạ cấp
+### Tấn công và thăng chức/hạ cấp
 
 \txb{clobberer} là một bước can thiệp có khả năng phá hủy
 điều kiện đạt được bởi một liên kết nhân quả. Ví dụ: $Go(Home)$ tắc nghẽn $At(Supermarket)$:
 
-![Hình ảnh](../TaiLieu/slide_md/figures/clobber.png)
+<img src="../TaiLieu/slide_md/figures/clobber.png" style="width:100%; height:auto;">
  
 
 \txb{Hạ cấp}: đặt trước $Go(Supermarket)$
@@ -202,26 +202,26 @@ Có thể được thực hiện hiệu quả với các phương pháp phỏng 
 Đặc biệt tốt cho các vấn đề có nhiều mục tiêu phụ có liên quan lỏng lẻo
 
 ---
-## Ví dụ: Thế giới khối
+### Ví dụ: Thế giới khối
 
-![Hình ảnh](../TaiLieu/slide_md/figures/blocks-world.png)
-
----
-## Ví dụ tiếp theo.
-
-![Hình ảnh](../TaiLieu/slide_md/figures/sussman1.png)
+<img src="../TaiLieu/slide_md/figures/blocks-world.png" style="width:100%; height:auto;">
 
 ---
-## Ví dụ tiếp theo.
+### Ví dụ tiếp theo.
 
-![Hình ảnh](../TaiLieu/slide_md/figures/sussman2.png)
-
----
-## Ví dụ tiếp theo.
-
-![Hình ảnh](../TaiLieu/slide_md/figures/sussman3.png)
+<img src="../TaiLieu/slide_md/figures/sussman1.png" style="width:100%; height:auto;">
 
 ---
-## Ví dụ tiếp theo.
+### Ví dụ tiếp theo.
 
-![Hình ảnh](../TaiLieu/slide_md/figures/sussman4.png)
+<img src="../TaiLieu/slide_md/figures/sussman2.png" style="width:100%; height:auto;">
+
+---
+### Ví dụ tiếp theo.
+
+<img src="../TaiLieu/slide_md/figures/sussman3.png" style="width:100%; height:auto;">
+
+---
+### Ví dụ tiếp theo.
+
+<img src="../TaiLieu/slide_md/figures/sussman4.png" style="width:100%; height:auto;">

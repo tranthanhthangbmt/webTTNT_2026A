@@ -48,7 +48,7 @@ Ví dụ: \mat{$g$} = "graphics." Chúng ta có thể thực hiện tầm nhìn 
 \]}
 
 ---
-## Nhận thức chung
+### Nhận thức chung
 
 \defn{Kích thích} (nhận thức) \mat{$S$}, Thế giới \mat{$W$}
 \mat{\[
@@ -60,10 +60,10 @@ Ví dụ: \mat{$g$} = "graphics." Chúng ta có thể thực hiện tầm nhìn 
 \]}
 Vấn đề: sự mơ hồ lớn!
 
-![Hình ảnh](../TaiLieu/slide_md/figures/lecture-scene1.png)
+<img src="../TaiLieu/slide_md/figures/lecture-scene1.png" style="width:100%; height:auto;">
 
 ---
-## Nhận thức chung
+### Nhận thức chung
 
 \defn{Kích thích} (nhận thức) \mat{$S$}, Thế giới \mat{$W$}
 \mat{\[
@@ -75,10 +75,10 @@ Ví dụ: \mat{$g$} = "graphics." Chúng ta có thể thực hiện tầm nhìn 
 \]}
 Vấn đề: sự mơ hồ lớn!
 
-![Hình ảnh](../TaiLieu/slide_md/figures/lecture-scene2.png)
+<img src="../TaiLieu/slide_md/figures/lecture-scene2.png" style="width:100%; height:auto;">
 
 ---
-## Nhận thức chung
+### Nhận thức chung
 
 \defn{Kích thích} (nhận thức) \mat{$S$}, Thế giới \mat{$W$}
 \mat{\[
@@ -90,7 +90,7 @@ Ví dụ: \mat{$g$} = "graphics." Chúng ta có thể thực hiện tầm nhìn 
 \]}
 Vấn đề: sự mơ hồ lớn!
 
-![Hình ảnh](../TaiLieu/slide_md/figures/lecture-scene3.png)
+<img src="../TaiLieu/slide_md/figures/lecture-scene3.png" style="width:100%; height:auto;">
 
 ---
 ## Phương pháp tiếp cận tốt hơn
@@ -111,17 +111,17 @@ Chỉ cần trích xuất thông tin cần thiết cho
  -- \defn{nhận dạng/nhận dạng}
 
 ---
-## Vision "hệ thống con"
+### Vision "hệ thống con"
 
-![Hình ảnh](../TaiLieu/slide_md/figures/vision-subsystems.png)
+<img src="../TaiLieu/slide_md/figures/vision-subsystems.png" style="width:100%; height:auto;">
 
 Tầm nhìn đòi hỏi phải kết hợp nhiều tín hiệu
 
 ---
-## Hình thành hình ảnh
+### Hình thành hình ảnh
 
 ,75\textwidth
-![Hình ảnh](../TaiLieu/slide_md/figures/pinhole.png)
+<img src="../TaiLieu/slide_md/figures/pinhole.png" style="width:100%; height:auto;">
 
 \mat{$P$} là một điểm trong cảnh, có tọa độ \mat{$ (X,Y,Z)$}
 
@@ -131,10 +131,10 @@ bằng các tam giác đồng dạng. Tỷ lệ/khoảng cách là không xác �
   
 
 ---
-## Hình ảnh
+### Hình ảnh
 
 ,85\textwidth
-![Hình ảnh](../TaiLieu/slide_md/figures/stapler1+square.png)
+<img src="../TaiLieu/slide_md/figures/stapler1+square.png" style="width:100%; height:auto;">
 
 ---
 ## Hình ảnh tiếp theo.
@@ -148,22 +148,22 @@ Máy ảnh CCD \mat{$\approx$} 1.000.000 pixel; mắt người \mat{$\approx$} 2
 tức là 0,25 terabit/giây
 
 ---
-## Tầm nhìn màu sắc
+### Tầm nhìn màu sắc
 
 Cường độ thay đổi theo tần số \mat{$\rightarrow$} tín hiệu vô chiều
 
 ,65\textwidth
-![Hình ảnh](../TaiLieu/slide_md/figures/color-vision.png)
+<img src="../TaiLieu/slide_md/figures/color-vision.png" style="width:100%; height:auto;">
 
 Mắt người có ba loại tế bào nhạy cảm với màu sắc;
 
 mỗi tín hiệu tích hợp cường độ vectơ 3 phần tử \mat{$\implies$}
 
 ---
-## Phát hiện cạnh
+### Phát hiện cạnh
 
 ,7\textwidth
-![Hình ảnh](../TaiLieu/slide_md/figures/edge-test.png)
+<img src="../TaiLieu/slide_md/figures/edge-test.png" style="width:100%; height:auto;">
 
 Các cạnh trong ảnh \mat{$\Leftarrow$} sự gián đoạn trong cảnh:
   
@@ -176,7 +176,7 @@ Các cạnh trong ảnh \mat{$\Leftarrow$} sự gián đoạn trong cảnh:
 4) chiếu sáng (bóng tối, v.v.)
 
 ---
-## Tiếp tục phát hiện cạnh
+### Tiếp tục phát hiện cạnh
 
 1) Kết hợp hình ảnh với các bộ lọc định hướng không gian (có thể đa tỷ lệ)
 \mat{\[
@@ -184,14 +184,14 @@ Các cạnh trong ảnh \mat{$\Leftarrow$} sự gián đoạn trong cảnh:
 \]}
 
 ,75\textwidth
-![Hình ảnh](../TaiLieu/slide_md/figures/spatially-oriented-filters.png)
+<img src="../TaiLieu/slide_md/figures/spatially-oriented-filters.png" style="width:100%; height:auto;">
 
 2) Gắn nhãn các pixel trên ngưỡng với hướng cạnh
 
 3) Suy ra các đoạn đường "sạch" bằng cách kết hợp các pixel cạnh có cùng hướng
 
 ,5\textwidth
-![Hình ảnh](../TaiLieu/slide_md/figures/edgels.png)
+<img src="../TaiLieu/slide_md/figures/edgels.png" style="width:100%; height:auto;">
 
   
 
@@ -208,29 +208,29 @@ Các cạnh trong ảnh \mat{$\Leftarrow$} sự gián đoạn trong cảnh:
 | đường viền | độ cong tối thiểu |
 
 ---
-## Chuyển động
+### Chuyển động
 
-![Hình ảnh](../TaiLieu/slide_md/figures/00.png)
+<img src="../TaiLieu/slide_md/figures/00.png" style="width:100%; height:auto;">
 
 ,3\textwidth
- ![Hình ảnh](../TaiLieu/slide_md/figures/00.png) 
-![Hình ảnh](../TaiLieu/slide_md/figures/flow.png)
+ <img src="../TaiLieu/slide_md/figures/00.png" style="width:100%; height:auto;"> 
+<img src="../TaiLieu/slide_md/figures/flow.png" style="width:100%; height:auto;">
 ,3\textwidth
-![Hình ảnh](../TaiLieu/slide_md/figures/19.png)
+<img src="../TaiLieu/slide_md/figures/19.png" style="width:100%; height:auto;">
 
 ,4\textwidth
-![Hình ảnh](../TaiLieu/slide_md/figures/flow.png)
+<img src="../TaiLieu/slide_md/figures/flow.png" style="width:100%; height:auto;">
 
 ---
-## Âm thanh nổi
+### Âm thanh nổi
 
 ,85\textwidth
-![Hình ảnh](../TaiLieu/slide_md/figures/stereo-pyramid.png)
+<img src="../TaiLieu/slide_md/figures/stereo-pyramid.png" style="width:100%; height:auto;">
 
 ---
-## Độ phân giải độ sâu âm thanh nổi 
+### Độ phân giải độ sâu âm thanh nổi 
 
-![Hình ảnh](../TaiLieu/slide_md/figures/stereopsis.png)
+<img src="../TaiLieu/slide_md/figures/stereopsis.png" style="width:100%; height:auto;">
 
 Hình học đơn giản: \mat{$\delta Z = Z^2 \delta \theta/(-b)$}
 
@@ -243,10 +243,10 @@ Sinh lý học: \mat{$\delta\theta \geq 2.42\times 10^{-5}$} radian, \mat{$b\eq 
 Đường cơ sở lớn \mat{$\implies$} có độ phân giải tốt hơn!
 
 ---
-## Hoạ tiết
+### Hoạ tiết
 
 ,6\textwidth
-![Hình ảnh](../TaiLieu/slide_md/figures/chem-test.png)
+<img src="../TaiLieu/slide_md/figures/chem-test.png" style="width:100%; height:auto;">
 
 Ý tưởng: giả sử kết cấu thực tế là đồng nhất, tính toán hình dạng bề mặt sẽ tạo ra sự biến dạng này
 
@@ -257,24 +257,24 @@ sự giao thoa đưa ra tính toán phi tiêu điểm về cường độ cảm 
 \mat{$\implies$} những chỗ trũng có vẻ nông hơn thực tế
 
 ---
-## Các loại cạnh và đỉnh
+### Các loại cạnh và đỉnh
 
 ,6\textwidth
-![Hình ảnh](../TaiLieu/slide_md/figures/diff-labels.png)
+<img src="../TaiLieu/slide_md/figures/diff-labels.png" style="width:100%; height:auto;">
 
 ,6\textwidth
-![Hình ảnh](../TaiLieu/slide_md/figures/trihedral.png)
+<img src="../TaiLieu/slide_md/figures/trihedral.png" style="width:100%; height:auto;">
 
 Giả sử thế giới của các vật thể đa diện rắn có đỉnh tam diện
 
 ---
-## Nhãn đỉnh/cạnh
+### Nhãn đỉnh/cạnh
 
 ,6\textwidth
-![Hình ảnh](../TaiLieu/slide_md/figures/vertex-a.png)
+<img src="../TaiLieu/slide_md/figures/vertex-a.png" style="width:100%; height:auto;">
 
 ,5\textwidth
-![Hình ảnh](../TaiLieu/slide_md/figures/huffman-clowes.png)
+<img src="../TaiLieu/slide_md/figures/huffman-clowes.png" style="width:100%; height:auto;">
 
 ---
 ## Ví dụ về ghi nhãn đỉnh/cạnh
@@ -392,6 +392,13 @@ Biểu diễn đối tượng "Thư viện": hình dạng và các khía cạnh
 So khớp hình ảnh/đối tượng: tính năng, đường nét, vùng, v.v.
 
 
+
+
+#### **Video**
+
+<div class="pdf-container" style="margin-bottom: 20px;">
+  <iframe src="video/Chapter27/index.html" width="100%" height="100%"></iframe>
+</div>
 
 #### **Trắc nghiệm**
 *(Chưa có bài tập trắc nghiệm)*

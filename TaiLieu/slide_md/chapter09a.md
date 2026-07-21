@@ -100,7 +100,7 @@ $\tau$ phải là một cơ sở dữ liệu hạng (thuật ngữ cơ bản) (t
 | MP 6 \ | 7 | 6. | $Faster(Bob,Pat)$ |
 
 ---
-## Tìm kiếm các quy tắc suy diễn nguyên thủy
+### Tìm kiếm các quy tắc suy diễn nguyên thủy
 
 Các toán tử là các quy tắc suy diễn
 
@@ -108,7 +108,7 @@ Trạng thái là các tập hợp
 
 Kiểm tra trạng thái kiểm tra đích để xem nó có chứa câu hỏi hay không
 
-![Hình ảnh](../TaiLieu/slide_md/figures/naive-proof-tree.png)
+<img src="../TaiLieu/slide_md/figures/naive-proof-tree.png" style="width:100%; height:auto;">
  
 
 AI, UE, MP là một mẫu suy diễn phổ biến
@@ -264,7 +264,7 @@ Hai bản: tìm <u>bất kỳ </u> giải pháp nào, tìm <u>tất cả</u> gi�
 Suy diễn lùi là cơ sở cho <u>lập trình logic (lập trình logic)</u>, ví dụ: Prolog
 
 ---
-## Ví phiên suy diễn lùi
+### Ví phiên suy diễn lùi
 
 <u>1.</u> $Pig(y) \land Slug(z) \implies Faster(y,z)$
 
@@ -272,4 +272,4 @@ Suy diễn lùi là cơ sở cho <u>lập trình logic (lập trình logic)</u>,
 
 <u>3.</u> $Pig(Pat)$  &nbsp;&nbsp;&nbsp;&nbsp;  <u>4.</u> $Slimy(Steve)$  &nbsp;&nbsp;&nbsp;&nbsp;  <u>5.</u> $Creeps(Steve)$
 
-![Hình ảnh](../TaiLieu/slide_md/figures/slug-bc.png)
+<img src="../TaiLieu/slide_md/figures/slug-bc.png" style="width:100%; height:auto;">

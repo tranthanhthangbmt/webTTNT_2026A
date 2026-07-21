@@ -45,9 +45,9 @@ Cho phép các thuật toán *có mục đích chung * hữu ích với nhiều 
 hơn các thuật toán tìm kiếm tiêu chuẩn
 
 ---
-## Ví dụ: Tô màu bản đồ
+### Ví dụ: Tô màu bản đồ
 
-![Hình ảnh](../TaiLieu/slide_md/figures/australia.png)
+<img src="../TaiLieu/slide_md/figures/australia.png" style="width:100%; height:auto;">
 
 \note{Biến} \mat{$WA$}, \mat{$NT$}, \mat{$Q$}, \mat{$NSW$}, \mat{$V$}, \mat{$SA$}, \mat{$T$} 
 
@@ -60,22 +60,22 @@ ví dụ: \mat{$WA\neq NT$} (nếu ngôn ngữ cho phép điều này) hoặc
 \mat{$(WA,NT) \in \{(red,green),(red,blue),(green,red),(green,blue),\ldots\}$}
 
 ---
-## Ví dụ: Tiếp theo tô màu bản đồ.
+### Ví dụ: Tiếp theo tô màu bản đồ.
 
-![Hình ảnh](../TaiLieu/slide_md/figures/australia-solution.png)
+<img src="../TaiLieu/slide_md/figures/australia-solution.png" style="width:100%; height:auto;">
 
 \note{Giải pháp} là các bài tập đáp ứng tất cả các ràng buộc, ví dụ:
 
 \mat{$\{WA\eq red,NT\eq green,Q\eq red,NSW\eq green,V\eq red,SA\eq blue,T\eq green\}$}
 
 ---
-## Biểu đồ ràng buộc
+### Biểu đồ ràng buộc
 
 \defn{CSP nhị phân}: mỗi ràng buộc liên quan đến nhiều nhất hai biến
 
 \defn{Biểu đồ ràng buộc}: các nút là các biến, các cung hiển thị các ràng buộc
 
-![Hình ảnh](../TaiLieu/slide_md/figures/australia-csp.png)
+<img src="../TaiLieu/slide_md/figures/australia-csp.png" style="width:100%; height:auto;">
 
 Các thuật toán CSP có mục đích chung sử dụng cấu trúc biểu đồ
 
@@ -126,9 +126,9 @@ thường được biểu thị bằng chi phí cho mỗi lần gán biến
 $\rightarrow$ các vấn đề tối ưu hóa bị ràng buộc
 
 ---
-## Ví dụ: Số học mật mã
+### Ví dụ: Số học mật mã
 
-![Hình ảnh](../TaiLieu/slide_md/figures/cryptarithmetic.png)
+<img src="../TaiLieu/slide_md/figures/cryptarithmetic.png" style="width:100%; height:auto;">
 
 \note{Biến}: \mat{$F\ T\ U\ W\ R\ O\ X_1\ X_2\ X_3$}
 
@@ -231,24 +231,24 @@ function Recursive-Backtracking(assignment, csp) returns soln/failure
 ```
 
 ---
-## Ví dụ quay lui
+### Ví dụ quay lui
 
-![Hình ảnh](../TaiLieu/slide_md/figures/backtrack-progress1.png)
-
----
-## Ví dụ quay lui
-
-![Hình ảnh](../TaiLieu/slide_md/figures/backtrack-progress2.png)
+<img src="../TaiLieu/slide_md/figures/backtrack-progress1.png" style="width:100%; height:auto;">
 
 ---
-## Ví dụ quay lui
+### Ví dụ quay lui
 
-![Hình ảnh](../TaiLieu/slide_md/figures/backtrack-progress3.png)
+<img src="../TaiLieu/slide_md/figures/backtrack-progress2.png" style="width:100%; height:auto;">
 
 ---
-## Ví dụ quay lui
+### Ví dụ quay lui
 
-![Hình ảnh](../TaiLieu/slide_md/figures/backtrack-progress4.png)
+<img src="../TaiLieu/slide_md/figures/backtrack-progress3.png" style="width:100%; height:auto;">
+
+---
+### Ví dụ quay lui
+
+<img src="../TaiLieu/slide_md/figures/backtrack-progress4.png" style="width:100%; height:auto;">
 
 ---
 ## Cải thiện hiệu quả quay lui
@@ -262,16 +262,16 @@ Các phương pháp *Mục đích chung* có thể mang lại tốc độ rất 
 \end{enumerate}
 
 ---
-## Giá trị còn lại tối thiểu
+### Giá trị còn lại tối thiểu
 
 Giá trị còn lại tối thiểu (MRV):
   
    chọn biến có giá trị pháp lý nhỏ nhất
 
-![Hình ảnh](../TaiLieu/slide_md/figures/australia-most-constrained-variable.png)
+<img src="../TaiLieu/slide_md/figures/australia-most-constrained-variable.png" style="width:100%; height:auto;">
 
 ---
-## Bậc heuristic
+### Bậc heuristic
 
 Sự ràng buộc giữa các biến MRV
 
@@ -279,69 +279,69 @@ Heuristic độ:
   
    chọn biến có nhiều ràng buộc nhất đối với các biến còn lại
 
-![Hình ảnh](../TaiLieu/slide_md/figures/australia-most-constraining-variable.png)
+<img src="../TaiLieu/slide_md/figures/australia-most-constraining-variable.png" style="width:100%; height:auto;">
 
 ---
-## Giá trị ràng buộc nhỏ nhất
+### Giá trị ràng buộc nhỏ nhất
 
 Cho một biến, chọn giá trị ít ràng buộc nhất:
   
    cái loại trừ ít giá trị nhất trong các biến còn lại
 
-![Hình ảnh](../TaiLieu/slide_md/figures/australia-least-constraining-value.png)
+<img src="../TaiLieu/slide_md/figures/australia-least-constraining-value.png" style="width:100%; height:auto;">
 
 Việc kết hợp các phương pháp phỏng đoán này làm cho 1000 quân hậu trở nên khả thi
 
 ---
-## Kiểm tra chuyển tiếp
+### Kiểm tra chuyển tiếp
 
 \note{Idea}: Theo dõi các giá trị pháp lý còn lại cho các biến chưa được gán
 
 \phantom{\note{Idea}: }Chấm dứt tìm kiếm khi bất kỳ biến nào không có giá trị pháp lý
 
-![Hình ảnh](../TaiLieu/slide_md/figures/forward-checking-progress1.png)
+<img src="../TaiLieu/slide_md/figures/forward-checking-progress1.png" style="width:100%; height:auto;">
 
 ---
-## Kiểm tra chuyển tiếp
+### Kiểm tra chuyển tiếp
 
 \note{Idea}: Theo dõi các giá trị pháp lý còn lại cho các biến chưa được gán
 
 \phantom{\note{Idea}: }Chấm dứt tìm kiếm khi bất kỳ biến nào không có giá trị pháp lý
 
-![Hình ảnh](../TaiLieu/slide_md/figures/forward-checking-progress2.png)
+<img src="../TaiLieu/slide_md/figures/forward-checking-progress2.png" style="width:100%; height:auto;">
 
 ---
-## Kiểm tra chuyển tiếp
+### Kiểm tra chuyển tiếp
 
 \note{Idea}: Theo dõi các giá trị pháp lý còn lại cho các biến chưa được gán
 
 \phantom{\note{Idea}: }Chấm dứt tìm kiếm khi bất kỳ biến nào không có giá trị pháp lý
 
-![Hình ảnh](../TaiLieu/slide_md/figures/forward-checking-progress3.png)
+<img src="../TaiLieu/slide_md/figures/forward-checking-progress3.png" style="width:100%; height:auto;">
 
 ---
-## Kiểm tra chuyển tiếp
+### Kiểm tra chuyển tiếp
 
 \note{Idea}: Theo dõi các giá trị pháp lý còn lại cho các biến chưa được gán
 
 \phantom{\note{Idea}: }Chấm dứt tìm kiếm khi bất kỳ biến nào không có giá trị pháp lý
 
-![Hình ảnh](../TaiLieu/slide_md/figures/forward-checking-progress4.png)
+<img src="../TaiLieu/slide_md/figures/forward-checking-progress4.png" style="width:100%; height:auto;">
 
 ---
-## Truyền bá ràng buộc
+### Truyền bá ràng buộc
 
 Kiểm tra chuyển tiếp truyền thông tin từ các biến được gán đến các biến chưa được gán,
 nhưng không cung cấp khả năng phát hiện sớm mọi lỗi:
 
-![Hình ảnh](../TaiLieu/slide_md/figures/forward-checking-progress3.png)
+<img src="../TaiLieu/slide_md/figures/forward-checking-progress3.png" style="width:100%; height:auto;">
 
 \mat{$NT$} và \mat{$SA$} không thể cùng có màu xanh lam!
 
 \defn{Truyền bá ràng buộc} liên tục thực thi các ràng buộc cục bộ
 
 ---
-## Tính nhất quán của hồ quang 
+### Tính nhất quán của hồ quang 
 
 Dạng truyền lan đơn giản nhất làm cho mỗi cung \defn{nhất quán}
 
@@ -349,10 +349,10 @@ Dạng truyền lan đơn giản nhất làm cho mỗi cung \defn{nhất quán}
   
   đối với *mọi* giá trị \mat{$x$} của \mat{$X$} thì có *some* được phép \mat{$y$}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/ac-example1.png)
+<img src="../TaiLieu/slide_md/figures/ac-example1.png" style="width:100%; height:auto;">
 
 ---
-## Tính nhất quán của hồ quang 
+### Tính nhất quán của hồ quang 
 
 Dạng truyền lan đơn giản nhất làm cho mỗi cung \defn{nhất quán}
 
@@ -360,10 +360,10 @@ Dạng truyền lan đơn giản nhất làm cho mỗi cung \defn{nhất quán}
   
   đối với *mọi* giá trị \mat{$x$} của \mat{$X$} thì có *some* được phép \mat{$y$}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/ac-example2.png)
+<img src="../TaiLieu/slide_md/figures/ac-example2.png" style="width:100%; height:auto;">
 
 ---
-## Tính nhất quán của hồ quang 
+### Tính nhất quán của hồ quang 
 
 Dạng truyền lan đơn giản nhất làm cho mỗi cung \defn{nhất quán}
 
@@ -371,12 +371,12 @@ Dạng truyền lan đơn giản nhất làm cho mỗi cung \defn{nhất quán}
   
   đối với *mọi* giá trị \mat{$x$} của \mat{$X$} thì có *some* được phép \mat{$y$}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/ac-example3.png)
+<img src="../TaiLieu/slide_md/figures/ac-example3.png" style="width:100%; height:auto;">
 
 Nếu \mat{$X$} mất giá trị, các hàng xóm của \mat{$X$} cần được kiểm tra lại
 
 ---
-## Tính nhất quán của hồ quang 
+### Tính nhất quán của hồ quang 
 
 Dạng truyền lan đơn giản nhất làm cho mỗi cung \defn{nhất quán}
 
@@ -384,7 +384,7 @@ Dạng truyền lan đơn giản nhất làm cho mỗi cung \defn{nhất quán}
   
   đối với *mọi* giá trị \mat{$x$} của \mat{$X$} thì có *some* được phép \mat{$y$}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/ac-example4.png)
+<img src="../TaiLieu/slide_md/figures/ac-example4.png" style="width:100%; height:auto;">
 
 Nếu \mat{$X$} mất giá trị, các hàng xóm của \mat{$X$} cần được kiểm tra lại
 
@@ -418,9 +418,9 @@ function Remove-Inconsistent-Values(\(X_{i), X_{j}\)}{true iff succeeds}
 (nhưng việc phát hiện *all* là NP-hard)
 
 ---
-## Cấu trúc bài toán
+### Cấu trúc bài toán
 
-![Hình ảnh](../TaiLieu/slide_md/figures/australia-csp.png)
+<img src="../TaiLieu/slide_md/figures/australia-csp.png" style="width:100%; height:auto;">
 
 Tasmania và đất liền là \defn{bài toán con độc lập}
 
@@ -440,9 +440,9 @@ Ví dụ: \mat{$n\eq 80$}, \mat{$d\eq 2$}, \mat{$c\eq 20$}
   \mat{$4\cdot 2^{20}$} = 0,4 giây ở 10 triệu nút/giây
 
 ---
-## CSP có cấu trúc cây
+### CSP có cấu trúc cây
 
-![Hình ảnh](../TaiLieu/slide_md/figures/tree-csp1.png)
+<img src="../TaiLieu/slide_md/figures/tree-csp1.png" style="width:100%; height:auto;">
 
 \note{Định lý}: nếu đồ thị ràng buộc không có vòng lặp, thì CSP có thể được giải theo 
 \mat{$O(n\,d^2)$} thời gian
@@ -456,24 +456,24 @@ một ví dụ quan trọng về mối quan hệ giữa các hạn chế cú ph�
 và sự phức tạp của lý luận.
 
 ---
-## Thuật toán cho CSP có cấu trúc cây
+### Thuật toán cho CSP có cấu trúc cây
 
 1. Chọn biến làm gốc, sắp xếp biến từ gốc đến lá
 
 sao cho mọi nút cha của nút đều đứng trước nó theo thứ tự 
 
-![Hình ảnh](../TaiLieu/slide_md/figures/tree-csp2.png)
+<img src="../TaiLieu/slide_md/figures/tree-csp2.png" style="width:100%; height:auto;">
 
 2. Đối với \mat{$j$} từ \mat{$n$} xuống \mat{$2$}, hãy áp dụng \prog{RemoveInconsistent\mat{\mat{$(Parent(X_j),X_j)$}}}
 
 3. Đối với \mat{$j$} từ \mat{$1$} đến \mat{$n$}, gán \mat{$X_j$} nhất quán với \mat{$Parent(X_j)$}
 
 ---
-## CSP gần như có cấu trúc cây
+### CSP gần như có cấu trúc cây
 
 \defn{Điều hòa}: khởi tạo một biến, cắt tỉa các miền của hàng xóm của nó
 
-![Hình ảnh](../TaiLieu/slide_md/figures/australia-cutset.png)
+<img src="../TaiLieu/slide_md/figures/australia-cutset.png" style="width:100%; height:auto;">
 
 \defn{Điều hòa cutset}: khởi tạo (theo mọi cách) một tập hợp các biến
  
@@ -503,7 +503,7 @@ chọn giá trị vi phạm ít ràng buộc nhất
 tức là leo dốc với \mat{$h(n)$} = tổng số ràng buộc bị vi phạm
 
 ---
-## Ví dụ: 4-Queens
+### Ví dụ: 4-Queens
 
 \note{Các bang}: 4 quân hậu trong 4 cột (các bang \mat{$4^4 = 256$})
 
@@ -513,10 +513,10 @@ tức là leo dốc với \mat{$h(n)$} = tổng số ràng buộc bị vi phạm
 
 \note{Đánh giá}: \mat{$h(n)$} = số lần tấn công
 
-![Hình ảnh](../TaiLieu/slide_md/figures/4queens-iterative.png)
+<img src="../TaiLieu/slide_md/figures/4queens-iterative.png" style="width:100%; height:auto;">
 
 ---
-## Hiệu suất xung đột tối thiểu
+### Hiệu suất xung đột tối thiểu
 
 Cho trạng thái ban đầu ngẫu nhiên, có thể giải \mat{$n$}-nữ hoàng trong thời gian gần như không đổi cho
 tùy ý \mat{$n$} với xác suất cao (ví dụ: \mat{$n$} = 10.000.000)
@@ -528,7 +528,7 @@ tùy ý \mat{$n$} với xác suất cao (ví dụ: \mat{$n$} = 10.000.000)
 R = \frac{\mbox{number of constraints}}{\mbox{number of variables}}
 \]
 
-![Hình ảnh](../TaiLieu/slide_md/figures/random-csp-runtime.png)
+<img src="../TaiLieu/slide_md/figures/random-csp-runtime.png" style="width:100%; height:auto;">
 
 ---
 ## Tóm tắt
@@ -556,7 +556,7 @@ CSP có cấu trúc cây có thể được giải quyết trong thời gian tuy
 Những xung đột nhỏ lặp đi lặp lại thường có hiệu quả trong thực tế
 
 ---
-## Ví dụ: 4-Queen làm CSP
+### Ví dụ: 4-Queen làm CSP
 
 Giả sử có một quân hậu ở mỗi cột. Mỗi người đi vào hàng nào?
 
@@ -574,7 +574,7 @@ Giả sử có một quân hậu ở mỗi cột. Mỗi người đi vào hàng 
 }
  
 in
-![Hình ảnh](../TaiLieu/slide_md/figures/4queens.png)
+<img src="../TaiLieu/slide_md/figures/4queens.png" style="width:100%; height:auto;">
 
 Chuyển từng ràng buộc thành tập hợp các giá trị cho phép cho các biến của nó
 

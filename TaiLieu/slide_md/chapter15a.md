@@ -43,7 +43,7 @@ Quản lý bệnh tiểu đường và chẩn đoán xe
 Ký hiệu: \mat{$\X_{a:b} = \X_a, \X_{a+1},\ldots,\X_{b-1},\X_b$}
 
 ---
-## Quy trình Markov (chuỗi Markov)
+### Quy trình Markov (chuỗi Markov)
 
 Xây dựng mạng Bayes từ các biến này: cha mẹ?
 
@@ -53,7 +53,7 @@ Xây dựng mạng Bayes từ các biến này: cha mẹ?
 
 \defn{Quy trình Markov bậc hai}: \mat{$P(\X_t|\X_{0:t-1}) = P(\X_t|\X_{t-2},\X_{t-1})$}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/markov-processes.png)
+<img src="../TaiLieu/slide_md/figures/markov-processes.png" style="width:100%; height:auto;">
 
 \defn{Giả định Markov của cảm biến}: \mat{$P(\E_t|\X_{0:t},\E_{0:t-1}) =  P(\E_t|\X_t)$}
 
@@ -62,9 +62,9 @@ Xây dựng mạng Bayes từ các biến này: cha mẹ?
 mẫu cảm biến \mat{$P(\E_t|\X_t)$} đã được sửa cho tất cả \mat{$t$}
 
 ---
-## Ví dụ
+### Ví dụ
 
-![Hình ảnh](../TaiLieu/slide_md/figures/umbrella-dbn.png)
+<img src="../TaiLieu/slide_md/figures/umbrella-dbn.png" style="width:100%; height:auto;">
 
 Giả định Markov bậc nhất không hoàn toàn đúng trong thế giới thực!
 
@@ -132,14 +132,14 @@ Tức là, \defn{dự đoán} + \defn{ước tính}. Dự đoán bằng cách t�
 Thời gian và không gian *hằng số* (độc lập với \mat{$t$})
 
 ---
-## Ví dụ về lọc
+### Ví dụ về lọc
 
-![Hình ảnh](../TaiLieu/slide_md/figures/umbrella-filter.png)
+<img src="../TaiLieu/slide_md/figures/umbrella-filter.png" style="width:100%; height:auto;">
 
 ---
-## Làm mịn
+### Làm mịn
 
-![Hình ảnh](../TaiLieu/slide_md/figures/smoothing-dbn.png)
+<img src="../TaiLieu/slide_md/figures/smoothing-dbn.png" style="width:100%; height:auto;">
 
 Chia bằng chứng \mat{$\e_{1:t}$} thành \mat{$\e_{1:k}$}, \mat{$\e_{k+1:t}$}:
 \mat{\begin{eqnarray*}
@@ -166,9 +166,9 @@ P(\e_{k+1:t}|\X_k)
 \end{eqnarray*}}
 
 ---
-## Ví dụ làm mịn
+### Ví dụ làm mịn
 
-![Hình ảnh](../TaiLieu/slide_md/figures/umbrella-smooth.png)
+<img src="../TaiLieu/slide_md/figures/umbrella-smooth.png" style="width:100%; height:auto;">
 
 Thuật toán \defn{Chuyển tiếp--lùi lại}: lưu các tin nhắn chuyển tiếp vào bộ đệm trong quá trình thực hiện 
 
@@ -204,9 +204,9 @@ Cập nhật có tổng được thay thế bằng max, tạo ra \defn{Thuật t
 \]}
 
 ---
-## Ví dụ về Viterbi
+### Ví dụ về Viterbi
 
-![Hình ảnh](../TaiLieu/slide_md/figures/umbrella-paths.png)
+<img src="../TaiLieu/slide_md/figures/umbrella-paths.png" style="width:100%; height:auto;">
 
 ---
 ## Mô hình Markov ẩn 
@@ -234,7 +234,7 @@ Tin nhắn chuyển tiếp và lùi lại dưới dạng vectơ cột:
 Thuật toán tiến lùi cần thời gian \mat{$O(S^2t)$} và không gian \mat{$O(St)$}
 
 ---
-## Thuật toán múa đồng quê
+### Thuật toán múa đồng quê
 
 Có thể tránh lưu trữ tất cả các tin nhắn chuyển tiếp trong quá trình làm mịn bằng cách chạy 
 
@@ -251,10 +251,10 @@ thuật toán tiến lùi:
 \end{eqnarray*}}
 Thuật toán: chuyền tiến tính \mat{$\f_t$}, chuyền lùi tính \mat{$\f_i$}, \mat{$\b_i$}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/country-dance01.png)
+<img src="../TaiLieu/slide_md/figures/country-dance01.png" style="width:100%; height:auto;">
 
 ---
-## Thuật toán múa đồng quê
+### Thuật toán múa đồng quê
 
 Có thể tránh lưu trữ tất cả các tin nhắn chuyển tiếp trong quá trình làm mịn bằng cách chạy 
 
@@ -271,10 +271,10 @@ thuật toán tiến lùi:
 \end{eqnarray*}}
 Thuật toán: chuyền tiến tính \mat{$\f_t$}, chuyền lùi tính \mat{$\f_i$}, \mat{$\b_i$}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/country-dance02.png)
+<img src="../TaiLieu/slide_md/figures/country-dance02.png" style="width:100%; height:auto;">
 
 ---
-## Thuật toán múa đồng quê
+### Thuật toán múa đồng quê
 
 Có thể tránh lưu trữ tất cả các tin nhắn chuyển tiếp trong quá trình làm mịn bằng cách chạy 
 
@@ -291,10 +291,10 @@ thuật toán tiến lùi:
 \end{eqnarray*}}
 Thuật toán: chuyền tiến tính \mat{$\f_t$}, chuyền lùi tính \mat{$\f_i$}, \mat{$\b_i$}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/country-dance03.png)
+<img src="../TaiLieu/slide_md/figures/country-dance03.png" style="width:100%; height:auto;">
 
 ---
-## Thuật toán múa đồng quê
+### Thuật toán múa đồng quê
 
 Có thể tránh lưu trữ tất cả các tin nhắn chuyển tiếp trong quá trình làm mịn bằng cách chạy 
 
@@ -311,10 +311,10 @@ thuật toán tiến lùi:
 \end{eqnarray*}}
 Thuật toán: chuyền tiến tính \mat{$\f_t$}, chuyền lùi tính \mat{$\f_i$}, \mat{$\b_i$}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/country-dance04.png)
+<img src="../TaiLieu/slide_md/figures/country-dance04.png" style="width:100%; height:auto;">
 
 ---
-## Thuật toán múa đồng quê
+### Thuật toán múa đồng quê
 
 Có thể tránh lưu trữ tất cả các tin nhắn chuyển tiếp trong quá trình làm mịn bằng cách chạy 
 
@@ -331,10 +331,10 @@ thuật toán tiến lùi:
 \end{eqnarray*}}
 Thuật toán: chuyền tiến tính \mat{$\f_t$}, chuyền lùi tính \mat{$\f_i$}, \mat{$\b_i$}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/country-dance05.png)
+<img src="../TaiLieu/slide_md/figures/country-dance05.png" style="width:100%; height:auto;">
 
 ---
-## Thuật toán múa đồng quê
+### Thuật toán múa đồng quê
 
 Có thể tránh lưu trữ tất cả các tin nhắn chuyển tiếp trong quá trình làm mịn bằng cách chạy 
 
@@ -351,10 +351,10 @@ thuật toán tiến lùi:
 \end{eqnarray*}}
 Thuật toán: chuyền tiến tính \mat{$\f_t$}, chuyền lùi tính \mat{$\f_i$}, \mat{$\b_i$}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/country-dance06.png)
+<img src="../TaiLieu/slide_md/figures/country-dance06.png" style="width:100%; height:auto;">
 
 ---
-## Thuật toán múa đồng quê
+### Thuật toán múa đồng quê
 
 Có thể tránh lưu trữ tất cả các tin nhắn chuyển tiếp trong quá trình làm mịn bằng cách chạy 
 
@@ -371,10 +371,10 @@ thuật toán tiến lùi:
 \end{eqnarray*}}
 Thuật toán: chuyền tiến tính \mat{$\f_t$}, chuyền lùi tính \mat{$\f_i$}, \mat{$\b_i$}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/country-dance07.png)
+<img src="../TaiLieu/slide_md/figures/country-dance07.png" style="width:100%; height:auto;">
 
 ---
-## Thuật toán múa đồng quê
+### Thuật toán múa đồng quê
 
 Có thể tránh lưu trữ tất cả các tin nhắn chuyển tiếp trong quá trình làm mịn bằng cách chạy 
 
@@ -391,10 +391,10 @@ thuật toán tiến lùi:
 \end{eqnarray*}}
 Thuật toán: chuyền tiến tính \mat{$\f_t$}, chuyền lùi tính \mat{$\f_i$}, \mat{$\b_i$}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/country-dance08.png)
+<img src="../TaiLieu/slide_md/figures/country-dance08.png" style="width:100%; height:auto;">
 
 ---
-## Thuật toán múa đồng quê
+### Thuật toán múa đồng quê
 
 Có thể tránh lưu trữ tất cả các tin nhắn chuyển tiếp trong quá trình làm mịn bằng cách chạy 
 
@@ -411,10 +411,10 @@ thuật toán tiến lùi:
 \end{eqnarray*}}
 Thuật toán: chuyền tiến tính \mat{$\f_t$}, chuyền lùi tính \mat{$\f_i$}, \mat{$\b_i$}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/country-dance09.png)
+<img src="../TaiLieu/slide_md/figures/country-dance09.png" style="width:100%; height:auto;">
 
 ---
-## Thuật toán múa đồng quê
+### Thuật toán múa đồng quê
 
 Có thể tránh lưu trữ tất cả các tin nhắn chuyển tiếp trong quá trình làm mịn bằng cách chạy 
 
@@ -431,10 +431,10 @@ thuật toán tiến lùi:
 \end{eqnarray*}}
 Thuật toán: chuyền tiến tính \mat{$\f_t$}, chuyền lùi tính \mat{$\f_i$}, \mat{$\b_i$}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/country-dance10.png)
+<img src="../TaiLieu/slide_md/figures/country-dance10.png" style="width:100%; height:auto;">
 
 ---
-## Bộ lọc Kalman
+### Bộ lọc Kalman
 
 Hệ thống mô hình hóa được mô tả bởi một tập hợp các biến liên tục,
   
@@ -442,7 +442,7 @@ ví dụ: theo dõi một con chim đang bay---\mat{$\X_t\eq X, Y, Z, \dot X,\do
   
 Máy bay, robot, hệ sinh thái, nền kinh tế, nhà máy hóa chất, hành tinh, \mat{$\ldots$}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/kalman-network.png)
+<img src="../TaiLieu/slide_md/figures/kalman-network.png" style="width:100%; height:auto;">
 
 Gaussian trước, mô hình chuyển tiếp Gaussian tuyến tính và mô hình cảm biến
 
@@ -468,7 +468,7 @@ Quy trình chung (phi tuyến tính, phi Gaussian):
 mô tả phần sau phát triển *không giới hạn* như \mat{$t\rightarrow\infty$}
 
 ---
-## Ví dụ 1-D đơn giản
+### Ví dụ 1-D đơn giản
 
 Bước đi ngẫu nhiên Gaussian trên \mat{$X$}--axis, s.d. \mat{$\sigma_x$}, cảm biến s.d. \mat{$\sigma_z$}
 \mat{\[
@@ -479,7 +479,7 @@ Bước đi ngẫu nhiên Gaussian trên \mat{$X$}--axis, s.d. \mat{$\sigma_x$},
                         {\sigma_t^2+\sigma_x^2+\sigma_z^2}
 \]}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/kalman-one-step.png)
+<img src="../TaiLieu/slide_md/figures/kalman-one-step.png" style="width:100%; height:auto;">
 
 ---
 ## Cập nhật chung Kalman
@@ -512,14 +512,14 @@ là \defn{ma trận khuếch đại Kalman}
 \mat{$\covariance_t$} và \mat{$\kfgm_t$} độc lập với chuỗi quan sát, vì vậy hãy tính toán ngoại tuyến
 
 ---
-## Ví dụ về theo dõi 2-D: lọc
+### Ví dụ về theo dõi 2-D: lọc
 
-![Hình ảnh](../TaiLieu/slide_md/figures/kalman-filtering.png)
+<img src="../TaiLieu/slide_md/figures/kalman-filtering.png" style="width:100%; height:auto;">
 
 ---
-## Ví dụ theo dõi 2-D: làm mịn
+### Ví dụ theo dõi 2-D: làm mịn
 
-![Hình ảnh](../TaiLieu/slide_md/figures/kalman-smoothing.png)
+<img src="../TaiLieu/slide_md/figures/kalman-smoothing.png" style="width:100%; height:auto;">
 
 ---
 ## Nơi nó bị hỏng
@@ -540,11 +540,11 @@ Không thành công nếu hệ thống cục bộ không mượt mà
 \twofig{figures/umbrella-1slice.ps}{figures/robot-dbn1.ps}
 
 ---
-## DBN so với HMM
+### DBN so với HMM
 
 Mỗi HMM là một DBN một biến; mọi DBN rời rạc đều là HMM
 
-![Hình ảnh](../TaiLieu/slide_md/figures/dbn-vs-hmm.png)
+<img src="../TaiLieu/slide_md/figures/dbn-vs-hmm.png" style="width:100%; height:auto;">
 
 Các phần phụ thuộc thưa thớt \mat{$\Rightarrow$} có ít tham số hơn theo cấp số nhân;
   
@@ -564,11 +564,11 @@ Ví dụ: bin Laden và chìa khóa của tôi ở đâu? Sạc pin là gì?
 \twofig{figures/robot-full-dbn.ps}{graphs/pin8.ps}
 
 ---
-## Suy luận chính xác trong DBN
+### Suy luận chính xác trong DBN
 
 Phương pháp ngây thơ: \defn{ hủy đăng ký } mạng và chạy bất kỳ thuật toán chính xác nào
 
-![Hình ảnh](../TaiLieu/slide_md/figures/dbn-unrolling.png)
+<img src="../TaiLieu/slide_md/figures/dbn-unrolling.png" style="width:100%; height:auto;">
 
 Sự cố: chi phí suy luận cho mỗi bản cập nhật tăng theo \mat{$t$}
 
@@ -579,11 +579,11 @@ Hệ số lớn nhất là \mat{$O(d^{n+1})$}, chi phí cập nhật \mat{$O(d^{
 (xem chi phí cập nhật HMM \mat{$O(d^{2n})$})
 
 ---
-## Trọng số khả năng cho DBN
+### Trọng số khả năng cho DBN
 
 Tập hợp các mẫu có trọng số gần đúng với trạng thái niềm tin
 
-![Hình ảnh](../TaiLieu/slide_md/figures/umbrella5.png)
+<img src="../TaiLieu/slide_md/figures/umbrella5.png" style="width:100%; height:auto;">
 
 Các mẫu LW không chú ý đến bằng chứng!
     
@@ -591,10 +591,10 @@ Các mẫu LW không chú ý đến bằng chứng!
     
    \mat{$\Rightarrow$} số lượng mẫu cần thiết tăng theo cấp số nhân với \mat{$t$}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/umbrella-lw.png)
+<img src="../TaiLieu/slide_md/figures/umbrella-lw.png" style="width:100%; height:auto;">
 
 ---
-## Lọc hạt
+### Lọc hạt
 
 Ý tưởng cơ bản: đảm bảo rằng quần thể mẫu (" hạt ")
 
@@ -602,7 +602,7 @@ theo dõi các vùng có khả năng xảy ra cao trong không gian trạng thá
 
 Tái tạo các hạt tỷ lệ thuận với khả năng xảy ra đối với \mat{$\e_t$}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/umbrella-particle.png)
+<img src="../TaiLieu/slide_md/figures/umbrella-particle.png" style="width:100%; height:auto;">
 
 Được sử dụng rộng rãi để theo dõi các hệ thống phi tuyến, đặc biệt. trong tầm nhìn
 
@@ -642,13 +642,13 @@ Lấy mẫu lại để thu được các quần thể tỷ lệ với \mat{$W$}
 \end{eqnarray*}}
 
 ---
-## Hiệu suất lọc hạt 
+### Hiệu suất lọc hạt 
 
 Lỗi gần đúng của quá trình lọc hạt vẫn bị giới hạn theo thời gian,
 
 ít nhất là về mặt thực nghiệm---phân tích lý thuyết rất khó
 
-![Hình ảnh](../TaiLieu/slide_md/figures/comparison-lw-ersof.png)
+<img src="../TaiLieu/slide_md/figures/comparison-lw-ersof.png" style="width:100%; height:auto;">
 
 ---
 ## Tóm tắt
@@ -678,20 +678,20 @@ Lọc hạt là một thuật toán lọc gần đúng tốt cho DBN
  
 
 ---
-## Thuật toán đảo
+### Thuật toán đảo
 
 Ý tưởng: chạy lưu trữ tiến-lùi \mat{$\f_t$}, \mat{$\b_t$} chỉ tại \mat{$k-1$} điểm 
 
 Gọi đệ quy (theo chiều sâu) trên các nhiệm vụ con \mat{$k$}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/island.png)
+<img src="../TaiLieu/slide_md/figures/island.png" style="width:100%; height:auto;">
 
 \mat{$O(k|\f|\log_k t)$} không gian, \mat{$O(k\log_k t)$} thêm thời gian 
 
 ---
-## Làm mượt độ trễ cố định trực tuyến
+### Làm mượt độ trễ cố định trực tuyến
 
-![Hình ảnh](../TaiLieu/slide_md/figures/fixed-lag-smoothing.png)
+<img src="../TaiLieu/slide_md/figures/fixed-lag-smoothing.png" style="width:100%; height:auto;">
 
 Phương pháp rõ ràng là chạy tiến--lùi cho các bước \mat{$d$} mỗi lần
 
@@ -728,20 +728,20 @@ Xấp xỉ biến phân (Ghahramani và Jordan, 1997)
 MCMC suy tàn (chưa được xuất bản)
 
 ---
-## Đảo ngược bằng chứng
+### Đảo ngược bằng chứng
 
 Tốt hơn nên đề xuất các mẫu mới dựa trên bằng chứng mới
 
 Giảm thiểu phương sai của các ước tính hậu nghiệm (Kong \& Liu, 1996)
 
-![Hình ảnh](../TaiLieu/slide_md/figures/umbrella5-er.png)
+<img src="../TaiLieu/slide_md/figures/umbrella5-er.png" style="width:100%; height:auto;">
 
-![Hình ảnh](../TaiLieu/slide_md/figures/step-all-25.png)
+<img src="../TaiLieu/slide_md/figures/step-all-25.png" style="width:100%; height:auto;">
 
 ---
-## Ví dụ: DBN để nhận dạng giọng nói
+### Ví dụ: DBN để nhận dạng giọng nói
 
-![Hình ảnh](../TaiLieu/slide_md/figures/speech-dbn.png)
+<img src="../TaiLieu/slide_md/figures/speech-dbn.png" style="width:100%; height:auto;">
 
 Cũng dễ dàng thêm các biến cho, ví dụ: giới tính, giọng nói, tốc độ.
 

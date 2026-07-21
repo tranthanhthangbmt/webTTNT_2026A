@@ -202,14 +202,14 @@ ví dụ: \mat{$(a\lor b) \equiv (\lnot a \land b) \lor (a \land \lnot b) \lor (
 \mat{$\implies P(a\lor b) = P(\lnot a \land b) + P(a \land \lnot b) + P(a \land b) $}
 
 ---
-## Tại sao sử dụng xác suất?
+### Tại sao sử dụng xác suất?
 
 Các định nghĩa ngụ ý rằng các sự kiện nhất định có liên quan về mặt logic
 phải có xác suất liên quan
 
 Ví dụ: \mat{$P(a \lor b) = P(a) + P(b) - P(a\land b)$}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/axiom3-venn.png)
+<img src="../TaiLieu/slide_md/figures/axiom3-venn.png" style="width:100%; height:auto;">
 
 de Finetti (1931): một đại lý đặt cược theo xác suất vi phạm
 những tiên đề này có thể bị buộc phải đặt cược để mất tiền bất kể kết quả ra sao.
@@ -270,13 +270,13 @@ Cavity \eq false&0.576 &0.08 &0.064 & 0.08
 phân phối vì mọi sự kiện là tổng của các điểm mẫu*
 
 ---
-## Xác suất cho các biến liên tục
+### Xác suất cho các biến liên tục
 
 Phân phối nhanh dưới dạng hàm tham số của giá trị:
   
 \mat{$P(X\eq x) = U[18,26](x)$} = mật độ đồng đều giữa \mat{$18$} và \mat{$26$}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/uniform-density.png)
+<img src="../TaiLieu/slide_md/figures/uniform-density.png" style="width:100%; height:auto;">
 
 Ở đây \mat{$P$} là \defn{mật độ}; tích phân thành 1.
 
@@ -286,11 +286,11 @@ Phân phối nhanh dưới dạng hàm tham số của giá trị:
 \]}
 
 ---
-## Mật độ Gaussian
+### Mật độ Gaussian
 
 \mat{$P(x) = \frac{1}{\sqrt{2\pi} \sigma} e^{-(x-\mu)^2/2\sigma^2}$}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/gaussian-density.png)
+<img src="../TaiLieu/slide_md/figures/gaussian-density.png" style="width:100%; height:auto;">
 
 ---
 ## Xác suất có điều kiện
@@ -353,22 +353,22 @@ Phiên bản chung áp dụng cho toàn bộ bản phân phối, ví dụ:
  
 
 ---
-## Suy luận bằng phép liệt kê
+### Suy luận bằng phép liệt kê
 
 Bắt đầu với việc phân phối chung:
 
-![Hình ảnh](../TaiLieu/slide_md/figures/dentist-joint.png)
+<img src="../TaiLieu/slide_md/figures/dentist-joint.png" style="width:100%; height:auto;">
 
 Đối với bất kỳ mệnh đề nào \mat{$\phi$}, hãy tính tổng các sự kiện nguyên tử trong đó nó đúng:
   
  \mat{$P(\phi) = \mysum_{\omega: \omega \models \phi} P(\omega)$}
 
 ---
-## Suy luận bằng phép liệt kê
+### Suy luận bằng phép liệt kê
 
 Bắt đầu với việc phân phối chung:
 
-![Hình ảnh](../TaiLieu/slide_md/figures/dentist-joint1.png)
+<img src="../TaiLieu/slide_md/figures/dentist-joint1.png" style="width:100%; height:auto;">
 
 Đối với bất kỳ mệnh đề nào \mat{$\phi$}, hãy tính tổng các sự kiện nguyên tử trong đó nó đúng:
   
@@ -377,11 +377,11 @@ Bắt đầu với việc phân phối chung:
 \mat{$P(toothache) = 0.108 + 0.012 + 0.016 + 0.064 = 0.2$}
 
 ---
-## Suy luận bằng phép liệt kê
+### Suy luận bằng phép liệt kê
 
 Bắt đầu với việc phân phối chung:
 
-![Hình ảnh](../TaiLieu/slide_md/figures/dentist-joint2.png)
+<img src="../TaiLieu/slide_md/figures/dentist-joint2.png" style="width:100%; height:auto;">
 
 Đối với bất kỳ mệnh đề nào \mat{$\phi$}, hãy tính tổng các sự kiện nguyên tử trong đó nó đúng:
   
@@ -391,11 +391,11 @@ Bắt đầu với việc phân phối chung:
                          = 0.28$}
 
 ---
-## Suy luận bằng phép liệt kê
+### Suy luận bằng phép liệt kê
 
 Bắt đầu với việc phân phối chung:
 
-![Hình ảnh](../TaiLieu/slide_md/figures/dentist-joint3.png)
+<img src="../TaiLieu/slide_md/figures/dentist-joint3.png" style="width:100%; height:auto;">
 
 Cũng có thể tính xác suất có điều kiện:
 \mat{\begin{eqnarray*}
@@ -406,9 +406,9 @@ P(\lnot cavity|toothache)
 \end{eqnarray*}}
 
 ---
-## Chuẩn hóa
+### Chuẩn hóa
 
-![Hình ảnh](../TaiLieu/slide_md/figures/dentist-joint4.png)
+<img src="../TaiLieu/slide_md/figures/dentist-joint4.png" style="width:100%; height:auto;">
 
 Mẫu số có thể được xem dưới dạng hằng số chuẩn hóa \note{} \mat{$
   pha$}
@@ -459,13 +459,13 @@ Vấn đề rõ ràng:
 3) Làm cách nào để tìm số cho mục \mat{$O(d^n)$}???
 
 ---
-## Độc lập
+### Độc lập
 
 \mat{$A$} và \mat{$B$} là \defn{độc lập} iff
 
 \mat{$P(A|B) \eq P(A)$}  &nbsp;&nbsp;  hoặc  &nbsp;&nbsp;  \mat{$P(B|A) \eq P(B)$}  &nbsp;&nbsp;  hoặc  &nbsp;&nbsp;  \mat{$P(A, B) \eq P(A)P(B)$}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/weather-independence.png)
+<img src="../TaiLieu/slide_md/figures/weather-independence.png" style="width:100%; height:auto;">
 
 \mat{$P(Toothache,Catch,Cavity,Weather)$}
     
@@ -549,7 +549,7 @@ Ví dụ: đặt \mat{$M$} là viêm màng não, \mat{$S$} là cứng cổ:
 Lưu ý: khả năng mắc bệnh viêm màng não sau này vẫn rất nhỏ!
 
 ---
-## Quy tắc Bayes và tính độc lập có điều kiện
+### Quy tắc Bayes và tính độc lập có điều kiện
 
 \mat{\begin{eqnarray*}
 \lefteqn{P(Cavity|toothache \land catch)}
@@ -566,14 +566,14 @@ Lưu ý: khả năng mắc bệnh viêm màng não sau này vẫn rất nhỏ!
        P(Cause)\myprod_i P(Effect_i|Cause)
 \]}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/naive-bayes.png)
+<img src="../TaiLieu/slide_md/figures/naive-bayes.png" style="width:100%; height:auto;">
 
 Tổng số tham số là *tuyến tính* trong \mat{$n$}
 
 ---
-## Thế giới Wumpus
+### Thế giới Wumpus
 
-![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-stuck.png)
+<img src="../TaiLieu/slide_md/figures/wumpus-stuck.png" style="width:100%; height:auto;">
 
 \mat{$P_{ij}\eq true$} iff [\mat{$i,j$}] chứa một cái hố
 
@@ -619,12 +619,12 @@ Xác định \mat{$Unknown$} = \mat{$P_{ij}$}s khác với \mat{$P_{1,3}$} và \
 Phát triển theo cấp số nhân với số lượng hình vuông!
 
 ---
-## Sử dụng tính độc lập có điều kiện
+### Sử dụng tính độc lập có điều kiện
 
 Cái nhìn sâu sắc cơ bản: các quan sát độc lập có điều kiện với
 các ô vuông ẩn khác cho các ô vuông ẩn lân cận
 
-![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-variables.png)
+<img src="../TaiLieu/slide_md/figures/wumpus-variables.png" style="width:100%; height:auto;">
 
 Xác định \mat{$Unknown = Fringe \cup Other$}
 
@@ -664,9 +664,9 @@ Thao tác truy vấn thành một biểu mẫu mà chúng ta có thể sử dụ
 \end{eqnarray*}}
 
 ---
-## Sử dụng tính độc lập có điều kiện tiếp.
+### Sử dụng tính độc lập có điều kiện tiếp.
 
-![Hình ảnh](../TaiLieu/slide_md/figures/wumpus-fringe-models.png)
+<img src="../TaiLieu/slide_md/figures/wumpus-fringe-models.png" style="width:100%; height:auto;">
 
 \mat{\begin{eqnarray*}
 P(P_{1,3}|known,b) 

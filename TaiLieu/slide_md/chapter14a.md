@@ -39,11 +39,11 @@ một \defn{bảng xác suất có điều kiện} (CPT) đưa ra
 phân phối trên \mat{$X_i$} cho mỗi kết hợp giá trị gốc
 
 ---
-## Ví dụ
+### Ví dụ
 
 Cấu trúc liên kết của mạng mã hóa các xác nhận độc lập có điều kiện:
 
-![Hình ảnh](../TaiLieu/slide_md/figures/dentist-network.png)
+<img src="../TaiLieu/slide_md/figures/dentist-network.png" style="width:100%; height:auto;">
 
 \mat{$Weather$} độc lập với các biến khác
 
@@ -69,14 +69,14 @@ Cấu trúc liên kết mạng phản ánh kiến thức "nhân quả":
  -- Chuông báo thức có thể khiến John phải gọi
 
 ---
-## Ví dụ tiếp theo.
+### Ví dụ tiếp theo.
 
-![Hình ảnh](../TaiLieu/slide_md/figures/burglary2.png)
+<img src="../TaiLieu/slide_md/figures/burglary2.png" style="width:100%; height:auto;">
 
 ---
-## Độ nhỏ gọn
+### Độ nhỏ gọn
 
-CPT cho Boolean \mat{$X_i$} với \mat{$k$} cha mẹ Boolean có\hspace*{1.75in}in\raisebox{-1.5in}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/burglary-small.png)
+CPT cho Boolean \mat{$X_i$} với \mat{$k$} cha mẹ Boolean có\hspace*{1.75in}in\raisebox{-1.5in}[0pt][0pt]{<img src="../TaiLieu/slide_md/figures/burglary-small.png" style="width:100%; height:auto;">
 
 \mat{$2^k$} hàng cho sự kết hợp của các giá trị gốc
 
@@ -93,9 +93,9 @@ Tức là, tăng tuyến tính với \mat{$n$}, so với  \mat{$O(2^n)$} để p
 Đối với mạng trộm, số \mat{$1 + 1 + 4 + 2 + 2 \eq 10$} (so với  \mat{$2^5-1 = 31$})
 
 ---
-## Ngữ nghĩa toàn cầu
+### Ngữ nghĩa toàn cầu
 
-Ngữ nghĩa \defn{Global} xác định phân phối chung đầy đủ\hspace*{1.2in}in\raisebox{-1.5in}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/burglary-small.png)
+Ngữ nghĩa \defn{Global} xác định phân phối chung đầy đủ\hspace*{1.2in}in\raisebox{-1.5in}[0pt][0pt]{<img src="../TaiLieu/slide_md/figures/burglary-small.png" style="width:100%; height:auto;">
 
 là sản phẩm của phân phối có điều kiện cục bộ:
 \mat{\[
@@ -107,9 +107,9 @@ ví dụ: \mat{$P(j\land m\land a\land \lnot b \land \lnot e)$}
 \]}
 
 ---
-## Ngữ nghĩa toàn cầu
+### Ngữ nghĩa toàn cầu
 
-Ngữ nghĩa "Toàn cầu" xác định phân phối chung đầy đủ\hspace*{1.2in}in\raisebox{-1.5in}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/burglary-small.png)
+Ngữ nghĩa "Toàn cầu" xác định phân phối chung đầy đủ\hspace*{1.2in}in\raisebox{-1.5in}[0pt][0pt]{<img src="../TaiLieu/slide_md/figures/burglary-small.png" style="width:100%; height:auto;">
 
 là sản phẩm của phân phối có điều kiện cục bộ:
 \mat{\[
@@ -125,24 +125,24 @@ ví dụ: \mat{$P(j\land m\land a\land \lnot b \land \lnot e)$}
 \end{eqnarray*}}
 
 ---
-## Ngữ nghĩa cục bộ
+### Ngữ nghĩa cục bộ
 
 Ngữ nghĩa \defn{Local}: mỗi nút độc lập có điều kiện
 
 của những người không phải là hậu duệ của nó được trao cho cha mẹ của nó
 
-![Hình ảnh](../TaiLieu/slide_md/figures/nondescendants.png)
+<img src="../TaiLieu/slide_md/figures/nondescendants.png" style="width:100%; height:auto;">
 
 Định lý: \mat{Local semantics} \mat{$\lequiv$} \mat{global semantics}
 
 ---
-## Chăn Markov
+### Chăn Markov
 
 Mỗi nút độc lập có điều kiện với tất cả các nút khác dựa trên 
  của nó
 \defn{Chăn Markov}: cha mẹ + con cái + cha mẹ con cái
 
-![Hình ảnh](../TaiLieu/slide_md/figures/markov-blanket.png)
+<img src="../TaiLieu/slide_md/figures/markov-blanket.png" style="width:100%; height:auto;">
 
 ---
 ## Xây dựng mạng Bayesian
@@ -171,31 +171,31 @@ P(X_1,\ldots,X_n) &=& \myprod_{i\eq 1}^n P(X_i | X_1,\, \ldots,\, X_{i-1})
 \end{eqnarray*}}
 
 ---
-## Ví dụ
+### Ví dụ
 
 Giả sử chúng ta chọn thứ tự \mat{$M$}, \mat{$J$}, \mat{$A$}, \mat{$B$}, \mat{$E$}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/burglary-make1.png)
+<img src="../TaiLieu/slide_md/figures/burglary-make1.png" style="width:100%; height:auto;">
 
 \mat{$P(J|M) = P(J)$}?
 
 ---
-## Ví dụ
+### Ví dụ
 
 \ptext{Giả sử chúng ta chọn thứ tự \mat{$M$}, \mat{$J$}, \mat{$A$}, \mat{$B$}, \mat{$E$}}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/burglary-make2.png)
+<img src="../TaiLieu/slide_md/figures/burglary-make2.png" style="width:100%; height:auto;">
 
 \ptext{\mat{$P(J|M) = P(J)$}? &nbsp;&nbsp;  Không
 
 \mat{$P(A|J,M) = P(A|J)$}? \mat{$P(A|J,M) = P(A)$}?
 
 ---
-## Ví dụ
+### Ví dụ
 
 \ptext{Giả sử chúng ta chọn thứ tự \mat{$M$}, \mat{$J$}, \mat{$A$}, \mat{$B$}, \mat{$E$}}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/burglary-make3.png)
+<img src="../TaiLieu/slide_md/figures/burglary-make3.png" style="width:100%; height:auto;">
 
 \ptext{\mat{$P(J|M) = P(J)$}? &nbsp;&nbsp;  Không
 
@@ -206,11 +206,11 @@ Giả sử chúng ta chọn thứ tự \mat{$M$}, \mat{$J$}, \mat{$A$}, \mat{$B$
 \mat{$P(B|A,J,M) = P(B)$}?
 
 ---
-## Ví dụ
+### Ví dụ
 
 \ptext{Giả sử chúng ta chọn thứ tự \mat{$M$}, \mat{$J$}, \mat{$A$}, \mat{$B$}, \mat{$E$}}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/burglary-make4.png)
+<img src="../TaiLieu/slide_md/figures/burglary-make4.png" style="width:100%; height:auto;">
 
 \ptext{\mat{$P(J|M) = P(J)$}? &nbsp;&nbsp;  Không
 
@@ -225,11 +225,11 @@ Giả sử chúng ta chọn thứ tự \mat{$M$}, \mat{$J$}, \mat{$A$}, \mat{$B$
 \mat{$P(E|B,A,J,M) = P(E|A,B)$}?
 
 ---
-## Ví dụ
+### Ví dụ
 
 \ptext{Giả sử chúng ta chọn thứ tự \mat{$M$}, \mat{$J$}, \mat{$A$}, \mat{$B$}, \mat{$E$}}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/burglary-make5.png)
+<img src="../TaiLieu/slide_md/figures/burglary-make5.png" style="width:100%; height:auto;">
 
 \ptext{\mat{$P(J|M) = P(J)$}? &nbsp;&nbsp;  Không
 
@@ -244,9 +244,9 @@ Giả sử chúng ta chọn thứ tự \mat{$M$}, \mat{$J$}, \mat{$A$}, \mat{$B$
 \ptext{\mat{$P(E|B,A,J,M) = P(E|A,B)$}? &nbsp;&nbsp;  Có
 
 ---
-## Ví dụ tiếp theo.
+### Ví dụ tiếp theo.
 
-![Hình ảnh](../TaiLieu/slide_md/figures/burglary-make5.png)
+<img src="../TaiLieu/slide_md/figures/burglary-make5.png" style="width:100%; height:auto;">
 
 Quyết định tính độc lập có điều kiện là khó theo hướng phi nhân quả
 
@@ -257,7 +257,7 @@ Quyết định tính độc lập có điều kiện là khó theo hướng phi
 Mạng kém gọn hơn: cần có số \mat{$1 + 2 + 4 + 2 + 4 \eq 13$}
 
 ---
-## Ví dụ: Chẩn đoán ô tô
+### Ví dụ: Chẩn đoán ô tô
 
 Bằng chứng ban đầu: xe không nổ máy
 
@@ -265,12 +265,12 @@ Các biến có thể kiểm tra (màu xanh lá cây), các biến " bị hỏng
 
 Biến ẩn (màu xám) đảm bảo cấu trúc thưa thớt, giảm tham số
 
-![Hình ảnh](../TaiLieu/slide_md/figures/car-net.png)
+<img src="../TaiLieu/slide_md/figures/car-net.png" style="width:100%; height:auto;">
 
 ---
-## Ví dụ: Bảo hiểm ô tô
+### Ví dụ: Bảo hiểm ô tô
 
-![Hình ảnh](../TaiLieu/slide_md/figures/insurance-net.png)
+<img src="../TaiLieu/slide_md/figures/insurance-net.png" style="width:100%; height:auto;">
 
 ---
 ## Phân phối có điều kiện nhỏ gọn
@@ -323,11 +323,11 @@ Ví dụ: mối quan hệ số giữa các biến liên tục
 Số tham số *tuyến tính* trong số cha mẹ
 
 ---
-## Mạng lai (rời rạc+liên tục)
+### Mạng lai (rời rạc+liên tục)
 
 Rời rạc (\mat{$Subsidy?$} và \mat{$Buys?$});  liên tục (\mat{$Harvest$} và \mat{$Cost$})
 
-![Hình ảnh](../TaiLieu/slide_md/figures/continuous-net.png)
+<img src="../TaiLieu/slide_md/figures/continuous-net.png" style="width:100%; height:auto;">
 
 Tùy chọn 1: rời rạc---có thể có lỗi lớn, CPT lớn
 
@@ -362,9 +362,9 @@ Sự thay đổi tuyến tính là không hợp lý trên toàn bộ phạm vi
   nhưng hoạt động tốt nếu phạm vi *có khả năng* của \mat{$Harvest$} hẹp
 
 ---
-## Biến con liên tục
+### Biến con liên tục
 
-![Hình ảnh](../TaiLieu/slide_md/figures/linear-gaussian-true.png)
+<img src="../TaiLieu/slide_md/figures/linear-gaussian-true.png" style="width:100%; height:auto;">
 
 Mạng liên tục với các bản phân phối của LG
   
@@ -376,11 +376,11 @@ tức là, một Gaussian đa biến trên tất cả các biến liên tục
 cho mỗi sự kết hợp của các giá trị biến rời rạc
 
 ---
-## Biến rời rạc với cha mẹ liên tục
+### Biến rời rạc với cha mẹ liên tục
 
 Xác suất của \mat{$Buys?$} cho trước \mat{$Cost$} phải là ngưỡng "mềm":
 
-![Hình ảnh](../TaiLieu/slide_md/figures/probit.png)
+<img src="../TaiLieu/slide_md/figures/probit.png" style="width:100%; height:auto;">
 
 Phân phối \defn{Probit} sử dụng tích phân của Gaussian:
   
@@ -389,16 +389,16 @@ Phân phối \defn{Probit} sử dụng tích phân của Gaussian:
   \mat{$P(Buys?\eq true \given Cost \eq c) = \Phi((-c + \mu)/\sigma)$}
 
 ---
-## Tại sao lại là probit?
+### Tại sao lại là probit?
 
 1. Nó có hình dạng phù hợp
 
 2. Có thể xem là ngưỡng cứng có vị trí bị nhiễu
 
-![Hình ảnh](../TaiLieu/slide_md/figures/noisy-threshold.png)
+<img src="../TaiLieu/slide_md/figures/noisy-threshold.png" style="width:100%; height:auto;">
 
 ---
-## Biến rời rạc tiếp theo.
+### Biến rời rạc tiếp theo.
 
 Phân phối \defn{Sigmoid} (hoặc \defn{logit}) cũng được sử dụng trong mạng thần kinh:
 \mat{\[
@@ -406,7 +406,7 @@ P(Buys?\eq true \given Cost \eq c) = \frac{1}{1+exp(-2\frac{-c+\mu}{\sigma})}
 \]}
 Sigmoid có hình dạng tương tự probit nhưng đuôi dài hơn nhiều:
 
-![Hình ảnh](../TaiLieu/slide_md/figures/logit.png)
+<img src="../TaiLieu/slide_md/figures/logit.png" style="width:100%; height:auto;">
 
 ---
 ## Tóm tắt

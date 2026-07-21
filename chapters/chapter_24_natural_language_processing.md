@@ -18,6 +18,11 @@
   <iframe src="TaiLieu/slide/chapter24.pdf" width="100%" height="100%"></iframe>
 </div>
 
+#### **Video**
+
+<div class="pdf-container" style="margin-bottom: 20px;">
+  <iframe src="video/Chapter24/index.html" width="100%" height="100%"></iframe>
+</div>
 
 #### **Trắc nghiệm**
 *(Chưa có bài tập trắc nghiệm)*
@@ -127,7 +132,7 @@ Which of the following are true, and which are false?<br>
 
 ---
 
-##### Bài tập 24.7
+###### Bài tập 24.7
 
 Which of the following are true, and which are false?<br>
 

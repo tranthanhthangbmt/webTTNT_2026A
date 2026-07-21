@@ -77,9 +77,9 @@ Chuyến bay khởi hành vào ngày mai từ Bucharest
 chuỗi các thành phố, ví dụ: Arad, Sibiu, Fagaras, Bucharest
 
 ---
-## Ví dụ: Romania
+### Ví dụ: Romania
 
-![Hình ảnh](../TaiLieu/slide_md/figures/romania-distances.png)
+<img src="../TaiLieu/slide_md/figures/romania-distances.png" style="width:100%; height:auto;">
 
 ---
 ## Các loại sự cố
@@ -103,16 +103,16 @@ thường *xen kẽ* tìm kiếm, thực thi
 \note{Không gian trạng thái không xác định} $\Longrightarrow$ \defn{vấn đề khám phá} ("trực tuyến")
 
 ---
-## Ví dụ: thế giới chân không
+### Ví dụ: thế giới chân không
 
 \note{Trạng thái đơn}, bắt đầu bằng \#5. <u>Giải pháp</u>?? 
 
  
 
-\raisebox{-0.35\maxfigwidth}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/vacuum2-space.png)}
+\raisebox{-0.35\maxfigwidth}[0pt][0pt]{<img src="../TaiLieu/slide_md/figures/vacuum2-space.png" style="width:100%; height:auto;">}
 
 ---
-## Ví dụ: thế giới chân không
+### Ví dụ: thế giới chân không
 
 \hbox{
 \note{Trạng thái đơn}, bắt đầu bằng \#5. <u>Giải pháp</u>?? 
@@ -126,10 +126,10 @@ ví dụ: \mat{$Right$} chuyển đến \mat{$\{2,4,6,8\}$}. <u>Giải pháp</u>
 }
  
 
-\raisebox{-0.35\maxfigwidth}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/vacuum2-space.png)}
+\raisebox{-0.35\maxfigwidth}[0pt][0pt]{<img src="../TaiLieu/slide_md/figures/vacuum2-space.png" style="width:100%; height:auto;">}
 
 ---
-## Ví dụ: thế giới chân không
+### Ví dụ: thế giới chân không
 
 \hbox{
 \note{Trạng thái đơn}, bắt đầu bằng \#5. <u>Giải pháp</u>?? 
@@ -154,10 +154,10 @@ Cảm biến cục bộ: bụi bẩn, chỉ vị trí.
 }
  
 
-\raisebox{-0.35\maxfigwidth}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/vacuum2-space.png)}
+\raisebox{-0.35\maxfigwidth}[0pt][0pt]{<img src="../TaiLieu/slide_md/figures/vacuum2-space.png" style="width:100%; height:auto;">}
 
 ---
-## Ví dụ: thế giới chân không
+### Ví dụ: thế giới chân không
 
 \hbox{
 \note{Trạng thái đơn}, bắt đầu bằng \#5. <u>Giải pháp</u>?? 
@@ -184,7 +184,7 @@ Cảm biến cục bộ: bụi bẩn, chỉ vị trí.
 }
  
 
-\raisebox{-0.35\maxfigwidth}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/vacuum2-space.png)}
+\raisebox{-0.35\maxfigwidth}[0pt][0pt]{<img src="../TaiLieu/slide_md/figures/vacuum2-space.png" style="width:100%; height:auto;">}
 
 ---
 ## Xây dựng bài toán trạng thái đơn
@@ -239,9 +239,9 @@ phải đến \note{some} trạng thái thực " ở Zerind "
 Mỗi hành động trừu tượng phải "dễ dàng hơn" so với vấn đề ban đầu!
 
 ---
-##  Ví dụ: đồ thị không gian trạng thái thế giới chân không 
+###  Ví dụ: đồ thị không gian trạng thái thế giới chân không 
 
-![Hình ảnh](../TaiLieu/slide_md/figures/vacuum2-paths.png)
+<img src="../TaiLieu/slide_md/figures/vacuum2-paths.png" style="width:100%; height:auto;">
 
 <u>trạng thái</u>??
 
@@ -252,9 +252,9 @@ Mỗi hành động trừu tượng phải "dễ dàng hơn" so với vấn đ�
 <u>chi phí đường đi</u>??
 
 ---
-##  Ví dụ: đồ thị không gian trạng thái thế giới chân không 
+###  Ví dụ: đồ thị không gian trạng thái thế giới chân không 
 
-![Hình ảnh](../TaiLieu/slide_md/figures/vacuum2-paths.png)
+<img src="../TaiLieu/slide_md/figures/vacuum2-paths.png" style="width:100%; height:auto;">
 
 <u>state</u>??: số nguyên bụi bẩn và vị trí robot (bỏ qua bụi bẩn \note{số lượng}, v.v.)
 
@@ -265,9 +265,9 @@ Mỗi hành động trừu tượng phải "dễ dàng hơn" so với vấn đ�
 <u>chi phí đường dẫn</u>??
 
 ---
-##  Ví dụ: đồ thị không gian trạng thái thế giới chân không 
+###  Ví dụ: đồ thị không gian trạng thái thế giới chân không 
 
-![Hình ảnh](../TaiLieu/slide_md/figures/vacuum2-paths.png)
+<img src="../TaiLieu/slide_md/figures/vacuum2-paths.png" style="width:100%; height:auto;">
 
 <u>state</u>??: số nguyên bụi bẩn và vị trí robot (bỏ qua bụi bẩn \note{số lượng}, v.v.)
 
@@ -278,9 +278,9 @@ Mỗi hành động trừu tượng phải "dễ dàng hơn" so với vấn đ�
 <u>chi phí đường dẫn</u>??
 
 ---
-##  Ví dụ: đồ thị không gian trạng thái thế giới chân không 
+###  Ví dụ: đồ thị không gian trạng thái thế giới chân không 
 
-![Hình ảnh](../TaiLieu/slide_md/figures/vacuum2-paths.png)
+<img src="../TaiLieu/slide_md/figures/vacuum2-paths.png" style="width:100%; height:auto;">
 
 <u>state</u>??: số nguyên bụi bẩn và vị trí robot (bỏ qua bụi bẩn \note{số lượng}, v.v.)
 
@@ -291,9 +291,9 @@ Mỗi hành động trừu tượng phải "dễ dàng hơn" so với vấn đ�
 <u>chi phí đường dẫn</u>??
 
 ---
-##  Ví dụ: đồ thị không gian trạng thái thế giới chân không 
+###  Ví dụ: đồ thị không gian trạng thái thế giới chân không 
 
-![Hình ảnh](../TaiLieu/slide_md/figures/vacuum2-paths.png)
+<img src="../TaiLieu/slide_md/figures/vacuum2-paths.png" style="width:100%; height:auto;">
 
 <u>state</u>??: số nguyên bụi bẩn và vị trí robot (bỏ qua bụi bẩn \note{số lượng}, v.v.)
 
@@ -304,9 +304,9 @@ Mỗi hành động trừu tượng phải "dễ dàng hơn" so với vấn đ�
 <u>chi phí đường dẫn</u>??: 1 cho mỗi hành động (0 cho \mat{$NoOp$})
 
 ---
-## Ví dụ: Câu đố 8 ô
+### Ví dụ: Câu đố 8 ô
 
-![Hình ảnh](../TaiLieu/slide_md/figures/8puzzle.png)
+<img src="../TaiLieu/slide_md/figures/8puzzle.png" style="width:100%; height:auto;">
 
 <u>trạng thái</u>??
 
@@ -317,9 +317,9 @@ Mỗi hành động trừu tượng phải "dễ dàng hơn" so với vấn đ�
 <u>chi phí đường đi</u>??
 
 ---
-## Ví dụ: Câu đố 8 ô
+### Ví dụ: Câu đố 8 ô
 
-![Hình ảnh](../TaiLieu/slide_md/figures/8puzzle.png)
+<img src="../TaiLieu/slide_md/figures/8puzzle.png" style="width:100%; height:auto;">
 
 <u>state</u>??: vị trí số nguyên của các ô (bỏ qua các vị trí trung gian)
 
@@ -330,9 +330,9 @@ Mỗi hành động trừu tượng phải "dễ dàng hơn" so với vấn đ�
 <u>chi phí đường đi</u>??
 
 ---
-## Ví dụ: Câu đố 8 ô
+### Ví dụ: Câu đố 8 ô
 
-![Hình ảnh](../TaiLieu/slide_md/figures/8puzzle.png)
+<img src="../TaiLieu/slide_md/figures/8puzzle.png" style="width:100%; height:auto;">
 
 <u>state</u>??: vị trí số nguyên của các ô (bỏ qua các vị trí trung gian)
 
@@ -343,9 +343,9 @@ Mỗi hành động trừu tượng phải "dễ dàng hơn" so với vấn đ�
 <u>chi phí đường đi</u>??
 
 ---
-## Ví dụ: Câu đố 8 ô
+### Ví dụ: Câu đố 8 ô
 
-![Hình ảnh](../TaiLieu/slide_md/figures/8puzzle.png)
+<img src="../TaiLieu/slide_md/figures/8puzzle.png" style="width:100%; height:auto;">
 
 <u>state</u>??: vị trí số nguyên của các ô (bỏ qua các vị trí trung gian)
 
@@ -356,9 +356,9 @@ Mỗi hành động trừu tượng phải "dễ dàng hơn" so với vấn đ�
 <u>chi phí đường đi</u>??
 
 ---
-## Ví dụ: Câu đố 8 ô
+### Ví dụ: Câu đố 8 ô
 
-![Hình ảnh](../TaiLieu/slide_md/figures/8puzzle.png)
+<img src="../TaiLieu/slide_md/figures/8puzzle.png" style="width:100%; height:auto;">
 
 <u>state</u>??: vị trí số nguyên của các ô (bỏ qua các vị trí trung gian)
 
@@ -371,9 +371,9 @@ Mỗi hành động trừu tượng phải "dễ dàng hơn" so với vấn đ�
 [Lưu ý: giải pháp tối ưu của $n$-Puzzle là NP-hard]
 
 ---
-## Ví dụ: lắp ráp robot
+### Ví dụ: lắp ráp robot
 
-![Hình ảnh](../TaiLieu/slide_md/figures/stanford-arm+blocks.png)
+<img src="../TaiLieu/slide_md/figures/stanford-arm+blocks.png" style="width:100%; height:auto;">
 
 <u>state</u>??: tọa độ có giá trị thực của các góc khớp robot
     
@@ -408,22 +408,22 @@ function Tree-Search(problem, strategy) returns a solution, or failure
 ```
 
 ---
-## Ví dụ tìm kiếm cây
+### Ví dụ tìm kiếm cây
 
-![Hình ảnh](../TaiLieu/slide_md/figures/search-map1.png)
-
----
-## Ví dụ tìm kiếm cây
-
-![Hình ảnh](../TaiLieu/slide_md/figures/search-map2.png)
+<img src="../TaiLieu/slide_md/figures/search-map1.png" style="width:100%; height:auto;">
 
 ---
-## Ví dụ tìm kiếm cây
+### Ví dụ tìm kiếm cây
 
-![Hình ảnh](../TaiLieu/slide_md/figures/search-map3.png)
+<img src="../TaiLieu/slide_md/figures/search-map2.png" style="width:100%; height:auto;">
 
 ---
-## Triển khai: trạng thái so với. nút
+### Ví dụ tìm kiếm cây
+
+<img src="../TaiLieu/slide_md/figures/search-map3.png" style="width:100%; height:auto;">
+
+---
+### Triển khai: trạng thái so với. nút
 
 Trạng thái \defn{} là (biểu thị của) cấu hình vật lý
 
@@ -433,7 +433,7 @@ Nút \defn{} là cấu trúc dữ liệu cấu thành một phần của cây t�
 
 Hoa không có cha mẹ, con cái, độ sâu, hoặc chi phí đường đi!
 
-![Hình ảnh](../TaiLieu/slide_md/figures/state-vs-node.png)
+<img src="../TaiLieu/slide_md/figures/state-vs-node.png" style="width:100%; height:auto;">
 
 Hàm **Expand** tạo các nút mới, điền vào các nút khác nhau
 các trường và sử dụng **SuccessorFn** của
@@ -504,7 +504,7 @@ Tìm kiếm giới hạn độ sâu
 Tìm kiếm sâu hơn lặp đi lặp lại
 
 ---
-## Tìm kiếm theo chiều rộng
+### Tìm kiếm theo chiều rộng
 
 Mở rộng nút nông nhất chưa được mở rộng
 
@@ -512,10 +512,10 @@ Mở rộng nút nông nhất chưa được mở rộng
     
 \v{fringe} là một hàng đợi FIFO, tức là những người kế nhiệm mới sẽ ở cuối
 
-![Hình ảnh](../TaiLieu/slide_md/figures/bfs-progress1.png)
+<img src="../TaiLieu/slide_md/figures/bfs-progress1.png" style="width:100%; height:auto;">
 
 ---
-## Tìm kiếm theo chiều rộng
+### Tìm kiếm theo chiều rộng
 
 Mở rộng nút nông nhất chưa được mở rộng
 
@@ -523,10 +523,10 @@ Mở rộng nút nông nhất chưa được mở rộng
     
 \v{fringe} là một hàng đợi FIFO, tức là những người kế nhiệm mới sẽ ở cuối
 
-![Hình ảnh](../TaiLieu/slide_md/figures/bfs-progress2.png)
+<img src="../TaiLieu/slide_md/figures/bfs-progress2.png" style="width:100%; height:auto;">
 
 ---
-## Tìm kiếm theo chiều rộng
+### Tìm kiếm theo chiều rộng
 
 Mở rộng nút nông nhất chưa được mở rộng
 
@@ -534,10 +534,10 @@ Mở rộng nút nông nhất chưa được mở rộng
     
 \v{fringe} là một hàng đợi FIFO, tức là những người kế nhiệm mới sẽ ở cuối
 
-![Hình ảnh](../TaiLieu/slide_md/figures/bfs-progress3.png)
+<img src="../TaiLieu/slide_md/figures/bfs-progress3.png" style="width:100%; height:auto;">
 
 ---
-## Tìm kiếm theo chiều rộng
+### Tìm kiếm theo chiều rộng
 
 Mở rộng nút nông nhất chưa được mở rộng
 
@@ -545,7 +545,7 @@ Mở rộng nút nông nhất chưa được mở rộng
     
 \v{fringe} là một hàng đợi FIFO, tức là những người kế nhiệm mới sẽ ở cuối
 
-![Hình ảnh](../TaiLieu/slide_md/figures/bfs-progress4.png)
+<img src="../TaiLieu/slide_md/figures/bfs-progress4.png" style="width:100%; height:auto;">
 
 ---
 ## Thuộc tính tìm kiếm theo chiều rộng
@@ -616,7 +616,7 @@ trong đó \mat{$C^*$} là chi phí của giải pháp tối ưu
 <u>Tối ưu</u>?? Có---các nút được mở rộng theo thứ tự tăng dần \mat{$g(n)$}
 
 ---
-## Tìm kiếm theo chiều sâu
+### Tìm kiếm theo chiều sâu
 
 Mở rộng nút chưa được mở rộng sâu nhất
 
@@ -624,10 +624,10 @@ Mở rộng nút chưa được mở rộng sâu nhất
     
 \v{fringe} = Hàng đợi LIFO, tức là đặt những người kế nhiệm lên hàng đầu
 
-![Hình ảnh](../TaiLieu/slide_md/figures/dfs-progress01.png)
+<img src="../TaiLieu/slide_md/figures/dfs-progress01.png" style="width:100%; height:auto;">
 
 ---
-## Tìm kiếm theo chiều sâu
+### Tìm kiếm theo chiều sâu
 
 Mở rộng nút chưa được mở rộng sâu nhất
 
@@ -635,10 +635,10 @@ Mở rộng nút chưa được mở rộng sâu nhất
     
 \v{fringe} = Hàng đợi LIFO, tức là đặt những người kế nhiệm lên hàng đầu
 
-![Hình ảnh](../TaiLieu/slide_md/figures/dfs-progress02.png)
+<img src="../TaiLieu/slide_md/figures/dfs-progress02.png" style="width:100%; height:auto;">
 
 ---
-## Tìm kiếm theo chiều sâu
+### Tìm kiếm theo chiều sâu
 
 Mở rộng nút chưa được mở rộng sâu nhất
 
@@ -646,10 +646,10 @@ Mở rộng nút chưa được mở rộng sâu nhất
     
 \v{fringe} = Hàng đợi LIFO, tức là đặt những người kế nhiệm lên hàng đầu
 
-![Hình ảnh](../TaiLieu/slide_md/figures/dfs-progress03.png)
+<img src="../TaiLieu/slide_md/figures/dfs-progress03.png" style="width:100%; height:auto;">
 
 ---
-## Tìm kiếm theo chiều sâu
+### Tìm kiếm theo chiều sâu
 
 Mở rộng nút chưa được mở rộng sâu nhất
 
@@ -657,10 +657,10 @@ Mở rộng nút chưa được mở rộng sâu nhất
     
 \v{fringe} = Hàng đợi LIFO, tức là đặt những người kế nhiệm lên hàng đầu
 
-![Hình ảnh](../TaiLieu/slide_md/figures/dfs-progress04.png)
+<img src="../TaiLieu/slide_md/figures/dfs-progress04.png" style="width:100%; height:auto;">
 
 ---
-## Tìm kiếm theo chiều sâu
+### Tìm kiếm theo chiều sâu
 
 Mở rộng nút chưa được mở rộng sâu nhất
 
@@ -668,10 +668,10 @@ Mở rộng nút chưa được mở rộng sâu nhất
     
 \v{fringe} = Hàng đợi LIFO, tức là đặt những người kế nhiệm lên hàng đầu
 
-![Hình ảnh](../TaiLieu/slide_md/figures/dfs-progress05.png)
+<img src="../TaiLieu/slide_md/figures/dfs-progress05.png" style="width:100%; height:auto;">
 
 ---
-## Tìm kiếm theo chiều sâu
+### Tìm kiếm theo chiều sâu
 
 Mở rộng nút chưa được mở rộng sâu nhất
 
@@ -679,10 +679,10 @@ Mở rộng nút chưa được mở rộng sâu nhất
     
 \v{fringe} = Hàng đợi LIFO, tức là đặt những người kế nhiệm lên hàng đầu
 
-![Hình ảnh](../TaiLieu/slide_md/figures/dfs-progress06.png)
+<img src="../TaiLieu/slide_md/figures/dfs-progress06.png" style="width:100%; height:auto;">
 
 ---
-## Tìm kiếm theo chiều sâu
+### Tìm kiếm theo chiều sâu
 
 Mở rộng nút chưa được mở rộng sâu nhất
 
@@ -690,10 +690,10 @@ Mở rộng nút chưa được mở rộng sâu nhất
     
 \v{fringe} = Hàng đợi LIFO, tức là đặt những người kế nhiệm lên hàng đầu
 
-![Hình ảnh](../TaiLieu/slide_md/figures/dfs-progress07.png)
+<img src="../TaiLieu/slide_md/figures/dfs-progress07.png" style="width:100%; height:auto;">
 
 ---
-## Tìm kiếm theo chiều sâu
+### Tìm kiếm theo chiều sâu
 
 Mở rộng nút chưa được mở rộng sâu nhất
 
@@ -701,10 +701,10 @@ Mở rộng nút chưa được mở rộng sâu nhất
     
 \v{fringe} = Hàng đợi LIFO, tức là đặt những người kế nhiệm lên hàng đầu
 
-![Hình ảnh](../TaiLieu/slide_md/figures/dfs-progress08.png)
+<img src="../TaiLieu/slide_md/figures/dfs-progress08.png" style="width:100%; height:auto;">
 
 ---
-## Tìm kiếm theo chiều sâu
+### Tìm kiếm theo chiều sâu
 
 Mở rộng nút chưa được mở rộng sâu nhất
 
@@ -712,10 +712,10 @@ Mở rộng nút chưa được mở rộng sâu nhất
     
 \v{fringe} = Hàng đợi LIFO, tức là đặt những người kế nhiệm lên hàng đầu
 
-![Hình ảnh](../TaiLieu/slide_md/figures/dfs-progress09.png)
+<img src="../TaiLieu/slide_md/figures/dfs-progress09.png" style="width:100%; height:auto;">
 
 ---
-## Tìm kiếm theo chiều sâu
+### Tìm kiếm theo chiều sâu
 
 Mở rộng nút chưa được mở rộng sâu nhất
 
@@ -723,10 +723,10 @@ Mở rộng nút chưa được mở rộng sâu nhất
     
 \v{fringe} = Hàng đợi LIFO, tức là đặt những người kế nhiệm lên hàng đầu
 
-![Hình ảnh](../TaiLieu/slide_md/figures/dfs-progress10.png)
+<img src="../TaiLieu/slide_md/figures/dfs-progress10.png" style="width:100%; height:auto;">
 
 ---
-## Tìm kiếm theo chiều sâu
+### Tìm kiếm theo chiều sâu
 
 Mở rộng nút chưa được mở rộng sâu nhất
 
@@ -734,10 +734,10 @@ Mở rộng nút chưa được mở rộng sâu nhất
     
 \v{fringe} = Hàng đợi LIFO, tức là đặt những người kế nhiệm lên hàng đầu
 
-![Hình ảnh](../TaiLieu/slide_md/figures/dfs-progress11.png)
+<img src="../TaiLieu/slide_md/figures/dfs-progress11.png" style="width:100%; height:auto;">
 
 ---
-## Tìm kiếm theo chiều sâu
+### Tìm kiếm theo chiều sâu
 
 Mở rộng nút chưa được mở rộng sâu nhất
 
@@ -745,7 +745,7 @@ Mở rộng nút chưa được mở rộng sâu nhất
     
 \v{fringe} = Hàng đợi LIFO, tức là đặt những người kế nhiệm lên hàng đầu
 
-![Hình ảnh](../TaiLieu/slide_md/figures/dfs-progress12.png)
+<img src="../TaiLieu/slide_md/figures/dfs-progress12.png" style="width:100%; height:auto;">
 
 ---
 ## Thuộc tính tìm kiếm theo chiều sâu
@@ -850,28 +850,28 @@ function Iterative-Deepening-Search(problem) returns a solution
 ```
 
 ---
-## Tìm kiếm sâu lặp đi lặp lại \mat{$l=0$
+### Tìm kiếm sâu lặp đi lặp lại \mat{$l=0$
 }
 
-![Hình ảnh](../TaiLieu/slide_md/figures/ids-progress1.png)
+<img src="../TaiLieu/slide_md/figures/ids-progress1.png" style="width:100%; height:auto;">
 
 ---
-## Tìm kiếm sâu lặp đi lặp lại \mat{$l=1$
+### Tìm kiếm sâu lặp đi lặp lại \mat{$l=1$
 }
 
-![Hình ảnh](../TaiLieu/slide_md/figures/ids-progress2.png)
+<img src="../TaiLieu/slide_md/figures/ids-progress2.png" style="width:100%; height:auto;">
 
 ---
-## Tìm kiếm sâu lặp đi lặp lại \mat{$l=2$
+### Tìm kiếm sâu lặp đi lặp lại \mat{$l=2$
 }
 
-![Hình ảnh](../TaiLieu/slide_md/figures/ids-progress3.png)
+<img src="../TaiLieu/slide_md/figures/ids-progress3.png" style="width:100%; height:auto;">
 
 ---
-## Tìm kiếm sâu lặp đi lặp lại \mat{$l=3$
+### Tìm kiếm sâu lặp đi lặp lại \mat{$l=3$
 }
 
-![Hình ảnh](../TaiLieu/slide_md/figures/ids-progress4.png)
+<img src="../TaiLieu/slide_md/figures/ids-progress4.png" style="width:100%; height:auto;">
 
 ---
 ## Thuộc tính của tìm kiếm sâu lặp đi lặp lại
@@ -942,12 +942,12 @@ BFS có thể được sửa đổi để áp dụng kiểm tra mục tiêu khi 
 | Optimal? | Yes$^*$ | Yes | No | No | Yes$^*$ |
 
 ---
-## Trạng thái lặp lại
+### Trạng thái lặp lại
 
 Việc không phát hiện được các trạng thái lặp lại có thể biến một bài toán tuyến tính thành một bài toán
 số mũ!
 
-![Hình ảnh](../TaiLieu/slide_md/figures/ribbon-space.png)
+<img src="../TaiLieu/slide_md/figures/ribbon-space.png" style="width:100%; height:auto;">
 
 ---
 ## Tìm kiếm đồ thị

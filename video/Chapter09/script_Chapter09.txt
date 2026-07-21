@@ -1,0 +1,80 @@
+Slide 1: CHƯƠNG 09: SUY DIỄN TRONG LOGIC BẬC NHẤT
+Người 1: Xin chào các em! Tuần trước ta đã thấy sức mạnh tuyệt đối của Logic Bậc Nhất khi nó dùng Lượng từ để tóm gọn cả thế giới vào một phương trình. Hôm nay ở Chương 9, ta sẽ làm một việc còn "đau đầu" hơn: Dạy máy tính cách tính toán và suy luận trực tiếp trên các phương trình có chứa lượng từ đó.
+Người 2: Có phải giống như dạy học sinh giải toán tìm x không thưa thầy? 
+
+Slide 2: NỘI DUNG CHƯƠNG 9
+Người 1: Chuẩn xác! Chương này sẽ cung cấp cho các em 4 báu vật: Kỹ thuật Hợp nhất để tìm x, Cỗ máy Liên kết Thuận bắn dữ liệu tới tương lai, Cỗ máy Liên kết Ngược lội ngược dòng quá khứ để tìm tội phạm, và cuối cùng là thuật toán Phân giải tối thượng để chứng minh mọi định lý.
+
+Slide 3: 9.1 TỪ MỆNH ĐỀ ĐẾN LOGIC BẬC NHẤT
+Người 1: Trước đây, để suy luận trong Wumpus, ta dùng Logic Mệnh đề. Máy tính chạy ngon lành. Vậy sao ta không bê nguyên xi bộ code đó sang Logic Bậc Nhất (FOL)?
+Vấn đề là FOL bị vướng 2 cái gai: Lượng từ "Với mọi" và "Tồn tại". 
+Người 2: Vậy mình tìm cách khử lượng từ đi là xong phải không ạ? Thay vì nói "Với mọi ích, ích là Vua", mình chẻ nó ra thành "John là Vua và Richard là Vua"?
+Người 1: Cách đó gọi là Propositionalization. Và điểm yếu chí mạng của nó là sẽ làm tràn RAM! Nếu thế giới là tập hợp các con số từ 1 đến vô cực, em chẻ "Với mọi" ra thì máy tính sẽ tạo ra một danh sách dài vô tận.
+
+Slide 4: 9.2 HỢP NHẤT (UNIFICATION)
+Người 1: Do đó, khoa học máy tính đẻ ra khái niệm Hợp nhất (Unification) để tìm x một cách trực tiếp mà không cần chẻ nhỏ! 
+Phương trình Hợp nhất viết là: Thuật toán Hợp nhất của Pê và Quy, tạo ra phép thế Tê-ta. Nó sẽ căn chỉnh 2 biểu thức cho giống hệt nhau. 
+Lấy ví dụ, trong não AI có câu luật: "ích Quen Cha của ích". Và ta hỏi AI: "John Quen y dài?". AI sẽ gọi hàm: Hợp nhất của John quen y dài, và ích quen Cha của ích.
+Sau vài mili-giây, thuật toán trả về phép thế: ích thế bằng John, và y dài thế bằng Cha của John. Bùm! AI tự động biết "John quen cha của anh ấy" mà không hề phải duyệt qua hàng tỷ người khác trên Trái đất!
+
+Slide 5: ĐỒ THỊ HỢP NHẤT
+Người 1: Đồ thị này biểu diễn cơ chế bên trong của hàm Hợp nhất. Hai biểu thức được ném vào 2 bên. Máy tính rà soát từng gốc cây, nếu thấy x tương đương với John thì nó lập tức tạo ra một sợi dây liên kết gọi là Phép thế. Quá trình này chạy siêu nhanh trong thực tế.
+
+Slide 6: ĐỒ THỊ HỢP NHẤT (TIẾP THEO)
+Người 1: Và đây là Lưới bao hàm. Nó cho thấy sức mạnh của Hợp nhất: Nó nối từ cái siêu chung chung (biến x, biến y) ở trên đỉnh, chui dần qua phễu lọc để nối tới cái cụ thể (John, Richard) ở dưới đáy. 
+
+Slide 7: 9.3 SUY DIỄN LIÊN KẾT THUẬN (FORWARD CHAINING)
+Người 1: Khi đã có Hàm Hợp nhất trong tay, ta nhét nó vào cỗ máy Liên kết Thuận (Forward Chaining). Ý tưởng cơ bản là: Bắn súng không cần đích! 
+Cỗ máy này hoạt động như một hệ thống giám sát. Cứ thấy có dữ kiện thật rơi vào não, nó lập tức ném dữ kiện đó vào các Luật lệ, suy ra được cái mới. Cái mới lại kích hoạt luật khác. Nó lan truyền mãi đến khi không sinh ra được cái gì nữa thì thôi.
+Người 2: Ồ, giống như hệ thống báo cháy tự động thầy nhỉ. Nó không cần biết đích là gì, hễ Cảm biến nhiệt tăng, nó tự suy ra "Có Cháy", từ "Có Cháy" nó tự suy ra "Bật máy bơm nước"!
+
+Slide 8: MÔ PHỎNG LIÊN KẾT THUẬN
+Người 1: Em ví dụ rất thông minh. Và sơ đồ này mô phỏng y hệt cơ chế đó. Ta bắt đầu bằng các Sự thật gốc ở dưới đáy như: A là người Mỹ, vũ khí là Tên lửa. Nhờ cỗ máy Liên kết Thuận, dữ liệu tự bốc lên trên, khớp với các luật lệ và chốt hạ kết luận ở trên cùng: A là tội phạm! 
+
+Slide 9: CÂY CHỨNG MINH LIÊN KẾT THUẬN
+Người 1: Và khi nối các mũi tên lại, ta có một Cây chứng minh. Mọi nhánh đều đi từ dưới (Sự thật) đẩy lên trên (Kết luận). Cỗ máy này cực kỳ phù hợp cho môi trường cần phản xạ thời gian thực.
+
+Slide 10: ÁP DỤNG THUẬT TOÁN TRÊN ĐỒ THỊ
+Người 1: Hơn thế nữa, Thuật toán Liên kết Thuận còn được ứng dụng để giải quyết bài toán Tô màu bản đồ Úc bằng FOL. Từ sự thật ban đầu là WA màu Đỏ, nó liên kết thuận suy ra ngay NT cấm không được Đỏ. Tốc độ lan truyền cực kỳ chóng mặt!
+
+Slide 11: 9.4 SUY DIỄN LIÊN KẾT NGƯỢC (BACKWARD CHAINING)
+Người 2: Nhưng thưa thầy, lỡ não bộ có hàng tỷ Luật lệ, cứ bắn bừa như vậy thì máy tính tính đến bao giờ mới xong ạ?
+Người 1: Chà, em đụng trúng chỗ hiểm rồi đấy! Khi kho tàng tri thức quá khổng lồ, bắn bừa (Liên kết thuận) sẽ làm tràn RAM. Để cứu vãn, ta sinh ra cỗ máy Liên kết Ngược (Backward Chaining).
+Ý tưởng của nó là: Chạy ngược từ Đích. Ai đưa ra câu truy vấn (Ví dụ: "John có phải là tội phạm không?"), máy tính sẽ lấy cái Đích đó lội ngược về quá khứ, tìm xem luật nào có Vế phải khớp với Đích. Cứ lội ngược đến khi đụng phải Sự thật thì dừng!
+
+Slide 12: MÔ PHỎNG LIÊN KẾT NGƯỢC
+Người 1: Hình này vẽ hướng đi của Liên kết Ngược. Bắt đầu từ trên đỉnh là Đích (Goal). Lội xuống tầng dưới, thấy cần phải thỏa mãn 3 điều kiện con (Sub-goals). Lại chui xuống tiếp. Quá trình này chẻ nhỏ bài toán cực kỳ tập trung, hoàn toàn không bị phân tâm bởi các dữ kiện rác bên ngoài lề! Ngôn ngữ lập trình AI nổi tiếng Prolog hoạt động 100% bằng cơ chế này!
+
+Slide 13: CÂY CHỨNG MINH LIÊN KẾT NGƯỢC
+Người 1: Cây chứng minh này nhìn thì giống hệt cây ban nãy, nhưng hướng mũi tên tìm kiếm đi từ Đỉnh lan xuống Đáy. Từ "Tội phạm", AI tự đào sâu đi tìm bằng chứng chứng minh "Vũ khí" và "Kẻ địch". Nếu xuống đáy mà mọi bằng chứng đều Đúng, AI lập tức reo lên: Bị cáo có tội!
+
+Slide 14: RỦI RO VÒNG LẶP VÔ HẠN TRONG PROLOG
+Người 1: Tuy nhiên, Prolog và Liên kết Ngược có một rủi ro chí tử: Vòng lặp vô hạn. Nếu em dạy AI quy luật: "A nằm trong B thì B cũng nằm trong A". Khi lội ngược, AI sẽ hỏi A nằm trong B, suy ra B nằm trong A, suy ra A nằm trong B... AI sẽ quay vòng vòng ở nhánh bên trái (màu đỏ) và không bao giờ thoát ra được! Nó bị kẹt trong sự đệ quy mù quáng.
+
+Slide 15: KHẮC PHỤC BẰNG NHỚ ĐƯỜNG ĐI
+Người 1: Để cứu AI khỏi việc treo máy, người lập trình phải bổ sung bộ nhớ (Memoization). Mỗi khi AI bước đi, nó rải bánh mì đánh dấu đường. Nếu phát hiện lội lại đường cũ, nó lập tức nhận ra vòng lặp vô hạn và vứt bỏ nhánh đó (FAIL). Nhờ vậy, AI rẽ sang nhánh bên phải an toàn và tìm được đích thành công!
+
+Slide 16: 9.5 PHÂN GIẢI FOL (RESOLUTION)
+Người 1: Liên kết Thuận và Ngược cực nhanh nhưng bị giới hạn. Có những bài toán siêu hóc búa, chúng sẽ bị bó tay (không hoàn thiện).
+Và đây là vũ khí tối thượng của AI: Thuật toán Phân giải FOL! Nó hoàn thiện 100%. Mọi định lý đúng trong vũ trụ đều có thể được nó chứng minh! Nó gom cả Chuẩn hóa CNF, hàm Hợp nhất và Chứng minh phản chứng vào một bộ máy càn quét! 
+
+Slide 17: CHỨNG MINH BẰNG PHÂN GIẢI
+Người 1: Khi áp dụng Phân giải vào FOL, ta dùng hàm Hợp nhất để chém các mệnh đề. Ví dụ có "Pê ích" và "Phủ định của Pê John". Hai vế này nhìn không giống nhau, nhưng nhờ phép thế "ích thế bằng John", máy tính tự động đồng nhất chúng và chém vỡ cả hai để rớt xuống mệnh đề rút gọn. Sức mạnh hủy diệt của Phân giải là vô song.
+
+Slide 18: CHUẨN HÓA VỀ CNF (SKOLEMIZATION)
+Người 1: Tuy nhiên, trước khi Phân giải, ta phải khử sạch lượng từ. Khử lượng từ Tồn tại trong FOL yêu cầu một kĩ thuật vi diệu gọi là "Skolem hóa" (Skolemization). 
+Lấy câu: "Với mọi ích, nếu ích là Người thì tồn tại y dài sao cho y dài là Trái tim và ích Có y dài". Tức là mọi người đều có trái tim! 
+Em không thể thay y dài bằng biến Cê 1 cố định. Vì như thế suy ra cả thế giới dùng chung 1 quả tim Cê 1 à? Rất phi lý!
+Người 2: Ái chà, cái này bẫy logic căng quá! Chẳng lẽ trái tim của người này lại biến thành của người kia?
+Người 1: Để phá bẫy, ta Skolem hóa bằng cách thay y dài thành một Hàm F phụ thuộc vào ích. Câu sẽ biến thành: "Nếu ích là Người thì F của ích là Trái tim, và ích Có F của ích". Nhờ vậy, trái tim F của John sẽ khác với trái tim F của Richard! Vấn đề được giải quyết gọn gàng!
+
+Slide 19: MÔ PHỎNG PHÂN GIẢI FOL
+Người 1: Cây Phân giải khổng lồ này mô tả quá trình phản chứng. Hai mệnh đề đi vào, hợp nhất biến, triệt tiêu nhau, chẻ xuống dưới. Liên tục bào mòn phương trình cho đến lúc chém sạch mọi thứ, sinh ra ô vuông Rỗng ở đáy. Bài toán đã được chứng minh tự động bằng máy tính!
+
+Slide 20: TÍNH ĐẦY ĐỦ CỦA PHÂN GIẢI
+Người 1: Làm sao khoa học dám khẳng định Phân giải là vô địch hoàn thiện? Nhờ Định lý Herbrand. Nó chứng minh bằng toán học rằng: Nếu thực sự tồn tại bằng chứng để kết tội, Phân giải chắc chắn sẽ tìm ra nó trong thời gian hữu hạn, không bao giờ bị xổng tội phạm! Sơ đồ này phác họa khối kiến trúc của định lý vĩ đại đó.
+
+Slide 21: TÓM TẮT CHƯƠNG 9
+Người 1: Chương 9 khép lại khối kiến thức cực nặng về Logic Bậc Nhất. Ta có Hàm Hợp nhất làm trái tim. Ta có Liên kết Thuận (hướng dữ liệu) và Liên kết Ngược (hướng mục tiêu cho Prolog). Và cuối cùng, cỗ máy Phân giải kết hợp Skolem hóa là thứ vũ khí bách chiến bách thắng. 
+Người 2: Dạ vâng, hôm nay em đã vỡ lẽ được cách các hệ thống AI chuyên gia như IBM Watson hay phần mềm chuẩn đoán y khoa hoạt động ngầm bên trong. Quá sức tuyệt vời ạ.
+Người 1: Thầy rất vui vì em đã hiểu thấu đáo vấn đề. Logic Bậc nhất chính là cốt lõi của Trí tuệ Nhân tạo thế kỷ 20. Hẹn gặp lại các em ở chương tiếp theo nhé!

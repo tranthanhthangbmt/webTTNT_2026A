@@ -16,16 +16,16 @@
 - Lặp lại chính sách
 
 ---
-## Các vấn đề về quyết định tuần tự
+### Các vấn đề về quyết định tuần tự
 
-![Hình ảnh](../TaiLieu/slide_md/figures/decision-problems.png)
+<img src="../TaiLieu/slide_md/figures/decision-problems.png" style="width:100%; height:auto;">
 
 ---
-## Ví dụ MDP
+### Ví dụ MDP
 
-![Hình ảnh](../TaiLieu/slide_md/figures/sequential-decision-world.png)
+<img src="../TaiLieu/slide_md/figures/sequential-decision-world.png" style="width:100%; height:auto;">
 
-![Hình ảnh](../TaiLieu/slide_md/figures/sequential-decision-world.png) \hspace*{1in} $s \in S$
+<img src="../TaiLieu/slide_md/figures/sequential-decision-world.png" style="width:100%; height:auto;"> \hspace*{1in} $s \in S$
 
 $a \in A$
 
@@ -40,7 +40,7 @@ Kỳ $s \in S$, hành động $a \in A$
                                \pm 1 & \mbox{ for terminal states}\end{array}\right.$
 
 ---
-## Giải quyết MDP
+### Giải quyết MDP
 
 Trong các bài toán tìm kiếm, mục đích là tìm một chuỗi {\em} tối ưu
 
@@ -54,12 +54,12 @@ Chính sách tối ưu tối đa hóa (giả sử) *tổng phần thưởng dự
 
 Chính sách tối ưu khi hình phạt của tiểu bang $R(s)$ là --0,04:
 
-![Hình ảnh](../TaiLieu/slide_md/figures/sequential-decision-policy.png)
+<img src="../TaiLieu/slide_md/figures/sequential-decision-policy.png" style="width:100%; height:auto;">
 
 ---
-## Rủi ro và phần thưởng
+### Rủi ro và phần thưởng
 
-![Hình ảnh](../TaiLieu/slide_md/figures/policy-flips4.png)
+<img src="../TaiLieu/slide_md/figures/policy-flips4.png" style="width:100%; height:auto;">
 
 ---
 ## Tiện ích của chuỗi trạng thái
@@ -150,7 +150,7 @@ $U(1,1) = -0.04$
 Một phương trình trên mỗi trạng thái = $n$ <u>phi tuyến </u> phương trình trong $n$ ẩn số
 
 ---
-## Thuật toán lặp giá trị
+### Thuật toán lặp giá trị
 
 <u>Idea</u>: Bắt đầu với các giá trị tiện ích tùy ý
     
@@ -161,7 +161,7 @@ Một phương trình trên mỗi trạng thái = $n$ <u>phi tuyến </u> phươ
 Lặp lại đồng thời cho mọi $s$ cho đến khi "không thay đổi"
 \[ U(s) \leftarrow R(s) + \gamma\,\max_a \mysum_{s'} U(s') T(s,a,s')  &nbsp;&nbsp;&nbsp;&nbsp;  \mbox{for all } s\]
 
-![Hình ảnh](../TaiLieu/slide_md/figures/4x3-vi-curve.png)
+<img src="../TaiLieu/slide_md/figures/4x3-vi-curve.png" style="width:100%; height:auto;">
 
 ---
 ## Hội tụ

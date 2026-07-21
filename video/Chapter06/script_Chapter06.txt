@@ -1,0 +1,102 @@
+Slide 1: CHƯƠNG 06: TÌM KIẾM ĐỐI KHÁNG VÀ TRÒ CHƠI
+Người 1: Chào các em. Ở các chương trước, ta đã giải các bài toán mà hệ thống AI hoạt động đơn độc trong thế giới của riêng nó. Nhưng hôm nay, ở Chương 6, ta sẽ thiết kế một AI phải bước lên võ đài để sinh tử với một AI khác, hoặc với chính con người. Chào mừng các em đến với Trò chơi Đối kháng!
+Người 2: Nghe thật hấp dẫn thưa thầy! Việc dạy AI đánh cờ vua hay cờ vây chắc chắn phức tạp hơn tìm đường đi rất nhiều, vì đối thủ luôn tìm cách ngáng đường ta đúng không ạ?
+
+Slide 2: NỘI DUNG CHƯƠNG 6
+Người 1: Đúng vậy! Hôm nay chúng ta sẽ đi qua 5 nội dung chính. Đầu tiên là Lý thuyết trò chơi cơ bản. Tiếp theo, cốt lõi của môn học: Thuật toán Minimax bất bại. Thứ ba là kỹ năng cắt tỉa Alpha-Beta thần thánh để giải quyết tốc độ. Thứ tư là cách các máy tính thực chiến khi cạn kiệt thời gian. Và cuối cùng là đối phó với trò chơi đỏ đen như tung xúc xắc hoặc bài poker.
+
+Slide 3: 6.1 TRÒ CHƠI VÀ LÝ THUYẾT TRÒ CHƠI
+Người 1: Trong môi trường đa tác nhân, Trò chơi Đối kháng thuộc loại "Tổng bằng không" (Zero-sum). Nghĩa là niềm vui của người này xây trên nỗi đau của người kia. Một bên cộng 1 thì bên kia phải trừ 1.
+Người 2: Dạ em nghe nói các trò như cờ vua có không gian trạng thái cực kì khủng khiếp, vượt qua cả giới hạn của vũ trụ phải không thầy?
+Người 1: Rất chính xác! Chỉ riêng cờ vua, số lượng bàn cờ hợp lệ đã lên tới mười mũ bốn mươi, và cây trò chơi rẽ nhánh đến mười mũ một trăm hai mươi ba. Đó là lý do ta không thể dùng các thuật toán A sao bình thường để duyệt nó được.
+
+Slide 4: CÔNG THỨC HÓA TRÒ CHƠI 2 NGƯỜI
+Người 1: Để biến bàn cờ thành thuật toán, khoa học quy ước 2 người chơi là MAX và MIN. MAX luôn đi trước. Trò chơi có Trạng thái bắt đầu S không, hàm Player để biết ai đang tới lượt, hàm Actions để liệt kê nước đi hợp lệ. Nhưng quan trọng nhất là hàm Độ thỏa dụng (Utility) để chấm điểm: Thắng được 1 điểm, Thua trừ 1 điểm, Hòa 0 điểm.
+
+Slide 5: CÂY TRÒ CHƠI (GAME TREE)
+Người 1: Slide này biểu diễn Cây trò chơi cờ Caro. Chữ X (tức MAX) đi trước vào ô giữa. Bàn cờ rẽ ra hàng loạt nhánh cho chữ O (tức MIN) chọn lựa. Cứ thế, cây rẽ nhánh đan xen giữa lượt MAX và MIN cho đến khi có người tạo được 3 hàng thẳng để giành chiến thắng ở nút lá.
+
+Slide 6: 6.2 QUYẾT ĐỊNH TỐI ƯU: THUẬT TOÁN MINIMAX
+Người 2: Thưa thầy, nếu cây trò chơi khổng lồ như vậy thì MAX nên chọn đi đường nào ạ?
+Người 1: Giả định cốt lõi là cả 2 bên đều cực kì thông minh và không bao giờ mắc sai lầm. Do đó MAX phải chơi bằng "Thuật toán Minimax". MAX muốn điểm to nhất, MIN lại muốn điểm nhỏ nhất. Giá trị Minimax của một nút chính là điểm số tốt nhất mà MAX có thể ép đối phương phải chấp nhận.
+
+Slide 7: THUẬT TOÁN MINIMAX
+Người 1: Hình ảnh mã giả thuật toán Minimax. Nó dùng hai hàm đệ quy gọi chéo nhau. Lượt của MAX thì gọi hàm Max-Value để săn tìm điểm cao nhất. Lượt của MIN thì gọi hàm Min-Value để dìm điểm xuống thấp nhất. Nó cứ gọi chéo nhau lặn sâu dần cho đến khi đụng phải nút lá (End-game) rồi trả kết quả ngược lên trên.
+
+Slide 8: MÔ PHỎNG THUẬT TOÁN MINIMAX
+Người 1: Ví dụ một cây đồ thị nhỏ: Các hình tam giác chĩa lên là MAX, tam giác ngược là MIN. Ở dưới đáy có các kết quả 3, 12, 8. MIN sẽ dìm điểm xuống bằng cách chọn con số 3. Còn MAX ở trên cùng sẽ nhìn các nút con và chọn nút lớn nhất. Cuối cùng, MAX ở đỉnh sẽ đi theo nhánh có điểm cao nhất là 3. 
+
+Slide 9: ĐÁNH GIÁ THUẬT TOÁN MINIMAX
+Người 1: Về mặt logic, Minimax hoàn hảo tuyệt đối. Nó luôn luôn tìm được nước đi bất bại! Tuy nhiên, điểm chết của nó là độ phức tạp thời gian lên tới O lớn của bê mũ mờ. Đối với cờ vua, con số này là ba mươi lăm mũ một trăm. 
+Người 2: Dù siêu máy tính mạnh nhất thế giới chạy đến ngày tận thế cũng không xong một nước cờ đúng không ạ? 
+Người 1: Chính xác. Vì vậy ta bắt buộc phải tìm cách tối ưu hóa, nếu không Minimax chỉ là thuật toán nằm trên giấy.
+
+Slide 10: MỞ RỘNG: CÂY TRÒ CHƠI NHIỀU NGƯỜI
+Người 1: Trước khi sang phần tối ưu, hãy nhìn qua cây trò chơi 3 người A, B, C. Lúc này, thay vì 1 con số, kết quả là một vector 3 chiều, đại diện điểm số của từng người. Mỗi người ở lượt của mình sẽ cố gắng chọn nhánh đem lại điểm số cá nhân của bản thân cao nhất. Rất thực dụng!
+
+Slide 11: 6.3 CẮT TỈA ALPHA-BETA
+Người 1: Trở lại vấn đề tốc độ của Minimax. Cách giải cứu nó mang tên: Cắt tỉa Alpha-Beta. Nguyên lý là: Máy tính không cần thiết phải đánh giá một nhánh cờ nếu nó biết chắc chắn rằng nhánh đó sẽ không bao giờ được chọn! 
+Người 2: Tuyệt quá, việc vứt bớt nhánh vô ích sẽ tiết kiệm thời gian khủng khiếp. Nhưng làm sao máy tính biết nhánh nào vô ích ạ?
+Người 1: Nhờ hai biến ghi nhớ: Alpha là điểm tốt nhất MAX chắc chắn nắm trong tay. Beta là điểm tồi tệ nhất MIN có thể ép MAX chịu. Hễ Alpha lớn hơn hoặc bằng Beta, máy tính vạch mặt nhánh đó là nhánh thừa và cắt ngay lập tức.
+
+Slide 12: MINH HỌA CẮT TỈA ALPHA-BETA
+Người 1: Mời các em xem minh họa rất dễ hiểu này. Ở nhánh đầu tiên, MAX phát hiện nó có thể ăn chắc được con số 3. Ở nhánh thứ hai, khi lặn xuống, MIN phát hiện con số 2. MIN chắc chắn sẽ ép điểm nhánh này xuống dưới 2! Mà MAX thì luôn muốn điểm to, MAX đã có số 3 trong tay rồi thì tội gì đâm đầu vào cái nhánh dưới 2 kia nữa. Thế là MAX vứt luôn toàn bộ phần còn lại của nhánh thứ hai. Bùm! Một vụ cắt tỉa thành công!
+
+Slide 13: TRƯỜNG HỢP TỔNG QUÁT CHO CẮT TỈA ALPHA-BETA
+Người 1: Sơ đồ này cho thấy cấu trúc toán học tổng quát của Alpha-Beta. Nút m đang được MAX kiểm tra. Nút n nằm bên dưới do MIN kiểm soát. Chỉ cần phát hiện giá trị của nhánh con làm điểm n rớt xuống thấp hơn hoặc bằng alpha của m, thì MAX biết ngay MIN sẽ tận dụng nhánh đó để dìm MAX. MAX sẽ tự động chối bỏ toàn bộ khu vực của n. 
+
+Slide 14: THUẬT TOÁN TÌM KIẾM ALPHA-BETA
+Người 1: Mã giả của Alpha-Beta. Cũng giống hệt Minimax, nhưng nó được truyền thêm 2 tham số alpha và beta. Tại mỗi vòng lặp duyệt nhánh con, nó cập nhật alpha hoặc beta, và liên tục kích hoạt điều kiện if alpha lớn hơn hoặc bằng beta để return (cắt nhánh) ngay lập tức. Cực kỳ thanh lịch và hiệu quả.
+
+Slide 15: HIỆU QUẢ CỦA CẮT TỈA ALPHA-BETA
+Người 1: Hiệu năng của Alpha-Beta thực sự là một phép màu. Mặc dù kết quả nước đi vĩnh viễn không thay đổi, nhưng nếu ta sắp xếp các nước đi thông minh một chút, độ phức tạp thời gian có thể giảm từ O lớn của bê mũ mờ xuống chỉ còn O lớn của bê mũ mờ phần hai.
+Người 2: Hàm số mũ giảm đi một nửa! Tức là trong cùng một thời gian quy định, máy tính có thể suy nghĩ sâu hơn gấp đôi số nước cờ so với Minimax thông thường phải không ạ? 
+Người 1: Quá chuẩn! Đó là lý do Alpha-Beta trở thành xương sống của mọi phần mềm cờ vua trước kỷ nguyên Deep Learning.
+
+Slide 16: 6.4 QUYẾT ĐỊNH THỜI GIAN THỰC KHÔNG HOÀN HẢO
+Người 1: Tuy nhiên, kể cả mờ phần hai thì với cờ vua vẫn không đủ thời gian đi hết ván. Trong thực chiến, đồng hồ luôn đếm ngược. Vậy máy tính buộc phải "cắt ngang" việc suy nghĩ ở độ sâu khoảng 8 đến 10 nước, và đánh giá thế cờ ngay tại đó! Nó sử dụng Hàm đánh giá Heuristic để chấm điểm lợi thế cục diện.
+
+Slide 17: ĐÁNH GIÁ HEURISTIC TRONG CỜ VUA
+Người 1: Ở cờ vua, hàm Heuristic thường cộng điểm quân số: Hậu 9 điểm, Xe 5 điểm, Tượng 3 điểm. Hình ảnh slide minh họa thế cờ hai bên chỉ xê dịch con Xe một chút xíu, nhưng con Xe Trắng bên trái đang đe dọa con Tốt Đen, Heuristic tốt phải nhạy bén cộng thêm điểm thế trận cho bên Trắng chứ không chỉ đếm quân thuần túy.
+
+Slide 18: CẠM BẪY CỦA HEURISTIC MINIMAX
+Người 1: Nhưng Heuristic không hoàn hảo! Hình vẽ này là cạm bẫy kinh điển. Do máy tính cắt ngang ở độ sâu cạn và dùng Heuristic chấm điểm, nó sẽ ưu tiên ăn điểm nhỏ trước mắt mà không nhìn thấy đòn chiếu bí kết liễu nằm ngay nước tiếp theo! Sự thiển cận này là cái giá phải trả khi cắt ngang cây tìm kiếm.
+
+Slide 19: HIỆU ỨNG ĐƯỜNG CHÂN TRỜI (HORIZON EFFECT)
+Người 1: Cái lỗi thiển cận đó gọi là Hiệu ứng đường chân trời. Tức là thảm họa giấu ngay sau giới hạn suy nghĩ. Thường máy tính sẽ cố đánh những nước hi sinh vô nghĩa để đẩy lùi nguy cơ thua về sau đường chân trời hòng tự lừa bản thân.
+Người 2: Ôi chao, giống như kiểu cố tình giấu rác xuống dưới thảm phải không thầy? Làm sao để máy tính thoát bệnh thiển cận này ạ?
+Người 1: Giải pháp là Tìm kiếm Tĩnh lặng (Quiescence Search). Cấm máy tính cắt ngang suy nghĩ nếu bàn cờ đang loạn (như đang ăn quân liên tục). Nó bắt buộc phải suy nghĩ thêm vài nước phụ cho đến khi bàn cờ tĩnh lặng trở lại mới được phép chấm điểm Heuristic.
+
+Slide 20: MINH HỌA HIỆU ỨNG ĐƯỜNG CHÂN TRỜI
+Người 1: Bàn cờ này là một thảm họa Đường chân trời. Tượng đen chắn Xe trắng, nhưng chắc chắn Tượng đen sẽ chết. Máy tính Đen nhận ra Tượng mình sắp mất, thay vì chấp nhận hy sinh bỏ Tượng, nó liên tục tung Tốt lên phong Hậu hòng đánh lạc hướng Xe trắng. Các quân Tốt ngã xuống vô ích chỉ để trì hoãn cái chết của Tượng đen.
+
+Slide 21: TÌM KIẾM CÂY MONTE CARLO (MCTS)
+Người 1: Với cờ vua ta có hàm Heuristic cực chuẩn. Nhưng cờ Vây thì không! Các nhà khoa học từng bó tay trước cờ vây vì không thể nào dùng toán đếm điểm thế cờ vây được. Cho đến khi MCTS - Monte Carlo Tree Search ra đời.
+Người 2: Trông đồ thị này giống như nó đang tự đánh với chính mình vậy thầy!
+
+Slide 22: THUẬT TOÁN TÌM KIẾM CÂY MONTE CARLO
+Người 1: Rất chính xác! Khởi nguồn của AlphaGo chính là MCTS. Nguyên lý cực kì giang hồ: Đứng ở vị trí hiện tại, máy tính tung hàng vạn ván cờ đánh ngẫu nhiên bừa bãi cho đến lúc kết thúc (Playout). Nhánh nào có tỷ lệ tung ra chiến thắng cao nhất thì nó sẽ chọn đi nhánh đó! Một sự kết hợp tuyệt mỹ giữa xác suất và tìm kiếm.
+
+Slide 23: 6.5 TRÒ CHƠI NGẪU NHIÊN (STOCHASTIC GAMES)
+Người 1: Tiếp theo là trò chơi Ngẫu nhiên. Thế giới không chỉ toàn cờ vua, đôi khi ta chơi Cờ tỷ phú hay Đổ xúc xắc. Lúc này, dù AI có tính nát óc cũng không biết nước đi tiếp theo là gì vì nó phụ thuộc vào ý trời.
+Người 2: Vậy mình phải chèn thêm yếu tố xác suất vào Cây trò chơi đúng không ạ?
+
+Slide 24: VÍ DỤ: CỜ TÀO CÁO (BACKGAMMON)
+Người 1: Đúng vậy! Và ví dụ kinh điển nhất là cờ Backgammon. Nhìn trên hình, người chơi phụ thuộc vào 2 viên xúc xắc. Mỗi lần đổ xúc xắc sẽ sinh ra 21 trường hợp ngẫu nhiên. Cây trò chơi bị bành trướng một cách khủng khiếp.
+
+Slide 25: CÂY TRÒ CHƠI EXPECTIMINIMAX
+Người 1: Và thuật toán mới ra đời: Expecti-Minimax! Các em nhìn cây trên hình: Xen giữa lượt của MIN và lượt của MAX, giờ xuất hiện thêm Nút Xác Suất hình tròn do Môi trường đổ xúc xắc tung ra. Tại nút này, điểm số tính bằng "Giá trị kỳ vọng": Bằng tổng của các xác suất P của đê i nhân với giá trị Minimax của từng nhánh. AI sẽ phải đi những nước an toàn nhất để giảm thiểu rủi ro xui xẻo.
+
+Slide 26: TÍNH NHẠY CẢM CỦA EXPECTIMINIMAX
+Người 1: Điểm yếu chí mạng của Expectiminimax là nó quá nhạy cảm. Ở Minimax, ta chỉ cần hàm Heuristic đúng thứ tự lớn nhỏ. Ở Expectiminimax, vì có phép nhân và cộng trung bình, các giá trị tuyệt đối của hàm đánh giá phải hoàn toàn chuẩn xác. Hình vẽ minh họa việc chỉ đổi thang đo điểm từ 1-4 thành bình phương lên, AI lập tức đổi hẳn nước đi!
+
+Slide 27: 6.6 KHUYẾT THIẾU THÔNG TIN (PARTIALLY OBSERVABLE)
+Người 1: Cuối cùng, đỉnh cao của thử thách: Game thiếu thông tin như bài Poker. Em không nhìn thấy bài của đối phương. Lúc này, khái niệm "Cây trò chơi hiển nhiên" sụp đổ. Em không thể dùng một chiến lược cố định, vì nếu em chỉ Tố khi có bài mạnh, đối thủ sẽ đọc vị em ngay!
+
+Slide 28: HÌNH ẢNH KHUYẾT THIẾU THÔNG TIN
+Người 1: Hình này vẽ lại kịch bản cờ mù. Em bị bịt mắt và không biết Vua địch đang trốn ở đâu. Giải pháp duy nhất cho AI trong các game mù mờ này là dùng Chiến lược hỗn hợp (Mixed strategy): Chọn hành động có tích hợp tính ngẫu nhiên để đánh lừa đối phương (hay còn gọi là kỹ năng Bluff dọa nạt).
+
+Slide 29: TÓM TẮT CHƯƠNG 6
+Người 1: Chúng ta đã đi trọn Chương 6. Minimax là nền tảng, Alpha-beta là đôi cánh tốc độ. Khi không đủ thời gian, ta dùng Heuristic hoặc Monte Carlo để ngắt đường chân trời. Khi có xúc xắc, ta dùng Kỳ vọng Expectiminimax. Và với game thiếu thông tin, ta phải biết Bluff đối thủ!
+Người 2: Quả thực lĩnh vực AI Game quá đồ sộ và thông minh. Hiểu xong bài này em cảm giác mình có thể tự code ra một con AI để chiến thắng mọi ván cờ rồi! Cảm ơn thầy về bài học rất thực tiễn!
+Người 1: Thầy rất vui vì tinh thần của em. Đây chính là kiến thức đã hạ bệ nhà vô địch cờ vua thế giới Garry Kasparov đấy. Hẹn gặp lại các em ở những bài học sau!

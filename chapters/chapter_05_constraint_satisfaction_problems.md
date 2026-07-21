@@ -18,6 +18,11 @@
   <iframe src="TaiLieu/slide_4th/Chapter05_4th.pdf" width="100%" height="100%"></iframe>
 </div>
 
+#### **Video**
+
+<div class="pdf-container" style="margin-bottom: 20px;">
+  <iframe src="video/Chapter05/index.html" width="100%" height="100%"></iframe>
+</div>
 
 #### **Trắc nghiệm**
 *(Chưa có bài tập trắc nghiệm)*
@@ -48,7 +53,7 @@ finding the optimal move.
 
 ---
 
-##### Bài tập 5.2
+###### Bài tập 5.2
 
 Consider the problem of solving two 8-puzzles.<br>
 
@@ -143,7 +148,7 @@ continuous physical state space.
 
 ---
 
-##### Bài tập 5.7
+###### Bài tập 5.7
 
 Prove the following assertion: For every
 game tree, the utility obtained by max using minimax
@@ -313,7 +318,7 @@ and $k$, making the game almost zero-sum?
 
 ---
 
-##### Bài tập 5.14
+###### Bài tập 5.14
 
 Develop a formal proof of correctness for alpha–beta pruning. To do
 this, consider the situation shown in
@@ -369,7 +374,7 @@ time it takes to do one disk seek with standard disk hardware?
 
 ---
 
-##### Bài tập 5.17
+###### Bài tập 5.17
 
 Suppose you have a chess program that can evaluate 10 million nodes per
 second. Decide on a compact representation of a game state for storage

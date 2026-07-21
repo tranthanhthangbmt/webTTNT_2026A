@@ -1,0 +1,9 @@
+*.tex
+*.aux
+*.log
+*.out
+*.toc
+*.snm
+*.nav
+__pycache__/
+*.pyc

@@ -31,12 +31,12 @@ tức là, cho tác nhân tiếp xúc với thực tế thay vì cố gắng vi�
 Việc học sửa đổi cơ chế quyết định của tác nhân để cải thiện hiệu suất
 
 ---
-## Tác nhân học tập
+### Tác nhân học tập
 
-![Hình ảnh](../TaiLieu/slide_md/figures/learning-model.png)
+<img src="../TaiLieu/slide_md/figures/learning-model.png" style="width:100%; height:auto;">
 
 ---
-## Phần tử học tập
+### Phần tử học tập
 
 Thiết kế thành phần học tập được quyết định bởi
   
@@ -50,7 +50,7 @@ Thiết kế thành phần học tập được quyết định bởi
 
 Các tình huống ví dụ:
 
-![Hình ảnh](../TaiLieu/slide_md/figures/learning-elements.png)
+<img src="../TaiLieu/slide_md/figures/learning-elements.png" style="width:100%; height:auto;">
 
 \defn{Học có giám sát}: câu trả lời đúng cho từng trường hợp
 
@@ -89,7 +89,7 @@ Bài toán: tìm một(n) \defn{giả thuyết} \mat{$h$}
   -- Giả sử rằng tác nhân *muốn* tìm hiểu \mat{$f$}---tại sao?})
 
 ---
-## Phương pháp học quy nạp
+### Phương pháp học quy nạp
 
 Xây dựng/điều chỉnh \mat{$h$} để phù hợp với \mat{$f$} trên tập huấn luyện 
 
@@ -97,10 +97,10 @@ Xây dựng/điều chỉnh \mat{$h$} để phù hợp với \mat{$f$} trên t�
 
 Ví dụ: khớp đường cong:
 
-![Hình ảnh](../TaiLieu/slide_md/figures/curve-fitting1.png)
+<img src="../TaiLieu/slide_md/figures/curve-fitting1.png" style="width:100%; height:auto;">
 
 ---
-## Phương pháp học quy nạp
+### Phương pháp học quy nạp
 
 Xây dựng/điều chỉnh \mat{$h$} để phù hợp với \mat{$f$} trên tập huấn luyện 
 
@@ -108,10 +108,10 @@ Xây dựng/điều chỉnh \mat{$h$} để phù hợp với \mat{$f$} trên t�
 
 Ví dụ: khớp đường cong:
 
-![Hình ảnh](../TaiLieu/slide_md/figures/curve-fitting2.png)
+<img src="../TaiLieu/slide_md/figures/curve-fitting2.png" style="width:100%; height:auto;">
 
 ---
-## Phương pháp học quy nạp
+### Phương pháp học quy nạp
 
 Xây dựng/điều chỉnh \mat{$h$} để phù hợp với \mat{$f$} trên tập huấn luyện 
 
@@ -119,10 +119,10 @@ Xây dựng/điều chỉnh \mat{$h$} để phù hợp với \mat{$f$} trên t�
 
 Ví dụ: khớp đường cong:
 
-![Hình ảnh](../TaiLieu/slide_md/figures/curve-fitting3.png)
+<img src="../TaiLieu/slide_md/figures/curve-fitting3.png" style="width:100%; height:auto;">
 
 ---
-## Phương pháp học quy nạp
+### Phương pháp học quy nạp
 
 Xây dựng/điều chỉnh \mat{$h$} để phù hợp với \mat{$f$} trên tập huấn luyện 
 
@@ -130,10 +130,10 @@ Xây dựng/điều chỉnh \mat{$h$} để phù hợp với \mat{$f$} trên t�
 
 Ví dụ: khớp đường cong:
 
-![Hình ảnh](../TaiLieu/slide_md/figures/curve-fitting4.png)
+<img src="../TaiLieu/slide_md/figures/curve-fitting4.png" style="width:100%; height:auto;">
 
 ---
-## Phương pháp học quy nạp
+### Phương pháp học quy nạp
 
 Xây dựng/điều chỉnh \mat{$h$} để phù hợp với \mat{$f$} trên tập huấn luyện 
 
@@ -141,10 +141,10 @@ Xây dựng/điều chỉnh \mat{$h$} để phù hợp với \mat{$f$} trên t�
 
 Ví dụ: khớp đường cong:
 
-![Hình ảnh](../TaiLieu/slide_md/figures/curve-fitting5.png)
+<img src="../TaiLieu/slide_md/figures/curve-fitting5.png" style="width:100%; height:auto;">
 
 ---
-## Phương pháp học quy nạp
+### Phương pháp học quy nạp
 
 Xây dựng/điều chỉnh \mat{$h$} để phù hợp với \mat{$f$} trên tập huấn luyện 
 
@@ -152,7 +152,7 @@ Xây dựng/điều chỉnh \mat{$h$} để phù hợp với \mat{$f$} trên t�
 
 Ví dụ: khớp đường cong:
 
-![Hình ảnh](../TaiLieu/slide_md/figures/curve-fitting5.png)
+<img src="../TaiLieu/slide_md/figures/curve-fitting5.png" style="width:100%; height:auto;">
 
 \defn{Dao cạo Ockham}: tối đa hóa sự kết hợp giữa tính nhất quán và sự đơn giản
 
@@ -187,22 +187,22 @@ Ví dụ: các tình huống mà tôi sẽ/không đợi bàn:
 \defn{Phân loại} của các ví dụ là \defn{dương} (T) hoặc \defn{âm tính} (F)
 
 ---
-## Cây quyết định
+### Cây quyết định
 
 Một đại diện khả dĩ cho các giả thuyết
 
 Ví dụ: đây là cây "true" để quyết định có nên đợi hay không:
 
-![Hình ảnh](../TaiLieu/slide_md/figures/restaurant-tree.png)
+<img src="../TaiLieu/slide_md/figures/restaurant-tree.png" style="width:100%; height:auto;">
 
 ---
-## Tính biểu cảm
+### Tính biểu cảm
 
 Cây quyết định có thể thể hiện bất kỳ chức năng nào của thuộc tính đầu vào.
 
 Ví dụ: đối với các hàm Boolean, đường dẫn hàng bảng chân lý \mat{$\rightarrow$} đến lá:
 
-![Hình ảnh](../TaiLieu/slide_md/figures/xor-decision-tree.png)
+<img src="../TaiLieu/slide_md/figures/xor-decision-tree.png" style="width:100%; height:auto;">
 
 Điều đáng chú ý là có một cây quyết định nhất quán cho bất kỳ tập huấn luyện nào
 
@@ -315,12 +315,12 @@ function DTL(examples, attributes, default) returns a decision tree
 ```
 
 ---
-## Chọn thuộc tính
+### Chọn thuộc tính
 
 Ý tưởng: một thuộc tính tốt sẽ chia các ví dụ thành các tập con
 (lý tưởng) "tất cả đều tích cực" hoặc "tất cả tiêu cực"
 
-![Hình ảnh](../TaiLieu/slide_md/figures/restaurant-roots.png)
+<img src="../TaiLieu/slide_md/figures/restaurant-roots.png" style="width:100%; height:auto;">
 
 \mat{$Patrons?$} là lựa chọn tốt hơn---cung cấp *thông tin* về phân loại
 
@@ -365,17 +365,17 @@ Một thuộc tính chia các ví dụ \mat{$E$} thành các tập con \mat{$E_i
 \mat{$\implies$} chọn thuộc tính giảm thiểu thông tin còn lại cần thiết
 
 ---
-## Ví dụ tiếp theo.
+### Ví dụ tiếp theo.
 
 Cây quyết định học được từ 12 ví dụ:
 
-![Hình ảnh](../TaiLieu/slide_md/figures/induced-restaurant-tree.png)
+<img src="../TaiLieu/slide_md/figures/induced-restaurant-tree.png" style="width:100%; height:auto;">
 
 Đơn giản hơn nhiều so với cây “đúng”---một giả thuyết phức tạp hơn
 không được chứng minh bằng lượng nhỏ dữ liệu
 
 ---
-## Đo hiệu suất
+### Đo hiệu suất
 
 Làm sao chúng ta biết được điều đó \mat{$h\approx f$}? (Bài toán cảm ứng * của Hume *)
 
@@ -387,10 +387,10 @@ Làm sao chúng ta biết được điều đó \mat{$h\approx f$}? (Bài toán 
 
 \defn{Đường cong học tập} = \% đúng trên tập kiểm tra dưới dạng hàm của kích thước tập huấn luyện
 
-![Hình ảnh](../TaiLieu/slide_md/figures/restaurant-dtl-curve.png)
+<img src="../TaiLieu/slide_md/figures/restaurant-dtl-curve.png" style="width:100%; height:auto;">
 
 ---
-## Tiếp tục đo lường hiệu suất 
+### Tiếp tục đo lường hiệu suất 
 
 Đường cong học tập phụ thuộc vào 
   
@@ -402,7 +402,7 @@ Làm sao chúng ta biết được điều đó \mat{$h\approx f$}? (Bài toán 
   
  -- tính biểu đạt dư thừa (ví dụ: vô số thuộc tính không liên quan)
 
-![Hình ảnh](../TaiLieu/slide_md/figures/learning-curves.png)
+<img src="../TaiLieu/slide_md/figures/learning-curves.png" style="width:100%; height:auto;">
 
 ---
 ## Tóm tắt

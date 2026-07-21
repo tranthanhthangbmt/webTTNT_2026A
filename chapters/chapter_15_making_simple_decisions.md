@@ -22,6 +22,11 @@
   <iframe src="TaiLieu/slide_4th/Chapter15_4th.pdf" width="100%" height="100%"></iframe>
 </div>
 
+#### **Video**
+
+<div class="pdf-container" style="margin-bottom: 20px;">
+  <iframe src="video/Chapter15/index.html" width="100%" height="100%"></iframe>
+</div>
 
 #### **Trắc nghiệm**
 *(Chưa có bài tập trắc nghiệm)*
@@ -209,7 +214,7 @@ track the robot. How accurately can we track the robot’s path?
 
 ---
 
-##### Bài tập 15.11
+###### Bài tập 15.11
 
 This exercise is concerned with filtering in an environment with no
 landmarks. Consider a vacuum robot in an empty room, represented by an

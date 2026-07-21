@@ -1,0 +1,73 @@
+Slide 1: CHƯƠNG 12: ĐỊNH LƯỢNG SỰ KHÔNG CHẮC CHẮN
+Người 1: Chào các em! Ở các chương trước, ta đã lập trình cho AI sống trong một thế giới "Tất định" - nơi mọi thứ rõ ràng như ban ngày. Nhưng thực tế thì sao? Thế giới này luôn đầy rẫy những biến số bất ngờ và sự không chắc chắn! Hôm nay ở Chương 12, ta sẽ dạy AI cách đối phó với sự mù mờ đó.
+Người 2: Có phải là dạy máy tính cách tính Xác Suất để đưa ra lựa chọn giống như người chơi bài Poker không thưa thầy?
+
+Slide 2: NỘI DUNG CHƯƠNG 12
+Người 1: Đúng vậy! Chương này ta sẽ đi sâu vào 7 nội dung. Từ nguyên lý hành động dưới sự không chắc chắn, đến các tiên đề xác suất cơ bản. Sau đó, ta học công cụ Bảng phân phối đồng thời, hiểu tính Độc lập, và đặc biệt là công cụ vĩ đại nhất của Toán học AI: Định lý Bayes. Cuối cùng, ta sẽ ném Tác nhân Xác suất vào lại hang động Wumpus để xem nó sinh tồn ra sao!
+
+Slide 3: 12.1 HÀNH ĐỘNG DƯỚI SỰ KHÔNG CHẮC CHẮN
+Người 1: Trong môi trường thực tế, AI không thể quan sát được 100% sự vật. Khi lái xe tự lái, nó không thể chắc chắn 100% người đi bộ có lao ra đường hay không.
+Vậy làm sao để AI đưa ra "Quyết định hợp lý"? Khoa học định nghĩa nguyên lý Mờ E U (Maximum Expected Utility), tức là Tối đa hóa Lợi ích kỳ vọng.
+Nghĩa là, AI không chỉ đếm số \% xác suất xảy ra, mà còn nhân nó với phần thưởng (hoặc hình phạt) của hành động đó, để chọn ra bước đi có "Kỳ vọng" cao nhất.
+
+Slide 4: CẤU TRÚC TÁC NHÂN DỰA TRÊN TIỆN ÍCH
+Người 1: Sơ đồ này minh họa não bộ của một Tác nhân Tiện ích. Từ Cảm biến (Sensors), nó sẽ suy đoán trạng thái thế giới (Ví dụ: 80\% trời sẽ mưa). Sau đó nó sẽ tham chiếu khối Tiện ích (Utility) xem nếu không mang ô mà bị ướt thì sẽ phạt bao nhiêu điểm. Cuối cùng, AI tính toán và chốt hạ hành động hợp lý nhất.
+
+Slide 5: SỰ BẤT NHẤT TRONG NIỀM TIN
+Người 1: Nếu AI không tuân theo các tiên đề Toán Xác suất một cách nghiêm ngặt, niềm tin của nó sẽ bị mâu thuẫn. Hình ảnh này mô tả một kịch bản gọi là Dutch Book. Nếu một gã cờ bạc tin vào các xác suất ngớ ngẩn không nhất quán với nhau, nhà cái hoàn toàn có thể lừa anh ta đặt cược sao cho anh ta luôn luôn bị thua trắng túi!
+
+Slide 6: 12.2 KÝ HIỆU XÁC SUẤT CƠ BẢN
+Người 1: Để xây dựng AI Xác suất, ta phải dùng ngôn ngữ Toán học.
+Thứ nhất là Không gian mẫu Ô-mê-ga. Nó chứa mọi kịch bản khả thi.
+Và Tiên đề Kolmogorov tối thượng là: Xác suất của một sự kiện Ô-mê-ga nhỏ phải nằm trong khoảng từ không đến một. Và Tổng các xác suất của mọi sự kiện Ô-mê-ga nhỏ luôn luôn bằng một. (Tức là 100\%).
+Bên cạnh đó, Xác suất của a hoặc bê, sẽ bằng Xác suất của a cộng Xác suất của bê, trừ đi phần giao nhau là Xác suất của a và bê.
+
+Slide 7: 12.3 SUY LUẬN SỬ DỤNG PHÂN PHỐI ĐỒNG THỜI ĐẦY ĐỦ
+Người 1: Bộ công cụ tiếp theo là Bảng Phân phối Đồng thời Đầy đủ. Nó là một siêu ma trận chứa xác suất của mọi kịch bản chéo nhau.
+Để trích xuất thông tin, ta dùng 2 phép toán. 
+Một là Lấy Biên (Marginalization): Xác suất biên của Y dài bằng Tổng theo zét của Xác suất đồng thời của Y dài và zét.
+Hai là Lấy Điều kiện (Conditioning): Xác suất của Y dài bằng Tổng theo zét của Xác suất của Y dài với điều kiện zét, nhân với Xác suất của zét.
+Người 2: Ui, nghe có vẻ hơi nhức đầu ạ! Nó tính toán ra sao trong thực tế thưa thầy?
+
+Slide 8: PHÂN PHỐI ĐỒNG THỜI ĐẦY ĐỦ (FULL JOINT DISTRIBUTION)
+Người 1: Em hãy nhìn Bảng này! Đây là ví dụ Bảng đồng thời của 3 biến ở phòng khám nha khoa: Đau răng (Toothache), Sâu răng (Cavity) và Mắc kẹt que khám (Catch). 
+Mỗi ô là một xác suất. Tổng 8 ô gộp lại chính xác bằng 1. 
+Nếu muốn tính Xác suất Đau răng, em chỉ việc quét lấy toàn bộ các ô có Đau răng bằng True, cộng hết lại với nhau. AI sẽ liên tục cày cuốc trên các bảng khổng lồ này để chẩn đoán.
+
+Slide 9: 12.4 TÍNH ĐỘC LẬP (INDEPENDENCE)
+Người 1: Nhưng nếu thế giới có 1000 biến bệnh lý, thì cái bảng đó sẽ bự bằng O lớn của hai mũ n, tức là 2 mũ 1000. Máy tính mạnh nhất thế giới cũng nổ tung!
+Giải pháp cứu mạng ở đây là: Tính Độc lập.
+Nếu Đau Răng và Thời Tiết là 2 việc chẳng liên quan gì nhau. Ta nói chúng Độc lập tuyệt đối.
+Toán học viết là: Xác suất của A với điều kiện B, bằng chính Xác suất của A. Tức là B có xảy ra hay không thì A cũng mặc kệ! Nhờ tính Độc lập này, AI có thể bẻ gãy một bảng ma trận khổng lồ ra thành các bảng nhỏ xíu.
+
+Slide 10: PHÂN RÃ (FACTORING) NHỜ TÍNH ĐỘC LẬP
+Người 1: Sơ đồ này vẽ cách một vòng tròn To đùng bị xẻ đôi thành 2 vòng tròn Độc Lập. Thời tiết không làm ảnh hưởng đến Sâu răng. Nhờ sự phân rã này, thay vì phải lưu bảng 32 ô, máy tính chỉ cần lưu một bảng 4 ô cho Thời tiết và 8 ô cho Răng. Tiết kiệm dung lượng cực kì lớn!
+
+Slide 11: 12.5 ĐỊNH LÝ BAYES VÀ ỨNG DỤNG CỦA NÓ
+Người 1: Và đây là Trái tim của AI Xác suất: Định lý Bayes (Bayes' Rule)! 
+Công thức vàng: Xác suất của Y dài với điều kiện X, bằng Xác suất của X với điều kiện Y dài, nhân Xác suất của Y dài, tất cả chia cho Xác suất của X.
+Nó vĩ đại ở chỗ: Nó giúp con người đảo ngược Nguyên nhân và Kết quả!
+Người 2: Thầy ví dụ cụ thể hơn được không ạ? Đảo ngược là sao hả thầy?
+Người 1: Ví dụ trong Y học: Việc thống kê "Đã Bệnh thì Khả năng Ho là bao nhiêu?" rất dễ làm. Nhưng khi bệnh nhân bước vào và Ho (Biểu hiện), bác sĩ phải dự đoán "Khả năng mắc Bệnh là bao nhiêu?". Định lý Bayes giúp máy tính dễ dàng lật ngược xác suất đó lại để chẩn đoán chính xác căn bệnh!
+
+Slide 12: 12.6 CÁC MÔ HÌNH NAIVE BAYES
+Người 1: Từ Định lý Bayes, người ta đẻ ra mô hình "Naive Bayes" (Bayes Ngây Thơ). 
+Gọi là "Ngây thơ" vì nó ép buộc một giả định rất ngốc nghếch: Rằng các Triệu chứng hoàn toàn Độc lập với nhau! Công thức của nó được rút gọn thành: Xác suất của C với điều kiện từ X 1 đến X n, bằng hằng số An-pha nhân Xác suất của C, nhân với Tích các Xác suất của X y với điều kiện C.
+Người 2: Giả định vô lý như vậy thì AI tính ra kết quả có bị sai bét không thầy?
+Người 1: Kỳ diệu thay là KHÔNG! Dù giả định ngây thơ, nhưng trong các bài toán như Phân loại văn bản hay Lọc Email rác (Spam), Naive Bayes lại chạy mượt mà và chính xác đến kinh ngạc. Trở thành thuật toán AI nổi tiếng nhất thế giới!
+
+Slide 13: 12.7 TRỞ LẠI THẾ GIỚI WUMPUS
+Người 1: Giờ ta ném AI Xác suất vào lại hang động Wumpus. 
+Nếu dùng AI Logic ở các bài trước: Nếu nó không dám chắc 100\% ô bên cạnh an toàn, nó sẽ đứng im chịu chết.
+Nhưng Tác nhân Xác suất thì khác! Nó sẽ dùng Định lý Bayes để tính toán xem Ô bên trái có 20\% rớt xuống hố, Ô bên phải có 70\% rớt xuống hố. Sau đó, nó tự tin bước vào Ô bên trái để có cơ hội sống sót cao nhất.
+
+Slide 14: THẾ GIỚI WUMPUS DƯỚI GÓC NHÌN XÁC SUẤT
+Người 1: Sơ đồ này vẽ ra các ô chưa được khám phá. Dựa vào việc ngửi thấy mùi hôi và cảm nhận gió, AI sẽ tính ra các Xác suất. Ô [1,3] có Hố là 31\%, nhưng ô [2,2] có Hố lên tới 86\%. Quá nguy hiểm! AI sẽ đưa ra quyết định hợp lý là thám hiểm ô 31\%.
+
+Slide 15: CÁC MÔ HÌNH RANH GIỚI (FRONTIER MODELS)
+Người 1: Đồ thị này biểu diễn toán học cho các biến "Ranh giới" - tức là bức tường ranh giới giữa Vùng đã biết và Vùng chưa khám phá. Nó chia tách các biến Độc lập để cỗ máy AI tính toán xác suất Wumpus xuất hiện một cách cực kì tối ưu mà không bị tràn RAM bộ nhớ.
+
+Slide 16: TÓM TẮT CHƯƠNG 12
+Người 1: Tổng kết Chương 12! Ta đã đưa AI bước sang một kỷ nguyên mới: Kỷ nguyên của sự không chắc chắn. AI giờ đây không cần sự "Đúng sai tuyệt đối" nữa. Nó biết tính Toán Xác suất. Nó biết dùng Tính Độc Lập để chống tràn bộ nhớ. Và đặc biệt, Định lý Bayes đã ban cho AI khả năng "Cập nhật Niềm tin" dựa trên các bằng chứng y hệt như một bác sĩ chuyên gia!
+Người 2: Tuyệt vời quá thưa thầy. Hóa ra để lọc được Email Spam hay chẩn đoán bệnh ung thư, các máy tính phải học toán Xác Suất Bayes. 
+Người 1: Rất chuẩn! Kiến thức hôm nay là nền tảng sống còn của Machine Learning. Buổi sau ta sẽ tiến sâu hơn vào Mạng Bayes. Chào các em!

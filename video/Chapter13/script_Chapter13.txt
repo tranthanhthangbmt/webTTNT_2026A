@@ -1,0 +1,84 @@
+Slide 1: CHƯƠNG 13: SUY DIỄN XÁC SUẤT
+Người 1: Chào các em! Ở bài trước ta đã biết về Xác suất. Nhưng nếu có hàng ngàn biến số, bảng Xác suất sẽ nổ tung và làm cháy RAM máy tính. Vậy giải pháp là gì? Là phải vẽ nó ra! 
+Hôm nay, ta sẽ học về Mạng Bayes (Bayesian Networks) - công cụ đã giúp Judea Pearl đoạt giải Turing (được ví như giải Nobel của ngành Khoa học Máy tính).
+
+Slide 2: NỘI DUNG CHƯƠNG 13
+Người 1: Chương 13 có 5 phần cực kỳ hấp dẫn. Đầu tiên là cách vẽ Mạng Bayes. Thứ 2 là đọc hiểu nó. Thứ 3 là cách tính toán Xác suất "Chính xác" bằng Thuật toán Loại bỏ biến. Thứ 4 là cách ước lượng "Xấp xỉ" bằng kỹ thuật Lấy mẫu ngẫu nhiên khi mạng quá khổng lồ. Và cuối cùng là đỉnh cao của khoa học hiện đại: Mạng Nhân Quả.
+
+Slide 3: 13.1 BIỂU DIỄN KIẾN THỨC TRONG MỘT MIỀN KHÔNG CHẮC CHẮN
+Người 1: Mạng Bayes là một đồ thị đặc biệt. Nó có hướng và Không có vòng lặp, tiếng Anh gọi tắt là đồ thị Đát (DAG).
+Mỗi nút trong đồ thị là 1 biến. Mũi tên từ A trỏ sang B nghĩa là A là Cha, và A ảnh hưởng trực tiếp đến B.
+Tại mỗi nút, ta đính kèm một "Bảng xác suất có điều kiện Xê Pê Tê", chứa các công thức dạng: Xác suất của X i với điều kiện Cha của X i. 
+
+Slide 4: VÍ DỤ CẤU TRÚC MẠNG BAYES
+Người 1: Nhìn vào hình này, Thời tiết (Weather) là Nút Độc lập, không ai trỏ vào nó. Nhưng Sâu răng (Cavity) lại là nguyên nhân sinh ra Đau răng (Toothache). Do đó có một mũi tên chỉ từ Sâu răng sang Đau răng. Nhìn vào đồ thị, bác sĩ sẽ lập tức biết gốc rễ của căn bệnh nằm ở đâu!
+
+Slide 5: MẠNG BAYES ĐIỂN HÌNH: BÀI TOÁN BÁO TRỘM
+Người 1: Đây là bài toán siêu kinh điển: Bài toán Báo Trộm. 
+Có 2 nguyên nhân làm Chuông kêu (Alarm): Một là Trộm đột nhập (Burglary), hai là Động đất (Earthquake).
+Khi Chuông kêu, có 2 người hàng xóm sẽ gọi điện cho bạn: John và Mary. 
+Người 2: Ui, nhìn sơ đồ này thì nếu John gọi cho em, em có thể lần ngược mũi tên để suy ra xác suất nhà em bị Trộm là bao nhiêu đúng không thầy?
+Người 1: Chính xác! Đó chính là sức mạnh của Mạng Bayes.
+
+Slide 6: 13.2 NGỮ NGHĨA CỦA MẠNG BAYES
+Người 1: Ngữ nghĩa của mạng này được bẻ gãy bằng toán học rất đẹp. 
+Thay vì phải lập một bảng khổng lồ chứa mọi trường hợp. Ta dùng công thức: Xác suất đồng thời của x 1 đến x n, bằng Tích từ 1 đến n của Xác suất x i với điều kiện cha của X i. 
+Ví dụ: Tính xác suất Trộm vào và Chuông kêu, ta chỉ lấy Xác suất Trộm nhân với Xác suất Chuông kêu khi có Trộm! Điều này làm giảm khối lượng tính toán từ O lớn của 2 mũ ca, xuống chỉ còn O lớn của ca.
+
+Slide 7: MÔ HÌNH NOISY-OR
+Người 1: Đôi khi một biến có quá nhiều Cha. Chẳng hạn Sốt có thể do Cúm, do Sốt rét, do Cảm lạnh. Việc lập bảng Xê Pê Tê vẫn quá sức chịu đựng.
+Người ta chế ra mô hình Noisy-OR. Nó cho phép tổng hợp các nguyên nhân Độc lập lại với nhau bằng toán học nhanh gọn mà không cần liệt kê toàn bộ các tổ hợp bệnh lý.
+
+Slide 8: 13.3 SUY LUẬN CHÍNH XÁC TRONG CÁC MẠNG BAYES
+Người 1: Nào, giờ ta bắt máy tính tính toán: Xác suất của X với điều kiện bằng chứng e. Ví dụ: Tính xác suất có Trộm khi biết John đã gọi.
+Cách ngu ngốc nhất là: Suy luận bằng phép Liệt kê. Tức là duyệt qua mọi kịch bản Động đất có hay không, Mary có gọi hay không... rồi cộng lại. Cách này mất thời gian là O lớn của đê mũ n, cực kỳ chậm!
+Cách thông minh hơn là Thuật toán Loại bỏ biến. Nó lưu lại các kết quả đã tính để không phải tính lại. Giống hệt kỹ thuật Quy hoạch động!
+
+Slide 9: SUY LUẬN BẰNG PHÉP LIỆT KÊ
+Người 1: Mã giả của Thuật toán Liệt kê toàn diện. Nó dùng đệ quy duyệt qua một cây nhị phân khổng lồ. Mọi nhánh rẽ đều phải được lôi ra tính toán.
+
+Slide 10: THUẬT TOÁN LOẠI BỎ BIẾN
+Người 1: Ngược lại, Thuật toán Loại bỏ Biến sẽ đẩy dấu Tổng vào sâu trong dấu Tích. Nó tính từng khối nhỏ, gom lại thành một "Nhân tố" (Factor). Giống như việc em tính (2x3) + (2x4) = 2x(3+4), việc rút nhân tử chung sẽ cứu máy tính khỏi hàng tỷ phép tính thừa thãi.
+
+Slide 11: SỰ PHỨC TẠP CỦA MẠNG BAYES
+Người 1: Dù có tối ưu thế nào, Toán học đã chứng minh: Suy luận chính xác trên mạng Bayes phức tạp là một bài toán NP-Hard. Việc biểu diễn bài toán Ba Sát (3-SAT) kinh điển dưới dạng mạng Bayes cho thấy nếu số lượng biến quá lớn, máy tính siêu cấp cũng sẽ treo máy.
+
+Slide 12: PHÂN CỤM MẠNG KẾT NỐI ĐA (CLUSTERING)
+Người 1: Hình ảnh này mô tả một kỹ thuật tên là Phân cụm (Clustering). Ta gom Vòi phun nước (Sprinkler) và Mưa (Rain) lại thành một siêu-Nút. Bằng cách gộp các nút lại, đồ thị chằng chịt sẽ biến thành dạng cây đơn giản, giúp thuật toán Loại bỏ biến chạy trơn tru hơn.
+
+Slide 13: 13.4 SUY LUẬN XẤP XỈ CHO CÁC MẠNG BAYES
+Người 2: Nếu bài toán NP-Hard làm máy tính treo, thì mấy con AI của Google xử lý hàng triệu biến bằng cách nào ạ?
+Người 1: Câu hỏi tuyệt vời! Khi không thể giải "Chính xác", ta phải giải "Xấp xỉ" bằng kỹ thuật Lấy mẫu (Sampling)! 
+Cụ thể là ta giả lập thế giới thật. Tung đồng xu hàng vạn lần để ra các kịch bản ngẫu nhiên. Sau đó đếm số lần kịch bản đó xảy ra. Chia tỉ lệ là ra Xác suất!
+
+Slide 14: LẤY MẪU TRỰC TIẾP (DIRECT SAMPLING)
+Người 1: Thuật toán Lấy mẫu trực tiếp rất ngây thơ: Nó đi từ đỉnh mạng Bayes xuống. Ở nút Mây, tung đồng xu 50\% ra Mưa. Xuống nút Mưa, nếu Mưa thì tung xúc xắc 80\% cỏ sẽ Ướt. Nó tạo ra 1 mẫu hoàn chỉnh cho thế giới. 
+
+Slide 15: LẤY MẪU LOẠI BỎ (REJECTION SAMPLING)
+Người 1: Nhưng giả sử câu hỏi là: "Tính xác suất Mưa khi biết Cỏ Ướt". 
+Thuật toán Lấy mẫu loại bỏ sẽ sinh ra 1 triệu mẫu. Những mẫu nào mà Cỏ KHÔNG Ướt, nó vứt thẳng vào sọt rác! Chỉ giữ lại những mẫu Cỏ Ướt để đếm Mưa.
+Cách này cực kì lãng phí! Nếu "Bằng chứng" là một sự kiện hiếm (Ví dụ: Trúng số độc đắc), máy tính sẽ vứt đi 99.9\% số mẫu vừa tạo ra.
+
+Slide 16: LẤY MẪU THEO TRỌNG SỐ (LIKELIHOOD WEIGHTING)
+Người 1: Để chữa cháy, ta dùng Lấy mẫu theo trọng số. Nó KHÔNG vứt mẫu nào đi cả.
+Nó ép luôn Cỏ = Ướt ngay từ đầu! Nhưng để đảm bảo công bằng, mẫu nào bị "ép" sẽ được nhân với một cái Trọng số (Weight) bằng đúng xác suất xảy ra điều kiện ép đó. Toán học thật sự rất vi diệu.
+
+Slide 17: HIỆU SUẤT LẤY MẪU
+Người 1: Đồ thị này chứng minh sự chênh lệch. Lấy mẫu Trọng số (Likelihood Weighting) có đường sai số đâm thẳng xuống đáy rất nhanh, ổn định và chính xác vượt trội so với phương pháp Loại bỏ (Rejection Sampling).
+
+Slide 18: SUY LUẬN BẰNG MCMC: GIBBS SAMPLING
+Người 1: Cao cấp hơn nữa là MCMC (Chuỗi Markov Monte Carlo). Đại diện là Gibbs Sampling. Thay vì tạo mẫu từ đầu, nó khởi tạo 1 mẫu ngẫu nhiên rồi đi lang thang trong không gian. Cứ mỗi bước, nó cập nhật lại 1 biến dựa trên các hàng xóm xung quanh (Markov Blanket). Sau 1 triệu bước, hệ thống sẽ hội tụ chuẩn xác về đáp án đúng! 
+
+Slide 19: 13.5 CÁC MẠNG NHÂN QUẢ (CAUSAL NETWORKS)
+Người 1: Ở phần cuối cùng, ta nói về điểm yếu chí mạng của Xác suất thống kê: Nó bị nhầm lẫn giữa Tương quan và Nhân quả.
+Ví dụ: Thấy người mang ô thì biết trời mưa. Nhưng mang ô không TẠO RA mưa!
+Xác suất bình thường chỉ là Quan sát (Xác suất của Y dài với điều kiện Quan sát X bằng x nhỏ).
+Còn Mạng Nhân Quả của Judea Pearl dùng Toán tử Đu: "Ép X bằng x nhỏ". Nó biểu diễn hành động Can thiệp. Xác suất của Y dài với điều kiện ÉP X bằng x nhỏ.
+Nó giúp các bác sĩ hiểu rõ: Ép bệnh nhân uống thuốc (Can thiệp) sẽ thay đổi sinh lý thế nào, khác hoàn toàn với việc chỉ đứng nhìn bệnh nhân uống thuốc!
+
+Slide 20: TÓM TẮT CHƯƠNG 13
+Người 1: Chương 13 khép lại! Mạng Bayes là kỳ quan của AI. Nó dập tắt sự bùng nổ tổ hợp của bảng xác suất bằng cấu trúc Đồ thị nhân quả.
+Khi tính toán, ta có Thuật toán Loại bỏ biến cho mạng nhỏ. Ta có MCMC và Lấy mẫu ngẫu nhiên cho mạng khổng lồ. 
+Và cuối cùng, Mạng nhân quả Toán tử Đu đã nâng tầm AI từ kẻ "Quan sát" thành người "Can thiệp" và định hình chính sách xã hội.
+Người 2: Giờ thì em đã hiểu vì sao tác giả Judea Pearl lại được vinh danh giải Turing rồi ạ. Một bộ công cụ quá đẳng cấp!
+Người 1: Đúng vậy! Hãy về thực hành code ngay thuật toán Lấy mẫu Gibbs nhé. Hẹn gặp lại các em!

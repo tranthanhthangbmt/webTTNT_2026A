@@ -17,16 +17,16 @@
 - Lặp lại chính sách
 
 ---
-## Các vấn đề về quyết định tuần tự
+### Các vấn đề về quyết định tuần tự
 
-![Hình ảnh](../TaiLieu/slide_md/figures/decision-problems.png)
+<img src="../TaiLieu/slide_md/figures/decision-problems.png" style="width:100%; height:auto;">
 
 ---
-## Ví dụ MDP
+### Ví dụ MDP
 
-![Hình ảnh](../TaiLieu/slide_md/figures/sequential-decision-world.png)
+<img src="../TaiLieu/slide_md/figures/sequential-decision-world.png" style="width:100%; height:auto;">
 
-![Hình ảnh](../TaiLieu/slide_md/figures/sequential-decision-world.png) \hspace*{1in} $M_{ij}^a \equiv P(j|i,a)$
+<img src="../TaiLieu/slide_md/figures/sequential-decision-world.png" style="width:100%; height:auto;"> \hspace*{1in} $M_{ij}^a \equiv P(j|i,a)$
 
 $a$
 
@@ -104,7 +104,7 @@ $U(1,1) = -0.04$
 Một phương trình trên mỗi trạng thái = $n$ <u>phi tuyến </u> phương trình trong $n$ ẩn số
 
 ---
-## Thuật toán lặp giá trị
+### Thuật toán lặp giá trị
 
 <u>Idea</u>: Bắt đầu với các giá trị tiện ích tùy ý
     
@@ -115,7 +115,7 @@ Một phương trình trên mỗi trạng thái = $n$ <u>phi tuyến </u> phươ
 lặp lại cho đến khi "không thay đổi"
 \[ U(i) \leftarrow R(i) + \max_a \mysum_j U(j) M_{ij}^a  &nbsp;&nbsp;&nbsp;&nbsp;  \mbox{for all } i\]
 
-![Hình ảnh](../TaiLieu/slide_md/figures/4x3-vi-curve.png)
+<img src="../TaiLieu/slide_md/figures/4x3-vi-curve.png" style="width:100%; height:auto;">
 
 ---
 ##  Lặp lại chính sách (Howard, 1960)

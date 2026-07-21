@@ -52,9 +52,9 @@ tìm kiếm tham lam
 tìm kiếm {\Astar}
 
 ---
-## Romania với chi phí bước tính bằng km
+### Romania với chi phí bước tính bằng km
 
-![Hình ảnh](../TaiLieu/slide_md/figures/romania2.png)
+<img src="../TaiLieu/slide_md/figures/romania2.png" style="width:100%; height:auto;">
 
 ---
 ## Tham lam tìm kiếm
@@ -68,24 +68,24 @@ Ví dụ: \mat{$h_{{\rm SLD}}(n)$} = khoảng cách đường thẳng từ \mat{
 Tìm kiếm tham lam mở rộng nút *xuất hiện* gần mục tiêu nhất
 
 ---
-## Ví dụ về tìm kiếm tham lam
+### Ví dụ về tìm kiếm tham lam
 
-![Hình ảnh](../TaiLieu/slide_md/figures/greedy-progress01.png)
-
----
-## Ví dụ về tìm kiếm tham lam
-
-![Hình ảnh](../TaiLieu/slide_md/figures/greedy-progress02.png)
+<img src="../TaiLieu/slide_md/figures/greedy-progress01.png" style="width:100%; height:auto;">
 
 ---
-## Ví dụ về tìm kiếm tham lam
+### Ví dụ về tìm kiếm tham lam
 
-![Hình ảnh](../TaiLieu/slide_md/figures/greedy-progress03.png)
+<img src="../TaiLieu/slide_md/figures/greedy-progress02.png" style="width:100%; height:auto;">
 
 ---
-## Ví dụ về tìm kiếm tham lam
+### Ví dụ về tìm kiếm tham lam
 
-![Hình ảnh](../TaiLieu/slide_md/figures/greedy-progress04.png)
+<img src="../TaiLieu/slide_md/figures/greedy-progress03.png" style="width:100%; height:auto;">
+
+---
+### Ví dụ về tìm kiếm tham lam
+
+<img src="../TaiLieu/slide_md/figures/greedy-progress04.png" style="width:100%; height:auto;">
 
 ---
 ## Thuộc tính tìm kiếm tham lam
@@ -171,50 +171,50 @@ Ví dụ: \mat{$h_{{\rm SLD}}(n)$} không bao giờ đánh giá quá cao khoản
 \note{Định lý}: tìm kiếm {\Astar} là tối ưu
 
 ---
-## {\Astar
+### {\Astar
  ví dụ tìm kiếm}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/astar-progress01.png)
+<img src="../TaiLieu/slide_md/figures/astar-progress01.png" style="width:100%; height:auto;">
 
 ---
-## {\Astar
+### {\Astar
  ví dụ tìm kiếm}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/astar-progress02.png)
+<img src="../TaiLieu/slide_md/figures/astar-progress02.png" style="width:100%; height:auto;">
 
 ---
-## {\Astar
+### {\Astar
  ví dụ tìm kiếm}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/astar-progress03.png)
+<img src="../TaiLieu/slide_md/figures/astar-progress03.png" style="width:100%; height:auto;">
 
 ---
-## {\Astar
+### {\Astar
  ví dụ tìm kiếm}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/astar-progress04.png)
+<img src="../TaiLieu/slide_md/figures/astar-progress04.png" style="width:100%; height:auto;">
 
 ---
-## {\Astar
+### {\Astar
  ví dụ tìm kiếm}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/astar-progress05.png)
+<img src="../TaiLieu/slide_md/figures/astar-progress05.png" style="width:100%; height:auto;">
 
 ---
-## {\Astar
+### {\Astar
  ví dụ tìm kiếm}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/astar-progress06.png)
+<img src="../TaiLieu/slide_md/figures/astar-progress06.png" style="width:100%; height:auto;">
 
 ---
-## Tính tối ưu của {\Astar
+### Tính tối ưu của {\Astar
  (bằng chứng tiêu chuẩn)}
 
 Giả sử một số mục tiêu dưới mức tối ưu \mat{$G_2$} đã được tạo
 và đang trong hàng đợi. Đặt \mat{$n$} là một nút chưa được mở rộng
 trên con đường ngắn nhất tới mục tiêu tối ưu \mat{$G_1$}.
 
-![Hình ảnh](../TaiLieu/slide_md/figures/astar-proof.png)
+<img src="../TaiLieu/slide_md/figures/astar-proof.png" style="width:100%; height:auto;">
 
 \begin{eqnarray*}
 f(G_2) & = &  g(G_2) &nbsp;&nbsp;&nbsp;&nbsp;  {\rm since\ }h(G_2) = 0 
@@ -227,7 +227,7 @@ f(G_2) & = &  g(G_2) &nbsp;&nbsp;&nbsp;&nbsp;  {\rm since\ }h(G_2) = 0
 Vì \mat{$f(G_2) > f(n)$}, {\Astar} sẽ không bao giờ chọn \mat{$G_2$} để mở rộng
 
 ---
-## Tính tối ưu của {\Astar
+### Tính tối ưu của {\Astar
  (hữu ích hơn)}
 
 \note{ Bổ đề}: {\Astar} mở rộng các nút theo thứ tự tăng dần giá trị \mat{$f$}$^*$
@@ -236,7 +236,7 @@ Dần dần thêm "\mat{$f$}-contours" của các nút (xem thêm các lớp the
 
 Đường viền \mat{$i$} có tất cả các nút có \mat{$f=f_i$}, trong đó \mat{$f_i < f_{i+1}$}
 
-![Hình ảnh](../TaiLieu/slide_md/figures/f-circles.png)
+<img src="../TaiLieu/slide_md/figures/f-circles.png" style="width:100%; height:auto;">
 
 ---
 ## Thuộc tính của {\Astar
@@ -293,9 +293,9 @@ Dần dần thêm "\mat{$f$}-contours" của các nút (xem thêm các lớp the
 {\Astar} không mở rộng nút nào với \mat{$f(n) > C^*$}
 
 ---
-## Chứng minh bổ đề: Tính nhất quán
+### Chứng minh bổ đề: Tính nhất quán
 
-Một phương pháp phỏng đoán là \defn{nhất quán} nếu \raisebox{-0.35\textwidth}[0pt][0pt]{![Hình ảnh](../TaiLieu/slide_md/figures/consistency.png)}
+Một phương pháp phỏng đoán là \defn{nhất quán} nếu \raisebox{-0.35\textwidth}[0pt][0pt]{<img src="../TaiLieu/slide_md/figures/consistency.png" style="width:100%; height:auto;">}
 \[
   h(n) \leq c(n,a,n') + h(n')
 \]
@@ -312,7 +312,7 @@ f(n') &=& g(n') + h(n')
 Tức là, \mat{$f(n)$} không giảm dọc theo bất kỳ đường dẫn nào.
 
 ---
-## Các phương pháp phỏng đoán được chấp nhận
+### Các phương pháp phỏng đoán được chấp nhận
 
 Ví dụ: đối với câu đố 8:
 
@@ -322,14 +322,14 @@ Ví dụ: đối với câu đố 8:
     
 (tức là số ô vuông từ vị trí mong muốn của mỗi ô)
 
-![Hình ảnh](../TaiLieu/slide_md/figures/8puzzle.png)
+<img src="../TaiLieu/slide_md/figures/8puzzle.png" style="width:100%; height:auto;">
 
 <u>$h_2(S)$ =</u>?? 
 
 <u>$h_2(S)$ =</u>?? 
 
 ---
-## Các phương pháp phỏng đoán được chấp nhận
+### Các phương pháp phỏng đoán được chấp nhận
 
 Ví dụ: đối với câu đố 8:
 
@@ -339,7 +339,7 @@ Ví dụ: đối với câu đố 8:
     
 (tức là số ô vuông từ vị trí mong muốn của mỗi ô)
 
-![Hình ảnh](../TaiLieu/slide_md/figures/8puzzle.png)
+<img src="../TaiLieu/slide_md/figures/8puzzle.png" style="width:100%; height:auto;">
 
 <u>$h_2(S)$ =</u>?? 6
 
@@ -387,13 +387,13 @@ Square*, sau đó \mat{$h_2(n)$} cho lời giải ngắn nhất
 không lớn hơn chi phí giải pháp tối ưu của bài toán thực
 
 ---
-## Các vấn đề đã được giải quyết tiếp.
+### Các vấn đề đã được giải quyết tiếp.
 
 Ví dụ nổi tiếng: \defn{vấn đề của nhân viên bán hàng du lịch} (TSP)
 
 Tìm chuyến đi ngắn nhất đến thăm tất cả các thành phố đúng một lần
 
-![Hình ảnh](../TaiLieu/slide_md/figures/tsp-mst.png)
+<img src="../TaiLieu/slide_md/figures/tsp-mst.png" style="width:100%; height:auto;">
 
 \defn{ Cây bao trùm tối thiểu } có thể được tính trong \mat{$O(n^2)$} 
 

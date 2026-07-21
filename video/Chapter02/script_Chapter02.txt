@@ -1,0 +1,122 @@
+Slide 1: CHƯƠNG 2: TÁC NHÂN THÔNG MINH
+Người 1: Chào các em. Chào mừng các em đến với Chương 2 của môn học Trí tuệ nhân tạo. Ở chương trước, chúng ta đã định hình rằng mục tiêu của AI hiện đại là xây dựng các hệ thống hoạt động thông minh. Vậy làm sao để mô hình hóa sự "thông minh" đó? Hôm nay, chúng ta sẽ đi sâu vào việc giải phẫu chúng qua khái niệm "Tác nhân thông minh" hay "Intelligent Agents".
+Người 2: Dạ thưa thầy, em vẫn luôn thắc mắc từ "tác nhân" thực chất đại diện cho điều gì? Có phải nó chỉ dùng để chỉ robot vật lý không, hay cả những phần mềm chạy ngầm trong máy tính cũng được gọi là tác nhân ạ?
+
+Slide 2: NỘI DUNG CHƯƠNG 2
+Người 1: Một câu hỏi rất đúng trọng tâm. Để trả lời câu hỏi đó, chúng ta hãy xem qua cấu trúc của bài học hôm nay. Chúng ta sẽ đi qua 4 phần chính: 2.1 Định nghĩa về Tác nhân và Môi trường. 2.2 Khái niệm về Hành vi tốt và Sự hợp lý. 2.3 Phân tích bản chất môi trường qua khung P.E.A.S. Và 2.4 Cấu trúc cốt lõi của các tác nhân. 
+Người 2: Vâng, nhìn vào 4 nội dung này, em tin rằng bài giảng hôm nay sẽ cung cấp nền tảng toán học và tư duy thiết kế để lập trình mọi hệ thống AI sau này.
+
+Slide 3: 2.1 TÁC NHÂN VÀ MÔI TRƯỜNG
+Người 1: Chúng ta bắt đầu với định nghĩa nền tảng. Về mặt trừu tượng, một "tác nhân" là bất kỳ thực thể nào có khả năng "nhận thức" môi trường xung quanh thông qua các "cảm biến" và "hành động" lên môi trường đó bằng các "cơ cấu chấp hành". Nó không giới hạn ở robot vật lý!
+Người 2: Dạ em hiểu rồi. Nếu con người là một tác nhân, thì cảm biến là mắt, tai, mũi; còn cơ cấu chấp hành là tay chân. Đối với robot thì cảm biến là camera, radar; cơ cấu chấp hành là động cơ. Vậy nếu là phần mềm AI giao dịch chứng khoán, cảm biến của nó chính là dữ liệu giá cả từ internet, và hành động là việc đặt lệnh mua bán đúng không thầy?
+Người 1: Hoàn toàn chính xác! 
+
+Slide 4: MÔ HÌNH TÁC NHÂN TƯƠNG TÁC VỚI MÔI TRƯỜNG
+Người 1: Các em hãy quan sát sơ đồ trên màn hình. Đây là vòng lặp tương tác kinh điển. Tác nhân nhận tín hiệu từ môi trường qua "Sensors", xử lý logic bên trong bằng bộ não trí tuệ nhân tạo, và cuối cùng tác động ngược lại môi trường qua "Actuators". 
+Người 2: Vòng lặp phản hồi này rất giống với nguyên lý trong Lý thuyết điều khiển tự động. Đầu vào là nhận thức, xử lý hộp đen, và đầu ra là hành động.
+
+Slide 5: THẾ GIỚI MÁY HÚT BỤI
+Người 1: Để dễ hình dung nhất, ta lấy ví dụ kinh điển trong giáo trình: "Thế giới máy hút bụi". Hãy tưởng tượng một không gian rất nhỏ chỉ gồm 2 ô A và B. 
+Người 2: Trong không gian này, nhận thức đầu vào của máy hút bụi đơn giản là "Vị trí hiện tại" và "Tình trạng vết bẩn" ở vị trí đó. Ví dụ nó nhận biết là: Đang ở ô A, và ô A đang Bẩn.
+Người 1: Đúng vậy, và các hành động nó có thể làm là: Đi sang Trái, Đi sang Phải, Hút bụi, hoặc Không làm gì cả.
+
+Slide 6: HÀM TÁC NHÂN CHO THẾ GIỚI MÁY HÚT BỤI
+Người 1: Với tập nhận thức và hành động đơn giản như vậy, chúng ta có thể lập một bảng quy tắc. Đây là một phần của "Hàm tác nhân" cho máy hút bụi. 
+Người 2: Nếu nhận thức là ô A đang bẩn, hành động tương ứng là Hút bụi. Nếu ô A sạch, hành động là sang Phải. Hàm này dường như ánh xạ trực tiếp từ mọi tình huống có thể xảy ra đến một hành động cụ thể.
+
+Slide 7: HÀM TÁC NHÂN VÀ CHƯƠNG TRÌNH TÁC NHÂN
+Người 1: Chính xác. Dưới góc độ toán học, ta định nghĩa "Hàm tác nhân" là phép ánh xạ. Ta đọc công thức toán học trên slide là: Hàm ép, ánh xạ từ tập hợp các chuỗi nhận thức P sao, đến tập hợp các hành động A.
+Người 2: Dạ thưa thầy, vậy "Chương trình tác nhân" khác với "Hàm tác nhân" ở điểm nào ạ?
+Người 1: Hàm tác nhân chỉ là mô tả toán học trừu tượng, tức là cái bảng ánh xạ lý thuyết. Còn "Chương trình tác nhân" là các dòng code thực tế cài đặt hàm đó, chạy trên một phần cứng vật lý gọi là Kiến trúc. Ta có công thức: Tác nhân bằng Kiến trúc cộng với Chương trình.
+
+Slide 8: 2.2 HÀNH VI TỐT: KHÁI NIỆM HỢP LÝ
+Người 1: Vậy làm sao để đánh giá một đoạn code AI viết ra là "tốt"? Trong AI, ta đánh giá "kết quả thực tế" nó tạo ra, gọi là "Độ đo hiệu suất". Một "Tác nhân hợp lý" là tác nhân luôn chọn hành động nhằm cực đại hóa kỳ vọng của độ đo hiệu suất này.
+Người 2: Tại sao lại là cực đại hóa "kỳ vọng" thưa thầy? 
+Người 1: Bởi vì trong thực tế, tác nhân không thể biết trước tương lai một cách chắc chắn. Nó dựa vào kiến thức đang có, nhận thức hiện tại, và phải chọn hành động có "xác suất" mang lại hiệu suất cao nhất. 
+
+Slide 9: SỰ TOÀN TRI, HỌC TẬP VÀ TỰ CHỦ
+Người 1: Rất nhiều sinh viên nhầm lẫn tính hợp lý với "Sự toàn tri". Toàn tri là biết chắc chắn hậu quả mọi hành động, điều này là phi thực tế. Một tác nhân AI hợp lý vẫn có thể phạm sai lầm nếu thông tin bị thiếu.
+Người 2: Dạ vậy để xử lý môi trường thiếu thông tin, tác nhân cần phải "Thu thập thông tin" và "Học tập" liên tục. Qua việc tự cập nhật kiến thức, tác nhân sẽ đạt được "Tính tự chủ", tức là bớt phụ thuộc vào tri thức do con người lập trình cứng từ ban đầu.
+
+Slide 10: 2.3 BẢN CHẤT CỦA MÔI TRƯỜNG (PEAS)
+Người 1: Đúng vậy! Và để thiết kế một tác nhân, kỹ sư AI phải đặc tả bài toán rõ ràng bằng khung P.E.A.S. Bốn chữ cái này đại diện cho: Performance measure là Độ đo hiệu suất; Environment là Môi trường; Actuators là Cơ cấu chấp hành; và Sensors là Cảm biến.
+Người 2: Mô hình P.E.A.S thực sự là một quy chuẩn thiết kế tuyệt vời. Nó ép lập trình viên phải vạch rõ ranh giới của bài toán trước khi bắt tay vào code thuật toán.
+
+Slide 11: VÍ DỤ VỀ MÔ TẢ PEAS
+Người 1: Hãy nhìn vào bảng ví dụ P.E.A.S trên slide. Với bài toán xe taxi tự lái. Hiệu suất ở đây là sự an toàn, đi nhanh, đúng luật. Môi trường là đường sá, khách hàng. Cơ cấu chấp hành gồm vô lăng, chân ga, phanh. Và cảm biến là Camera, G.P.S, đồng hồ tốc độ.
+Người 2: Em thấy còn có hệ thống chẩn đoán y tế, nơi môi trường là bệnh nhân và nhân viên y tế, còn cảm biến chính là việc nhập các triệu chứng bệnh. Mọi bài toán AI đều có thể phân tích bằng P.E.A.S.
+
+Slide 12: THUỘC TÍNH CỦA MÔI TRƯỜNG TÁC VỤ (1)
+Người 1: Sau khi định nghĩa PEAS, ta phải khảo sát thuộc tính của môi trường, vì nó quyết định độ khó của thuật toán. Môi trường đó là Hoàn toàn quan sát được hay chỉ Một phần? Chơi cờ vua là hoàn toàn vì ta thấy cả bàn cờ, nhưng chơi bài Poker là một phần vì đối thủ giấu bài. 
+Người 2: Nó là Đơn tác nhân hay Đa tác nhân? Có Tất định hay Ngẫu nhiên? Nếu trạng thái tiếp theo hoàn toàn dự đoán được nhờ hành động hiện tại thì là Tất định, còn nếu chứa yếu tố may rủi thì là Ngẫu nhiên đúng không ạ?
+
+Slide 13: THUỘC TÍNH CỦA MÔI TRƯỜNG TÁC VỤ (2)
+Người 1: Chính xác. Tiếp theo, môi trường là Tuần tự giai đoạn hay Tuần tự liên tiếp? Trò chơi cờ là liên tiếp vì nước đi hiện tại ảnh hưởng đến thế cờ sau này. Môi trường tĩnh hay động? Nó thay đổi trong lúc máy tính đang tính toán không? Cuối cùng là không gian Rời rạc hay Liên tục, Môi trường Đã biết hay Chưa biết luật chơi.
+Người 2: Những thuộc tính này giúp ta ước lượng được sự bùng nổ độ phức tạp toán học của bài toán.
+
+Slide 14: CÁC THUỘC TÍNH CỦA MỘT SỐ MÔI TRƯỜNG TÁC VỤ
+Người 1: Đây là bảng đối chiếu. Xe tự lái đối mặt với môi trường khốc liệt nhất: quan sát một phần, đa tác nhân, ngẫu nhiên, động, liên tục và chưa biết trước hoàn toàn. Đó là lý do xe tự lái yêu cầu công nghệ AI tinh vi bậc nhất.
+Người 2: So với giải ô chữ, chỉ là môi trường tĩnh, tất định, rời rạc... bài toán ô chữ rõ ràng đòi hỏi bộ nhớ và thuật toán đơn giản hơn nhiều.
+
+Slide 15: 2.4 CẤU TRÚC CỦA TÁC NHÂN
+Người 1: Từ mức độ phức tạp đa dạng đó, chúng ta có 5 kiến trúc chương trình tác nhân cơ bản để đối phó: 1. Phản xạ đơn giản. 2. Phản xạ có mô hình. 3. Dựa trên mục tiêu. 4. Dựa trên tiện ích. Và 5. Tác nhân học. Ta sẽ phân tích từng loại.
+
+Slide 16: CHƯƠNG TRÌNH TÁC NHÂN DẠNG BẢNG
+Người 1: Trước tiên, hãy xem mô hình thô sơ nhất: Dạng bảng. Chúng ta tạo một bảng tra cứu cho toàn bộ các tình huống. Khi nhận được tín hiệu, tác nhân tra bảng để lấy hành động tương ứng. 
+Người 2: Dạ thưa thầy, cách này có một nhược điểm chí mạng về bộ nhớ phải không ạ? Với bàn cờ vua, không gian trạng thái là 10 mũ 120, một bảng tra cứu như thế sẽ vượt quá số nguyên tử trong vũ trụ. Không máy tính nào lưu trữ nổi!
+
+Slide 17: KIẾN TRÚC CHƯƠNG TRÌNH TÁC NHÂN
+Người 1: Đúng vậy, lập bảng chỉ khả thi trên lý thuyết cho những bài toán siêu vi mô. Trong thực tế, các cấu trúc Tác nhân yêu cầu sự tính toán thông minh thay vì chỉ ghi nhớ thụ động. Trên hình là sơ đồ kiến trúc tổng quát của một Tác nhân AI.
+
+Slide 18: CHƯƠNG TRÌNH TÁC NHÂN MÁY HÚT BỤI
+Người 1: Trở lại máy hút bụi, thay vì dùng bảng, ta dùng các lệnh Nếu-Thì. Ví dụ: Nếu thấy bụi thì Hút, Nếu đang ở ô A thì sang Phải, Nếu đang ở ô B thì sang Trái.
+Người 2: Đoạn mã này cực kỳ gọn nhẹ, nó chính là cài đặt cơ bản của một "Tác nhân phản xạ đơn giản", đúng không ạ?
+
+Slide 19: TÁC NHÂN PHẢN XẠ ĐƠN GIẢN
+Người 1: Rất chuẩn xác. Ở mô hình Tác nhân phản xạ đơn giản, quá trình ra quyết định tuân thủ quy luật "Nếu-Thì", gọi là Quy tắc Điều kiện - Hành động. Tác nhân lấy thẳng "Nhận thức hiện tại", ánh xạ qua quy tắc, và xuất ra hành động.
+
+Slide 20: TÁC NHÂN PHẢN XẠ ĐƠN GIẢN (TIẾP THEO)
+Người 1: Đặc điểm lớn nhất của nó là chỉ nhìn vào nhận thức ở khoảnh khắc hiện tại và hoàn toàn quên đi quá khứ. 
+Người 2: Do ngó lơ quá khứ, nhược điểm của nó là dễ rơi vào bế tắc hoặc vòng lặp vô hạn nếu môi trường chỉ quan sát được một phần thưa thầy.
+
+Slide 21: CHƯƠNG TRÌNH TÁC NHÂN PHẢN XẠ ĐƠN GIẢN
+Người 1: Đúng vậy. Slide này mô tả thuật toán mã giả của mô hình phản xạ đơn giản. Đầu vào là nhận thức, thuật toán trích xuất trạng thái, đối chiếu tập luật, và trả về hành động. Đơn giản, xử lý cực nhanh, nhưng kém thông minh.
+
+Slide 22: TÁC NHÂN PHẢN XẠ DỰA TRÊN MÔ HÌNH
+Người 1: Để vá lỗ hổng "quên quá khứ", người ta phát triển "Tác nhân phản xạ dựa trên mô hình". Trong sơ đồ này, các em thấy xuất hiện một khối mới mang tên "Trạng thái". 
+Người 2: Dạ khối trạng thái này đóng vai trò như bộ nhớ tạm, giúp tác nhân duy trì một cái nhìn tổng quát về thế giới dù cho cảm biến có bị gián đoạn hay che khuất.
+
+Slide 23: TÁC NHÂN PHẢN XẠ DỰA TRÊN MÔ HÌNH (TIẾP THEO)
+Người 1: Tuyệt vời. Tác nhân sở hữu "Trạng thái nội bộ" và phải hiểu được hai thứ: Một là, môi trường tự biến đổi như thế nào? Hai là, hành động của chính mình tác động lên môi trường ra sao? Sự kết hợp tri thức này tạo thành một "Mô hình thế giới". Nó hiểu các quy luật vật lý.
+
+Slide 24: CHƯƠNG TRÌNH TÁC NHÂN PHẢN XẠ CÓ MÔ HÌNH
+Người 1: Đây là thuật toán mã giả của nó. Điểm khác biệt lớn nhất là hàm cập nhật trạng thái hoạt động liên tục dựa trên mô hình và lịch sử. Sau khi trạng thái được tái hiện chân thực nhất, tập luật mới được áp dụng.
+
+Slide 25: TÁC NHÂN DỰA TRÊN MỤC TIÊU
+Người 1: Tuy nhiên, chỉ hiểu hoàn cảnh là chưa đủ. Các hệ thống cần được nâng cấp thành "Tác nhân dựa trên mục tiêu". Khối mới trong sơ đồ lúc này là Mục Tiêu. Tác nhân phải đánh giá xem hành động sắp tới có giúp nó đạt được mục đích cuối cùng hay không.
+
+Slide 26: TÁC NHÂN DỰA TRÊN MỤC TIÊU (TIẾP THEO)
+Người 2: Thưa thầy, nếu vậy tác nhân đôi khi phải suy nghĩ xa hơn hiện tại, dự phóng các kịch bản tương lai theo chuỗi dài đúng không ạ?
+Người 1: Rất đúng! Đây chính là cốt lõi của bài toán "Tìm kiếm" và "Lập kế hoạch" mà ta sẽ học ở chương 3. Nó giúp AI trở nên rất linh hoạt: Khi mục tiêu thay đổi, hành vi của AI tự động điều chỉnh mà không cần lập trình lại tập luật.
+
+Slide 27: TÁC NHÂN DỰA TRÊN ĐỘ THOẢ DỤNG (TIẾP THEO)
+Người 2: Thầy ơi, nếu có nhiều con đường cùng dẫn tới đích, làm sao máy tính biết phải chọn đường nào ưu việt hơn? Khái niệm Mục Tiêu dường như chỉ trả về đúng sai, nhị phân, là đến đích hay chưa đến.
+Người 1: Lập luận xuất sắc! Đó là lý do ta cần "Tác nhân dựa trên độ thoả dụng" hay còn gọi là Hàm tiện ích. Trên hình, khối Mục tiêu được thay bằng khối Tiện ích.
+
+Slide 28: TÁC NHÂN DỰA TRÊN TIỆN ÍCH (TIẾP THEO)
+Người 1: Thay vì trả về True hoặc False, Hàm thoả dụng trả về một con số thực tính toán mức độ "hạnh phúc" hay chất lượng của một trạng thái. Nó cân bằng giữa các mục tiêu mâu thuẫn như: Lái xe nhanh nhưng phải an toàn. Việc tối ưu hóa Kỳ vọng của hàm thoả dụng là tiêu chuẩn vàng trong AI.
+
+Slide 29: TÁC NHÂN HỌC THUẬT
+Người 1: Cuối cùng, đỉnh cao của cấu trúc AI là "Tác nhân học thuật". Một AI thực thụ không thể chỉ dựa vào phần mã hóa cứng. Nó phải tự học. Các em có thể thấy sơ đồ này hoàn toàn khác biệt. Nó có thêm Khối Học Tập, Khối Phê Bình và Bộ Tạo Vấn Đề.
+
+Slide 30: THÀNH PHẦN CỦA TÁC NHÂN HỌC THUẬT
+Người 1: Thành phần Hiệu suất chính là toàn bộ tác nhân AI cũ của chúng ta, đảm nhiệm việc ra quyết định. Thành phần Học thuật chịu trách nhiệm cập nhật trọng số và cải tiến. Nhà phê bình dùng lăng kính khách quan đánh giá kết quả, còn Bộ tạo vấn đề thúc đẩy AI thử nghiệm cái mới, chấp nhận rủi ro để tối ưu dài hạn.
+Người 2: Mô hình này dường như sao chép chính xác cơ chế học qua thử-sai và tiến hóa của bộ não sinh học.
+
+Slide 31: CÁC CÁCH BIỂU DIỄN TRẠNG THÁI VÀ MÔ HÌNH
+Người 1: Lưu ý nhỏ về mặt kỹ thuật, trong lập trình, không gian trạng thái được biểu diễn toán học qua 3 dạng: Dạng Nguyên tử là các trạng thái như những hộp đen độc lập. Dạng Phân tách chia trạng thái thành các biến số rời rạc. Và Dạng Có cấu trúc mô tả mối liên hệ logic phức tạp giữa các vật thể. Tùy bài toán mà kỹ sư sẽ chọn cách biểu diễn phù hợp.
+
+Slide 32: TÓM TẮT CHƯƠNG 2
+Người 1: Để khép lại bài giảng, chúng ta ghi nhớ những cốt lõi sau: Tác nhân hợp lý là hạt nhân. Khung P.E.A.S chuẩn hóa mọi bài toán. Môi trường có rất nhiều thuộc tính chi phối độ khó. Và cuối cùng, chúng ta có một hệ thống cấu trúc 5 tầng, từ phản xạ thô sơ đến hệ thống học tập tự chủ để cài đặt AI.
+Người 2: Em cảm ơn thầy. Bài giảng đã hệ thống hóa hoàn toàn tư duy toán học và cấu trúc phần mềm đằng sau sự "thông minh" của máy tính. Nó tạo bản lề rất tốt để chúng em bước vào các thuật toán cụ thể ở chương sau.
+Người 1: Thầy đánh giá cao tinh thần học tập của các em. Hẹn gặp lại các em trong bài giảng tìm kiếm không gian trạng thái ở Chương 3!

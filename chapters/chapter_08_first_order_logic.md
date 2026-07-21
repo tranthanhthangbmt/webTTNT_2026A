@@ -18,6 +18,11 @@
   <iframe src="TaiLieu/slide_4th/Chapter08_4th.pdf" width="100%" height="100%"></iframe>
 </div>
 
+#### **Video**
+
+<div class="pdf-container" style="margin-bottom: 20px;">
+  <iframe src="video/Chapter08/index.html" width="100%" height="100%"></iframe>
+</div>
 
 #### **Trắc nghiệm**
 *(Chưa có bài tập trắc nghiệm)*
@@ -385,7 +390,7 @@ wumpus world.<br>
 
 ---
 
-##### Bài tập 8.17
+###### Bài tập 8.17
 
 Write axioms describing the predicates
 ${Grandchild}$, ${Greatgrandparent}$, ${Ancestor}$, ${Brother}$,
@@ -671,7 +676,7 @@ question “Did Napoleon hear about Wellington’s death?”
 
 ---
 
-##### Bài tập 8.33
+###### Bài tập 8.33
 
 Extend the vocabulary from
 Section <a class="sectionRef" title="" href="#">circuits-section</a> to define addition for $n$-bit

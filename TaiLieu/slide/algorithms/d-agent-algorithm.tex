@@ -1,9 +1,0 @@
-\code{
-\func{Simple-Reflex-Agent}{{\ts}\var{percept}}{\var{action}}
-    \firststatic{rules}{a set of condition-action rules}
-\bodysep
-    \setq{\var{state}}{\prog{Interpret-Input}({\ts}\var{percept})}
-    \setq{\var{rule}}{\prog{Rule-Match}(\var{state{\ac}rules})}
-    \setq{\var{action}}{\prog{Rule-Action}[\var{rule}]}
-    \key{return} \var{action}
-}

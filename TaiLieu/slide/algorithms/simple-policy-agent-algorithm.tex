@@ -1,9 +1,0 @@
-\code{
-\func{Simple-Policy-Agent}{{\ts}\var{percept}}{an \var{action}}
-    \firststatic{M}{a transition model}
-    \static{U}{a utility function on environment histories}
-    \static{P}{a policy, initially unknown}
-\bodysep
-    \key{if} \var{P} is unknown \key{then} \setq{\var{P}}{the optimal policy given \var{U}, \var{M}}
-    \key{return} \var{P}[\var{percept}]
-}
