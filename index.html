@@ -378,11 +378,35 @@
       console.warn('Audio đang bị gián đoạn do mạng...');
     });
 
-    // Docsify plugin to sync player with current chapter
+    // Docsify plugin to sync player with current chapter and optimize PDF for mobile
     window.$docsify.plugins = [].concat(
       function (hook, vm) {
         hook.doneEach(function () {
-          // Check URL hash to find current chapter
+          // 1. Mobile PDF Viewer Support
+          const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+          if (isMobile) {
+            document.querySelectorAll('.pdf-container iframe').forEach(function(iframe) {
+              let src = iframe.getAttribute('src');
+              if (src && src.includes('.pdf')) {
+                // Remove existing hash like #view=FitH
+                src = src.split('#')[0];
+                
+                // Build absolute URL for Google Docs Viewer
+                let absoluteUrl = src;
+                if (!src.startsWith('http')) {
+                  let baseUrl = window.location.origin + window.location.pathname;
+                  baseUrl = baseUrl.replace(/index\.html$/, '');
+                  if (!baseUrl.endsWith('/')) baseUrl += '/';
+                  absoluteUrl = baseUrl + src;
+                }
+                
+                // Use Google Docs Viewer to render PDF on mobile
+                iframe.src = 'https://docs.google.com/viewer?url=' + encodeURIComponent(absoluteUrl) + '&embedded=true';
+              }
+            });
+          }
+
+          // 2. Check URL hash to find current chapter
           let hash = window.location.hash;
           if (hash.includes('chapter_')) {
             // Extract chapter number, e.g. "chapter_05" -> 5
@@ -393,7 +417,6 @@
                 // If player is not already playing this chapter, switch to it
                 if (ap.list.index !== chapterIndex) {
                   ap.list.switch(chapterIndex);
-                  // Optional: ap.play(); // Auto-play when switching pages can be annoying, so we just switch the track but wait for user to click play.
                 }
               }
             }
