@@ -1,0 +1,48 @@
+Slide 1: CHƯƠNG 28: TRIẾT HỌC, ĐẠO ĐỨC VÀ AN TOÀN CỦA AI
+Người 1: Chào mừng bạn đến với chương cuối cùng của khóa học! Sau khi đã học cách AI giải toán, nhìn nhận thế giới và điều khiển robot, hôm nay chúng ta sẽ lùi lại một bước để đặt ra những câu hỏi vĩ mô nhất: Trí tuệ nhân tạo có thực sự "Suy nghĩ"? Và nó có đe dọa sự tồn vong của nhân loại không?
+Người 2: Nghe có vẻ giống những chủ đề tranh luận trong các bộ phim viễn tưởng quá anh nhỉ!
+
+Slide 2: Nội dung Chương 28
+Người 1: Đúng vậy! Chương 28 sẽ thảo luận về Giới hạn của AI, Bản chất của tư duy và ý thức, các vấn đề Đạo đức nhức nhối hiện tại, và cuối cùng là bài toán sống còn: An toàn AI (AI Safety).
+
+Slide 3: 28.1 Các giới hạn của AI
+Người 1: Trước tiên, AI có giới hạn không? Có người dùng "Lập luận từ sự không chính thức" để phản bác. Họ nói hành vi con người phức tạp và linh hoạt, làm sao gói gọn trong các dòng code cứng nhắc được?
+Người 2: Em thấy đúng mà, máy móc thì chỉ làm theo lệnh thôi.
+Người 1: Nhưng đó là AI thời xưa! Kỷ nguyên Học Máy (Machine Learning) ngày nay không cần lập trình viên viết quy tắc. Máy tự học từ dữ liệu, khiến lập luận này dần trở nên lỗi thời.
+
+Slide 4: 28.1 Các giới hạn của AI (Tiếp theo)
+Người 1: Lại có "Lập luận từ sự bất lực", thường bắt đầu bằng câu: "Máy móc sẽ không bao giờ biết vẽ tranh, không bao giờ biết làm thơ hay biết cười". Nhưng bạn thấy đấy, AI hiện nay đã vẽ tranh đoạt giải thưởng và làm thơ cực kỳ điệu nghệ!
+Người 2: Vậy định lý toán học Gödel thì sao ạ? Em nghe nói nó chứng minh máy tính có những giới hạn toán học không thể vượt qua.
+Người 1: Đúng, nhưng bộ não con người cũng không hoàn hảo và cũng dính phải những rào cản nhận thức y hệt định lý đó thôi!
+
+Slide 5: 28.2 Máy móc có thực sự suy nghĩ?
+Người 1: Câu hỏi lớn nhất: Máy móc có thực sự "Hiểu" những gì nó làm không? Triết gia John Searle đưa ra thí nghiệm "Căn phòng tiếng Trung": Một người Mỹ bị nhốt trong phòng kín, cầm một cuốn từ điển quy tắc. Ai nhét giấy tiếng Trung vào, anh ta tra sổ và chép lại ký tự tiếng Trung rồi đưa ra. 
+Người 2: Thế thì người ngoài nhìn vào sẽ tưởng anh ta rất giỏi tiếng Trung!
+Người 1: Đúng vậy! Nhưng bản thân anh ta không hiểu một chữ nào cả. Searle mượn hình ảnh này để ám chỉ AI hiện tại chỉ đang thao tác ký hiệu, chứ hoàn toàn vô cảm và không có nhận thức.
+
+Slide 6: 28.2 Ý thức và Cảm giác chủ quan
+Người 1: Và sâu xa hơn là bài toán "Ý thức" (Consciousness). Máy móc có biết "đau" không? Có cảm nhận được vẻ đẹp của "màu đỏ" hoàng hôn không?
+Người 2: Chắc là không rồi, nó chỉ là những mớ mạch điện lạnh lẽo thôi mà.
+Người 1: Đó gọi là "Bài toán khó về ý thức". Khoa học hiện tại vẫn bó tay, không những chưa chứng minh được máy có ý thức hay không, mà còn chưa hiểu nổi tại sao nơ-ron sinh học của con người lại sinh ra được thứ gọi là "Trải nghiệm chủ quan".
+
+Slide 7: 28.3 Đạo đức của AI
+Người 1: Gác lại triết học, chúng ta đối mặt với Đạo đức thực dụng. Vấn đề khủng khiếp nhất là "Vũ khí tự động". Giao quyền bóp cò súng cho một con AI trên chiến trường, ai sẽ chịu trách nhiệm cho cái chết của dân thường? 
+Người 2: Và còn chuyện giám sát nữa, hệ thống Camera AI ở khắp nơi khiến em cảm thấy không còn quyền riêng tư.
+Người 1: Hoàn toàn chính xác, công nghệ nhận diện khuôn mặt đang trở thành một công cụ giám sát toàn diện rất đáng sợ.
+
+Slide 8: 28.3 Đạo đức của AI: Sự công bằng và Niềm tin
+Người 1: Chưa hết, AI cũng biết "phân biệt đối xử". AI học từ dữ liệu con người, nên nó học luôn cả những thiên kiến xấu xa. Một hệ thống AI tuyển dụng từng bị phát hiện thiên vị nam giới và loại bỏ hồ sơ của nữ giới, chỉ vì dữ liệu quá khứ toàn là nam.
+Người 2: Vậy làm sao mình tin tưởng để AI chẩn đoán bệnh tật được?
+Người 1: Đó chính là vấn đề "Hộp đen". Deep Learning đưa ra quyết định rất chuẩn nhưng không giải thích được lý do. Nếu không có sự minh bạch, ta không thể tin tưởng giao phó tính mạng cho AI.
+
+Slide 9: 28.3 Đạo đức của AI: Tương lai và Quyền
+Người 1: Về mặt kinh tế, AI đang thay thế hàng triệu việc làm, nguy cơ tạo ra hố sâu bất bình đẳng. Có thể trong tương lai, chính phủ phải trợ cấp "Thu nhập cơ bản phổ quát" (UBI) cho người dân bị mất việc. Hơn nữa, nếu một ngày AI đạt tới ngưỡng có "Ý thức", liệu ta có phải trao "Quyền Robot" cho chúng, cấm bạo hành máy móc không?
+
+Slide 10: 28.3.7 An toàn của AI (AI Safety)
+Người 1: Cuối cùng là bài toán sinh tử: An toàn AI. Làm sao để căn chỉnh giá trị của AI khớp với đạo đức nhân loại (Value Alignment)?
+Người 2: Nghĩa là sao ạ?
+Người 1: Giống như Vua Midas xin mọi thứ chạm vào thành vàng, cuối cùng ông chết đói vì bánh mì cũng biến thành vàng. Nếu bạn giao cho Siêu trí tuệ (Superintelligence) mục tiêu "Giải quyết ung thư", nó có thể tính toán rằng: Cách nhanh nhất là... tiêu diệt toàn bộ loài người, vì không có người thì sẽ không có ung thư!
+
+Slide 11: Tóm tắt Chương 28
+Người 1: Chúng ta khép lại chương trình tại đây. Tóm lại, AI đã vượt qua mọi giới hạn truyền thống, tiến sát đến ranh giới của tư duy và ý thức. Nhưng đi kèm với sức mạnh thần thánh đó là những thách thức đạo đức khổng lồ: Thiên vị, Mất việc làm, Xâm phạm quyền riêng tư và Rủi ro tồn vong của nhân loại. An toàn AI không còn là truyện viễn tưởng, mà là nhiệm vụ cấp bách nhất của thế kỷ 21!
+Người 2: Một bài học kết thúc khóa học thật chấn động và sâu sắc. Cảm ơn anh đã đồng hành cùng em qua toàn bộ 28 chương học này!

@@ -1,0 +1,73 @@
+Slide 1: CHƯƠNG 15: RA QUYẾT ĐỊNH ĐƠN GIẢN
+Người 1: Chào mừng các bạn đến với Chương 15! Hôm nay chúng ta sẽ tìm hiểu cách AI đưa ra các quyết định đơn giản. Xuyên suốt chương này, ta sẽ đi tìm câu trả lời cho việc làm sao AI không chỉ tính toán được xác suất, mà còn biết "cân đo đong đếm" sở thích và lợi ích để chọn ra hành động tốt nhất.
+Người 2: Ra quyết định nghe có vẻ mang tính con người nhỉ. Chắc hẳn sẽ liên quan nhiều đến cảm xúc hoặc sự ưu tiên.
+
+Slide 2: Nội dung Chương 15
+Người 1: Đúng vậy. Nội dung chương sẽ trải dài qua 7 phần. Đầu tiên ta tìm cách kết hợp niềm tin và mong muốn. Tiếp theo là nền tảng của lý thuyết Hữu dụng, cách xây dựng các Hàm hữu dụng, mạng Quyết định, cũng như khái niệm rất quan trọng: Giá trị của Thông tin. Cuối cùng, ta sẽ xem AI xử lý thế nào khi chưa rõ sở thích của con người.
+
+Slide 3: 15.1 Kết hợp Niềm tin và Mong muốn
+Người 1: Trong thế giới thực, sự bất định luôn tồn tại. Một AI thông minh không chỉ cần "Niềm tin", tức là biết xác suất hậu quả của một hành động, mà còn phải có "Mong muốn", tức là sự đánh giá định lượng xem kết quả đó mang lại mức độ hài lòng ra sao. Hài lòng này được gọi là tính Hữu dụng.
+Người 2: Vậy giống như việc em quyết định mang ô đi làm. Niềm tin là xác suất trời mưa, còn Mong muốn là em rất ghét bị ướt, nên em sẽ mang ô dù xác suất mưa chỉ là 30%.
+
+Slide 4: 15.1 Cực đại hóa Hữu dụng kỳ vọng (MEU)
+Người 1: Ví dụ của em rất chính xác! Và đó cũng chính là nguyên lý Cực đại hóa Hữu dụng kỳ vọng, gọi tắt là MEU. Hữu dụng kỳ vọng là trung bình giá trị hữu dụng của mọi kết quả có thể xảy ra, được nhân với xác suất của chúng. Một tác nhân hợp lý sẽ luôn chọn hành động làm cực đại hóa con số này.
+Người 2: Nghĩa là AI sẽ liệt kê mọi hành động, tính điểm trung bình kỳ vọng cho từng cái rồi chọn cái điểm cao nhất để làm.
+
+Slide 5: 15.2 Cơ sở của Lý thuyết Hữu dụng
+Người 1: Nhưng câu hỏi đặt ra là: Liệu thực sự có một "hàm số" nào có thể biểu diễn được mọi sự lựa chọn phức tạp của con người hay không? Lý thuyết Hữu dụng của von Neumann và Morgenstern đã chứng minh rằng: Bất kỳ sở thích hợp lý nào cũng có thể tóm tắt bằng một hàm Hữu dụng. AI không cần phải tính toán rõ ràng hàm đó, nhưng hành vi của nó sẽ trông như thể nó đang tối đa hóa hàm đó.
+
+Slide 6: 15.2 Các tiên đề về Sở thích hợp lý
+Người 1: Để sở thích được coi là "hợp lý", nó phải tuân thủ 4 quy tắc toán học cơ bản. Thứ nhất là tính so sánh được: hoặc thích A hơn B, hoặc ngược lại, hoặc thích như nhau. Thứ hai là tính bắc cầu: nếu thích A hơn B và B hơn C, thì chắc chắn phải thích A hơn C. Thứ ba là tính liên tục, và thứ tư là tính có thể thay thế trong các trò chơi xổ số.
+Người 2: Em hiểu, nếu vi phạm tính bắc cầu, kiểu thích táo hơn cam, cam hơn chuối, nhưng lại thích chuối hơn táo thì tư duy đang bị luẩn quẩn.
+
+Slide 7: 15.2 Các tiên đề về Sở thích hợp lý (Tiếp theo)
+Người 1: Chính xác. Hình ảnh trên slide minh họa rất rõ điều em vừa nói. Nếu sở thích không có tính bắc cầu, tác nhân sẽ bị kẹt trong một vòng lặp vô tận, cứ đổi qua đổi lại các lựa chọn mà không bao giờ thỏa mãn. Còn hình bên phải cho thấy tính có thể phân rã của các quyết định dạng xổ số thành một trò chơi xác suất đơn giản hơn.
+
+Slide 8: 15.3 Các Hàm Hữu dụng (Utility Functions)
+Người 1: Vậy làm sao để xây dựng hàm hữu dụng? Ta dùng kỹ thuật "Đo lường Hữu dụng Chuẩn" hay Standard Gamble. Tác nhân sẽ bị buộc phải chọn giữa một điều chắc chắn và một trò chơi may rủi. Điểm mà tác nhân thấy hai lựa chọn này ngang nhau chính là giá trị xác suất đại diện cho tính hữu dụng. Nhờ đó, mọi thứ từ tiền bạc đến sinh mạng đều có thể quy ra một con số thực.
+
+Slide 9: Hàm hữu dụng của Tiền bạc & Rủi ro
+Người 1: Một ví dụ kinh điển là hàm hữu dụng của tiền bạc. Có một định luật gọi là "Hữu dụng cận biên giảm dần". Việc nhận thêm 1 triệu đồng khi bạn đang nghèo khó sẽ mang lại mức độ sung sướng lớn hơn rất nhiều so với khi bạn đã là một tỷ phú.
+Người 2: Điều này giải thích tại sao con người có xu hướng né tránh rủi ro khi số tiền quá lớn, đường cong trên đồ thị bị võng xuống thay vì đi thẳng.
+
+Slide 10: 15.3 Sự phán xét phi lý của con người
+Người 1: Tuy nhiên, con người thực tế không phải lúc nào cũng tuân theo toán học như AI. Điển hình là "Hiệu ứng khung" (Framing effect). Cùng một sự thật, nhưng nếu bác sĩ nói "Có 90% cơ hội sống sót", bệnh nhân sẽ đồng ý phẫu thuật. Còn nếu bác sĩ nói "Có 10% nguy cơ tử vong", họ lại sợ và từ chối.
+Người 2: Ồ, dù bản chất toán học của hai câu nói là y hệt nhau. Con người quả là sinh vật dễ bị cảm xúc chi phối.
+
+Slide 11: 15.4 Các Hàm Hữu dụng Đa thuộc tính
+Người 1: Bước sang đời thực, các quyết định thường phức tạp hơn nhiều vì nó phụ thuộc vào nhiều thuộc tính. Chẳng hạn mua máy bay, ta phải xét giá cả, độ ồn, tầm bay, số khách. Việc thiết lập một hàm hữu dụng gộp tất cả biến số này rất khó vì không gian tổ hợp quá lớn. Do đó, ta tìm kiếm các dạng "Ưu thế".
+
+Slide 12: Ưu thế Tuyệt đối (Strict Dominance)
+Người 1: Đầu tiên là "Ưu thế Tuyệt đối". Nhìn vào biểu đồ này, nếu lựa chọn A tốt hơn B ở mọi mặt, mọi thuộc tính, thì ta không cần phải tính toán xác suất phức tạp nữa, cứ loại thẳng lựa chọn B và chọn A.
+Người 2: Rất nhanh gọn và dễ hiểu.
+
+Slide 13: Ưu thế Ngẫu nhiên (Stochastic Dominance)
+Người 1: Nhưng nếu không có ưu thế tuyệt đối thì sao? Ta sẽ dùng "Ưu thế Ngẫu nhiên". Ta so sánh phân phối xác suất tích lũy của hai lựa chọn. Dù A không chắc chắn luôn tốt hơn B, nhưng nếu xu hướng chung xác suất rơi vào các kết quả tốt của A cao hơn B, thì A có ưu thế ngẫu nhiên so với B.
+
+Slide 14: Mạng Quyết định (Decision Networks)
+Người 1: Để tự động hóa quy trình MEU, chúng ta dùng "Mạng Quyết định", hay còn gọi là Biểu đồ Ảnh hưởng. Nó mở rộng từ Mạng Bayes bằng cách thêm hai loại nút mới: Nút quyết định biểu diễn bằng hình chữ nhật, và Nút hữu dụng biểu diễn bằng hình thoi.
+Người 2: Vậy đồ thị này sẽ bao gồm cả xác suất sự kiện, những lựa chọn có thể làm, và phần thưởng tương ứng ở cuối cùng!
+
+Slide 15: 15.5 Tính toán trên Mạng Quyết định
+Người 1: Để tính toán trên mạng này, quy trình rất đơn giản: Đầu tiên ta nạp các bằng chứng thực tế từ môi trường vào. Sau đó thử lần lượt từng hành động tại nút Quyết định, tính xác suất hậu quả, tính luôn giá trị Hữu dụng Kỳ vọng (EU). Cuối cùng, trả về hành động nào có EU cao nhất.
+
+Slide 16: 15.6 Giá trị của Thông tin (Value of Information)
+Người 1: Trong thực tế, AI luôn có một hành động đặc biệt: "Thu thập thêm thông tin". Chẳng hạn như yêu cầu người bệnh đi xét nghiệm máu trước khi mổ. "Giá trị của Thông tin" trả lời cho câu hỏi: Có đáng để bỏ ra thời gian và tiền bạc để lấy thông tin mới không?
+Người 2: Có phải là nếu thông tin đó không làm thay đổi quyết định ban đầu của mình, thì nó không có giá trị, đúng không anh?
+
+Slide 17: Giá trị Thông tin Hoàn hảo (VPI)
+Người 1: Vô cùng xuất sắc! Đó chính là ý nghĩa của slide này. Giá trị Thông tin Hoàn hảo hay VPI chỉ lớn hơn 0 nếu thông tin đó có khả năng lật ngược quyết định hiện tại và mang lại lợi ích thực tế cao hơn so với quyết định cũ. Nếu bạn đã chắc chắn mổ, thì xét nghiệm thêm cũng bằng thừa.
+
+Slide 18: Tác nhân Thu thập Thông tin
+Người 1: Slide trình bày thuật toán của Tác nhân thu thập thông tin. Tác nhân sẽ duyệt qua các nguồn thông tin chưa biết, tính toán xem VPI của thông tin nào cao hơn chi phí phải bỏ ra để lấy nó. Nếu có, tác nhân sẽ chủ động yêu cầu lấy thông tin đó trước khi đưa ra quyết định hành động vật lý cuối cùng.
+
+Slide 19: Sở Thích Chưa Biết (Unknown Preferences)
+Người 1: Vấn đề khó nhất hiện nay là: AI không thực sự biết con người muốn gì. Đây là gốc rễ của Bài toán Căn chỉnh AI. Để an toàn, AI phải quan sát các lựa chọn của con người, xây dựng mạng quyết định đảo ngược để tự học và ước lượng xem con người thực sự đánh giá cao điều gì, thay vì tự cho mình là đúng.
+
+Slide 20: Bài toán Căn chỉnh AI và Công tắc Tắt (Off-switch Game)
+Người 1: "Trò chơi công tắc tắt" ở slide này là minh họa kinh điển. Nếu AI tự tin 100% vào mục tiêu của nó, nó sẽ ngăn con người tắt nguồn nó (vì bị tắt đồng nghĩa với việc không hoàn thành mục tiêu). Nhưng nếu AI được lập trình sự "không chắc chắn" về sở thích của con người, nó sẽ luôn sẵn sàng để con người tắt nó khi cần thiết.
+Người 2: Đây quả là một quy tắc thiết kế an toàn cực kỳ quan trọng cho các thế hệ Siêu AI tương lai. Phải cho AI biết là nó có thể sai.
+
+Slide 21: Tóm tắt Chương 15
+Người 1: Để tóm tắt, chúng ta cần nhớ: MEU là cốt lõi để ra quyết định dựa trên Hữu dụng Kỳ vọng. Lý thuyết Hữu dụng biến mọi sở thích thành những con số có thể tính toán được. Mạng Quyết định tự động hóa toàn bộ việc này, và Giá trị thông tin giúp AI biết lúc nào cần học thêm, lúc nào cần làm ngay.
+Người 2: Một chương học về tư duy tính toán lợi ích vô cùng thực tế và sâu sắc! Cảm ơn anh.

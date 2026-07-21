@@ -1,0 +1,69 @@
+Slide 1: CHƯƠNG 17: RA QUYẾT ĐỊNH ĐA TÁC TỬ
+Người 1: Chào mừng các bạn đến với Chương 17! Hôm nay chúng ta sẽ bước sang một khía cạnh hoàn toàn mới của Trí tuệ nhân tạo: Ra quyết định Đa tác tử. Những chương trước, chúng ta chỉ tạo ra một AI duy nhất hoạt động trong môi trường. Nhưng thực tế thì sao? Có rất nhiều AI cùng tồn tại, cùng cạnh tranh và cùng hợp tác với nhau.
+Người 2: Giống như một xã hội thu nhỏ của các cỗ máy tính toán vậy. Nghe hấp dẫn quá!
+
+Slide 2: Nội dung Chương 17
+Người 1: Nội dung chương này sẽ đưa chúng ta đi từ các thuộc tính cơ bản của môi trường đa tác tử, đến những khái niệm nền tảng của kinh tế học như Lý thuyết trò chơi Không Hợp Tác, Lý thuyết trò chơi Hợp Tác. Cuối cùng, chúng chúng ta sẽ xem cách một bầy đàn AI đưa ra quyết định tập thể thông qua các cơ chế Đấu giá và Bỏ phiếu.
+
+Slide 3: 17.1 Thuộc tính của môi trường Đa Tác Tử
+Người 1: Sự khác biệt lớn nhất của môi trường Đa tác tử so với môi trường Đơn tác tử là: Lợi ích của bạn không chỉ phụ thuộc vào những gì bạn làm, mà còn phụ thuộc vào việc người khác làm gì.
+Người 2: Chẳng hạn như việc em đi đường, dù em đi đúng luật nhưng xe khác vượt đèn đỏ tông vào em thì hậu quả em vẫn phải chịu.
+Người 1: Đúng vậy. Đó chính là gốc rễ của Lý thuyết Trò chơi - nơi phân tích hành vi của các tác nhân hợp lý khi lợi ích của chúng bị đan xen vào nhau.
+
+Slide 4: Mô tả Bài toán Đa tác tử
+Người 1: Slide này mô tả bài toán đánh tennis đôi. Để thiết kế AI chơi được môn này, người ta phải định nghĩa điều kiện ban đầu, mục tiêu của trận đấu, và vạch ra lược đồ các hành động mà người chơi có thể làm như: Giao bóng, Trả bóng, Di chuyển.
+
+Slide 5: Phối hợp và Hợp tác
+Người 1: Trong môi trường đa tác tử, chúng ta thường gặp ba tình huống chính. Một là "Cạnh tranh", hay còn gọi là trò chơi có tổng bằng 0, lợi ích của người này là thiệt hại của người kia, điển hình như đánh cờ. Hai là "Hợp tác", các tác nhân chung một mục tiêu như lái xe tự hành an toàn. Và thứ ba là "Phối hợp", để tìm cách đôi bên cùng có lợi.
+
+Slide 6: 17.2 Lý thuyết trò chơi Không Hợp Tác
+Người 1: Chúng ta bắt đầu với "Lý thuyết trò chơi không hợp tác". Ở đây, các tác nhân rất ích kỷ, chúng chỉ tính toán lợi ích cho riêng mình một cách độc lập. Trong các trò chơi dạng chuẩn, người chơi phải ra quyết định đồng thời mà không biết đối thủ chọn gì. Do đó, người ta biểu diễn chúng dưới dạng "Ma trận lợi ích".
+
+Slide 7: Song đề Tù nhân (Prisoner’s Dilemma)
+Người 1: Đây là bài toán kinh điển nhất: "Song đề Tù nhân". Hai tên trộm bị bắt và thẩm vấn riêng. Nếu cả hai im lặng, mỗi người bị phạt 1 năm tù. Nếu một người khai và người kia im lặng, người khai được thả, người kia đi tù 10 năm. Nếu cả hai cùng khai, mỗi người đi tù 5 năm.
+Người 2: Khoan đã, nhìn vào bảng này, dù tên kia làm gì thì việc "Thú tội" cũng mang lại lợi ích tốt hơn cho bản thân mình. Vậy nên cả hai chắc chắn sẽ cùng Thú tội và nhận 5 năm tù!
+Người 1: Tuyệt vời! Em đã tự mình tìm ra điểm "Cân bằng Nash" rồi đấy, mặc dù đó không phải là kết cục tốt nhất. Cả hai đều có thể im lặng để chỉ nhận 1 năm tù, nhưng vì ích kỷ và không tin tưởng đối phương nên họ đành chấp nhận bản án 5 năm.
+
+Slide 8: Đồ thị phân tích trò chơi (Ví dụ: Trò chơi Morra)
+Người 1: Trong thực tế, để giải quyết các trò chơi ẩn giấu thông tin phức tạp như trò chơi Oẳn tù tì, hay trò Morra, các AI không thể dùng chiến lược cố định, mà phải dùng "Chiến lược hỗn hợp" với tỷ lệ phần trăm xác suất nhằm làm đối thủ không thể bắt bài. Biểu đồ trên minh họa quá trình tính toán này.
+
+Slide 9: 17.2 Chiến lược Ưu thế & Cân bằng Nash
+Người 1: Quay lại khái niệm "Cân bằng Nash" mà em vừa khám phá ra. Về mặt định nghĩa, một trạng thái đạt Cân bằng Nash khi không người chơi nào muốn đơn phương thay đổi chiến lược của mình, vì đổi thì chỉ có thiệt. Nó là điểm ổn định nhất của hệ thống.
+Người 2: Nhưng cái giá phải trả là "Phúc lợi xã hội" - tức là tổng lợi ích của tất cả người chơi - có thể sẽ rất thấp, như trường hợp tù 5 năm.
+
+Slide 10: Tối ưu Pareto & Trò chơi Lặp lại
+Người 1: Đúng thế. Trạng thái mà Phúc lợi xã hội đạt đỉnh và không ai có thể nhận thêm lợi ích mà không lấy phần của người khác, được gọi là "Tối ưu Pareto". Trong thực tế, để chống lại việc các bên đều ích kỷ, ta dùng mô hình "Trò chơi lặp lại". Khi chơi lặp lại nhiều lần, sự hợp tác sẽ nảy sinh.
+
+Slide 11: Tối ưu Pareto & Trò chơi Lặp lại (Tiếp theo)
+Người 1: Slide này cho thấy các chiến thuật khi chơi "Song đề Tù nhân" lặp đi lặp lại. Chiến lược nổi tiếng và thành công nhất là TIT-FOR-TAT hay "Ăn miếng trả miếng". Vòng 1 tôi sẽ hợp tác. Từ vòng 2 trở đi, vòng trước anh làm gì, vòng này tôi làm y hệt vậy.
+Người 2: Anh hợp tác thì tôi hợp tác, anh phản bội thì tôi phản kích. Rất thực tế và công bằng!
+
+Slide 12: Trò chơi Dạng Mở rộng (Extensive Form)
+Người 1: Còn khi các người chơi ra quyết định lần lượt, giống như đánh cờ, ta gọi đó là Trò chơi Dạng Mở rộng. Chúng ta có thể dùng dạng đồ thị cây để phân tích nhánh nào mang lại Cân bằng Nash cao nhất thông qua thuật toán cắt tỉa lùi từ dưới lên.
+
+Slide 13: Trò chơi Dạng Mở rộng với Thông tin Không hoàn hảo
+Người 1: Tuy nhiên, khi chơi bài Poker, người chơi không thể biết bài đang lật úp của đối thủ. Biểu đồ cây lúc này sẽ gom các trạng thái không chắc chắn thành một tập hợp mờ. AI phải dùng xác suất kết hợp với lý thuyết trò chơi để ra quyết định đặt cược, thay vì chỉ tìm đường đi cố định.
+
+Slide 14: Lý Thuyết Trò Chơi Hợp Tác
+Người 1: Chúng ta chuyển sang nửa thứ 2: Lý thuyết trò chơi Hợp Tác. Ở đây, các tác nhân không đối đầu nữa, mà tìm cách tạo ra các "Liên minh" để gom tài nguyên nhằm tạo ra giá trị lớn hơn. Đồ thị cấu trúc liên minh cho thấy rất nhiều cách chia phe khác nhau.
+Người 2: Câu hỏi lớn nhất chắc chắn là: Khi có lợi nhuận chung rồi, chia chác làm sao để không ông nào cảm thấy bị thiệt và phá vỡ liên minh?
+
+Slide 15: 17.3 Giá trị Shapley (Shapley Value)
+Người 1: Để giải bài toán chia thưởng đau đầu đó, toán học cung cấp một công thức vĩ đại: "Giá trị Shapley". Ý tưởng là phần thưởng của một người sẽ dựa trên Đóng góp biên trung bình của người đó vào tất cả các liên minh có thể. Công thức này đảm bảo một kết quả chia chác công bằng, khách quan và hoàn toàn duy nhất.
+
+Slide 16: Đưa ra Các Quyết định Tập thể
+Người 1: Khi số lượng tác nhân tăng lên quá nhiều, ta phải cần đến các quy trình ra quyết định tập thể. Chẳng hạn như Giao thức Mạng lưới Hợp đồng trên slide: Một máy chủ có nhiệm vụ sẽ phát đi thông báo "Mời thầu". Các máy con sẽ gửi giá thầu về. Máy chủ xét duyệt và chốt hợp đồng.
+
+Slide 17: 17.4 Đấu giá (Auctions)
+Người 1: Đấu giá là một cơ chế thiết kế cực kỳ quan trọng trong AI kinh tế học. Khi tài nguyên khan hiếm, làm sao để phân bổ đúng cho người cần nhất? Đấu giá Anh là đấu giá kiểu truyền thống công khai, ai trả giá cao nhất thì thắng và trả mức giá đó. Còn Đấu giá Hà Lan thì dùng giá rất cao rồi giảm dần.
+
+Slide 18: 17.4 Đấu giá Vickrey
+Người 1: Tuy nhiên, cả hai kiểu đấu giá trên đều khiến người mua phải toan tính giấu diếm giá trị thật. Giải pháp thần kỳ là Đấu giá Vickrey: Mọi người bỏ phiếu kín. Người trả cao nhất sẽ thắng, NHƯNG chỉ phải trả mức giá của người xếp thứ hai!
+Người 2: Quá đỉnh! Vậy thì chiến lược ưu thế duy nhất của mọi người là cứ đặt cược đúng y giá trị thật mà mình muốn, không cần quan tâm đối thủ đặt bao nhiêu.
+
+Slide 19: 17.4 Bỏ phiếu (Voting) & Định lý Arrow
+Người 1: Cuối cùng là Bỏ phiếu. Nhưng định lý Bất khả thi của Arrow đã chỉ ra một sự thật cay đắng: Bất kỳ hệ thống bầu cử nào có từ 3 ứng viên trở lên đều không bao giờ thỏa mãn được mọi tiêu chí công bằng toán học. Hệ thống sẽ luôn tồn tại lỗ hổng, hoặc phải xuất hiện một thế lực "Độc tài".
+
+Slide 20: Tóm tắt Chương 17
+Người 1: Tóm lại, Chương 17 chỉ ra rằng Lý thuyết Trò chơi là công cụ sống còn của các hệ thống Đa tác tử. Ta có Cân bằng Nash phân tích sự ổn định, Giá trị Shapley bảo vệ sự công bằng trong liên minh. Và cuối cùng, Cơ chế thiết kế Đấu giá và Bỏ phiếu quyết định độ trung thực của cả tập thể AI.
+Người 2: Từ AI, ta lại hiểu thêm sâu sắc về kinh tế học, tâm lý học và hành vi xã hội loài người. Bài học hôm nay thật tuyệt vời.

@@ -1,0 +1,194 @@
+Slide 1: CHƯƠNG 27: THỊ GIÁC MÁY TÍNH
+Người 1: Xin chào! Hôm nay chúng ta bước vào một chương đầy ắp hình ảnh sắc màu. Đó là "Thị giác máy tính" (Computer Vision). Chúng ta sẽ xem cách máy tính "mở mắt" nhìn thế giới và phân tích ý nghĩa đằng sau những điểm ảnh vô tri.
+Người 2: Có phải công nghệ này đứng sau khả năng mở khóa bằng khuôn mặt trên điện thoại không anh?
+
+Slide 2: Nội dung Chương 27
+Người 1: Hoàn toàn chính xác! Trong chương này, ta sẽ đi từ thuở sơ khai của máy ảnh, quá trình biến ánh sáng thành ảnh kỹ thuật số. Tiếp theo là các kỹ thuật nhận diện từ thô sơ (như Dò cạnh) đến hiện đại (Mạng CNN). Cuối cùng là những ứng dụng "ma thuật" như Deep Fake và Xe tự lái.
+
+Slide 3: 27.1 Giới thiệu: Sự biến đổi hình ảnh
+Người 1: Mọi chuyện bắt đầu từ việc chuyển thế giới 3D vào một bức ảnh phẳng 2D. Quá trình này gây ra sự méo mó, gọi là "Rút ngắn phối cảnh" (Foreshortening). Nghĩa là vật ở xa thì trông nhỏ lại, đường thẳng song song thì lại chụm vào nhau.
+
+Slide 4: 27.1 Giới thiệu: Sự biến đổi hình ảnh (Tiếp theo)
+Người 1: Bạn nhìn tấm hình đường ray này xem. Thực tế hai thanh sắt song song, nhưng trong ảnh chúng lại tụ lại ở chân trời. Kích thước quyển sách khi bị đặt nghiêng cũng bị bóp méo tỷ lệ. Máy tính phải học cách đảo ngược ảo giác này để hiểu không gian thực.
+
+Slide 5: 27.2 Quá trình tạo ảnh: Máy ảnh lỗ kim
+Người 1: Để hiểu ảnh sinh ra thế nào, ta dùng mô hình "Máy ảnh lỗ kim". Nó đơn giản là một cái hộp kín có một lỗ bé xíu (aperture). Ánh sáng từ vật thể chui qua lỗ đó và rọi lên mặt sau, tạo thành một bức ảnh.
+Người 2: Ơ, nhưng bức ảnh bị lộn ngược kìa!
+Người 1: Đúng thế! Do tia sáng truyền thẳng nên ảnh chiếu qua lỗ kim luôn bị lộn ngược.
+
+Slide 6: 27.2 Quá trình tạo ảnh: Máy ảnh lỗ kim (Tiếp theo)
+Người 1: Hình minh họa này cho thấy rõ nguyên lý đó. Điểm ngọn của cái cây phát ra tia sáng đi qua lỗ và cắm thẳng xuống đáy bức ảnh. Máy tính sẽ dùng ma trận để lật ngược bức ảnh lại cho ta xem.
+
+Slide 7: 27.2 Quá trình tạo ảnh: Hệ thống thấu kính
+Người 1: Tuy nhiên lỗ kim lọt quá ít ánh sáng, ảnh chụp sẽ tối thui. Vậy nên người ta phát minh ra Thấu kính (Lens). Nó giúp gom một bó ánh sáng khổng lồ từ vật thể, bẻ cong chúng và hội tụ lại đúng một điểm trên bức ảnh.
+
+Slide 8: 27.2 Quá trình tạo ảnh: Hệ thống thấu kính (Tiếp theo)
+Người 1: Trên slide, thấu kính hội tụ màu xanh đã chụm toàn bộ tia sáng phân kỳ từ điểm P lại thành điểm P' sắc nét. Nhờ vậy máy ảnh thu được nhiều ánh sáng và chụp nhanh hơn rất nhiều.
+
+Slide 9: 27.2 Sự chiếu sáng và bóng đổ
+Người 1: Ngoài hình dáng, hình ảnh còn bị chi phối bởi Ánh sáng. Sẽ có hiện tượng đổ bóng (Shadows), tán xạ mờ (Diffuse), và phản xạ gương chói lóa (Specularities). Nhiệm vụ của AI là không bị đánh lừa bởi những vệt sáng này.
+
+Slide 10: 27.2 Sự chiếu sáng và bóng đổ (Tiếp theo)
+Người 1: Bức ảnh hòn đá này chứa đầy đủ hiệu ứng chiếu sáng: Bề mặt sần sùi (tán xạ), mặt nước chói chang (phản xạ gương) và cả một vùng tối đen do bóng đổ. Nhìn 1 tấm ảnh, máy tính phải xử lý vô vàn biến số quang học.
+
+Slide 11: 27.2 Mô hình nguồn sáng điểm ở xa
+Người 1: Một mô hình ánh sáng phổ biến là "Nguồn sáng điểm ở xa" (như Mặt trời). Các tia sáng lúc này coi như song song. Khi đó, chỗ nào trên vật thể sáng hay tối hoàn toàn phụ thuộc vào Góc nghiêng của bề mặt so với tia sáng.
+
+Slide 12: 27.2 Mô hình nguồn sáng điểm ở xa (Tiếp theo)
+Người 1: Sơ đồ toán học này cho thấy: Bề mặt vuông góc với tia sáng sẽ sáng chói (Cường độ cực đại), còn bề mặt xiên góc sẽ nhận được ít năng lượng hơn nên tối hơn.
+
+Slide 13: 27.3 Đặc trưng đơn giản: Cạnh (Edges)
+Người 1: Bước đầu tiên để máy tính hiểu hình ảnh là đi tìm "Cạnh". Cạnh là ranh giới nơi độ sáng thay đổi đột ngột. Nó có thể là biên giới của vật thể, mép bóng râm, hoặc đơn giản là hoa văn sọc trên áo.
+
+Slide 14: 27.3 Đặc trưng đơn giản: Cạnh (Edges) (Tiếp theo)
+Người 1: 4 bức hình này cho thấy 4 loại cạnh khác nhau. Có cạnh do gãy góc (khối gỗ), có cạnh do đổi màu (vết sơn trắng), và có cả cạnh ảo do bóng đổ. 
+
+Slide 15: 27.3 Phát hiện cạnh và Làm mịn
+Người 1: Để tìm cạnh, thuật toán sẽ tính Đạo hàm (tìm độ dốc) của các điểm ảnh. Nhưng ảnh thường có nhiễu li ti. Nếu đạo hàm trực tiếp, máy sẽ báo "Cạnh" lung tung. Do đó, bước bắt buộc là phải "Làm mịn" (bôi mờ bằng bộ lọc Gauss) trước.
+
+Slide 16: 27.3 Phát hiện cạnh và Làm mịn (Tiếp theo)
+Người 1: Sơ đồ này minh chứng rõ ràng: Tín hiệu gốc đầy gai nhọn gồ ghề. Sau khi đi qua Hàm Gauss, nó biến thành một đường cong thoai thoải, lúc này lấy đạo hàm mới chuẩn xác.
+
+Slide 17: 27.3 Kết quả của thuật toán dò cạnh
+Người 1: Dù đã làm mịn, thực tế Dò cạnh vẫn khá chật vật. Đôi khi nó báo sót, đôi khi lại vẽ ra những cái viền không có thật chỉ vì ánh sáng chỗ đó hơi gợn lên.
+
+Slide 18: 27.3 Kết quả của thuật toán dò cạnh (Tiếp theo)
+Người 1: Đây là kết quả dò cạnh cái dập ghim. Các đường viền bị đứt khúc lởm chởm, và có vô số vệt đen nhiễu trong nền. Dựa vào đống đường kẻ này để nhận diện vật thể là cực kỳ khó khăn.
+
+Slide 19: 27.3 Luồng quang học (Optical Flow)
+Người 1: Rất may, ta có Video! Thuật toán "Luồng quang học" (Optical Flow) theo dõi sự dịch chuyển của các điểm ảnh qua nhiều khung hình. Nhờ đó, máy tính lập tức tách được vật thể đang chuyển động ra khỏi nền đứng yên.
+
+Slide 20: 27.3 Luồng quang học (Optical Flow) (Tiếp theo)
+Người 1: Bức ảnh phân tích chuyển động người đàn ông cho thấy: Các mũi tên đỏ tua tủa ở cẳng tay chứng tỏ tay đang vung rất nhanh, trong khi thân mình tĩnh lặng. 
+
+Slide 21: 27.3 Phân đoạn ảnh (Segmentation)
+Người 1: Đỉnh cao hơn của việc tìm cạnh là "Phân đoạn ảnh". Thay vì tìm đường kẻ, máy tính cố gắng tô màu gom các pixel giống nhau thành từng mảng riêng biệt (mảng áo, mảng người, mảng nền cỏ).
+Người 2: Giống như khoanh vùng vật thể trên Photoshop bằng Magic Wand ấy ạ?
+Người 1: Đúng vậy. Nó phân tách đối tượng hoàn chỉnh.
+
+Slide 22: 27.3 Phân đoạn ảnh (Segmentation) (Tiếp theo)
+Người 1: Hình minh họa phân đoạn ảnh con kỳ nhông. Máy tính có thể "Phân đoạn thô" (gom thành mảng to) hoặc "Phân đoạn tinh" (gom chi tiết từng lớp vân da, bóng râm nhỏ).
+
+Slide 23: 27.4 Phân loại hình ảnh (Image Classification)
+Người 1: Tiến đến bài toán lớn nhất: Phân loại. Trở ngại khổng lồ là một cái cốc khi nhìn nghiêng, nhìn từ trên xuống, hoặc bị cái thìa che lấp... thì các điểm ảnh hoàn toàn khác nhau. Nhưng máy vẫn phải đoán ra đó là cái cốc.
+
+Slide 24: 27.4 Phân loại hình ảnh (Image Classification) (Tiếp theo)
+Người 1: Các ví dụ trên slide rất thực tế: Bánh donut đổi góc nhìn thì méo đi. Đỉnh tháp Eiffel biến dạng hoàn toàn khi nhìn từ dưới lên. Quai chiếc cốc bị che khuất một phần.
+
+Slide 25: 27.4 Mạng Nơ-ron Tích chập (CNN)
+Người 1: Đấng cứu thế của lĩnh vực này chính là Mạng Nơ-ron Tích chập (CNN). Thay vì bắt người kỹ sư đi định nghĩa xem cái ô tô có hình dạng thế nào, CNN dùng các Lõi lọc (Kernel) để tự động "quét" qua bức ảnh và trích xuất mọi đặc điểm ẩn sâu.
+
+Slide 26: 27.4 Mạng Nơ-ron Tích chập (CNN) (Tiếp theo)
+Người 1: Hình ảnh bóc tách chữ số "5" viết tay. Bộ lọc đã rã chữ 5 thành nét ngang, nét cong, nét gãy đứt... Các mảnh vỡ này được tổng hợp lại ở tầng mạng sâu hơn để máy tính kết luận đây là số 5.
+
+Slide 27: 27.5 Phát hiện Đối tượng (Object Detection)
+Người 1: Khi cần tìm xem vật đó nằm ở TỌA ĐỘ nào trong ảnh, ta dùng thuật toán Faster R-CNN. Nó tung ra hàng ngàn cái khung hình chữ nhật (Anchor boxes) lớn nhỏ chằng chịt khắp ảnh. Khung nào "có vẻ chứa đồ vật" sẽ được đem đi chấm điểm và gán nhãn.
+
+Slide 28: 27.5 Phát hiện Đối tượng (Object Detection) (Tiếp theo)
+Người 1: Bạn nhìn sơ đồ kiến trúc này. RPN (Mạng đề xuất vùng) đã lọc ra được hộp màu xanh ôm trọn khuôn mặt người đàn ông giữa một mớ hỗn độn các hộp dự đoán ban đầu. 
+
+Slide 29: 27.6 Manh mối 3D từ Camera di chuyển
+Người 1: Thế giới vốn là 3D, làm sao suy ra 3D từ ảnh phẳng? Manh mối thứ nhất: Chuyển động (Parallax). Cứ thử vừa đi vừa nhìn ngang mà xem, cây cột điện gần bạn sẽ lướt qua vèo vèo, còn ngọn núi ở đằng xa xăm dường như đứng im.
+
+Slide 30: 27.6 Manh mối 3D từ Camera di chuyển (Tiếp theo)
+Người 1: Đồ thị vận tốc minh họa rõ điều này. Dựa vào sự chênh lệch vận tốc trượt của các điểm ảnh, máy tính tự động tính ra được vật đó cách xa camera bao nhiêu mét.
+
+Slide 31: 27.6 Thị giác Âm nổi (Binocular Stereopsis)
+Người 1: Manh mối thứ hai: Thị giác âm nổi (Dùng 2 camera giống như 2 con mắt). Khi nhìn cùng 1 vật, góc chiếu vào 2 camera sẽ lệch nhau một chút (Disparity). Sự chệch góc này tỷ lệ nghịch với khoảng cách vật thể.
+
+Slide 32: 27.6 Thị giác Âm nổi (Binocular Stereopsis) (Tiếp theo)
+Người 1: Sơ đồ toán học chứng minh rằng, bằng việc giải phương trình tam giác đồng dạng giữa 2 tiêu cự camera, máy tính xây dựng được một Bản đồ Độ sâu vô cùng chính xác.
+
+Slide 33: 27.6 Tái tạo 3D từ một Góc nhìn
+Người 1: Gây sốc hơn nữa, AI hiện đại chỉ cần 1 ảnh tĩnh duy nhất để nặn ra cả hình khối 3D. Nhờ Deep Learning, nó đoán được khung xương, tự nặn ra cơ bắp đắp lên đó và hoàn thiện mô hình.
+
+Slide 34: 27.6 Tái tạo 3D từ một Góc nhìn (Tiếp theo)
+Người 1: Bức ảnh bên trái là ảnh chụp phẳng 2D. Các khung hình bên phải là lưới không gian 3D được tái tạo mượt mà tới mức bạn có thể cầm chuột xoay vòng quanh người đàn ông đó!
+
+Slide 35: 27.7 Phân tích Hành động (Action Recognition)
+Người 1: Phân tích Video (Hành động) rất nhức đầu.
+Người 2: Có phải vì AI không phân biệt được những hành động na ná nhau không ạ?
+Người 1: Đúng thế. Cùng một người tiến tới cái tủ lạnh, có lúc là để Mở cửa, có lúc để cất chai nước, có lúc đứng trầm ngâm. Cảnh quay y hệt nhưng bản chất lại khác xa nhau.
+
+Slide 36: 27.7 Phân tích Hành động (Action Recognition) (Tiếp theo)
+Người 1: Một bộ dữ liệu cắt ra từ Video cho thấy sự "mù mờ" này. Khung hình đều có người và tủ lạnh. Máy tính phải xử lý chuỗi Thời gian (chuỗi các khung hình liên tiếp) thay vì chỉ nhìn vào 1 ảnh tĩnh.
+
+Slide 37: 27.7 Thời lượng định nghĩa Hành động
+Người 1: Ngoài ra, Nhãn hành động phụ thuộc vào thang đo thời gian. Nếu cắt 2 giây video, ta thấy nhãn "nhặt quả táo". Nếu xem 10 giây, đó là "nấu ăn". Nếu xem 1 tiếng, nhãn có thể là "chuẩn bị tiệc".
+
+Slide 38: 27.7 Thời lượng định nghĩa Hành động (Tiếp theo)
+Người 1: Sơ đồ phân cấp thời gian cho thấy: Hành động vĩ mô (Cắt xắt) được cấu thành từ hàng loạt những hành động vi mô cực ngắn (đưa dao lên, ấn dao xuống).
+
+Slide 39: 27.7 Máy Sinh mô tả Ảnh (Image Captioning)
+Người 1: Nối AI Thị giác (CNN) với AI Ngôn ngữ (RNN), ta có cỗ máy Tự viết văn miêu tả ảnh. Đưa một bức ảnh vào, nó sẽ phun ra câu: "Một người đàn ông đang cưỡi ngựa trắng".
+
+Slide 40: 27.7 Máy Sinh mô tả Ảnh (Image Captioning) (Tiếp theo)
+Người 1: Có những lúc nó chém cực chuẩn (người đàn ông mặc áo cam lướt sóng). Nhưng có những pha cười ra nước mắt: Ảnh người đu xà bám tay, nó lại miêu tả là "một con chim đang bám cành cây", vì nó không hiểu tính chất vật lý của thế giới.
+
+Slide 41: 27.7 Hỏi Đáp Hình Ảnh (Visual Question Answering)
+Người 1: Nâng cấp hơn là Hệ thống VQA. Đưa bức ảnh và hỏi: "Cô gái đang cầm cái gì?". Máy phải dùng Camera để nhìn ảnh, dùng Ngôn ngữ để đọc câu hỏi, và suy luận logic để trả lời.
+
+Slide 42: 27.7 Hỏi Đáp Hình Ảnh (Visual Question Answering) (Tiếp theo)
+Người 1: Nhưng VQA hay học vẹt. Trên slide này, câu hỏi là "Cái kệ có thiết kế đối xứng không?". AI vội vã trả lời "Có", trong khi 2 bên kệ chứa đồ lộn xộn. Nó trả lời bừa dựa trên thống kê xác suất.
+
+Slide 43: 27.7 Tái tạo từ Nhiều Góc nhìn (SfM)
+Người 1: Thuật toán SfM (Structure from Motion) là cuộc cách mạng của kỹ thuật đo đạc công trình. Đem Flycam bay vòng vòng quanh tòa nhà chụp hàng ngàn tấm ảnh, bỏ vào máy tính, nó tự động nội suy ra Mô hình 3D thực trạng khổng lồ.
+
+Slide 44: 27.7 Tái tạo từ Nhiều Góc nhìn (SfM) (Tiếp theo)
+Người 1: Ảnh 3D một công trường xây dựng được tạo từ điểm ảnh đám mây (Point cloud). Kỹ sư ở nhà cũng có thể đo được chiều dài hố móng chính xác tới từng centimet nhờ công nghệ này.
+
+Slide 45: 27.7 Tiền nghiệm (Priors) từ một Góc nhìn
+Người 1: Phép thuật nặn 3D từ 1 ảnh duy nhất bắt nguồn từ "Tiền nghiệm". AI xem hàng triệu ảnh chim sẻ, nó rút ra quy luật sinh học: Chim có cái mỏ nhọn, thân thuôn dài. Nên nhìn thấy 1 ảnh con chim, nó tự động bù đắp phần khuất để làm ra lưới 3D.
+
+Slide 46: 27.7 Tiền nghiệm (Priors) từ một Góc nhìn (Tiếp theo)
+Người 1: Đây là thành quả đáng nể. Hình chiếu 2D của con chim chích chòe đã được chuyển đổi thành khung lưới (mesh) không gian 3 chiều chuẩn xác đến từng cái đuôi chĩa lên.
+
+Slide 47: 27.7 Chế tác Hình ảnh - Tích hợp 3D
+Người 1: Trong làm phim kỹ xảo đồ họa (CGI), chèn rồng rắn vào ảnh thật rất khó. AI giải quyết bằng cách ước lượng sơ đồ Ánh sáng, Màu vật liệu (albedo) của ảnh nền, rồi hắt cái sáng đó lên đồ vật 3D cho khớp tone màu.
+
+Slide 48: 27.7 Chế tác Hình ảnh - Tích hợp 3D (Tiếp theo)
+Người 1: Một pho tượng ảo 3D được thả vào giữa cánh đồng thực tế. Nhờ AI đo góc sáng, đổ bóng của pho tượng khớp hoàn hảo 100% với bóng của đám cỏ xung quanh, không ai nhận ra là ảnh ghép!
+
+Slide 49: 27.7 Dịch Ảnh Bắt Cặp (Paired Image Translation)
+Người 1: Để biến một bức Bản đồ giấy thành Ảnh vệ tinh chân thực, ta dùng Mạng Sinh Tự Đối Kháng (GAN). Phương pháp "Bắt cặp" yêu cầu ta phải mớm cho AI 1 tấm bản đồ đi kèm đúng 1 tấm vệ tinh tương ứng thì nó mới học được phép biến đổi.
+
+Slide 50: 27.7 Dịch Ảnh Bắt Cặp (Paired Image Translation) (Tiếp theo)
+Người 1: Hình minh họa Mạng sinh đang học cách biến đường nét khối block vector thành ảnh chụp mái nhà từ vệ tinh trông y như thật.
+
+Slide 51: 27.7 Dịch Ảnh Không Cặp (CycleGAN)
+Người 1: Nhưng nếu không có cặp ảnh nào khớp nhau thì sao?
+Người 2: Thế thì máy không có đáp án mẫu, làm sao nó học ạ?
+Người 1: Các pháp sư AI đã đẻ ra "CycleGAN" (Sinh đồ thị vòng). Ta ném cho nó 1 rổ ảnh Ngựa thường và 1 rổ ảnh Ngựa Vằn. Nó tự biến con ngựa thường thành vằn, rồi lại biến ngược cái vằn đó về con ngựa cũ. Nếu con ngựa cũ vẫn giống ban đầu thì nó đã học đúng quy luật.
+
+Slide 52: 27.7 Dịch Ảnh Không Cặp (CycleGAN) (Tiếp theo)
+Người 1: Kết quả kinh ngạc: Con ngựa lông nâu ở giữa bãi cỏ lập tức bị CycleGAN phù phép mọc ra vằn đen trắng vắt ngang mình, mặc dù bức ảnh đó chưa từng xuất hiện trên thế giới.
+
+Slide 53: 27.7 Chuyển giao Phong cách (Style Transfer)
+Người 1: Tính năng biến ảnh chụp thành Tranh vẽ nghệ thuật chính là "Style Transfer". CNN sẽ mổ xẻ cấu trúc vật thể của ảnh chụp, và mổ xẻ màu sắc/nét vẽ của bức tranh, rồi hòa quyện 2 thứ đó vào nhau.
+
+Slide 54: 27.7 Chuyển giao Phong cách (Style Transfer) (Tiếp theo)
+Người 1: Chú mèo chụp điện thoại (nội dung) cộng với bức họa trừu tượng (phong cách), ta thu được một siêu phẩm chú mèo nghệ thuật với họa tiết cọ vẽ bồng bềnh ảo diệu.
+
+Slide 55: 27.7 Deep Fake và Phân tích Y khoa
+Người 1: Sức mạnh của GAN thật đáng sợ, nó chế ra được ảnh X-quang giả (Deep Fake y tế). Người ta làm thí nghiệm trộn ảnh phổi giả vào ảnh thật, sau đó đưa cho các bác sĩ lão luyện kiểm tra.
+
+Slide 56: 27.7 Deep Fake và Phân tích Y khoa (Tiếp theo)
+Người 1: Biểu đồ cho thấy kết quả sốc: Tỷ lệ phân biệt đúng của bác sĩ chỉ loanh quanh 61\% (hơi cao hơn đoán mò tung đồng xu một chút). AI đã vẽ ra những thương tổn viêm phổi chân thực tới mức đánh lừa cả chuyên gia y tế!
+
+Slide 57: 27.7 Điều khiển Chuyển động bằng Thị giác
+Người 1: Ứng dụng quan trọng nhất: Mắt thần Xe tự lái (ADAS). Xe tự lái liên tục phân tích video thời gian thực, bọc quanh người đi bộ và xe máy bằng các khối hộp 3D, từ đó kích hoạt phanh tự động (AEB).
+
+Slide 58: 27.7 Điều khiển Chuyển động bằng Thị giác (Tiếp theo)
+Người 1: Nhìn giao diện này, bạn sẽ thấy hệ thống đang nhắm bắn các khối hộp hình chữ nhật bám theo từng chuyển động nhỏ nhất của người đi bộ chuẩn bị sang đường.
+
+Slide 59: 27.7 Vẽ bản đồ và Lập kế hoạch
+Người 1: Cuối cùng, cốt lõi của Robot và Xe tự lái là bộ đôi "Mapping" và "Planning".
+Người 2: Tức là nhìn thấy rồi lập sơ đồ ảo, sau đó cho sa bàn chạy thuật toán ảo để ra lệnh vật lý ở đời thực đúng không anh?
+Người 1: Chuẩn 10 điểm!
+
+Slide 60: 27.7 Vẽ bản đồ và Lập kế hoạch (Tiếp theo)
+Người 1: Sơ đồ hệ thống thể hiện vòng lặp vô tận: Cảm biến Camera $\rightarrow$ Dựng lại bản đồ 3D $\rightarrow$ Trích xuất đối tượng $\rightarrow$ Lên kế hoạch lộ trình an toàn $\rightarrow$ Điều khiển cơ học. Vòng lặp này lặp lại hàng chục lần mỗi giây.
+
+Slide 61: Tóm tắt Chương 27
+Người 1: Kết thúc chương 27! Chúng ta đã chứng kiến máy tính "Mở mắt" nhờ tiến bộ từ Dò cạnh truyền thống đến Mạng Nơ-ron Tích chập (CNN). Chúng vươn xa từ việc khoanh vùng 2D cho đến tự tưởng tượng ra 3D và thậm chí "bịa" ra những hình ảnh siêu chân thực nhờ CycleGAN. Thị giác máy tính chính là cửa sổ tâm hồn của Trí tuệ nhân tạo!
+Người 2: Quả là một chương ma thuật! Em rất thích cách máy tính biến đổi hình ảnh như phép màu. Cảm ơn anh rất nhiều.

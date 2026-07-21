@@ -1,0 +1,101 @@
+Slide 1: CHƯƠNG 25: HỌC SÂU CHO XỬ LÝ NGÔN NGỮ TỰ NHIÊN
+Người 1: Chào mừng các bạn! Đây là một chương tuyệt đỉnh. Chúng ta sẽ kết hợp sức mạnh của "Học sâu" từ Chương 22 và "Ngôn ngữ" từ Chương 24 để xem cách trí tuệ nhân tạo ngày nay thấu hiểu ngôn ngữ. Chương 25: Học Sâu cho Xử lý Ngôn ngữ tự nhiên. 
+Người 2: Có phải đây là công nghệ đằng sau các siêu AI như ChatGPT và Google Dịch không ạ?
+
+Slide 2: Nội dung Chương 25
+Người 1: Chính xác 100%! Chương này sẽ bóc tách toàn bộ lịch sử tiến hóa của các mô hình đó. Từ việc nhúng từ thành số học, sử dụng mạng Hồi quy (RNN), mô hình Dịch máy Seq2Seq, rồi đến cuộc cách mạng mang tên "Transformer" và các Mô hình tiền huấn luyện (BERT, GPT).
+
+Slide 3: 25.1 Nhúng từ (Word Embeddings)
+Người 1: Máy tính không hiểu chữ "Vua", nó chỉ hiểu số. Trước đây, người ta mã hóa từ vựng bằng Vector One-hot (toàn số 0 và 1 số 1), rất cồng kềnh. Học sâu giải quyết điều này bằng "Nhúng từ". Nghĩa là biến mỗi từ thành một Vector dày đặc, ví dụ 300 chiều.
+
+Slide 4: 25.1 Nhúng từ (Word Embeddings) (Tiếp theo)
+Người 1: Điểm ảo diệu của Nhúng từ là nó giữ được Ngữ nghĩa. Trên hình này, bạn thấy các từ liên quan đến Quốc gia tự động nhóm lại một góc, Thức ăn nhóm một góc. Chữ "Hà Nội" sẽ nằm ngay cạnh "Việt Nam", tương tự như "Paris" cạnh "Pháp".
+
+Slide 5: 25.1 Các tính chất của Nhúng từ
+Người 1: Tuyệt vời hơn, vectơ Nhúng từ có thể thực hiện các phép toán học! 
+Người 2: Khoan đã, từ vựng mà lại cộng trừ nhân chia được á?
+Người 1: Đúng vậy! Nếu lấy Vector của "Vua" trừ đi "Đàn ông" cộng thêm "Phụ nữ", kết quả thu được sẽ ra một Vector nằm sát rạt với chữ "Nữ hoàng". AI đã tự học được giới tính!
+
+Slide 6: 25.1 Các tính chất của Nhúng từ (Tiếp theo)
+Người 1: Slide này biểu diễn trực quan phép toán đó. Các đường nối màu đỏ song song với nhau cho thấy máy tính nhận thức rất rõ mối quan hệ Giới tính (King-Queen, Man-Woman) hay Quan hệ Thủ đô - Quốc gia một cách hoàn toàn tự động qua lăng kính Hình học.
+
+Slide 7: 25.2 Gán nhãn Từ loại bằng Mạng Nơ-ron
+Người 1: Ứng dụng đầu tiên của Nhúng từ là Gán nhãn từ loại (POS Tagging). Bằng cách gom một vài từ xung quanh thành một Cửa sổ (Window), ta nạp các Vector này vào Mạng truyền thẳng (Feed-forward NN) để AI phán đoán từ ở giữa là Danh từ hay Động từ.
+
+Slide 8: 25.2 Gán nhãn Từ loại bằng Mạng Nơ-ron (Tiếp theo)
+Người 1: Hình này vẽ lại sơ đồ kiến trúc đó. Tuy Mạng truyền thẳng chạy tốt, nhưng nó bị kẹt ở chỗ: Cửa sổ nhìn chỉ có giới hạn (ví dụ 5 từ). Nếu manh mối nằm ở đầu câu mà tận cuối câu mới có động từ thì mạng này chịu thua.
+
+Slide 9: 25.2 Mạng Nơ-ron Hồi quy (RNN) cho NLP
+Người 1: Vì thế người ta mang RNN (Mạng hồi quy) sang xử lý ngôn ngữ. Điểm mạnh của RNN là nó có "Trí nhớ" (Trạng thái ẩn - Hidden state). Nó đọc từng chữ một, đọc đến đâu, nhớ đến đó, nhờ vậy mà câu ngắn hay dài nó đều xử lý mượt mà.
+
+Slide 10: 25.2 Mạng Nơ-ron Hồi quy (RNN) cho NLP (Tiếp theo)
+Người 1: Sơ đồ "Trải phẳng theo thời gian" của RNN cho thấy sự luân chuyển thông tin. Trạng thái ẩn mang theo dấu ấn của toàn bộ các từ phía trước để cung cấp ngữ cảnh cho từ hiện tại.
+
+Slide 11: 25.2 RNN trong Mô hình Ngôn ngữ
+Người 1: Nhờ có trí nhớ, RNN cực kỳ bá đạo khi làm Mô hình ngôn ngữ (Dự đoán từ tiếp theo). Thay vì chỉ nhìn 3 từ trước đó như N-gram, RNN sử dụng bối cảnh của cả câu để phán đoán chính xác từ sắp xuất hiện.
+
+Slide 12: 25.2 RNN trong Mô hình Ngôn ngữ (Tiếp theo)
+Người 1: Trên slide minh họa một quá trình dự đoán liên hoàn. Tại bước hiện tại, RNN lấy từ vừa sinh ra cộng với Trạng thái ẩn, truyền qua mạng để nhả ra xác suất cho từ kế tiếp ở bước sau.
+
+Slide 13: 25.3 Mô hình Chuỗi sang Chuỗi (Seq2Seq)
+Người 1: Khi cần Dịch thuật (dịch câu tiếng Anh sang tiếng Việt), ta dùng Mô hình Seq2Seq. Nó gồm 2 phần. Phần "Encoder" (Bộ mã hóa) đọc hết câu Tiếng Anh, ép toàn bộ ý nghĩa vào một Vector duy nhất. Rồi ném Vector đó sang "Decoder" (Bộ giải mã) để dịch từ từ ra Tiếng Việt.
+
+Slide 14: 25.3 Mô hình Chuỗi sang Chuỗi (Seq2Seq) (Tiếp theo)
+Người 1: Slide này là bản vẽ kỹ thuật của Seq2Seq. Nhưng có một nhược điểm chí mạng: Nếu câu tiếng Anh dài 100 từ, việc ép tất cả vào 1 Vector duy nhất sẽ gây "Tràn bộ nhớ", khiến Decoder dịch quên trước quên sau.
+
+Slide 15: 25.3 Cơ chế Chú ý (Attention)
+Người 1: Để khắc phục, Cơ chế Chú ý (Attention) ra đời!
+Người 2: Tức là nó giúp máy tính tập trung hơn ạ?
+Người 1: Đúng vậy! Thay vì dùng 1 Vector nén, Decoder bây giờ được quyền "ngoái đầu lại" nhìn vào toàn bộ câu gốc, rồi tự quyết định: "À, tôi đang dịch từ thứ 3, tôi cần tập trung chú ý vào từ thứ 2 và thứ 4 của bản gốc".
+
+Slide 16: 25.3 Cơ chế Chú ý (Attention) (Tiếp theo)
+Người 1: Nhờ hàm phân phối Softmax, mô hình vẽ ra một bản đồ nhiệt (Heatmap) thể hiện sự chú ý chéo giữa hai ngôn ngữ. Nó thậm chí còn tự học được cả cấu trúc Đảo ngữ mà người lập trình không cần dạy!
+
+Slide 17: 25.3 Tìm kiếm Chùm tia (Beam Search)
+Người 1: Khi dịch, nếu Decoder luôn lấy từ có xác suất cao nhất (Thuật toán Tham lam) thì câu văn sẽ rất cụt lủn và tối nghĩa. Phương pháp "Tìm kiếm chùm tia" (Beam Search) giúp giữ lại nhiều phương án dịch (giữ lại nhánh) và đánh giá độ trôi chảy của cả câu rồi mới chốt phương án cuối.
+
+Slide 18: 25.3 Tìm kiếm Chùm tia (Beam Search) (Tiếp theo)
+Người 1: Hình minh họa với Kích thước chùm (Beam width) bằng 2. Tại mỗi bước, máy tính mở rộng 2 nhánh sáng giá nhất. Nhờ việc cân nhắc trước sau, nó sẽ lách qua được các cực đại cục bộ.
+
+Slide 19: 25.4 Kiến trúc Transformer
+Người 1: Và đây là dấu mốc lịch sử năm 2017: Kiến trúc Transformer. Đội ngũ Google nhận ra rằng "Attention Is All You Need" (Chỉ cần cơ chế chú ý là đủ). Họ vứt bỏ hoàn toàn mạng RNN hay CNN lề mề.
+Người 2: Nghĩa là sao ạ? Không cần đọc từ trái sang phải nữa?
+Người 1: Chuẩn! Transformer dùng "Tự chú ý" (Self-attention), cho phép mọi từ trong câu quét thẳng đến mọi từ khác cùng một lúc, tính toán song song cực nhanh, xử lý được câu dài vô tận!
+
+Slide 20: 25.4 Kiến trúc Transformer (Tiếp theo)
+Người 1: Sơ đồ trên slide là trái tim của Transformer: Mô đun Self-attention. Dù toán học ma trận bên dưới phức tạp, nhưng cốt lõi của nó là giúp từ "Ngân hàng" nhận ra nó đang ở cạnh từ "Sông", nên ý nghĩa của nó phải là "Bờ sông".
+
+Slide 21: 25.4 Transformer cho các Tác vụ NLP
+Người 1: Transformer đã thổi bay RNN khỏi bảng xếp hạng. Nó có thể kết hợp Vector biểu diễn vị trí (Positional Encoding) để bù đắp việc không đọc tuần tự. Khả năng khái quát hóa và nhận diện ngữ pháp của nó đạt mức phi thường.
+
+Slide 22: 25.4 Transformer cho các Tác vụ NLP (Tiếp theo)
+Người 1: Sơ đồ này cho thấy cách một khối Transformer làm bài tập POS Tagging mượt mà như thế nào nhờ các trọng số Tự chú ý luân chuyển bên trong.
+
+Slide 23: 25.5 Tiền Huấn Luyện (Pretraining) & Ngữ cảnh
+Người 1: Trong NLP cũ, một từ "bank" chỉ có 1 Vector cố định, dù là Ngân hàng hay Bờ sông. Nhưng với Transformer, Vector nhúng từ là "Động". Nó được pha trộn ngữ cảnh của cả câu trước khi chốt giá trị. Đọc câu nào, ý nghĩa linh hoạt theo câu đó.
+
+Slide 24: 25.5 Tiền Huấn Luyện (Pretraining) & Ngữ cảnh (Tiếp theo)
+Người 1: Hình ảnh này biểu diễn các lớp Contextual Embeddings. Từ vựng giờ đây không còn chết cứng trong từ điển nữa, mà nó "Sống" cùng với ngữ cảnh bao quanh.
+
+Slide 25: 25.5 Các Mô hình Ngôn ngữ Bị che (MLM)
+Người 1: Làm sao để huấn luyện cỗ máy khổng lồ này khi không có ai gán nhãn dữ liệu? BERT (của Google) đã dùng chiêu "Mô hình ngôn ngữ bị che" (MLM). Tự động tải Wikipedia về, lấy bút xóa che đi ngẫu nhiên 15% số từ, rồi bắt AI phải tự điền vào chỗ trống!
+Người 2: Giống như làm bài tập đục lỗ hồi học cấp 3 vậy!
+
+Slide 26: 25.5 Các Mô hình Ngôn ngữ Bị che (MLM) (Tiếp theo)
+Người 1: Đúng thế! Bằng cách bắt mô hình đoán từ bị che từ cả hai phía trái phải, BERT đã hấp thụ được toàn bộ tri thức của nhân loại một cách Tự Giám Sát (Self-supervised) mà không tốn 1 xu thuê người gán nhãn. Quá trình này gọi là Pre-training.
+
+Slide 27: 25.6 Trạng thái Kỹ thuật Hiện tại (State of the Art)
+Người 1: Sau khi được "Tiền huấn luyện", AI có một bộ não thông thái. Lúc này, chỉ cần chỉ dạy thêm một chút (Fine-tuning), AI có thể làm mọi thứ: Trả lời câu hỏi, Đọc hiểu văn bản y khoa, Tóm tắt tin tức.
+
+Slide 28: 25.6 Trạng thái Kỹ thuật Hiện tại (State of the Art) (Tiếp theo)
+Người 1: Ví dụ điển hình là Hệ thống ARISTO. Nhờ sức mạnh của LLM (Mô hình ngôn ngữ lớn), nó đã thi đỗ bài thi Khoa học lớp 8, điều mà các hệ thống AI suy luận logic truyền thống loay hoay chục năm không làm nổi.
+
+Slide 29: 25.6 Mô hình Ngôn ngữ Sinh tự động
+Người 1: Và đỉnh cao hiện tại là các "Mô hình ngôn ngữ sinh tự động" như dòng GPT của OpenAI. Thay vì che từ như BERT, GPT chỉ đơn giản là cố đoán từ tiếp theo. Nhưng với mô hình vài trăm tỷ tham số, việc "đoán từ" đã tiến hóa thành "Khả năng lập luận" và "Sáng tạo".
+
+Slide 30: 25.6 Mô hình Ngôn ngữ Sinh tự động (Tiếp theo)
+Người 1: Đoạn văn trên slide do GPT-2 tự viết. Chỉ cần cung cấp một câu gợi ý, AI đã phóng tác ra một câu chuyện hoàn toàn hợp lý, mạch lạc, đúng ngữ pháp. Đó là tiền đề để có một ChatGPT bùng nổ như hiện nay.
+
+Slide 31: Tóm tắt Chương 25
+Người 1: Tổng kết lại: Khởi nguồn từ Nhúng từ giúp máy tính làm toán với ngôn ngữ, qua kỷ nguyên của RNN/Seq2Seq. Cuối cùng bùng nổ nhờ kiến trúc Transformer và Cơ chế Chú ý, kết hợp với sức mạnh Tiền huấn luyện (BERT, GPT). Chúng ta đang sống trong Kỷ nguyên Vàng của Trí tuệ Nhân tạo!
+Người 2: Một chương học quá sức hấp dẫn! Em đã thực sự hiểu tại sao AI ngày nay lại thông minh đến vậy. Cảm ơn anh rất nhiều.

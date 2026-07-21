@@ -1,0 +1,235 @@
+Slide 1: CHƯƠNG 26: ROBOTICS (ROBOT)
+Người 1: Xin chào các bạn! Hôm nay chúng ta bước vào một chương đầy thú vị và mang tính tương lai nhất: Robotics (Robot học). Chúng ta sẽ xem cách AI bước ra khỏi thế giới ảo của máy tính để khoác lên mình cơ thể vật lý, tương tác trực tiếp với thế giới thực.
+Người 2: Vậy là chúng ta sắp học về những chú robot giống như trong phim viễn tưởng Terminator hay Wall-E đúng không anh?
+
+Slide 2: Nội dung Chương 26
+Người 1: Gần như thế! Chương này khá dài và bao trùm từ Phần cứng (Hardware), Cảm biến (Perception), Định vị, cho đến Lập kế hoạch chuyển động (Planning). Cuối cùng ta sẽ bàn về tương tác giữa Robot với con người và các ứng dụng đột phá trong y tế, tự lái.
+
+Slide 3: 26.1 Giới thiệu về Robot
+Người 1: Ngày nay, robot không chỉ nằm trong lồng kính ở các nhà máy lắp ráp. Chúng đang bước vào chính ngôi nhà của bạn. Những robot chăm sóc cá nhân có thể hỗ trợ người cao tuổi hoặc người khuyết tật, giúp họ phục hồi chức năng và độc lập hơn.
+
+Slide 4: 26.1 Giới thiệu về Robot (Tiếp theo)
+Người 1: Trên hình là một ví dụ tuyệt vời: Cánh tay robot Kinova được gắn trực tiếp lên xe lăn. Bệnh nhân có thể điều khiển nó bằng giao diện Não - Máy (BCI) để gắp đồ vật mà không cần dùng sức lực cơ bắp.
+
+Slide 5: 26.2 Phần cứng Robot (Robot Hardware)
+Người 1: Nói về phần cứng, ta có một nhánh rất mạnh là "Robot di động" (Mobile robots). Chúng không đứng yên một chỗ mà có bánh xe, chân nhện, hoặc cánh quạt để bay lượn (như UAV/Drone), thậm chí là lặn dưới biển (AUV).
+
+Slide 6: 26.2 Phần cứng Robot (Robot Hardware) (Tiếp theo)
+Người 1: Khắc nghiệt nhất phải kể đến các xe tự hành thám hiểm vũ trụ, như chiếc xe thám hiểm Sao Hỏa trên slide. Nó phải đối mặt với địa hình hiểm trở, không có GPS, và phải hoàn toàn tự chủ vì tín hiệu điều khiển từ Trái Đất mất tới 20 phút mới đến nơi.
+
+Slide 7: 26.2 Cảm biến (Sensing the World)
+Người 1: Để hoạt động, robot phải "nhìn" được. Thay vì chỉ dùng camera màu như điện thoại, robot dùng cảm biến Đo chiều sâu chủ động. Điển hình là Camera Time-of-Flight (ToF) hoặc Lidar quét laser.
+Người 2: Nó đo chiều sâu bằng cách bắn tia sáng rồi tính thời gian phản dội lại đúng không ạ?
+Người 1: Chuẩn xác! Chính là nguyên lý của dơi và radar.
+
+Slide 8: 26.2 Cảm biến (Sensing the World) (Tiếp theo)
+Người 1: Ảnh này minh họa một bản đồ độ sâu do camera ToF tạo ra. Màu sắc càng ấm (đỏ/vàng) thì vật thể càng gần, màu lạnh (xanh) thì càng xa. Nó giúp robot phân biệt được cái ghế với cái bàn trong không gian 3 chiều.
+
+Slide 9: 26.4 Nhận thức của Robot: Định vị
+Người 1: Có mắt rồi, robot phải trả lời câu hỏi: "Tôi đang ở đâu?". Đó là bài toán Định vị (Localization). Nó phải dùng các mô hình xác suất như Lọc Kalman hoặc Mô hình Markov ẩn (HMM) để tự phán đoán vị trí của mình sau mỗi bước đi.
+
+Slide 10: 26.4 Nhận thức của Robot: Định vị (Tiếp theo)
+Người 1: Sơ đồ mạng Bayes trên slide thể hiện điều này: Trạng thái X hiện tại phụ thuộc vào X ở quá khứ và Hành động (a). Sau đó, nó sinh ra góc nhìn Quan sát (Z) hiện tại.
+
+Slide 11: 26.4 Cảm biến Đo xa và Quan sát Mốc
+Người 1: Thay vì nhận diện bằng camera rất tốn tài nguyên, robot dùng Lidar bắn tia laser xung quanh. Dựa vào đường viền va chạm của tia laser với tường nhà, nó so khớp với bản đồ tòa nhà để suy ra nó đang đứng ở góc nào.
+
+Slide 12: 26.4 Cảm biến Đo xa và Quan sát Mốc (Tiếp theo)
+Người 1: Hình minh họa cho thấy 4 tia laser quét trúng 4 bức tường. Nhờ 4 khoảng cách này, bộ não robot sẽ thu hẹp các khả năng vị trí của nó trên bản đồ xuống chỉ còn một vài chỗ hợp lý.
+
+Slide 13: 26.4 Thuật toán Định vị Monte Carlo (MCL)
+Người 1: Để hiện thực hóa điều đó, ta dùng "Định vị Monte Carlo" (MCL). Đây là cách ném ra hàng ngàn "Hạt" (Particles) ảo vương vãi khắp bản đồ. Mỗi hạt là một dự đoán. Khi robot đi tới đâu, hạt nào đoán sai sẽ bị loại, hạt nào đoán đúng sẽ được nhân bản lên.
+
+Slide 14: 26.4 Thuật toán Định vị Monte Carlo (MCL) (Tiếp theo)
+Người 1: Sơ đồ MCL: Mới bật máy lên, các hạt màu xám rải đều khắp nơi vì robot mù tịt vị trí. Sau vài bước đi và đối chiếu bản đồ, các hạt dần tụm lại thành một cụm duy nhất, báo hiệu robot đã biết chính xác vị trí của mình.
+
+Slide 15: 26.4 Biểu diễn Vị trí (Pose)
+Người 1: Trong không gian 2D, vị trí (Pose) không chỉ là tọa độ x, y mà còn cần thêm góc quay Theta. Vì đứng yên nhưng quay mặt vào tường hay quay mặt ra cửa là 2 trạng thái hoàn toàn khác nhau.
+
+Slide 16: 26.4 Biểu diễn Vị trí (Pose) (Tiếp theo)
+Người 1: Chẳng hạn như sơ đồ văn phòng này, robot phải đi dọc hành lang, chui qua các cửa. Quá trình di chuyển sẽ khiến góc Theta thay đổi liên tục, và thuật toán MCL phải bám sát điều đó.
+
+Slide 17: 26.4 Lọc Kalman Mở rộng (EKF)
+Người 1: MCL tốt, nhưng đôi khi ta cần một phương trình toán học giải trực tiếp. Ta dùng Lọc Kalman. Tuy nhiên, xe cộ thực tế bẻ lái không theo đường thẳng mà theo đường cong. Vậy nên ta phải dùng "Lọc Kalman Mở rộng" (EKF) để Tuyến tính hóa các đường cong đó.
+
+Slide 18: 26.4 Lọc Kalman Mở rộng (EKF) (Tiếp theo)
+Người 1: Slide này giải thích khái niệm Tuyến tính hóa. Hàm cong màu xám được EKF bám sát và xấp xỉ bằng một đường thẳng tiếp tuyến. Nó làm đơn giản hóa bài toán vật lý nhưng vẫn giữ được độ chuẩn xác cần thiết.
+
+Slide 19: 26.4 Minh họa Extended Kalman Filter
+Người 1: Một điểm đặc biệt của EKF là nó biểu diễn sự tự tin của robot bằng "Hình elip sai số". Khi robot di chuyển mà không thấy mốc nào, elip sẽ phình to ra (thể hiện sự lạc đường). 
+
+Slide 20: 26.4 Minh họa Extended Kalman Filter (Tiếp theo)
+Người 1: Và trên slide này: Lúc robot tiến gần mốc quan sát (ngôi sao đen), chùm tia laser cập nhật tọa độ, hình elip lập tức co rúm lại. Sự bất định giảm xuống, robot lại tự tin tiếp tục hành trình.
+
+Slide 21: 26.4 Nhận thức Thích ứng (Adaptive Perception)
+Người 1: Robot hiện đại không chỉ dùng 1 loại cảm biến. Xe tự hành dùng Laser Lidar để chắc chắn vùng đất ngay trước mặt là phẳng (đường nhựa). Sau đó, nó dùng thông tin này dạy cho Camera nhận diện màu sắc của đường nhựa để tự động phát hiện đường đi ở tít đằng xa.
+
+Slide 22: 26.4 Nhận thức Thích ứng (Adaptive Perception) (Tiếp theo)
+Người 1: Ví dụ xe tự hành Stanley của ĐH Stanford. Hình thang màu đỏ ở gần là vùng quét bằng Laser. Dựa vào đó nó dạy hệ thống thị giác nhận diện con đường màu sáng ở đằng xa, giúp nó chạy với vận tốc 60km/h trên sa mạc mà không bị lao xuống hố.
+
+Slide 23: 26.5 Không gian Cấu hình (Configuration Space)
+Người 1: Bây giờ là một khái niệm siêu việt: Không gian cấu hình (C-space).
+Người 2: Nghe có vẻ phức tạp, nó là gì vậy anh?
+Người 1: Thay vì lập kế hoạch cho một con robot to đùng lách qua vật cản, ta hãy Tưởng tượng robot biến thành một "Điểm" vô hình. Đổi lại, ta phải "Bơm phồng" vật cản lên. Nếu cái "Điểm" đó đi không chạm vào "Vật cản phình to", thì con robot thật ở ngoài cũng sẽ không bị va chạm.
+
+Slide 24: 26.5 Không gian Cấu hình (Configuration Space) (Tiếp theo)
+Người 1: Nhìn slide sẽ thấy rõ: Robot hình tam giác ở bên trái được thu thành một điểm chấm nhỏ ở bên phải. Nhưng vùng xám (vật cản) đã nở to ra để bù đắp. Bằng cách này, máy tính tính đường đi vô cùng dễ dàng!
+
+Slide 25: 26.5 C-space cho Cánh tay Robot
+Người 1: Đối với một cánh tay robot nhiều khớp (như cánh tay máy gắp đồ), tọa độ C-space chính là "Góc xoay" của các khớp nối, chứ không phải tọa độ x,y của không gian làm việc.
+
+Slide 26: 26.5 C-space cho Cánh tay Robot (Tiếp theo)
+Người 1: Bạn nhìn hình 26.12. Chỉ một vách ngăn thẳng đứng ở đời thực, nhưng khi quy đổi vào không gian Góc khớp 1 và Góc khớp 2, vùng va chạm (màu xám tối) biến thành một hình học có biên dạng cực kỳ quái lạ.
+
+Slide 27: 26.5 Chuyển đổi giữa Workspace và C-space
+Người 1: Tóm lại, bất kỳ dáng điệu ngoằn ngoèo nào của một robot nhiều khớp trong không gian làm việc (Workspace) đều có thể quy đổi thành MỘT ĐIỂM tọa độ duy nhất trong Không gian cấu hình (C-space).
+
+Slide 28: 26.5 Chuyển đổi giữa Workspace và C-space (Tiếp theo)
+Người 1: Ba bức hình cánh tay vươn ra xa hay co lại ở bên trái tương ứng chính xác với ba dấu chấm p1, p2, p3 trên đồ thị không gian khớp ở bên phải.
+
+Slide 29: 26.5 Đồ thị Khả kiến (Visibility Graphs)
+Người 1: Có C-space rồi, tìm đường đi thế nào? Cách đầu tiên: "Đồ thị khả kiến". Ta nối điểm xuất phát với các đỉnh của vật cản sao cho chúng "nhìn thấy nhau" mà không xuyên qua vật cản.
+
+Slide 30: 26.5 Đồ thị Khả kiến (Visibility Graphs) (Tiếp theo)
+Người 1: Đường màu đỏ trên slide chính là đường đi ngắn nhất được thuật toán tìm ra. Nhược điểm của cách này là robot sẽ đi liếm sát rạt vào vật cản, thực tế dễ gây ra xước xát hoặc đụng chạm nếu có sai số.
+
+Slide 31: 26.5 Sơ đồ Voronoi (Voronoi Diagram)
+Người 1: Nếu muốn an toàn, ta dùng sơ đồ Voronoi. Nguyên lý của nó là "Hãy đi vào chính giữa". Nó tìm ra các đường thẳng hoặc cong luôn có khoảng cách cách đều từ 2 chướng ngại vật ở hai bên.
+
+Slide 32: 26.5 Sơ đồ Voronoi (Voronoi Diagram) (Tiếp theo)
+Người 1: Quỹ đạo Voronoi trên hình luôn đẩy robot ra xa nhất có thể khỏi các tường rào xung quanh, đảm bảo độ an toàn tuyệt đối. Tuy nhiên đường đi thường sẽ dài hơn một chút.
+
+Slide 33: 26.5 Động lượng và Quỹ đạo liên tục
+Người 1: Nhưng thực tế thì robot là một vật thể có khối lượng (Ví dụ ô tô). Nó không thể rẽ ngoặt 90 độ ngay lập tức như sơ đồ Voronoi vẽ ra. Ta phải tính đến Động lượng và Vận tốc (Động học liên tục).
+
+Slide 34: 26.5 Động lượng và Quỹ đạo liên tục (Tiếp theo)
+Người 1: Ảnh minh họa cho thấy sự khác biệt giữa đường đi gãy khúc (lý thuyết) và quỹ đạo trơn mượt thực tế mà một chiếc xe cần phải bẻ lái (hình vòng cung) để giữ thăng bằng.
+
+Slide 35: 26.5 Đồ thị Lộ trình Xác suất (PRM)
+Người 1: Khi không gian quá rộng và phức tạp, ta dùng một cách siêu việt: PRM (Đồ thị lộ trình xác suất). Máy tính rải ngẫu nhiên hàng ngàn hạt mốc (milestone) vào không gian trống, sau đó dùng đường thẳng nối các mốc gần nhau lại để tạo thành một "Mạng lưới nhện".
+
+Slide 36: 26.5 Đồ thị Lộ trình Xác suất (PRM) (Tiếp theo)
+Người 1: Nhìn trên hình, một khi mạng nhện PRM đã giăng xong, robot muốn đi từ điểm S (Start) đến G (Goal) chỉ việc leo lên mạng nhện và dùng thuật toán A* cơ bản để đến đích rất nhanh chóng.
+
+Slide 37: 26.5 RRTs (Rapidly Exploring Random Trees)
+Người 1: Khác với PRM, thuật toán Cây ngẫu nhiên (RRT) chỉ phát triển cây từ Điểm xuất phát và Điểm đích. Các rễ cây ngẫu nhiên mọc dài ra liên tục cho đến khi rễ của 2 cây chạm vào nhau thì đường đi được hình thành.
+
+Slide 38: 26.5 RRTs (Rapidly Exploring Random Trees) (Tiếp theo)
+Người 1: Hai cây RRT ở hai đầu chướng ngại vật đang vươn các xúc tu vạn năng của nó vào không gian trống. Ngay khi chúng gặp nhau tại điểm giữa, một lộ trình khả thi sẽ được công bố.
+
+Slide 39: 26.5 Làm mượt Quỹ đạo PRM/RRT
+Người 1: Do tính chất "Rải hạt ngẫu nhiên", đường đi của PRM hay RRT thường khá lởm chởm và ngoằn ngoèo không cần thiết.
+Người 2: Vậy mình phải làm mượt nó lại ạ?
+Người 1: Đúng. Người ta dùng các phép nội suy Spline hoặc Gradient để là phẳng lại đường đi cho nó giống như chuyển động mềm mại của con người.
+
+Slide 40: 26.5 Làm mượt Quỹ đạo PRM/RRT (Tiếp theo)
+Người 1: Slide cho thấy quỹ đạo màu đen ngoằn ngoèo ban đầu của robot 2 khớp. Qua quá trình làm mượt, nó trở nên tròn trịa và tối ưu về mặt năng lượng hơn hẳn.
+
+Slide 41: 26.5 Tối ưu hóa Quỹ đạo bằng Gradient
+Người 1: Phương pháp Làm mượt thường dùng là Tính Gradient của Hàm chi phí. Máy tính sẽ khởi tạo một đường đi thẳng băng (xuyên qua tường cũng được). Sau đó, nó áp dụng Hàm Phạt đụng tường. Gradient sẽ giống như một nam châm "Đẩy" quỹ đạo dạt dần ra khỏi vật cản.
+
+Slide 42: 26.5 Tối ưu hóa Quỹ đạo bằng Gradient (Tiếp theo)
+Người 1: Bức ảnh cho thấy quá trình Gradient đang dùng sức mạnh đẩy đường cong bị dính vào chướng ngại vật trượt dần xuống phía dưới để tạo thành một đường đi an toàn sạch sẽ.
+
+Slide 43: 26.5 Ví dụ: Tối ưu hóa Quỹ đạo Tay máy
+Người 1: Kỹ thuật này cực kỳ lợi hại đối với Cánh tay robot nhiều trục. Nếu không tối ưu, tay máy có thể vung vẩy hất văng mọi đồ đạc xung quanh. 
+
+Slide 44: 26.5 Ví dụ: Tối ưu hóa Quỹ đạo Tay máy (Tiếp theo)
+Người 1: Bạn xem ví dụ này: Yêu cầu tay máy nhặt chai nước từ khay phía trên bỏ xuống giỏ phía dưới. Ban đầu, quỹ đạo trông rất vụng về (hình trái). Sau khi chạy Tối ưu hóa Gradient (hình phải), cánh tay vòng xuống khéo léo như một nhân viên pha chế chuyên nghiệp.
+
+Slide 45: 26.5 Điều khiển Bám (Trajectory Tracking)
+Người 1: Kế hoạch là một chuyện, Thực thi lại là chuyện khác. Khi robot lái xe theo vạch kẻ đường, nếu nó dùng Điều khiển tỷ lệ (P Control): Cách vạch 1m thì bẻ vô lăng 1 độ. Cách 10m thì bẻ 10 độ. Điều này nghe hợp lý nhưng lại gây thảm họa.
+
+Slide 46: 26.5 Điều khiển Bám (Trajectory Tracking) (Tiếp theo)
+Người 1: Bạn nhìn này! Xe bị "Vọt lố" (Overshoot). Nó bẻ lái quá mạnh để về vạch, dẫn đến việc bị trượt lố sang bên kia vạch, rồi lại vội vàng bẻ lái ngược lại. Chiếc xe sẽ đi ngoằn ngoèo như một gã say xỉn. Giải pháp là dùng thêm Đạo hàm (Khâu D) trong bộ điều khiển PID.
+
+Slide 47: 26.6 Kế hoạch Chuyển động Bất định
+Người 1: Có những bài toán, dù PID có xịn đến mấy thì sai số cơ khí vẫn tồn tại. Ví dụ bài toán Robot lấy chìa khóa xỏ vào lỗ. Lỗ chỉ rộng hơn chìa 1 milimet.
+
+Slide 48: 26.6 Kế hoạch Chuyển động Bất định (Tiếp theo)
+Người 1: Nhìn vào hình nón vận tốc này. Nếu robot cứ thế nhắm thẳng vào lỗ và đâm thẳng xuống, với một sai số dù cực nhỏ, chìa khóa sẽ đập vào mép lỗ và làm hỏng cả hệ thống.
+
+Slide 49: 26.6 Chuyển động có Phòng vệ (Guarded Move)
+Người 1: Giải pháp là chiến thuật "Chuyển động có phòng vệ". Dân dã hơn thì gọi là đi nương tựa vào tường. Thay vì nhắm vào lỗ, robot chủ động nhắm lệch hẳn sang mép tường.
+Người 2: À, giống như trong phòng tối, mình quờ tay vào tường rồi đi men theo để tìm công tắc cửa!
+
+Slide 50: 26.6 Chuyển động có Phòng vệ (Guarded Move) (Tiếp theo)
+Người 1: Hoàn toàn đúng! Slide này chỉ ra Bước 1: Robot ấn chìa khóa lệch hẳn sang một bên để đảm bảo luôn chạm vào mặt sàn mà không sợ bị trượt đi đâu.
+
+Slide 51: 26.6 Chuyển động có Phòng vệ (Tiếp theo)
+Người 1: Lúc này, nhờ tác dụng phản lực của mặt sàn, robot chỉ cần trượt nhẹ trên mặt phẳng, ngay lập tức nó sẽ tọt vào cái lỗ một cách hoàn hảo bất chấp mọi loại sai số bánh răng.
+
+Slide 52: 26.6 Chuyển động có Phòng vệ (Tiếp theo)
+Người 1: Và đây là Bước 2: Chỉ việc kéo sang ngang. Một chiến lược cực kỳ thông minh của kỹ sư Robot học.
+
+Slide 53: 26.7 Học Tăng cường trong Robot (RL)
+Người 1: Những chiêu thức phức tạp như thế, làm sao lập trình cho hết? Giải pháp là cho Robot vào Môi trường Giả lập (Simulator), bật Học tăng cường (Reinforcement learning) lên và cho nó tập luyện hàng triệu lần (thả vật thể, đổi ánh sáng, làm nhiễu vật lý). Quá trình này gọi là Sim2Real.
+
+Slide 54: 26.7 Học Tăng cường trong Robot (RL) (Tiếp theo)
+Người 1: Sau khi thành tài trong thế giới ảo, nạp bộ não đó vào Tay robot thật ở đời thực, và bùm: Nó gắp đồ vật chính xác 99% mà không cần phải lập trình thêm dòng code nào.
+
+Slide 55: 26.8 Con người và Robot: Dự đoán
+Người 1: Sẽ thế nào nếu Robot hoạt động cùng môi trường với Con người (như trong văn phòng, nhà kho)? Con người thì đi lại lộn xộn. Robot cần phải có chức năng Dự báo (Predicting Human Behavior) để liên tục vẽ ra các quỹ đạo né tránh an toàn.
+
+Slide 56: 26.8 Con người và Robot: Dự đoán (Tiếp theo)
+Người 1: Bạn thấy trên hình, robot không chỉ đi theo đường định sẵn mà liên tục quạt các cảm biến để tính toán vùng bất định phía trước bước chân của con người.
+
+Slide 57: 26.8 Phối hợp Hành vi (Coordination)
+Người 1: Đôi khi, chỉ né tránh là chưa đủ, robot phải "Đàm phán" (Coordination) với con người. Điển hình là khi xe tự hành muốn chuyển làn (nhập làn) trên đường cao tốc đông đúc. Nó không thể cứ thế đâm ngang.
+
+Slide 58: 26.8 Phối hợp Hành vi (Coordination) (Tiếp theo)
+Người 1: Chiếc xe tự lái màu đỏ sẽ thực hiện thao tác nhích dần dần vào làn (Signal intent). Lái xe ô tô màu vàng (con người) thấy vậy sẽ hiểu ý, nhả ga nhường đường. Đây là sự tương tác xã hội giữa Người và Máy.
+
+Slide 59: 26.8 Học Hàm chi phí từ Con người
+Người 1: Có những thứ không thể dạy bằng lệnh. Robot xe địa hình không biết đường đất hay đường cỏ đi êm hơn. Vậy ta cho người lái xe thử. Robot sẽ ghi hình lại toàn bộ và dùng "Inverse RL" để học lỏm thuật toán điều khiển trong đầu của tài xế.
+
+Slide 60: 26.8 Học Hàm chi phí từ Con người (Tiếp theo)
+Người 1: Bằng cách quan sát con người chọn đường lách qua bụi rậm hay bãi đá, robot tự động sinh ra một Bản đồ Hàm chi phí (cost map) mà không cần kỹ sư phải viết thuật toán nhận diện bùn đất.
+
+Slide 61: 26.8 Học qua Hiệu chỉnh Cơ học
+Người 1: Ngoài ra, cách dạy trực tiếp nhất là Hiệu chỉnh vật lý.
+Người 2: Giống như cầm tay uốn nắn trẻ em tập viết đó hả anh?
+Người 1: Rất chuẩn. Khi robot rót nước quá cao làm nước văng tung tóe, người dùng chỉ cần thò tay ấn cùi chỏ cánh tay robot thấp xuống. Nó sẽ tự động cập nhật quỹ đạo mới để rót thấp hơn trong những lần sau.
+
+Slide 62: 26.8 Học qua Hiệu chỉnh Cơ học (Tiếp theo)
+Người 1: Ảnh minh họa quá trình một người can thiệp trực tiếp bằng cách đẩy cánh tay máy. Hệ thống cảm biến lực sẽ ghi nhận sự điều chỉnh này để sửa chữa sai lầm.
+
+Slide 63: 26.8 Giao diện Lập trình Trực quan
+Người 1: Để mang robot công nghiệp đến với mọi doanh nghiệp nhỏ, việc yêu cầu họ biết viết mã C++ hay Python là bất khả thi. Vì vậy, các giao diện lập trình trực quan (Visual Programming) lên ngôi.
+
+Slide 64: 26.8 Giao diện Lập trình Trực quan (Tiếp theo)
+Người 1: Bằng cách sử dụng các khối logic kéo thả trên màn hình, kết hợp với các bộ mô phỏng trực tiếp, một công nhân bình thường cũng có thể cấu hình tay máy gấp hộp carton trong vòng 30 phút.
+
+Slide 65: 26.9 Khung Điều khiển Phản ứng
+Người 1: Khi cần một robot linh hoạt sống sót ở môi trường khắc nghiệt mà tốc độ tính toán chậm, ta loại bỏ các bước lập kế hoạch rườm rà và dùng "Khung điều khiển Phản ứng". Nó nối thẳng cảm biến vào động cơ, cứ chạm vào vách thì lùi lại, thấy hố thì nhảy. Y hệt như phản xạ tủy sống của côn trùng.
+
+Slide 66: 26.9 Khung Điều khiển Phản ứng (Tiếp theo)
+Người 1: Cỗ máy Genghis 6 chân của Rodney Brooks (người sáng lập iRobot) là minh chứng lịch sử. Nó không hề có não bộ tính toán cao cấp, nhưng bằng các máy trạng thái phản xạ nhấc chân/đạp chân, nó tự động leo lên đống gạch đá một cách thần kỳ.
+
+Slide 67: 26.10 Ứng dụng: Chăm sóc Sức khỏe \& Gia đình
+Người 1: Phần cuối cùng, hãy xem Robot đang thống trị thế giới ra sao. Tại gia đình, robot đang hút bụi, lau nhà (như iRobot Roomba), và trợ giúp bệnh nhân tàn tật sinh hoạt.
+
+Slide 68: 26.10 Ứng dụng: Chăm sóc Sức khỏe \& Gia đình (Tiếp theo)
+Người 1: Bạn có thể thấy, Roomba dường như đã trở thành người bạn không thể thiếu của các gia đình bận rộn. Trong khi đó, các bệnh nhân đột quỵ đang tìm lại hy vọng qua các tay máy trợ lực cơ bắp.
+
+Slide 69: 26.10 Ứng dụng: Y tế \& Dịch vụ
+Người 1: Trong y tế, mọi chuyện còn phi thường hơn. Robot Da Vinci thực hiện các ca phẫu thuật tim mạch qua các lỗ nhỏ xíu thay vì mổ phanh, bác sĩ chỉ việc ngồi thao tác trên màn hình 3D.
+
+Slide 70: 26.10 Ứng dụng: Y tế \& Dịch vụ (Tiếp theo)
+Người 1: Còn tại các hành lang bệnh viện lớn, bạn sẽ thấy những đội quân robot kho ca (Logistic) tự động đẩy xe thuốc, cơm nước, giặt giũ đi giao khắp các phòng bệnh để y tá tập trung vào chuyên môn.
+
+Slide 71: 26.10 Ứng dụng: Xe Tự lái
+Người 1: Lĩnh vực thu hút hàng nghìn tỷ đô la hiện nay: Xe tự hành. Google Waymo và Tesla đã chứng minh rằng một chiếc xe có Lidar và Camera có thể chạy luồn lách qua các phố đông người an toàn hơn cả con người.
+
+Slide 72: 26.10 Ứng dụng: Xe Tự lái (Tiếp theo)
+Người 1: Hình ảnh này cho thấy góc nhìn của Waymo: Nó không chỉ nhận diện xe cộ và người đi bộ, mà còn phải dùng HMM để tiên đoán xem người kia đang định sang đường hay định đi thẳng để giảm tốc.
+
+Slide 73: 26.10 Khám phá Môi trường Nguy hiểm
+Người 1: Cuối cùng, nơi nào bom mìn, hầm mỏ rò rỉ khí độc, hay đáy đại dương áp suất khổng lồ, Robot sẽ thay con người hứng chịu rủi ro.
+
+Slide 74: 26.10 Khám phá Môi trường Nguy hiểm (Tiếp theo)
+Người 1: Nhờ Lidar quét không gian 3D, một robot chó hoặc drone có thể luồn sâu vào các hang động chưa từng được khám phá, vẽ lại bản đồ cho các kỹ sư phân tích bên ngoài.
+
+Slide 75: Tóm tắt Chương 26
+Người 1: Chúng ta khép lại chương Robotics ở đây! Tóm lại, Robot là đỉnh cao tích hợp: Mắt (Cảm biến Laser/ToF), Não bộ (Định vị EKF, MCL), Trí tuệ (Tìm đường PRM, RRT, Tối ưu quỹ đạo), và Cơ thể linh hoạt (PID, Điều khiển phản ứng). Sự dung hợp của Robot với AI đang định hình lại toàn bộ cấu trúc nền kinh tế, y tế, sản xuất và đời sống nhân loại của thế kỷ 21!
+Người 2: Thực sự quá choáng ngợp! Từ thuật toán trên máy tính cho đến việc một cỗ máy biết đàm phán nhường đường hay tự đi mổ tim. Cảm ơn anh đã chia sẻ một bài học không thể quên!

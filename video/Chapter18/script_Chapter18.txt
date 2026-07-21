@@ -1,0 +1,82 @@
+Slide 1: CHƯƠNG 18: LẬP TRÌNH XÁC SUẤT
+Người 1: Chào mừng các bạn đến với Chương 18! Trong chương này, chúng ta sẽ kết hợp những thứ mạnh nhất của AI lại với nhau: Đó là logic Bậc Nhất, lý thuyết Xác suất và các Ngôn ngữ Lập trình, để tạo ra một khái niệm vô cùng mạnh mẽ: "Lập trình Xác suất".
+Người 2: Logic kết hợp với xác suất? Nghe có vẻ như ta đang dạy AI cách tư duy chính xác trong một thế giới mờ ảo vậy!
+
+Slide 2: Nội dung Chương 18
+Người 1: Đúng vậy! Chương này gồm 4 nội dung chính. Đầu tiên là Mô hình Xác suất Quan hệ (RPM). Tiếp theo là nâng cấp lên Vũ trụ Mở (OUPM). Sau đó, ta dùng các mô hình này để giải bài toán cực khó: Theo dõi đa mục tiêu. Và cuối cùng là tìm hiểu Lập trình Xác suất, nơi mà những dòng code đóng vai trò như một bộ não thống kê.
+
+Slide 3: 18.1 Các mô hình Xác suất Quan hệ (RPM)
+Người 1: Chúng ta đã biết Mạng Bayes cực kỳ xuất sắc trong việc xử lý xác suất. Tuy nhiên, nó lại giống như Logic mệnh đề, tức là biểu diễn thế giới bằng một tập hợp các biến cố định. Mạng Bayes không thể hiểu được cấu trúc của các "đối tượng" và "mối quan hệ" giữa chúng.
+Người 2: Giống như nó chỉ biết sinh viên A, sinh viên B một cách rời rạc, chứ không biết định nghĩa chung "sinh viên" là gì đúng không anh?
+Người 1: Chuẩn xác. Vì vậy, Mô hình Xác suất Quan hệ (RPM) ra đời để đưa cấu trúc Logic Bậc Nhất vào trong Lý thuyết Xác suất.
+
+Slide 4: 18.1 Nhu cầu tích hợp Logic và Xác suất
+Người 1: Hãy lấy hệ thống quản lý đại học làm ví dụ. Nếu có 1000 sinh viên và 100 môn học, Mạng Bayes truyền thống sẽ phải tạo ra 100,000 biến lặp đi lặp lại một cách vô nghĩa. Trong khi đó, với RPM, ta chỉ cần viết một định luật tổng quát duy nhất cho mọi sinh viên và mọi môn học. Sự ngắn gọn này là vô giá.
+
+Slide 5: Cú pháp và Ngữ nghĩa của RPM
+Người 1: RPM mở rộng Mạng Bayes bằng cách cho phép ta khai báo các Lớp đối tượng, các Thuộc tính của chúng và Mối quan hệ giữa chúng. Sơ đồ trên slide mô tả cách RPM định nghĩa các lớp biến ngẫu nhiên một cách trừu tượng.
+
+Slide 6: Mạng Bayes cho Ứng dụng Giới thiệu Sách
+Người 1: Để minh họa rõ hơn, đây là một Mạng Bayes cơ bản thiết kế riêng cho việc dự đoán một khách hàng duy nhất có mua một cuốn sách duy nhất hay không. 
+
+Slide 7: Cơ chế Cuốn chiếu (Unrolling) trong RPM
+Người 1: Nhưng trong thực tế, trang web có hàng triệu khách hàng và hàng triệu cuốn sách! RPM sẽ sử dụng một cơ chế gọi là "Cuốn chiếu" hay Unrolling. Từ những quy tắc trừu tượng ban đầu, RPM sẽ tự động sinh ra một Mạng Bayes khổng lồ tương ứng với số lượng dữ liệu thực tế đang có.
+
+Slide 8: 18.1 Ví dụ ứng dụng: Đánh giá kỹ năng người chơi
+Người 1: Ứng dụng nổi tiếng nhất của RPM chính là hệ thống xếp hạng TrueSkill của Xbox Live. Hệ thống phải đánh giá trình độ ẩn của người chơi thông qua kết quả trận đấu. Nhưng trong game luôn có yếu tố may rủi, phong độ. RPM sẽ định nghĩa mối quan hệ giữa "Kỹ năng", "Phong độ" và "Kết quả trận đấu" cho tất cả người chơi trên toàn cầu.
+
+Slide 9: 18.1 Suy diễn trong RPM
+Người 1: Vì mạng Bayes nền sau khi Unroll quá lớn, các thuật toán tính toán chính xác thường bó tay. Thay vào đó, người ta dùng MCMC (Monte Carlo Chuỗi Markov) để lấy mẫu thống kê từng phần nhỏ của đồ thị. 
+
+Slide 10: Mô hình Xác suất Vũ trụ Mở (OUPM)
+Người 1: Bây giờ, ta đến với một bước tiến lớn hơn: Mô hình Xác suất Vũ trụ Mở (OUPM). Trong Vũ trụ đóng (như RPM), số lượng đối tượng là cố định. Nhưng ở Vũ trụ Mở, số lượng đối tượng tồn tại là KHÔNG CHẮC CHẮN.
+Người 2: Nghĩa là AI không biết trước trong phòng có 2, 3 hay 4 người, mà nó phải tự suy luận ra số lượng đó luôn?
+Người 1: Hoàn toàn chính xác! OUPM cho phép các biến số lượng (Number variables) trở thành biến ngẫu nhiên.
+
+Slide 11: Ứng dụng OUPM: Trích xuất thông tin
+Người 1: Một ứng dụng điển hình là trích xuất thông tin trích dẫn. Máy tính đọc một loạt các đoạn văn bản trích dẫn. Nó không biết trước có bao nhiêu tác giả hay bao nhiêu bài báo thực sự tồn tại. OUPM sẽ giúp nó gộp các trích dẫn giống nhau lại và suy diễn ra số lượng bài báo thực tế.
+
+Slide 12: 18.2 Cú pháp và Hệ lụy của Vũ trụ Mở
+Người 1: Về cú pháp, OUPM bổ sung thêm "Biến Tồn tại", cho biết đối tượng đó có thật hay chỉ là ảo ảnh. Tuy nhiên, điều này khiến không gian trạng thái trở nên vô hạn. Ta không thể dùng "Unrolling" toàn bộ được nữa mà phải dùng các thuật toán lấy mẫu phức tạp hơn rất nhiều.
+
+Slide 13: 18.3 Theo dõi trạng thái của một thế giới phức tạp
+Người 1: Khi kết hợp RPM, OUPM với trục thời gian, ta sẽ chạm đến đỉnh cao của nhận thức AI hiện đại: Theo dõi thế giới động. Trong thực tế, các cảm biến không bao giờ hoàn hảo. Có lúc nó báo động giả (không có người mà báo có người), có lúc nó lại bị mất dấu (có người mà không nhìn thấy).
+
+Slide 14: 18.3 Bài toán Theo dõi Đa mục tiêu
+Người 1: Đây là bài toán Theo dõi Đa mục tiêu, ví dụ kinh điển là Hệ thống Radar kiểm soát không lưu. Radar cứ 5 giây quét một lần và trả về các "vết đốm". Khó khăn lớn nhất là "Bài toán Liên kết Dữ liệu" (Data Association).
+Người 2: Là sao anh? Không phải cứ nhìn thấy vết đốm là biết máy bay nào ạ?
+Người 1: Không hề. Nếu đốm A hiện ra ở giây thứ 5, đốm B hiện ra ở giây thứ 10, AI phải tự suy luận xem A và B có phải là CÙNG MỘT máy bay đang di chuyển hay không. Nếu liên kết sai, hệ thống sẽ nghĩ là có hai cái máy bay xuất hiện rồi tự nhiên tàng hình!
+
+Slide 15: 18.3 Bài toán Theo dõi Đa mục tiêu (Tiếp theo)
+Người 1: Slide này cho thấy cách các quan sát (đốm đen) xuất hiện theo thời gian. Mắt người có thể dễ dàng nối chúng thành các đường thẳng quỹ đạo, nhưng với máy tính, có hàng ngàn cách nối khác nhau.
+
+Slide 16: Theo dõi Mục tiêu Đa Radar bằng OUPM
+Người 1: Sơ đồ OUPM này mô tả cấu trúc của một hệ thống đa radar. Nó bao gồm số lượng máy bay thực tế (không biết trước), vị trí thực, vị trí do radar đo được (có nhiễu), và cả những vết đốm rác do cảnh báo giả tạo ra.
+
+Slide 17: Ứng dụng Thực tế: Camera Giám sát
+Người 1: Tương tự như radar, bài toán này áp dụng cho hệ thống camera giám sát trên đường phố. Camera phải nhận diện hàng trăm chiếc xe, xe này che khuất xe kia, và nó phải liên tục liên kết dữ liệu để không bị nhầm xe này thành xe khác.
+
+Slide 18: 18.3 Xử lý Bài toán Liên kết dữ liệu
+Người 1: Để giải bài toán đau đầu này, người ta dùng 2 cách: Một là "Cổng hóa" (Gating), dùng vật lý để loại trừ các liên kết vô lý (như xe máy không thể chạy 500km/h). Hai là dùng "Lọc Hạt" (Particle Filtering). Mỗi "hạt" sẽ lưu một giả thuyết toàn vẹn về toàn bộ thế giới để từ từ đánh giá.
+
+Slide 19: 18.4 Chương trình đóng vai trò Mô hình Xác suất
+Người 1: Cuối cùng, chúng ta đến với khái niệm đột phá nhất: Lập trình Xác suất (Probabilistic Programming). Vì mọi mô hình xác suất cũng chỉ là một đoạn code sinh số ngẫu nhiên, tại sao ta không dùng CHÍNH ngôn ngữ lập trình để định nghĩa mô hình?
+Người 2: Nghĩa là thay vì vẽ mạng lưới Bayes, ta viết code trực tiếp luôn?
+Người 1: Đúng! Các lệnh gán bình thường sẽ trở thành lệnh lấy mẫu phân phối xác suất. Các vòng lặp If/Else sẽ tạo ra các nhánh xác suất động. Code của bạn chính là mô hình.
+
+Slide 20: Ngôn ngữ Lập trình Xác suất (PPL)
+Người 1: Đoạn code trên slide là một chương trình xác suất vũ trụ mở dùng để nhận dạng chữ viết tay (OCR). Lập trình viên chỉ cần mô tả quá trình mà cái bút vẽ ra chữ, sau đó thêm các biến nhiễu của camera vào.
+
+Slide 21: Mô hình Hóa Quá trình Sinh Hình ảnh
+Người 1: Đây là quá trình sinh hình ảnh của chương trình đó. Từ một chữ cái thuần khiết, nó đi qua lớp biến dạng quang học, bị bóp méo, thêm nhiễu hạt, để tạo ra hình ảnh đầu vào xấu xí và nhòe nhoẹt.
+
+Slide 22: Suy diễn Tự động (Automatic Inference) trong PPL
+Người 1: Điều tuyệt vời nhất của Lập trình Xác suất là tính "Suy diễn tự động". Lập trình viên chỉ cần viết code mô tả "Quá trình sinh dữ liệu" (chữ cái bị nhòe thế nào). Sau đó, trình biên dịch PPL sẽ TỰ ĐỘNG biên dịch ngược lại để tìm ra "Quá trình suy luận" (từ hình nhòe suy ra chữ gốc).
+Người 2: Quá sức tưởng tượng! Lập trình viên không cần phải tự viết thuật toán MCMC hay tự tính toán Bayes gì cả. Máy sẽ tự làm!
+
+Slide 23: Hiệu quả của Lập trình Xác suất trong OCR
+Người 1: Và đây là kết quả. Bên trái là hình ảnh đầu vào siêu nhiễu đến mức mắt người còn khó đọc. Bên phải là kết quả suy luận vượt trội của AI khi dùng Lập trình Xác suất. Nó dễ dàng vượt qua các mạng Neural thông thường trong những trường hợp nhiễu nặng như thế này.
+
+Slide 24: Tóm tắt Chương 18
+Người 1: Tổng kết lại, Chương 18 cho chúng ta thấy: RPM và OUPM là sự giao thoa hoàn hảo giữa độ chính xác của Logic và sự linh hoạt của Xác suất. Chúng giúp AI giải quyết bài toán Vũ trụ Mở vô cùng phức tạp như Theo dõi đa mục tiêu. Và Lập trình Xác suất chính là cuộc cách mạng tiếp theo, giúp mã hóa kiến thức thống kê thành các dòng code để máy tính tự động suy luận.
+Người 2: Càng học càng thấy giới hạn của AI liên tục được mở rộng một cách đáng kinh ngạc. Cảm ơn anh rất nhiều!

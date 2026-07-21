@@ -1,0 +1,86 @@
+Slide 1: CHƯƠNG 14: SUY DIỄN XÁC SUẤT THEO THỜI GIAN
+Người 1: Chào mừng các bạn đến với Chương 14. Hôm nay chúng ta sẽ khám phá một chủ đề cực kỳ thú vị: Suy diễn xác suất theo thời gian. Nếu các chương trước ta mới chỉ phân tích dữ liệu ở một thời điểm tĩnh, thì bây giờ ta sẽ giúp AI hiểu được sự thay đổi của thế giới qua từng giây phút.
+Người 2: Nghe có vẻ giống như cách não bộ con người liên tục xử lý hình ảnh và âm thanh khi chúng ta đi ngoài đường vậy. Thế giới luôn chuyển động mà.
+
+Slide 2: Nội dung Chương 14
+Người 1: Đúng vậy! Và để làm được điều đó, chúng ta sẽ đi qua các nội dung chính. Đầu tiên là khái niệm về Thời gian và Sự không chắc chắn. Tiếp theo là các bài toán suy luận thời gian. Sau đó, ta sẽ tìm hiểu 3 công cụ kinh điển: Mô hình Markov ẩn, Bộ lọc Kalman, và cuối cùng là Mạng Bayes động.
+
+Slide 3: 14.1 Thời gian và Sự Không Chắc Chắn
+Người 1: Khác với thế giới tĩnh mà chúng ta từng học, trong thực tế, mọi thứ luôn biến động. Tác nhân AI cần theo dõi các trạng thái qua từng bước thời gian. Ở đây ta có hai khái niệm quan trọng: "Biến trạng thái", đại diện cho hiện trạng của thế giới nhưng thường bị ẩn đi; và "Biến bằng chứng", là những gì AI đo lường được từ cảm biến.
+Người 2: Em hiểu rồi. Biến trạng thái giống như việc có người đang ở trong nhà hay không, còn biến bằng chứng là hình ảnh từ camera hoặc cảm biến chuyển động thu được.
+
+Slide 4: 14.1 Giả định Markov (Markov Assumption)
+Người 1: Tuyệt vời! Nhưng nếu tính toán trạng thái hiện tại dựa trên toàn bộ lịch sử từ quá khứ, thì bộ nhớ sẽ quá tải. Do đó, người ta đưa ra "Giả định Markov". Nó cho rằng trạng thái hiện tại chỉ phụ thuộc vào một số hữu hạn các trạng thái gần nhất. Tiến trình Markov bậc một thậm chí rút gọn lại: trạng thái hiện tại chỉ phụ thuộc vào trạng thái ngay trước đó mà thôi.
+Người 2: Như vậy AI không cần nhớ mọi thứ từ lúc khởi động, chỉ cần nhớ trạng thái ngay trước đó là đủ để dự đoán tiếp. Rất tối ưu!
+
+Slide 5: 14.1 Mô hình chuyển đổi và Mô hình cảm biến
+Người 1: Dựa trên đó, hệ thống sẽ dùng 2 mô hình. "Mô hình chuyển đổi" dự báo xác suất thế giới thay đổi từ bước trước sang bước này. Và "Mô hình cảm biến", hay còn gọi là mô hình quan sát, dùng để tính xác suất các kết quả thu được từ cảm biến nếu hệ thống đang ở một trạng thái cụ thể.
+Người 2: Có nghĩa là AI vừa dự đoán thế giới thay đổi ra sao, vừa đối chiếu dự đoán đó với dữ liệu thực tế từ cảm biến để chốt lại trạng thái.
+
+Slide 6: Mô hình Thời gian: Cấu trúc cơ bản
+Người 1: Slide này cho bạn thấy Cấu trúc cơ bản của mô hình thời gian. Bạn có thể thấy các biến trạng thái X liên kết với nhau theo một chuỗi thời gian, đại diện cho mô hình chuyển đổi. Trong khi đó, ở mỗi thời điểm t, biến X lại sinh ra một biến bằng chứng E tương ứng, biểu diễn cho mô hình cảm biến.
+
+Slide 7: 14.2 Suy luận trong các Mô hình Thời gian
+Người 1: Giờ ta có các nhiệm vụ suy luận cơ bản. Thứ nhất là "Lọc" hay "Theo dõi". Nhiệm vụ này tính toán trạng thái hiện tại dựa trên tất cả bằng chứng từ quá khứ đến nay. Đây là cốt lõi để AI nhận thức môi trường. Thứ hai là "Dự đoán", giúp AI nhìn về tương lai dựa trên những gì đã biết.
+Người 2: Lọc giống như xác định vị trí hiện tại của chiếc xe tự lái, còn Dự đoán là tính toán xem 2 giây nữa chiếc xe đó sẽ ở đâu.
+
+Slide 8: 14.2 Suy luận trong các Mô hình Thời gian (Tiếp)
+Người 1: Rất chuẩn. Tiếp theo là "Làm mượt" hay Hindsight. Nó đánh giá lại các trạng thái trong quá khứ khi đã có dữ liệu từ tương lai, cho kết quả chính xác hơn so với lúc Lọc. Cuối cùng là tìm "Chuỗi có khả năng nhất", tức là tìm ra toàn bộ kịch bản trạng thái nào phù hợp nhất với tất cả các quan sát từ trước đến nay.
+
+Slide 9: 14.3 Mô hình Markov ẩn (Hidden Markov Models)
+Người 1: Để giải quyết các bài toán trên, công cụ đầu tiên là "Mô hình Markov ẩn", gọi tắt là HMM. Trong HMM, trạng thái hệ thống được biểu diễn bằng một biến rời rạc duy nhất. Nó có thể có nhiều trạng thái, nhưng ở mỗi thời điểm, hệ thống chỉ nằm ở đúng một trạng thái. Mô hình chuyển đổi lúc này trở thành một "Ma trận chuyển đổi" cực kỳ gọn gàng.
+Người 2: Vậy HMM rất phù hợp cho những bài toán mà trạng thái rõ ràng như "Thời tiết hôm nay là mưa hay nắng", hay "Từ đang nói là từ gì".
+
+Slide 10: 14.3 Các thuật toán trên HMM
+Người 1: Chính xác. Và nhờ sử dụng đại số tuyến tính, việc cập nhật Lọc trên HMM được quy về phép nhân ma trận nên tốc độ rất nhanh, gọi là phương trình cập nhật tiến. Thêm vào đó, ta có "Thuật toán Forward-Backward", kết hợp giữa việc truyền thông tin tới để Lọc và truyền ngược lại để Làm mượt.
+
+Slide 11: Thuật toán Forward-Backward
+Người 1: Ở slide này, mã giả của thuật toán Forward-Backward được trình bày chi tiết. Như bạn thấy, nó gồm hai giai đoạn. Giai đoạn tiến tính toán các giá trị cập nhật hiện tại, và giai đoạn lùi giúp điều chỉnh lại xác suất dựa trên thông tin đã thu thập ở các bước sau.
+
+Slide 12: Thuật toán Làm mượt độ trễ cố định
+Người 1: Đây là Thuật toán Làm mượt độ trễ cố định. Thay vì đợi toàn bộ chuỗi sự kiện kết thúc rồi mới làm mượt, thuật toán này cho phép hệ thống làm mượt trực tuyến, nhưng luôn lùi lại một khoảng thời gian cố định. Rất hữu ích cho các hệ thống cần phản hồi thời gian thực mà vẫn muốn kết quả chính xác.
+
+Slide 13: 14.3 Ví dụ điển hình của HMM
+Người 1: Ứng dụng phổ biến nhất của HMM là bài toán định vị robot. Tưởng tượng một robot di chuyển trong mê cung mà không có GPS, cảm biến lại hay bị nhiễu. Robot sẽ dùng HMM để tự suy luận xem mình có khả năng đang ở vị trí nào nhất, dựa trên những quan sát thu được dọc đường.
+Người 2: Như vậy robot tự định hướng bằng cách kết hợp hướng đi của mình và các vật thể nó nhìn thấy, dù mắt nó có bị mờ.
+
+Slide 14: Bài toán Định vị Robot với HMM
+Người 1: Đúng thế, và đây là hình ảnh minh họa cho quá trình đó. Ban đầu robot không biết mình ở đâu nên xác suất phân bố đều. Nhưng qua vài bước di chuyển và cảm nhận các bức tường, xác suất hội tụ lại, giúp robot xác định chính xác vị trí của mình trong mê cung.
+
+Slide 15: 14.4 Bộ lọc Kalman (Kalman Filters)
+Người 1: HMM rất tốt, nhưng nó chỉ dùng cho không gian rời rạc. Nếu dùng HMM cho hệ thống liên tục như vận tốc máy bay, bộ nhớ sẽ nổ tung. Đây là lúc "Bộ lọc Kalman" xuất hiện. Nó là giải pháp chuẩn mực cho biến liên tục, giả định rằng mô hình chuyển đổi và cảm biến đều là hàm tuyến tính với nhiễu tuân theo phân phối chuẩn Gaussian.
+Người 2: Ồ, em từng nghe Bộ lọc Kalman được dùng cho hành trình tàu Apollo lên mặt trăng. Hóa ra nó chuyên xử lý các giá trị liên tục trong thế giới thực.
+
+Slide 16: Cấu trúc Bộ lọc Kalman
+Người 1: Hình ảnh trên slide minh họa cách Bộ lọc Kalman mô hình hóa sự chuyển đổi trạng thái liên tục. Bạn có thể thấy, các giá trị trạng thái là một vector số thực và nó biến đổi theo thời gian bằng một hàm tuyến tính, cộng thêm một chút độ nhiễu Gauss.
+
+Slide 17: 14.4 Đặc tính Phân phối Gaussian trong Kalman
+Người 1: Nhờ dùng phân phối Gaussian, sự phân bố niềm tin của Kalman Filter trở nên cực kỳ tinh gọn. Chỉ cần nhớ 2 tham số: "Vector trung bình", đại diện cho ước lượng tốt nhất, và "Ma trận hiệp phương sai", đại diện cho sự bất định. Quá trình lọc Kalman thực chất chỉ là cập nhật 2 tham số này bằng các ma trận.
+Người 2: Nghĩa là dù thế giới có vô hạn trạng thái, Kalman Filter chỉ cần một vài con số để lưu giữ toàn bộ thông tin! Rất thông minh.
+
+Slide 18: 14.4 Ví dụ ứng dụng Kalman Filter
+Người 1: Hãy xem ví dụ theo dõi mục tiêu chuyển động. Một con chim bay theo đường thẳng với vận tốc bị nhiễu ngẫu nhiên, camera quan sát lại bị mờ. Bộ lọc Kalman có thể nhận những quan sát nhiễu loạn này và làm mượt nó thành một quỹ đạo chuẩn xác gần như quỹ đạo thực sự của con chim.
+
+Slide 19: Kết quả của Lọc và Làm mượt Kalman
+Người 1: Và đây là biểu đồ chứng minh sức mạnh của Kalman. Các điểm dữ liệu thô ban đầu rất hỗn loạn, nhưng sau khi qua thuật toán Lọc và Làm mượt của Kalman, chúng ta thu được một đường liền mạch, bám rất sát với đường bay thực tế của mục tiêu.
+
+Slide 20: 14.5 Mạng Bayes động (Dynamic Bayesian Networks - DBN)
+Người 1: Tuy Kalman và HMM tuyệt vời, nhưng chúng có giới hạn. HMM bùng nổ không gian nếu bài toán lớn, còn Kalman thì bắt buộc mọi thứ phải tuyến tính và Gaussian. "Mạng Bayes động" gọi tắt là DBN ra đời để giải quyết vấn đề đó. DBN chia trạng thái thành nhiều biến nhỏ, kết hợp ưu điểm nén của mạng Bayes và sự tiến triển của HMM.
+Người 2: Vậy DBN cho phép ta mô hình hóa thế giới phức tạp hơn nhiều, không bị ép vào khuôn khổ rời rạc hay tuyến tính nữa.
+
+Slide 21: Cấu trúc Mạng Bayes động (DBN)
+Người 1: Slide này cho thấy cấu trúc đồ thị của DBN. Thay vì một biến X to lớn, trạng thái hệ thống được chia thành nhiều biến nhỏ liên kết với nhau qua các bước thời gian. Điều này giúp ngăn chặn không gian trạng thái phình to theo cấp số nhân, dễ dàng tính toán và biểu diễn hơn.
+
+Slide 22: 14.5 Bộ lọc Hạt (Particle Filtering)
+Người 1: Việc suy luận chính xác trong DBN thường là bất khả thi vì không gian quá lớn. Do đó, người ta phát minh ra thuật toán "Bộ lọc Hạt" - Particle Filtering. Ý tưởng cốt lõi là dùng một quần thể các "hạt" để xấp xỉ phân phối xác suất liên tục. Mỗi hạt tượng trưng cho một phỏng đoán về trạng thái hiện tại.
+Người 2: Em hiểu rồi, giống như tung hàng nghìn hạt đậu vào một tấm bản đồ, chỗ nào có nhiều hạt đậu thì xác suất sự kiện xảy ra ở đó càng cao!
+
+Slide 23: 14.5 Các bước của thuật toán Bộ lọc Hạt
+Người 1: Ví von rất hay! Thuật toán có 3 bước lặp lại liên tục: Lan truyền, Gán trọng số, và Lấy mẫu lại. Ở bước lấy mẫu lại, những hạt nào khớp với dữ liệu thực tế từ cảm biến sẽ được giữ lại và nhân bản, còn hạt nào dự đoán sai sẽ bị loại bỏ. Đúng như quy luật "sinh tồn của kẻ thích nghi nhất".
+
+Slide 24: Thuật toán Bộ lọc Hạt (Particle Filtering)
+Người 1: Slide trình bày mã giả của thuật toán Particle Filtering. Nó thực hiện vòng lặp qua từng bước lấy mẫu, cập nhật trọng số và sinh ra tập hợp hạt mới. Phương pháp Monte Carlo này cực kỳ hiệu quả đối với các DBN phi tuyến phức tạp trong thế giới thực.
+
+Slide 25: Tóm tắt Chương 14
+Người 1: Tổng kết lại chương này, chúng ta hiểu rằng suy diễn xác suất theo thời gian là năng lực sống còn để AI hoạt động. Ta có HMM cho bài toán rời rạc, Bộ lọc Kalman cho thế giới liên tục nhưng tuyến tính, và Bộ lọc Hạt cùng DBN là giải pháp đỉnh cao để đối phó với thế giới phi tuyến, đa biến phức tạp.
+Người 2: Hóa ra đằng sau sự thông minh của xe tự lái hay robot tiên tiến, chính là khả năng liên tục Lọc, Dự đoán và Làm mượt dữ liệu qua thời gian. Rất cảm ơn anh về bài học hôm nay!

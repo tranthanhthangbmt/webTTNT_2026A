@@ -1,0 +1,100 @@
+Slide 1: CHƯƠNG 16: RA QUYẾT ĐỊNH PHỨC TẠP
+Người 1: Chào mừng các bạn đến với Chương 16! Ở chương trước chúng ta đã học cách AI ra quyết định đơn giản, tức là chỉ cần quyết định một lần là xong. Nhưng đời không như là mơ. Hôm nay, chúng ta sẽ bước vào thế giới của "Ra quyết định phức tạp", nơi AI phải đưa ra một chuỗi các hành động liên tiếp nhau.
+Người 2: Giống như chơi cờ vậy phải không anh? Nước đi hiện tại sẽ ảnh hưởng đến kết cục của ván cờ sau 20 nước nữa.
+
+Slide 2: Nội dung Chương 16
+Người 1: Chính xác. Và để giải quyết bài toán đó, chương này sẽ dẫn dắt chúng ta qua 5 phần chính. Đầu tiên là Bài toán quyết định tuần tự và MDP. Tiếp đó là các thuật toán giải MDP, Bài toán Máy đánh bạc Bandit, Khái niệm POMDP cho môi trường bị che khuất, và cuối cùng là thuật toán giải POMDP.
+
+Slide 3: 16.1 Bài toán Quyết định Tuần tự
+Người 1: Ra quyết định tuần tự có nghĩa là tác nhân không chỉ nhận phần thưởng ngay lập tức, mà hành động của nó còn làm thay đổi thế giới, tác động lên các quyết định trong tương lai. Lái xe, đầu tư tài chính hay chơi game đều là các ví dụ điển hình.
+
+Slide 4: Giới thiệu Quá trình Ra quyết định Markov
+Người 1: Để mô hình hóa toán học cho vấn đề này, ta dùng "Quá trình Ra quyết định Markov", gọi tắt là MDP. Trong MDP, mục tiêu không phải là tìm ra một hành động đơn lẻ, mà là tìm ra một "Chính sách", ký hiệu là Pi.
+Người 2: Chính sách có phải là một bộ quy tắc kiểu như "Nếu gặp đèn đỏ thì dừng, nếu gặp đèn xanh thì đi" không anh?
+Người 1: Rất chuẩn! Chính sách hướng dẫn AI nên làm gì ở mọi trạng thái có thể xảy ra. Hình minh họa cho thấy một môi trường lưới đơn giản nơi AI phải tìm đường đi đến đích.
+
+Slide 5: Chính sách Tối ưu trong MDP
+Người 1: Một chính sách tối ưu phụ thuộc rất nhiều vào mức độ rủi ro hay phần thưởng của từng bước đi. Như trên hình, nếu đi một bước bị trừ điểm rất nặng, AI sẽ liều mạng lao thẳng đến đích dù đường đi nguy hiểm. Ngược lại, nếu mỗi bước đi không tốn kém, AI sẽ cẩn thận đi đường vòng cho an toàn.
+
+Slide 6: 16.1 Định nghĩa cấu trúc của một MDP
+Người 1: Về mặt toán học, MDP gồm 4 thành phần cốt lõi: Tập hợp các trạng thái S, Tập hợp các hành động A, Mô hình chuyển đổi P quy định xác suất bước đi tiếp theo, và Hàm phần thưởng R.
+Người 2: Vậy AI sẽ dùng 4 yếu tố này để vẽ ra bản đồ chiến thuật cho riêng mình.
+
+Slide 7: Mạng Quyết Định Động (Dynamic Decision Network)
+Người 1: Slide này biểu diễn MDP dưới dạng Mạng Quyết định Động. Trạng thái hiện tại cộng với hành động sẽ sinh ra trạng thái tiếp theo, đồng thời trả về một giá trị hữu dụng tương ứng. Quá trình này lặp lại liên tục tạo thành một chuỗi thời gian.
+
+Slide 8: Mô Hình Hóa Một Trò Chơi Phức Tạp: Tetris
+Người 1: Để dễ hình dung hơn, hãy lấy trò chơi Tetris xếp hình làm ví dụ. Trạng thái của game chính là hình ảnh lưới hiện tại và khối gạch đang rơi xuống. Hành động của bạn là xoay hoặc dịch chuyển khối gạch.
+Người 2: Và phần thưởng là điểm số nhận được khi ăn được một hàng ngang! Nhìn vào sơ đồ mạng DDN bên cạnh, cấu trúc trò chơi đã được số hóa hoàn toàn.
+
+Slide 9: Hữu dụng theo thời gian & Hệ số chiết khấu
+Người 1: Tuy nhiên, nếu trò chơi kéo dài vô tận thì tổng phần thưởng sẽ bằng vô cực, rất khó tính toán. Vì vậy, ta đưa vào một "Hệ số chiết khấu" Gamma, nhỏ hơn 1.
+Người 2: Em nhớ rồi, nó giống như lạm phát trong kinh tế vậy. 100 điểm nhận được ở hiện tại sẽ có giá trị hơn là 100 điểm nhận được ở 10 bước sau.
+
+Slide 10: 16.2 Hữu dụng của Trạng thái và Phương trình Bellman
+Người 1: Khi đó, Hữu dụng của một trạng thái U(s) không chỉ là phần thưởng nhận được tại đó, mà bao gồm cả kỳ vọng phần thưởng của toàn bộ tương lai. Mối liên hệ này được mô tả qua Phương trình Bellman kinh điển.
+Người 2: Nhìn bảng 4x3 trên slide, những ô càng gần đích thì giá trị hữu dụng càng cao.
+
+Slide 11: 16.2 Chi tiết Phương trình Bellman
+Người 1: Đi sâu vào phương trình Bellman: Giá trị U(s) bằng phần thưởng R(s) cộng với kỳ vọng lợi ích cao nhất ở các trạng thái tiếp theo. Do có phép lấy Max để chọn hành động tốt nhất, đây là một hệ phương trình phi tuyến, không thể giải bằng ma trận thông thường.
+
+Slide 12: Thuật toán Lặp Giá trị (Value Iteration)
+Người 1: Để giải hệ phương trình này, người ta dùng Thuật toán "Lặp Giá trị". Bắt đầu với U bằng 0, thuật toán liên tục áp dụng phương trình Bellman để cập nhật giá trị cho đến khi các con số ngừng thay đổi. Cấu trúc lặp này được trình bày chi tiết trong mã giả trên slide.
+
+Slide 13: Sự hội tụ của Lặp Giá trị
+Người 1: Và đây là biểu đồ chứng minh sự hội tụ. Ban đầu các giá trị thay đổi rất hỗn loạn, nhưng sau khoảng 20 vòng lặp, chúng dần đi vào ổn định và không đổi nữa.
+
+Slide 14: Đánh giá Sai số trong Lặp Giá trị
+Người 1: Đồ thị này biểu diễn sai số qua mỗi vòng lặp. Càng lặp nhiều, đường sai số màu đen càng đâm chúi xuống 0. Điều này đảm bảo rằng chính sách mà thuật toán tìm ra sẽ luôn bám sát với chính sách tối ưu thực sự.
+
+Slide 15: Thuật toán Lặp Chính sách (Policy Iteration)
+Người 1: Một cách tiếp cận khác là "Lặp Chính sách". Thay vì cập nhật giá trị U, thuật toán này chọn ngẫu nhiên một chính sách, sau đó đánh giá xem chính sách đó tốt không. Nếu chưa tốt, nó sẽ tự động điều chỉnh và cập nhật lại chính sách mới.
+Người 2: Nghe có vẻ giống con người hơn. Cứ làm bừa một cách rồi rút kinh nghiệm sửa dần cho đến khi tìm được cách tốt nhất.
+
+Slide 16: Giải pháp Lập kế hoạch Trực tuyến
+Người 1: Đối với các hệ thống không thể tính toán toàn bộ không gian trạng thái từ đầu, ta có "Tìm kiếm Trực tuyến". Slide mô tả cây Expectimax, thuật toán sẽ xây dựng cây tìm kiếm vào thời điểm thực, tính trước một vài bước rồi mới đưa ra quyết định thay vì tính hết từ đầu đến cuối.
+
+Slide 17: Hiệu suất của Giải thuật UCT
+Người 1: Một trong những thuật toán tìm kiếm trực tuyến đỉnh cao hiện nay là UCT, dựa trên tìm kiếm cây Monte Carlo. Như biểu đồ cho thấy, UCT mang lại hiệu suất vượt trội hơn hẳn so với thuật toán lặp giá trị truyền thống trong các không gian phức tạp.
+
+Slide 18: 16.3 Các Bài Toán Máy Đánh Bạc (Bandit Problems)
+Người 1: Chuyển sang một vấn đề kinh điển khác: Bài toán Máy đánh bạc. Tưởng tượng bạn bước vào sòng bài với 10 cái máy gạt cần. Mỗi máy có xác suất trả thưởng bí mật. Ở mỗi lượt, bạn phải quyết định chọn máy nào.
+Người 2: Đây chính là bài toán cân bằng giữa việc "Khám phá" máy mới hay "Khai thác" cái máy đang cho mình nhiều tiền nhất!
+
+Slide 19: Mô hình Máy Đánh Bạc (Bandit Problems)
+Người 1: Hoàn toàn chính xác. Hình ảnh trên slide mô tả sơ đồ của quá trình thử nghiệm. Khi bạn gạt một máy, môi trường sẽ chuyển trạng thái tùy theo kết quả thắng thua. 
+
+Slide 20: Ví dụ Về Chuỗi Phần Phần Thưởng Bandit
+Người 1: Slide này cho ta thấy các chuỗi phần thưởng tiềm năng. Rõ ràng, để chiến thắng trò chơi này, ta cần có một chiến lược khôn ngoan chứ không thể gạt bừa bãi được.
+
+Slide 21: Chỉ số Gittins (Gittins Index)
+Người 1: Giải pháp toán học tối ưu cho bài toán này chính là "Chỉ số Gittins". Chỉ số này tính toán một "mức giá" để ưu tiên các máy tính. Thuật toán sẽ luôn chọn máy có chỉ số Gittins cao nhất. Nhờ đó, AI biết khi nào nên dừng khai thác một máy đang suy giảm để chuyển sang khám phá máy mới.
+
+Slide 22: 16.4 Bài toán có thể Quan sát Một phần (POMDP)
+Người 1: Bây giờ, ta nâng độ khó lên mức cao nhất. MDP giả định AI luôn thấy rõ mọi trạng thái. Nhưng đời thực thì cảm biến có thể bị mù, xe tự lái không thể nhìn xuyên tường. Đó là POMDP - Quá trình Ra quyết định Markov quan sát một phần.
+Người 2: Có nghĩa là ngoài mô hình chuyển đổi, ta phải nhét thêm mô hình cảm biến vào để xử lý sự nhiễu loạn nữa.
+
+Slide 23: 16.4 Trạng thái Niềm tin trong POMDP
+Người 1: Chính xác. Vì không biết mình đang ở đâu, AI phải duy trì một "Trạng thái Niềm tin" b(s), tức là xác suất nó đang nằm ở trạng thái S. Cứ sau mỗi bước đi và nhận quan sát mới, AI lại dùng định lý Bayes để cập nhật lại niềm tin của mình.
+
+Slide 24: 16.5 Các thuật toán giải POMDP
+Người 1: Việc giải POMDP cực kỳ khó khăn. Không gian của MDP là đếm được, nhưng không gian niềm tin của POMDP là vô hạn, vì xác suất là số thực liên tục. May mắn thay, hàm Hữu dụng của POMDP vẫn có thể biểu diễn được dưới dạng tuyến tính từng phần và lồi.
+
+Slide 25: 16.5 Các thuật toán giải POMDP (Tiếp theo)
+Người 1: Slide trình bày đồ thị hàm hữu dụng U(b). Những đường thẳng đại diện cho các kế hoạch hành động. Bằng cách lấy đường bao trên cùng, ta có được hàm hữu dụng tối ưu mà không cần lưu trữ toàn bộ không gian vô hạn.
+
+Slide 26: Lặp Giá Trị Cho POMDP
+Người 1: Mã giả trên slide là thuật toán Lặp Giá trị cho POMDP. Dù đã được tối ưu, nhưng thuật toán này vẫn phải loại bỏ vô số các kế hoạch "bị thống trị" để giữ cho bộ nhớ không bị quá tải.
+
+Slide 27: 16.5 Sự bùng nổ không gian trong POMDP
+Người 1: Phải thú thực là, giải quyết POMDP chính xác thuộc lớp bài toán khó nhất thế giới - PSPACE hard. Số lượng tính toán có thể tăng theo hàm mũ kép. Do đó, người ta hiếm khi giải chính xác POMDP trong môi trường lớn.
+
+Slide 28: Tìm kiếm Trực tuyến trong POMDP
+Người 1: Giải pháp khả thi nhất trong thực tế là áp dụng Tìm kiếm Trực tuyến, sử dụng cây Expectimax. Bằng cách chỉ tính toán những trạng thái niềm tin thực sự có thể xảy ra trong các bước tiếp theo, AI có thể đưa ra hành động mà không cần nổ tung bộ não.
+
+Slide 29: Hành động thực tế và Niềm tin
+Người 1: Nhìn vào mô hình này, chúng ta hiểu được chu kỳ sống của AI thực thụ: Nhận thức để cập nhật trạng thái Niềm tin, sau đó dùng Niềm tin đó để ra Quyết định hành động, rồi lại lặp lại.
+
+Slide 30: Tóm tắt Chương 16
+Người 1: Tóm tắt lại, Chương 16 cho ta thấy: MDP cung cấp nền tảng toán học cho các bài toán quyết định chuỗi. Phương trình Bellman là linh hồn của việc giải MDP. Bài toán Bandit giúp AI cân bằng giữa Khám phá và Khai thác. Và cuối cùng POMDP giúp AI sinh tồn trong môi trường bị che khuất và ngẫu nhiên.
+Người 2: Vô cùng phức tạp nhưng cũng đầy logic. Đây mới thực sự là cốt lõi để tạo ra các cỗ máy thông minh ngoài đời thực. Cảm ơn anh vì bài học này!

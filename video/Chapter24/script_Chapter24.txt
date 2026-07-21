@@ -1,0 +1,80 @@
+Slide 1: CHƯƠNG 24: XỬ LÝ NGÔN NGỮ TỰ NHIÊN
+Người 1: Chào các bạn! Hôm nay chúng ta bước vào một trong những chủ đề hấp dẫn nhất của Trí tuệ Nhân tạo: Xử lý Ngôn ngữ Tự nhiên (NLP). Làm sao máy tính - một thứ chỉ biết số 0 và 1 - lại có thể hiểu được câu nói "Tôi yêu bạn" hay tự động dịch thuật và tóm tắt văn bản? Chương này sẽ giải mã điều đó.
+Người 2: Có phải công nghệ đằng sau Google Translate và trợ lý ảo Siri đều bắt nguồn từ đây không ạ?
+
+Slide 2: Nội dung Chương 24
+Người 1: Đúng vậy! Để hiểu được ngôn ngữ, máy tính cần trải qua nhiều bước. Trong chương này, ta sẽ đi từ Mô hình ngôn ngữ, tìm hiểu về Ngữ pháp, Từ vựng, đến Phân tích cú pháp (Parsing). Sau cùng, ta sẽ xem cách máy tính chuyển đổi cấu trúc ngữ pháp thành Ý nghĩa logic thông qua Ngữ pháp tăng cường và Diễn giải ngữ nghĩa.
+
+Slide 3: 24.1 Mô hình Ngôn ngữ (Language Models)
+Người 1: Bắt đầu với Mô hình ngôn ngữ. Đây đơn giản là việc máy tính gán "Xác suất" cho một chuỗi từ. Ví dụ, xác suất của câu "Trời hôm nay đẹp" sẽ cao hơn rất nhiều so với câu "Trời hôm nay chó".
+Người 2: Tức là nó học theo kiểu đoán từ tiếp theo giống tính năng gợi ý trên bàn phím điện thoại đúng không ạ?
+Người 1: Rất chuẩn. Đó gọi là Mô hình N-gram: Máy tính dự đoán từ hiện tại chỉ dựa vào một vài từ ngay trước nó (Markov assumption).
+
+Slide 4: 24.1 Mô hình Ngôn ngữ (Language Models) (Tiếp theo)
+Người 1: Trên slide là bảng phân loại các Từ loại (POS tags). Để hiểu một câu, việc đầu tiên máy tính làm là dán nhãn cho từng từ: đâu là Danh từ, đâu là Động từ, Tính từ. Tiếng Anh có chuẩn Penn Treebank gồm 45 thẻ từ loại rất phổ biến.
+
+Slide 5: 24.2 Ngữ pháp (Grammar)
+Người 1: Sau khi có từ loại, máy tính phải xếp chúng thành câu có nghĩa. Cú pháp (Syntax) chính là những bộ quy tắc này. Trong NLP, người ta dùng "Ngữ pháp phi ngữ cảnh xác suất" (PCFG). Ví dụ, quy tắc S -> NP + VP nghĩa là Một Câu = Cụm danh từ + Cụm động từ.
+
+Slide 6: 24.2 Ngữ pháp (Grammar) (Tiếp theo)
+Người 1: Slide này cho thấy một đoạn mã của PCFG. Mỗi luật ngữ pháp được gán một con số xác suất, vì trong ngôn ngữ, một cấu trúc có thể phổ biến hơn các cấu trúc khác. Máy tính sẽ ưu tiên luật nào có xác suất cao nhất.
+
+Slide 7: 24.2 Từ vựng (Lexicon)
+Người 1: Để ngữ pháp hoạt động, ta cần một Từ điển (Lexicon). Người ta chia từ vựng làm hai lớp: Lớp Mở (Danh từ, Động từ - có thể đẻ thêm từ mới như "selfie", "google") và Lớp Đóng (Mạo từ, Giới từ - số lượng cố định, ít khi thay đổi).
+
+Slide 8: 24.2 Từ vựng (Lexicon) (Tiếp theo)
+Người 1: Bảng trên slide trích xuất một số từ vựng minh họa. Bạn có thể thấy Đại từ (Pronoun) thì chỉ có I, you, he... nhưng Danh từ thì danh sách dài dằng dặc.
+
+Slide 9: 24.3 Phân tích cú pháp (Parsing)
+Người 1: Bây giờ, làm sao máy tính "đọc" được cấu trúc của một câu cụ thể? Đó là quá trình Phân tích cú pháp (Parsing). Nó giống hệt như một bài toán Tìm kiếm (Search problem). Máy tính sẽ dò dẫm ghép các từ lại với nhau để dựng lên một Cây phân tích hợp lý nhất.
+
+Slide 10: 24.3 Phân tích cú pháp (Parsing) (Tiếp theo)
+Người 1: Slide này biểu diễn việc tìm kiếm từ dưới lên (Bottom-up). Bắt đầu từ từng chữ riêng lẻ "The", "wumpus", "is", "dead", máy gộp "The" và "wumpus" thành Cụm danh từ. Cứ thế ghép dần lên tới đỉnh là chữ S (Sentence).
+
+Slide 11: 24.3 Thuật toán CYK và Cây Cú pháp
+Người 1: Để việc tìm kiếm hiệu quả, người ta dùng Thuật toán Quy hoạch động CYK. Thay vì thử mù quáng, CYK chia nhỏ câu ra và lưu kết quả lại, giảm độ phức tạp xuống đáng kể, giúp máy tính phân tích ngữ pháp trong chớp mắt.
+
+Slide 12: 24.3 Thuật toán CYK và Cây Cú pháp (Tiếp theo)
+Người 1: Đây là đoạn mã giả của thuật toán CYK. Mặc dù trông hơi phức tạp, nhưng bản chất của nó chỉ là lặp qua mọi độ dài cụm từ có thể có và chọn ra cách kết hợp mang lại xác suất tổng thể cao nhất.
+
+Slide 13: 24.3 Thuật toán CYK và Cây Cú pháp (Tiếp theo)
+Người 1: Và kết quả của CYK chính là một Parse Tree hoàn chỉnh như trên hình. Nó cho máy tính thấy rõ ràng kiến trúc phân cấp của câu: Cụm động từ chứa Động từ và Cụm giới từ, Cụm giới từ lại chứa Giới từ và Danh từ.
+
+Slide 14: 24.3 Phân tích Cú pháp Phụ thuộc
+Người 1: Tuy nhiên, không phải ngôn ngữ nào cũng theo trật tự cố định. Với những ngôn ngữ linh hoạt, người ta dùng "Cú pháp phụ thuộc". Ở đây không có Cụm danh từ hay Cụm động từ, mà chỉ có các Mũi tên chỉ rõ: Từ nào bổ nghĩa cho từ nào.
+
+Slide 15: 24.3 Phân tích Cú pháp Phụ thuộc (Tiếp theo)
+Người 1: Bạn nhìn hình trên sẽ thấy sự khác biệt. Cây phân tích phụ thuộc (phía trên) chỉ dùng các đường cong nối trực tiếp giữa các từ. Rất trực quan và hiện nay đang được ứng dụng cực kỳ rộng rãi trong Google, Facebook.
+
+Slide 16: 24.4 Ngữ pháp Tăng cường (Augmented Grammars)
+Người 1: Dù PCFG rất tốt, nó vẫn thất bại trước hiện tượng "Phù hợp số lượng" (Agreement). Chẳng hạn, Chủ ngữ số ít thì Động từ phải thêm 's'. Ngữ pháp cơ bản không kiểm tra được điều này, nên ta phải dùng "Ngữ pháp Tăng cường".
+
+Slide 17: 24.4 Ngữ pháp Tăng cường (Augmented Grammars) (Tiếp theo)
+Người 1: Trên slide là ví dụ về hiện tượng "Di chuyển thành phần" trong câu hỏi. Trong quá trình dịch hoặc hiểu, máy tính phải gắn các vết (traces) để ghi nhớ rằng một từ ở đầu câu thực chất vốn thuộc về vị trí ở cuối câu.
+
+Slide 18: 24.4 Ngữ pháp Tăng cường với Biến
+Người 1: Để giải quyết bài toán "Số ít - Số nhiều", thay vì viết hàng trăm luật mới, ta đưa các "Biến" (Variables) vào luật cũ.
+Người 2: Ồ, giống như viết hàm có tham số trong lập trình ấy ạ?
+Người 1: Chính xác! Luật sẽ trở thành S(ngôi, số) -> NP(ngôi, số) + VP(ngôi, số). Nếu biến "số" của NP là số ít, thì VP cũng bắt buộc phải là số ít.
+
+Slide 19: 24.4 Ngữ pháp Tăng cường với Biến (Tiếp theo)
+Người 1: Slide này minh họa các luật tăng cường đó. Bạn thấy các tham số (Case, Person, Number) đi kèm giúp máy tính phân loại chặt chẽ ngữ pháp mà mã nguồn lại cực kỳ gọn gàng.
+
+Slide 20: 24.4 Diễn giải Ngữ nghĩa (Semantic Interpretation)
+Người 1: Cuối cùng, đỉnh cao của NLP là hiểu Ngữ nghĩa. Máy tính biết cấu trúc rồi, nhưng nó phải gán một "Ý nghĩa logic" cho cấu trúc đó. Ta tuân theo Nguyên lý Hợp thành: Ý nghĩa của cả câu bằng tổng hợp ý nghĩa của từng từ cộng lại.
+
+Slide 21: 24.4 Diễn giải Ngữ nghĩa (Semantic Interpretation) (Tiếp theo)
+Người 1: Hãy lấy ví dụ về phép toán. Ngữ pháp tăng cường không chỉ sinh ra cấu trúc biểu thức, mà mỗi luật ngữ pháp còn gắn kèm một hàm tính giá trị của biểu thức đó (như Exp1 + Exp2).
+
+Slide 22: 24.4 Diễn giải Ngữ nghĩa (Semantic Interpretation) (Tiếp theo)
+Người 1: Khi Cây phân tích phép toán "3 + (4 / 2)" hình thành, máy tính tự động đẩy các giá trị từ dưới lá lên trên gốc, và kết quả "5" được diễn dịch ra ở ngay nút cao nhất.
+
+Slide 23: 24.4 Diễn giải Ngữ nghĩa trong Ngôn ngữ tự nhiên
+Người 1: Với ngôn ngữ tự nhiên, thay vì phép cộng trừ, ta dùng Logic bậc nhất (First-Order Logic) và các Hàm Lambda (Lambda calculus). Khi động từ "Loves" nhận Chủ ngữ là X, Tân ngữ là Y, nó trả về một vị từ Logic là Loves(X,Y).
+
+Slide 24: 24.4 Diễn giải Ngữ nghĩa trong Ngôn ngữ tự nhiên (Tiếp theo)
+Người 1: Sơ đồ trên slide tổng hợp toàn bộ quá trình: Từ một câu đầu vào, máy tính dùng các thuật toán như CYK để xây Cây cú pháp, rồi dùng Hàm Lambda để sinh ra Công thức Logic mô tả chính xác 100% ý nghĩa của câu đó.
+
+Slide 25: Tóm tắt Chương 24
+Người 1: NLP là một thế giới tuyệt diệu. Ta đã đi từ Mô hình N-gram đoán từ, đến Cú pháp PCFG, thuật toán CYK để dựng cây, và cuối cùng là Ngữ pháp tăng cường với Logic Lambda để chiết xuất ngữ nghĩa. Các mô hình hiện đại như BERT hay GPT ngày nay cũng được xây dựng dựa trên những nền tảng hiểu biết sâu sắc về cấu trúc ngôn ngữ này.
+Người 2: Một chương rất hay và logic! Em đã hình dung được cách mà máy tính từng bước "đọc hiểu" tiếng người rồi. Cảm ơn anh.

@@ -1,0 +1,80 @@
+Slide 1: CHƯƠNG 22: HỌC SÂU (Deep Learning)
+Người 1: Chào mừng các bạn đến với Chương 22! Đây chính là trái tim của cuộc cách mạng AI hiện đại: Học Sâu (Deep Learning). Hôm nay, chúng ta sẽ khám phá cách AI mô phỏng cấu trúc của não bộ con người bằng các mạng Nơ-ron khổng lồ để giải quyết những bài toán tưởng chừng bất khả thi.
+Người 2: Thật tuyệt! Cuối cùng chúng ta cũng chạm đến công nghệ đằng sau ChatGPT và xe tự lái rồi.
+
+Slide 2: Nội dung Chương 22
+Người 1: Chương này rất đồ sộ. Ta sẽ khởi đầu bằng Mạng Nơ-ron truyền thẳng cơ bản, cách chúng tính toán đạo hàm tự động. Sau đó là hai kiến trúc huyền thoại: Mạng Tích chập (CNN) cho xử lý ảnh và Mạng Hồi quy (RNN/LSTM) cho ngôn ngữ. Cuối cùng, ta sẽ điểm qua GANs tạo ảnh giả và kỹ thuật Học chuyển giao siêu tiết kiệm.
+
+Slide 3: 22.1 Các Mạng Truyền Thẳng (Feedforward)
+Người 1: Mạng nơ-ron nhân tạo lấy cảm hứng từ sinh học. Ở dạng đơn giản nhất là Mạng truyền thẳng (Feedforward): Dữ liệu đi 1 chiều từ Tầng đầu vào (Input), chạy qua các Tầng ẩn (Hidden), và xả ra ở Tầng đầu ra (Output). Khi số lượng Tầng ẩn lên tới hàng chục hay hàng trăm, người ta gọi đó là Học Sâu (Deep Learning).
+
+Slide 4: 22.1 Hàm kích hoạt (Activation Functions)
+Người 1: Nếu mạng nơ-ron chỉ có cộng và nhân, thì 1000 tầng cũng chỉ tương đương 1 phương trình đường thẳng. Bí quyết để AI "thông minh" nằm ở "Hàm kích hoạt phi tuyến". Nó giúp bẻ cong không gian toán học để khớp với mọi loại dữ liệu phức tạp.
+Người 2: Ngày xưa hay dùng Sigmoid, nhưng giờ nghe nói ReLU mới là chân ái phải không anh?
+Người 1: Chính xác. ReLU rất đơn giản (âm thì bằng 0, dương thì giữ nguyên), nhưng tính toán cực nhanh và khắc phục được lỗi triệt tiêu đạo hàm ở mạng sâu.
+
+Slide 5: 22.1 Hàm kích hoạt (Activation Functions) (Tiếp theo)
+Người 1: Trên slide là đồ thị của các hàm kích hoạt. Bạn có thể thấy ReLU (đường màu xanh dương) có dạng góc cạnh, trong khi Sigmoid và Tanh có dạng chữ S mượt mà nhưng lại bị nằm ngang ở hai đầu - nguyên nhân gây ra hiện tượng chết đạo hàm.
+
+Slide 6: 22.2 Đồ Thị Tính Toán (Computation Graphs)
+Người 1: Làm sao máy tính tính được đạo hàm cho một mạng lưới 100 tầng với hàng triệu biến? Câu trả lời là "Đồ thị tính toán". Mạng Nơ-ron thực chất là một chuỗi các phép nhân/cộng ma trận (Tensor). Nhờ sơ đồ này, các framework như PyTorch có thể tự động dò ngược để giải đạo hàm (AutoGrad).
+
+Slide 7: 22.2 Hàm Mất mát (Loss Functions)
+Người 1: Lớp cuối cùng của mạng quyết định bài toán cần giải. Nếu đoán giá nhà (Hồi quy), ta dùng Loss là Sai số bình phương (MSE). Còn nếu để Phân loại (như nhận diện chó/mèo), ta dùng hàm Softmax ép các giá trị thành tỷ lệ phần trăm 100%, kết hợp với Cross-Entropy Loss để phạt cực nặng những dự đoán sai lầm.
+
+Slide 8: 22.3 Mạng Nơ-ron Tích Chập (CNN)
+Người 1: Bây giờ, hãy nói về Nhận diện hình ảnh. Nếu dùng mạng truyền thẳng cho một bức ảnh 1000x1000, ta cần tới hàng tỷ kết nối, AI sẽ bị tràn RAM ngay lập tức. Giải pháp vĩ đại ở đây là Mạng Tích Chập (CNN). Thay vì nối toàn bộ, CNN dùng một cái "kính lúp" trượt qua từng góc nhỏ của bức ảnh.
+
+Slide 9: 22.3 Hoạt động của Bộ lọc (Filters)
+Người 1: Cái kính lúp đó gọi là Bộ lọc (Filter/Kernel). Một bộ lọc phát hiện "cái tai mèo" có thể được tái sử dụng (chia sẻ trọng số) cho mọi vị trí trên ảnh. Điều này giảm số lượng tham số từ hàng tỷ xuống chỉ còn vài ngàn, mà lại tăng độ chính xác lên cực điểm.
+
+Slide 10: 22.3 Hoạt động của Bộ lọc (Filters) (Tiếp theo)
+Người 1: Ảnh minh họa này cho thấy cách một bộ lọc ma trận 3x3 trượt qua trượt lại trên bức hình gốc, thực hiện phép nhân chập để trích xuất ra một "Bản đồ đặc trưng" mới.
+
+Slide 11: 22.3 Hoạt động của Bộ lọc (Filters) (Tiếp theo)
+Người 1: Ở các tầng dưới cùng, CNN học cách nhận diện góc, cạnh, gờ. Ở các tầng giữa, nó học cách ghép chúng thành mắt, mũi. Và ở tầng cuối, nó nhìn ra toàn bộ khuôn mặt. Khả năng "Học phân cấp" này giống hệt cách vỏ não thị giác của con người hoạt động.
+
+Slide 12: 22.3 Gộp và Mạng thặng dư (ResNet)
+Người 1: Để giảm dung lượng ảnh đi một nửa, ta dùng Tầng Gộp (Max-Pooling). Và khi mạng quá sâu khiến đạo hàm bị triệt tiêu, Microsoft đã phát minh ra ResNet (Mạng thặng dư).
+Người 2: Em nghe nói ResNet dùng "đường tắt" (Skip Connection) đúng không ạ?
+Người 1: Đúng thế! Bằng cách nối tắt đầu vào vượt qua vài tầng ẩn để cộng trực tiếp vào đầu ra, thông tin đạo hàm có thể chảy thông suốt xuyên qua hàng trăm tầng mà không bị nghẽn.
+
+Slide 13: 22.4 Các Thuật Toán Học: Lan truyền ngược
+Người 1: Lan truyền ngược (Backpropagation) là thuật toán thay đổi thế giới. Nó sử dụng "Quy tắc dây chuyền" của Vi tích phân để tính xem: Nếu tôi muốn giảm sai số ở đầu ra đi một chút, thì từng trọng số w tận cùng ở lớp đầu vào phải thay đổi bao nhiêu là vừa?
+
+Slide 14: 22.4 Các Thuật Toán Học: Lan truyền ngược (Tiếp theo)
+Người 1: Sơ đồ này cho thấy quá trình Forward (mũi tên đen) tính toán kết quả từ trái sang phải, sau đó quá trình Backward (mũi tên đỏ) truyền lỗi ngược từ phải sang trái để tự động cập nhật mọi tham số trên toàn mạng.
+
+Slide 15: 22.4 Chuẩn hóa theo lô (Batch Normalization)
+Người 1: Trong quá trình học, các nơ-ron thay đổi liên tục khiến tín hiệu đầu vào của tầng sau bị loạn nhịp. Kỹ thuật "Chuẩn hóa theo lô" (BatchNorm) sẽ nắn lại các giá trị này về lại mức cân bằng (Trung bình bằng 0). Nhờ BatchNorm, ta có thể cho AI học với tốc độ cực nhanh mà không sợ bị sập mô hình.
+
+Slide 16: 22.5 Tránh Khớp quá mức với Dropout
+Người 1: Mạng càng lớn thì càng hay "Học vẹt" (Overfitting). Khắc tinh của học vẹt chính là Dropout. Trong quá trình Training, máy tính sẽ "Bắn tỉa", tắt ngẫu nhiên 50% số nơ-ron.
+Người 2: Đang học mà bị tắt đi thì làm sao nó học được ạ?
+Người 1: Đó chính là điểm tuyệt diệu! Việc này ép các nơ-ron sống sót phải tự nỗ lực hiểu bức ảnh mà không được ỷ lại vào nơ-ron khác. Nó tạo ra sự tự lập và khả năng tổng quát hóa cực kỳ đáng nể.
+
+Slide 17: 22.5 Tránh Khớp quá mức với Dropout (Tiếp theo)
+Người 1: Biểu đồ này chứng minh: Không có Dropout, mạng dễ dàng đạt điểm 10 trên lớp nhưng thi thực tế lại bị điểm thấp. Có Dropout, mạng học chậm hơn một chút nhưng ra thực tế lại chuẩn xác hơn rất nhiều.
+
+Slide 18: 22.6 Mạng Nơ-ron Hồi Quy (RNN)
+Người 1: Nếu CNN là vua hình ảnh, thì Mạng Hồi Quy (RNN) là vua của Dữ liệu chuỗi (Thời gian, Dịch máy). Khi bạn đọc một câu, bạn phải nhớ từ đầu tiên để hiểu từ thứ năm. RNN làm điều này bằng cách tạo ra các "Vòng lặp" (Loops) để truyền Trạng thái ẩn (Trí nhớ) cho bước tiếp theo.
+
+Slide 19: 22.6 Mạng Nơ-ron Hồi Quy (RNN) (Tiếp theo)
+Người 1: Hình ảnh bên trái là một RNN bị cuộn lại. Khi "Trải phẳng" (Unroll) nó ra theo trục thời gian (bên phải), ta thấy bộ nhớ H được truyền liên tục từ t-1 sang t, rồi sang t+1.
+
+Slide 20: 22.6 Mạng LSTM (Long Short-Term Memory)
+Người 1: Nhưng RNN cơ bản bị bệnh "Mất trí nhớ ngắn hạn" - nó sẽ quên mất đầu câu nếu câu quá dài. LSTM ra đời để giải cứu. Bằng cách thiết kế các Cổng (Cổng quên, Cổng cập nhật), LSTM có một "Băng chuyền tế bào" chạy xuyên suốt, giúp nó ghi nhớ thông tin quan trọng qua hàng ngàn bước thời gian.
+
+Slide 21: 22.7 Học Không Giám Sát và GANs
+Người 1: Học sâu không chỉ để phân loại, nó còn để "Sáng tạo". Thuật toán GAN (Mạng đối nghịch sinh) sử dụng 2 mạng nơ-ron đánh nhau. Mạng "Kẻ làm giả" cố vẽ ra một bức ảnh giả. Mạng "Cảnh sát" cố soi xem đó là ảnh thật hay giả.
+Người 2: Hai bên cứ đấu với nhau thì Kẻ làm giả sẽ ngày càng lên tay, đến mức vẽ ra ảnh người thật mà mắt ta không phân biệt được!
+
+Slide 22: 22.7 Học Không Giám Sát và GANs (Tiếp theo)
+Người 1: Chính xác! Trên slide là ví dụ về GAN. Mạng Generator sinh ra những khuôn mặt người hoàn toàn không có thật trên đời, nhưng mọi chi tiết về da, tóc, ánh sáng đều hoàn hảo đến đáng sợ.
+
+Slide 23: 22.7 Học Chuyển Giao (Transfer Learning)
+Người 1: Cuối cùng, làm sao bạn có thể huấn luyện Deep Learning nếu bạn không có siêu máy tính hàng triệu đô la? Hãy dùng "Học chuyển giao". Tải một bộ não AI đã được Google luyện sẵn. Ta đóng băng các tầng cơ sở của nó, và chỉ dùng một xíu dữ liệu của mình để dạy lại tầng cuối cùng (Fine-tuning). Kết quả vẫn đỉnh cao mà chỉ tốn vài phút chạy.
+
+Slide 24: Tóm tắt Chương 22
+Người 1: Tổng kết lại: Học sâu (Deep Learning) chính là sức mạnh của các Mạng truyền thẳng sâu thẳm, sự tối ưu của Lan truyền ngược và AutoGrad. Tích chập CNN đã thống trị thị giác máy tính, còn RNN/LSTM giải quyết hoàn hảo bài toán chuỗi thời gian. Cuộc cách mạng AI chỉ mới bắt đầu!
+Người 2: Một chương thực sự bùng nổ kiến thức. Cảm ơn anh đã giải thích rất dễ hiểu.

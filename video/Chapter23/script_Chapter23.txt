@@ -1,0 +1,70 @@
+Slide 1: CHƯƠNG 23: HỌC TĂNG CƯỜNG (Reinforcement Learning)
+Người 1: Chào mừng các bạn đến với Chương 23! Đây là chương được mong chờ nhất: Học tăng cường. Đã bao giờ bạn tự hỏi làm sao AI có thể chơi Cờ Vây hay chơi game mượt mà như con người chưa? Chìa khóa chính là việc thả AI vào môi trường và dạy nó học từ "Phần thưởng".
+Người 2: Nghe giống như huấn luyện thú cưng quá anh nhỉ! Làm đúng thì cho kẹo, làm sai thì bị phạt.
+
+Slide 2: Nội dung Chương 23
+Người 1: Hoàn toàn chính xác! Chương này gồm 7 phần. Từ khái niệm cơ bản về Phần thưởng, chúng ta sẽ đi vào Học thụ động, Học chủ động, Q-Learning. Kế đến là Học tăng cường sâu (Deep RL). Rồi học cách tìm chính sách tối ưu, học ngược từ chuyên gia, và cuối cùng là khám phá những ứng dụng siêu kinh điển trong thực tế.
+
+Slide 3: 23.1 Học từ các Phần thưởng
+Người 1: Trong Học tăng cường, chúng ta có Tác nhân (Agent) và Môi trường (Environment). Tác nhân thực hiện hành động, môi trường phản hồi lại một "Phần thưởng" và chuyển sang trạng thái mới. Mục tiêu tối thượng của Tác nhân là tự học ra một "Chính sách" (Policy) - tức là một bảng hướng dẫn: ở đâu thì làm gì để tối đa hóa tổng phần thưởng thu được.
+
+Slide 4: 23.1 Học từ các Phần thưởng (Tiếp theo)
+Người 1: Sơ đồ trên bảng là một môi trường Lưới 4x3. Tác nhân phải né những ô mang điểm trừ và tìm đường đi đến đích mang điểm cộng. Mỗi mũi tên ở từng ô chính là Chính sách tối ưu mà nó đã học được.
+
+Slide 5: 23.2 Học tăng cường thụ động (Passive RL)
+Người 1: Hãy bắt đầu với Học thụ động. Ở chế độ này, Tác nhân ngoan ngoãn làm theo một Chính sách có sẵn. Nhiệm vụ của nó không phải là tìm đường mới, mà chỉ là Đi dạo và Đánh giá xem: "Theo chính sách này thì trạng thái hiện tại đáng giá bao nhiêu điểm?".
+
+Slide 6: 23.2 Quy hoạch động thích ứng (ADP)
+Người 1: Để đánh giá, Tác nhân dùng "Quy hoạch động thích ứng" (ADP). Nó vừa đi vừa tự học quy luật vật lý của Môi trường (Ví dụ: bấm sang trái thì có bao nhiêu phần trăm đi đúng sang trái). Khi biết quy luật rồi, nó dùng Phương trình Bellman để giải ra điểm số của toàn bộ bản đồ.
+
+Slide 7: 23.2 Quy hoạch động thích ứng (ADP) (Tiếp theo)
+Người 1: Slide này mô phỏng cách Tác nhân ADP hoạt động. Nó kết hợp giữa Việc quan sát, Học hàm chuyển đổi trạng thái và Liên tục giải hệ phương trình thỏa dụng cho đến khi hội tụ.
+
+Slide 8: 23.2 Học theo Chênh lệch Thời gian (TD)
+Người 1: Giải phương trình ADP rất chậm và tốn kém. Phương pháp "Chênh lệch thời gian" (TD Learning) khôn ngoan hơn: Nó hoàn toàn bỏ qua việc học quy luật môi trường. Nó chỉ tin vào Trải nghiệm.
+Người 2: Tức là nó học bằng cảm giác thay vì lý thuyết ạ?
+Người 1: Đúng thế! Nó cập nhật điểm số trạng thái A thông qua sự "Chênh lệch" với trạng thái B mà nó vừa nhảy tới. 
+
+Slide 9: 23.2 Học theo Chênh lệch Thời gian (TD) (Tiếp theo)
+Người 1: Hình ảnh này so sánh cách TD Learning nhảy những bước nhỏ cập nhật dần dần, trái ngược với việc tính toán một cục khổng lồ của ADP. Tuy TD chạy nhanh hơn, nhưng cần nhiều lần chơi hơn để ổn định.
+
+Slide 10: 23.3 Học tăng cường chủ động (Active RL)
+Người 1: Bây giờ, ta sang Học chủ động (Active RL). Tác nhân bị quăng vào môi trường với cái đầu trắng tinh, không có Chính sách nào cả. Nó phải tự lần mò, thử nghiệm mọi thứ để tìm ra con đường tốt nhất.
+
+Slide 11: 23.3 Khám phá vs Khai thác
+Người 1: Và đây là bài toán đau đầu nhất của trí tuệ nhân tạo: "Khám phá hay Khai thác".
+Người 2: Giống như việc đi ăn nhà hàng: Nên quay lại quán phở quen thuộc (Khai thác), hay liều đi thử quán mới xem có ngon hơn không (Khám phá).
+Người 1: Quá chuẩn! Nếu khai thác mãi, AI sẽ kẹt ở cực đại cục bộ. Nếu khám phá mãi, AI sẽ rơi xuống vực chết. Cân bằng hai yếu tố này là nghệ thuật của AI.
+
+Slide 12: 23.3 Thuật toán Q-Learning
+Người 1: Trong Học chủ động, "Q-Learning" là vị vua. Thay vì đánh giá Trạng thái, Q-Learning đánh giá "Hành động" (Q-value). Nó cho biết: Đứng ở ô này mà bấm nút Lên thì đáng giá bao nhiêu điểm. Nhờ phương trình Q-Learning, Tác nhân không thèm quan tâm luật của trò chơi là gì, cứ chạy bừa rồi tự khắc khôn ra!
+
+Slide 13: 23.3 Thuật toán Q-Learning (Tiếp theo)
+Người 1: Thuật toán Q-Learning trên slide minh họa cách Tác nhân chọn hành động dựa trên hàm Q, quan sát phần thưởng, và cập nhật lại bảng Q sau mỗi bước chân. Vô cùng mạnh mẽ và thực dụng.
+
+Slide 14: 23.4 Khái quát hóa trong RL
+Người 1: Nếu chơi Cờ Vây có tới 10 mũ 170 trạng thái, ta không thể nào lưu nổi bảng Q-value. Giải pháp là dùng một Hàm toán học (Ví dụ như Mạng Nơ-ron) để Xấp xỉ. Nhờ đó, AI học 1 ván cờ có thể tự suy luận ra (Khái quát hóa) cách đánh cho hàng triệu ván cờ tương tự.
+
+Slide 15: 23.4 Học tăng cường sâu (Deep RL)
+Người 1: Khi kết hợp Q-Learning với mạng Nơ-ron nhiều tầng, ta có Deep Q-Networks (DQN). Đây chính là thứ đã giúp Google DeepMind dạy AI chơi các trò Atari vô đối chỉ bằng cách "nhìn" vào điểm ảnh trên màn hình như con người.
+
+Slide 16: 23.5 Tìm kiếm chính sách (Policy Search)
+Người 1: Nếu hành động là liên tục, ví dụ "vặn vô lăng 23.5 độ", việc tìm hàm Q rất khó. Ta dùng "Tìm kiếm chính sách". Mạng Nơ-ron không tính điểm, mà tính trực tiếp "Xác suất hành động": 80% vặn trái, 20% vặn phải. Nếu vặn trái mà được thưởng, AI sẽ tăng xác suất vặn trái lên.
+
+Slide 17: 23.6 Học tăng cường Ngược (IRL)
+Người 1: Ngoài ra còn có Học tăng cường Ngược (IRL). Đôi khi, việc viết một hàm Phần thưởng an toàn cho Robot là quá khó.
+Người 2: Vậy mình dạy nó kiểu gì? Cầm tay chỉ việc ạ?
+Người 1: Chính xác là Học Việc (Apprenticeship). Chuyên gia con người làm mẫu, AI sẽ tự động "đảo ngược" để suy đoán xem hàm Phần thưởng ẩn trong đầu chuyên gia là gì, rồi tự tối ưu theo nó.
+
+Slide 18: 23.7 Các Ứng dụng Thực tế
+Người 1: Học tăng cường có những ứng dụng chấn động lịch sử. Từ TD-Gammon vô địch cờ thỏ cáo, cho đến AlphaGo đánh bại Lee Sedol ở môn Cờ Vây. AlphaGo không dùng hàm tìm kiếm thông thường, mà nó tự chơi với chính nó hàng triệu lần để luyện trực giác.
+
+Slide 19: 23.7 Điều khiển Robot
+Người 1: Một ứng dụng khủng khiếp khác là Điều khiển Robot. Viện Stanford đã dạy trực thăng bay lộn ngược một cách hoàn hảo nhờ IRL. Kỹ thuật này cũng là nền móng cốt lõi để đào tạo ô tô Tự lái (Self-driving cars).
+
+Slide 20: 23.7 Điều khiển Robot (Tiếp theo)
+Người 1: Hình minh họa này là bài toán "Cartpole" - dạy AI cách đẩy xe lăn sang trái phải để cái gậy không bị đổ. Dù có vẻ đơn giản, nhưng nguyên lý này giúp robot Atlas của Boston Dynamics có thể nhảy Parkour lộn vòng.
+
+Slide 21: Tóm tắt Chương 23
+Người 1: Tóm lại, Học tăng cường mô phỏng quá trình sinh tồn tự nhiên của trí tuệ: Thử nghiệm, Lấy phần thưởng, và Tự tối ưu. Từ Q-Learning phi mô hình, cho đến Deep RL mạnh mẽ, Học tăng cường chính là bước cuối cùng để biến một cỗ máy tính toán thành một thực thể thực sự thông minh và có khả năng tương tác độc lập với thế giới thực.
+Người 2: Khái niệm Khám phá - Khai thác và DQN thực sự làm em mê mẩn. Em đã hiểu được cách AI tự làm chủ thế giới rồi!

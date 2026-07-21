@@ -1,0 +1,65 @@
+Slide 1: CHƯƠNG 20: TRI THỨC TRONG HỌC TẬP
+Người 1: Chào mừng các bạn đến với Chương 20! Đã bao giờ các bạn tự hỏi: Tại sao AI cần hàng triệu bức ảnh mới nhận ra con mèo, trong khi một đứa trẻ chỉ cần nhìn một con mèo là nhớ cả đời? Câu trả lời nằm ở "Tri thức nền". Hôm nay, chúng ta sẽ học cách đưa "Tri thức" (Knowledge) vào quá trình học của AI để giúp nó thông minh hơn gấp bội.
+Người 2: Nghe thật hấp dẫn! Có nghĩa là ta dạy cho AI một chút kiến thức chung chung trước, để nó tự suy luận những cái còn lại đúng không anh?
+
+Slide 2: Nội dung Chương 20
+Người 1: Đúng vậy! Chương này gồm 5 phần. Đầu tiên ta tìm hiểu cách biểu diễn logic của việc học. Sau đó đi sâu vào vai trò của Tri thức nền. Tiếp theo là kỹ thuật EBL (Học qua Giải thích). Kế đến là cách lọc thông tin tương quan. Và cuối cùng là Lập trình Logic Quy nạp (ILP) - sự kết hợp giữa logic và học máy.
+
+Slide 3: 20.1 Biểu diễn Logic của Học tập
+Người 1: Khác với việc tìm một hàm số toán học như Hồi quy, trong khung tư duy Logic, Học tập là quá trình đi tìm một "Giả thuyết" h. Giả thuyết này là một tập hợp các mệnh đề logic biểu diễn quy luật thế giới. Một giả thuyết được coi là đúng đắn nếu nó khớp với mọi ví dụ trong tập dữ liệu.
+
+Slide 4: 20.1 Tìm kiếm Giả thuyết Tốt nhất (Current-best)
+Người 1: Thuật toán đầu tiên là "Tìm kiếm Giả thuyết tốt nhất". AI lấy một giả thuyết ngẫu nhiên. Nếu thấy ví dụ bị Dương tính giả, nó sẽ bóp giả thuyết cho "Đặc thù hơn". Nếu thấy Âm tính giả, nó sẽ mở rộng giả thuyết cho "Tổng quát hơn". Cứ thế chỉnh sửa dần.
+
+Slide 5: 20.1 Tìm kiếm Giả thuyết Tốt nhất (Current-best) (Tiếp theo)
+Người 1: Sơ đồ trên slide minh họa cách không gian giả thuyết bị thay đổi qua từng lần gặp lỗi. Dù khá trực quan, nhưng nhược điểm lớn nhất là thuật toán hay bị kẹt ở "Cực tiểu cục bộ" do phải vội vã đưa ra quyết định mà chưa biết toàn bộ bức tranh.
+
+Slide 6: 20.1 Không gian phiên bản (Version Space)
+Người 1: Để khắc phục, ta có thuật toán "Không gian phiên bản" (Version Space). Thay vì ôm một giả thuyết rồi sửa chữa, ta giữ lại TẤT CẢ giả thuyết nào còn đúng, loại dần những giả thuyết sai. Cách biểu diễn tinh tế nhất là chỉ cần giữ lại 2 đường biên: G-set (Tập tổng quát nhất) và S-set (Tập đặc thù nhất).
+
+Slide 7: 20.1 Không gian phiên bản (Version Space) (Tiếp theo)
+Người 1: Đồ thị này minh họa rất rõ ranh giới của Không gian phiên bản. Cứ mỗi lần gặp thêm một ví dụ, ranh giới G và S sẽ thu hẹp lại. Đến khi hai ranh giới này gặp nhau, ta tìm ra được giả thuyết tối ưu cuối cùng mà không bao giờ sợ bị đi sai hướng.
+
+Slide 8: 20.2 Tri thức trong Học tập
+Người 1: Quay lại ví dụ lúc nãy. Con người học rất nhanh vì chúng ta có Tri thức nền. Đứa trẻ thấy khỉ ăn chuối sẽ suy ra "Động vật cần ăn để sống" vì nó biết Khỉ là Động vật. Bài toán của AI là làm sao nhúng cái mớ "Tri thức nền" đó vào để máy tính bỏ qua những ví dụ hiển nhiên, tăng tốc độ học.
+
+Slide 9: 20.2 Lược đồ Diễn dịch & Quy nạp
+Người 1: Có hai lối đi chính khi kết hợp Tri thức. Một là "Học Diễn dịch": Từ tri thức có sẵn, ta suy ra kết luận logic chắc chắn. Hai là "Học Quy nạp": Từ các ví dụ nhỏ lẻ kết hợp với Tri thức nền, ta đi tìm ngược lại các định luật, quy tắc tổng quát.
+
+Slide 10: 20.3 Học tập Dựa trên Giải thích (EBL)
+Người 1: Kỹ thuật đầu tiên là "Học dựa trên Giải thích" (EBL). Bạn cứ tưởng tượng nó giống như việc bạn giải một bài toán đạo hàm siêu khó. Lần đầu giải, bạn mất 1 tiếng. Nhưng EBL sẽ giúp AI phân tích cách giải đó, rút ra quy luật cốt lõi, lưu lại làm "Công thức tính tắt" để lần sau gặp bài tương tự chỉ mất 1 giây.
+Người 2: Ồ! Vậy EBL không tạo ra tri thức gì mới, mà nó chỉ giúp máy tính học mẹo để chạy nhanh hơn.
+
+Slide 11: 20.3 Quá trình Trích xuất trong EBL
+Người 1: Đúng thế! Bốn bước cơ bản của EBL là: Xây dựng cây chứng minh từ quá trình giải bài toán; Phân tích và vứt bỏ những chi tiết thừa; Khái quát hóa nó thành một luật trừu tượng; và cuối cùng nạp luật đó vào cơ sở dữ liệu.
+
+Slide 12: 20.3 Học tập Dựa trên Giải thích (EBL) (Tiếp theo)
+Người 1: Trên slide là Cây chứng minh của EBL. Việc cắt tỉa các nhánh cây dư thừa giúp AI đi thẳng từ Nguyên nhân ban đầu đến Kết quả cuối cùng trong một bước nhảy logic.
+
+Slide 13: 20.3 Sự đánh đổi hiệu suất (Utility Problem)
+Người 1: Nhưng hãy cẩn thận! Việc lưu quá nhiều "Công thức tắt" có thể phản tác dụng. Nếu cái gì AI cũng lưu lại, thư viện tri thức sẽ phình to ra hàng triệu công thức. Đến lúc đó, thời gian để tìm ra công thức phù hợp còn lâu hơn là tự giải từ đầu. Người ta gọi đó là Utility Problem.
+
+Slide 14: 20.4 Học sử dụng Thông tin Tương quan
+Người 1: Kỹ thuật thứ hai dùng Tri thức nền là Học thông tin tương quan. Nhờ Tri thức, AI biết ngay "Ngôn ngữ mẹ đẻ" là quan trọng khi đoán quốc tịch, còn "Màu áo đang mặc" là vô nghĩa. Bằng cách vứt bỏ màu áo khỏi phương trình, AI tiết kiệm được khối lượng tính toán khổng lồ.
+
+Slide 15: 20.5 Lập trình Logic Quy nạp (ILP)
+Người 1: Và giờ là phần hay nhất: Lập trình Logic Quy nạp (ILP). Học máy thông thường tạo ra một hàm toán học. Nhưng ILP thì đỉnh hơn, nó tạo ra hẳn một "Chương trình Logic". Nhờ đó, ILP có thể học được các mối quan hệ đa dạng và đệ quy.
+
+Slide 16: 20.5 Điểm vượt trội của ILP so với Cây Quyết định
+Người 1: Lấy ví dụ Bài toán Gia phả: Đoán xem ai là Ông Nội. Cây quyết định thông thường hoàn toàn bó tay vì không thể móc nối các biến với nhau. Nhưng ILP thì khác. Chỉ từ vài ví dụ, nó suy luận ngay ra công thức: Ông nội là Cha của Cha. Cực kỳ ngắn gọn và chính xác.
+
+Slide 17: 20.5 Điểm vượt trội của ILP so với Cây Quyết định (Tiếp theo)
+Người 1: Slide trình bày một cây gia phả. Với một mạng lưới quan hệ lằng nhằng thế này, các thuật toán thống kê chỉ thấy toàn là nhiễu, nhưng với ILP, nó nhìn thấy một cấu trúc đồ thị mạch lạc.
+
+Slide 18: 20.5 Học quy nạp từ trên xuống (Top-Down)
+Người 1: Làm sao ILP sinh ra được giả thuyết? Nó đi từ trên xuống (Top-down) thông qua thuật toán FOIL. Thuật toán này liên tục ghép thêm các điều kiện logic (bằng phép AND) vào mệnh đề ban đầu cho đến khi nó loại trừ hoàn toàn mọi ví dụ sai, chỉ giữ lại ví dụ đúng.
+
+Slide 19: Phác thảo Thuật toán FOIL
+Người 1: Hình ảnh trên slide là mã giả của thuật toán FOIL. Bạn có thể thấy nó rất giống cách Cây quyết định dùng Information Gain để chọn thuộc tính phân tách tốt nhất, chỉ khác là FOIL hoạt động trên Logic Bậc Nhất.
+
+Slide 20: 20.5 Học quy nạp với Diễn dịch đảo ngược
+Người 1: Một cách tiếp cận tinh vi hơn nữa của ILP là "Diễn dịch đảo ngược". Logic thông thường cho nguyên nhân, ta tìm kết quả. Còn ở đây, ta thấy kết quả, có một vài sự kiện, ta đi "đảo ngược chứng minh" để suy ra Nguyên nhân gốc rễ. Nhờ khả năng này, ILP được dùng để tìm quy luật gập cuộn Protein siêu phức tạp trong y học.
+
+Slide 21: Tóm tắt Chương 20
+Người 1: Để tóm tắt lại Chương 20, chúng ta cần nhớ: Tri thức nền chính là chìa khóa để AI học nhanh như con người. EBL tăng tốc suy luận bằng cách lưu quy tắc tắt. Còn Lập trình Logic Quy nạp (ILP) là đỉnh cao của sự kết hợp giữa logic và học máy, giúp AI sinh ra được những chương trình logic mới từ các ví dụ.
+Người 2: Em hiểu rồi! AI không chỉ cần nhiều dữ liệu, mà nó cần phải "có học thức" trước khi phân tích dữ liệu thì mới thực sự thông minh được.

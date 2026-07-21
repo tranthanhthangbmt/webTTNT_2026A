@@ -1,0 +1,69 @@
+Slide 1: CHƯƠNG 21: HỌC CÁC MÔ HÌNH XÁC SUẤT
+Người 1: Chào mừng các bạn đến với Chương 21! Trong các chương trước, chúng ta đã nhắc nhiều đến Xác suất. Tuy nhiên, làm sao AI biết được xác suất đó bằng bao nhiêu mà tính? Ví dụ: làm sao AI biết xác suất tung đồng xu là 0.5 hay 0.6? Câu trả lời sẽ có trong chương này: Học các mô hình xác suất từ dữ liệu.
+Người 2: Nghĩa là AI sẽ nhìn vào đống dữ liệu khổng lồ để tự suy ra các con số xác suất đó hả anh?
+
+Slide 2: Nội dung Chương 21
+Người 1: Chính xác! Chương này gồm 3 nội dung chính. Đầu tiên, chúng ta sẽ tìm hiểu khái niệm Học máy Thống kê. Sau đó là phương pháp Học khi Dữ liệu đầy đủ hoàn hảo. Và cuối cùng là bài toán "khoai" nhất thực tế: Học mô hình khi Dữ liệu bị thiếu hoặc chứa các biến ẩn thông qua siêu thuật toán EM.
+
+Slide 3: 21.1 Học máy Thống kê
+Người 1: Khác với logic tuyệt đối Trắng/Đen, Học máy thống kê nhìn thế giới mờ ảo hơn. Nó coi dữ liệu là các sự kiện quan sát được. Mục tiêu của nó là đi tìm một Bộ tham số (ký hiệu là Theta) có khả năng sinh ra hoặc giải thích đống dữ liệu đó hợp lý nhất.
+
+Slide 4: 21.2 Học với Dữ liệu Đầy đủ
+Người 1: Nếu tập dữ liệu hoàn hảo, không bị thiếu sót, phương pháp kinh điển nhất được dùng là MLE (Cực đại hóa khả năng). Nguyên lý của MLE cực kỳ đơn giản: Bộ tham số tốt nhất là bộ tham số làm cho xác suất sinh ra tập dữ liệu hiện tại là cao nhất.
+
+Slide 5: 21.2 Học với Dữ liệu Đầy đủ (Tiếp theo)
+Người 1: Đồ thị này minh họa sức mạnh của lượng dữ liệu. Khi dữ liệu còn ít, các dự đoán xác suất nhảy múa lung tung, nhưng khi dữ liệu càng lớn, nó hội tụ tuyệt đối về một đường thẳng - biểu diễn cho xác suất thật của thế giới.
+
+Slide 6: 21.2 Cực đại hóa Khả năng Log (Log-Likelihood)
+Người 1: Tuy nhiên, việc nhân hàng triệu xác suất nhỏ bé với nhau sẽ khiến máy tính bị "Tràn số bộ nhớ" (Underflow). Giải pháp toán học xuất sắc ở đây là dùng hàm Logarit. Hàm Logarit biến phép "Nhân" thành phép "Cộng", giúp máy tính tính toán siêu nhanh và đạo hàm vô cùng dễ dàng.
+Người 2: Hóa ra đó là lý do mọi hàm suy hao (Loss function) trong Deep Learning hiện nay đều có chữ "Log".
+
+Slide 7: 21.2 Mô hình Sinh vs. Phân biệt
+Người 1: Dựa trên xác suất, ta chia Học máy làm 2 phe. Phe "Mô hình Sinh" (Generative) cố gắng học toàn bộ quá trình tạo ra dữ liệu, tức là nó tìm quy luật chung của cả 2 lớp. Còn phe "Mô hình Phân biệt" (Discriminative) thì cục súc hơn, nó chỉ tập trung học cách vẽ đường ranh giới chia 2 lớp đó ra mà thôi.
+
+Slide 8: 21.2 Mô hình Sinh vs. Phân biệt (Tiếp theo)
+Người 1: Hãy nhìn sơ đồ này. Mô hình sinh (trái) cố ôm trọn các đám mây dữ liệu. Còn mô hình phân biệt (phải) chỉ quan tâm vẽ ra đường cắt ở giữa. Do đó, mô hình phân biệt thường có độ chính xác cao hơn khi lượng dữ liệu dồi dào.
+
+Slide 9: 21.2 Học tham số Bayes
+Người 1: Điểm yếu chí mạng của MLE là nó rất cực đoan khi dữ liệu ít. Ví dụ, bạn tung đồng xu 3 lần ra ngửa, MLE kết luận: Đồng xu này 100% ngửa. Để khắc phục, ta dùng "Học tham số Bayes", tức là đưa "Niềm tin ban đầu" (Prior Knowledge) của con người vào để làm mềm (Smooth) các dự đoán đó.
+
+Slide 10: 21.2 Ứng dụng của Học tham số Bayes
+Người 1: Phương pháp này có tên là MAP (Maximum A Posteriori). Lúc đầu, AI tin xác suất là 0.5. Sau vài lần tung, nó chỉ hơi dịch chuyển xác suất chứ không dám chốt ngay là 100%. Khi dữ liệu lên đến hàng ngàn lần tung, sự nghi ngờ ban đầu dần biến mất và MAP sẽ hội tụ về đúng y như MLE.
+
+Slide 11: 21.2 Ứng dụng của Học tham số Bayes (Tiếp theo)
+Người 1: Các đường cong (phân phối Beta) trên slide thể hiện hình dáng của Niềm tin Bayes. Đường càng nhọn, nghĩa là AI càng tự tự tin vào phán đoán của mình sau khi hấp thụ một lượng dữ liệu đủ lớn.
+
+Slide 12: 21.3 Học với Biến ẩn: Dữ liệu bị thiếu
+Người 1: Trong thực tế, dữ liệu vô cùng tồi tệ. Bệnh án thì thiếu trang, báo cáo thì gõ nhầm. Thậm chí có những biến gọi là "Biến ẩn" - ta biết nó tồn tại nhưng không thể đo đạc được (Ví dụ: Tâm trạng của khách hàng).
+
+Slide 13: 21.3 Học với Biến ẩn: Dữ liệu bị thiếu (Tiếp theo)
+Người 1: Sự xuất hiện của Nút màu xám (Biến ẩn) làm mạng lưới phức tạp lên gấp bội. Vì bị khuyết dữ liệu, ta không thể dùng phương pháp đếm tần suất đơn giản như MLE được nữa.
+
+Slide 14: 21.3 Tại sao cần Thuật toán EM?
+Người 1: Chúng ta bị kẹt trong vòng lặp Con gà - Quả trứng. Nếu biết Biến ẩn, ta tính được Tham số. Nếu biết Tham số, ta tính được Biến ẩn. Nhưng khổ nỗi, ta chả biết cái nào cả! Thế là "Thuật toán EM" (Expectation-Maximization) ra đời để phá vỡ bế tắc.
+
+Slide 15: 21.3 Nguyên lý của Thuật toán EM
+Người 1: EM là một thuật toán "khởi động mù". Đầu tiên, nó tung bừa một bộ tham số. Sau đó, nó dùng tham số này "Đoán bừa" (Kỳ vọng - Bước E) giá trị của các biến bị khuyết. Tiếp theo, nó coi giá trị đoán bừa đó là "Dữ liệu thật", rồi tính lại bộ tham số mới tốt hơn (Bước M). Nó lặp đi lặp lại trò này cho đến khi 2 bên hoàn toàn ăn khớp.
+Người 2: Thuật toán này thật ranh mãnh! Dùng đồ giả tạo đồ thật, cuối cùng ra kết quả thật!
+
+Slide 16: 21.3 Hỗn hợp Gaussian (Mixtures of Gaussians)
+Người 1: Một ứng dụng đỉnh cao của EM là thuật toán Gom cụm GMM. Tưởng tượng dữ liệu là những đám mây chồng lấp lên nhau, hoàn toàn không có nhãn. EM sẽ tự động thả k phân phối ngẫu nhiên vào đó.
+
+Slide 17: 21.3 Hỗn hợp Gaussian (Mixtures of Gaussians) (Tiếp theo)
+Người 1: Hình ảnh trên slide minh họa cách EM dịch chuyển các đám mây (phân phối Gaussian). Qua mỗi vòng lặp E-M, các vòng tròn này tự động to ra, thu lại, và xoay quanh tâm cho đến khi bao bọc trọn vẹn từng cụm dữ liệu riêng biệt.
+
+Slide 18: 21.3 Gom cụm mềm bằng EM
+Người 1: Khác với thuật toán k-Means truyền thống (gom cụm cứng), GMM do EM điều khiển cung cấp Gom cụm mềm (Soft Clustering). Nó không ép một người chỉ được thích thể loại Nhạc Rock. Nó sẽ tính ra xác suất: 80% Rock, 20% Pop. Rất tinh tế!
+
+Slide 19: 21.3 Học tham số cho Mạng Bayes với biến ẩn
+Người 1: Thuật toán EM cũng là vị cứu tinh cho các hệ thống Mạng Bayes phức tạp. Ví dụ bạn muốn đoán loại kẹo mà không được xem vỏ. Bằng cách quan sát số lượng kẹo chua/ngọt qua hàng ngàn mẫu, EM tự động nội suy ra được vỏ kẹo có màu gì.
+
+Slide 20: 21.3 Học tham số cho Mạng Bayes với biến ẩn (Tiếp theo)
+Người 1: Đồ thị hàm Log-Likelihood ở đây cho thấy khi chạy EM, đường cong đi lên liên tục. EM không bao giờ làm cho mô hình tệ đi. Nó chỉ có tốt lên qua mỗi vòng lặp cho đến khi chạm đỉnh.
+
+Slide 21: 21.3 Ứng dụng EM trong Mô hình Markov ẩn
+Người 1: Không chỉ vậy, EM còn được ứng dụng vào Mô hình Markov ẩn (HMM) dưới cái tên Baum-Welch. Nếu bạn từng dùng nhận dạng giọng nói hay phần mềm phân tích gen DNA, nền tảng của nó chính là EM đang hoạt động ngầm để tìm ra các biến trạng thái bị giấu kín đấy.
+
+Slide 22: Tóm tắt Chương 21
+Người 1: Tóm tắt lại Chương 21: Nếu bạn có đủ dữ liệu, hãy dùng MLE hoặc MAP để tìm ra bộ tham số tốt nhất thông qua đạo hàm của Log-Likelihood. Còn nếu dữ liệu của bạn thủng lỗ chỗ hoặc có biến ẩn, đừng hoảng, hãy giao việc đó cho Thuật toán EM vĩ đại. EM sẽ dùng thủ thuật E-M lặp lại để vá lỗi và tự điều chỉnh cho đến khi hoàn hảo.
+Người 2: Tuyệt vời! Từ giờ em đã hết bỡ ngỡ với khái niệm "Cực đại hóa khả năng" hay "Thuật toán EM" rồi.

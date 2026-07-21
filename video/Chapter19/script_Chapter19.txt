@@ -1,0 +1,85 @@
+Slide 1: CHƯƠNG 19: HỌC TỪ CÁC VÍ DỤ
+Người 1: Chào mừng các bạn đến với Chương 19! Kể từ chương này, chúng ta sẽ bước sang một kỷ nguyên mới của Trí tuệ nhân tạo. Thay vì phải "lập trình bằng tay" từng quy tắc logic cho máy tính, chúng ta sẽ bắt máy tính tự "Học từ các ví dụ". Đó chính là khái niệm Học Máy hay Machine Learning.
+Người 2: Thật tuyệt vời! Thay vì dạy cá cách bơi, ta ném nó vào nước và để nó tự học.
+
+Slide 2: Nội dung Chương 19
+Người 1: Chương này bao quát những thuật toán Học Máy kinh điển nhất. Ta sẽ đi từ các Hình thức Học tập, đến phương pháp Học có giám sát. Sau đó, ta sẽ tìm hiểu Cây Quyết định, Hồi quy tuyến tính, Thuật toán Gradient Descent. Cuối cùng là những thuật toán rất mạnh như SVM, KNN và Học Cụm tổng hợp (Ensemble).
+
+Slide 3: 19.1 Các Hình thức Học tập (Forms of Learning)
+Người 1: Một tác nhân AI được gọi là "biết học" nếu trải nghiệm giúp nó làm việc tốt hơn. Trong AI có 3 trường phái học tập chính: Học không giám sát là tự tìm quy luật, Học tăng cường là thử - sai để nhận phần thưởng, và Học có giám sát là học từ một bộ dữ liệu đã được con người gán nhãn đáp án.
+
+Slide 4: 19.2 Học có Giám sát (Supervised Learning)
+Người 1: Chúng ta sẽ đi sâu vào "Học có giám sát". Tưởng tượng bạn có 1000 bức ảnh, mỗi ảnh đều được con người ghi rõ là ảnh "Chó" hay "Mèo". Đầu vào X là bức ảnh, đầu ra Y là nhãn. Mục tiêu của AI là tự xây dựng một "Hàm giả thuyết" h(X) sao cho khi đưa một bức ảnh mới toanh vào, nó vẫn đoán đúng là Chó hay Mèo.
+Người 2: Nếu kết quả đoán là chữ (như Chó/Mèo) thì gọi là Phân loại. Còn nếu đoán ra một con số liên tục như Giá nhà thì gọi là Hồi quy phải không anh?
+Người 1: Hoàn toàn chính xác!
+
+Slide 5: 19.3 Học từ Cây Quyết định (Decision Trees)
+Người 1: Thuật toán đầu tiên và cũng là thuật toán dễ hiểu nhất với con người: Cây Quyết Định. Nó giống như trò chơi 20 câu hỏi (IF-THEN). Bằng cách liên tục đặt câu hỏi đúng/sai cho các thuộc tính, AI sẽ chia nhỏ dữ liệu ra cho đến khi tìm được đáp án cuối cùng.
+
+Slide 6: Cây Quyết định cho bài toán Nhà hàng
+Người 1: Ví dụ như bài toán "Có nên chờ bàn ở nhà hàng này không?". AI sẽ xét xem: Trong nhà hàng có đông khách không? Hôm nay có phải cuối tuần không? Thời gian chờ là bao lâu? Từ những đặc trưng đó, AI vẽ ra một cái cây quyết định như trên slide.
+
+Slide 7: 19.3 Chọn Thuộc tính (Entropy & Info Gain)
+Người 1: Vấn đề khó nhất khi xây Cây quyết định là: Phải chọn câu hỏi nào để hỏi ĐẦU TIÊN (Nút gốc) nhằm giúp cây ngắn nhất? Ta dùng công thức "Entropy" để đo mức độ hỗn loạn của dữ liệu. Sau đó dùng "Mức tăng thông tin" (Information Gain) để xem thuộc tính nào chia tách dữ liệu tốt nhất, gọn gàng nhất.
+
+Slide 8: 19.3 Chọn Thuộc tính (Entropy & Info Gain) (Tiếp theo)
+Người 1: Hình ảnh trên slide minh họa cách tính Information Gain. Nếu ta chọn một thuộc tính tồi, dữ liệu chia ra vẫn bị trộn lẫn lộn giữa YES và NO. Nhưng nếu chọn thuộc tính tốt, dữ liệu sẽ được phân tách cực kỳ rạch ròi, tiết kiệm rất nhiều câu hỏi phụ.
+
+Slide 9: 19.3 Overfitting và Cắt tỉa (Pruning)
+Người 1: Tuy nhiên, Cây Quyết định có một điểm yếu chết người: Khớp quá mức (Overfitting). Nếu ta cho cái cây mọc quá sâu, nó sẽ "học vẹt" mọi điểm nhiễu trong dữ liệu huấn luyện, thay vì học quy luật chung. Hậu quả là đem đi thực tế, nó sẽ đoán sai bét.
+Người 2: Giống như một học sinh học thuộc lòng cả dấu chấm phẩy trong đề cương, nhưng vào thi bị đổi số là không biết làm.
+Người 1: Rất chuẩn. Để chống học vẹt, ta phải "Cắt tỉa" (Pruning) cái cây. Chặt bỏ những nhánh quá sâu không mang lại thông tin thực chất.
+
+Slide 10: 19.3 Overfitting và Cắt tỉa (Pruning) (Tiếp theo)
+Người 1: Đồ thị này minh họa rất rõ hiện tượng Overfitting. Khi số lượng nút trên cây tăng (cây quá sâu), tỷ lệ lỗi trên tập huấn luyện (đường xanh) giảm dần về 0. Nhưng tỷ lệ lỗi trên tập Validation (đường đỏ) lại tăng vọt. Đó là dấu hiệu cây đang bị tẩu hỏa nhập ma vì học vẹt.
+
+Slide 11: 19.4 Lựa chọn Mô hình & Đánh giá chéo
+Người 1: Để kiểm soát AI tốt hơn, ta không bao giờ dùng toàn bộ dữ liệu để dạy nó. Ta phải chia thành 3 phần: Tập Train để học, Tập Validation để thi thử và điều chỉnh, Tập Test để thi thật. Phương pháp "Đánh giá chéo" (K-Fold Cross Validation) giúp mô hình được xoay vòng thi thử nhiều lần để đảm bảo độ tin cậy.
+
+Slide 12: 19.4 Lựa chọn Mô hình & Đánh giá chéo (Tiếp theo)
+Người 1: Slide trình bày quy trình Đánh giá chéo. Dữ liệu được cắt làm 5 phần. Mỗi lần lặp, ta lấy 4 phần để học, 1 phần để kiểm tra. Làm liên tục 5 vòng rồi tính điểm trung bình.
+
+Slide 13: 19.4 Hàm Suy hao (Loss) & Regularization
+Người 1: Để AI biết mình đang đoán đúng hay đoán sai, ta dùng "Hàm Suy hao" (Loss Function). Càng đoán sai nhiều, Loss càng cao. Ngược lại với Overfitting, để ép AI học luật đơn giản thay vì luật phức tạp, ta dùng kỹ thuật "Chính quy hóa" (Regularization). AI sẽ bị phạt nặng nếu dùng mô hình quá cồng kềnh.
+
+Slide 14: 19.5 Học PAC (Theory of Learning)
+Người 1: Phần này giới thiệu Học PAC. Toán học lý thuyết cung cấp một công thức để chứng minh rằng: Nếu bạn cung cấp đủ MỘT SỐ LƯỢNG ví dụ nhất định, thì xác suất rất cao là AI sẽ học được một mô hình xấp xỉ chính xác với thực tế. Giúp ta yên tâm rằng AI thực sự học chứ không đoán mò.
+
+Slide 15: 19.6 Hồi quy Tuyến tính (Linear Regression)
+Người 1: Chuyển sang mô hình Hồi quy Tuyến tính. Thay vì vẽ cây, mô hình này cố gắng vẽ một "Đường thẳng" đi xuyên qua các điểm dữ liệu sao cho khoảng cách từ các điểm tới đường thẳng là ngắn nhất. 
+
+Slide 16: Phân loại Tuyến tính (Linear Classification)
+Người 1: Tương tự, Phân loại Tuyến tính dùng một đường thẳng (hay Siêu phẳng) để cắt ngang không gian, chia dữ liệu thành 2 nửa: Một nửa là Chó, nửa kia là Mèo.
+
+Slide 17: 19.6 Suy giảm độ dốc (Gradient Descent)
+Người 1: Nhưng làm sao để tìm ra phương trình của đường thẳng đó? Ta dùng "Suy giảm độ dốc" (Gradient Descent) - xương sống của AI hiện đại. Tưởng tượng AI đang đứng mù mờ trên một đỉnh núi, nó sẽ dò dốc bằng chân để từng bước đi xuống điểm thấp nhất (điểm có Loss nhỏ nhất).
+Người 2: Bước đi dài hay ngắn thì được gọi là "Tốc độ học" (Learning Rate) đúng không ạ? Bước to quá thì trượt mất đáy, bước nhỏ quá thì đi rất chậm.
+
+Slide 18: 19.7 Học máy phi tham số & k-NN
+Người 1: Cả cây quyết định hay đường thẳng đều là mô hình "Có tham số". Học xong là vứt dữ liệu đi. Còn k-NN (k-Láng giềng gần nhất) là mô hình "Phi tham số". Bạn phải giữ lại toàn bộ dữ liệu. Khi có điểm mới xuất hiện, nó sẽ nhìn sang k người hàng xóm gần nhất xem họ là ai, rồi "bỏ phiếu đa số" để tự gán nhãn cho mình.
+
+Slide 19: Hình ảnh So sánh Ranh giới quyết định tạo bởi k-NN
+Người 1: Hình này cho thấy ranh giới của 1-NN rất gồ ghề và nham nhở vì nó quá nhạy cảm với dữ liệu nhiễu. Trong khi đó 5-NN tạo ra ranh giới phân loại mượt mà và tổng quát hóa tốt hơn nhiều.
+
+Slide 20: 19.7 Máy vector hỗ trợ (SVM)
+Người 1: Xin giới thiệu "Máy Vector Hỗ Trợ" (SVM) - thuật toán từng thống trị thế giới trước khi Deep Learning ra đời. Thay vì vẽ một đường thẳng phân chia bình thường, SVM đi tìm "Đường Lề cực đại".
+Người 2: Có phải là nó cố đẩy đường ranh giới ra xa nhất có thể so với các điểm dữ liệu của cả 2 lớp không anh?
+
+Slide 21: 19.7 Máy vector hỗ trợ (SVM) (Tiếp theo)
+Người 1: Đúng vậy! Hình vẽ minh họa một siêu phẳng phân ranh giới rất chắc chắn. Những điểm nằm sát mép lề nhất được gọi là "Vector hỗ trợ". Chúng chính là những điểm quyết định toàn bộ vị trí của đường ranh giới.
+
+Slide 22: 19.7 Kỹ thuật Hạt nhân (Kernel Trick) trong SVM
+Người 1: Nhưng nếu dữ liệu cuộn tròn vào nhau, không thể dùng đường thẳng cắt qua thì sao? Bí kíp của SVM là "Kernel Trick". Nó sẽ bẻ cong không gian, bắn dữ liệu lên không gian 3D, thậm chí vô hạn chiều, sao cho ở trên đó, chúng ta có thể chém 1 nhát mặt phẳng phẳng lỳ để chia tách dữ liệu.
+
+Slide 23: 19.8 Học Cụm tổng hợp (Ensemble Learning)
+Người 1: "Một cá nhân có thể sai, nhưng đám đông sẽ đúng". Đó là triết lý của Học Cụm tổng hợp. Thay vì dùng 1 mô hình, ta dùng hàng trăm mô hình khác nhau rồi cho chúng bỏ phiếu chung. Bagging là cách tạo ra các bộ dữ liệu nhỏ ngẫu nhiên cho từng mô hình để tránh học vẹt.
+
+Slide 24: 19.8 Học Cụm tổng hợp (Ensemble Learning) (Tiếp theo)
+Người 1: Sơ đồ trên cho thấy: Từ dữ liệu gốc, ta chia ra nhiều tập nhỏ, huấn luyện nhiều Mô hình h_i, sau đó gom (Aggregate) tất cả dự đoán lại để cho ra quyết định cuối cùng chính xác nhất.
+
+Slide 25: 19.8 Rừng ngẫu nhiên (Random Forests) & Boosting
+Người 1: Nếu ta áp dụng Bagging cho hàng ngàn Cây quyết định, ta có thuật toán "Rừng Ngẫu Nhiên". Còn nếu ta dạy các cây nối tiếp nhau, cây sau đi sửa sai cho cây trước, tập trung vào những ca khó nhất, ta gọi đó là thuật toán "Boosting". Boosting biến một lũ học sinh kém thành một tập thể xuất chúng.
+
+Slide 26: Tóm tắt Chương 19
+Người 1: Tóm lại, Chương 19 là một trong những chương quan trọng nhất. Học máy đã thay đổi tư duy làm AI: Hãy đưa dữ liệu, để máy tự học. Từ sự ngây ngô của k-NN, sự tinh tế của Cây quyết định, sức mạnh toán học của Gradient Descent, sự ảo diệu của SVM Kernel Trick, đến sức mạnh đám đông của Ensemble. AI ngày nay đã có thể tự xây dựng những hàm số để hiểu thế giới!
+Người 2: Kiến thức thật đồ sộ nhưng rất liền mạch. Em đã hiểu được nền tảng của mọi hệ thống AI hiện đại rồi!
