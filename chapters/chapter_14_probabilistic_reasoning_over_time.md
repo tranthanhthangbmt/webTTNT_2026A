@@ -55,136 +55,81 @@
 
 #### **Bài tập**
 
+
 ##### Bài tập 14.1
 
-We have a bag of three biased coins $a$, $b$, and $c$ with probabilities
-of coming up heads of 20%, 60%, and 80%, respectively. One coin is drawn
-randomly from the bag (with equal likelihood of drawing each of the
-three coins), and then the coin is flipped three times to generate the
-outcomes $X_1$, $X_2$, and $X_3$.<br>
+Chúng ta có một túi gồm ba đồng xu không cân bằng $a$, $b$, và $c$ với xác suất ra mặt ngửa lần lượt là 20%, 60%, và 80%. Một đồng xu được rút ngẫu nhiên từ túi (với xác suất rút mỗi đồng xu là như nhau), sau đó đồng xu được lật ba lần để tạo ra các kết quả $X_1$, $X_2$, và $X_3$.<br>
 
-1.  Draw the Bayesian network corresponding to this setup and define the
-    necessary CPTs.<br>
+1.  Vẽ mạng Bayes tương ứng với thiết lập này và định nghĩa các CPT cần thiết.<br>
 
-2.  Calculate which coin was most likely to have been drawn from the bag
-    if the observed flips come out heads twice and tails once.
+2.  Tính toán đồng xu nào có khả năng được rút ra từ túi nhất nếu các lần lật quan sát được cho ra hai mặt ngửa và một mặt sấp.
 
 
 ---
 
 ##### Bài tập 14.2
 
-We have a bag of three biased coins $a$, $b$, and $c$ with probabilities
-of coming up heads of 30%, 60%, and 75%, respectively. One coin is drawn
-randomly from the bag (with equal likelihood of drawing each of the
-three coins), and then the coin is flipped three times to generate the
-outcomes $X_1$, $X_2$, and $X_3$.<br>
+Chúng ta có một túi gồm ba đồng xu không cân bằng $a$, $b$, và $c$ với xác suất ra mặt ngửa lần lượt là 30%, 60%, và 75%. Một đồng xu được rút ngẫu nhiên từ túi (với xác suất rút mỗi đồng xu là như nhau), sau đó đồng xu được lật ba lần để tạo ra các kết quả $X_1$, $X_2$, và $X_3$.<br>
 
-1.  Draw the Bayesian network corresponding to this setup and define the
-    necessary CPTs.<br>
+1.  Vẽ mạng Bayes tương ứng với thiết lập này và định nghĩa các CPT cần thiết.<br>
 
-2.  Calculate which coin was most likely to have been drawn from the bag
-    if the observed flips come out heads twice and tails once.<br>
+2.  Tính toán đồng xu nào có khả năng được rút ra từ túi nhất nếu các lần lật quan sát được cho ra hai mặt ngửa và một mặt sấp.<br>
 
 
 ---
 
 ##### Bài tập 14.3
 
-Equation (<a href="#">parameter-joint-repn-equation</a> on
-page <a class="pageRef" title="" href="#">parameter-joint-repn-equation</a> defines the joint distribution represented by a
-Bayesian network in terms of the parameters
-$\theta(X_i{{\,|\,}}{Parents}(X_i))$. This exercise asks you to derive
-the equivalence between the parameters and the conditional probabilities
-${\textbf{ P}}(X_i{{\,|\,}}{Parents}(X_i))$ from this definition.<br>
+Phương trình (<a href="#">parameter-joint-repn-equation</a> trên trang <a class="pageRef" title="" href="#">parameter-joint-repn-equation</a> định nghĩa phân phối liên hợp được biểu diễn bởi một mạng Bayes theo các tham số $\theta(X_i{{\,|\,}}{Parents}(X_i))$. Bài tập này yêu cầu bạn suy ra sự tương đương giữa các tham số và xác suất có điều kiện ${\textbf{ P}}(X_i{{\,|\,}}{Parents}(X_i))$ từ định nghĩa này.<br>
 
-1.  Consider a simple network $X\rightarrow Y\rightarrow Z$ with three
-    Boolean variables. Use
-    Equations (<a class="equationRef" title="" href="#">conditional-probability-equation</a> and (<a class="pageRef" title="" href="#">marginalization-equation</a>
-    (pages <a href="#">conditional-probability-equation</a> and <a href="#">marginalization-equation</a>)
-    to express the conditional probability $P(z{{\,|\,}}y)$ as the ratio of two sums, each over entries in the
-    joint distribution ${\textbf{P}}(X,Y,Z)$.<br>
+1.  Xem xét một mạng đơn giản $X\rightarrow Y\rightarrow Z$ với ba biến Boolean. Sử dụng các phương trình (<a class="equationRef" title="" href="#">conditional-probability-equation</a> và (<a class="pageRef" title="" href="#">marginalization-equation</a> (trang <a href="#">conditional-probability-equation</a> và <a href="#">marginalization-equation</a>) để biểu diễn xác suất có điều kiện $P(z{{\,|\,}}y)$ dưới dạng tỷ lệ của hai tổng, mỗi tổng trên các mục trong phân phối liên hợp ${\textbf{P}}(X,Y,Z)$.<br>
 
-2.  Now use Equation (<a class="equationRef" title="" href="#">parameter-joint-repn-equation</a> to
-    write this expression in terms of the network parameters
-    $\theta(X)$, $\theta(Y{{\,|\,}}X)$, and $\theta(Z{{\,|\,}}Y)$.<br>
+2.  Bây giờ sử dụng Phương trình (<a class="equationRef" title="" href="#">parameter-joint-repn-equation</a> để viết biểu thức này theo các tham số mạng $\theta(X)$, $\theta(Y{{\,|\,}}X)$, và $\theta(Z{{\,|\,}}Y)$.<br>
 
-3.  Next, expand out the summations in your expression from part (b),
-    writing out explicitly the terms for the true and false values of
-    each summed variable. Assuming that all network parameters satisfy
-    the constraint
-    $\sum_{x_i} \theta(x_i{{\,|\,}}{parents}(X_i)){{\,=\,}}1$, show
-    that the resulting expression reduces to $\theta(z{{\,|\,}}y)$.<br>
+3.  Tiếp theo, khai triển các phép tổng trong biểu thức của bạn từ phần (b), viết rõ ràng các số hạng cho các giá trị đúng và sai của mỗi biến được tổng. Giả sử rằng tất cả các tham số mạng thỏa mãn ràng buộc $\sum_{x_i} \theta(x_i{{\,|\,}}{parents}(X_i)){{\,=\,}}1$, chứng minh rằng biểu thức kết quả rút gọn thành $\theta(z{{\,|\,}}y)$.<br>
 
-4.  Generalize this derivation to show that
-    $\theta(X_i{{\,|\,}}{Parents}(X_i)) = {\textbf{P}}(X_i{{\,|\,}}{Parents}(X_i))$
-    for any Bayesian network.<br>
+4.  Tổng quát hóa suy luận này để chứng minh rằng $\theta(X_i{{\,|\,}}{Parents}(X_i)) = {\textbf{P}}(X_i{{\,|\,}}{Parents}(X_i))$ cho bất kỳ mạng Bayes nào.<br>
 
 
 ---
 
 ##### Bài tập 14.4
 
-The <b>arc reversal</b> operation of in a Bayesian network allows us to change the direction
-of an arc $X\rightarrow Y$ while preserving the joint probability
-distribution that the network represents <a class="paperRef" title="" href="">Shachter:1986</a>. Arc reversal
-may require introducing new arcs: all the parents of $X$ also become
-parents of $Y$, and all parents of $Y$ also become parents of $X$.<br>
+Thao tác <b>đảo ngược cung</b> trong mạng Bayes cho phép chúng ta thay đổi hướng của một cung $X\rightarrow Y$ trong khi vẫn bảo toàn phân phối xác suất liên hợp mà mạng biểu diễn <a class="paperRef" title="" href="">Shachter:1986</a>. Đảo ngược cung có thể yêu cầu giới thiệu các cung mới: tất cả các cha của $X$ cũng trở thành cha của $Y$, và tất cả các cha của $Y$ cũng trở thành cha của $X$.<br>
 
-1.  Assume that $X$ and $Y$ start with $m$ and $n$ parents,
-    respectively, and that all variables have $k$ values. By calculating
-    the change in size for the CPTs of $X$ and $Y$, show that the total
-    number of parameters in the network cannot decrease during
-    arc reversal. (<i>Hint</i>: the parents of $X$ and $Y$ need
-    not be disjoint.)<br>
+1.  Giả sử $X$ và $Y$ ban đầu có lần lượt $m$ và $n$ cha, và tất cả các biến có $k$ giá trị. Bằng cách tính toán sự thay đổi kích thước cho CPT của $X$ và $Y$, chứng minh rằng tổng số tham số trong mạng không thể giảm trong quá trình đảo ngược cung. (<i>Gợi ý</i>: các cha của $X$ và $Y$ không nhất thiết phải rời nhau.)<br>
 
-2.  Under what circumstances can the total number remain constant?<br>
+2.  Trong trường hợp nào thì tổng số có thể không đổi?<br>
 
-3.  Let the parents of $X$ be $\textbf{U} \cup \textbf{V}$ and the parents of $Y$ be
-    $\textbf{V} \cup \textbf{W}$, where $\textbf{U}$ and $\textbf{W}$ are disjoint. The formulas for the
-    new CPTs after arc reversal are as follows: $$\begin{aligned}
-    {\textbf{P}}(Y | \textbf{U},\textbf{V},\textbf{W}) &=& \sum_x {\textbf{P}}(Y | \textbf{V},\textbf{W}, x) {\textbf{P}}(x | \textbf{U}, \textbf{V}) \\
-    {\textbf{P}}(X | \textbf{U},\textbf{V},\textbf{W}, Y) &=& {\textbf{P}}(Y | X, \textbf{V}, \textbf{W}) {\textbf{P}}(X | \textbf{U}, \textbf{V}) / {\textbf{P}}(Y | \textbf{U},\textbf{V},\textbf{W})\ .\end{aligned}$$
-    Prove that the new network expresses the same joint distribution
-    over all variables as the original network.
+3.  Đặt các cha của $X$ là $\textbf{U} \cup \textbf{V}$ và các cha của $Y$ là $\textbf{V} \cup \textbf{W}$, trong đó $\textbf{U}$ và $\textbf{W}$ là rời nhau. Các công thức cho CPT mới sau khi đảo ngược cung như sau: $$\begin{aligned} {\textbf{P}}(Y | \textbf{U},\textbf{V},\textbf{W}) &=& \sum_x {\textbf{P}}(Y | \textbf{V},\textbf{W}, x) {\textbf{P}}(x | \textbf{U}, \textbf{V}) \\ {\textbf{P}}(X | \textbf{U},\textbf{V},\textbf{W}, Y) &=& {\textbf{P}}(Y | X, \textbf{V}, \textbf{W}) {\textbf{P}}(X | \textbf{U}, \textbf{V}) / {\textbf{P}}(Y | \textbf{U},\textbf{V},\textbf{W})\ .\end{aligned}$$
+    Chứng minh rằng mạng mới biểu diễn cùng một phân phối liên hợp trên tất cả các biến như mạng ban đầu.<br>
 
 
 ---
 
 ##### Bài tập 14.5
 
-Consider the Bayesian network in
-Figure <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/burglary-figure.png">burglary-figure.</a><br>
+Xem xét mạng Bayes trong Hình <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/burglary-figure.png">burglary-figure.</a><br>
 
-1.  If no evidence is observed, are ${Burglary}$ and ${Earthquake}$
-    independent? Prove this from the numerical semantics and from the
-    topological semantics.<br>
+1.  Nếu không có bằng chứng nào được quan sát, thì ${Burglary}$ và ${Earthquake}$ có độc lập không? Chứng minh điều này từ ngữ nghĩa số học và từ ngữ nghĩa tô pô.<br>
 
-2.  If we observe ${Alarm}{{\,=\,}}{true}$, are ${Burglary}$ and
-    ${Earthquake}$ independent? Justify your answer by calculating
-    whether the probabilities involved satisfy the definition of
-    conditional independence.
+2.  Nếu chúng ta quan sát ${Alarm}{{\,=\,}}{true}$, thì ${Burglary}$ và ${Earthquake}$ có độc lập không? Giải thích câu trả lời của bạn bằng cách tính toán xem các xác suất liên quan có thỏa mãn định nghĩa về sự độc lập có điều kiện hay không.<br>
 
 
 ---
 
 ###### Bài tập 14.6
 
-Suppose that in a Bayesian network containing an unobserved variable
-$Y$, all the variables in the Markov blanket ${MB}(Y)$ have been
-observed.<br>
+Giả sử rằng trong một mạng Bayes chứa một biến chưa được quan sát $Y$, tất cả các biến trong mạng Markov ${MB}(Y)$ đã được quan sát.<br>
 
-1.  Prove that removing the node $Y$ from the network will not affect
-    the posterior distribution for any other unobserved variable in
-    the network.<br>
+1.  Chứng minh rằng việc loại bỏ nút $Y$ khỏi mạng sẽ không ảnh hưởng đến phân phối hậu nghiệm cho bất kỳ biến chưa được quan sát nào khác trong mạng.<br>
 
-2.  Discuss whether we can remove $Y$ if we are planning to use (i)
-    rejection sampling and (ii) likelihood weighting.<br>
+2.  Thảo luận xem chúng ta có thể loại bỏ $Y$ hay không nếu chúng ta dự định sử dụng (i) lấy mẫu loại trừ và (ii) trọng số khả năng.<br>
 
 
     <figure>
       <img src="https://aimacode.github.io/aima-exercises/figures/handedness1.svg" alt="handedness-figure" id="handedness-figure" style="width:100%">
-      <figcaption><center><b>Three possible structures for a Bayesian network describing genetic inheritance of handedness.</b></center></figcaption>
+      <figcaption><center><b>Ba cấu trúc có thể có cho một mạng Bayes mô tả sự di truyền thuận tay.</b></center></figcaption>
     </figure>
 
 
@@ -192,54 +137,29 @@ observed.<br>
 
 ##### Bài tập 14.7
 
-Let $H_x$ be a random variable denoting the
-handedness of an individual $x$, with possible values $l$ or $r$. A
-common hypothesis is that left- or right-handedness is inherited by a
-simple mechanism; that is, perhaps there is a gene $G_x$, also with
-values $l$ or $r$, and perhaps actual handedness turns out mostly the
-same (with some probability $s$) as the gene an individual possesses.
-Furthermore, perhaps the gene itself is equally likely to be inherited
-from either of an individual’s parents, with a small nonzero probability
-$m$ of a random mutation flipping the handedness.<br>
+Đặt $H_x$ là một biến ngẫu nhiên biểu thị thuận tay của một cá nhân $x$, với các giá trị có thể là $l$ hoặc $r$. Một giả thuyết phổ biến là thuận tay trái hoặc phải được di truyền theo một cơ chế đơn giản; nghĩa là, có lẽ có một gen $G_x$, cũng có các giá trị $l$ hoặc $r$, và có lẽ thuận tay thực tế phần lớn giống nhau (với một xác suất $s$) như gen mà một cá nhân sở hữu. Hơn nữa, có lẽ gen tự nó có khả năng được di truyền như nhau từ một trong hai cha mẹ của một cá nhân, với một xác suất nhỏ khác không $m$ của một đột biến ngẫu nhiên làm đảo ngược thuận tay.<br>
 
-1.  Which of the three networks in
-    Figure <a class="insideExercisesFigRef" href="#handedness-figure">handedness-figure</a> claim that
-    $ {\textbf{P}}(G_{father},G_{mother},G_{child}) = {\textbf{P}}(G_{father}){\textbf{P}}(G_{mother}){\textbf{P}}(G_{child})$?<br>
+1.  Ba mạng nào trong Hình <a class="insideExercisesFigRef" href="#handedness-figure">handedness-figure</a> khẳng định rằng $ {\textbf{P}}(G_{father},G_{mother},G_{child}) = {\textbf{P}}(G_{father}){\textbf{P}}(G_{mother}){\textbf{P}}(G_{child})$?<br>
 
-2.  Which of the three networks make independence claims that are
-    consistent with the hypothesis about the inheritance of handedness?<br>
+2.  Ba mạng nào đưa ra các khẳng định độc lập nhất quán với giả thuyết về sự di truyền thuận tay?<br>
 
-3.  Which of the three networks is the best description of the
-    hypothesis?<br>
+3.  Ba mạng nào là mô tả tốt nhất cho giả thuyết?<br>
 
-4.  Write down the CPT for the $G_{child}$ node in network (a), in
-    terms of $s$ and $m$.<br>
+4.  Viết bảng CPT cho nút $G_{child}$ trong mạng (a), theo $s$ và $m$.<br>
 
-5.  Suppose that
-    $P(G_{father}{{\,=\,}}l)=P(G_{mother}{{\,=\,}}l)=q$. In
-    network (a), derive an expression for $P(G_{child}{{\,=\,}}l)$
-    in terms of $m$ and $q$ only, by conditioning on its parent nodes.<br>
+5.  Giả sử rằng $P(G_{father}{{\,=\,}}l)=P(G_{mother}{{\,=\,}}l)=q$. Trong mạng (a), hãy suy ra một biểu thức cho $P(G_{child}{{\,=\,}}l)$ chỉ theo $m$ và $q$, bằng cách điều kiện hóa trên các nút cha của nó.<br>
 
-6.  Under conditions of genetic equilibrium, we expect the distribution
-    of genes to be the same across generations. Use this to calculate
-    the value of $q$, and, given what you know about handedness in
-    humans, explain why the hypothesis described at the beginning of
-    this question must be wrong.<br>
+6.  Trong điều kiện cân bằng di truyền, chúng ta mong đợi phân phối gen sẽ giống nhau qua các thế hệ. Sử dụng điều này để tính giá trị của $q$, và, dựa trên những gì bạn biết về thuận tay ở người, giải thích tại sao giả thuyết được mô tả ở đầu câu hỏi này phải sai.<br>
 
 
 ---
 
 ###### Bài tập 14.8
 
-The <b>Markov
-blanket</b> of a variable is defined on page <a href="#">markov-blanket-page</a>.
-Prove that a variable is independent of all other variables in the
-network, given its Markov blanket and derive
-Equation (<a class="equationRef" title="" href="#">markov-blanket-equation</a>)
-(page <a class="pageRef" title="" href="#">markov-blanket-equation</a>).
+<b>Mạng Markov</b> của một biến được định nghĩa trên trang <a href="#">markov-blanket-page</a>. Chứng minh rằng một biến độc lập với tất cả các biến khác trong mạng, khi biết mạng Markov của nó và suy ra Phương trình (<a class="equationRef" title="" href="#">markov-blanket-equation</a>) (trang <a class="pageRef" title="" href="#">markov-blanket-equation</a>).
 <figure>
   <img src="https://aimacode.github.io/aima-exercises/figures/car-starts.svg" alt="car-starts-figure" id="car-starts-figure" style="width:100%">
-    <figcaption><center><b>A Bayesian network describing some features of a car's electrical system and engine. Each variable is Boolean, and the <i>true</i> value indicates that the corresponding aspect of the vehicle is in working order.</b></center></figcaption>
+    <figcaption><center><b>Một mạng Bayes mô tả một số đặc điểm của hệ thống điện và động cơ ô tô. Mỗi biến là Boolean, và giá trị <i>true</i> cho biết khía cạnh tương ứng của xe đang hoạt động tốt.</b></center></figcaption>
 </figure>
 
 
@@ -247,172 +167,95 @@ Equation (<a class="equationRef" title="" href="#">markov-blanket-equation</a>)
 
 ##### Bài tập 14.9
 
-Consider the network for car diagnosis shown in
-Figure <a class="insideExercisesFigRef" href="#car-starts-figure">car-starts-figure</a><br>.
+Xem xét mạng cho chẩn đoán ô tô được hiển thị trong Hình <a class="insideExercisesFigRef" href="#car-starts-figure">car-starts-figure</a><br>.
 
-1.  Extend the network with the Boolean variables ${IcyWeather}$ and
-    ${StarterMotor}$.<br>
+1.  Mở rộng mạng với các biến Boolean ${IcyWeather}$ và ${StarterMotor}$.<br>
 
-2.  Give reasonable conditional probability tables for all the nodes.<br>
+2.  Đưa ra các bảng xác suất có điều kiện hợp lý cho tất cả các nút.<br>
 
-3.  How many independent values are contained in the joint probability
-    distribution for eight Boolean nodes, assuming that no conditional
-    independence relations are known to hold among them?<br>
+3.  Có bao nhiêu giá trị độc lập trong phân phối xác suất liên hợp cho tám nút Boolean, giả sử không có mối quan hệ độc lập có điều kiện nào được biết là đúng giữa chúng?<br>
 
-4.  How many independent probability values do your network tables
-    contain?<br>
+4.  Các bảng mạng của bạn chứa bao nhiêu giá trị xác suất độc lập?<br>
 
-5.  The conditional distribution for ${Starts}$ could be described as
-    a <b>noisy-AND</b> distribution. Define this
-    family in general and relate it to the noisy-OR distribution.
+5.  Phân phối có điều kiện cho ${Starts}$ có thể được mô tả là phân phối <b>noisy-AND</b>. Định nghĩa họ này nói chung và liên hệ nó với phân phối noisy-OR.<br>
 
 
 ---
 
 ##### Bài tập 14.10
 
-Consider a simple Bayesian network with root variables ${Cold}$,
-${Flu}$, and ${Malaria}$ and child variable ${Fever}$, with a
-noisy-OR conditional distribution for ${Fever}$ as described in
-Section <a class="sectionRef" title="" href="#">canonical-distribution-section</a>. By adding
-appropriate auxiliary variables for inhibition events and fever-inducing
-events, construct an equivalent Bayesian network whose CPTs (except for
-root variables) are deterministic. Define the CPTs and prove
-equivalence.
+Xem xét họ mạng Bayes tuyến tính Gaussian, như được định nghĩa trên trang <a class="pageRef" title="" href="#">LG-network-page</a><br>.
+
+1.  Trong một mạng hai biến, đặt $X_1$ là cha của $X_2$, đặt $X_1$ có phân phối tiên nghiệm Gaussian, và đặt ${\textbf{P}}(X_2{{\,|\,}}X_1)$ là một phân phối Gaussian tuyến tính. Chứng minh rằng phân phối liên hợp $P(X_1,X_2)$ là một Gaussian đa biến, và tính toán ma trận hiệp phương sai của nó.<br>
+
+2.  Chứng minh bằng quy nạp rằng phân phối liên hợp cho một mạng Gaussian tuyến tính tổng quát trên $X_1,\ldots,X_n$ cũng là một Gaussian đa biến.<br>
 
 
 ---
 
 ##### Bài tập 14.11
 
-Consider the family of linear Gaussian networks, as
-defined on page <a class="pageRef" title="" href="#">LG-network-page</a><br>.
+Phân phối probit được định nghĩa trên trang <a class="pageRef" title="" href="#">probit-page</a> mô tả phân phối xác suất cho một con có điều kiện Boolean, khi biết một cha liên tục duy nhất.<br>
 
-1.  In a two-variable network, let $X_1$ be the parent of $X_2$, let
-    $X_1$ have a Gaussian prior, and let
-    ${\textbf{P}}(X_2{{\,|\,}}X_1)$ be a linear
-    Gaussian distribution. Show that the joint distribution $P(X_1,X_2)$
-    is a multivariate Gaussian, and calculate its covariance matrix.<br>
+1.  Định nghĩa có thể được mở rộng như thế nào để bao gồm nhiều cha liên tục?<br>
 
-2.  Prove by induction that the joint distribution for a general linear
-    Gaussian network on $X_1,\ldots,X_n$ is also a
-    multivariate Gaussian.<br>
+2.  Nó có thể được mở rộng như thế nào để xử lý một biến con <i>đa giá trị</i>? Xem xét cả hai trường hợp mà các giá trị của con được sắp xếp (như khi chọn số truyền khi lái xe, tùy thuộc vào tốc độ, độ dốc, gia tốc mong muốn, v.v.) và các trường hợp mà chúng không được sắp xếp (như khi chọn xe buýt, tàu hỏa hoặc ô tô để đi làm). (<i>Gợi ý</i>: Xem xét các cách để chia các giá trị có thể có thành hai tập hợp, để bắt chước một biến Boolean.)<br>
 
 
 ---
 
 ##### Bài tập 14.12
 
-The probit distribution defined on
-page <a class="pageRef" title="" href="#">probit-page</a> describes the probability distribution for a Boolean
-child, given a single continuous parent.<br>
+Tại nhà máy điện hạt nhân địa phương của bạn, có một báo động cảm nhận khi một đồng hồ đo nhiệt độ vượt quá một ngưỡng nhất định. Đồng hồ đo nhiệt độ của lõi. Xem xét các biến Boolean $A$ (báo động kêu), $F_A$ (báo động bị lỗi), và $F_G$ (đồng hồ đo bị lỗi) và các nút đa giá trị $G$ (chỉ số đồng hồ đo) và $T$ (nhiệt độ lõi thực tế).<br>
 
-1.  How might the definition be extended to cover multiple continuous
-    parents?<br>
+1.  Vẽ một mạng Bayes cho miền này, với giả định rằng đồng hồ đo có nhiều khả năng bị lỗi khi nhiệt độ lõi quá cao.<br>
 
-2.  How might it be extended to handle a <i>multivalued</i>
-    child variable? Consider both cases where the child’s values are
-    ordered (as in selecting a gear while driving, depending on speed,
-    slope, desired acceleration, etc.) and cases where they are
-    unordered (as in selecting bus, train, or car to get to work).
-    (<i>Hint</i>: Consider ways to divide the possible values
-    into two sets, to mimic a Boolean variable.)
+2.  Mạng của bạn có phải là một polytree không? Tại sao có hoặc tại sao không?<br>
+
+3.  Giả sử chỉ có hai nhiệt độ thực tế và đo được có thể có, bình thường và cao; xác suất đồng hồ đo cho nhiệt độ chính xác là $x$ khi nó hoạt động, nhưng $y$ khi nó bị lỗi. Đưa ra bảng xác suất có điều kiện liên quan đến $G$.<br>
+
+4.  Giả sử báo động hoạt động chính xác trừ khi nó bị lỗi, trong trường hợp đó nó không bao giờ kêu. Đưa ra bảng xác suất có điều kiện liên quan đến $A$.<br>
+
+5.  Giả sử báo động và đồng hồ đo đang hoạt động và báo động kêu. Tính toán một biểu thức cho xác suất nhiệt độ lõi quá cao, theo các xác suất có điều kiện khác nhau trong mạng.<br>
 
 
 ---
 
 ##### Bài tập 14.13
 
-In your local nuclear power station, there is an alarm that senses when
-a temperature gauge exceeds a given threshold. The gauge measures the
-temperature of the core. Consider the Boolean variables $A$ (alarm
-sounds), $F_A$ (alarm is faulty), and $F_G$ (gauge is faulty) and the
-multivalued nodes $G$ (gauge reading) and $T$ (actual core temperature).<br>
+Hai nhà thiên văn học ở các nơi khác nhau trên thế giới thực hiện các phép đo $M_1$ và $M_2$ về số lượng sao $N$ trong một vùng nhỏ trên bầu trời, sử dụng kính thiên văn của họ. Thông thường, có một khả năng nhỏ $e$ sai số lên đến một sao ở mỗi hướng. Mỗi kính thiên văn cũng có thể (với xác suất nhỏ hơn nhiều $f$) bị mất nét nghiêm trọng (các sự kiện $F_1$ và $F_2$), trong trường hợp đó nhà khoa học sẽ đếm thiếu ba sao trở lên (hoặc nếu $N$ nhỏ hơn 3, không phát hiện được sao nào cả). Xem xét ba mạng được hiển thị trong Hình <a class="insideExercisesFigRef" href="#telescope-nets-figure">telescope-nets-figure</a>.<br>
 
-1.  Draw a Bayesian network for this domain, given that the gauge is
-    more likely to fail when the core temperature gets too high.<br>
+1.  Ba mạng Bayes nào trong số này là biểu diễn chính xác (nhưng không nhất thiết hiệu quả) của thông tin trước đó?<br>
 
-2.  Is your network a polytree? Why or why not?<br>
+2.  Mạng nào là tốt nhất? Giải thích.<br>
 
-3.  Suppose there are just two possible actual and measured
-    temperatures, normal and high; the probability that the gauge gives
-    the correct temperature is $x$ when it is working, but $y$ when it
-    is faulty. Give the conditional probability table associated with
-    $G$.<br>
+3.  Viết ra một phân phối có điều kiện cho ${\textbf{P}}(M_1{{\,|\,}}N)$, cho trường hợp $N{{\,\in\\,}}\{1,2,3\}$ và $M_1{{\,\in\\,}}\{0,1,2,3,4\}$. Mỗi mục trong phân phối có điều kiện nên được biểu thị dưới dạng hàm của các tham số $e$ và/hoặc $f$.<br>
 
-4.  Suppose the alarm works correctly unless it is faulty, in which case
-    it never sounds. Give the conditional probability table associated
-    with $A$.<br>
+4.  Giả sử $M_1{{\,=\,}}1$ và $M_2{{\,=\,}}3$. Có bao nhiêu số sao <i>có thể có</i> nếu bạn giả định không có ràng buộc tiên nghiệm nào về các giá trị của $N$?<br>
 
-5.  Suppose the alarm and gauge are working and the alarm sounds.
-    Calculate an expression for the probability that the temperature of
-    the core is too high, in terms of the various conditional
-    probabilities in the network.<br>
+5.  Số lượng sao <i>có khả năng nhất</i> là bao nhiêu, với các quan sát này? Giải thích cách tính toán, hoặc nếu không thể tính toán, giải thích thông tin bổ sung nào là cần thiết và nó sẽ ảnh hưởng đến kết quả như thế nào.<br>
 
 
 ---
 
-##### Bài tập 14.14
+###### Bài tập 14.14
 
-Two astronomers in different parts of the world
-make measurements $M_1$ and $M_2$ of the number of stars $N$ in some
-small region of the sky, using their telescopes. Normally, there is a
-small possibility $e$ of error by up to one star in each direction. Each
-telescope can also (with a much smaller probability $f$) be badly out of
-focus (events $F_1$ and $F_2$), in which case the scientist will
-undercount by three or more stars (or if $N$ is less than 3, fail to
-detect any stars at all). Consider the three networks shown in
-Figure <a class="insideExercisesFigRef"  href="#telescope-nets-figure">telescope-nets-figure</a>.<br>
+Xem xét mạng trong Hình <a class="insideExercisesFigRef" href="#telescope-nets-figure">(ii)</a>, và giả sử hai kính thiên văn hoạt động giống hệt nhau. $N{{\,\in\\,}}\{1,2,3\}$ và $M_1,M_2{{\,\in\\,}}\{0,1,2,3,4\}$, với các CPT tượng trưng như được mô tả trong Bài tập <a class="exerciseRef" href="{{ site.baseurl }}/bayes-nets-exercises/ex_14/">telescope-exercise</a>. Sử dụng thuật toán lấy mẫu liệt kê (Hình <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/enumeration-algorithm.png">enumeration-algorithm</a> trên trang <a class="pageRef" title="" href="#">enumeration-algorithm</a>), tính toán phân phối xác suất ${\textbf{P}}(N{{\,|\,}}M_1{{\,=\,}}2,M_2{{\,=\,}}2)$.<br>
 
-1.  Which of these Bayesian networks are correct (but not
-    necessarily efficient) representations of the preceding information?<br>
 
-2.  Which is the best network? Explain.<br>
-
-3.  Write out a conditional distribution for
-    ${\textbf{P}}(M_1{{\,|\,}}N)$, for the case where
-    $N{{\,\in\\,}}\{1,2,3\}$ and $M_1{{\,\in\\,}}\{0,1,2,3,4\}$. Each
-    entry in the conditional distribution should be expressed as a
-    function of the parameters $e$ and/or $f$.<br>
-
-4.  Suppose $M_1{{\,=\,}}1$ and $M_2{{\,=\,}}3$. What are the
-    <i>possible</i> numbers of stars if you assume no prior
-    constraint on the values of $N$?<br>
-
-5.  What is the <i>most likely</i> number of stars, given these
-    observations? Explain how to compute this, or if it is not possible
-    to compute, explain what additional information is needed and how it
-    would affect the result.<br>
+<figure>
+  <img src="https://aimacode.github.io/aima-exercises/figures/telescope-nets.svg" alt="telescope-nets-figure" id="telescope-nets-figure" style="width:100%">
+  <figcaption><center><b>Ba mạng có thể có cho bài toán kính thiên văn.</b></center></figcaption>
+</figure>
 
 
 ---
 
 ###### Bài tập 14.15
 
-Consider the network shown in
-Figure <a class="insideExercisesFigRef" href="#telescope-nets-figure">telescope-nets-figure</a>(ii), and assume that the
-two telescopes work identically. $N{{\,\in\\,}}\{1,2,3\}$ and
-$M_1,M_2{{\,\in\\,}}\{0,1,2,3,4\}$, with the symbolic CPTs as described
-in Exercise <a class="exerciseRef" href="{{ site.baseurl }}/bayes-nets-exercises/ex_14/">telescope-exercise</a>. Using the enumeration
-algorithm (Figure <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/enumeration-algorithm.png">enumeration-algorithm</a> on
-page <a class="pageRef" id="pageref" title="" href="#">enumeration-algorithm</a>), calculate the probability distribution
-${\textbf{P}}(N{{\,|\,}}M_1{{\,=\,}}2,M_2{{\,=\,}}2)$.<br>
+Xem xét mạng Bayes trong Hình <a class="insideExercisesFigRef" href="#politics-figure">politics-figure</a><br>.
 
-
-<figure>
-  <img src="https://aimacode.github.io/aima-exercises/figures/telescope-nets.svg" alt="telescope-nets-figure" id="telescope-nets-figure" style="width:100%">
-  <figcaption><center><b>Three possible networks for the telescope problem.</b></center></figcaption>
-</figure>
-
-
----
-
-###### Bài tập 14.16
-
-Consider the Bayes net shown in Figure <a class="insideExercisesFigRef" href="#politics-figure">politics-figure</a><br>.
-
-1.  Which of the following are asserted by the network
-    <i>structure</i>?<br>
+1.  Cấu trúc mạng khẳng định điều nào sau đây?<br>
 
     1.  ${\textbf{P}}(B,I,M) = {\textbf{P}}(B){\textbf{P}}(I){\textbf{P}}(M)$.<br>
 
@@ -420,240 +263,141 @@ Consider the Bayes net shown in Figure <a class="insideExercisesFigRef" href="#
 
     3.  ${\textbf{P}}(M|G,B,I) = {\textbf{P}}(M|G,B,I,J)$.<br>
 
-2.  Calculate the value of $P(b,i,\lnot m,g,j)$.<br>
+2.  Tính giá trị của $P(b,i,\lnot m,g,j)$.<br>
 
-3.  Calculate the probability that someone goes to jail given that they
-    broke the law, have been indicted, and face a politically
-    motivated prosecutor.<br>
+3.  Tính xác suất một người bị bỏ tù biết rằng họ đã vi phạm pháp luật, bị truy tố và đối mặt với một công tố viên có động cơ chính trị.<br>
 
-4.  A <b>context-specific independence</b> (see
-    page <a class="pageRef" title="" href="#">CSI-page</a>) allows a variable to be independent of some of
-    its parents given certain values of others. In addition to the usual
-    conditional independences given by the graph structure, what
-    context-specific independences exist in the Bayes net in
-    Figure <a class="insideExercisesFigRef" href="#politics-figure">politics-figure</a>?<br>
+4.  <b>Sự độc lập theo ngữ cảnh cụ thể</b> (xem trang <a class="pageRef" title="" href="#">CSI-page</a>) cho phép một biến độc lập với một số cha của nó khi biết các giá trị nhất định của những biến khác. Ngoài các sự độc lập có điều kiện thông thường được cho bởi cấu trúc đồ thị, những sự độc lập theo ngữ cảnh cụ thể nào tồn tại trong mạng Bayes trong Hình <a class="insideExercisesFigRef" href="#politics-figure">politics-figure</a>?<br>
 
-5.  Suppose we want to add the variable
-    $P={PresidentialPardon}$ to the network; draw the new
-    network and briefly explain any links you add.<br>
+5.  Giả sử chúng ta muốn thêm biến $P={PresidentialPardon}$ vào mạng; vẽ mạng mới và giải thích ngắn gọn bất kỳ liên kết nào bạn thêm.<br>
 <figure>
   <img src="https://aimacode.github.io/aima-exercises/figures/politics.svg" alt="politics-figure" id="politics-figure" style="width:100%">
-  <figcaption><center><b>A simple Bayes net with
-  Boolean variables B = {BrokeElectionLaw}, I = {Indicted}, M = {PoliticallyMotivatedProsecutor}, G= {FoundGuilty}, J = {Jailed}.</b></center></figcaption>
+  <figcaption><center><b>Một mạng Bayes đơn giản với các biến Boolean B = {BrokeElectionLaw}, I = {Indicted}, M = {PoliticallyMotivatedProsecutor}, G= {FoundGuilty}, J = {Jailed}.</b></center></figcaption>
 </figure>
+
+
+---
+
+##### Bài tập 14.16
+
+Xem xét mạng Bayes trong Hình <a class="insideExercisesFigRef" href="#politics-figure">politics-figure</a><br>.
+
+1.  Cấu trúc mạng khẳng định điều nào sau đây?<br>
+
+    1.  ${\textbf{P}}(B,I,M) = {\textbf{P}}(B){\textbf{P}}(I){\textbf{P}}(M)$.<br>
+
+    2.  ${\textbf{P}}(J|G) = {\textbf{P}}(J|G,I)$.<br>
+
+    3.  ${\textbf{P}}(M|G,B,I) = {\textbf{P}}(M|G,B,I,J)$.<br>
+
+2.  Tính giá trị của $P(b,i,\lnot m,g,j)$.<br>
+
+3.  Tính xác suất một người bị bỏ tù biết rằng họ đã vi phạm pháp luật, bị truy tố và đối mặt với một công tố viên có động cơ chính trị.<br>
+
+4.  <b>Sự độc lập theo ngữ cảnh cụ thể</b> (xem trang <a class="pageRef" id="pageref" title="" href="#">CSI-page</a>) cho phép một biến độc lập với một số cha của nó khi biết các giá trị nhất định của những biến khác. Ngoài các sự độc lập có điều kiện thông thường được cho bởi cấu trúc đồ thị, những sự độc lập theo ngữ cảnh cụ thể nào tồn tại trong mạng Bayes trong Hình <a class="insideExercisesFigRef" id="insideexercisesfigref" href="#politics-figure">politics-figure</a>?<br>
+
+5.  Giả sử chúng ta muốn thêm biến $P={PresidentialPardon}$ vào mạng; vẽ mạng mới và giải thích ngắn gọn bất kỳ liên kết nào bạn thêm.<br>
 
 
 ---
 
 ##### Bài tập 14.17
 
-Consider the Bayes net shown in Figure <a class="insideExercisesFigRef" href="#politics-figure">politics-figure</a><br>.
+Xem xét thuật toán loại bỏ biến trong Hình <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/elimination-ask-algorithm.png">elimination-ask-algorithm</a> (trang <a class="pageRef" title="" href="#">elimination-ask-algorithm</a>).<br>
 
-1.  Which of the following are asserted by the network
-    <i>structure</i>?<br>
+1.  Phần <a class="sectionRef" title="" href="#">exact-inference-section</a> áp dụng loại bỏ biến cho truy vấn $${\textbf{P}}({Burglary}{{\,|\,}}{JohnCalls}{{\,=\,}}{true},{MaryCalls}{{\,=\,}}{true})\ .$$
+    Thực hiện các phép tính được chỉ định và kiểm tra xem câu trả lời có đúng không.<br>
 
-    1.  ${\textbf{P}}(B,I,M) = {\textbf{P}}(B){\textbf{P}}(I){\textbf{P}}(M)$.<br>
+2.  Đếm số phép toán số học được thực hiện và so sánh nó với số phép toán được thực hiện bởi thuật toán liệt kê.<br>
 
-    2.  ${\textbf{P}}(J|G) = {\textbf{P}}(J|G,I)$.<br>
+3.  Giả sử một mạng có dạng một <i>chuỗi</i>: một dãy các biến Boolean $X_1,\ldots, X_n$ trong đó ${Parents}(X_i){{\,=\,}}\{X_{i-1}\}$ cho $i{{\,=\,}}2,\ldots,n$. Độ phức tạp của việc tính toán ${\textbf{P}}(X_1{{\,|\,}}X_n{{\,=\,}}{true})$ bằng cách liệt kê là bao nhiêu? Bằng cách loại bỏ biến?<br>
 
-    3.  ${\textbf{P}}(M|G,B,I) = {\textbf{P}}(M|G,B,I,J)$.<br>
-
-2.  Calculate the value of $P(b,i,\lnot m,g,j)$.<br>
-
-3.  Calculate the probability that someone goes to jail given that they
-    broke the law, have been indicted, and face a politically
-    motivated prosecutor.<br>
-
-4.  A <b>context-specific independence</b> (see
-    page <a class="pageRef" id="pageref" title="" href="#">CSI-page</a>) allows a variable to be independent of some of
-    its parents given certain values of others. In addition to the usual
-    conditional independences given by the graph structure, what
-    context-specific independences exist in the Bayes net in
-    Figure <a class="insideExercisesFigRef" id="insideexercisesfigref" href="#politics-figure">politics-figure</a>?<br>
-
-5.  Suppose we want to add the variable
-    $P={PresidentialPardon}$ to the network; draw the new
-    network and briefly explain any links you add.<br>
+4.  Chứng minh rằng độ phức tạp của việc chạy loại bỏ biến trên một mạng polytree là tuyến tính theo kích thước của cây cho bất kỳ thứ tự biến nào phù hợp với cấu trúc mạng.<br>
 
 
 ---
 
 ##### Bài tập 14.18
 
-Consider the variable elimination algorithm in
-Figure <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/elimination-ask-algorithm.png">elimination-ask-algorithm</a> (page <a class="pageRef" title="" href="#">elimination-ask-algorithm</a>).<br>
+Điều tra độ phức tạp của suy luận chính xác trong các mạng Bayes nói chung:<br>
 
-1.  Section <a class="sectionRef" title="" href="#">exact-inference-section</a> applies variable
-    elimination to the query
-    $${\textbf{P}}({Burglary}{{\,|\,}}{JohnCalls}{{\,=\,}}{true},{MaryCalls}{{\,=\,}}{true})\ .$$
-    Perform the calculations indicated and check that the answer
-    is correct.<br>
+1.  Chứng minh rằng bất kỳ bài toán 3-SAT nào cũng có thể được quy về suy luận chính xác trong một mạng Bayes được xây dựng để biểu diễn bài toán cụ thể và do đó suy luận chính xác là NP-hard. (<i>Gợi ý</i>: Xem xét một mạng có một biến cho mỗi ký hiệu mệnh đề, một cho mỗi mệnh đề, và một cho phép hội của các mệnh đề.)<br>
 
-2.  Count the number of arithmetic operations performed, and compare it
-    with the number performed by the enumeration algorithm.<br>
-
-3.  Suppose a network has the form of a <i>chain</i>: a sequence
-    of Boolean variables $X_1,\ldots, X_n$ where
-    ${Parents}(X_i){{\,=\,}}\{X_{i-1}\}$ for $i{{\,=\,}}2,\ldots,n$.
-    What is the complexity of computing
-    ${\textbf{P}}(X_1{{\,|\,}}X_n{{\,=\,}}{true})$ using
-    enumeration? Using variable elimination?<br>
-
-4.  Prove that the complexity of running variable elimination on a
-    polytree network is linear in the size of the tree for any variable
-    ordering consistent with the network structure.<br>
+2.  Bài toán đếm số lượng các phép gán thỏa mãn cho một bài toán 3-SAT là \#P-complete. Chứng minh rằng suy luận chính xác ít nhất khó bằng bài toán này.<br>
 
 
 ---
 
 ##### Bài tập 14.19
 
-Investigate the complexity of exact inference
-in general Bayesian networks:<br>
+Xem xét vấn đề tạo một mẫu ngẫu nhiên từ một phân phối được chỉ định trên một biến duy nhất. Giả sử bạn có một trình tạo số ngẫu nhiên trả về một số ngẫu nhiên phân phối đều trong khoảng từ 0 đến 1.<br>
 
-1.  Prove that any 3-SAT problem can be reduced to exact inference in a
-    Bayesian network constructed to represent the particular problem and
-    hence that exact inference is NP-hard. (<i>Hint</i>:
-    Consider a network with one variable for each proposition symbol,
-    one for each clause, and one for the conjunction of clauses.)<br>
+1.  Đặt $X$ là một biến rời rạc với $P(X{{\,=\,}}x_i){{\,=\,}}p_i$ cho $i{{\,\in\\,}}\{1,\ldots,k\}$. <b>Phân phối tích lũy</b> của $X$ cho xác suất $X{{\,\in\\,}}\{x_1,\ldots,x_j\}$ cho mỗi $j$ có thể có. (Xem thêm Phụ lục [math-appendix].) Giải thích cách tính phân phối tích lũy trong thời gian $O(k)$ và cách tạo một mẫu duy nhất của $X$ từ nó. Mẫu thứ hai có thể được thực hiện trong thời gian ít hơn $O(k)$ không?<br>
 
-2.  The problem of counting the number of satisfying assignments for a
-    3-SAT problem is \#P-complete. Show that exact inference is at least
-    as hard as this.<br>
+2.  Bây giờ giả sử chúng ta muốn tạo $N$ mẫu của $X$, trong đó $N\gg k$. Giải thích cách thực hiện điều này với thời gian chạy kỳ vọng trên mỗi mẫu là <i>hằng số</i> (tức là độc lập với $k$).<br>
+
+3.  Bây giờ xem xét một biến có giá trị liên tục với phân phối tham số hóa (ví dụ: Gaussian). Làm thế nào để tạo mẫu từ một phân phối như vậy?<br>
+
+4.  Giả sử bạn muốn truy vấn một biến có giá trị liên tục và bạn đang sử dụng một thuật toán lấy mẫu như LIKELIHOODWEIGHTING để thực hiện suy luận. Bạn sẽ phải sửa đổi quy trình trả lời truy vấn như thế nào?<br>
 
 
 ---
 
 ##### Bài tập 14.20
 
-Consider the problem of generating a
-random sample from a specified distribution on a single variable. Assume
-you have a random number generator that returns a random number
-uniformly distributed between 0 and 1.<br>
+Xem xét truy vấn ${\textbf{P}}({Rain}{{\,|\,}}{Sprinkler}{{\,=\,}}{true},{WetGrass}{{\,=\,}}{true})$ trong Hình <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/rain-clustering-figure.png">rain-clustering-figure</a>(a) (trang <a class="pageRef" title="" href="#">rain-clustering-figure</a>) và cách Gibbs sampling có thể trả lời nó.<br>
 
-1.  Let $X$ be a discrete variable with
-    $P(X{{\,=\,}}x_i){{\,=\,}}p_i$ for
-    $i{{\,\in\\,}}\{1,\ldots,k\}$. The <b>cumulative distribution</b> of $X$ gives the probability
-    that $X{{\,\in\\,}}\{x_1,\ldots,x_j\}$ for each possible $j$. (See
-    also Appendix [math-appendix].) Explain how to
-    calculate the cumulative distribution in $O(k)$ time and how to
-    generate a single sample of $X$ from it. Can the latter be done in
-    less than $O(k)$ time?<br>
+1.  Chuỗi Markov có bao nhiêu trạng thái?<br>
 
-2.  Now suppose we want to generate $N$ samples of $X$, where $N\gg k$.
-    Explain how to do this with an expected run time per sample that is
-    <i>constant</i> (i.e., independent of $k$).<br>
+2.  Tính toán <b>ma trận chuyển tiếp</b> ${\textbf{Q}}$ chứa $q({\textbf{y}}$ $\rightarrow$ ${\textbf{y}}')$ cho tất cả ${\textbf{y}}$, ${\textbf{y}}'$.<br>
 
-3.  Now consider a continuous-valued variable with a parameterized
-    distribution (e.g., Gaussian). How can samples be generated from
-    such a distribution?<br>
+3.  ${\textbf{ Q}}^2$, bình phương của ma trận chuyển tiếp, đại diện cho điều gì?<br>
 
-4.  Suppose you want to query a continuous-valued variable and you are
-    using a sampling algorithm such as LIKELIHOODWEIGHTING to do the inference. How would
-    you have to modify the query-answering process?
+4.  Còn ${\textbf{Q}}^n$ khi $n\to \infty$ thì sao?<br>
+
+5.  Giải thích cách thực hiện suy luận xác suất trong mạng Bayes, giả sử ${\textbf{Q}}^n$ có sẵn. Đây có phải là một cách thực tế để thực hiện suy luận không?<br>
 
 
 ---
 
 ##### Bài tập 14.21
 
-Consider the query
-${\textbf{P}}({Rain}{{\,|\,}}{Sprinkler}{{\,=\,}}{true},{WetGrass}{{\,=\,}}{true})$
-in Figure <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/rain-clustering-figure.png">rain-clustering-figure</a>(a)
-(page <a class="pageRef" title="" href="#">rain-clustering-figure</a>) and how Gibbs sampling can answer it.<br>
+Bài tập này khám phá phân phối dừng cho các phương pháp Gibbs sampling.<br>
 
-1.  How many states does the Markov chain have?<br>
+1.  Tổ hợp lồi $[\alpha, q_1; 1-\alpha, q_2]$ của $q_1$ và $q_2$ là một phân phối xác suất chuyển tiếp mà trước tiên chọn một trong $q_1$ và $q_2$ với xác suất $\alpha$ và $1-\alpha$, tương ứng, sau đó áp dụng bất kỳ cái nào được chọn. Chứng minh rằng nếu $q_1$ và $q_2$ cân bằng chi tiết với $\pi$, thì tổ hợp lồi của chúng cũng cân bằng chi tiết với $\pi$. (<i>Lưu ý</i>: kết quả này biện minh cho một biến thể của GIBBS-ASK trong đó các biến được chọn ngẫu nhiên thay vì lấy mẫu theo một trình tự cố định.)<br>
 
-2.  Calculate the <b>transition matrix</b>
-    ${\textbf{Q}}$ containing
-    $q({\textbf{y}}$ $\rightarrow$ ${\textbf{y}}')$
-    for all ${\textbf{y}}$, ${\textbf{y}}'$.<br>
-
-3.  What does ${\textbf{ Q}}^2$, the square of the
-    transition matrix, represent?<br>
-
-4.  What about ${\textbf{Q}}^n$ as $n\to \infty$?<br>
-
-5.  Explain how to do probabilistic inference in Bayesian networks,
-    assuming that ${\textbf{Q}}^n$ is available. Is this a
-    practical way to do inference?
+2.  Chứng minh rằng nếu mỗi $q_1$ và $q_2$ có $\pi$ là phân phối dừng của chúng, thì tổ hợp tuần tự $q {{\,=\,}}q_1 \circ q_2$ cũng có $\pi$ là phân phối dừng của chúng.<br>
 
 
 ---
 
 ##### Bài tập 14.22
 
-This exercise explores the stationary
-distribution for Gibbs sampling methods.<br>
+Thuật toán <b>Metropolis--Hastings</b> là một thành viên của họ MCMC; do đó, nó được thiết kế để tạo ra các mẫu $\textbf{x}$ (cuối cùng) theo xác suất mục tiêu $\pi(\textbf{x})$. (Thông thường chúng ta quan tâm đến việc lấy mẫu từ $\pi(\textbf{x}){{\,=\,}}P(\textbf{x}{{\,|\,}}\textbf{e})$.) Giống như simulated annealing, Metropolis–Hastings hoạt động theo hai giai đoạn. Đầu tiên, nó lấy mẫu một trạng thái mới $\textbf{x'}$ từ <b>phân phối đề xuất</b> $q(\textbf{x'}{{\,|\,}}\textbf{x})$, khi biết trạng thái hiện tại $\textbf{x}$. Sau đó, nó chấp nhận hoặc từ chối $\textbf{x'}$ một cách có xác suất theo <b>xác suất chấp nhận</b> $$\alpha(\textbf{x'}{{\,|\,}}\textbf{x}) = \min\ \left(1,\frac{\pi(\textbf{x'})q(\textbf{x}{{\,|\,}}\textbf{x'})}{\pi(\textbf{x})q(\textbf{x'}{{\,|\,}}\textbf{x})}  \right)\ .$$
+Nếu đề xuất bị từ chối, trạng thái vẫn ở $\textbf{x}$.<br>
 
-1.  The convex composition $[\alpha, q_1; 1-\alpha, q_2]$ of $q_1$ and
-    $q_2$ is a transition probability distribution that first chooses
-    one of $q_1$ and $q_2$ with probabilities $\alpha$ and $1-\alpha$,
-    respectively, and then applies whichever is chosen. Prove that if
-    $q_1$ and $q_2$ are in detailed balance with $\pi$, then their
-    convex composition is also in detailed balance with $\pi$.
-    (<i>Note</i>: this result justifies a variant of GIBBS-ASK in which
-    variables are chosen at random rather than sampled in a
-    fixed sequence.)<br>
+1.  Xem xét một bước Gibbs sampling thông thường cho một biến cụ thể $X_i$. Chứng minh rằng bước này, được xem như một đề xuất, được đảm bảo sẽ được chấp nhận bởi Metropolis–Hastings. (Do đó, Gibbs sampling là một trường hợp đặc biệt của Metropolis–Hastings.)<br>
 
-2.  Prove that if each of $q_1$ and $q_2$ has $\pi$ as its stationary
-    distribution, then the sequential composition
-    $q {{\,=\,}}q_1 \circ q_2$ also has $\pi$ as its
-    stationary distribution.<br>
+2.  Chứng minh rằng quy trình hai bước trên, được xem như một phân phối xác suất chuyển tiếp, cân bằng chi tiết với $\pi$.<br>
 
 
 ---
 
 ##### Bài tập 14.23
 
-The <b>Metropolis--Hastings</b> algorithm is a member of the MCMC family; as such,
-it is designed to generate samples $\textbf{x}$ (eventually) according to target
-probabilities $\pi(\textbf{x})$. (Typically we are interested in sampling from
-$\pi(\textbf{x}){{\,=\,}}P(\textbf{x}{{\,|\,}}\textbf{e})$.) Like simulated annealing,
-Metropolis–Hastings operates in two stages. First, it samples a new
-state $\textbf{x'}$ from a <b>proposal distribution</b> $q(\textbf{x'}{{\,|\,}}\textbf{x})$, given the current state $\textbf{x}$.
-Then, it probabilistically accepts or rejects $\textbf{x'}$ according to the <b>acceptance probability</b>
-$$\alpha(\textbf{x'}{{\,|\,}}\textbf{x}) = \min\ \left(1,\frac{\pi(\textbf{x'})q(\textbf{x}{{\,|\,}}\textbf{x'})}{\pi(\textbf{x})q(\textbf{x'}{{\,|\,}}\textbf{x})}  \right)\ .$$
-If the proposal is rejected, the state remains at $\textbf{x}$.<br>
+Ba đội bóng đá $A$, $B$, và $C$, thi đấu với nhau một lần. Mỗi trận đấu là giữa hai đội, và có thể thắng, hòa, hoặc thua. Mỗi đội có một mức độ chất lượng cố định, không xác định—một số nguyên trong khoảng từ 0 đến 3—và kết quả của một trận đấu phụ thuộc một cách có xác suất vào sự khác biệt về chất lượng giữa hai đội.<br>
 
-1.  Consider an ordinary Gibbs sampling step for a specific variable
-    $X_i$. Show that this step, considered as a proposal, is guaranteed
-    to be accepted by Metropolis–Hastings. (Hence, Gibbs sampling is a
-    special case of Metropolis–Hastings.)<br>
+1.  Xây dựng một mô hình xác suất quan hệ để mô tả miền này, và đề xuất các giá trị số cho tất cả các phân phối xác suất cần thiết.<br>
 
-2.  Show that the two-step process above, viewed as a transition
-    probability distribution, is in detailed balance with $\pi$.<br>
+2.  Xây dựng mạng Bayes tương đương cho ba trận đấu.<br>
+
+3.  Giả sử rằng trong hai trận đấu đầu tiên $A$ đánh bại $B$ và hòa với $C$. Sử dụng một thuật toán suy luận chính xác tùy chọn của bạn, tính toán phân phối hậu nghiệm cho kết quả của trận đấu thứ ba.<br>
+
+4.  Giả sử có $n$ đội trong giải đấu và chúng ta có kết quả của tất cả các trận đấu trừ trận cuối cùng. Độ phức tạp của việc dự đoán trận đấu cuối cùng thay đổi với $n$ như thế nào?<br>
+
+5.  Điều tra việc áp dụng MCMC cho bài toán này. Nó hội tụ nhanh như thế nào trong thực tế và nó mở rộng tốt như thế nào?<br>
 
 
 ---
-
-##### Bài tập 14.24
-
-Three soccer teams $A$, $B$, and $C$, play each
-other once. Each match is between two teams, and can be won, drawn, or
-lost. Each team has a fixed, unknown degree of quality—an integer
-ranging from 0 to 3—and the outcome of a match depends probabilistically
-on the difference in quality between the two teams.<br>
-
-1.  Construct a relational probability model to describe this domain,
-    and suggest numerical values for all the necessary
-    probability distributions.<br>
-
-2.  Construct the equivalent Bayesian network for the three matches.<br>
-
-3.  Suppose that in the first two matches $A$ beats $B$ and draws with
-    $C$. Using an exact inference algorithm of your choice, compute the
-    posterior distribution for the outcome of the third match.<br>
-
-4.  Suppose there are $n$ teams in the league and we have the results
-    for all but the last match. How does the complexity of predicting
-    the last game vary with $n$?<br>
-
-5.  Investigate the application of MCMC to this problem. How quickly
-    does it converge in practice and how well does it scale?<br>
-
-
----
-
 
 <!-- tabs:end -->

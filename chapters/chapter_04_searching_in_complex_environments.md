@@ -48,340 +48,186 @@
 
 #### **Bài tập**
 
+
 ##### Bài tập 4.1
 
-Give the name of the algorithm that results from each of the following
-special cases:<br>
+Hãy cho biết tên của thuật toán tương ứng với mỗi trường hợp đặc biệt sau đây:<br>
 
-1.  Local beam search with $k = 1$.<br>
+1.  Local beam search với $k = 1$.<br>
 
-2.  Local beam search with one initial state and no limit on the number
-    of states retained.<br>
+2.  Local beam search với một initial state và không giới hạn số lượng các state được giữ lại.<br>
 
-3.  Simulated annealing with $T = 0$ at all times (and omitting the
-    termination test).<br>
+3.  Simulated annealing với $T = 0$ tại mọi thời điểm (và bỏ qua termination test).<br>
 
-4.  Simulated annealing with $T=\infty$ at all times.<br>
+4.  Simulated annealing với $T=\infty$ tại mọi thời điểm.<br>
 
-5.  Genetic algorithm with population size $N = 1$.<br>
+5.  Genetic algorithm với kích thước population $N = 1$.<br>
 
 
 ---
 
 ##### Bài tập 4.2
 
-Exercise <a class="exerciseRef" href="{{ site.baseurl }}/search-exercises/ex_19/">brio-exercise</a> considers the problem of
-building railway tracks under the assumption that pieces fit exactly
-with no slack. Now consider the real problem, in which pieces don’t fit
-exactly but allow for up to 10 degrees of rotation to either side of the
-“proper” alignment. Explain how to formulate the problem so it could be
-solved by simulated annealing.
+Bài tập <a class="exerciseRef" href="{{ site.baseurl }}/search-exercises/ex_19/">brio-exercise</a> xem xét bài toán xây dựng đường ray xe lửa dưới giả định rằng các mảnh ghép khớp nhau hoàn toàn và không có độ rơ. Bây giờ hãy xem xét bài toán thực tế, trong đó các mảnh ghép không khớp hoàn toàn mà cho phép xoay tối đa 10 độ về mỗi bên so với góc căn chỉnh “chuẩn”. Hãy giải thích cách formulate bài toán này để có thể giải quyết bằng simulated annealing.
 
 
 ---
 
 ##### Bài tập 4.3
 
-In this exercise, we explore the use of local search methods to solve
-TSPs of the type defined in Exercise <a class="exerciseRef" href="{{ site.baseurl }}/search-exercises/ex_38/">tsp-mst-exercise</a><br>
+Trong bài tập này, chúng ta khám phá việc sử dụng các phương pháp local search để giải quyết các bài toán TSP thuộc loại được định nghĩa trong Bài tập <a class="exerciseRef" href="{{ site.baseurl }}/search-exercises/ex_38/">tsp-mst-exercise</a><br>
 
-1.  Implement and test a hill-climbing method to solve TSPs. Compare the
-    results with optimal solutions obtained from the A* algorithm with
-    the MST heuristic (Exercise <a class="exerciseRef" href="{{ site.baseurl }}/search-exercises/ex_38/">tsp-mst-exercise</a>)<br>
+1.  Cài đặt và thử nghiệm một phương pháp hill-climbing để giải các bài toán TSP. So sánh kết quả với các optimal solution thu được từ thuật toán A* với MST heuristic (Bài tập <a class="exerciseRef" href="{{ site.baseurl }}/search-exercises/ex_38/">tsp-mst-exercise</a>)<br>
 
-2.  Repeat part (a) using a genetic algorithm instead of hill climbing.
-    You may want to consult @Larranaga+al:1999 for some suggestions for representations.
+2.  Lặp lại phần (a) bằng cách sử dụng genetic algorithm thay vì hill climbing. Bạn có thể tham khảo @Larranaga+al:1999 để có một số gợi ý về representation.
 
 
 ---
 
 ##### Bài tập 4.4
 
-Generate a large number of 8-puzzle and
-8-queens instances and solve them (where possible) by hill climbing
-(steepest-ascent and first-choice variants), hill climbing with random
-restart, and simulated annealing. Measure the search cost and percentage
-of solved problems and graph these against the optimal solution cost.
-Comment on your results.
+Hãy tạo ra một số lượng lớn các instance của 8-puzzle và 8-queens rồi giải chúng (khi có thể) bằng hill climbing (các biến thể steepest-ascent và first-choice), hill climbing with random restart, và simulated annealing. Đo search cost cùng tỷ lệ phần trăm bài toán giải được, sau đó vẽ biểu đồ biểu diễn các đại lượng này theo optimal solution cost. Hãy đưa ra nhận xét về kết quả của bạn.
 
 
 ---
 
 ##### Bài tập 4.5
 
-The <b>And-Or-Graph-Search</b> algorithm in
-Figure <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/and-or-graph-search-algorithm.png">and-or-graph-search-algorithm</a> checks for
-repeated states only on the path from the root to the current state.
-Suppose that, in addition, the algorithm were to store
-<i>every</i> visited state and check against that list. (See in
-Figure <a class="insideBookFigRef" href="#">breadth-first-search-algorithm</a> for an example.)
-Determine the information that should be stored and how the algorithm
-should use that information when a repeated state is found.
-(*Hint*: You will need to distinguish at least between
-states for which a successful subplan was constructed previously and
-states for which no subplan could be found.) Explain how to use labels,
-as defined in Section <a class="sectionRef" title="" href="#">cyclic-plan-section</a>, to avoid
-having multiple copies of subplans.
+Thuật toán <b>And-Or-Graph-Search</b> trong Hình <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/and-or-graph-search-algorithm.png">and-or-graph-search-algorithm</a> chỉ kiểm tra các repeated state trên path từ root đến current state. Giả sử rằng, ngoài ra, thuật toán còn lưu trữ <i>mọi</i> visited state và kiểm tra đối chiếu với danh sách đó. (Xem ví dụ trong Hình <a class="insideBookFigRef" href="#">breadth-first-search-algorithm</a>.) Hãy xác định thông tin cần được lưu trữ và cách thuật toán nên sử dụng thông tin đó khi tìm thấy một repeated state. (*Gợi ý*: Bạn sẽ cần phân biệt ít nhất giữa các state mà trước đó đã xây dựng thành công một subplan và các state không thể tìm thấy subplan nào.) Giải thích cách sử dụng label, như đã định nghĩa trong Mục <a class="sectionRef" title="" href="#">cyclic-plan-section</a>, để tránh việc tạo ra nhiều bản sao của các subplan.
 
 
 ---
 
 ##### Bài tập 4.6
 
-Explain precisely how to modify the <b>And-Or-Graph-Search</b> algorithm to
-generate a cyclic plan if no acyclic plan exists. You will need to deal
-with three issues: labeling the plan steps so that a cyclic plan can
-point back to an earlier part of the plan, modifying <b>Or-Search</b> so that it
-continues to look for acyclic plans after finding a cyclic plan, and
-augmenting the plan representation to indicate whether a plan is cyclic.
-Show how your algorithm works on (a) the slippery vacuum world, and (b)
-the slippery, erratic vacuum world. You might wish to use a computer
-implementation to check your results.
+Hãy giải thích chính xác cách sửa đổi thuật toán <b>And-Or-Graph-Search</b> để tạo ra một cyclic plan nếu không tồn tại acyclic plan nào. Bạn sẽ cần giải quyết ba vấn đề: gán nhãn cho các bước trong plan để một cyclic plan có thể trỏ ngược lại một phần trước đó của plan, sửa đổi <b>Or-Search</b> để nó tiếp tục tìm kiếm acyclic plan sau khi đã tìm thấy một cyclic plan, và mở rộng plan representation để chỉ ra liệu một plan có phải là cyclic hay không. Hãy chỉ ra cách thuật toán của bạn hoạt động trên (a) slippery vacuum world, và (b) slippery, erratic vacuum world. Bạn có thể muốn sử dụng một chương trình máy tính để kiểm tra kết quả của mình.
 
 
 ---
 
 ##### Bài tập 4.7
 
-In Section <a class="sectionRef" title="" href="#">conformant-section</a> we introduced belief
-states to solve sensorless search problems. A sequence of actions solves
-a sensorless problem if it maps every physical state in the initial
-belief state $b$ to a goal state. Suppose the agent knows $h^\*(s)$, the
-true optimal cost of solving the physical state $s$ in the fully
-observable problem, for every state $s$ in $b$. Find an admissible
-heuristic $h(b)$ for the sensorless problem in terms of these costs, and
-prove its admissibilty. Comment on the accuracy of this heuristic on the
-sensorless vacuum problem of
-Figure <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/vacuum2-sets-figure.png">vacuum2-sets-figure</a>. How well does A* perform?
+Trong Mục <a class="sectionRef" title="" href="#">conformant-section</a>, chúng ta đã giới thiệu belief state để giải quyết các bài toán sensorless search. Một chuỗi action sẽ giải quyết được một sensorless problem nếu nó ánh xạ mọi physical state trong initial belief state $b$ sang một goal state. Giả sử agent biết $h^\*(s)$, tức là chi phí tối ưu thực sự để giải quyết physical state $s$ trong fully observable problem, cho mọi state $s$ trong $b$. Hãy tìm một admissible heuristic $h(b)$ cho sensorless problem theo các chi phí này và chứng minh tính admissible của nó. Hãy nhận xét về độ chính xác của heuristic này trên sensorless vacuum problem trong Hình <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/vacuum2-sets-figure.png">vacuum2-sets-figure</a>. Thuật toán A* hoạt động tốt đến mức nào?
 
 
 ---
 
 ##### Bài tập 4.8
 
-This exercise explores
-subset–superset relations between belief states in sensorless or
-partially observable environments.<br>
+Bài tập này khám phá các mối quan hệ tập con–tập cha (subset–superset) giữa các belief state trong sensorless environment hoặc partially observable environment.<br>
 
-1.  Prove that if an action sequence is a solution for a belief state
-    $b$, it is also a solution for any subset of $b$. Can anything be
-    said about supersets of $b$?<br>
+1.  Hãy chứng minh rằng nếu một chuỗi action là một solution cho một belief state $b$, thì nó cũng là một solution cho bất kỳ tập con nào của $b$. Có thể rút ra kết luận gì về các tập cha của $b$ hay không?<br>
 
-2.  Explain in detail how to modify graph search for sensorless problems
-    to take advantage of your answers in (a).<br>
+2.  Hãy giải thích chi tiết cách sửa đổi graph search cho các sensorless problem để tận dụng các câu trả lời của bạn trong phần (a).<br>
 
-3.  Explain in detail how to modify and–or search for
-    partially observable problems, beyond the modifications you describe
-    in (b).<br>
+3.  Hãy giải thích chi tiết cách sửa đổi and–or search cho các partially observable problem, bên cạnh các sửa đổi mà bạn đã mô tả trong (b).<br>
 
 
 ---
 
 ##### Bài tập 4.9
 
-On page <a class="pageRef" title="" href="#">multivalued-sensorless-page</a> it was assumed
-that a given action would have the same cost when executed in any
-physical state within a given belief state. (This leads to a
-belief-state search problem with well-defined step costs.) Now consider
-what happens when the assumption does not hold. Does the notion of
-optimality still make sense in this context, or does it require
-modification? Consider also various possible definitions of the “cost”
-of executing an action in a belief state; for example, we could use the
-<i>minimum</i> of the physical costs; or the
-<i>maximum</i>; or a cost <i>interval</i> with the lower
-bound being the minimum cost and the upper bound being the maximum; or
-just keep the set of all possible costs for that action. For each of
-these, explore whether A* (with modifications if necessary) can return
-optimal solutions.
+Ở trang <a class="pageRef" title="" href="#">multivalued-sensorless-page</a>, người ta đã giả định rằng một action nhất định sẽ có cùng chi phí khi được thực thi ở bất kỳ physical state nào trong một belief state cho trước. (Điều này dẫn đến một bài toán belief-state search với các step cost được xác định rõ ràng.) Bây giờ hãy xem xét điều gì sẽ xảy ra khi giả định này không còn đúng nữa. Khái niệm về optimality có còn ý nghĩa trong ngữ cảnh này không, hay nó cần phải được sửa đổi? Cũng hãy xem xét các định nghĩa khả dĩ khác nhau về “chi phí” của việc thực thi một action trong một belief state; ví dụ, chúng ta có thể sử dụng giá trị <i>nhỏ nhất (minimum)</i> của các physical cost; hoặc giá trị <i>lớn nhất (maximum)</i>; hoặc một <i>khoảng (interval)</i> chi phí với cận dưới là chi phí nhỏ nhất và cận trên là chi phí lớn nhất; hoặc chỉ cần lưu giữ tập hợp của tất cả các chi phí khả dĩ cho action đó. Đối với mỗi trường hợp này, hãy tìm hiểu xem liệu A* (với các sửa đổi nếu cần) có thể trả về các optimal solution hay không.
 
 
 ---
 
 ##### Bài tập 4.10
 
-Consider the sensorless version of the
-erratic vacuum world. Draw the belief-state space reachable from the
-initial belief state $\{1,2,3,4,5,6,7,8\}$, and explain why the
-problem is unsolvable.
+Xem xét phiên bản sensorless của erratic vacuum world. Hãy vẽ belief-state space có thể đi tới được từ initial belief state $\{1,2,3,4,5,6,7,8\}$, và giải thích tại sao bài toán này không thể giải được (unsolvable).
 
 
 ---
 
 ##### Bài tập 4.11
 
-Consider the sensorless version of the
-erratic vacuum world. Draw the belief-state space reachable from the
-initial belief state $\{ 1,3,5,7 \}$, and explain why the problem
-is unsolvable.
+Xem xét phiên bản sensorless của erratic vacuum world. Hãy vẽ belief-state space có thể đi tới được từ initial belief state $\{ 1,3,5,7 \}$, và giải thích tại sao bài toán này không thể giải được (unsolvable).
 
 
 ---
 
 ##### Bài tập 4.12
 
-We can turn the navigation problem in
-Exercise <a class="exerciseRef" href="{{ site.baseurl }}/search-exercises/ex_9/">path-planning-exercise</a> into an environment as
-follows:<br>
+Chúng ta có thể chuyển đổi bài toán điều hướng trong Bài tập <a class="exerciseRef" href="{{ site.baseurl }}/search-exercises/ex_9/">path-planning-exercise</a> thành một environment như sau:<br>
 
--   The percept will be a list of the positions, <i>relative to the
-    agent</i>, of the visible vertices. The percept does
-    <i>not</i> include the position of the robot! The robot must
-    learn its own position from the map; for now, you can assume that
-    each location has a different “view.”<br>
+-   Percept sẽ là một danh sách các vị trí của các đỉnh nhìn thấy được, <i>tương đối so với agent</i>. Percept <i>không</i> bao gồm vị trí của robot! Robot phải tự nhận biết vị trí của mình từ bản đồ; hiện tại, bạn có thể giả định rằng mỗi vị trí có một “góc nhìn” khác nhau.<br>
 
--   Each action will be a vector describing a straight-line path
-    to follow. If the path is unobstructed, the action succeeds;
-    otherwise, the robot stops at the point where its path first
-    intersects an obstacle. If the agent returns a zero motion vector
-    and is at the goal (which is fixed and known), then the environment
-    teleports the agent to a <i>random location</i> (not inside
-    an obstacle).<br>
+-   Mỗi action sẽ là một vector mô tả một đường thẳng cần đi theo. Nếu đường đi không bị cản trở, action sẽ thành công; nếu không, robot sẽ dừng lại tại điểm mà đường đi của nó cắt vật cản lần đầu tiên. Nếu agent trả về một vector chuyển động bằng 0 và đang ở goal (vốn cố định và đã biết), thì environment sẽ teleport agent đến một <i>vị trí ngẫu nhiên</i> (không nằm bên trong vật cản).<br>
 
--   The performance measure charges the agent 1 point for each unit of
-    distance traversed and awards 1000 points each time the goal
-    is reached.<br>
+-   Performance measure sẽ tính phí agent 1 điểm cho mỗi đơn vị khoảng cách đi qua và thưởng 1000 điểm mỗi khi đến được goal.<br>
 
-1.  Implement this environment and a problem-solving agent for it. After
-    each teleportation, the agent will need to formulate a new problem,
-    which will involve discovering its current location.<br>
+1.  Hãy cài đặt environment này và một problem-solving agent cho nó. Sau mỗi lần teleportation, agent sẽ cần formulate một bài toán mới, bao gồm việc khám phá ra vị trí hiện tại của nó.<br>
 
-2.  Document your agent’s performance (by having the agent generate
-    suitable commentary as it moves around) and report its performance
-    over 100 episodes.<br>
+2.  Hãy ghi lại performance của agent (bằng cách cho agent tạo ra các lời tường thuật thích hợp khi nó di chuyển xung quanh) và báo cáo performance của nó qua 100 episode.<br>
 
-3.  Modify the environment so that 30% of the time the agent ends up at
-    an unintended destination (chosen randomly from the other visible
-    vertices if any; otherwise, no move at all). This is a crude model
-    of the motion errors of a real robot. Modify the agent so that when
-    such an error is detected, it finds out where it is and then
-    constructs a plan to get back to where it was and resume the
-    old plan. Remember that sometimes getting back to where it was might
-    also fail! Show an example of the agent successfully overcoming two
-    successive motion errors and still reaching the goal.<br>
+3.  Sửa đổi environment sao cho có 30% thời gian agent kết thúc tại một điểm đến không mong muốn (được chọn ngẫu nhiên từ các đỉnh nhìn thấy khác nếu có; nếu không, sẽ không di chuyển chút nào). Đây là một mô hình đơn giản về các lỗi chuyển động của một robot thực tế. Sửa đổi agent sao cho khi phát hiện lỗi như vậy, nó sẽ tìm xem mình đang ở đâu và sau đó xây dựng một plan để quay trở lại vị trí cũ và tiếp tục plan ban đầu. Hãy nhớ rằng đôi khi việc quay trở lại vị trí cũ cũng có thể thất bại! Hãy đưa ra một ví dụ về việc agent khắc phục thành công hai lỗi chuyển động liên tiếp mà vẫn đến được goal.<br>
 
-4.  Now try two different recovery schemes after an error: (1) head for
-    the closest vertex on the original route; and (2) replan a route to
-    the goal from the new location. Compare the performance of the three
-    recovery schemes. Would the inclusion of search costs affect the
-    comparison?<br>
+4.  Bây giờ hãy thử hai chiến lược phục hồi (recovery scheme) khác nhau sau lỗi: (1) đi đến đỉnh gần nhất trên lộ trình ban đầu; và (2) replan một lộ trình đến goal từ vị trí mới. So sánh performance của ba chiến lược phục hồi. Liệu việc tính thêm search cost có ảnh hưởng đến sự so sánh này không?<br>
 
-5.  Now suppose that there are locations from which the view
-    is identical. (For example, suppose the world is a grid with
-    square obstacles.) What kind of problem does the agent now face?
-    What do solutions look like?
+5.  Bây giờ giả sử rằng có những vị trí mà góc nhìn từ đó là giống hệt nhau. (Ví dụ, giả sử thế giới là một lưới với các vật cản hình vuông.) Lúc này agent phải đối mặt với loại bài toán nào? Các solution sẽ trông như thế nào?
 
 
 ---
 
 ##### Bài tập 4.13
 
-Suppose that an agent is in a $3 \times 3$
-maze environment like the one shown in
-Figure <a class="insideBookFigRef"  target="_blank" href="https://aimacode.github.io/aima-exercises/figures/maze-3x3-figure.png">maze-3x3-figure</a>. The agent knows that its
-initial location is (1,1), that the goal is at (3,3), and that the
-actions <i>Up</i>, <i>Down</i>, <i>Left</i>, <i>Right</i> have their usual
-effects unless blocked by a wall. The agent does <i>not</i> know
-where the internal walls are. In any given state, the agent perceives
-the set of legal actions; it can also tell whether the state is one it
-has visited before.<br>
+Giả sử một agent đang ở trong một maze environment kích thước $3 \times 3$ như trong Hình <a class="insideBookFigRef"  target="_blank" href="https://aimacode.github.io/aima-exercises/figures/maze-3x3-figure.png">maze-3x3-figure</a>. Agent biết rằng vị trí ban đầu của nó là (1,1), goal ở (3,3), và các action <i>Up</i>, <i>Down</i>, <i>Left</i>, <i>Right</i> có các tác dụng thông thường trừ khi bị chặn bởi một bức tường. Agent <i>không</i> biết các bức tường bên trong nằm ở đâu. Tại bất kỳ state nào cho trước, agent đều perceive được tập hợp các action hợp lệ; nó cũng có thể nhận biết liệu state đó có phải là state mà nó đã visited trước đây hay không.<br>
 
-1.  Explain how this online search problem can be viewed as an offline
-    search in belief-state space, where the initial belief state
-    includes all possible environment configurations. How large is the
-    initial belief state? How large is the space of belief states?<br>
+1.  Hãy giải thích cách bài toán online search này có thể được xem như một offline search trong belief-state space, trong đó initial belief state bao gồm tất cả các cấu hình environment khả dĩ. Initial belief state lớn đến mức nào? Không gian các belief state lớn đến mức nào?<br>
 
-2.  How many distinct percepts are possible in the initial state?<br>
+2.  Có bao nhiêu percept phân biệt khả dĩ trong initial state?<br>
 
-3.  Describe the first few branches of a contingency plan for this
-    problem. How large (roughly) is the complete plan?<br>
+3.  Hãy mô tả một vài nhánh đầu tiên của một contingency plan cho bài toán này. Plan hoàn chỉnh (ước chừng) lớn đến mức nào?<br>
 
-Notice that this contingency plan is a solution for <i>every
-possible environment</i> fitting the given description. Therefore,
-interleaving of search and execution is not strictly necessary even in
-unknown environments.
+Lưu ý rằng contingency plan này là một solution cho <i>mọi environment khả dĩ</i> phù hợp với mô tả đã cho. Do đó, việc xen kẽ giữa search và execution không hoàn toàn bắt buộc ngay cả trong unknown environment.
 
 
 ---
 
 ##### Bài tập 4.14
 
-Suppose that an agent is in a $3 \times 3$
-maze environment like the one shown in
-Figure <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/maze-3x3-figure.png">maze-3x3-figure</a>. The agent knows that its
-initial location is (3,3), that the goal is at (1,1), and that the four
-actions *Up*, *Down*, *Left*, *Right* have their usual
-effects unless blocked by a wall. The agent does *not* know
-where the internal walls are. In any given state, the agent perceives
-the set of legal actions; it can also tell whether the state is one it
-has visited before or is a new state.<br>
+Giả sử một agent đang ở trong một maze environment kích thước $3 \times 3$ như trong Hình <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/maze-3x3-figure.png">maze-3x3-figure</a>. Agent biết rằng vị trí ban đầu của nó là (3,3), goal ở (1,1), và bốn action *Up*, *Down*, *Left*, *Right* có các tác dụng thông thường trừ khi bị chặn bởi một bức tường. Agent *không* biết các bức tường bên trong nằm ở đâu. Tại bất kỳ state nào cho trước, agent đều perceive được tập hợp các action hợp lệ; nó cũng có thể nhận biết liệu state đó có phải là state mà nó đã visited trước đây hay là một state mới.<br>
 
-1.  Explain how this online search problem can be viewed as an offline
-    search in belief-state space, where the initial belief state
-    includes all possible environment configurations. How large is the
-    initial belief state? How large is the space of belief states?<br>
+1.  Hãy giải thích cách bài toán online search này có thể được xem như một offline search trong belief-state space, trong đó initial belief state bao gồm tất cả các cấu hình environment khả dĩ. Initial belief state lớn đến mức nào? Không gian các belief state lớn đến mức nào?<br>
 
-2.  How many distinct percepts are possible in the initial state?<br>
+2.  Có bao nhiêu percept phân biệt khả dĩ trong initial state?<br>
 
-3.  Describe the first few branches of a contingency plan for this
-    problem. How large (roughly) is the complete plan?<br>
+3.  Hãy mô tả một vài nhánh đầu tiên của một contingency plan cho bài toán này. Plan hoàn chỉnh (ước chừng) lớn đến mức nào?<br>
 
-Notice that this contingency plan is a solution for *every
-possible environment* fitting the given description. Therefore,
-interleaving of search and execution is not strictly necessary even in
-unknown environments.
+Lưu ý rằng contingency plan này là một solution cho *mọi environment khả dĩ* phù hợp với mô tả đã cho. Do đó, việc xen kẽ giữa search và execution không hoàn toàn bắt buộc ngay cả trong unknown environment.
 
 
 ---
 
 ##### Bài tập 4.15
 
-In this exercise, we examine hill climbing
-in the context of robot navigation, using the environment in
-Figure <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/geometric-scene-figure.png">geometric-scene-figure</a> as an example.<br>
+Trong bài tập này, chúng ta xem xét hill climbing trong ngữ cảnh robot navigation, sử dụng environment trong Hình <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/geometric-scene-figure.png">geometric-scene-figure</a> làm ví dụ.<br>
 
-1.  Repeat Exercise <a class="exerciseRef" href="{{ site.baseurl }}/advanced-search-exercises/ex_11/">path-planning-agent-exercise</a> using
-    hill climbing. Does your agent ever get stuck in a local minimum? Is
-    it *possible* for it to get stuck with convex
-    obstacles?<br>
+1.  Lặp lại Bài tập <a class="exerciseRef" href="{{ site.baseurl }}/advanced-search-exercises/ex_11/">path-planning-agent-exercise</a> bằng cách sử dụng hill climbing. Agent của bạn có bao giờ bị mắc kẹt trong một local minimum không? Liệu nó có *thể* bị mắc kẹt với các vật cản lồi (convex obstacle) hay không?<br>
 
-2.  Construct a nonconvex polygonal environment in which the agent
-    gets stuck.<br>
+2.  Hãy xây dựng một nonconvex polygonal environment mà trong đó agent bị mắc kẹt.<br>
 
-3.  Modify the hill-climbing algorithm so that, instead of doing a
-    depth-1 search to decide where to go next, it does a
-    depth-$k$ search. It should find the best $k$-step path and do one
-    step along it, and then repeat the process.<br>
+3.  Sửa đổi thuật toán hill-climbing sao cho thay vì thực hiện một search độ sâu 1 (depth-1 search) để quyết định đi đâu tiếp theo, nó thực hiện một depth-$k$ search. Nó nên tìm path $k$-bước tốt nhất và thực hiện một bước dọc theo path đó, sau đó lặp lại quy trình.<br>
 
-4.  Is there some $k$ for which the new algorithm is guaranteed to
-    escape from local minima?<br>
+4.  Có tồn tại giá trị $k$ nào mà thuật toán mới đảm bảo sẽ thoát khỏi các local minima hay không?<br>
 
-5.  Explain how LRTA enables the agent to escape from local minima in
-    this case.<br>
+5.  Hãy giải thích cách LRTA* cho phép agent thoát khỏi các local minima trong trường hợp này.<br>
 
 
 ---
 
 ##### Bài tập 4.16
 
-Like DFS, online DFS is incomplete for reversible state spaces with
-infinite paths. For example, suppose that states are points on the
-infinite two-dimensional grid and actions are unit vectors $(1,0)$,
-$(0,1)$, $(-1,0)$, $(0,-1)$, tried in that order. Show that online DFS
-starting at $(0,0)$ will not reach $(1,-1)$. Suppose the agent can
-observe, in addition to its current state, all successor states and the
-actions that would lead to them. Write an algorithm that is complete
-even for bidirected state spaces with infinite paths. What states does
-it visit in reaching $(1,-1)$?
+Giống như DFS, online DFS là incomplete đối với các reversible state space có các path vô hạn. Ví dụ, giả sử rằng các state là các điểm trên lưới hai chiều vô hạn và các action là các vector đơn vị $(1,0)$, $(0,1)$, $(-1,0)$, $(0,-1)$, được thử theo thứ tự đó. Hãy chứng minh rằng online DFS bắt đầu tại $(0,0)$ sẽ không bao giờ đến được $(1,-1)$. Giả sử agent có thể quan sát, ngoài current state của nó, tất cả các successor state và các action dẫn đến chúng. Hãy viết một thuật toán complete ngay cả đối với các bidirected state space có các path vô hạn. Thuật toán đó visit những state nào khi đi đến $(1,-1)$?
 
 
 ---
 
 ##### Bài tập 4.17
 
-Relate the time complexity of LRTA* to its space complexity.
+Hãy liên hệ time complexity của LRTA* với space complexity của nó.
 
 
 ---
-
 
 <!-- tabs:end -->

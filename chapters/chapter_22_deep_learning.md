@@ -42,171 +42,159 @@
 
 #### **Bài tập**
 
+
 ##### Bài tập 22.1
 
-This exercise explores the quality of the $n$-gram model of language.
-Find or create a monolingual corpus of 100,000 words or more. Segment it
-into words, and compute the frequency of each word. How many distinct
-words are there? Also count frequencies of bigrams (two consecutive
-words) and trigrams (three consecutive words). Now use those frequencies
-to generate language: from the unigram, bigram, and trigram models, in
-turn, generate a 100-word text by making random choices according to the
-frequency counts. Compare the three generated texts with actual
-language. Finally, calculate the perplexity of each model.
+Bài tập này khám phá chất lượng của mô hình $n$-gram ngôn ngữ.
+Tìm hoặc tạo một corpus đơn ngữ gồm 100.000 từ trở lên. Phân tách nó
+thành các từ và tính tần suất của mỗi từ. Có bao nhiêu từ riêng biệt?
+Cũng đếm tần suất của bigram (hai từ liên tiếp) và trigram (ba từ liên tiếp).
+Bây giờ, sử dụng các tần suất đó để tạo ngôn ngữ: từ các mô hình unigram,
+bigram và trigram, lần lượt, tạo một văn bản 100 từ bằng cách đưa ra các lựa chọn ngẫu nhiên
+theo số đếm tần suất. So sánh ba văn bản được tạo ra với ngôn ngữ thực tế.
+Cuối cùng, tính toán perplexity của mỗi mô hình.
 
 
 ---
 
 ##### Bài tập 22.2
 
-Write a program to do <b>segmentation</b> of
-words without spaces. Given a string, such as the URL
+Viết một chương trình để thực hiện <b>segmentation</b> từ
+mà không có khoảng trắng. Cho một chuỗi, chẳng hạn như URL
 “thelongestlistofthelongeststuffatthelongestdomainnameatlonglast.com,”
-return a list of component words: [“the,” “longest,” “list,”
-$\ldots$]. This task is useful for parsing URLs, for spelling
-correction when words runtogether, and for languages such as Chinese
-that do not have spaces between words. It can be solved with a unigram
-or bigram word model and a dynamic programming algorithm similar to the
-Viterbi algorithm.
+trả về một danh sách các từ thành phần: [“the,” “longest,” “list,”
+$\ldots$]. Nhiệm vụ này hữu ích cho việc phân tích cú pháp URL,
+sửa lỗi chính tả khi các từ dính liền nhau và cho các ngôn ngữ như tiếng Trung
+không có khoảng trắng giữa các từ. Nó có thể được giải quyết bằng mô hình từ
+unigram hoặc bigram và một thuật toán lập trình động tương tự như thuật toán Viterbi.
 
 
 ---
 
 ##### Bài tập 22.3
 
-<i>Zipf’s law</i> of word distribution states the following:
-Take a large corpus of text, count the frequency of every word in the
-corpus, and then rank these frequencies in decreasing order. Let $f_{I}$
-be the $I$th largest frequency in this list; that is, $f_{1}$ is the
-frequency of the most common word (usually “the”), $f_{2}$ is the
-frequency of the second most common word, and so on. Zipf’s law states
-that $f_{I}$ is approximately equal to $\alpha / I$ for some constant
-$\alpha$. The law tends to be highly accurate except for very small and
-very large values of $I$.
+<i>Định luật Zipf</i> về phân phối từ phát biểu như sau:
+Lấy một corpus văn bản lớn, đếm tần suất của mọi từ trong corpus,
+sau đó xếp hạng các tần suất này theo thứ tự giảm dần. Gọi $f_{I}$ là tần suất lớn thứ $I$ trong danh sách này;
+nghĩa là, $f_{1}$ là tần suất của từ phổ biến nhất (thường là “the”), $f_{2}$ là tần suất của từ phổ biến thứ hai, v.v.
+Định luật Zipf phát biểu rằng $f_{I}$ xấp xỉ bằng $\alpha / I$ với một hằng số $\alpha$ nào đó.
+Định luật có xu hướng rất chính xác ngoại trừ các giá trị rất nhỏ và rất lớn của $I$.
 
 
 ---
 
 ##### Bài tập 22.4
 
-Choose a corpus of at least 20,000 words of online text, and verify
-Zipf’s law experimentally. Define an error measure and find the value of
-$\alpha$ where Zipf’s law best matches your experimental data. Create a
-log–log graph plotting $f_{I}$ vs. $I$ and $\alpha/I$ vs. $I$. (On a
-log–log graph, the function $\alpha/I$ is a straight line.) In carrying
-out the experiment, be sure to eliminate any formatting tokens (e.g.,
-HTML tags) and normalize upper and lower case.
+Chọn một corpus gồm ít nhất 20.000 từ văn bản trực tuyến và xác minh
+Định luật Zipf bằng thực nghiệm. Xác định một thước đo lỗi và tìm giá trị
+của $\alpha$ mà Định luật Zipf khớp tốt nhất với dữ liệu thực nghiệm của bạn.
+Tạo một biểu đồ log-log vẽ $f_{I}$ so với $I$ và $\alpha/I$ so với $I$.
+(Trên biểu đồ log-log, hàm $\alpha/I$ là một đường thẳng.) Khi thực hiện thí nghiệm,
+hãy chắc chắn loại bỏ bất kỳ token định dạng nào (ví dụ: thẻ HTML) và chuẩn hóa chữ hoa và chữ thường.
 
 
 ---
 
 ##### Bài tập 22.5
 
-(Adapted from <a class="paperRef" title="" href="">Jurafsky+Martin:2000</a>.) In this exercise you will develop a classifier for
-authorship: given a text, the classifier predicts which of two candidate
-authors wrote the text. Obtain samples of text from two different
-authors. Separate them into training and test sets. Now train a language
-model on the training set. You can choose what features to use;
-$n$-grams of words or letters are the easiest, but you can add
-additional features that you think may help. Then compute the
-probability of the text under each language model and chose the most
-probable model. Assess the accuracy of this technique. How does accuracy
-change as you alter the set of features? This subfield of linguistics is
-called <b>stylometry</b>; its successes include the identification of the author of the
-disputed <i>Federalist Papers</i> <a class="paperRef" title="" href="">Mosteller+Wallace:1964</a> and
-some disputed works of Shakespeare <a class="paperRef" title="" href="">Hope:1994</a>. <a class="paperRef" title="" href="">Khmelev+Tweedie:2001</a> produce good results with
-a simple letter bigram model.
+(Chuyển thể từ <a class="paperRef" title="" href="">Jurafsky+Martin:2000</a>.) Trong bài tập này, bạn sẽ phát triển một bộ phân loại
+cho việc xác định tác giả: cho trước một văn bản, bộ phân loại dự đoán
+tác giả nào trong hai tác giả ứng viên đã viết văn bản đó. Thu thập các mẫu văn bản từ hai tác giả khác nhau.
+Phân tách chúng thành tập huấn luyện và tập kiểm tra. Bây giờ, huấn luyện một language model trên tập huấn luyện.
+Bạn có thể chọn các features để sử dụng; $n$-grams của từ hoặc chữ cái là dễ nhất,
+nhưng bạn có thể thêm các features bổ sung mà bạn nghĩ có thể hữu ích.
+Sau đó, tính xác suất của văn bản dưới mỗi language model và chọn mô hình có xác suất cao nhất.
+Đánh giá độ chính xác của kỹ thuật này. Độ chính xác thay đổi như thế nào khi bạn thay đổi tập hợp các features?
+Phân ngành ngôn ngữ học này được gọi là <b>stylometry</b>;
+thành công của nó bao gồm việc xác định tác giả của các tác phẩm tranh chấp
+<i>Federalist Papers</i> <a class="paperRef" title="" href="">Mosteller+Wallace:1964</a> và một số tác phẩm tranh chấp của Shakespeare
+<a class="paperRef" title="" href="">Hope:1994</a>. <a class="paperRef" title="" href="">Khmelev+Tweedie:2001</a> đạt được kết quả tốt với một mô hình bigram chữ cái đơn giản.
 
 
 ---
 
 ##### Bài tập 22.6
 
-This exercise concerns the classification of spam email.
-Create a corpus of spam email and one of non-spam mail. Examine each
-corpus and decide what features appear to be useful for classification:
-unigram words? bigrams? message length, sender, time of arrival? Then
-train a classification algorithm (decision tree, naive Bayes, SVM,
-logistic regression, or some other algorithm of your choosing) on a
-training set and report its accuracy on a test set.
+Bài tập này liên quan đến việc phân loại email spam.
+Tạo một corpus email spam và một corpus email không phải spam.
+Kiểm tra từng corpus và quyết định những features nào có vẻ hữu ích cho việc phân loại:
+từ unigram? bigram? độ dài tin nhắn, người gửi, thời gian nhận?
+Sau đó, huấn luyện một thuật toán phân loại (cây quyết định, naive Bayes, SVM,
+hồi quy logistic, hoặc một thuật toán khác bạn chọn) trên một tập huấn luyện và báo cáo độ chính xác của nó trên một tập kiểm tra.
 
 
 ---
 
 ##### Bài tập 22.7
 
-Create a test set of ten queries, and pose them to three major Web
-search engines. Evaluate each one for precision at 1, 3, and 10
-documents. Can you explain the differences between engines?
+Tạo một tập kiểm tra gồm mười truy vấn và gửi chúng đến ba công cụ tìm kiếm Web chính.
+Đánh giá từng công cụ về precision ở 1, 3 và 10 tài liệu. Bạn có thể giải thích sự khác biệt giữa các công cụ không?
 
 
 ---
 
 ##### Bài tập 22.8
 
-Try to ascertain which of the search engines from the previous exercise
-are using case folding, stemming, synonyms, and spelling correction.
+Thử xác định xem công cụ tìm kiếm nào từ bài tập trước đang sử dụng
+case folding, stemming, từ đồng nghĩa và sửa lỗi chính tả.
 
 
 ---
 
 ##### Bài tập 22.9
 
-Estimate how much storage space is necessary for the index to a 100
-billion-page corpus of Web pages. Show the assumptions you made.
+Ước tính lượng không gian lưu trữ cần thiết cho index của một corpus
+100 tỷ trang web. Trình bày các giả định bạn đã đưa ra.
 
 
 ---
 
 ##### Bài tập 22.10
 
-Write a regular expression or a short program to extract company names.
-Test it on a corpus of business news articles. Report your recall and
-precision.
+Viết một biểu thức chính quy hoặc một chương trình ngắn để trích xuất tên công ty.
+Kiểm tra nó trên một corpus các bài báo kinh doanh. Báo cáo recall và precision của bạn.
 
 
 ---
 
 ##### Bài tập 22.11
 
-Consider the problem of trying to evaluate the quality of an IR system
-that returns a ranked list of answers (like most Web search engines).
-The appropriate measure of quality depends on the presumed model of what
-the searcher is trying to achieve, and what strategy she employs. For
-each of the following models, propose a corresponding numeric measure.<br>
+Xem xét bài toán cố gắng đánh giá chất lượng của một hệ thống IR
+trả về một danh sách kết quả được xếp hạng (như hầu hết các công cụ tìm kiếm Web).
+Thước đo chất lượng phù hợp phụ thuộc vào mô hình giả định về những gì người tìm kiếm
+đang cố gắng đạt được và chiến lược cô ấy sử dụng. Đối với mỗi mô hình sau đây,
+đề xuất một thước đo số tương ứng.<br>
 
-1.  The searcher will look at the first twenty answers returned, with
-    the objective of getting as much relevant information as possible.<br>
+1.  Người tìm kiếm sẽ xem xét hai mươi kết quả đầu tiên được trả về, với
+    mục tiêu thu thập càng nhiều thông tin liên quan càng tốt.<br>
 
-2.  The searcher needs only one relevant document, and will go down the
-    list until she finds the first one.<br>
+2.  Người tìm kiếm chỉ cần một tài liệu liên quan và sẽ đi xuống danh sách
+    cho đến khi cô ấy tìm thấy tài liệu đầu tiên.<br>
 
-3.  The searcher has a fairly narrow query and is able to examine all
-    the answers retrieved. She wants to be sure that she has seen
-    everything in the document collection that is relevant to her query.
-    (E.g., a lawyer wants to be sure that she has found
-    <i>all</i> relevant precedents, and is willing to spend
-    considerable resources on that.)<br>
+3.  Người tìm kiếm có một truy vấn khá hẹp và có thể xem xét tất cả
+    các kết quả được truy xuất. Cô ấy muốn chắc chắn rằng mình đã xem
+    thấy mọi thứ trong bộ sưu tập tài liệu có liên quan đến truy vấn của mình.
+    (Ví dụ: một luật sư muốn chắc chắn rằng cô ấy đã tìm thấy
+    <i>tất cả</i> các tiền lệ liên quan và sẵn sàng chi một khoản
+    chi phí đáng kể cho việc đó.)<br>
 
-4.  The searcher needs just one document relevant to the query, and can
-    afford to pay a research assistant for an hour’s work looking
-    through the results. The assistant can look through 100 retrieved
-    documents in an hour. The assistant will charge the searcher for the
-    full hour regardless of whether he finds it immediately or at the
-    end of the hour.<br>
+4.  Người tìm kiếm chỉ cần một tài liệu liên quan đến truy vấn và có thể
+    chi trả cho một trợ lý nghiên cứu làm việc một giờ để xem xét
+    kết quả. Trợ lý có thể xem xét 100 tài liệu được truy xuất trong một giờ.
+    Trợ lý sẽ tính phí người tìm kiếm cho toàn bộ giờ làm việc bất kể
+    việc tìm thấy ngay lập tức hay vào cuối giờ.<br>
 
-5.  The searcher will look through all the answers. Examining a document
-    has cost \$ A; finding a relevant document has value \$ B; failing
-    to find a relevant document has cost \$ C for each relevant
-    document not found.<br>
+5.  Người tìm kiếm sẽ xem xét tất cả các kết quả. Việc xem xét một tài liệu
+    có chi phí \$ A; tìm thấy một tài liệu liên quan có giá trị \$ B;
+    không tìm thấy một tài liệu liên quan có chi phí \$ C cho mỗi tài liệu liên quan
+    không tìm thấy.<br>
 
-6.  The searcher wants to collect as many relevant documents as
-    possible, but needs steady encouragement. She looks through the
-    documents in order. If the documents she has looked at so far are
-    mostly good, she will continue; otherwise, she will stop.
+6.  Người tìm kiếm muốn thu thập càng nhiều tài liệu liên quan càng tốt,
+    nhưng cần sự khuyến khích đều đặn. Cô ấy xem xét các tài liệu theo thứ tự.
+    Nếu các tài liệu cô ấy đã xem cho đến nay chủ yếu là tốt, cô ấy sẽ tiếp tục;
+    nếu không, cô ấy sẽ dừng lại.
 
 
 ---
-
 
 <!-- tabs:end -->

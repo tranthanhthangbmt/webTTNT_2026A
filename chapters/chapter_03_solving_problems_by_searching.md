@@ -48,294 +48,292 @@
 
 ##### Bài tập 3.1
 
-Explain why problem formulation must follow goal formulation.
+Giải thích tại sao việc định nghĩa vấn đề (problem formulation) phải theo sau việc định nghĩa mục tiêu (goal formulation).
 
 
 ---
 
 ##### Bài tập 3.2
 
-Give a complete problem formulation for each of the following problems.
-Choose a formulation that is precise enough to be implemented.<br>
+Đưa ra một problem formulation hoàn chỉnh cho mỗi bài toán sau đây.
+Chọn một định nghĩa đủ chính xác để có thể triển khai được.<br>
 
-1.  There are six glass boxes in a row, each with a lock. Each of the
-    first five boxes holds a key unlocking the next box in line; the
-    last box holds a banana. You have the key to the first box, and you
-    want the banana.<br>
+1.  Có sáu hộp thủy tinh xếp thành một hàng, mỗi hộp có một ổ khóa. Mỗi hộp trong số
+    năm hộp đầu tiên chứa một chiếc chìa khóa để mở hộp tiếp theo trong hàng; hộp
+    cuối cùng chứa một quả chuối. Bạn có chìa khóa của hộp đầu tiên, và bạn
+    muốn lấy quả chuối.<br>
 
-2.  You start with the sequence ABABAECCEC, or in general any sequence
-    made from A, B, C, and E. You can transform this sequence using the
-    following equalities: AC = E, AB = BC, BB = E, and E$x$ = $x$ for
-    any $x$. For example, ABBC can be transformed into AEC, and then AC,
-    and then E. Your goal is to produce the sequence E.<br>
+2.  Bạn bắt đầu với chuỗi ABABAECCEC, hoặc nói chung là bất kỳ chuỗi nào
+    được tạo từ A, B, C, và E. Bạn có thể biến đổi chuỗi này bằng cách sử dụng các
+    đẳng thức sau: AC = E, AB = BC, BB = E, và E$x$ = $x$ đối với
+    bất kỳ $x$ nào. Ví dụ, ABBC có thể được biến đổi thành AEC, và sau đó thành AC,
+    và cuối cùng là E. Mục tiêu của bạn là tạo ra chuỗi E.<br>
 
-3.  There is an $n \times n$ grid of squares, each square initially
-    being either unpainted floor or a bottomless pit. You start standing
-    on an unpainted floor square, and can either paint the square under
-    you or move onto an adjacent unpainted floor square. You want the
-    whole floor painted.<br>
+3.  Có một lưới hình vuông kích thước $n \times n$, ban đầu mỗi ô vuông
+    là sàn chưa sơn hoặc là một cái hố không đáy. Bạn bắt đầu đứng
+    trên một ô sàn chưa sơn, và có thể chọn sơn ô vuông dưới chân
+    bạn hoặc di chuyển sang một ô sàn chưa sơn liền kề. Bạn muốn
+    toàn bộ sàn được sơn.<br>
 
-4.  A container ship is in port, loaded high with containers. There 13
-    rows of containers, each 13 containers wide and 5 containers tall.
-    You control a crane that can move to any location above the ship,
-    pick up the container under it, and move it onto the dock. You want
-    the ship unloaded.
+4.  Một tàu chở container đang ở cảng, chất đầy các container. Có 13
+    hàng container, mỗi hàng rộng 13 container và cao 5 container.
+    Bạn điều khiển một cần cẩu có thể di chuyển đến bất kỳ vị trí nào phía trên con tàu,
+    nhấc container bên dưới nó lên, và di chuyển nó lên bến tàu. Bạn muốn
+    con tàu được dỡ hàng.
 
 
 ---
 
 ##### Bài tập 3.3
 
-Your goal is to navigate a robot out of a maze. The robot starts in the
-center of the maze facing north. You can turn the robot to face north,
-east, south, or west. You can direct the robot to move forward a certain
-distance, although it will stop before hitting a wall.<br>
+Mục tiêu của bạn là điều hướng một rô-bốt ra khỏi mê cung. Rô-bốt bắt đầu ở
+trung tâm của mê cung và quay mặt về hướng bắc. Bạn có thể quay rô-bốt để đối mặt với hướng bắc,
+đông, nam, hoặc tây. Bạn có thể chỉ định rô-bốt di chuyển về phía trước một khoảng cách
+nhất định, mặc dù nó sẽ dừng lại trước khi đâm vào một bức tường.<br>
 
-1.  Formulate this problem. How large is the state space?<br>
+1.  Formulate (định nghĩa) bài toán này. Kích thước của state space (không gian trạng thái) là bao nhiêu?<br>
 
-2.  In navigating a maze, the only place we need to turn is at the
-    intersection of two or more corridors. Reformulate this problem
-    using this observation. How large is the state space now?<br>
+2.  Trong việc điều hướng một mê cung, nơi duy nhất chúng ta cần rẽ là tại điểm
+    giao nhau của hai hoặc nhiều hành lang. Hãy định nghĩa lại bài toán này
+    dựa trên quan sát này. Kích thước của state space bây giờ là bao nhiêu?<br>
 
-3.  From each point in the maze, we can move in any of the four
-    directions until we reach a turning point, and this is the only
-    action we need to do. Reformulate the problem using these actions.
-    Do we need to keep track of the robot’s orientation now?<br>
+3.  Từ mỗi điểm trong mê cung, chúng ta có thể di chuyển theo bất kỳ hướng nào trong số bốn
+    hướng cho đến khi chúng ta đạt đến một điểm rẽ, và đây là
+    hành động duy nhất chúng ta cần làm. Hãy định nghĩa lại bài toán sử dụng các hành động này.
+    Bây giờ chúng ta có cần theo dõi hướng của rô-bốt không?<br>
 
-4.  In our initial description of the problem we already abstracted from
-    the real world, restricting actions and removing details. List three
-    such simplifications we made.<br>
+4.  Trong mô tả ban đầu của chúng ta về bài toán, chúng ta đã trừu tượng hóa khỏi
+    thế giới thực, hạn chế các action (hành động) và loại bỏ các chi tiết. Hãy liệt kê ba
+    sự đơn giản hóa như vậy mà chúng ta đã thực hiện.<br>
 
 
 ---
 
 ##### Bài tập 3.4
 
-You have a $9 \times 9$ grid of squares, each of which can be colored
-red or blue. The grid is initially colored all blue, but you can change
-the color of any square any number of times. Imagining the grid divided
-into nine $3 \times 3$ sub-squares, you want each sub-square to be all
-one color but neighboring sub-squares to be different colors.<br>
+Bạn có một lưới các ô vuông $9 \times 9$, mỗi ô có thể được tô màu
+đỏ hoặc xanh lam. Ban đầu, lưới được tô toàn bộ màu xanh lam, nhưng bạn có thể thay đổi
+màu của bất kỳ ô vuông nào một số lần bất kỳ. Tưởng tượng rằng lưới được chia
+thành chín lưới con $3 \times 3$, bạn muốn mỗi lưới con chỉ có một
+màu duy nhất nhưng các lưới con lân cận nhau phải có màu khác nhau.<br>
 
-1.  Formulate this problem in the straightforward way. Compute the size
-    of the state space.<br>
+1.  Formulate bài toán này theo một cách đơn giản. Tính toán kích thước
+    của state space.<br>
 
-2.  You need color a square only once. Reformulate, and compute the size
-    of the state space. Would breadth-first graph search perform faster
-    on this problem than on the one in (a)? How about iterative
-    deepening tree search?<br>
+2.  Bạn chỉ cần tô màu một ô vuông một lần duy nhất. Hãy định nghĩa lại, và tính toán kích thước
+    của state space. Liệu thuật toán breadth-first graph search có hoạt động nhanh hơn
+    trên bài toán này so với bài toán ở phần (a) không? Còn đối với iterative
+    deepening tree search thì sao?<br>
 
-3.  Given the goal, we need consider only colorings where each
-    sub-square is uniformly colored. Reformulate the problem and compute
-    the size of the state space.<br>
+3.  Với mục tiêu đã cho, chúng ta chỉ cần xem xét các cách tô màu mà mỗi
+    lưới con được tô đồng màu. Hãy định nghĩa lại bài toán và tính toán
+    kích thước của state space.<br>
 
-4.  How many solutions does this problem have?<br>
+4.  Bài toán này có bao nhiêu giải pháp (solutions)?<br>
 
-5.  Parts (b) and (c) successively abstracted the original problem (a).
-    Can you give a translation from solutions in problem (c) into
-    solutions in problem (b), and from solutions in problem (b) into
-    solutions for problem (a)?<br>
+5.  Các phần (b) và (c) đã lần lượt trừu tượng hóa bài toán ban đầu (a).
+    Bạn có thể đưa ra một phép biến đổi từ các giải pháp trong bài toán (c) sang
+    các giải pháp trong bài toán (b), và từ các giải pháp trong bài toán (b) sang
+    các giải pháp cho bài toán (a) không?<br>
 
 
 ---
 
 ##### Bài tập 3.5
 
-Suppose two friends live in different cities on
-a map, such as the Romania map shown in . On every turn, we can
-simultaneously move each friend to a neighboring city on the map. The
-amount of time needed to move from city $i$ to neighbor $j$ is equal to
-the road distance $d(i,j)$ between the cities, but on each turn the
-friend that arrives first must wait until the other one arrives (and
-calls the first on his/her cell phone) before the next turn can begin.
-We want the two friends to meet as quickly as possible.<br>
+Giả sử hai người bạn sống ở các thành phố khác nhau trên
+một bản đồ, chẳng hạn như bản đồ Romania. Ở mỗi lượt, chúng ta có thể
+đồng thời di chuyển mỗi người bạn đến một thành phố lân cận trên bản đồ.
+Lượng thời gian cần thiết để di chuyển từ thành phố $i$ đến thành phố lân cận $j$ bằng với
+khoảng cách đường bộ $d(i,j)$ giữa hai thành phố, nhưng ở mỗi lượt, người
+bạn đến trước phải đợi cho đến khi người kia đến (và
+gọi cho người đến trước qua điện thoại di động) trước khi lượt tiếp theo có thể bắt đầu.
+Chúng ta muốn hai người bạn gặp nhau càng nhanh càng tốt.<br>
 
-1.  Write a detailed formulation for this search problem. (You will find
-    it helpful to define some formal notation here.)<br>
+1.  Viết một problem formulation chi tiết cho search problem này. (Bạn sẽ thấy
+    hữu ích khi định nghĩa một số ký hiệu hình thức ở đây.)<br>
 
-2.  Let $D(i,j)$ be the straight-line distance between cities $i$ and
-    $j$. Which of the following heuristic functions are admissible? (i)
+2.  Giả sử $D(i,j)$ là khoảng cách đường thẳng giữa các thành phố $i$ và
+    $j$. Hàm heuristic nào sau đây là admissible? (i)
     $D(i,j)$; (ii) $2\cdot D(i,j)$; (iii) $D(i,j)/2$. <br>
 
-3.  Are there completely connected maps for which no solution exists? <br>
+3.  Có tồn tại các bản đồ được kết nối hoàn toàn mà không có giải pháp nào không? <br>
 
-4.  Are there maps in which all solutions require one friend to visit
-    the same city twice?
+4.  Có tồn tại các bản đồ mà mọi giải pháp đều yêu cầu một người bạn đến thăm
+    cùng một thành phố hai lần không?
 
 
 ---
 
 ##### Bài tập 3.6
 
-Show that the 8-puzzle states are divided
-into two disjoint sets, such that any state is reachable from any other
-state in the same set, while no state is reachable from any state in the
-other set. (<i>Hint:</i> See <a class="paperRef" title="" href="#">Berlekamp+al:1982</a>) Devise a procedure to decide
-which set a given state is in, and explain why this is useful for
-generating random states.
+Hãy chứng minh rằng các state (trạng thái) của trò chơi 8-puzzle được chia
+thành hai tập rời rạc, sao cho bất kỳ state nào cũng có thể đạt được từ bất kỳ
+state nào khác trong cùng một tập hợp, trong khi không có state nào có thể đạt được từ bất kỳ state nào trong
+tập hợp còn lại. (<i>Gợi ý:</i> Xem <a class="paperRef" title="" href="#">Berlekamp+al:1982</a>). Thiết kế một thủ tục để quyết định
+xem một state cho trước nằm trong tập hợp nào, và giải thích tại sao điều này lại hữu ích cho
+việc tạo ra các state ngẫu nhiên.
 
 
 ---
 
 ##### Bài tập 3.7
 
-Consider the $n$-queens problem using the
-“efficient” incremental formulation given on page <a class="pageRef" title="" href="#">nqueens-page</a>. Explain why the state
-space has at least $\sqrt[3]{n!}$ states and estimate the largest $n$
-for which exhaustive exploration is feasible. (<i>Hint</i>:
-Derive a lower bound on the branching factor by considering the maximum
-number of squares that a queen can attack in any column.)
+Hãy xem xét bài toán $n$-queens bằng cách sử dụng
+problem formulation gia tăng "hiệu quả" được đưa ra trên trang <a class="pageRef" title="" href="#">nqueens-page</a>. Hãy giải thích tại sao state
+space có ít nhất $\sqrt[3]{n!}$ states và ước tính giá trị $n$ lớn nhất
+mà việc khám phá toàn diện (exhaustive exploration) là khả thi. (<i>Gợi ý</i>:
+Suy ra giới hạn dưới của branching factor bằng cách xem xét số ô
+tối đa mà một quân hậu có thể tấn công trong bất kỳ cột nào.)
 
 
 ---
 
 ##### Bài tập 3.8
 
-Give a complete problem formulation for each of the following. Choose a
-formulation that is precise enough to be implemented.<br>
+Đưa ra một problem formulation hoàn chỉnh cho mỗi bài toán sau đây. Chọn một
+formulation đủ chính xác để có thể thực thi được.<br>
 
-1.  Using only four colors, you have to color a planar map in such a way
-    that no two adjacent regions have the same color.<br>
+1.  Chỉ sử dụng bốn màu, bạn phải tô màu một bản đồ phẳng sao cho
+    không có hai vùng liền kề nào có cùng màu.<br>
 
-2.  A 3-foot-tall monkey is in a room where some bananas are suspended
-    from the 8-foot ceiling. He would like to get the bananas. The room
-    contains two stackable, movable, climbable 3-foot-high crates.<br>
+2.  Một con khỉ cao 3 foot đang ở trong một căn phòng nơi một số quả chuối bị treo
+    trên trần nhà cao 8 foot. Nó muốn lấy quả chuối. Căn phòng
+    chứa hai chiếc thùng cao 3 foot có thể xếp chồng lên nhau, di chuyển được, và có thể leo lên được.<br>
 
-3.  You have a program that outputs the message “illegal input record”
-    when fed a certain file of input records. You know that processing
-    of each record is independent of the other records. You want to
-    discover what record is illegal.<br>
+3.  Bạn có một chương trình xuất ra thông báo "bản ghi đầu vào bất hợp pháp"
+    khi được nạp một tệp tin chứa các bản ghi đầu vào nhất định. Bạn biết rằng việc xử lý
+    của mỗi bản ghi là độc lập với các bản ghi khác. Bạn muốn
+    khám phá xem bản ghi nào là bất hợp pháp.<br>
 
-4.  You have three jugs, measuring 12 gallons, 8 gallons, and 3 gallons,
-    and a water faucet. You can fill the jugs up or empty them out from
-    one to another or onto the ground. You need to measure out exactly
-    one gallon.<br>
+4.  Bạn có ba cái bình, có dung tích lần lượt là 12 gallon, 8 gallon, và 3 gallon,
+    và một vòi nước. Bạn có thể đổ đầy các bình hoặc đổ hết nước từ bình
+    này sang bình khác hoặc đổ xuống đất. Bạn cần đong ra chính xác
+    một gallon.<br>
 
 
 ---
 
 ##### Bài tập 3.9
 
-Consider the problem of finding the shortest
-path between two points on a plane that has convex polygonal obstacles
-as shown in . This is an idealization of the problem that a robot has to
-solve to navigate in a crowded environment.<br>
+Hãy xem xét bài toán tìm path (đường đi) ngắn nhất
+giữa hai điểm trên một mặt phẳng có các chướng ngại vật là đa giác lồi
+như hình minh họa. Đây là một sự lý tưởng hóa của một bài toán mà rô-bốt phải
+giải quyết để điều hướng trong một môi trường đông đúc.<br>
 
-1.  Suppose the state space consists of all positions $(x,y)$ in
-    the plane. How many states are there? How many paths are there to
-    the goal?<br>
+1.  Giả sử state space bao gồm tất cả các vị trí $(x,y)$ trên
+    mặt phẳng. Có bao nhiêu state? Có bao nhiêu path để đi đến
+    goal (mục tiêu)?<br>
 
-2.  Explain briefly why the shortest path from one polygon vertex to any
-    other in the scene must consist of straight-line segments joining
-    some of the vertices of the polygons. Define a good state space now.
-    How large is this state space?<br>
+2.  Giải thích ngắn gọn tại sao path ngắn nhất từ một đỉnh đa giác này đến bất kỳ
+    đỉnh nào khác trong cảnh phải bao gồm các đoạn thẳng nối
+    một số đỉnh của các đa giác. Hãy định nghĩa một state space tốt ngay bây giờ.
+    Kích thước của state space này là bao nhiêu?<br>
 
-3.  Define the necessary functions to implement the search problem,
-    including an function that takes a vertex as input and returns a set
-    of vectors, each of which maps the current vertex to one of the
-    vertices that can be reached in a straight line. (Do not forget the
-    neighbors on the same polygon.) Use the straight-line distance for
-    the heuristic function.<br>
+3.  Định nghĩa các hàm cần thiết để thực hiện search problem này,
+    bao gồm một hàm lấy đầu vào là một đỉnh và trả về một tập hợp
+    các vectơ, mỗi vectơ ánh xạ đỉnh hiện tại đến một trong những
+    đỉnh có thể tiếp cận được bằng một đường thẳng. (Đừng quên các
+    đỉnh kề trên cùng một đa giác.) Sử dụng khoảng cách đường thẳng cho
+    hàm heuristic.<br>
 
-4.  Apply one or more of the algorithms in this chapter to solve a range
-    of problems in the domain, and comment on their performance.<br>
+4.  Áp dụng một hoặc nhiều thuật toán trong chương này để giải quyết một loạt
+    các bài toán trong miền này, và nhận xét về hiệu suất của chúng.<br>
 
 
 ---
 
 ##### Bài tập 3.10
 
-On page <a class="pageRef" title="" href="#">non-negative-g</a>, we said that we would not consider problems
-with negative path costs. In this exercise, we explore this decision in
-more depth.<br>
+Ở trang <a class="pageRef" title="" href="#">non-negative-g</a>, chúng ta đã nói rằng chúng ta sẽ không xem xét các bài toán
+có chi phí đường đi (path costs) âm. Trong bài tập này, chúng ta sẽ khám phá quyết định này sâu hơn.<br>
 
-1.  Suppose that actions can have arbitrarily large negative costs;
-    explain why this possibility would force any optimal algorithm to
-    explore the entire state space.<br>
+1.  Giả sử rằng các action (hành động) có thể có chi phí âm lớn tùy ý;
+    hãy giải thích tại sao khả năng này sẽ buộc bất kỳ thuật toán tối ưu nào cũng phải
+    khám phá toàn bộ state space.<br>
 
-2.  Does it help if we insist that step costs must be greater than or
-    equal to some negative constant $c$? Consider both trees and graphs.<br>
+2.  Việc chúng ta yêu cầu step costs (chi phí bước) phải lớn hơn hoặc
+    bằng một hằng số âm $c$ nào đó có giúp ích gì không? Hãy xem xét đối với cả trees và graphs.<br>
 
-3.  Suppose that a set of actions forms a loop in the state space such
-    that executing the set in some order results in no net change to
-    the state. If all of these actions have negative cost, what does
-    this imply about the optimal behavior for an agent in such an
-    environment?<br>
+3.  Giả sử rằng một tập hợp các action tạo thành một vòng lặp (loop) trong state space sao
+    cho việc thực hiện tập hợp đó theo một thứ tự nhất định sẽ không làm thay đổi tổng thể
+    state. Nếu tất cả các action này đều có chi phí âm, điều này
+    ngụ ý gì về hành vi tối ưu cho một agent trong một
+    môi trường như vậy?<br>
 
-4.  One can easily imagine actions with high negative cost, even in
-    domains such as route finding. For example, some stretches of road
-    might have such beautiful scenery as to far outweigh the normal
-    costs in terms of time and fuel. Explain, in precise terms, within
-    the context of state-space search, why humans do not drive around
-    scenic loops indefinitely, and explain how to define the state space
-    and actions for route finding so that artificial agents can also
-    avoid looping.<br>
+4.  Người ta có thể dễ dàng tưởng tượng ra những action có chi phí âm cao, ngay cả trong
+    các miền như tìm kiếm tuyến đường. Ví dụ, một số đoạn đường
+    có thể có phong cảnh đẹp đến mức vượt xa những
+    chi phí thông thường về thời gian và nhiên liệu. Hãy giải thích, bằng các thuật ngữ chính xác, trong
+    bối cảnh của state-space search, tại sao con người không lái xe vòng quanh
+    các cung đường ngắm cảnh vô thời hạn, và giải thích cách định nghĩa state space
+    và actions cho việc tìm đường để các artificial agents (tác tử nhân tạo) cũng có thể
+    tránh được các vòng lặp.<br>
 
-5.  Can you think of a real domain in which step costs are such as to
-    cause looping?<br>
+5.  Bạn có thể nghĩ ra một lĩnh vực thực tế nào mà trong đó step costs có thể
+    gây ra các vòng lặp không?<br>
 
 
 ---
 
 ##### Bài tập 3.11
 
-The problem is usually stated as follows. Three
-missionaries and three cannibals are on one side of a river, along with
-a boat that can hold one or two people. Find a way to get everyone to
-the other side without ever leaving a group of missionaries in one place
-outnumbered by the cannibals in that place. This problem is famous in AI
-because it was the subject of the first paper that approached problem
-formulation from an analytical viewpoint <a href="#" class="paperRef" title="">Amarel:1968</a>. <br>
+Bài toán thường được phát biểu như sau. Có ba
+nhà truyền giáo và ba kẻ ăn thịt người ở một bên bờ sông, cùng với
+một chiếc thuyền có thể chở một hoặc hai người. Tìm cách đưa tất cả mọi người sang
+bờ bên kia mà không bao giờ để một nhóm nhà truyền giáo nào ở một nơi bị
+áp đảo về số lượng bởi những kẻ ăn thịt người ở nơi đó. Bài toán này rất nổi tiếng trong AI
+bởi vì nó là chủ đề của bài báo đầu tiên tiếp cận problem formulation
+từ một góc nhìn phân tích <a href="#" class="paperRef" title="">Amarel:1968</a>. <br>
 
-1.  Formulate the problem precisely, making only those distinctions
-    necessary to ensure a valid solution. Draw a diagram of the complete
+1.  Định nghĩa bài toán một cách chính xác, chỉ đưa ra những sự phân biệt
+    cần thiết để đảm bảo có một giải pháp hợp lệ. Vẽ sơ đồ của toàn bộ
     state space.<br>
 
-2.  Implement and solve the problem optimally using an appropriate
-    search algorithm. Is it a good idea to check for repeated states? <br>
+2.  Thực thi và giải quyết bài toán một cách tối ưu bằng cách sử dụng một thuật toán
+    search (tìm kiếm) thích hợp. Việc kiểm tra các repeated states (trạng thái lặp) có phải là một ý kiến hay không? <br>
 
-3.  Why do you think people have a hard time solving this puzzle, given
-    that the state space is so simple? <br>
+3.  Bạn nghĩ tại sao mọi người lại gặp khó khăn khi giải quyết câu đố này, mặc dù
+    rằng state space là rất đơn giản? <br>
 
 
 ---
 
 ##### Bài tập 3.12
 
-Define in your own words the following terms: state, state space, search
-tree, search node, goal, action, transition model, and branching factor.
+Định nghĩa theo ngôn ngữ của riêng bạn các thuật ngữ sau: state, state space, search
+tree, search node, goal, action, transition model, và branching factor.
 
 
 ---
 
 ##### Bài tập 3.13
 
-What’s the difference between a world state, a state description, and a
-search node? Why is this distinction useful?
+Sự khác biệt giữa world state (trạng thái thế giới), state description (mô tả trạng thái), và một
+search node là gì? Tại sao sự khác biệt này lại hữu ích?
 
 
 ---
 
 ##### Bài tập 3.14
 
-An action such as really consists of a long sequence of finer-grained
-actions: turn on the car, release the brake, accelerate forward, etc.
-Having composite actions of this kind reduces the number of steps in a
-solution sequence, thereby reducing the search time. Suppose we take
-this to the logical extreme, by making super-composite actions out of
-every possible sequence of actions. Then every problem instance is
-solved by a single super-composite action, such as . Explain how search
-would work in this formulation. Is this a practical approach for
-speeding up problem solving?
+Một action như vậy thực sự bao gồm một chuỗi dài các action nhỏ hơn: bật xe, nhả phanh, tăng tốc về phía trước, v.v.
+Việc có các composite actions (hành động tổng hợp) loại này làm giảm số bước trong một
+chuỗi solution (giải pháp), do đó giảm thời gian search. Giả sử chúng ta áp dụng
+điều này đến mức cực đoan logic, bằng cách tạo ra các siêu-hành động-tổng-hợp từ
+mọi chuỗi hành động khả thi. Khi đó mỗi instance của bài toán được
+giải quyết bởi một siêu-hành động-tổng-hợp duy nhất. Hãy giải thích xem
+search sẽ hoạt động như thế nào trong cách định nghĩa này. Đây có phải là một cách tiếp cận thực tế để
+tăng tốc độ giải quyết bài toán không?
 
 
 ---
 
 ##### Bài tập 3.15
 
-Does a finite state space always lead to a finite search tree? How about
-a finite state space that is a tree? Can you be more precise about what
-types of state spaces always lead to finite search trees? (Adapted from
+Có phải một state space hữu hạn luôn dẫn đến một search tree hữu hạn không? Thế còn
+một state space hữu hạn là một cây (tree) thì sao? Bạn có thể trình bày chính xác hơn về những
+loại state spaces nào luôn dẫn đến search trees hữu hạn không? (Phỏng theo
 , 1996.)
 
 
@@ -343,298 +341,297 @@ types of state spaces always lead to finite search trees? (Adapted from
 
 ##### Bài tập 3.16
 
-Prove that satisfies the graph
-separation property illustrated in . (<i>Hint</i>: Begin by
-showing that the property holds at the start, then show that if it holds
-before an iteration of the algorithm, it holds afterwards.) Describe a
-search algorithm that violates the property.
+Hãy chứng minh rằng thỏa mãn
+thuộc tính tách đồ thị được minh họa trong . (<i>Gợi ý</i>: Bắt đầu bằng cách
+chỉ ra rằng thuộc tính này đúng lúc ban đầu, sau đó chỉ ra rằng nếu nó đúng
+trước một lần lặp của thuật toán, nó cũng sẽ đúng sau đó.) Mô tả một
+thuật toán search vi phạm thuộc tính này.
 
 
 ---
 
 ##### Bài tập 3.17
 
-Which of the following are true and which are false? Explain your
-answers.<br>
+Những câu nào sau đây là đúng và câu nào là sai? Giải thích các
+câu trả lời của bạn.<br>
 
-1.  Depth-first search always expands at least as many nodes as A search
-    with an admissible heuristic. <br>
+1.  Thuật toán Depth-first search (tìm kiếm theo chiều sâu) luôn duyệt (expands) số lượng nodes ít nhất bằng với thuật toán A search
+    với một admissible heuristic. <br>
 
-2.  $h(n)=0$ is an admissible heuristic for the 8-puzzle. <br>
+2.  $h(n)=0$ là một admissible heuristic đối với trò chơi 8-puzzle. <br>
 
-3.  A is of no use in robotics because percepts, states, and actions
-    are continuous.<br>
+3.  A không có tác dụng trong robotics vì các percepts (nhận thức), states, và actions
+    đều liên tục.<br>
 
-4.  Breadth-first search is complete even if zero step costs
-    are allowed. <br>
+4.  Breadth-first search là complete (hoàn chỉnh) ngay cả khi chi phí mỗi bước bằng không (zero step costs)
+    được cho phép. <br>
 
-5.  Assume that a rook can move on a chessboard any number of squares in
-    a straight line, vertically or horizontally, but cannot jump over
-    other pieces. Manhattan distance is an admissible heuristic for the
-    problem of moving the rook from square A to square B in the smallest
-    number of moves.<br>
+5.  Giả sử rằng một quân xe có thể di chuyển trên bàn cờ vua với một số lượng ô vuông bất kỳ theo
+    một đường thẳng, dọc hoặc ngang, nhưng không thể nhảy qua
+    các quân cờ khác. Khoảng cách Manhattan là một admissible heuristic cho
+    bài toán di chuyển quân xe từ ô A sang ô B với số lần di chuyển
+    ít nhất.<br>
 
 
 ---
 
 ##### Bài tập 3.18
 
-Consider a state space where the start state is number 1 and each state
-$k$ has two successors: numbers $2k$ and $2k+1$. <br>
+Hãy xem xét một state space mà state bắt đầu là số 1 và mỗi state
+$k$ có hai state kế tiếp: các số $2k$ và $2k+1$. <br>
 
-1.  Draw the portion of the state space for states 1 to 15. <br>
+1.  Vẽ một phần của state space cho các states từ 1 đến 15. <br>
 
-2.  Suppose the goal state is 11. List the order in which nodes will be
-    visited for breadth-first search, depth-limited search with limit 3,
-    and iterative deepening search. <br>
+2.  Giả sử goal state là 11. Liệt kê thứ tự mà các nodes sẽ được
+    truy cập đối với thuật toán breadth-first search, depth-limited search (có giới hạn độ sâu là 3),
+    và iterative deepening search. <br>
 
-3.  How well would bidirectional search work on this problem? What is
-    the branching factor in each direction of the bidirectional search?<br>
+3.  Thuật toán bidirectional search sẽ hoạt động tốt như thế nào đối với bài toán này? Branching factor
+    trong mỗi hướng của thuật toán bidirectional search là bao nhiêu?<br>
 
-4.  Does the answer to (c) suggest a reformulation of the problem that
-    would allow you to solve the problem of getting from state 1 to a
-    given goal state with almost no search? <br>
+4.  Câu trả lời cho (c) có gợi ý về một cách định nghĩa lại bài toán
+    cho phép bạn giải quyết bài toán đi từ state 1 đến một
+    goal state nhất định mà hầu như không cần phải search không? <br>
 
-5.  Call the action going from $k$ to $2k$ Left, and the action going to
-    $2k+1$ Right. Can you find an algorithm that outputs the solution to
-    this problem without any search at all?
+5.  Gọi action đi từ $k$ đến $2k$ là Trái (Left), và action đi đến
+    $2k+1$ là Phải (Right). Bạn có thể tìm thấy một thuật toán xuất ra solution cho
+    bài toán này mà không cần thực hiện bất kỳ thuật toán search nào không?
 
 
 ---
 
 ##### Bài tập 3.19
 
-A basic wooden railway set contains the pieces shown in
-. The task is to connect these pieces into a railway that has no
-overlapping tracks and no loose ends where a train could run off onto
-the floor.<br>
+Một bộ xe lửa đồ chơi bằng gỗ cơ bản chứa các mảnh ghép như được hiển thị trong
+hình minh họa. Nhiệm vụ là kết nối các mảnh này thành một đường ray không có
+các đoạn đường ray chồng chéo lên nhau và không có các đầu nối lỏng lẻo nơi một đoàn tàu có thể trật bánh rơi xuống
+sàn nhà.<br>
 
-1.  Suppose that the pieces fit together <i>exactly</i> with no
-    slack. Give a precise formulation of the task as a search problem.<br>
+1.  Giả sử rằng các mảnh ghép khớp với nhau một cách <i>chính xác</i> không có
+    khe hở. Hãy đưa ra một problem formulation chính xác cho nhiệm vụ này như một search problem.<br>
 
-2.  Identify a suitable uninformed search algorithm for this task and
-    explain your choice.<br>
+2.  Xác định một thuật toán uninformed search (tìm kiếm mù) phù hợp cho nhiệm vụ này và
+    giải thích sự lựa chọn của bạn.<br>
 
-3.  Explain why removing any one of the “fork” pieces makes the
-    problem unsolvable. <br>
+3.  Giải thích tại sao việc loại bỏ bất kỳ mảnh "ngã ba" ("fork") nào lại khiến cho
+    bài toán không thể giải quyết được. <br>
 
-4.  Give an upper bound on the total size of the state space defined by
-    your formulation. (<i>Hint</i>: think about the maximum
-    branching factor for the construction process and the maximum depth,
-    ignoring the problem of overlapping pieces and loose ends. Begin by
-    pretending that every piece is unique.)
+4.  Đưa ra một giới hạn trên cho tổng kích thước của state space được định nghĩa bởi
+    problem formulation của bạn. (<i>Gợi ý</i>: hãy nghĩ về giá trị lớn nhất của
+    branching factor cho quá trình lắp ráp và độ sâu tối đa (maximum depth),
+    bỏ qua vấn đề về các mảnh ghép chồng chéo và các đầu nối lỏng lẻo. Hãy bắt đầu bằng cách
+    giả vờ rằng mỗi mảnh ghép đều là duy nhất.)
 
 
 ---
 
 ##### Bài tập 3.20
 
-Implement two versions of the function for the 8-puzzle: one that copies
-and edits the data structure for the parent node $s$ and one that
-modifies the parent state directly (undoing the modifications as
-needed). Write versions of iterative deepening depth-first search that
-use these functions and compare their performance.
+Triển khai hai phiên bản của hàm cho trò chơi 8-puzzle: một phiên bản sao chép
+và chỉnh sửa cấu trúc dữ liệu cho parent node $s$ và một phiên bản
+trực tiếp thay đổi parent state (hoàn tác các thay đổi khi
+cần). Viết các phiên bản của thuật toán iterative deepening depth-first search
+sử dụng các hàm này và so sánh hiệu suất của chúng.
 
 
 ---
 
 ##### Bài tập 3.21
 
-On page <a class="pageRef" title="" href="#">iterative-lengthening-page</a>,
-we mentioned <b>iterative lengthening search</b>,
-an iterative analog of uniform cost search. The idea is to use increasing limits on
-path cost. If a node is generated whose path cost exceeds the current
-limit, it is immediately discarded. For each new iteration, the limit is
-set to the lowest path cost of any node discarded in the previous
-iteration.<br>
+Ở trang <a class="pageRef" title="" href="#">iterative-lengthening-page</a>,
+chúng ta đã đề cập đến thuật toán <b>iterative lengthening search</b>,
+một dạng lặp (iterative) tương tự của thuật toán uniform cost search. Ý tưởng là sử dụng các giới hạn tăng dần cho
+path cost (chi phí đường đi). Nếu một node được tạo ra mà path cost của nó vượt quá giới hạn
+hiện tại, nó ngay lập tức bị loại bỏ. Đối với mỗi vòng lặp mới, giới hạn được
+đặt bằng với path cost thấp nhất của bất kỳ node nào bị loại bỏ trong vòng lặp
+trước đó.<br>
 
-1.  Show that this algorithm is optimal for general path costs.<br>
+1.  Hãy chứng minh rằng thuật toán này là tối ưu (optimal) đối với các path costs tổng quát.<br>
 
-2.  Consider a uniform tree with branching factor $b$, solution depth
-    $d$, and unit step costs. How many iterations will iterative
-    lengthening require?<br>
+2.  Hãy xem xét một cây đồng nhất (uniform tree) với branching factor $b$, độ sâu giải pháp
+    (solution depth) $d$, và step costs bằng đơn vị. Iterative
+    lengthening sẽ yêu cầu bao nhiêu vòng lặp?<br>
 
-3.  Now consider step costs drawn from the continuous range
-    $[\epsilon,1]$, where $0 < \epsilon < 1$. How many iterations are
-    required in the worst case? <br>
+3.  Bây giờ hãy xem xét các step costs được lấy từ phạm vi liên tục
+    $[\epsilon,1]$, trong đó $0 < \epsilon < 1$. Cần bao nhiêu vòng lặp
+    trong trường hợp xấu nhất? <br>
 
-4.  Implement the algorithm and apply it to instances of the 8-puzzle
-    and traveling salesperson problems. Compare the algorithm’s
-    performance to that of uniform-cost search, and comment on
-    your results. <br>
+4.  Thực thi thuật toán và áp dụng nó vào các instance của trò chơi 8-puzzle
+    và bài toán người bán hàng đi dạo (traveling salesperson). So sánh hiệu suất của thuật toán
+    với thuật toán uniform-cost search, và nhận xét về
+    kết quả của bạn. <br>
 
 
 ---
 
 ##### Bài tập 3.22
 
-Describe a state space in which iterative deepening search performs much
-worse than depth-first search (for example, $O(n^{2})$ vs. $O(n)$).
+Mô tả một state space trong đó thuật toán iterative deepening search có hiệu suất tệ hơn nhiều
+so với thuật toán depth-first search (ví dụ: $O(n^{2})$ so với $O(n)$).
 
 
 ---
 
 ##### Bài tập 3.23
 
-Write a program that will take as input two Web page URLs and find a
-path of links from one to the other. What is an appropriate search
-strategy? Is bidirectional search a good idea? Could a search engine be
-used to implement a predecessor function?
+Viết một chương trình lấy đầu vào là hai URL của trang web và tìm một
+path của các liên kết từ trang này sang trang kia. Đâu là một chiến lược search thích hợp? Thuật toán bidirectional search có phải là một ý kiến hay không? Một công cụ search có thể được
+sử dụng để thực thi một hàm predecessor không?
 
 
 ---
 
 ##### Bài tập 3.24
 
-Consider the vacuum-world problem defined in .<br>
+Hãy xem xét bài toán vacuum-world (thế giới máy hút bụi) được định nghĩa trong tài liệu.<br>
 
-1.  Which of the algorithms defined in this chapter would be appropriate
-    for this problem? Should the algorithm use tree search or graph
+1.  Những thuật toán nào được định nghĩa trong chương này sẽ thích hợp
+    cho bài toán này? Thuật toán nên sử dụng tree search hay graph
     search?<br>
 
-2.  Apply your chosen algorithm to compute an optimal sequence of
-    actions for a $3\times 3$ world whose initial state has dirt in the
-    three top squares and the agent in the center.<br>
+2.  Áp dụng thuật toán bạn đã chọn để tính toán một chuỗi tối ưu các
+    action cho một thế giới $3\times 3$ có state ban đầu là có bụi bẩn ở
+    ba ô vuông trên cùng và agent (tác tử) ở trung tâm.<br>
 
-3.  Construct a search agent for the vacuum world, and evaluate its
-    performance in a set of $3\times 3$ worlds with probability 0.2 of
-    dirt in each square. Include the search cost as well as path cost in
-    the performance measure, using a reasonable exchange rate.<br>
+3.  Xây dựng một search agent cho vacuum world, và đánh giá hiệu suất của nó
+    trong một tập hợp các thế giới $3\times 3$ với xác suất là 0.2 có
+    bụi bẩn ở mỗi ô vuông. Đưa search cost (chi phí tìm kiếm) cũng như path cost (chi phí đường đi) vào
+    thước đo hiệu suất, sử dụng một tỷ giá hối đoái hợp lý.<br>
 
-4.  Compare your best search agent with a simple randomized reflex agent
-    that sucks if there is dirt and otherwise moves randomly.<br>
+4.  So sánh search agent tốt nhất của bạn với một randomized reflex agent (tác tử phản xạ ngẫu nhiên) đơn giản
+    có chức năng hút nếu có bụi bẩn và ngược lại di chuyển một cách ngẫu nhiên.<br>
 
-5.  Consider what would happen if the world were enlarged to
-    $n \times n$. How does the performance of the search agent and of
-    the reflex agent vary with $n$? <br>
+5.  Hãy xem xét điều gì sẽ xảy ra nếu thế giới được mở rộng thành
+    $n \times n$. Hiệu suất của search agent và của
+    reflex agent thay đổi như thế nào theo $n$? <br>
 
 
 ---
 
 ##### Bài tập 3.25
 
-Prove each of the following statements,
-or give a counterexample: <br>
+Chứng minh mỗi nhận định sau đây,
+hoặc đưa ra một phản ví dụ (counterexample): <br>
 
-1.  Breadth-first search is a special case of uniform-cost search.<br>
+1.  Breadth-first search là một trường hợp đặc biệt của uniform-cost search.<br>
 
-2.  Depth-first search is a special case of best-first tree search.<br>
+2.  Depth-first search là một trường hợp đặc biệt của best-first tree search.<br>
 
-3.  Uniform-cost search is a special case of A search.<br>
+3.  Uniform-cost search là một trường hợp đặc biệt của A search.<br>
 
 
 ---
 
 ##### Bài tập 3.26
 
-Compare the performance of A and RBFS on a set of randomly generated
-problems in the 8-puzzle (with Manhattan distance) and TSP (with MST—see
-) domains. Discuss your results. What happens to the performance of RBFS
-when a small random number is added to the heuristic values in the
-8-puzzle domain?
+So sánh hiệu suất của A và RBFS trên một tập hợp các bài toán
+được tạo ngẫu nhiên trong các miền 8-puzzle (với khoảng cách Manhattan) và TSP (với MST—xem
+tài liệu). Thảo luận về kết quả của bạn. Điều gì xảy ra với hiệu suất của RBFS
+khi một số ngẫu nhiên nhỏ được thêm vào các giá trị heuristic trong miền
+8-puzzle?
 
 
 ---
 
 ##### Bài tập 3.27
 
-Trace the operation of A search applied to the problem of getting to
-Bucharest from Lugoj using the straight-line distance heuristic. That
-is, show the sequence of nodes that the algorithm will consider and the
-$f$, $g$, and $h$ score for each node.
+Theo dõi hoạt động của thuật toán A search được áp dụng cho bài toán đi đến
+Bucharest từ Lugoj bằng cách sử dụng heuristic là khoảng cách đường thẳng. Tức là,
+hãy hiển thị chuỗi các nodes mà thuật toán sẽ xem xét và các điểm số
+$f$, $g$, và $h$ cho mỗi node.
 
 
 ---
 
 ##### Bài tập 3.28
 
-Sometimes there is no good evaluation function for a problem but there
-is a good comparison method: a way to tell whether one node is better
-than another without assigning numerical values to either. Show that
-this is enough to do a best-first search. Is there an analog of A for
-this setting?
+Đôi khi không có một hàm đánh giá (evaluation function) tốt cho một bài toán nhưng lại có
+một phương pháp so sánh tốt: một cách để cho biết một node có tốt hơn
+node khác hay không mà không cần gán giá trị số cho cả hai. Chứng minh rằng
+điều này là đủ để thực hiện một thuật toán best-first search. Có một phiên bản tương tự của thuật toán A cho
+thiết lập này không?
 
 
 ---
 
 ##### Bài tập 3.29
 
-Devise a state space in which A using returns a
-suboptimal solution with an $h(n)$ function that is admissible but
-inconsistent.
+Thiết kế một state space trong đó thuật toán A sử dụng trả về một
+solution không tối ưu với một hàm $h(n)$ mà nó là admissible nhưng
+không nhất quán (inconsistent).
 
 
 ---
 
 ##### Bài tập 3.30
 
-Accurate heuristics don’t necessarily reduce search time in the worst
-case. Given any depth $d$, define a search problem with a goal node at
-depth $d$, and write a heuristic function such that $|h(n) - h^\*(n)|  \le O(\log h^\*(n))$ but $A^*$ expands all nodes of depth less
-than $d$.
+Các heuristics chính xác không nhất thiết làm giảm thời gian search trong trường hợp xấu
+nhất. Cho một độ sâu $d$ bất kỳ, hãy định nghĩa một search problem có goal node ở
+độ sâu $d$, và viết một hàm heuristic sao cho $|h(n) - h^\*(n)|  \le O(\log h^\*(n))$ nhưng $A^*$ lại truy cập tất cả các nodes có độ sâu nhỏ
+hơn $d$.
 
 
 ---
 
 ##### Bài tập 3.31
 
-The <b>heuristic path algorithm</b> <a class="paperRef" title="" href="#">Pohl:1977</a> is a best-first search in which the evaluation function
-is $f(n) = (2-w)g(n) + wh(n)$. For what values of $w$ is this complete? For what
-values is it optimal, assuming that $h$ is admissible? What kind of
-search does this perform for $w=0$, $w=1$, and $w=2$?
+Thuật toán <b>heuristic path algorithm</b> <a class="paperRef" title="" href="#">Pohl:1977</a> là một thuật toán best-first search trong đó hàm đánh giá
+là $f(n) = (2-w)g(n) + wh(n)$. Thuật toán này complete (hoàn chỉnh) đối với những giá trị nào của $w$? Nó tối ưu
+đối với những giá trị nào, giả sử rằng $h$ là admissible? Thuật toán này thực hiện loại
+search nào đối với $w=0$, $w=1$, và $w=2$?
 
 
 ---
 
 ##### Bài tập 3.32
 
-Consider the unbounded version of the regular 2D grid shown in . The
-start state is at the origin, (0,0), and the goal state is at $(x,y)$.<br>
+Hãy xem xét phiên bản không giới hạn (unbounded) của một lưới 2D thông thường như trong hình minh họa. State
+bắt đầu ở gốc tọa độ, (0,0), và goal state ở $(x,y)$.<br>
 
-1.  What is the branching factor $b$ in this state space?<br>
+1.  Branching factor $b$ trong state space này là gì?<br>
 
-2.  How many distinct states are there at depth $k$ (for $k>0$)?<br>
+2.  Có bao nhiêu state riêng biệt ở độ sâu $k$ (với $k>0$)?<br>
 
-3.  What is the maximum number of nodes expanded by breadth-first tree
-    search?<br>
+3.  Số lượng node tối đa được truy cập (expanded) bởi thuật toán breadth-first tree
+    search là bao nhiêu?<br>
 
-4.  What is the maximum number of nodes expanded by breadth-first graph
-    search?<br>
+4.  Số lượng node tối đa được truy cập (expanded) bởi thuật toán breadth-first graph
+    search là bao nhiêu?<br>
 
-5.  Is $h = |u-x| + |v-y|$ an admissible heuristic for a state at
-    $(u,v)$? Explain.<br>
+5.  $h = |u-x| + |v-y|$ có phải là một admissible heuristic đối với một state ở vị trí
+    $(u,v)$ không? Giải thích.<br>
 
-6.  How many nodes are expanded by A graph search using $h$?<br>
+6.  Có bao nhiêu node được truy cập bởi thuật toán A graph search sử dụng $h$?<br>
 
-7.  Does $h$ remain admissible if some links are removed?<br>
+7.  Liệu $h$ có còn admissible nếu một số liên kết (links) bị loại bỏ không?<br>
 
-8.  Does $h$ remain admissible if some links are added between
-    nonadjacent states?
+8.  Liệu $h$ có còn admissible nếu một số liên kết (links) được thêm vào giữa các
+    state không liền kề nhau không?
 
 
 ---
 
 ##### Bài tập 3.33
 
-$n$ vehicles occupy squares $(1,1)$ through $(n,1)$ (i.e., the bottom
-row) of an $n\times n$ grid. The vehicles must be moved to the top row
-but in reverse order; so the vehicle $i$ that starts in $(i,1)$ must end
-up in $(n-i+1,n)$. On each time step, every one of the $n$ vehicles can
-move one square up, down, left, or right, or stay put; but if a vehicle
-stays put, one other adjacent vehicle (but not more than one) can hop
-over it. Two vehicles cannot occupy the same square. <br>
+$n$ phương tiện chiếm các ô từ $(1,1)$ đến $(n,1)$ (tức là, hàng
+dưới cùng) của một lưới $n\times n$. Các phương tiện phải được di chuyển lên hàng trên cùng
+nhưng theo thứ tự ngược lại; do đó phương tiện $i$ bắt đầu ở $(i,1)$ phải kết thúc
+ở $(n-i+1,n)$. Ở mỗi bước thời gian, mỗi phương tiện trong số $n$ phương tiện có thể
+di chuyển một ô lên, xuống, trái, hoặc phải, hoặc đứng yên; nhưng nếu một phương tiện
+đứng yên, một phương tiện lân cận khác (nhưng không nhiều hơn một) có thể nhảy
+qua nó. Hai phương tiện không thể chiếm cùng một ô. <br>
 
-1.  Calculate the size of the state space as a function of $n$.<br>
+1.  Tính kích thước của state space như là một hàm của $n$.<br>
 
-2.  Calculate the branching factor as a function of $n$.<br>
+2.  Tính branching factor như là một hàm của $n$.<br>
 
-3.  Suppose that vehicle $i$ is at $(x_i,y_i)$; write a nontrivial
-    admissible heuristic $h_i$ for the number of moves it will require
-    to get to its goal location $(n-i+1,n)$, assuming no other vehicles
-    are on the grid.<br>
+3.  Giả sử rằng phương tiện $i$ đang ở vị trí $(x_i,y_i)$; hãy viết một
+    admissible heuristic $h_i$ không tầm thường (nontrivial) cho số lần di chuyển mà nó sẽ cần
+    để đi đến vị trí goal của nó $(n-i+1,n)$, giả sử không có phương tiện nào khác
+    nằm trên lưới.<br>
 
-4.  Which of the following heuristics are admissible for the problem of
-    moving all $n$ vehicles to their destinations? Explain.<br>
+4.  Hàm heuristic nào sau đây là admissible đối với bài toán
+    di chuyển tất cả $n$ phương tiện đến điểm đến của chúng? Giải thích.<br>
 
     1.  $\sum_{i= 1}^{n} h_i$.<br>
 
@@ -647,20 +644,18 @@ over it. Two vehicles cannot occupy the same square. <br>
 
 ##### Bài tập 3.34
 
-Consider the problem of moving $k$ knights from $k$ starting squares
-$s_1,\ldots,s_k$ to $k$ goal squares $g_1,\ldots,g_k$, on an unbounded
-chessboard, subject to the rule that no two knights can land on the same
-square at the same time. Each action consists of moving <i>up
-to</i> $k$ knights simultaneously. We would like to complete the
-maneuver in the smallest number of actions.<br>
+Hãy xem xét bài toán di chuyển $k$ quân mã từ $k$ ô xuất phát
+$s_1,\ldots,s_k$ đến $k$ ô mục tiêu $g_1,\ldots,g_k$, trên một bàn cờ vua
+không giới hạn, tuân theo quy tắc rằng không có hai quân mã nào có thể đáp xuống cùng một
+ô vuông cùng một lúc. Mỗi action bao gồm việc di chuyển <i>tối đa</i> $k$ quân mã đồng thời. Chúng ta muốn hoàn thành
+quá trình này với số lượng actions ít nhất.<br>
 
-1.  What is the maximum branching factor in this state space, expressed
-    as a function of $k$?<br>
+1.  Branching factor tối đa trong state space này là gì, được biểu thị
+    như là một hàm của $k$?<br>
 
-2.  Suppose $h_i$ is an admissible heuristic for the problem of moving
-    knight $i$ to goal $g_i$ by itself. Which of the following
-    heuristics are admissible for the $k$-knight problem? Of those,
-    which is the best?<br>
+2.  Giả sử $h_i$ là một admissible heuristic cho bài toán di chuyển tự bản thân
+    quân mã $i$ đến goal $g_i$. Hàm heuristic nào sau đây là admissible đối với bài toán $k$-quân mã? Trong số đó,
+    hàm nào là tốt nhất?<br>
 
     1.  $\min\{h_1,\ldots,h_k\}$.<br>
 
@@ -668,30 +663,30 @@ maneuver in the smallest number of actions.<br>
 
     3.  $\sum_{i= 1}^{k} h_i$.<br>
 
-3.  Repeat (b) for the case where you are allowed to move only one
-    knight at a time.
+3.  Lặp lại câu (b) cho trường hợp bạn chỉ được phép di chuyển một
+    quân mã tại một thời điểm.
 
 
 ---
 
 ##### Bài tập 3.35
 
-We saw on page <a class="pageRef" title="" href="#">I-to-F</a> that the straight-line distance heuristic leads greedy
-best-first search astray on the problem of going from Iasi to Fagaras.
-However, the heuristic is perfect on the opposite problem: going from
-Fagaras to Iasi. Are there problems for which the heuristic is
-misleading in both directions?
+Chúng ta đã thấy trên trang <a class="pageRef" title="" href="#">I-to-F</a> rằng heuristic khoảng cách đường thẳng dẫn thuật toán greedy
+best-first search đi sai hướng trong bài toán đi từ Iasi đến Fagaras.
+Tuy nhiên, heuristic này lại hoàn hảo cho bài toán ngược lại: đi từ
+Fagaras đến Iasi. Có những bài toán nào mà heuristic này
+gây hiểu lầm ở cả hai hướng không?
 
 
 ---
 
 ##### Bài tập 3.36
 
-Invent a heuristic function for the 8-puzzle that sometimes
-overestimates, and show how it can lead to a suboptimal solution on a
-particular problem. (You can use a computer to help if you want.) Prove
-that if $h$ never overestimates by more than $c$, A using $h$ returns a
-solution whose cost exceeds that of the optimal solution by no more than
+Phát minh ra một hàm heuristic cho trò chơi 8-puzzle đôi khi đánh giá
+cao hơn thực tế (overestimates), và chỉ ra cách mà nó có thể dẫn đến một solution không tối ưu trên một
+bài toán cụ thể. (Bạn có thể sử dụng máy tính để trợ giúp nếu muốn.) Hãy chứng minh
+rằng nếu $h$ không bao giờ đánh giá quá mức (overestimates) hơn $c$, thuật toán A sử dụng $h$ sẽ trả về một
+solution có chi phí vượt quá solution tối ưu không lớn hơn
 $c$.
 
 
@@ -699,55 +694,55 @@ $c$.
 
 ##### Bài tập 3.37
 
-Prove that if a heuristic is
-consistent, it must be admissible. Construct an admissible heuristic
-that is not consistent.
+Hãy chứng minh rằng nếu một heuristic là
+nhất quán (consistent), thì nó phải admissible. Hãy xây dựng một admissible heuristic
+mà nó không nhất quán (not consistent).
 
 
 ---
 
 ##### Bài tập 3.38
 
-The traveling salesperson problem (TSP) can be
-solved with the minimum-spanning-tree (MST) heuristic, which estimates
-the cost of completing a tour, given that a partial tour has already
-been constructed. The MST cost of a set of cities is the smallest sum of
-the link costs of any tree that connects all the cities.<br>
+Bài toán người bán hàng đi dạo (TSP) có thể được
+giải quyết với heuristic cây khung nhỏ nhất (minimum-spanning-tree - MST), công cụ dùng để ước tính
+chi phí hoàn thành một chuyến đi, giả sử rằng một phần của chuyến đi đã
+được xây dựng xong. MST cost của một tập hợp các thành phố là tổng nhỏ nhất của
+các path costs của bất kỳ cây nào kết nối tất cả các thành phố.<br>
 
-1.  Show how this heuristic can be derived from a relaxed version of
-    the TSP.<br>
+1.  Chỉ ra cách mà heuristic này có thể được rút ra từ một phiên bản được nới lỏng (relaxed version) của
+    TSP.<br>
 
-2.  Show that the MST heuristic dominates straight-line distance.<br>
+2.  Chứng minh rằng heuristic MST chiếm ưu thế (dominates) hơn khoảng cách đường thẳng.<br>
 
-3.  Write a problem generator for instances of the TSP where cities are
-    represented by random points in the unit square.<br>
+3.  Viết một trình tạo bài toán cho các instance của TSP trong đó các thành phố được
+    biểu diễn bằng các điểm ngẫu nhiên trong một ô vuông đơn vị.<br>
 
-4.  Find an efficient algorithm in the literature for constructing the
-    MST, and use it with A graph search to solve instances of the TSP.
+4.  Tìm một thuật toán hiệu quả trong tài liệu để xây dựng
+    MST, và sử dụng nó với thuật toán A graph search để giải quyết các instances của TSP.
 
 
 ---
 
 ##### Bài tập 3.39
 
-On page <a class="pageRef" title="" href="#">Gaschnig-h-page</a> , we defined the relaxation of the 8-puzzle in
-which a tile can move from square A to square B if B is blank. The exact
-solution of this problem defines <b>Gaschnig's heuristic</b> <a class="paperRef" title="" href="#">Gaschnig:1979</a>. Explain why Gaschnig’s
-heuristic is at least as accurate as $h_1$ (misplaced tiles), and show
-cases where it is more accurate than both $h_1$ and $h_2$ (Manhattan
-distance). Explain how to calculate Gaschnig’s heuristic efficiently.
+Trên trang <a class="pageRef" title="" href="#">Gaschnig-h-page</a> , chúng ta đã định nghĩa phiên bản nới lỏng của trò chơi 8-puzzle trong
+đó một ô gạch có thể di chuyển từ ô A sang ô B nếu B là ô trống. Giải pháp chính xác
+cho bài toán này định nghĩa <b>Gaschnig's heuristic</b> <a class="paperRef" title="" href="#">Gaschnig:1979</a>. Giải thích tại sao
+heuristic của Gaschnig ít nhất là chính xác bằng với $h_1$ (các ô gạch đặt sai vị trí - misplaced tiles), và đưa ra các
+trường hợp mà nó chính xác hơn cả $h_1$ và $h_2$ (khoảng cách Manhattan - Manhattan
+distance). Giải thích cách tính toán heuristic của Gaschnig một cách hiệu quả.
 
 
 ---
 
 ##### Bài tập 3.40
 
-We gave two simple heuristics for the 8-puzzle: Manhattan distance and
-misplaced tiles. Several heuristics in the literature purport to improve
-on this—see, for example, <a class="paperRef" title="" href="#">Nilsson:1971</a>,
-<a class="paperRef" title="" href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.75.3333&rep=rep1&type=pdf">Mostow+Prieditis:1989</a>, and <a href="https://europepmc.org/abstract/med/1534722" title="" class="paperRef">Hansson+al:1992</a>. Test these claims by implementing
-the heuristics and comparing the performance of the resulting
-algorithms.
+Chúng ta đã đưa ra hai heuristics đơn giản cho trò chơi 8-puzzle: khoảng cách Manhattan và
+các ô gạch sai vị trí (misplaced tiles). Một vài heuristics trong các tài liệu nhằm mục đích cải thiện
+điều này — ví dụ, xem <a class="paperRef" title="" href="#">Nilsson:1971</a>,
+<a class="paperRef" title="" href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.75.3333&rep=rep1&type=pdf">Mostow+Prieditis:1989</a>, và <a href="https://europepmc.org/abstract/med/1534722" title="" class="paperRef">Hansson+al:1992</a>. Kiểm tra những tuyên bố này bằng cách thực thi
+các heuristics và so sánh hiệu suất của các thuật toán
+tạo ra được.
 
 
 ---

@@ -37,237 +37,148 @@
 
 #### **Bài tập**
 
+
 ##### Bài tập 18.1
 
-Consider the problem faced by an infant
-learning to speak and understand a language. Explain how this process
-fits into the general learning model. Describe the percepts and actions
-of the infant, and the types of learning the infant must do. Describe
-the subfunctions the infant is trying to learn in terms of inputs and
-outputs, and available example data.
+Hãy xem xét vấn đề mà một em bé gặp phải khi học nói và hiểu một ngôn ngữ. Giải thích quá trình này phù hợp với mô hình học tập tổng quát như thế nào. Mô tả các percept và hành động của em bé, cũng như các loại học tập mà em bé phải thực hiện. Mô tả các subfunctions mà em bé đang cố gắng học theo các thuật ngữ về đầu vào và đầu ra, cũng như dữ liệu ví dụ có sẵn.
 
 
 ---
 
 ##### Bài tập 18.2
 
-Repeat Exercise <a class="exerciseRef" href="{{ site.baseurl }}/concept-learning-exercises/ex_1/">infant-language-exercise</a> for the case
-of learning to play tennis (or some other sport with which you are
-familiar). Is this supervised learning or reinforcement learning?
+Lặp lại Bài tập <a class="exerciseRef" href="{{ site.baseurl }}/concept-learning-exercises/ex_1/">infant-language-exercise</a> cho trường hợp học chơi quần vợt (hoặc một môn thể thao khác mà bạn quen thuộc). Đây là supervised learning hay reinforcement learning?
 
 
 ---
 
 ##### Bài tập 18.3
 
-Draw a decision tree for the problem of deciding whether to move forward
-at a road intersection, given that the light has just turned green.
+Vẽ một cây quyết định cho bài toán quyết định có nên di chuyển về phía trước tại một giao lộ đường bộ hay không, với điều kiện là đèn vừa chuyển sang màu xanh.
 
 
 ---
 
 ##### Bài tập 18.4
 
-We never test the same attribute twice along one path in a decision
-tree. Why not?
+Chúng ta không bao giờ kiểm tra cùng một thuộc tính hai lần trên một đường đi trong cây quyết định. Tại sao không?
 
 
 ---
 
 ##### Bài tập 18.5
 
-Suppose we generate a training set from a decision tree and then apply
-decision-tree learning to that training set. Is it the case that the
-learning algorithm will eventually return the correct tree as the
-training-set size goes to infinity? Why or why not?
+Giả sử chúng ta tạo một tập huấn luyện từ một cây quyết định và sau đó áp dụng thuật toán học cây quyết định cho tập huấn luyện đó. Liệu thuật toán học có cuối cùng trả về cây chính xác khi kích thước tập huấn luyện tiến tới vô cùng không? Tại sao có hoặc tại sao không?
 
 
 ---
 
 ##### Bài tập 18.6
 
-In the recursive construction of
-decision trees, it sometimes happens that a mixed set of positive and
-negative examples remains at a leaf node, even after all the attributes
-have been used. Suppose that we have $p$ positive examples and $n$
-negative examples.<br>
+Trong quá trình xây dựng đệ quy các cây quyết định, đôi khi xảy ra trường hợp một tập hợp hỗn hợp các ví dụ tích cực và tiêu cực còn lại tại một nút lá, ngay cả sau khi tất cả các thuộc tính đã được sử dụng. Giả sử chúng ta có $p$ ví dụ tích cực và $n$ ví dụ tiêu cực.<br>
 
-1.  Show that the solution used by DECISION-TREE-LEARNING, which picks the majority
-    classification, minimizes the absolute error over the set of
-    examples at the leaf.<br>
+1.  Chứng minh rằng giải pháp được sử dụng bởi DECISION-TREE-LEARNING, chọn phân loại theo đa số, tối thiểu hóa sai số tuyệt đối trên tập hợp các ví dụ tại nút lá.<br>
 
-2.  Show that the <b>class probability</b> $p/(p+n)$ minimizes the sum of squared errors.
+2.  Chứng minh rằng <b>xác suất lớp</b> $p/(p+n)$ tối thiểu hóa tổng bình phương sai số.
 
 
 ---
 
 ##### Bài tập 18.7
 
-Suppose that an attribute splits the set of
-examples $E$ into subsets $E_k$ and that each subset has $p_k$
-positive examples and $n_k$ negative examples. Show that the
-attribute has strictly positive information gain unless the ratio
-$p_k/(p_k+n_k)$ is the same for all $k$.
+Giả sử một thuộc tính chia tập hợp các ví dụ $E$ thành các tập con $E_k$ và mỗi tập con có $p_k$ ví dụ tích cực và $n_k$ ví dụ tiêu cực. Chứng minh rằng thuộc tính có thông tin tăng trưởng (information gain) dương nghiêm ngặt trừ khi tỷ lệ $p_k/(p_k+n_k)$ giống nhau cho tất cả $k$.
 
 
 ---
 
 ##### Bài tập 18.8
 
-Consider the following data set comprised of three binary input
-attributes ($A_1, A_2$, and $A_3$) and one binary output:<br>
+Xem xét tập dữ liệu sau đây bao gồm ba thuộc tính đầu vào nhị phân ($A_1, A_2$, và $A_3$) và một đầu ra nhị phân:<br>
 
 $$
 \begin{array} 
-	{|r|r|}\hline \textbf{Example} & A_1 & A_2 & A_3 & Output\space y \\ 
+	{|r|r|}\hline \textbf{Ví dụ} & A_1 & A_2 & A_3 & Output\space y \\ 
 	\hline \textbf{x}_1 & 1 & 0 & 0 & 0 \\ 
 	\textbf{x}_2 & 1 & 0 & 1 & 0 \\ 
 	 \textbf{x}_3 & 0 & 1 & 0 & 0 \\ 
 	 \textbf{x}_4 & 1 & 1 & 1 & 1 \\ 
-	 \textbf{x}_5 & 1 & 1 & 0 & 1 \\ 
+	\textbf{x}_5 & 1 & 1 & 0 & 1 \\ 
 	\hline  
 \end{array}
 $$
-Use the algorithm in Figure <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/DTL-algorithm.png">DTL-algorithm</a>
-(page <a class="pageRef" title="" href="#">DTL-algorithm</a>) to learn a decision tree for these data. Show the
-computations made to determine the attribute to split at each node.
+Sử dụng thuật toán trong Hình <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/DTL-algorithm.png">DTL-algorithm</a> (trang <a class="pageRef" title="" href="#">DTL-algorithm</a>) để học một cây quyết định cho dữ liệu này. Trình bày các phép tính được thực hiện để xác định thuộc tính để phân tách tại mỗi nút.
 
 
 ---
 
 ##### Bài tập 18.9
 
-Construct a data set (set of examples with attributes and
-classifications) that would cause the decision-tree learning algorithm
-to find a non-minimal-sized tree. Show the tree constructed by the
-algorithm and the minimal-sized tree that you can generate by hand.
+Xây dựng một tập dữ liệu (tập hợp các ví dụ với các thuộc tính và phân loại) sẽ khiến thuật toán học cây quyết định tìm thấy một cây có kích thước không tối thiểu. Trình bày cây được thuật toán xây dựng và cây có kích thước tối thiểu mà bạn có thể tạo bằng tay.
 
 
 ---
 
 ##### Bài tập 18.10
 
-A decision <i>graph</i> is a generalization of a decision tree
-that allows nodes (i.e., attributes used for splits) to have multiple
-parents, rather than just a single parent. The resulting graph must
-still be acyclic. Now, consider the XOR function of <i>three</i>
-binary input attributes, which produces the value 1 if and only if an
-odd number of the three input attributes has value 1.<br>
+Một đồ thị quyết định (decision graph) là một sự tổng quát hóa của cây quyết định, cho phép các nút (tức là, các thuộc tính được sử dụng để phân tách) có nhiều nút cha, thay vì chỉ một nút cha duy nhất. Đồ thị kết quả vẫn phải là đồ thị không có chu trình. Bây giờ, hãy xem xét hàm XOR của *ba* thuộc tính đầu vào nhị phân, hàm này cho ra giá trị 1 khi và chỉ khi một số lẻ trong ba thuộc tính đầu vào có giá trị 1.<br>
 
-1.  Draw a minimal-sized decision <i>tree</i> for the
-    three-input XOR function.<br>
+1.  Vẽ một cây quyết định có kích thước tối thiểu cho hàm XOR ba đầu vào.<br>
 
-2.  Draw a minimal-sized decision <i>graph</i> for the
-    three-input XOR function.<br>
+2.  Vẽ một đồ thị quyết định có kích thước tối thiểu cho hàm XOR ba đầu vào.<br>
 
 
 ---
 
 ##### Bài tập 18.11
 
-This exercise considers $\chi^2$ pruning of
-decision trees (Section <a class="sectionRef" title="" href="#">chi-squared-section</a><br>.
+Bài tập này xem xét việc cắt tỉa $\chi^2$ (pruning) các cây quyết định (Mục <a class="sectionRef" title="" href="#">chi-squared-section</a><br>.
 
-1.  Create a data set with two input attributes, such that the
-    information gain at the root of the tree for both attributes is
-    zero, but there is a decision tree of depth 2 that is consistent
-    with all the data. What would $\chi^2$ pruning do on this data set
-    if applied bottom up? If applied top down?<br>
+1.  Tạo một tập dữ liệu với hai thuộc tính đầu vào, sao cho thông tin tăng trưởng (information gain) tại gốc cây cho cả hai thuộc tính bằng 0, nhưng có một cây quyết định có độ sâu 2 nhất quán với tất cả dữ liệu. Việc cắt tỉa $\chi^2$ sẽ làm gì trên tập dữ liệu này nếu được áp dụng từ dưới lên? Nếu được áp dụng từ trên xuống?<br>
 
-2.  Modify DECISION-TREE-LEARNING to include $\chi^2$-pruning. You might wish to consult
-    Quinlan [<a class="paperRef" title="" href="">Quinlan:1986</a>] or [<a class="paperRef" title="" href="">Kearns+Mansour:1998</a>] for details.<br>
+2.  Sửa đổi DECISION-TREE-LEARNING để bao gồm việc cắt tỉa $\chi^2$. Bạn có thể tham khảo Quinlan [<a class="paperRef" title="" href="">Quinlan:1986</a>] hoặc [<a class="paperRef" title="" href="">Kearns+Mansour:1998</a>] để biết chi tiết.<br>
 
 
 ---
 
 ##### Bài tập 18.12
 
-The standard DECISION-TREE-LEARNING algorithm described in the
-chapter does not handle cases in which some examples have missing
-attribute values.<br>
+Thuật toán DECISION-TREE-LEARNING tiêu chuẩn được mô tả trong chương không xử lý các trường hợp mà một số ví dụ có giá trị thuộc tính bị thiếu.<br>
 
-1.  First, we need to find a way to classify such examples, given a
-    decision tree that includes tests on the attributes for which values
-    can be missing. Suppose that an example $\textbf{x}$ has a missing value for
-    attribute $A$ and that the decision tree tests for $A$ at a node
-    that $\textbf{x}$ reaches. One way to handle this case is to pretend that
-    the example has <i>all</i> possible values for the
-    attribute, but to weight each value according to its frequency among
-    all of the examples that reach that node in the decision tree. The
-    classification algorithm should follow all branches at any node for
-    which a value is missing and should multiply the weights along each
-    path. Write a modified classification algorithm for decision trees
-    that has this behavior.<br>
+1.  Đầu tiên, chúng ta cần tìm một cách để phân loại các ví dụ như vậy, với một cây quyết định bao gồm các kiểm tra trên các thuộc tính mà giá trị có thể bị thiếu. Giả sử một ví dụ $\textbf{x}$ có giá trị bị thiếu cho thuộc tính $A$ và cây quyết định kiểm tra $A$ tại một nút mà $\textbf{x}$ đến. Một cách để xử lý trường hợp này là giả vờ rằng ví dụ có *tất cả* các giá trị có thể có cho thuộc tính đó, nhưng gán trọng số cho mỗi giá trị theo tần suất của nó trong tất cả các ví dụ đến nút đó trong cây quyết định. Thuật toán phân loại nên đi theo tất cả các nhánh tại bất kỳ nút nào mà giá trị bị thiếu và nên nhân các trọng số dọc theo mỗi đường đi. Viết một thuật toán phân loại sửa đổi cho cây quyết định có hành vi này.<br>
 
-2.  Now modify the information-gain calculation so that in any given
-    collection of examples $C$ at a given node in the tree during the
-    construction process, the examples with missing values for any of
-    the remaining attributes are given “as-if” values according to the
-    frequencies of those values in the set $C$.<br>
+2.  Bây giờ, sửa đổi phép tính thông tin tăng trưởng (information gain) sao cho trong bất kỳ tập hợp ví dụ $C$ nào tại một nút nhất định trong cây trong quá trình xây dựng, các ví dụ có giá trị bị thiếu cho bất kỳ thuộc tính còn lại nào sẽ được gán các giá trị "như thể" theo tần suất của các giá trị đó trong tập $C$.<br>
 
 
 ---
 
 ##### Bài tập 18.13
 
-In
-Section <a class="sectionRef" title="" href="#">broadening-decision-tree-section</a>, we noted that
-attributes with many different possible values can cause problems with
-the gain measure. Such attributes tend to split the examples into
-numerous small classes or even singleton classes, thereby appearing to
-be highly relevant according to the gain measure. The
-<b>gain-ratio</b> criterion selects attributes
-according to the ratio between their gain and their intrinsic
-information content—that is, the amount of information contained in the
-answer to the question, “What is the value of this attribute?” The
-gain-ratio criterion therefore tries to measure how efficiently an
-attribute provides information on the correct classification of an
-example. Write a mathematical expression for the information content of
-an attribute, and implement the gain ratio criterion in DECISION-TREE-LEARNING.
+Trong Mục <a class="sectionRef" title="" href="#">broadening-decision-tree-section</a>, chúng ta đã lưu ý rằng các thuộc tính có nhiều giá trị khác nhau có thể gây ra vấn đề với thước đo gain. Các thuộc tính như vậy có xu hướng chia các ví dụ thành nhiều lớp nhỏ hoặc thậm chí các lớp đơn lẻ, do đó có vẻ rất liên quan theo thước đo gain. Tiêu chí <b>gain-ratio</b> chọn các thuộc tính theo tỷ lệ giữa gain của chúng và nội dung thông tin nội tại của chúng—tức là, lượng thông tin chứa trong câu trả lời cho câu hỏi, "Giá trị của thuộc tính này là gì?" Do đó, tiêu chí gain-ratio cố gắng đo lường mức độ hiệu quả mà một thuộc tính cung cấp thông tin về phân loại chính xác của một ví dụ. Viết một biểu thức toán học cho nội dung thông tin của một thuộc tính và triển khai tiêu chí gain ratio trong DECISION-TREE-LEARNING.
 
 
 ---
 
 ##### Bài tập 18.14
 
-Suppose you are running a learning experiment on a new algorithm for
-Boolean classification. You have a data set consisting of 100 positive
-and 100 negative examples. You plan to use leave-one-out
-cross-validation and compare your algorithm to a baseline function, a
-simple majority classifier. (A majority classifier is given a set of
-training data and then always outputs the class that is in the majority
-in the training set, regardless of the input.) You expect the majority
-classifier to score about 50% on leave-one-out cross-validation, but to
-your surprise, it scores zero every time. Can you explain why?
+Giả sử bạn đang chạy một thí nghiệm học tập trên một thuật toán mới cho phân loại Boolean. Bạn có một tập dữ liệu bao gồm 100 ví dụ tích cực và 100 ví dụ tiêu cực. Bạn dự định sử dụng cross-validation bỏ sót một phần tử (leave-one-out) và so sánh thuật toán của bạn với một hàm cơ sở, một bộ phân loại đa số đơn giản. (Một bộ phân loại đa số nhận một tập dữ liệu huấn luyện và sau đó luôn xuất ra lớp chiếm đa số trong tập dữ liệu huấn luyện, bất kể đầu vào.) Bạn mong đợi bộ phân loại đa số sẽ đạt khoảng 50% trên cross-validation bỏ sót một phần tử, nhưng bạn ngạc nhiên khi nó luôn đạt điểm 0. Bạn có thể giải thích tại sao không?
 
 
 ---
 
 ##### Bài tập 18.15
 
-Suppose that a learning algorithm is trying to find a consistent
-hypothesis when the classifications of examples are actually random.
-There are $n$ Boolean attributes, and examples are drawn uniformly from
-the set of $2^n$ possible examples. Calculate the number of examples
-required before the probability of finding a contradiction in the data
-reaches 0.5.
+Giả sử một thuật toán học đang cố gắng tìm một giả thuyết nhất quán khi phân loại các ví dụ thực sự là ngẫu nhiên. Có $n$ thuộc tính Boolean, và các ví dụ được rút ra đồng nhất từ tập hợp $2^n$ ví dụ có thể có. Tính số lượng ví dụ cần thiết trước khi xác suất tìm thấy mâu thuẫn trong dữ liệu đạt 0.5.
 
 
 ---
 
 ##### Bài tập 18.16
 
-Construct a <i>decision list</i> to classify the data below.
-Select tests to be as small as possible (in terms of attributes),
-breaking ties among tests with the same number of attributes by
-selecting the one that classifies the greatest number of examples
-correctly. If multiple tests have the same number of attributes and
-classify the same number of examples, then break the tie using
-attributes with lower index numbers (e.g., select $A_1$ over $A_2$).<br>
+Xây dựng một danh sách quyết định (decision list) để phân loại dữ liệu dưới đây. Chọn các kiểm tra nhỏ nhất có thể (về số lượng thuộc tính), phá vỡ các ràng buộc giữa các kiểm tra có cùng số lượng thuộc tính bằng cách chọn kiểm tra phân loại đúng số lượng ví dụ lớn nhất. Nếu nhiều kiểm tra có cùng số lượng thuộc tính và phân loại cùng số lượng ví dụ, thì phá vỡ ràng buộc bằng cách sử dụng các thuộc tính có chỉ số thấp hơn (ví dụ: chọn $A_1$ thay vì $A_2$).<br>
 
 $$
 \begin{array} 
-	{|r|r|}\hline \textbf{Example} & A_1 & A_2 & A_3 & A_4 & y \\ 
+	{|r|r|}\hline \textbf{Ví dụ} & A_1 & A_2 & A_3 & A_4 & y \\ 
 	\hline \textbf{x}_1 & 1 & 0 & 0 & 0 & 1 \\ 
 	\textbf{x}_2 & 1 & 0 & 1 & 1 & 1 \\ 
 	 \textbf{x}_3 & 0 & 1 & 0 & 0 & 1 \\ 
@@ -285,142 +196,89 @@ $$
 
 ##### Bài tập 18.17
 
-Prove that a decision list can represent the same function as a decision
-tree while using at most as many rules as there are leaves in the
-decision tree for that function. Give an example of a function
-represented by a decision list using strictly fewer rules than the
-number of leaves in a minimal-sized decision tree for that same
-function.
+Chứng minh rằng một danh sách quyết định có thể biểu diễn cùng một hàm như một cây quyết định trong khi sử dụng tối đa số quy tắc bằng số lá trong cây quyết định cho hàm đó. Đưa ra một ví dụ về hàm được biểu diễn bởi một danh sách quyết định sử dụng ít quy tắc hơn nghiêm ngặt so với số lá trong cây quyết định có kích thước tối thiểu cho cùng hàm đó.
 
 
 ---
 
 ##### Bài tập 18.18
 
-This exercise concerns the expressiveness of
-decision lists (Section <a class="sectionRef" title="" href="#">learning-theory-section</a>).<br>
+Bài tập này liên quan đến khả năng biểu đạt của danh sách quyết định (Mục <a class="sectionRef" title="" href="#">learning-theory-section</a>).<br>
 
-1.  Show that decision lists can represent any Boolean function, if the
-    size of the tests is not limited.<br>
+1.  Chứng minh rằng danh sách quyết định có thể biểu diễn bất kỳ hàm Boolean nào, nếu kích thước của các kiểm tra không bị giới hạn.<br>
 
-2.  Show that if the tests can contain at most $k$ literals each, then
-    decision lists can represent any function that can be represented by
-    a decision tree of depth $k$.
+2.  Chứng minh rằng nếu các kiểm tra có thể chứa tối đa $k$ literal mỗi loại, thì danh sách quyết định có thể biểu diễn bất kỳ hàm nào có thể được biểu diễn bởi một cây quyết định có độ sâu $k$.
 
 
 ---
 
 ##### Bài tập 18.19
 
-Suppose a $7$-nearest-neighbors regression search
-returns $ \{7, 6, 8, 4, 7, 11, 100\} $ as the 7 nearest $y$ values for a
-given $x$ value. What is the value of $\hat{y}$ that minimizes the $L_1$
-loss function on this data? There is a common name in statistics for
-this value as a function of the $y$ values; what is it? Answer the same
-two questions for the $L_2$ loss function.
+Giả sử một search $7$-nearest-neighbors regression trả về $ \{7, 6, 8, 4, 7, 11, 100\} $ là 7 giá trị $y$ gần nhất cho một giá trị $x$ nhất định. Giá trị $\hat{y}$ nào tối thiểu hóa hàm mất mát $L_1$ trên dữ liệu này? Có một tên gọi phổ biến trong thống kê cho giá trị này như một hàm của các giá trị $y$; đó là gì? Trả lời hai câu hỏi tương tự cho hàm mất mát $L_2$.
 
 
 ---
 
 ##### Bài tập 18.20
 
-Suppose a $7$-nearest-neighbors regression search
-returns $ \{4, 2, 8, 4, 9, 11, 100\} $ as the 7 nearest $y$ values for a
-given $x$ value. What is the value of $\hat{y}$ that minimizes the $L_1$
-loss function on this data? There is a common name in statistics for
-this value as a function of the $y$ values; what is it? Answer the same
-two questions for the $L_2$ loss function.
+Giả sử một search $7$-nearest-neighbors regression trả về $ \{4, 2, 8, 4, 9, 11, 100\} $ là 7 giá trị $y$ gần nhất cho một giá trị $x$ nhất định. Giá trị $\hat{y}$ nào tối thiểu hóa hàm mất mát $L_1$ trên dữ liệu này? Có một tên gọi phổ biến trong thống kê cho giá trị này như một hàm của các giá trị $y$; đó là gì? Trả lời hai câu hỏi tương tự cho hàm mất mát $L_2$.
 
 
 ---
 
 ##### Bài tập 18.21
 
-Figure <a href="#">kernel-machine-figure</a>
-showed how a circle at the origin can be linearly separated by mapping
-from the features $(x_1, x_2)$ to the two dimensions $(x_1^2, x_2^2)$.
-But what if the circle is not located at the origin? What if it is an
-ellipse, not a circle? The general equation for a circle (and hence the
-decision boundary) is $(x_1-a)^2 + (x_2-b)^2 - r^2{{\,=\,}}0$, and the general equation for an ellipse is
-$c(x_1-a)^2 + d(x_2-b)^2 - 1 {{\,=\,}}0$.
+Hình <a href="#">kernel-machine-figure</a> đã cho thấy làm thế nào một đường tròn tại gốc tọa độ có thể được phân tách tuyến tính bằng cách ánh xạ từ các đặc trưng $(x_1, x_2)$ sang hai chiều $(x_1^2, x_2^2)$. Nhưng nếu đường tròn không nằm tại gốc tọa độ thì sao? Nếu đó là một hình elip, không phải là một đường tròn thì sao? Phương trình tổng quát cho một đường tròn (và do đó là biên quyết định) là $(x_1-a)^2 + (x_2-b)^2 - r^2{{\,=\,}}0$, và phương trình tổng quát cho một hình elip là $c(x_1-a)^2 + d(x_2-b)^2 - 1 {{\,=\,}}0$.
 <br>
-1.  Expand out the equation for the circle and show what the weights
-    $w_i$ would be for the decision boundary in the four-dimensional
-    feature space $(x_1, x_2, x_1^2, x_2^2)$. Explain why this means
-    that any circle is linearly separable in this space.<br>
+1.  Khai triển phương trình cho đường tròn và cho thấy các trọng số $w_i$ sẽ là gì cho biên quyết định trong không gian đặc trưng bốn chiều $(x_1, x_2, x_1^2, x_2^2)$. Giải thích tại sao điều này có nghĩa là bất kỳ đường tròn nào cũng có thể được phân tách tuyến tính trong không gian này.<br>
 
-2.  Do the same for ellipses in the five-dimensional feature space
-    $(x_1, x_2, x_1^2, x_2^2, x_1 x_2)$.
+2.  Thực hiện tương tự cho các hình elip trong không gian đặc trưng năm chiều $(x_1, x_2, x_1^2, x_2^2, x_1 x_2)$.
 
 
 ---
 
 ##### Bài tập 18.22
 
-Construct a support vector machine that computes the
-xor function. Use values of +1 and –1 (instead of 1 and 0)
-for both inputs and outputs, so that an example looks like $([-1, 1], 1)$ or $([-1, -1], -1)$. Map the input $[x_1,x_2]$ into a space
-consisting of $x_1$ and $x_1\,x_2$. Draw the four input points in this
-space, and the maximal margin separator. What is the margin? Now draw
-the separating line back in the original Euclidean input space.
+Xây dựng một support vector machine tính toán hàm xor. Sử dụng các giá trị +1 và –1 (thay vì 1 và 0) cho cả đầu vào và đầu ra, sao cho một ví dụ trông giống như $([-1, 1], 1)$ hoặc $([-1, -1], -1)$. Ánh xạ đầu vào $[x_1,x_2]$ vào một không gian bao gồm $x_1$ và $x_1\,x_2$. Vẽ bốn điểm đầu vào trong không gian này và đường phân tách biên độ tối đa. Biên độ là bao nhiêu? Sau đó, vẽ đường phân tách trở lại không gian đầu vào Euclidean ban đầu.
 
 
 ---
 
 ##### Bài tập 18.23
 
-Consider an ensemble learning algorithm that
-uses simple majority voting among $K$ learned hypotheses.
-Suppose that each hypothesis has error $\epsilon$ and that the errors
-made by each hypothesis are independent of the others’. Calculate a
-formula for the error of the ensemble algorithm in terms of $K$
-and $\epsilon$, and evaluate it for the cases where
-$K=5$, 10, and 20 and $\epsilon={0.1}$, 0.2,
-and 0.4. If the independence assumption is removed, is it possible for
-the ensemble error to be <i>worse</i> than $\epsilon$?
+Xem xét một thuật toán học tập hợp sử dụng bỏ phiếu đa số đơn giản giữa $K$ giả thuyết đã học. Giả sử mỗi giả thuyết có sai số $\epsilon$ và các sai số được thực hiện bởi mỗi giả thuyết là độc lập với nhau. Tính toán công thức cho sai số của thuật toán học tập hợp theo $K$ và $\epsilon$, và đánh giá nó cho các trường hợp $K=5$, 10, và 20 và $\epsilon={0.1}$, 0.2, và 0.4. Nếu giả định độc lập bị loại bỏ, liệu sai số của tập hợp có thể tệ hơn $\epsilon$ không?
 
 
 ---
 
 ##### Bài tập 18.24
 
-Construct by hand a neural network that computes the xor
-function of two inputs. Make sure to specify what sort of units you are
-using.
+Tự tay xây dựng một mạng nơ-ron tính toán hàm xor của hai đầu vào. Đảm bảo chỉ định loại đơn vị bạn đang sử dụng.
 
 
 ---
 
 ##### Bài tập 18.25
 
-A simple perceptron cannot represent xor (or, generally,
-the parity function of its inputs). Describe what happens to the weights
-of a four-input, hard-threshold perceptron, beginning with all weights
-set to 0.1, as examples of the parity function arrive.
+Một perceptron đơn giản không thể biểu diễn xor (hoặc nói chung là hàm parity của các đầu vào của nó). Mô tả điều gì xảy ra với các trọng số của một perceptron có bốn đầu vào, ngưỡng cứng, bắt đầu với tất cả các trọng số được đặt thành 0.1, khi các ví dụ về hàm parity đến.
 
 
 ---
 
 ##### Bài tập 18.26
 
-Recall from
-Chapter <a class="chapterRef" href="{{site.baseurl}}/concept-learning-exercises/">concept-learning-chapter</a> that there are
-$2^{2^n}$ distinct Boolean functions of $n$ inputs. How many of
-these are representable by a threshold perceptron?
+Nhớ lại từ Chương <a class="chapterRef" href="{{site.baseurl}}/concept-learning-exercises/">concept-learning-chapter</a> rằng có $2^{2^n}$ hàm Boolean riêng biệt của $n$ đầu vào. Có bao nhiêu trong số đó có thể được biểu diễn bởi một perceptron ngưỡng?
 
 
 ---
 
 ##### Bài tập 18.27
 
-Consider the following set of examples, each with six inputs and one
-target output:<br>
-
-
+Xem xét tập hợp các ví dụ sau đây, mỗi ví dụ có sáu đầu vào và một đầu ra mục tiêu:<br>
 
 $$
 \begin{array} 
-	{|r|r|}\hline \textbf{Example} & A_1 & A_2 & A_3 & A_4 & A_5 & A_6 & A_7 & A_8 & A_9 & A_{10} & A_{11} & A_{12} & A_{13} & A_{14} \\ 
+	{|r|r|}\hline \textbf{Ví dụ} & A_1 & A_2 & A_3 & A_4 & A_5 & A_6 & A_7 & A_8 & A_9 & A_{10} & A_{11} & A_{12} & A_{13} & A_{14} \\ 
 	\hline 
 	\textbf{x}_1  & 1 & 1  & 1  & 1 & 1 & 1 & 1  & 0  & 0 & 0 & 0 & 0  & 0  & 0 \\
 	\textbf{x}_2  & 0 & 0  & 0  & 1 & 1 & 0 & 0  & 1  & 1 & 0 & 1 & 0  & 1  & 1 \\
@@ -435,118 +293,71 @@ $$
 
 
 
-1.  Run the perceptron learning rule on these data and show the
-    final weights.<br>
+1.  Chạy quy tắc học perceptron trên dữ liệu này và hiển thị các trọng số cuối cùng.<br>
 
-2.  Run the decision tree learning rule, and show the resulting
-    decision tree.<br>
+2.  Chạy quy tắc học cây quyết định và hiển thị cây quyết định kết quả.<br>
 
-3.  Comment on your results.<br>
+3.  Nhận xét về kết quả của bạn.<br>
 
 
 ---
 
 ##### Bài tập 18.28
 
-Section <a class="sectionRef" title="" href="#">logistic-regression-section</a>
-(page <a class="pageRef" title="" href="#">logistic-regression-section</a>) noted that the output of the logistic function
-could be interpreted as a <i>probability</i> $p$ assigned by the
-model to the proposition that $f(\textbf{x}){{\,=\,}}1$; the probability that
-$f(\textbf{x}){{\,=\,}}0$ is therefore $1-p$. Write down the probability $p$
-as a function of $\textbf{x}$ and calculate the derivative of $\log p$ with
-respect to each weight $w_i$. Repeat the process for $\log (1-p)$. These
-calculations give a learning rule for minimizing the
-negative-log-likelihood loss function for a probabilistic hypothesis.
-Comment on any resemblance to other learning rules in the chapter.
+Mục <a class="sectionRef" title="" href="#">logistic-regression-section</a> (trang <a class="pageRef" title="" href="#">logistic-regression-section</a>) đã lưu ý rằng đầu ra của hàm logistic có thể được diễn giải là một *xác suất* $p$ mà mô hình gán cho mệnh đề $f(\textbf{x}){{\,=\,}}1$; do đó, xác suất $f(\textbf{x}){{\,=\,}}0$ là $1-p$. Viết xác suất $p$ dưới dạng hàm của $\textbf{x}$ và tính đạo hàm của $\log p$ theo từng trọng số $w_i$. Lặp lại quy trình cho $\log (1-p)$. Các phép tính này cung cấp một quy tắc học để tối thiểu hóa hàm mất mát negative-log-likelihood cho một giả thuyết xác suất. Nhận xét về bất kỳ sự tương đồng nào với các quy tắc học khác trong chương.
 
 
 ---
 
 ##### Bài tập 18.29
 
-Suppose you had a neural network with linear
-activation functions. That is, for each unit the output is some constant
-$c$ times the weighted sum of the inputs.<br>
+Giả sử bạn có một mạng nơ-ron với các hàm kích hoạt tuyến tính. Nghĩa là, đối với mỗi đơn vị, đầu ra là một hằng số $c$ nhân với tổng trọng số của các đầu vào.<br>
 
-1.  Assume that the network has one hidden layer. For a given assignment
-    to the weights $\textbf{w}$, write down equations for the value of the
-    units in the output layer as a function of $\textbf{w}$ and the input layer
-    $\textbf{x}$, without any explicit mention of the output of the
-    hidden layer. Show that there is a network with no hidden units that
-    computes the same function.<br>
+1.  Giả sử mạng có một lớp ẩn. Với một phép gán trọng số $\textbf{w}$ nhất định, hãy viết các phương trình cho giá trị của các đơn vị trong lớp đầu ra dưới dạng hàm của $\textbf{w}$ và lớp đầu vào $\textbf{x}$, mà không đề cập rõ ràng đến đầu ra của lớp ẩn. Chứng minh rằng có một mạng không có đơn vị ẩn nào tính toán cùng một hàm.<br>
 
-2.  Repeat the calculation in part (a), but this time do it for a
-    network with any number of hidden layers.<br>
+2.  Lặp lại phép tính trong phần (a), nhưng lần này thực hiện cho mạng có bất kỳ số lượng lớp ẩn nào.<br>
 
-3.  Suppose a network with one hidden layer and linear activation
-    functions has $n$ input and output nodes and $h$ hidden nodes. What
-    effect does the transformation in part (a) to a network with no
-    hidden layers have on the total number of weights? Discuss in
-    particular the case $h \ll n$.
+3.  Giả sử một mạng có một lớp ẩn và các hàm kích hoạt tuyến tính có $n$ nút đầu vào và đầu ra và $h$ nút ẩn. Phép biến đổi trong phần (a) sang một mạng không có lớp ẩn có tác động gì đến tổng số trọng số? Thảo luận đặc biệt về trường hợp $h \ll n$.
 
 
 ---
 
 ##### Bài tập 18.30
 
-Implement a data structure for layered, feed-forward neural networks,
-remembering to provide the information needed for both forward
-evaluation and backward propagation. Using this data structure, write a
-function NEURAL-NETWORK-OUTPUT that takes an example and a network and computes the
-appropriate output values.
+Triển khai một cấu trúc dữ liệu cho các mạng nơ-ron phân lớp, truyền thẳng, ghi nhớ cung cấp thông tin cần thiết cho cả đánh giá tiến và lan truyền ngược. Sử dụng cấu trúc dữ liệu này, viết một hàm NEURAL-NETWORK-OUTPUT nhận một ví dụ và một mạng và tính toán các giá trị đầu ra thích hợp.
 
 
 ---
 
 ##### Bài tập 18.31
 
-Suppose that a training set contains only a single example, repeated 100
-times. In 80 of the 100 cases, the single output value is 1; in the
-other 20, it is 0. What will a back-propagation network predict for this
-example, assuming that it has been trained and reaches a global optimum?
-(<i>Hint:</i> to find the global optimum, differentiate the
-error function and set it to zero.)
+Giả sử một tập huấn luyện chỉ chứa một ví dụ duy nhất, lặp lại 100 lần. Trong 80 trong số 100 trường hợp, giá trị đầu ra duy nhất là 1; trong 20 trường hợp còn lại, nó là 0. Mạng back-propagation sẽ dự đoán gì cho ví dụ này, giả sử nó đã được huấn luyện và đạt đến một điểm tối ưu toàn cục? (<i>Gợi ý:</i> để tìm điểm tối ưu toàn cục, hãy lấy đạo hàm của hàm lỗi và đặt nó bằng 0.)
 
 
 ---
 
 ##### Bài tập 18.32
 
-The neural network whose learning performance is measured in
-Figure <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/restaurant-back-prop-figure.png">restaurant-back-prop-figure</a> has four hidden
-nodes. This number was chosen somewhat arbitrarily. Use a
-cross-validation method to find the best number of hidden nodes.
+Mạng nơ-ron có hiệu suất học tập được đo lường trong Hình <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/restaurant-back-prop-figure.png">restaurant-back-prop-figure</a> có bốn nút ẩn. Số lượng này được chọn một cách tùy ý. Sử dụng phương pháp cross-validation để tìm số lượng nút ẩn tốt nhất.
 
 
 ---
 
 ##### Bài tập 18.33
 
-Consider the problem of separating
-$N$ data points into positive and negative examples using a linear
-separator. Clearly, this can always be done for $N{{\,=\,}}2$ points
-on a line of dimension $d{{\,=\,}}1$, regardless of how the points are
-labeled or where they are located (unless the points are in the same
-place).<br>
+Xem xét bài toán phân tách $N$ điểm dữ liệu thành các ví dụ tích cực và tiêu cực bằng một bộ phân tách tuyến tính. Rõ ràng, điều này luôn có thể thực hiện được đối với $N{{\,=\,}}2$ điểm trên một đường thẳng có chiều $d{{\,=\,}}1$, bất kể các điểm được gán nhãn như thế nào hoặc chúng nằm ở đâu (trừ khi các điểm ở cùng một vị trí).<br>
 
-1.  Show that it can always be done for $N{{\,=\,}}3$ points on a
-    plane of dimension $d{{\,=\,}}2$, unless they are collinear.<br>
+1.  Chứng minh rằng điều này luôn có thể thực hiện được đối với $N{{\,=\,}}3$ điểm trên một mặt phẳng có chiều $d{{\,=\,}}2$, trừ khi chúng thẳng hàng.<br>
 
-2.  Show that it cannot always be done for $N{{\,=\,}}4$ points on a
-    plane of dimension $d{{\,=\,}}2$.<br>
+2.  Chứng minh rằng điều này không phải lúc nào cũng có thể thực hiện được đối với $N{{\,=\,}}4$ điểm trên một mặt phẳng có chiều $d{{\,=\,}}2$.<br>
 
-3.  Show that it can always be done for $N{{\,=\,}}4$ points in a
-    space of dimension $d{{\,=\,}}3$, unless they are coplanar.<br>
+3.  Chứng minh rằng điều này luôn có thể thực hiện được đối với $N{{\,=\,}}4$ điểm trong một không gian có chiều $d{{\,=\,}}3$, trừ khi chúng đồng phẳng.<br>
 
-4.  Show that it cannot always be done for $N{{\,=\,}}5$ points in a
-    space of dimension $d{{\,=\,}}3$.<br>
+4.  Chứng minh rằng điều này không phải lúc nào cũng có thể thực hiện được đối với $N{{\,=\,}}5$ điểm trong một không gian có chiều $d{{\,=\,}}3$.<br>
 
-5.  The ambitious student may wish to prove that $N$ points in general
-    position (but not $N+1$) are linearly separable in a space of
-    dimension $N-1$.<br>
+5.  Học sinh tham vọng có thể muốn chứng minh rằng $N$ điểm ở vị trí tổng quát (nhưng không phải $N+1$) có thể được phân tách tuyến tính trong một không gian có chiều $N-1$.<br>
 
 
 ---
-
 
 <!-- tabs:end -->

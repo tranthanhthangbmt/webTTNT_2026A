@@ -39,251 +39,224 @@
 
 #### **Bài tập**
 
+
 ##### Bài tập 12.1
 
-Define an ontology in first-order logic for tic-tac-toe. The ontology
-should contain situations, actions, squares, players, marks (X, O, or
-blank), and the notion of winning, losing, or drawing a game. Also
-define the notion of a forced win (or draw): a position from which a
-player can force a win (or draw) with the right sequence of actions.
-Write axioms for the domain. (Note: The axioms that enumerate the
-different squares and that characterize the winning positions are rather
-long. You need not write these out in full, but indicate clearly what
-they look like.)
+Định nghĩa một ontology bằng logic bậc nhất cho trò chơi cờ caro. Ontology
+nên bao gồm các tình huống (situations), hành động (actions), ô vuông (squares), người chơi (players), ký hiệu (marks - X, O, hoặc trống), và khái niệm thắng, thua, hoặc hòa. Cũng định nghĩa khái niệm thắng (hoặc hòa) bắt buộc: một vị trí mà từ đó một người chơi có thể buộc phải thắng (hoặc hòa) với chuỗi hành động đúng đắn.
+Viết các tiên đề (axioms) cho miền này. (Lưu ý: Các tiên đề liệt kê các ô vuông khác nhau và đặc trưng hóa các vị trí thắng khá dài. Bạn không cần viết chúng ra đầy đủ, nhưng hãy chỉ rõ chúng trông như thế nào.)
 
 
 ---
 
 ##### Bài tập 12.2
 
-You are to create a system for advising computer science undergraduates
-on what courses to take over an extended period in order to satisfy the
-program requirements. (Use whatever requirements are appropriate for
-your institution.) First, decide on a vocabulary for representing all
-the information, and then represent it; then formulate a query to the
-system that will return a legal program of study as a solution. You
-should allow for some tailoring to individual students, in that your
-system should ask what courses or equivalents the student has already
-taken, and not generate programs that repeat those courses.
+Bạn cần tạo một hệ thống để tư vấn cho sinh viên đại học ngành khoa học máy tính về các khóa học cần học trong một khoảng thời gian dài để đáp ứng các yêu cầu của chương trình. (Sử dụng bất kỳ yêu cầu nào phù hợp với tổ chức của bạn.) Đầu tiên, hãy quyết định một từ vựng để biểu diễn tất cả thông tin, sau đó biểu diễn nó; tiếp theo, xây dựng một truy vấn cho hệ thống sẽ trả về một chương trình học hợp lệ làm giải pháp. Bạn nên cho phép tùy chỉnh cho từng sinh viên, theo đó hệ thống của bạn sẽ hỏi sinh viên đã học những khóa học nào hoặc tương đương, và không tạo ra các chương trình lặp lại các khóa học đó.
 
-Suggest ways in which your system could be improved—for example to take
-into account knowledge about student preferences, the workload, good and
-bad instructors, and so on. For each kind of knowledge, explain how it
-could be expressed logically. Could your system easily incorporate this
-information to find all feasible programs of study for a student? Could
-it find the <i>best</i> program?
+Đề xuất các cách để cải thiện hệ thống của bạn—ví dụ: để tính đến kiến thức về sở thích của sinh viên, khối lượng công việc, giảng viên tốt và xấu, v.v. Đối với mỗi loại kiến thức, hãy giải thích cách nó có thể được diễn đạt bằng logic. Hệ thống của bạn có thể dễ dàng kết hợp thông tin này để tìm tất cả các chương trình học khả thi cho sinh viên không? Nó có thể tìm ra chương trình *tốt nhất* không?
 
 
 ---
 
 ##### Bài tập 12.3
 
-Figure <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/ontology-figure.png">ontology-figure</a> shows the top levels of a
-hierarchy for everything. Extend it to include as many real categories
-as possible. A good way to do this is to cover all the things in your
-everyday life. This includes objects and events. Start with waking up,
-and proceed in an orderly fashion noting everything that you see, touch,
-do, and think about. For example, a random sampling produces music,
-news, milk, walking, driving, gas, Soda Hall, carpet, talking, Professor
-Fateman, chicken curry, tongue, \$ 7, sun, the daily newspaper, and so on.<br>
+Hình <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/ontology-figure.png">ontology-figure</a> hiển thị các cấp cao nhất của một
+hệ thống phân cấp cho mọi thứ. Hãy mở rộng nó để bao gồm càng nhiều danh mục thực tế càng tốt. Một cách tốt để làm điều này là bao quát tất cả những thứ trong cuộc sống hàng ngày của bạn. Điều này bao gồm các đối tượng và sự kiện. Bắt đầu bằng việc thức dậy, và tiến hành một cách có trật tự ghi lại mọi thứ bạn nhìn thấy, chạm vào, làm và suy nghĩ về. Ví dụ, một mẫu ngẫu nhiên cho ra âm nhạc, tin tức, sữa, đi bộ, lái xe, xăng, Soda Hall, thảm, nói chuyện, Giáo sư Fateman, cà ri gà, lưỡi, 7 đô la, mặt trời, báo hàng ngày, v.v.<br>
 
-You should produce both a single hierarchy chart (on a large sheet of
-paper) and a listing of objects and categories with the relations
-satisfied by members of each category. Every object should be in a
-category, and every category should be in the hierarchy.
+Bạn nên tạo cả một biểu đồ phân cấp duy nhất (trên một tờ giấy lớn) và một danh sách các đối tượng và danh mục với các quan hệ được thỏa mãn bởi các thành viên của mỗi danh mục. Mọi đối tượng phải nằm trong một danh mục, và mọi danh mục phải nằm trong hệ thống phân cấp.
 
 
 ---
 
 ##### Bài tập 12.4
 
-Develop a representational system for reasoning
-about windows in a window-based computer interface. In particular, your
-representation should be able to describe:<br>
+Phát triển một hệ thống biểu diễn để suy luận
+về các cửa sổ trong giao diện máy tính dựa trên cửa sổ. Đặc biệt, biểu diễn của bạn phải có khả năng mô tả:<br>
 
 
--   The state of a window: minimized, displayed, or nonexistent.<br>
+-   Trạng thái của một cửa sổ: thu nhỏ (minimized), hiển thị (displayed), hoặc không tồn tại (nonexistent).<br>
 
--   Which window (if any) is the active window.<br>
+-   Cửa sổ nào (nếu có) là cửa sổ đang hoạt động (active window).<br>
 
--   The position of every window at a given time.<br>
+-   Vị trí của mọi cửa sổ tại một thời điểm nhất định.<br>
 
--   The order (front to back) of overlapping windows.<br>
+-   Thứ tự (từ trước ra sau) của các cửa sổ chồng lên nhau.<br>
 
--   The actions of creating, destroying, resizing, and moving windows;
-    changing the state of a window; and bringing a window to the front.
-    Treat these actions as atomic; that is, do not deal with the issue
-    of relating them to mouse actions. Give axioms describing the
-    effects of actions on fluents. You may use either event or
-    situation calculus.<br>
+-   Các hành động tạo, xóa, thay đổi kích thước và di chuyển cửa sổ;
+    thay đổi trạng thái của cửa sổ; và đưa một cửa sổ lên phía trước.
+    Coi các hành động này là nguyên tử (atomic); nghĩa là, không xem xét
+    vấn đề liên hệ chúng với các hành động chuột. Đưa ra các tiên đề mô tả
+    ảnh hưởng của các hành động lên các fluent. Bạn có thể sử dụng event calculus hoặc situation calculus.<br>
 
-Assume an ontology containing <i>situations,</i>
-<i>actions,</i> <i>integers</i> (for $x$ and $y$
-coordinates) and <i>windows</i>. Define a language over this
-ontology; that is, a list of constants, function symbols, and predicates
-with an English description of each. If you need to add more categories
-to the ontology (e.g., pixels), you may do so, but be sure to specify
-these in your write-up. You may (and should) use symbols defined in the
-text, but be sure to list these explicitly.
+Giả sử một ontology chứa các <i>situations,</i>
+<i>actions,</i> <i>integers</i> (cho tọa độ $x$ và $y$) và
+<i>windows</i>. Định nghĩa một ngôn ngữ trên ontology này; nghĩa là,
+một danh sách các hằng số, ký hiệu hàm và vị từ với mô tả tiếng Anh
+cho mỗi cái. Nếu bạn cần thêm các danh mục vào ontology (ví dụ: pixels),
+bạn có thể làm vậy, nhưng hãy chắc chắn chỉ định chúng trong bài viết
+của bạn. Bạn có thể (và nên) sử dụng các ký hiệu được định nghĩa trong
+văn bản, nhưng hãy chắc chắn liệt kê chúng một cách rõ ràng.
 
 
 ---
 
 ##### Bài tập 12.5
 
-State the following in the language you developed for the previous
-exercise:<br>
+Phát biểu các điều sau đây bằng ngôn ngữ bạn đã phát triển cho bài
+tập trước:<br>
 
-1.  In situation $S_0$, window $W_1$ is behind $W_2$ but sticks out on
-    the top and bottom. Do <i>not</i> state exact coordinates
-    for these; describe the <i>general</i> situation.<br>
+1.  Trong tình huống $S_0$, cửa sổ $W_1$ nằm sau $W_2$ nhưng nhô ra
+    ở trên và dưới. *Không* nêu tọa độ chính xác cho những điều này;
+    mô tả tình huống *chung*.<br>
 
-2.  If a window is displayed, then its top edge is higher than its
-    bottom edge.<br>
+2.  Nếu một cửa sổ được hiển thị, thì cạnh trên của nó cao hơn cạnh
+    dưới của nó.<br>
 
-3.  After you create a window $w$, it is displayed.<br>
+3.  Sau khi bạn tạo một cửa sổ $w$, nó sẽ được hiển thị.<br>
 
-4.  A window can be minimized only if it is displayed.<br>
+4.  Một cửa sổ chỉ có thể được thu nhỏ nếu nó đang được hiển thị.<br>
 
 
 ---
 
 ##### Bài tập 12.6
 
-State the following in the language you developed for the previous
-exercise:<br>
+Phát biểu các điều sau đây bằng ngôn ngữ bạn đã phát triển cho bài
+tập trước:<br>
 
-1.  In situation $S_0$, window $W_1$ is behind $W_2$ but sticks out on
-    the top and bottom. Do <i>not</i> state exact coordinates
-    for these; describe the <i>general</i> situation.<br>
+1.  Trong tình huống $S_0$, cửa sổ $W_1$ nằm sau $W_2$ nhưng nhô ra
+    ở trên và dưới. *Không* nêu tọa độ chính xác cho những điều này;
+    mô tả tình huống *chung*.<br>
 
-2.  If a window is displayed, then its top edge is higher than its
-    bottom edge.<br>
+2.  Nếu một cửa sổ được hiển thị, thì cạnh trên của nó cao hơn cạnh
+    dưới của nó.<br>
 
-3.  After you create a window $w$, it is displayed.<br>
+3.  Sau khi bạn tạo một cửa sổ $w$, nó sẽ được hiển thị.<br>
 
-4.  A window can be minimized only if it is displayed.<br>
+4.  Một cửa sổ chỉ có thể được thu nhỏ nếu nó đang được hiển thị.<br>
 
 
 ---
 
 ##### Bài tập 12.7
 
-(Adapted from an example by Doug Lenat.) Your mission is to capture, in
-logical form, enough knowledge to answer a series of questions about the
-following simple scenario:<br>
+(Chuyển thể từ một ví dụ của Doug Lenat.) Nhiệm vụ của bạn là nắm bắt,
+dưới dạng logic, đủ kiến thức để trả lời một loạt câu hỏi về kịch bản
+đơn giản sau:<br>
 <Br>
-<i> Yesterday John went to the North Berkeley Safeway supermarket and</i><br>
-<i> bought two pounds of tomatoes and a pound of ground beef.</i>
+<i> Hôm qua John đã đến siêu thị Safeway ở North Berkeley và</i><br>
+<i> mua hai pound cà chua và một pound thịt bò xay.</i>
 
-Start by trying to represent the content of the sentence as a series of
-assertions. You should write sentences that have straightforward logical
-structure (e.g., statements that objects have certain properties, that
-objects are related in certain ways, that all objects satisfying one
-property satisfy another). The following might help you get started:<br>
+Bắt đầu bằng cách cố gắng biểu diễn nội dung của câu thành một loạt các
+khẳng định. Bạn nên viết các câu có cấu trúc logic đơn giản (ví dụ:
+các phát biểu rằng các đối tượng có thuộc tính nhất định, rằng các đối
+tượng có quan hệ với nhau theo những cách nhất định, rằng tất cả các đối
+tượng thỏa mãn một thuộc tính đều thỏa mãn một thuộc tính khác). Những
+điều sau đây có thể giúp bạn bắt đầu:<br>
 
--   Which classes, objects, and relations would you need? What are their
-    parents, siblings and so on? (You will need events and temporal
-    ordering, among other things.)<br>
+-   Bạn sẽ cần những lớp (classes), đối tượng (objects) và quan hệ
+    (relations) nào? Cha mẹ, anh chị em của chúng là gì, v.v.? (Bạn sẽ
+    cần các sự kiện (events) và thứ tự thời gian (temporal ordering),
+    trong số những thứ khác.)<br>
 
--   Where would they fit in a more general hierarchy?<br>
+-   Chúng sẽ phù hợp ở đâu trong một hệ thống phân cấp tổng quát hơn?<br>
 
--   What are the constraints and interrelationships among them?<br>
+-   Các ràng buộc (constraints) và mối quan hệ tương hỗ (interrelationships)
+    giữa chúng là gì?<br>
 
--   How detailed must you be about each of the various concepts?<br>
+-   Bạn cần chi tiết đến mức nào về từng khái niệm khác nhau?<br>
 
-To answer the questions below, your knowledge base must include
-background knowledge. You’ll have to deal with what kind of things are
-at a supermarket, what is involved with purchasing the things one
-selects, what the purchases will be used for, and so on. Try to make
-your representation as general as possible. To give a trivial example:
-don’t say “People buy food from Safeway,” because that won’t help you
-with those who shop at another supermarket. Also, don’t turn the
-questions into answers; for example, question (c) asks “Did John buy any
-meat?”—not “Did John buy a pound of ground beef?”<br>
+Để trả lời các câu hỏi dưới đây, cơ sở kiến thức của bạn phải bao gồm
+kiến thức nền. Bạn sẽ phải xử lý những loại thứ có ở siêu thị, những gì
+liên quan đến việc mua những thứ bạn chọn, những gì việc mua hàng sẽ
+được sử dụng cho, v.v. Hãy cố gắng làm cho biểu diễn của bạn càng tổng
+quát càng tốt. Để đưa ra một ví dụ tầm thường: đừng nói “Mọi người mua
+thực phẩm từ Safeway,” vì điều đó sẽ không giúp bạn với những người mua
+sắm ở siêu thị khác. Ngoài ra, đừng biến câu hỏi thành câu trả lời; ví
+dụ, câu hỏi (c) hỏi “John có mua thịt không?”—không phải “John có mua
+một pound thịt bò xay không?”<br>
 
-Sketch the chains of reasoning that would answer the questions. If
-possible, use a logical reasoning system to demonstrate the sufficiency
-of your knowledge base. Many of the things you write might be only
-approximately correct in reality, but don’t worry too much; the idea is
-to extract the common sense that lets you answer these questions at all.
-A truly complete answer to this question is <i>extremely</i>
-difficult, probably beyond the state of the art of current knowledge
-representation. But you should be able to put together a consistent set
-of axioms for the limited questions posed here.<br>
+Phác thảo các chuỗi suy luận sẽ trả lời các câu hỏi. Nếu có thể, hãy sử
+dụng một hệ thống suy luận logic để chứng minh tính đầy đủ của cơ sở
+kiến thức của bạn. Nhiều thứ bạn viết có thể chỉ đúng gần đúng trong
+thực tế, nhưng đừng quá lo lắng; ý tưởng là trích xuất common sense cho
+phép bạn trả lời những câu hỏi này. Một câu trả lời hoàn chỉnh thực sự
+cho câu hỏi này là *cực kỳ* khó, có lẽ vượt quá trạng thái hiện tại
+của knowledge representation. Nhưng bạn sẽ có thể xây dựng một tập hợp
+các tiên đề nhất quán cho các câu hỏi giới hạn được đặt ra ở đây.<br>
 
-1.  Is John a child or an adult? [Adult]<br>
+1.  John là trẻ con hay người lớn? [Người lớn]<br>
 
-2.  Does John now have at least two tomatoes? [Yes]<br>
+2.  John bây giờ có ít nhất hai quả cà chua không? [Có]<br>
 
-3.  Did John buy any meat? [Yes]<br>
+3.  John có mua thịt không? [Có]<br>
 
-4.  If Mary was buying tomatoes at the same time as John, did he see
-    her? [Yes]<br>
+4.  Nếu Mary đang mua cà chua cùng lúc với John, thì anh ấy có nhìn
+    thấy cô ấy không? [Có]<br>
 
-5.  Are the tomatoes made in the supermarket? [No]<br>
+5.  Cà chua có được làm trong siêu thị không? [Không]<br>
 
-6.  What is John going to do with the tomatoes? [Eat them]<br>
+6.  John sẽ làm gì với cà chua? [Ăn chúng]<br>
 
-7.  Does Safeway sell deodorant? [Yes]<br>
+7.  Safeway có bán chất khử mùi không? [Có]<br>
 
-8.  Did John bring some money or a credit card to the supermarket?
-    [Yes]<br>
+8.  John có mang theo tiền hoặc thẻ tín dụng đến siêu thị không?
+    [Có]<br>
 
-9.  Does John have less money after going to the supermarket? [Yes]<br>
+9.  John có ít tiền hơn sau khi đi siêu thị không? [Có]<br>
 
 
 ---
 
 ##### Bài tập 12.8
 
-Make the necessary additions or changes to your knowledge base from the
-previous exercise so that the questions that follow can be answered.
-Include in your report a discussion of your changes, explaining why they
-were needed, whether they were minor or major, and what kinds of
-questions would necessitate further changes.<br>
+Thực hiện các bổ sung hoặc thay đổi cần thiết cho cơ sở kiến thức của
+bạn từ bài tập trước để các câu hỏi sau đây có thể được trả lời. Bao gồm
+trong báo cáo của bạn một cuộc thảo luận về những thay đổi của bạn, giải
+thích tại sao chúng cần thiết, liệu chúng có nhỏ hay lớn, và những loại
+câu hỏi nào sẽ đòi hỏi những thay đổi tiếp theo.<br>
 
-1.  Are there other people in Safeway while John is there?
-    [Yes—staff!]<br>
+1.  Có những người nào khác trong Safeway khi John ở đó không?
+    [Có—nhân viên!]<br>
 
-2.  Is John a vegetarian? [No]<br>
+2.  John có ăn chay không? [Không]<br>
 
-3.  Who owns the deodorant in Safeway? [Safeway Corporation]<br>
+3.  Ai sở hữu chất khử mùi trong Safeway? [Safeway Corporation]<br>
 
-4.  Did John have an ounce of ground beef? [Yes]<br>
+4.  John có một ounce thịt bò xay không? [Có]<br>
 
-5.  Does the Shell station next door have any gas? [Yes]<br>
+5.  Trạm Shell bên cạnh có xăng không? [Có]<br>
 
-6.  Do the tomatoes fit in John’s car trunk? [Yes]<br>
+6.  Cà chua có vừa với cốp xe của John không? [Có]<br>
 
 
 ---
 
 ##### Bài tập 12.9
 
-Represent the following seven sentences using and extending the
-representations developed in the chapter: <br>
+Biểu diễn bảy câu sau đây bằng cách sử dụng và mở rộng các biểu diễn
+đã phát triển trong chương:<br>
 
-1.  Water is a liquid between 0 and 100 degrees.<br>
+1.  Nước là chất lỏng ở nhiệt độ từ 0 đến 100 độ.<br>
 
-2.  Water boils at 100 degrees.<br>
+2.  Nước sôi ở 100 độ.<br>
 
-3.  The water in John’s water bottle is frozen.<br>
+3.  Nước trong chai nước của John bị đóng băng.<br>
 
-4.  Perrier is a kind of water.<br>
+4.  Perrier là một loại nước.<br>
 
-5.  John has Perrier in his water bottle.<br>
+5.  John có Perrier trong chai nước của mình.<br>
 
-6.  All liquids have a freezing point.<br>
+6.  Tất cả các chất lỏng đều có điểm đóng băng.<br>
 
-7.  A liter of water weighs more than a liter of alcohol.<br>
+7.  Một lít nước nặng hơn một lít rượu.<br>
 
 
 ---
 
 ##### Bài tập 12.10
 
-Write definitions for the following:<br>
+Viết định nghĩa cho các thuật ngữ sau:<br>
 
 1.  ${ExhaustivePartDecomposition}$<br>
 
@@ -291,254 +264,208 @@ Write definitions for the following:<br>
 
 3.  ${PartwiseDisjoint}$<br>
 
-These should be analogous to the definitions for
-${ExhaustiveDecomposition}$, ${Partition}$, and ${Disjoint}$. Is
-it the case that ${PartPartition}(s,{BunchOf}(s))$? If so, prove it;
-if not, give a counterexample and define sufficient conditions under
-which it does hold.
+Các định nghĩa này nên tương tự như các định nghĩa cho
+${ExhaustiveDecomposition}$, ${Partition}$, và ${Disjoint}$. Có phải
+${PartPartition}(s,{BunchOf}(s))$ đúng không? Nếu có, hãy chứng minh;
+nếu không, hãy đưa ra một phản ví dụ và định nghĩa các điều kiện đủ mà
+trong đó nó đúng.
 
 
 ---
 
 ##### Bài tập 12.11
 
-An alternative scheme for representing measures
-involves applying the units function to an abstract length object. In
-such a scheme, one would write ${Inches}({Length}(L_1)) = {1.5}$.
-How does this scheme compare with the one in the chapter? Issues include
-conversion axioms, names for abstract quantities (such as “50 dollars”),
-and comparisons of abstract measures in different units (50 inches is
-more than 50 centimeters).
+Một sơ đồ thay thế để biểu diễn các phép đo
+liên quan đến việc áp dụng hàm đơn vị (units function) cho một đối tượng
+chiều dài trừu tượng. Trong một sơ đồ như vậy, người ta sẽ viết
+${Inches}({Length}(L_1)) = {1.5}$. Sơ đồ này so với sơ đồ trong
+chương như thế nào? Các vấn đề bao gồm các tiên đề chuyển đổi, tên cho
+các đại lượng trừu tượng (như “50 đô la”), và so sánh các phép đo trừu
+tượng với các đơn vị khác nhau (50 inch lớn hơn 50 centimet).
 
 
 ---
 
 ##### Bài tập 12.12
 
-Write a set of sentences that allows one to calculate the price of an
-individual tomato (or other object), given the price per pound. Extend
-the theory to allow the price of a bag of tomatoes to be calculated.
+Viết một tập hợp các câu cho phép tính giá của một quả cà chua riêng
+lẻ (hoặc đối tượng khác), với giá mỗi pound. Mở rộng lý thuyết để cho phép
+tính giá của một túi cà chua.
 
 
 ---
 
 ##### Bài tập 12.13
 
-Add sentences to extend the definition of the
-predicate ${Name}(s, c)$ so that a string such as “laptop computer”
-matches the appropriate category names from a variety of stores. Try to
-make your definition general. Test it by looking at ten online stores,
-and at the category names they give for three different categories. For
-example, for the category of laptops, we found the names “Notebooks,”
-“Laptops,” “Notebook Computers,” “Notebook,” “Laptops and Notebooks,”
-and “Notebook PCs.” Some of these can be covered by explicit ${Name}$
-facts, while others could be covered by sentences for handling plurals,
-conjunctions, etc.
+Thêm các câu để mở rộng định nghĩa của vị từ
+${Name}(s, c)$ sao cho một chuỗi như “laptop computer” khớp với tên
+danh mục phù hợp từ nhiều cửa hàng khác nhau. Hãy cố gắng làm cho định
+nghĩa của bạn trở nên tổng quát. Kiểm tra nó bằng cách xem xét mười
+cửa hàng trực tuyến và tên danh mục mà họ đưa ra cho ba danh mục khác
+nhau. Ví dụ, đối với danh mục máy tính xách tay, chúng tôi tìm thấy các
+tên “Notebooks,” “Laptops,” “Notebook Computers,” “Notebook,” “Laptops
+and Notebooks,” và “Notebook PCs.” Một số trong số này có thể được bao
+phủ bởi các sự kiện ${Name}$ rõ ràng, trong khi những sự kiện khác có
+thể được bao phủ bởi các câu để xử lý số nhiều, phép nối, v.v.
 
 
 ---
 
 ##### Bài tập 12.14
 
-Write event calculus axioms to describe the actions in the wumpus world.
+Viết các tiên đề event calculus để mô tả các hành động trong thế giới
+wumpus.
 
 
 ---
 
 ##### Bài tập 12.15
 
-State the interval-algebra relation that holds between every pair of the
-following real-world events:<br>
+Phát biểu quan hệ interval-algebra giữa mọi cặp các sự kiện thế giới
+thực sau đây:<br>
 
-> $LK$: The life of President Kennedy.<br>
+> $LK$: Cuộc đời của Tổng thống Kennedy.<br>
 
-> $IK$: The infancy of President Kennedy.<br>
+> $IK$: Thời thơ ấu của Tổng thống Kennedy.<br>
 
-> $PK$: The presidency of President Kennedy.<br>
+> $PK$: Nhiệm kỳ tổng thống của Tổng thống Kennedy.<br>
 
-> $LJ$: The life of President Johnson.<br>
+> $LJ$: Cuộc đời của Tổng thống Johnson.<br>
 
-> $PJ$: The presidency of President Johnson.<br>
+> $PJ$: Nhiệm kỳ tổng thống của Tổng thống Johnson.<br>
 
-> $LO$: The life of President Obama.<br>
+> $LO$: Cuộc đời của Tổng thống Obama.<br>
 
 
 ---
 
 ##### Bài tập 12.16
 
-This exercise concerns the problem of planning a route for a robot to
-take from one city to another. The basic action taken by the robot is
-${Go}(x,y)$, which takes it from city $x$ to city $y$ if there is a
-route between those cities. ${Road}(x, y)$ is true if and only if
-there is a road connecting cities $x$ and $y$; if there is, then
-${Distance}(x, y)$ gives the length of the road. See the map on
-page <a class="pageRef" title="" href="#">romania-distances-figure</a> for an example. The robot begins in Arad and must
-reach Bucharest.<br>
+Bài tập này liên quan đến vấn đề lập kế hoạch lộ trình cho một robot đi
+từ thành phố này sang thành phố khác. Hành động cơ bản mà robot thực hiện
+là ${Go}(x,y)$, đưa nó từ thành phố $x$ đến thành phố $y$ nếu có một
+tuyến đường giữa hai thành phố đó. ${Road}(x, y)$ đúng khi và chỉ khi
+có một con đường nối các thành phố $x$ và $y$; nếu có, thì
+${Distance}(x, y)$ cho biết độ dài của con đường. Xem bản đồ trên trang
+<a class="pageRef" title="" href="#">romania-distances-figure</a> để biết ví dụ. Robot bắt đầu ở Arad và phải đến
+Bucharest.<br>
 
-1.  Write a suitable logical description of the initial situation of
-    the robot.<br>
+1.  Viết mô tả logic phù hợp về tình huống ban đầu của robot.<br>
 
-2.  Write a suitable logical query whose solutions provide possible
-    paths to the goal.<br>
+2.  Viết một truy vấn logic phù hợp mà các giải pháp của nó cung cấp
+    các đường dẫn khả thi đến mục tiêu.<br>
 
-3.  Write a sentence describing the ${Go}$ action.<br>
+3.  Viết một câu mô tả hành động ${Go}$.<br>
 
-4.  Now suppose that the robot consumes fuel at the rate of .02 gallons
-    per mile. The robot starts with 20 gallons of fuel. Augment your
-    representation to include these considerations.<br>
+4.  Bây giờ giả sử rằng robot tiêu thụ nhiên liệu với tốc độ 0,02
+    gallon mỗi dặm. Robot bắt đầu với 20 gallon nhiên liệu. Bổ sung biểu
+    diễn của bạn để bao gồm các cân nhắc này.<br>
 
-5.  Now suppose some of the cities have gas stations at which the robot
-    can fill its tank. Extend your representation and write all the
-    rules needed to describe gas stations, including the
-    ${Fillup}$ action.<br>
+5.  Bây giờ giả sử một số thành phố có trạm xăng nơi robot có thể đổ
+    đầy bình. Mở rộng biểu diễn của bạn và viết tất cả các quy tắc cần
+    thiết để mô tả các trạm xăng, bao gồm cả hành động ${Fillup}$.<br>
 
 
 ---
 
 ##### Bài tập 12.17
 
-Investigate ways to extend the event calculus to handle
-<i>simultaneous</i> events. Is it possible to avoid a
-combinatorial explosion of axioms?
+Điều tra các cách để mở rộng event calculus để xử lý các sự kiện
+*đồng thời* (simultaneous). Có thể tránh được sự bùng nổ tổ hợp (combinatorial explosion) của các tiên đề không?
 
 
 ---
 
 ##### Bài tập 12.18
 
-Construct a representation for exchange rates
-between currencies that allows for daily fluctuations.
+Xây dựng một biểu diễn cho tỷ giá hối đoái
+giữa các loại tiền tệ cho phép biến động hàng ngày.
 
 
 ---
 
 ##### Bài tập 12.19
 
-Define the predicate ${Fixed}$, where
-${Fixed}({Location}(x))$ means that the location of object $x$ is
-fixed over time.
+Định nghĩa vị từ ${Fixed}$, trong đó
+${Fixed}({Location}(x))$ có nghĩa là vị trí của đối tượng $x$ là
+cố định theo thời gian.
 
 
 ---
 
 ##### Bài tập 12.20
 
-Describe the event of trading something for something else. Describe
-buying as a kind of trading in which one of the objects traded is a sum
-of money.
+Mô tả sự kiện trao đổi một thứ gì đó lấy một thứ khác. Mô tả việc mua
+hàng như một loại trao đổi mà một trong những đối tượng được trao đổi là
+một khoản tiền.
 
 
 ---
 
 ##### Bài tập 12.21
 
-The two preceding exercises assume a fairly primitive notion of
-ownership. For example, the buyer starts by <i>owning</i> the
-dollar bills. This picture begins to break down when, for example, one’s
-money is in the bank, because there is no longer any specific collection
-of dollar bills that one owns. The picture is complicated still further
-by borrowing, leasing, renting, and bailment. Investigate the various
-commonsense and legal concepts of ownership, and propose a scheme by
-which they can be represented formally.
+Hai bài tập trước giả định một khái niệm sở hữu khá sơ khai. Ví dụ, người
+mua bắt đầu bằng cách *sở hữu* các tờ đô la. Bức tranh này bắt đầu
+tan vỡ khi, ví dụ, tiền của một người ở trong ngân hàng, bởi vì không còn
+bất kỳ tập hợp các tờ đô la cụ thể nào mà người đó sở hữu. Bức tranh
+còn phức tạp hơn nữa bởi việc vay mượn, cho thuê, thuê dài hạn và gửi
+giữ. Điều tra các khái niệm sở hữu thông thường và pháp lý khác nhau,
+và đề xuất một sơ đồ mà theo đó chúng có thể được biểu diễn một cách hình
+thức.
 
 
 ---
 
 ##### Bài tập 12.22
 
-(Adapted from <a class="paperRef" title="" href="">Fagin+al:1995</a>.) Consider a game played
-with a deck of just 8 cards, 4 aces and 4 kings. The three players,
-Alice, Bob, and Carlos, are dealt two cards each. Without looking at
-them, they place the cards on their foreheads so that the other players
-can see them. Then the players take turns either announcing that they
-know what cards are on their own forehead, thereby winning the game, or
-saying “I don’t know.” Everyone knows the players are truthful and are
-perfect at reasoning about beliefs.<br>
+(Chuyển thể từ <a class="paperRef" title="" href="">Fagin+al:1995</a>.) Xem xét một trò chơi được chơi với một bộ bài chỉ có 8 lá, 4 quân Át và 4 quân Vua. Ba người chơi, Alice, Bob và Carlos, được chia hai lá bài mỗi người. Không nhìn vào chúng, họ đặt các lá bài lên trán để những người chơi khác có thể nhìn thấy chúng. Sau đó, những người chơi lần lượt thông báo rằng họ biết những lá bài nào trên trán của mình, qua đó thắng trò chơi, hoặc nói "Tôi không biết." Mọi người đều biết rằng những người chơi này trung thực và có khả năng suy luận hoàn hảo về niềm tin (beliefs).<br>
 
-1.  Game 1. Alice and Bob have both said “I don’t know.” Carlos sees
-    that Alice has two aces (A-A) and Bob has two kings (K-K). What
-    should Carlos say? (<i>Hint</i>: consider all three possible
-    cases for Carlos: A-A, K-K, A-K.)<br>
+1.  Trò chơi 1. Alice và Bob đều nói "Tôi không biết." Carlos nhìn thấy Alice có hai quân Át (A-A) và Bob có hai quân Vua (K-K). Carlos nên nói gì? ( *Gợi ý*: xem xét cả ba trường hợp có thể xảy ra đối với Carlos: A-A, K-K, A-K.)<br>
 
-2.  Describe each step of Game 1 using the notation of modal logic.<br>
+2.  Mô tả từng bước của Trò chơi 1 bằng ký hiệu logic modal (modal logic).<br>
 
-3.  Game 2. Carlos, Alice, and Bob all said “I don’t know” on their
-    first turn. Alice holds K-K and Bob holds A-K. What should Carlos
-    say on his second turn?<br>
+3.  Trò chơi 2. Carlos, Alice và Bob đều nói "Tôi không biết" trong lượt đầu tiên của họ. Alice cầm K-K và Bob cầm A-K. Carlos nên nói gì trong lượt thứ hai của mình?<br>
 
-4.  Game 3. Alice, Carlos, and Bob all say “I don’t know” on their first
-    turn, as does Alice on her second turn. Alice and Bob both hold A-K.
-    What should Carlos say?<br>
+4.  Trò chơi 3. Alice, Carlos và Bob đều nói "Tôi không biết" trong lượt đầu tiên, cũng như Alice trong lượt thứ hai của cô ấy. Alice và Bob đều cầm A-K. Carlos nên nói gì?<br>
 
-5.  Prove that there will always be a winner to this game.<br>
+5.  Chứng minh rằng trò chơi này luôn có người thắng.<br>
 
 
 ---
 
 ##### Bài tập 12.23
 
-The assumption of <i>logical omniscience,</i> discussed on
-page <a class="pageRef" title="" href="#">logical-omniscience</a>, is of course not true of any actual reasoners.
-Rather, it is an <i>idealization</i> of the reasoning process
-that may be more or less acceptable depending on the applications.
-Discuss the reasonableness of the assumption for each of the following
-applications of reasoning about knowledge:<br>
+Giả định về sự *toàn tri logic* (logical omniscience), được thảo luận trên trang <a class="pageRef" title="" href="#">logical-omniscience</a>, tất nhiên không đúng với bất kỳ người suy luận thực tế nào. Thay vào đó, đó là một *lý tưởng hóa* (idealization) của quá trình suy luận có thể chấp nhận được nhiều hơn hoặc ít hơn tùy thuộc vào các ứng dụng. Thảo luận về tính hợp lý của giả định đối với từng ứng dụng sau đây của suy luận về kiến thức:<br>
 
-1.  Partial knowledge adversary games, such as card games. Here one
-    player wants to reason about what his opponent knows about the state
-    of the game.<br>
+1.  Các trò chơi đối kháng với kiến thức không đầy đủ (Partial knowledge adversary games), chẳng hạn như các trò chơi bài. Ở đây, một người chơi muốn suy luận về những gì đối thủ của mình biết về trạng thái của trò chơi.<br>
 
-2.  Chess with a clock. Here the player may wish to reason about the
-    limits of his opponent’s or his own ability to find the best move in
-    the time available. For instance, if player A has much more time
-    left than player B, then A will sometimes make a move that greatly
-    complicates the situation, in the hopes of gaining an advantage
-    because he has more time to work out the proper strategy.<br>
+2.  Cờ vua có đồng hồ. Ở đây, người chơi có thể muốn suy luận về giới hạn khả năng tìm ra nước đi tốt nhất của đối thủ hoặc của chính mình trong thời gian có sẵn. Ví dụ, nếu người chơi A còn nhiều thời gian hơn người chơi B, thì A đôi khi sẽ thực hiện một nước đi làm phức tạp tình huống lên rất nhiều, với hy vọng giành được lợi thế vì anh ta có nhiều thời gian hơn để tìm ra chiến lược phù hợp.<br>
 
-3.  A shopping agent in an environment in which there are costs of
-    gathering information.<br>
+3.  Một agent mua sắm trong một môi trường có chi phí thu thập thông tin.<br>
 
-4.  Reasoning about public key cryptography, which rests on the
-    intractability of certain computational problems.
+4.  Suy luận về mật mã khóa công khai (public key cryptography), dựa trên tính khó khăn của các bài toán tính toán nhất định.
 
 
 ---
 
 ##### Bài tập 12.24
 
-The assumption of <i>logical omniscience,</i> discussed on
-page <a class="pageRef" title="" href="#">logical-omniscience</a>, is of course not true of any actual reasoners.
-Rather, it is an <i>idealization</i> of the reasoning process
-that may be more or less acceptable depending on the applications.
-Discuss the reasonableness of the assumption for each of the following
-applications of reasoning about knowledge:<br>
+Giả định về sự *toàn tri logic* (logical omniscience), được thảo luận trên trang <a class="pageRef" title="" href="#">logical-omniscience</a>, tất nhiên không đúng với bất kỳ người suy luận thực tế nào. Thay vào đó, đó là một *lý tưởng hóa* (idealization) của quá trình suy luận có thể chấp nhận được nhiều hơn hoặc ít hơn tùy thuộc vào các ứng dụng. Thảo luận về tính hợp lý của giả định đối với từng ứng dụng sau đây của suy luận về kiến thức:<br>
 
-1.  Partial knowledge adversary games, such as card games. Here one
-    player wants to reason about what his opponent knows about the state
-    of the game.<br>
+1.  Các trò chơi đối kháng với kiến thức không đầy đủ (Partial knowledge adversary games), chẳng hạn như các trò chơi bài. Ở đây, một người chơi muốn suy luận về những gì đối thủ của mình biết về trạng thái của trò chơi.<br>
 
-2.  Chess with a clock. Here the player may wish to reason about the
-    limits of his opponent’s or his own ability to find the best move in
-    the time available. For instance, if player A has much more time
-    left than player B, then A will sometimes make a move that greatly
-    complicates the situation, in the hopes of gaining an advantage
-    because he has more time to work out the proper strategy.<br>
+2.  Cờ vua có đồng hồ. Ở đây, người chơi có thể muốn suy luận về giới hạn khả năng tìm ra nước đi tốt nhất của đối thủ hoặc của chính mình trong thời gian có sẵn. Ví dụ, nếu người chơi A còn nhiều thời gian hơn người chơi B, thì A đôi khi sẽ thực hiện một nước đi làm phức tạp tình huống lên rất nhiều, với hy vọng giành được lợi thế vì anh ta có nhiều thời gian hơn để tìm ra chiến lược phù hợp.<br>
 
-3.  A shopping agent in an environment in which there are costs of
-    gathering information.<br>
+3.  Một agent mua sắm trong một môi trường có chi phí thu thập thông tin.<br>
 
-4.  Reasoning about public key cryptography, which rests on the
-    intractability of certain computational problems.
+4.  Suy luận về mật mã khóa công khai (public key cryptography), dựa trên tính khó khăn của các bài toán tính toán nhất định.
 
 
 ---
 
 ##### Bài tập 12.25
 
-Translate the following description logic expression (from
-page <a class="pageRef" title="" href="#">description-logic-ex</a>) into first-order logic, and comment on the result:
-<br>
+Dịch biểu thức logic mô tả (description logic expression) sau đây (từ trang <a class="pageRef" title="" href="#">description-logic-ex</a>) sang logic bậc nhất, và nhận xét về kết quả:<br>
 $$
 And(Man, AtLeast(3,Son), AtMost(2,Daughter), \\All(Son,And(Unemployed,Married, All(Spouse,Doctor ))), \\All(Daughter,And(Professor, Fills(Department ,Physics,Math))))
 $$
@@ -548,75 +475,42 @@ $$
 
 ##### Bài tập 12.26
 
-Recall that inheritance information in semantic networks can be captured
-logically by suitable implication sentences. This exercise investigates
-the efficiency of using such sentences for inheritance.<br>
+Nhớ lại rằng thông tin kế thừa (inheritance information) trong mạng ngữ nghĩa (semantic networks) có thể được nắm bắt bằng logic thông qua các câu kéo theo phù hợp. Bài tập này điều tra hiệu quả của việc sử dụng các câu như vậy cho việc kế thừa.<br>
 
-1.  Consider the information in a used-car catalog such as Kelly’s Blue
-    Book—for example, that 1973 Dodge vans are (or perhaps were once)
-    worth 575. Suppose all this information (for 11,000 models) is
-    encoded as logical sentences, as suggested in the chapter. Write
-    down three such sentences, including that for 1973 Dodge vans. How
-    would you use the sentences to find the value of a
-    <i>particular</i> car, given a backward-chaining theorem
-    prover such as Prolog?<br>
+1.  Xem xét thông tin trong một danh mục xe đã qua sử dụng như Kelly’s Blue Book—ví dụ, rằng xe van Dodge đời 1973 có giá trị (hoặc có lẽ từng có giá trị) 575 đô la. Giả sử tất cả thông tin này (cho 11.000 mẫu xe) được mã hóa dưới dạng các câu logic, như gợi ý trong chương. Viết ba câu như vậy, bao gồm cả câu cho xe van Dodge đời 1973. Bạn sẽ sử dụng các câu này như thế nào để tìm giá trị của một chiếc xe *cụ thể*, với một trình chứng minh định lý theo kiểu backward-chaining như Prolog?<br>
 
-2.  Compare the time efficiency of the backward-chaining method for
-    solving this problem with the inheritance method used in
-    semantic nets.<br>
+2.  So sánh hiệu quả thời gian của phương pháp backward-chaining để giải quyết vấn đề này với phương pháp kế thừa được sử dụng trong mạng ngữ nghĩa.<br>
 
-3.  Explain how forward chaining allows a logic-based system to solve
-    the same problem efficiently, assuming that the KB contains only the
-    11,000 sentences about prices.<br>
+3.  Giải thích làm thế nào forward chaining cho phép một hệ thống dựa trên logic giải quyết cùng một vấn đề một cách hiệu quả, giả sử rằng KB chỉ chứa 11.000 câu về giá.<br>
 
-4.  Describe a situation in which neither forward nor backward chaining
-    on the sentences will allow the price query for an individual car to
-    be handled efficiently.<br>
+4.  Mô tả một tình huống mà cả forward chaining và backward chaining trên các câu sẽ không cho phép truy vấn giá cho một chiếc xe riêng lẻ được xử lý hiệu quả.<br>
 
-5.  Can you suggest a solution enabling this type of query to be solved
-    efficiently in all cases in logic systems? <i>Hint:</i>
-    Remember that two cars of the same year and model have the
-    same price.)
+5.  Bạn có thể đề xuất một giải pháp cho phép loại truy vấn này được giải quyết hiệu quả trong mọi trường hợp trong các hệ thống logic không? *Gợi ý*: Hãy nhớ rằng hai chiếc xe cùng năm và cùng mẫu có cùng giá.)
 
 
 ---
 
 ##### Bài tập 12.27
 
-One might suppose that the syntactic
-distinction between unboxed links and singly boxed links in semantic
-networks is unnecessary, because singly boxed links are always attached
-to categories; an inheritance algorithm could simply assume that an
-unboxed link attached to a category is intended to apply to all members
-of that category. Show that this argument is fallacious, giving examples
-of errors that would arise.
+Người ta có thể cho rằng sự phân biệt cú pháp giữa các liên kết không được đóng khung (unboxed links) và các liên kết được đóng khung đơn (singly boxed links) trong mạng ngữ nghĩa là không cần thiết, bởi vì các liên kết được đóng khung đơn luôn được gắn vào các danh mục; một thuật toán kế thừa có thể đơn giản giả định rằng một liên kết không được đóng khung gắn vào một danh mục được dự định áp dụng cho tất cả các thành viên của danh mục đó. Chứng minh rằng lập luận này là sai lầm, đưa ra các ví dụ về các lỗi có thể xảy ra.
 
 
 ---
 
 ##### Bài tập 12.28
 
-One part of the shopping process that was not covered in this chapter is
-checking for compatibility between items. For example, if a digital
-camera is ordered, what accessory batteries, memory cards, and cases are
-compatible with the camera? Write a knowledge base that can determine
-the compatibility of a set of items and suggest replacements or
-additional items if the shopper makes a choice that is not compatible.
-The knowledge base should works with at least one line of products and
-extend easily to other lines.
+Một phần của quá trình mua sắm chưa được đề cập trong chương này là kiểm tra tính tương thích giữa các mặt hàng. Ví dụ, nếu một máy ảnh kỹ thuật số được đặt hàng, thì những pin phụ kiện, thẻ nhớ và vỏ máy nào tương thích với máy ảnh đó? Viết một cơ sở kiến thức có thể xác định tính tương thích của một tập hợp các mặt hàng và đề xuất các sản phẩm thay thế hoặc bổ sung nếu người mua đưa ra lựa chọn không tương thích. Cơ sở kiến thức nên hoạt động với ít nhất một dòng sản phẩm và dễ dàng mở rộng sang các dòng khác.
 
 
 ---
 
 ##### Bài tập 12.29
 
-A complete solution to the problem of
-inexact matches to the buyer’s description in shopping is very difficult
-and requires a full array of natural language processing and information
-retrieval techniques. (See Chapters <a class="chapterRef" title="" href="{{site.baseurl}}/nlp1-exercises/">nlp1-chapter</a>
-and <a class="chapterRef" title="" href="{{site.baseurl}}/nlp-communicating-exercises/">nlp-english-chapter</a>.) One small step is to allow the user to
-specify minimum and maximum values for various attributes. The buyer
-must use the following grammar for product descriptions:<br>
+Một giải pháp hoàn chỉnh cho vấn đề
+khớp không chính xác với mô tả của người mua trong mua sắm là rất khó
+và đòi hỏi một bộ đầy đủ các kỹ thuật xử lý ngôn ngữ tự nhiên và truy
+xuất thông tin. (Xem Chương <a class="chapterRef" title="" href="{{site.baseurl}}/nlp1-exercises/">nlp1-chapter</a>
+và <a class="chapterRef" title="" href="{{site.baseurl}}/nlp-communicating-exercises/">nlp-english-chapter</a>.) Một bước nhỏ là cho phép người dùng chỉ định giá trị tối thiểu và tối đa cho các thuộc tính khác nhau. Người mua phải sử dụng ngữ pháp sau đây cho mô tả sản phẩm:<br>
 
 $$
 Description \rightarrow Category \space [Connector \space Modifier]*
@@ -631,27 +525,26 @@ $$
 Op \rightarrow "=" | "\gt" | "\lt"
 $$
 
-Here, ${Category}$ names a product category, ${Attribute}$ is some
-feature such as “CPU” or “price,” and ${Value}$ is the target value
-for the attribute. So the query “computer with at least a 2.5 GHz CPU
-for under 500” must be re-expressed as “computer with CPU $>$ 2.5 GHz
-and price $<$ 500.” Implement a shopping agent that accepts descriptions
-in this language.
+Ở đây, ${Category}$ đặt tên cho một danh mục sản phẩm, ${Attribute}$ là một
+tính năng nào đó như “CPU” hoặc “price,” và ${Value}$ là giá trị mục
+tiêu cho thuộc tính. Vì vậy, truy vấn “computer with at least a 2.5 GHz
+CPU for under 500” phải được diễn đạt lại thành “computer with CPU $>$
+2.5 GHz and price $<$ 500.” Triển khai một agent mua sắm chấp nhận mô tả
+theo ngôn ngữ này.
 
 
 ---
 
 ##### Bài tập 12.30
 
-Our description of Internet shopping omitted the
-all-important step of actually <i>buying</i> the product.
-Provide a formal logical description of buying, using event calculus.
-That is, define the sequence of events that occurs when a buyer submits
-a credit-card purchase and then eventually gets billed and receives the
-product.
+Mô tả của chúng ta về mua sắm trên Internet đã bỏ qua bước quan trọng
+nhất là *mua* sản phẩm.
+Cung cấp một mô tả logic hình thức về việc mua hàng, sử dụng event
+calculus. Nghĩa là, định nghĩa chuỗi các sự kiện xảy ra khi người mua
+gửi thanh toán bằng thẻ tín dụng và sau đó cuối cùng nhận được hóa đơn
+và sản phẩm.
 
 
 ---
-
 
 <!-- tabs:end -->

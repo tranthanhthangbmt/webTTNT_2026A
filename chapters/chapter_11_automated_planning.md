@@ -59,194 +59,114 @@
 
 #### **Bài tập**
 
+
 ##### Bài tập 11.1
 
-The goals we have considered so far all ask the planner to make the
-world satisfy the goal at just one time step. Not all goals can be
-expressed this way: you do not achieve the goal of suspending a
-chandelier above the ground by throwing it in the air. More seriously,
-you wouldn’t want your spacecraft life-support system to supply oxygen
-one day but not the next. A <i>maintenance goal</i> is achieved
-when the agent’s plan causes a condition to hold continuously from a
-given state onward. Describe how to extend the formalism of this chapter
-to support maintenance goals.
+Các mục tiêu chúng ta đã xem xét cho đến nay đều yêu cầu planner làm cho thế giới thỏa mãn mục tiêu tại chỉ một bước thời gian. Không phải tất cả các mục tiêu đều có thể diễn đạt theo cách này: bạn không đạt được mục tiêu treo một chiếc đèn chùm phía trên mặt đất bằng cách ném nó lên không trung. Nghiêm trọng hơn, bạn sẽ không muốn hệ thống hỗ trợ sự sống trên tàu vũ trụ của mình cung cấp oxy vào một ngày nhưng không cung cấp vào ngày hôm sau. Một <i>maintenance goal</i> được đạt được khi kế hoạch của agent khiến một điều kiện được duy trì liên tục từ một state nhất định trở đi. Mô tả cách mở rộng formalisms của chương này để hỗ trợ maintenance goals.
 
 
 ---
 
 ##### Bài tập 11.2
 
-You have a number of trucks with which to deliver a set of packages.
-Each package starts at some location on a grid map, and has a
-destination somewhere else. Each truck is directly controlled by moving
-forward and turning. Construct a hierarchy of high-level actions for
-this problem. What knowledge about the solution does your hierarchy
-encode?
+Bạn có một số xe tải để giao một tập hợp các gói hàng. Mỗi gói hàng bắt đầu tại một vị trí nào đó trên bản đồ lưới và có một đích đến ở một nơi khác. Mỗi xe tải được điều khiển trực tiếp bằng cách di chuyển về phía trước và quay. Xây dựng một hệ thống phân cấp các high-level actions cho bài toán này. Hệ thống phân cấp của bạn mã hóa kiến thức gì về giải pháp?
 
 
 ---
 
 ##### Bài tập 11.3
 
-Suppose that a high-level action has exactly one
-implementation as a sequence of primitive actions. Give an algorithm for
-computing its preconditions and effects, given the complete refinement
-hierarchy and schemas for the primitive actions.
+Giả sử rằng một high-level action có chính xác một implementation dưới dạng một chuỗi các primitive actions. Đưa ra một thuật toán để tính toán preconditions và effects của nó, với giả định có đầy đủ refinement hierarchy và schemas cho các primitive actions.
 
 
 ---
 
 ##### Bài tập 11.4
 
-Suppose that the optimistic reachable set of a high-level plan is a
-superset of the goal set; can anything be concluded about whether the
-plan achieves the goal? What if the pessimistic reachable set doesn’t
-intersect the goal set? Explain.
+Giả sử rằng optimistic reachable set của một high-level plan là một superset của goal set; có thể kết luận gì về việc liệu plan có đạt được mục tiêu hay không? Điều gì xảy ra nếu pessimistic reachable set không giao với goal set? Giải thích.
 
 
 ---
 
 ##### Bài tập 11.5
 
-Write an algorithm that takes an initial
-state (specified by a set of propositional literals) and a sequence of
-HLAs (each defined by preconditions and angelic specifications of
-optimistic and pessimistic reachable sets) and computes optimistic and
-pessimistic descriptions of the reachable set of the sequence.
+Viết một thuật toán nhận vào một initial state (được chỉ định bởi một tập hợp các propositional literals) và một chuỗi các HLAs (mỗi HLA được định nghĩa bởi preconditions và angelic specifications của optimistic và pessimistic reachable sets) và tính toán các mô tả optimistic và pessimistic của reachable set của chuỗi đó.
 
 
 ---
 
 ##### Bài tập 11.6
 
-In Figure <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/jobshop-cpm-figure.png">jobshop-cpm-figure</a> we showed how to describe
-actions in a scheduling problem by using separate fields for , , and .
-Now suppose we wanted to combine scheduling with nondeterministic
-planning, which requires nondeterministic and conditional effects.
-Consider each of the three fields and explain if they should remain
-separate fields, or if they should become effects of the action. Give an
-example for each of the three.
+Trong Hình <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/jobshop-cpm-figure.png">jobshop-cpm-figure</a>, chúng ta đã chỉ ra cách mô tả các actions trong một bài toán scheduling bằng cách sử dụng các trường riêng biệt cho , , và . Bây giờ, giả sử chúng ta muốn kết hợp scheduling với nondeterministic planning, điều này đòi hỏi nondeterministic và conditional effects. Xem xét từng trong ba trường và giải thích liệu chúng có nên giữ nguyên là các trường riêng biệt hay không, hoặc liệu chúng có nên trở thành effects của action. Đưa ra một ví dụ cho mỗi trường hợp trong ba trường.
 
 
 ---
 
 ##### Bài tập 11.7
 
-Some of the operations in standard programming languages can be modeled
-as actions that change the state of the world. For example, the
-assignment operation changes the contents of a memory location, and the
-print operation changes the state of the output stream. A program
-consisting of these operations can also be considered as a plan, whose
-goal is given by the specification of the program. Therefore, planning
-algorithms can be used to construct programs that achieve a given
-specification. <br>
+Một số phép toán trong các ngôn ngữ lập trình tiêu chuẩn có thể được mô hình hóa như các actions làm thay đổi state của thế giới. Ví dụ, phép gán thay đổi nội dung của một vị trí bộ nhớ, và phép in thay đổi state của luồng đầu ra. Một chương trình bao gồm các phép toán này cũng có thể được coi là một plan, có mục tiêu được đưa ra bởi specification của chương trình. Do đó, các thuật toán planning có thể được sử dụng để xây dựng các chương trình đạt được một specification nhất định. <br>
 
-1.  Write an action schema for the assignment operator (assigning the
-    value of one variable to another). Remember that the original value
-    will be overwritten! <br>
+1. Viết một action schema cho toán tử gán (gán giá trị của một biến cho biến khác). Hãy nhớ rằng giá trị ban đầu sẽ bị ghi đè! <br>
 
-2.  Show how object creation can be used by a planner to produce a plan
-    for exchanging the values of two variables by using a
-    temporary variable. <br>
+2. Chỉ ra cách object creation có thể được sử dụng bởi một planner để tạo ra một plan nhằm trao đổi giá trị của hai biến bằng cách sử dụng một biến tạm thời. <br>
 
 
 ---
 
 ##### Bài tập 11.8
 
-Consider the following argument: In a framework that allows uncertain
-initial states, <b>nondeterministic effects</b>
-are just a notational convenience, not a source of additional
-representational power. For any action schema $a$ with nondeterministic
-effect $P \lor Q$, we could always replace it with the conditional
-effects ${~R{:}~P} \land {~\lnot R{:}~Q}$, which in turn can be
-reduced to two regular actions. The proposition $R$ stands for a random
-proposition that is unknown in the initial state and for which there are
-no sensing actions. Is this argument correct? Consider separately two
-cases, one in which only one instance of action schema $a$ is in the
-plan, the other in which more than one instance is.
+Xem xét lập luận sau: Trong một framework cho phép các initial states không chắc chắn, <b>nondeterministic effects</b> chỉ là một sự tiện lợi về ký hiệu, không phải là một nguồn sức mạnh biểu diễn bổ sung. Đối với bất kỳ action schema $a$ nào có nondeterministic effect $P \lor Q$, chúng ta luôn có thể thay thế nó bằng các conditional effects ${~R{:}~P} \land {~\lnot R{:}~Q}$, mà lần lượt có thể được giảm xuống thành hai actions thông thường. Mệnh đề $R$ đại diện cho một mệnh đề ngẫu nhiên không xác định trong initial state và không có sensing actions nào. Lập luận này có đúng không? Xem xét riêng hai trường hợp, một trường hợp chỉ có một instance của action schema $a$ trong plan, trường hợp còn lại có nhiều hơn một instance.
 
 
 ---
 
 ##### Bài tập 11.9
 
-Suppose the ${Flip}$ action
-always changes the truth value of variable $L$. Show how to define its
-effects by using an action schema with conditional effects. Show that,
-despite the use of conditional effects, a 1-CNF belief state
-representation remains in 1-CNF after a ${Flip}$.
+Giả sử action ${Flip}$ luôn thay đổi giá trị chân lý của biến $L$. Chỉ ra cách định nghĩa effects của nó bằng cách sử dụng một action schema với conditional effects. Chứng minh rằng, mặc dù sử dụng conditional effects, một biểu diễn belief state 1-CNF vẫn giữ nguyên dạng 1-CNF sau một lần ${Flip}$.
 
 
 ---
 
 ##### Bài tập 11.10
 
-In the blocks world we were forced to introduce two action schemas,
-${Move}$ and ${MoveToTable}$, in order to maintain the ${Clear}$
-predicate properly. Show how conditional effects can be used to
-represent both of these cases with a single action.
+Trong blocks world, chúng ta buộc phải giới thiệu hai action schemas, ${Move}$ và ${MoveToTable}$, để duy trì predicate ${Clear}$ một cách chính xác. Chỉ ra cách conditional effects có thể được sử dụng để biểu diễn cả hai trường hợp này với một action duy nhất.
 
 
 ---
 
 ##### Bài tập 11.11
 
-Conditional effects were illustrated for the
-${Suck}$ action in the vacuum world—which square becomes clean depends
-on which square the robot is in. Can you think of a new set of
-propositional variables to define states of the vacuum world, such that
-${Suck}$ has an <i>unconditional</i> description? Write out
-the descriptions of ${Suck}$, ${Left}$, and ${Right}$, using your
-propositions, and demonstrate that they suffice to describe all possible
-states of the world.
+Conditional effects đã được minh họa cho action ${Suck}$ trong vacuum world—ô nào trở nên sạch phụ thuộc vào ô mà robot đang ở. Bạn có thể nghĩ ra một tập hợp các propositional variables mới để định nghĩa các states của vacuum world, sao cho ${Suck}$ có một mô tả <i>unconditional</i> không? Viết ra các mô tả của ${Suck}$, ${Left}$, và ${Right}$, sử dụng các proposition của bạn, và chứng minh rằng chúng đủ để mô tả tất cả các trạng thái có thể có của thế giới.
 
 
 ---
 
 ##### Bài tập 11.12
 
-Find a suitably dirty carpet, free of obstacles, and vacuum it. Draw the
-path taken by the vacuum cleaner as accurately as you can. Explain it,
-with reference to the forms of planning discussed in this chapter.
+Tìm một tấm thảm đủ bẩn, không có chướng ngại vật, và hút bụi nó. Vẽ đường đi của máy hút bụi một cách chính xác nhất có thể. Giải thích nó, với tham chiếu đến các hình thức planning đã thảo luận trong chương này.
 
 
 ---
 
 ##### Bài tập 11.13
 
-The following quotes are from the backs of shampoo bottles. Identify
-each as an unconditional, conditional, or execution-monitoring plan. (a)
-“Lather. Rinse. Repeat.” (b) “Apply shampoo to scalp and let it remain
-for several minutes. Rinse and repeat if necessary.” (c) “See a doctor
-if problems persist.”
+Các trích dẫn sau đây đến từ mặt sau của các chai dầu gội đầu. Xác định mỗi trích dẫn là một kế hoạch unconditional, conditional, hay execution-monitoring. (a) “Lather. Rinse. Repeat.” (b) “Apply shampoo to scalp and let it remain for several minutes. Rinse and repeat if necessary.” (c) “See a doctor if problems persist.”
 
 
 ---
 
 ##### Bài tập 11.14
 
-Consider the following problem: A patient arrives at the doctor’s office
-with symptoms that could have been caused either by dehydration or by
-disease $D$ (but not both). There are two possible actions: ${Drink}$,
-which unconditionally cures dehydration, and ${Medicate}$, which cures
-disease $D$ but has an undesirable side effect if taken when the patient
-is dehydrated. Write the problem description, and diagram a sensorless
-plan that solves the problem, enumerating all relevant possible worlds.
+Xem xét bài toán sau: Một bệnh nhân đến phòng khám bác sĩ với các triệu chứng có thể do mất nước hoặc do bệnh $D$ gây ra (nhưng không phải cả hai). Có hai hành động có thể: ${Drink}$, hành động này chữa khỏi mất nước một cách không điều kiện, và ${Medicate}$, hành động này chữa khỏi bệnh $D$ nhưng có tác dụng phụ không mong muốn nếu dùng khi bệnh nhân bị mất nước. Viết mô tả bài toán và vẽ sơ đồ một sensorless plan giải quyết bài toán, liệt kê tất cả các thế giới khả dĩ có liên quan.
 
 
 ---
 
 ##### Bài tập 11.15
 
-To the medication problem in the previous exercise, add a ${Test}$
-action that has the conditional effect ${CultureGrowth}$ when
-${Disease}$ is true and in any case has the perceptual effect
-${Known}({CultureGrowth})$. Diagram a conditional plan that solves
-the problem and minimizes the use of the ${Medicate}$ action.
+Đối với bài toán thuốc men ở bài tập trước, thêm một hành động ${Test}$ có conditional effect ${CultureGrowth}$ khi ${Disease}$ là đúng và trong mọi trường hợp có perceptual effect ${Known}({CultureGrowth})$. Vẽ sơ đồ một conditional plan giải quyết bài toán và giảm thiểu việc sử dụng hành động ${Medicate}$.
 
 
 ---
-
 
 <!-- tabs:end -->

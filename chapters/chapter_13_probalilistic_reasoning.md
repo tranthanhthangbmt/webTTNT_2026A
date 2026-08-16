@@ -44,110 +44,77 @@
 
 #### **Bài tập**
 
+
 ##### Bài tập 13.1
 
-Show from first principles that $P(a{{\,|\,}}b\land a) = 1$.
+Chứng minh từ các nguyên tắc cơ bản rằng $P(a{{\,|\,}}b\land a) = 1$.
 
 
 ---
 
 ##### Bài tập 13.2
 
-Using the axioms of probability, prove that any
-probability distribution on a discrete random variable must sum to 1.
+Sử dụng các tiên đề xác suất, chứng minh rằng mọi phân phối xác suất trên một biến ngẫu nhiên rời rạc phải có tổng bằng 1.
 
 
 ---
 
 ##### Bài tập 13.3
 
-For each of the following statements, either prove it is true or give a
-counterexample.<br>
+Đối với mỗi mệnh đề sau, hãy chứng minh nó đúng hoặc đưa ra một phản ví dụ.<br>
 
-1.  If $P(a {{\,|\,}}b, c) = P(b {{\,|\,}}a, c)$, then
-    $P(a {{\,|\,}}c) = P(b {{\,|\,}}c)$ <br>
+1.  Nếu $P(a {{\,|\,}}b, c) = P(b {{\,|\,}}a, c)$, thì $P(a {{\,|\,}}c) = P(b {{\,|\,}}c)$ <br>
 
-2.  If $P(a {{\,|\,}}b, c) = P(a)$, then $P(b {{\,|\,}}c) = P(b)$ <br>
+2.  Nếu $P(a {{\,|\,}}b, c) = P(a)$, thì $P(b {{\,|\,}}c) = P(b)$ <br>
 
-3.  If $P(a {{\,|\,}}b) = P(a)$, then
-    $P(a {{\,|\,}}b, c) = P(a {{\,|\,}}c)$<br>
+3.  Nếu $P(a {{\,|\,}}b) = P(a)$, thì $P(a {{\,|\,}}b, c) = P(a {{\,|\,}}c)$<br>
 
 
 ---
 
 ##### Bài tập 13.4
 
-Would it be rational for an agent to hold the three beliefs
-$P(A) = 0.4$, $P(B) = 0.3$, and
-$P(A \lor B) = 0.5$? If so, what range of probabilities would
-be rational for the agent to hold for $A \land B$? Make up a table like
-the one in Figure <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/de-finetti-table.png">de-finetti-table</a>, and show how it
-supports your argument about rationality. Then draw another version of
-the table where $P(A \lor B) = 0.7$. Explain why it is rational to have this probability,
-even though the table shows one case that is a loss and three that just
-break even. (<i>Hint:</i> what is Agent 1 committed to about the
-probability of each of the four cases, especially the case that is a
-loss?)
+Liệu có hợp lý cho một agent để giữ ba niềm tin $P(A) = 0.4$, $P(B) = 0.3$, và $P(A \lor B) = 0.5$ không? Nếu có, thì khoảng xác suất nào sẽ hợp lý cho agent để giữ cho $A \land B$? Hãy tạo một bảng giống như bảng trong Hình <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/de-finetti-table.png">de-finetti-table</a>, và cho thấy cách nó hỗ trợ lập luận của bạn về tính hợp lý. Sau đó, vẽ một phiên bản khác của bảng với $P(A \lor B) = 0.7$. Giải thích tại sao việc có xác suất này lại hợp lý, ngay cả khi bảng cho thấy một trường hợp thua lỗ và ba trường hợp hòa vốn. (<i>Gợi ý:</i> Agent 1 cam kết điều gì về xác suất của mỗi trường hợp trong bốn trường hợp, đặc biệt là trường hợp thua lỗ?)
 
 
 ---
 
 ##### Bài tập 13.5
 
-This question deals with the properties
-of possible worlds, defined on page <a class="pageRef" title="" href="#">possible-worlds-page</a> as assignments to all
-random variables. We will work with propositions that correspond to
-exactly one possible world because they pin down the assignments of all
-the variables. In probability theory, such propositions are called <b>atomic event</b>. For
-example, with Boolean variables $X_1$, $X_2$, $X_3$, the proposition
-$x_1\land \lnot x_2 \land \lnot x_3$ fixes the assignment of the
-variables; in the language of propositional logic, we would say it has
-exactly one model.<br>
+Câu hỏi này liên quan đến các thuộc tính của các thế giới khả dĩ, được định nghĩa trên trang <a class="pageRef" title="" href="#">possible-worlds-page</a> là các phép gán cho tất cả các biến ngẫu nhiên. Chúng ta sẽ làm việc với các mệnh đề tương ứng với đúng một thế giới khả dĩ vì chúng xác định các phép gán của tất cả các biến. Trong lý thuyết xác suất, các mệnh đề như vậy được gọi là <b>atomic event</b>. Ví dụ, với các biến Boolean $X_1$, $X_2$, $X_3$, mệnh đề $x_1\land \lnot x_2 \land \lnot x_3$ xác định phép gán của các biến; theo ngôn ngữ logic mệnh đề, chúng ta sẽ nói rằng nó có đúng một mô hình.<br>
 
+1.  Chứng minh, đối với trường hợp $n$ biến Boolean, rằng hai atomic event phân biệt bất kỳ là loại trừ lẫn nhau; nghĩa là, phép hội của chúng tương đương với ${false}$.<br>
 
-1.  Prove, for the case of $n$ Boolean variables, that any two distinct
-    atomic events are mutually exclusive; that is, their conjunction is
-    equivalent to ${false}$.<br>
+2.  Chứng minh rằng phép tuyển của tất cả các atomic event khả dĩ là tương đương logic với ${true}$.<br>
 
-2.  Prove that the disjunction of all possible atomic events is
-    logically equivalent to ${true}$.<br>
-
-3.  Prove that any proposition is logically equivalent to the
-    disjunction of the atomic events that entail its truth.<br>
+3.  Chứng minh rằng mọi mệnh đề là tương đương logic với phép tuyển của các atomic event mà kéo theo tính đúng đắn của nó.<br>
 
 
 ---
 
 ##### Bài tập 13.6
 
-Prove
-Equation (<a class="equationRef" title="" href="#">kolmogorov-disjunction-equation</a>) from
-Equations <a class="equationRef" title="" href="#">basic-probability-axiom-equation</a>
-and (<a class="equationRef" title="" href="#">proposition-probability-equation</a>.
+Chứng minh Phương trình (<a class="equationRef" title="" href="#">kolmogorov-disjunction-equation</a>) từ Phương trình (<a class="equationRef" title="" href="#">basic-probability-axiom-equation</a>) và (<a class="equationRef" title="" href="#">proposition-probability-equation</a>).
 
 
 ---
 
 ##### Bài tập 13.7
 
-Consider the set of all possible five-card poker hands dealt fairly from
-a standard deck of fifty-two cards.<br>
+Xem xét tập hợp tất cả các bộ bài poker năm lá được chia công bằng từ một bộ bài tiêu chuẩn năm mươi hai lá.<br>
 
-1.  How many atomic events are there in the joint probability
-    distribution (i.e., how many five-card hands are there)?<br>
+1.  Có bao nhiêu atomic event trong phân phối xác suất chung (tức là, có bao nhiêu bộ bài năm lá)?<br>
 
-2.  What is the probability of each atomic event?<br>
+2.  Xác suất của mỗi atomic event là bao nhiêu?<br>
 
-3.  What is the probability of being dealt a royal straight flush? Four
-    of a kind?
+3.  Xác suất để được chia một bộ sảnh thùng phá sảnh (royal straight flush)? Bốn lá giống nhau (four of a kind)?
 
 
 ---
 
 ##### Bài tập 13.8
 
-Given the full joint distribution shown in
-Figure <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/dentist-joint-table.png">dentist-joint-table</a>, calculate the following:<br>
+Cho phân phối xác suất chung đầy đủ được hiển thị trong Hình <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/dentist-joint-table.png">dentist-joint-table</a>, hãy tính toán các giá trị sau:<br>
 
 1.  $\textbf{P}({toothache})$.<br>
 
@@ -162,8 +129,7 @@ Figure <a class="insideBookFigRef" target="_blank" href="https://aimacode.githu
 
 ##### Bài tập 13.9
 
-Given the full joint distribution shown in
-Figure <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/dentist-joint-table.png">dentist-joint-table</a>, calculate the following:<br>
+Cho phân phối xác suất chung đầy đủ được hiển thị trong Hình <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/dentist-joint-table.png">dentist-joint-table</a>, hãy tính toán các giá trị sau:<br>
 
 1.  $\textbf{P}({toothache})$.<br>
 
@@ -178,257 +144,157 @@ Figure <a class="insideBookFigRef" target="_blank" href="https://aimacode.githu
 
 ##### Bài tập 13.10
 
-In his letter of August 24, 1654, Pascal
-was trying to show how a pot of money should be allocated when a
-gambling game must end prematurely. Imagine a game where each turn
-consists of the roll of a die, player <i>E</i> gets a point when
-the die is even, and player  <i>O</i> gets a point when the die
-is odd. The first player to get 7 points wins the pot. Suppose the game
-is interrupted with <i>E</i> leading 4–2. How should the money
-be fairly split in this case? What is the general formula? (Fermat and
-Pascal made several errors before solving the problem, but you should be
-able to get it right the first time.)
+Trong lá thư ngày 24 tháng 8 năm 1654, Pascal đã cố gắng chỉ ra cách phân bổ một khoản tiền khi một trò chơi cờ bạc phải kết thúc sớm. Hãy tưởng tượng một trò chơi mà mỗi lượt bao gồm việc tung một con xúc xắc, người chơi <i>E</i> nhận được một điểm khi xúc xắc là số chẵn, và người chơi <i>O</i> nhận được một điểm khi xúc xắc là số lẻ. Người chơi đầu tiên đạt được 7 điểm sẽ thắng pot. Giả sử trò chơi bị gián đoạn với tỷ số <i>E</i> dẫn trước 4–2. Làm thế nào để chia tiền một cách công bằng trong trường hợp này? Công thức tổng quát là gì? (Fermat và Pascal đã mắc một số lỗi trước khi giải quyết vấn đề, nhưng bạn nên giải quyết đúng ngay từ lần đầu.)
 
 
 ---
 
 ##### Bài tập 13.11
 
-Deciding to put probability theory to good use, we encounter a slot
-machine with three independent wheels, each producing one of the four
-symbols bar, bell, lemon, or
-cherry with equal probability. The slot machine has the
-following payout scheme for a bet of 1 coin (where “?” denotes that we
-don’t care what comes up for that wheel): <br>
+Quyết định sử dụng lý thuyết xác suất một cách hiệu quả, chúng ta gặp một máy đánh bạc với ba bánh xe độc lập, mỗi bánh xe tạo ra một trong bốn ký hiệu bar, bell, lemon, hoặc cherry với xác suất bằng nhau. Máy đánh bạc có sơ đồ trả thưởng sau cho một lần đặt cược 1 xu (trong đó "?" biểu thị rằng chúng ta không quan tâm đến kết quả của bánh xe đó): <br>
 
-> bar/bar/bar pays 20 coins<br>
+> bar/bar/bar trả 20 xu<br>
 
-> bell/bell/bell pays 15 coins<br>
+> bell/bell/bell trả 15 xu<br>
 
-> lemon/lemon/lemon pays 5 coins<br>
+> lemon/lemon/lemon trả 5 xu<br>
 
-> cherry/cherry/cherry pays 3 coins<br>
+> cherry/cherry/cherry trả 3 xu<br>
 
-> cherry/cherry/? pays 2 coins<br>
+> cherry/cherry/? trả 2 xu<br>
 
-> cherry/?/? pays 1 coin<br>
+> cherry/?/? trả 1 xu<br>
 
-1.  Compute the expected “payback” percentage of the machine. In other
-    words, for each coin played, what is the expected coin return?<br>
+1.  Tính toán tỷ lệ "hoàn tiền" dự kiến của máy. Nói cách khác, với mỗi xu được chơi, lợi tức dự kiến bằng xu là bao nhiêu?<br>
 
-2.  Compute the probability that playing the slot machine once will
-    result in a win.<br>
+2.  Tính xác suất để chơi máy đánh bạc một lần sẽ dẫn đến chiến thắng.<br>
 
-3.  Estimate the mean and median number of plays you can expect to make
-    until you go broke, if you start with 10 coins. You can run a
-    simulation to estimate this, rather than trying to compute an
-    exact answer.<br>
+3.  Ước tính số lần chơi trung bình và trung vị mà bạn có thể mong đợi cho đến khi bạn hết tiền, nếu bạn bắt đầu với 10 xu. Bạn có thể chạy một mô phỏng để ước tính điều này, thay vì cố gắng tính toán một câu trả lời chính xác.<br>
 
 
 ---
 
 ##### Bài tập 13.12
 
-Deciding to put probability theory to good use, we encounter a slot
-machine with three independent wheels, each producing one of the four
-symbols bar, bell, lemon, or
-cherry with equal probability. The slot machine has the
-following payout scheme for a bet of 1 coin (where “?” denotes that we
-don’t care what comes up for that wheel): <br>
+Quyết định sử dụng lý thuyết xác suất một cách hiệu quả, chúng ta gặp một máy đánh bạc với ba bánh xe độc lập, mỗi bánh xe tạo ra một trong bốn ký hiệu bar, bell, lemon, hoặc cherry với xác suất bằng nhau. Máy đánh bạc có sơ đồ trả thưởng sau cho một lần đặt cược 1 xu (trong đó "?" biểu thị rằng chúng ta không quan tâm đến kết quả của bánh xe đó): <br>
 
-> bar/bar/bar pays 20 coins<br>
+> bar/bar/bar trả 20 xu<br>
 
-> bell/bell/bell pays 15 coins<br>
+> bell/bell/bell trả 15 xu<br>
 
-> lemon/lemon/lemon pays 5 coins<br>
+> lemon/lemon/lemon trả 5 xu<br>
 
-> cherry/cherry/cherry pays 3 coins<br>
+> cherry/cherry/cherry trả 3 xu<br>
 
-> cherry/cherry/? pays 2 coins<br>
+> cherry/cherry/? trả 2 xu<br>
 
-> cherry/?/? pays 1 coin<br>
+> cherry/?/? trả 1 xu<br>
 
-1.  Compute the expected “payback” percentage of the machine. In other
-    words, for each coin played, what is the expected coin return?<br>
+1.  Tính toán tỷ lệ "hoàn tiền" dự kiến của máy. Nói cách khác, với mỗi xu được chơi, lợi tức dự kiến bằng xu là bao nhiêu?<br>
 
-2.  Compute the probability that playing the slot machine once will
-    result in a win.<br>
+2.  Tính xác suất để chơi máy đánh bạc một lần sẽ dẫn đến chiến thắng.<br>
 
-3.  Estimate the mean and median number of plays you can expect to make
-    until you go broke, if you start with 10 coins. You can run a
-    simulation to estimate this, rather than trying to compute an
-    exact answer.<br>
+3.  Ước tính số lần chơi trung bình và trung vị mà bạn có thể mong đợi cho đến khi bạn hết tiền, nếu bạn bắt đầu với 10 xu. Bạn có thể chạy một mô phỏng để ước tính điều này, thay vì cố gắng tính toán một câu trả lời chính xác.<br>
 
 
 ---
 
 ##### Bài tập 13.13
 
-We wish to transmit an $n$-bit message to a receiving agent. The bits in
-the message are independently corrupted (flipped) during transmission
-with $\epsilon$ probability each. With an extra parity bit sent along
-with the original information, a message can be corrected by the
-receiver if at most one bit in the entire message (including the parity
-bit) has been corrupted. Suppose we want to ensure that the correct
-message is received with probability at least $1-\delta$. What is the
-maximum feasible value of $n$? Calculate this value for the case
-$\epsilon = 0.001$, $\delta = 0.01$.
+Chúng ta muốn truyền một thông điệp $n$ bit đến một agent nhận. Các bit trong thông điệp bị hỏng (lật) một cách độc lập trong quá trình truyền với xác suất $\epsilon$ cho mỗi bit. Với một bit kiểm tra chẵn lẻ bổ sung được gửi cùng với thông tin ban đầu, một thông điệp có thể được sửa bởi người nhận nếu có tối đa một bit trong toàn bộ thông điệp (bao gồm cả bit kiểm tra chẵn lẻ) bị hỏng. Giả sử chúng ta muốn đảm bảo rằng thông điệp chính xác được nhận với xác suất ít nhất $1-\delta$. Giá trị $n$ khả thi tối đa là bao nhiêu? Tính giá trị này cho trường hợp $\epsilon = 0.001$, $\delta = 0.01$.
 
 
 ---
 
 ##### Bài tập 13.14
 
-We wish to transmit an $n$-bit message to a receiving agent. The bits in
-the message are independently corrupted (flipped) during transmission
-with $\epsilon$ probability each. With an extra parity bit sent along
-with the original information, a message can be corrected by the
-receiver if at most one bit in the entire message (including the parity
-bit) has been corrupted. Suppose we want to ensure that the correct
-message is received with probability at least $1-\delta$. What is the
-maximum feasible value of $n$? Calculate this value for the case
-$\epsilon{{\,=\,}}0.002$, $\delta{{\,=\,}}0.01$.
+Chúng ta muốn truyền một thông điệp $n$ bit đến một agent nhận. Các bit trong thông điệp bị hỏng (lật) một cách độc lập trong quá trình truyền với xác suất $\epsilon$ cho mỗi bit. Với một bit kiểm tra chẵn lẻ bổ sung được gửi cùng với thông tin ban đầu, một thông điệp có thể được sửa bởi người nhận nếu có tối đa một bit trong toàn bộ thông điệp (bao gồm cả bit kiểm tra chẵn lẻ) bị hỏng. Giả sử chúng ta muốn đảm bảo rằng thông điệp chính xác được nhận với xác suất ít nhất $1-\delta$. Giá trị $n$ khả thi tối đa là bao nhiêu? Tính giá trị này cho trường hợp $\epsilon{{\,=\,}}0.002$, $\delta{{\,=\,}}0.01$.
 
 
 ---
 
 ##### Bài tập 13.15
 
-Show that the three forms of independence in
-Equation (<a class="equationRef" title="" href="#">independence-equation</a>) are equivalent.
+Chứng minh rằng ba dạng độc lập trong Phương trình (<a class="equationRef" title="" href="#">independence-equation</a>) là tương đương.
 
 
 ---
 
 ##### Bài tập 13.16
 
-Consider two medical tests, A and B, for a virus. Test A is 95%
-effective at recognizing the virus when it is present, but has a 10%
-false positive rate (indicating that the virus is present, when it is
-not). Test B is 90% effective at recognizing the virus, but has a 5%
-false positive rate. The two tests use independent methods of
-identifying the virus. The virus is carried by 1% of all people. Say
-that a person is tested for the virus using only one of the tests, and
-that test comes back positive for carrying the virus. Which test
-returning positive is more indicative of someone really carrying the
-virus? Justify your answer mathematically.
+Xem xét hai xét nghiệm y tế, A và B, cho một loại virus. Xét nghiệm A có hiệu quả 95% trong việc phát hiện virus khi nó có mặt, nhưng có tỷ lệ dương tính giả là 10% (cho thấy virus có mặt, trong khi thực tế không có). Xét nghiệm B có hiệu quả 90% trong việc phát hiện virus, nhưng có tỷ lệ dương tính giả là 5%. Hai xét nghiệm sử dụng các phương pháp độc lập để xác định virus. Virus lây nhiễm cho 1% dân số. Giả sử một người được xét nghiệm virus chỉ bằng một trong hai xét nghiệm, và xét nghiệm đó cho kết quả dương tính với việc mang virus. Xét nghiệm nào cho kết quả dương tính có ý nghĩa hơn về việc một người thực sự mang virus? Biện minh câu trả lời của bạn bằng toán học.
 
 
 ---
 
 ##### Bài tập 13.17
 
-Suppose you are given a coin that lands ${heads}$ with probability $x$
-and ${tails}$ with probability $1 - x$. Are the outcomes of successive
-flips of the coin independent of each other given that you know the
-value of $x$? Are the outcomes of successive flips of the coin
-independent of each other if you do <i>not</i> know the value of
-$x$? Justify your answer.
+Giả sử bạn được cho một đồng xu có xác suất ra mặt ${heads}$ là $x$ và xác suất ra mặt ${tails}$ là $1 - x$. Các kết quả của các lần tung đồng xu liên tiếp có độc lập với nhau khi bạn biết giá trị của $x$ không? Các kết quả của các lần tung đồng xu liên tiếp có độc lập với nhau nếu bạn *không* biết giá trị của $x$ không? Biện minh câu trả lời của bạn.
 
 
 ---
 
 ##### Bài tập 13.18
 
-After your yearly checkup, the doctor has bad news and good news. The
-bad news is that you tested positive for a serious disease and that the
-test is 99% accurate (i.e., the probability of testing positive when you
-do have the disease is 0.99, as is the probability of testing negative
-when you don’t have the disease). The good news is that this is a rare
-disease, striking only 1 in 10,000 people of your age. Why is it good
-news that the disease is rare? What are the chances that you actually
-have the disease?
+Sau lần kiểm tra sức khỏe hàng năm, bác sĩ có tin xấu và tin tốt. Tin xấu là bạn đã xét nghiệm dương tính với một căn bệnh nghiêm trọng và xét nghiệm này có độ chính xác 99% (tức là, xác suất xét nghiệm dương tính khi bạn mắc bệnh là 0.99, cũng như xác suất xét nghiệm âm tính khi bạn không mắc bệnh). Tin tốt là căn bệnh này hiếm gặp, chỉ ảnh hưởng đến 1 trên 10.000 người ở độ tuổi của bạn. Tại sao việc căn bệnh hiếm gặp lại là tin tốt? Cơ hội bạn thực sự mắc bệnh là bao nhiêu?
 
 
 ---
 
 ##### Bài tập 13.19
 
-After your yearly checkup, the doctor has bad news and good news. The
-bad news is that you tested positive for a serious disease and that the
-test is 99% accurate (i.e., the probability of testing positive when you
-do have the disease is 0.99, as is the probability of testing negative
-when you don’t have the disease). The good news is that this is a rare
-disease, striking only 1 in 100,000 people of your age. Why is it good
-news that the disease is rare? What are the chances that you actually
-have the disease?
+Sau lần kiểm tra sức khỏe hàng năm, bác sĩ có tin xấu và tin tốt. Tin xấu là bạn đã xét nghiệm dương tính với một căn bệnh nghiêm trọng và xét nghiệm này có độ chính xác 99% (tức là, xác suất xét nghiệm dương tính khi bạn mắc bệnh là 0.99, cũng như xác suất xét nghiệm âm tính khi bạn không mắc bệnh). Tin tốt là căn bệnh này hiếm gặp, chỉ ảnh hưởng đến 1 trên 100.000 người ở độ tuổi của bạn. Tại sao việc căn bệnh hiếm gặp lại là tin tốt? Cơ hội bạn thực sự mắc bệnh là bao nhiêu?
 
 
 ---
 
 ##### Bài tập 13.20
 
-It is quite often useful to consider the
-effect of some specific propositions in the context of some general
-background evidence that remains fixed, rather than in the complete
-absence of information. The following questions ask you to prove more
-general versions of the product rule and Bayes’ rule, with respect to
-some background evidence $\textbf{e}$: <br>
+Thông thường, rất hữu ích khi xem xét ảnh hưởng của một số mệnh đề cụ thể trong bối cảnh của một bằng chứng nền chung được giữ cố định, thay vì trong sự vắng mặt hoàn toàn của thông tin. Các câu hỏi sau đây yêu cầu bạn chứng minh các phiên bản tổng quát hơn của quy tắc nhân và quy tắc Bayes, liên quan đến một bằng chứng nền $\textbf{e}$: <br>
 
-1.  Prove the conditionalized version of the general product rule:
+1.  Chứng minh phiên bản có điều kiện của quy tắc nhân tổng quát:
     $${\textbf{P}}(X,Y {{\,|\,}}\textbf{e}) = {\textbf{P}}(X{{\,|\,}}Y,\textbf{e}) {\textbf{P}}(Y{{\,|\,}}\textbf{e})\ .$$ <br>
 
-2.  Prove the conditionalized version of Bayes’ rule in
-    Equation (<a class="equationRef" title="" href="#">conditional-bayes-equation</a>). <br>
+2.  Chứng minh phiên bản có điều kiện của quy tắc Bayes trong Phương trình (<a class="equationRef" title="" href="#">conditional-bayes-equation</a>). <br>
 
 
 ---
 
 ##### Bài tập 13.21
 
-Show that the statement of conditional independence
+Chứng minh rằng phát biểu về sự độc lập có điều kiện
 $${\textbf{P}}(X,Y  | Z) = {\textbf{P}}(X | Z) {\textbf{P}}(Y | Z)$$
-is equivalent to each of the statements
-$${\textbf{P}}(X | Y,Z) = {\textbf{P}}(X | Z) \quad\mbox{and}\quad {\textbf{P}}(Y | X,Z) = {\textbf{P}}(Y | Z)\ .$$
+tương đương với mỗi phát biểu
+$${\textbf{P}}(X | Y,Z) = {\textbf{P}}(X | Z) \quad\mbox{và}\quad {\textbf{P}}(Y | X,Z) = {\textbf{P}}(Y | Z)\ .$$
 
 
 ---
 
 ##### Bài tập 13.22
 
-Suppose you are given a bag containing $n$ unbiased coins. You are told
-that $n-1$ of these coins are normal, with heads on one side and tails
-on the other, whereas one coin is a fake, with heads on both sides. <br>
+Giả sử bạn được cho một túi chứa $n$ đồng xu không thiên vị. Bạn được cho biết rằng $n-1$ trong số các đồng xu này là bình thường, một mặt là mặt ngửa và mặt kia là mặt sấp, trong khi một đồng xu là giả, có hai mặt ngửa. <br>
 
-1.  Suppose you reach into the bag, pick out a coin at random, flip it,
-    and get a head. What is the (conditional) probability that the coin
-    you chose is the fake coin? <br>
+1.  Giả sử bạn thò tay vào túi, chọn ngẫu nhiên một đồng xu, tung nó và được mặt ngửa. Xác suất (có điều kiện) mà đồng xu bạn chọn là đồng xu giả là bao nhiêu? <br>
 
-2.  Suppose you continue flipping the coin for a total of $k$ times
-    after picking it and see $k$ heads. Now what is the conditional
-    probability that you picked the fake coin? <br>
+2.  Giả sử bạn tiếp tục tung đồng xu đó tổng cộng $k$ lần sau khi chọn nó và thấy $k$ lần mặt ngửa. Bây giờ xác suất có điều kiện mà bạn đã chọn đồng xu giả là bao nhiêu? <br>
 
-3.  Suppose you wanted to decide whether the chosen coin was fake by
-    flipping it $k$ times. The decision procedure returns ${fake}$ if
-    all $k$ flips come up heads; otherwise it returns ${normal}$. What
-    is the (unconditional) probability that this procedure makes an
-    error?
+3.  Giả sử bạn muốn quyết định xem đồng xu được chọn là giả hay không bằng cách tung nó $k$ lần. Thủ tục quyết định trả về ${fake}$ nếu tất cả $k$ lần tung đều ra mặt ngửa; nếu không, nó trả về ${normal}$. Xác suất (không có điều kiện) mà thủ tục này mắc lỗi là bao nhiêu?
 
 
 ---
 
 ##### Bài tập 13.23
 
-In this exercise, you will complete the
-normalization calculation for the meningitis example. First, make up a
-suitable value for $P(s{{\,|\,}}\lnot m)$, and use it to calculate
-unnormalized values for $P(m{{\,|\,}}s)$ and $P(\lnot m {{\,|\,}}s)$
-(i.e., ignoring the $P(s)$ term in the Bayes’ rule expression,
-Equation (<a class="equationRef" title="" href="#">meningitis-bayes-equation</a>). Now normalize
-these values so that they add to 1.
+Trong bài tập này, bạn sẽ hoàn thành phép tính chuẩn hóa cho ví dụ về viêm màng não. Đầu tiên, hãy đưa ra một giá trị phù hợp cho $P(s{{\,|\,}}\lnot m)$, và sử dụng nó để tính toán các giá trị chưa chuẩn hóa cho $P(m{{\,|\,}}s)$ và $P(\lnot m {{\,|\,}}s)$ (tức là, bỏ qua số hạng $P(s)$ trong biểu thức quy tắc Bayes, Phương trình (<a class="equationRef" title="" href="#">meningitis-bayes-equation</a>)). Bây giờ hãy chuẩn hóa các giá trị này sao cho chúng cộng lại bằng 1.
 
 
 ---
 
 ##### Bài tập 13.24
 
-This exercise investigates the way in which conditional independence
-relationships affect the amount of information needed for probabilistic
-calculations.<br>
+Bài tập này điều tra cách các mối quan hệ độc lập có điều kiện ảnh hưởng đến lượng thông tin cần thiết cho các phép tính xác suất.<br>
 
-1.  Suppose we wish to calculate $P(h{{\,|\,}}e_1,e_2)$ and we have no
-    conditional independence information. Which of the following sets of
-    numbers are sufficient for the calculation?<br>
+1.  Giả sử chúng ta muốn tính $P(h{{\,|\,}}e_1,e_2)$ và chúng ta không có thông tin độc lập có điều kiện. Những tập hợp số nào sau đây là đủ cho phép tính?<br>
 
     1.  ${\textbf{P}}(E_1,E_2)$, ${\textbf{P}}(H)$,
         ${\textbf{P}}(E_1{{\,|\,}}H)$,
@@ -441,107 +307,70 @@ calculations.<br>
         ${\textbf{P}}(E_1{{\,|\,}}H)$,
         ${\textbf{P}}(E_2{{\,|\,}}H)$<br>
 
-2.  Suppose we know that
+2.  Giả sử chúng ta biết rằng
     ${\textbf{P}}(E_1{{\,|\,}}H,E_2)={\textbf{P}}(E_1{{\,|\,}}H)$
-    for all values of $H$, $E_1$, $E_2$. Now which of the three sets are
-    sufficient?
+    cho tất cả các giá trị của $H$, $E_1$, $E_2$. Bây giờ tập hợp nào là đủ?
 
 
 ---
 
 ##### Bài tập 13.25
 
-Let $X$, $Y$, $Z$ be Boolean random variables. Label the eight entries
-in the joint distribution ${\textbf{P}}(X,Y,Z)$ as $a$ through
-$h$. Express the statement that $X$ and $Y$ are conditionally
-independent given $Z$, as a set of equations relating $a$ through $h$.
-How many <i>nonredundant</i>equations are there?
+Cho $X$, $Y$, $Z$ là các biến ngẫu nhiên Boolean. Gán nhãn tám mục trong phân phối chung ${\textbf{P}}(X,Y,Z)$ là $a$ đến $h$. Biểu diễn phát biểu rằng $X$ và $Y$ độc lập có điều kiện khi biết $Z$, dưới dạng một tập hợp các phương trình liên hệ $a$ đến $h$. Có bao nhiêu phương trình *không dư thừa*?
 
 
 ---
 
 ##### Bài tập 13.26
 
-(Adapted from Pearl [<a class="paperRef" title="" href="">Pearl:1988</a>].) Suppose you are a witness to a
-nighttime hit-and-run accident involving a taxi in Athens. All taxis in
-Athens are blue or green. You swear, under oath, that the taxi was blue.
-Extensive testing shows that, under the dim lighting conditions,
-discrimination between blue and green is 75% reliable. <br>
+(Chuyển thể từ Pearl [<a class="paperRef" title="" href="">Pearl:1988</a>].) Giả sử bạn là nhân chứng của một vụ tai nạn bỏ chạy ban đêm liên quan đến một chiếc taxi ở Athens. Tất cả taxi ở Athens đều màu xanh lam hoặc xanh lục. Bạn thề, dưới lời thề, rằng chiếc taxi màu xanh lam. Các thử nghiệm rộng rãi cho thấy rằng, trong điều kiện ánh sáng yếu, việc phân biệt giữa màu xanh lam và xanh lục có độ tin cậy 75%. <br>
 
-1.  Is it possible to calculate the most likely color for the taxi?
-    (*Hint:* distinguish carefully between the proposition
-    that the taxi *is* blue and the proposition that it
-    *appears* blue.) <br>
+1.  Có thể tính toán màu sắc có khả năng xảy ra nhất cho chiếc taxi không? (*Gợi ý:* phân biệt cẩn thận giữa mệnh đề rằng chiếc taxi *là* màu xanh lam và mệnh đề rằng nó *có vẻ* màu xanh lam.) <br>
 
-2.  What if you know that 9 out of 10 Athenian taxis are green?<br>
+2.  Điều gì sẽ xảy ra nếu bạn biết rằng 9 trên 10 taxi ở Athens là màu xanh lục?<br>
 
 
 ---
 
 ##### Bài tập 13.27
 
-Write out a general algorithm for answering queries of the form
-${\textbf{P}}({Cause}{{\,|\,}}\textbf{e})$, using a naive Bayes
-distribution. Assume that the evidence $\textbf{e}$ may assign values to
-<i>any subset</i> of the effect variables.
+Viết ra một thuật toán tổng quát để trả lời các truy vấn có dạng ${\textbf{P}}({Cause}{{\,|\,}}\textbf{e})$, sử dụng một phân phối naive Bayes. Giả sử rằng bằng chứng $\textbf{e}$ có thể gán giá trị cho *bất kỳ tập con* nào của các biến hiệu ứng.
 
 
 ---
 
 ##### Bài tập 13.28
 
-Text categorization is the task of
-assigning a given document to one of a fixed set of categories on the
-basis of the text it contains. Naive Bayes models are often used for
-this task. In these models, the query variable is the document category,
-and the “effect” variables are the presence or absence of each word in
-the language; the assumption is that words occur independently in
-documents, with frequencies determined by the document category.<br>
+Phân loại văn bản là nhiệm vụ gán một tài liệu cho trước vào một trong một tập hợp các danh mục cố định dựa trên văn bản mà nó chứa. Các mô hình Naive Bayes thường được sử dụng cho nhiệm vụ này. Trong các mô hình này, biến truy vấn là danh mục tài liệu, và các biến "hiệu ứng" là sự hiện diện hoặc vắng mặt của mỗi từ trong ngôn ngữ; giả định là các từ xuất hiện độc lập trong các tài liệu, với tần suất được xác định bởi danh mục tài liệu.<br>
 
-1.  Explain precisely how such a model can be constructed, given as
-    “training data” a set of documents that have been assigned
-    to categories.<br>
+1.  Giải thích chính xác cách một mô hình như vậy có thể được xây dựng, với dữ liệu "huấn luyện" là một tập hợp các tài liệu đã được gán vào các danh mục.<br>
 
-2.  Explain precisely how to categorize a new document.<br>
+2.  Giải thích chính xác cách phân loại một tài liệu mới.<br>
 
-3.  Is the conditional independence assumption reasonable? Discuss.<br>
+3.  Giả thuyết độc lập có điều kiện có hợp lý không? Thảo luận.<br>
 
 
 ---
 
 ##### Bài tập 13.29
 
-In our analysis of the wumpus world, we used the fact that
-each square contains a pit with probability 0.2, independently of the
-contents of the other squares. Suppose instead that exactly $N/5$ pits
-are scattered at random among the $N$ squares other than [1,1]. Are
-the variables $P_{i,j}$ and $P_{k,l}$ still independent? What is the
-joint distribution ${\textbf{P}}(P_{1,1},\ldots,P_{4,4})$ now?
-Redo the calculation for the probabilities of pits in [1,3] and
-[2,2].
+Trong phân tích của chúng ta về thế giới wumpus, chúng ta đã sử dụng thực tế là mỗi ô chứa một cái hố với xác suất 0.2, độc lập với nội dung của các ô khác. Thay vào đó, giả sử rằng chính xác $N/5$ cái hố được rải ngẫu nhiên trong số $N$ ô khác với [1,1]. Các biến $P_{i,j}$ và $P_{k,l}$ có còn độc lập không? Phân phối chung ${\textbf{P}}(P_{1,1},\ldots,P_{4,4})$ bây giờ là gì? Thực hiện lại phép tính cho xác suất của các hố ở [1,3] và [2,2].
 
 
 ---
 
 ##### Bài tập 13.30
 
-Redo the probability calculation for pits in [1,3] and [2,2],
-assuming that each square contains a pit with probability 0.01,
-independent of the other squares. What can you say about the relative
-performance of a logical versus a probabilistic agent in this case?
+Thực hiện lại phép tính xác suất cho các hố ở [1,3] và [2,2], giả sử rằng mỗi ô chứa một cái hố với xác suất 0.01, độc lập với các ô khác. Bạn có thể nói gì về hiệu suất tương đối của một agent logic so với một agent xác suất trong trường hợp này?
 
 
 ---
 
 ##### Bài tập 13.31
 
-Implement a hybrid probabilistic agent for the wumpus world, based on
-the hybrid agent in
-Figure <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/hybrid-wumpus-agent-algorithm.png">hybrid-wumpus-agent-algorithm</a> and the
-probabilistic inference procedure outlined in this chapter.
+Triển khai một agent xác suất lai cho thế giới wumpus, dựa trên agent lai trong Hình <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/hybrid-wumpus-agent-algorithm.png">hybrid-wumpus-agent-algorithm</a> và quy trình suy luận xác suất được phác thảo trong chương này.
 
 
 ---
-
 
 <!-- tabs:end -->

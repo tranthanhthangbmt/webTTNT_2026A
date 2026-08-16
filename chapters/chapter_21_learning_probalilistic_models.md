@@ -37,63 +37,42 @@
 
 #### **Bài tập**
 
+
 ##### Bài tập 21.1
 
-Implement a passive learning agent in a simple environment, such as the
-$4\times 3$ world. For the case of an initially unknown environment
-model, compare the learning performance of the direct utility
-estimation, TD, and ADP algorithms. Do the comparison for the optimal
-policy and for several random policies. For which do the utility
-estimates converge faster? What happens when the size of the environment
-is increased? (Try environments with and without obstacles.)
+Triển khai một passive learning agent trong một môi trường đơn giản, ví dụ như thế giới $4\times 3$. Đối với trường hợp mô hình môi trường ban đầu không xác định, hãy so sánh hiệu suất học tập của các thuật toán direct utility estimation, TD và ADP. Thực hiện so sánh cho optimal policy và cho một vài random policies. Đối với trường hợp nào thì utility estimates hội tụ nhanh hơn? Điều gì xảy ra khi kích thước của môi trường được tăng lên? (Thử nghiệm với các môi trường có và không có chướng ngại vật.)
 
 
 ---
 
 ##### Bài tập 21.2
 
-Chapter <a class="chapterRef" href="{{site.baseurl}}/concept-decisions-exercise/">complex-decisions-chapter</a> defined a
-<b>proper policy</b> for an MDP as one that is
-guaranteed to reach a terminal state. Show that it is possible for a
-passive ADP agent to learn a transition model for which its policy $\pi$
-is improper even if $\pi$ is proper for the true MDP; with such models,
-the POLICY-EVALUATION step may fail if $\gamma{{\,=\,}}1$. Show that this problem cannot
-arise if POLICY-EVALUATION is applied to the learned model only at the end of a trial.
+Chương <a class="chapterRef" href="{{site.baseurl}}/concept-decisions-exercise/">complex-decisions-chapter</a> đã định nghĩa một <b>proper policy</b> cho một MDP là một policy được đảm bảo sẽ đạt đến một terminal state. Chứng minh rằng có thể xảy ra trường hợp một passive ADP agent học được một transition model mà tại đó policy $\pi$ của nó là improper ngay cả khi $\pi$ là proper cho true MDP; với các mô hình như vậy, bước POLICY-EVALUATION có thể thất bại nếu $\gamma{{\,=\,}}1$. Chứng minh rằng vấn đề này không thể xảy ra nếu POLICY-EVALUATION chỉ được áp dụng cho mô hình đã học vào cuối một trial.
 
 
 ---
 
 ##### Bài tập 21.3
 
-Starting with the passive ADP agent,
-modify it to use an approximate ADP algorithm as discussed in the text.
-Do this in two steps:<br>
+Bắt đầu với passive ADP agent, sửa đổi nó để sử dụng một approximate ADP algorithm như đã thảo luận trong văn bản. Thực hiện điều này theo hai bước:<br>
 
-1.  Implement a priority queue for adjustments to the utility estimates.
-    Whenever a state is adjusted, all of its predecessors also become
-    candidates for adjustment and should be added to the queue. The
-    queue is initialized with the state from which the most recent
-    transition took place. Allow only a fixed number of adjustments.<br>
+1.  Triển khai một priority queue cho các điều chỉnh đối với utility estimates. Bất cứ khi nào một state được điều chỉnh, tất cả các predecessors của nó cũng trở thành ứng cử viên để điều chỉnh và nên được thêm vào queue. Queue được khởi tạo với state mà từ đó quá trình chuyển đổi gần đây nhất đã diễn ra. Chỉ cho phép một số lượng điều chỉnh cố định.<br>
 
-2.  Experiment with various heuristics for ordering the priority queue,
-    examining their effect on learning rates and computation time.
+2.  Thử nghiệm với các heuristic khác nhau để sắp xếp priority queue, xem xét ảnh hưởng của chúng đến tốc độ học tập và thời gian tính toán.
 
 
 ---
 
 ##### Bài tập 21.4
 
-The direct utility estimation method in
-Section <a class="sectionRef" title="" href="#">passive-rl-section</a> uses distinguished terminal
-states to indicate the end of a trial. How could it be modified for
-environments with discounted rewards and no terminal states?
+Phương pháp direct utility estimation trong Mục <a class="sectionRef" href="#">passive-rl-section</a> sử dụng các distinguished terminal states để chỉ ra kết thúc của một trial. Làm thế nào nó có thể được sửa đổi cho các môi trường có discounted rewards và không có terminal states?
 
 
 ---
 
 ##### Bài tập 21.5
 
-Write out the parameter update equations for TD learning with
+Viết ra các phương trình cập nhật tham số cho TD learning với
 $$\hat{U}(x,y) = \theta_0 + \theta_1 x + \theta_2 y + \theta_3\,\sqrt{(x-x_g)^2 + (y-y_g)^2}\ .$$
 
 
@@ -101,108 +80,76 @@ $$\hat{U}(x,y) = \theta_0 + \theta_1 x + \theta_2 y + \theta_3\,\sqrt{(x-x_g)^2 
 
 ##### Bài tập 21.6
 
-Adapt the vacuum world (Chapter <a class="chapterRef" href="{{site.baseurl}}/agents-exercises/">agents-chapter</a> for
-reinforcement learning by including rewards for squares being clean.
-Make the world observable by providing suitable percepts. Now experiment
-with different reinforcement learning agents. Is function approximation
-necessary for success? What sort of approximator works for this
-application?
+Chuyển đổi vacuum world (Chương <a class="chapterRef" href="{{site.baseurl}}/agents-exercises/">agents-chapter</a>) cho reinforcement learning bằng cách bao gồm các phần thưởng cho các ô sạch. Làm cho thế giới trở nên observable bằng cách cung cấp các percept phù hợp. Bây giờ hãy thử nghiệm với các reinforcement learning agents khác nhau. Có cần thiết phải sử dụng function approximation để thành công không? Loại approximator nào phù hợp cho ứng dụng này?
 
 
 ---
 
 ##### Bài tập 21.7
 
-Implement an exploring reinforcement learning
-agent that uses direct utility estimation. Make two versions—one with a
-tabular representation and one using the function approximator in
-Equation (<a class="equationRef" title="" href="#">4x3-linear-approx-equation</a>). Compare their
-performance in three environments:<br>
+Triển khai một exploring reinforcement learning agent sử dụng direct utility estimation. Tạo hai phiên bản—một với biểu diễn dạng bảng (tabular representation) và một sử dụng function approximator trong Phương trình (<a class="equationRef" title="" href="#">4x3-linear-approx-equation</a>). So sánh hiệu suất của chúng trong ba môi trường:<br>
 
-1.  The $4\times 3$ world described in the chapter.<br>
+1.  Thế giới $4\times 3$ được mô tả trong chương.<br>
 
-2.  A ${10}\times {10}$ world with no obstacles and a +1 reward
-    at (10,10).<br>
+2.  Thế giới ${10}\times {10}$ không có chướng ngại vật và phần thưởng +1 tại (10,10).<br>
 
-3.  A ${10}\times {10}$ world with no obstacles and a +1 reward
-    at (5,5).
+3.  Thế giới ${10}\times {10}$ không có chướng ngại vật và phần thưởng +1 tại (5,5).
 
 
 ---
 
 ##### Bài tập 21.8
 
-Devise suitable features for reinforcement learning in stochastic grid
-worlds (generalizations of the $4\times 3$ world) that contain multiple
-obstacles and multiple terminal states with rewards of $+1$ or $-1$.
+Thiết kế các features phù hợp cho reinforcement learning trong các stochastic grid worlds (các tổng quát hóa của thế giới $4\times 3$) chứa nhiều chướng ngại vật và nhiều terminal states với phần thưởng +1 hoặc -1.
 
 
 ---
 
 ##### Bài tập 21.9
 
-Extend the standard game-playing environment
-(Chapter <a class="chapterRef" href="{{site.baseurl}}/game-playing-exercises/">game-playing-chapter</a>) to incorporate a reward
-signal. Put two reinforcement learning agents into the environment (they
-may, of course, share the agent program) and have them play against each
-other. Apply the generalized TD update rule
-(Equation (<a class="equationRef" title="" href="#">generalized-td-equation</a>)) to update the
-evaluation function. You might wish to start with a simple linear
-weighted evaluation function and a simple game, such as tic-tac-toe.
+Mở rộng môi trường chơi game tiêu chuẩn (Chương <a class="chapterRef" href="{{site.baseurl}}/game-playing-exercises/">game-playing-chapter</a>) để tích hợp tín hiệu phần thưởng. Đặt hai reinforcement learning agents vào môi trường (chúng có thể, tất nhiên, chia sẻ chương trình agent) và cho chúng chơi với nhau. Áp dụng quy tắc cập nhật TD tổng quát (generalized TD update rule) (Phương trình (<a class="equationRef" title="" href="#">generalized-td-equation</a>)) để cập nhật hàm đánh giá (evaluation function). Bạn có thể muốn bắt đầu với một hàm đánh giá tuyến tính trọng số đơn giản (simple linear weighted evaluation function) và một trò chơi đơn giản, chẳng hạn như tic-tac-toe.
 
 
 ---
 
 ##### Bài tập 21.10
 
-Compute the true utility function and the best linear
-approximation in $x$ and $y$ (as in
-Equation (<a class="equationRef" title="" href="#">4x3-linear-approx-equation</a>)) for the
-following environments:<br>
+Tính toán hàm utility thực sự và phép xấp xỉ tuyến tính tốt nhất theo $x$ và $y$ (như trong Phương trình (<a class="equationRef" title="" href="#">4x3-linear-approx-equation</a>)) cho các môi trường sau:<br>
 
-1.  A ${10}\times {10}$ world with a single $+1$ terminal state
-    at (10,10).<br>
+1.  Thế giới ${10}\times {10}$ với một terminal state +1 duy nhất tại (10,10).<br>
 
-2.  As in (a), but add a $-1$ terminal state at (10,1).<br>
+2.  Như trong (a), nhưng thêm một terminal state -1 tại (10,1).<br>
 
-3.  As in (b), but add obstacles in 10 randomly selected squares.<br>
+3.  Như trong (b), nhưng thêm chướng ngại vật vào 10 ô ngẫu nhiên.<br>
 
-4.  As in (b), but place a wall stretching from (5,2) to (5,9).<br>
+4.  Như trong (b), nhưng đặt một bức tường kéo dài từ (5,2) đến (5,9).<br>
 
-5.  As in (a), but with the terminal state at (5,5).<br>
+5.  Như trong (a), nhưng với terminal state tại (5,5).<br>
 
-The actions are deterministic moves in the four directions. In each
-case, compare the results using three-dimensional plots. For each
-environment, propose additional features (besides $x$ and $y$) that
-would improve the approximation and show the results.
+Các hành động là các bước di chuyển xác định theo bốn hướng. Trong mỗi trường hợp, so sánh kết quả bằng cách sử dụng các biểu đồ ba chiều. Đối với mỗi môi trường, đề xuất các features bổ sung (ngoài $x$ và $y$) sẽ cải thiện phép xấp xỉ và hiển thị kết quả.
 
 
 ---
 
 ##### Bài tập 21.11
 
-Implement the REINFORCE and PEGASUS algorithms and apply them to the $4\times 3$ world,
-using a policy family of your own choosing. Comment on the results.
+Triển khai các thuật toán REINFORCE và PEGASUS và áp dụng chúng cho thế giới $4\times 3$, sử dụng một họ policy do bạn tự chọn. Nhận xét về kết quả.
 
 
 ---
 
 ##### Bài tập 21.12
 
-Investigate the application of reinforcement learning ideas to the
-modeling of human and animal behavior.
+Nghiên cứu ứng dụng các ý tưởng reinforcement learning vào việc mô hình hóa hành vi của con người và động vật.
 
 
 ---
 
 ##### Bài tập 21.13
 
-Is reinforcement learning an appropriate abstract model for evolution?
-What connection exists, if any, between hardwired reward signals and
-evolutionary fitness?
+Reinforcement learning có phải là một mô hình trừu tượng phù hợp cho sự tiến hóa không? Có mối liên hệ nào, nếu có, giữa các tín hiệu phần thưởng bẩm sinh (hardwired reward signals) và fitness tiến hóa không?
 
 
 ---
-
 
 <!-- tabs:end -->

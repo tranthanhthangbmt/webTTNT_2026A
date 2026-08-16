@@ -48,64 +48,54 @@
 
 #### **Bài tập**
 
+
 ##### Bài tập 19.1
 
-Show, by translating into conjunctive normal form and
-applying resolution, that the conclusion drawn on page <a class="pageRef" title="" href="#">dbsig-page</a>
-concerning Brazilians is sound.
+Hãy chứng minh, bằng cách chuyển đổi sang dạng chuẩn liên kết (conjunctive normal form) và áp dụng phương pháp phân giải (resolution), rằng kết luận được rút ra trên trang <a class="pageRef" title="" href="#">dbsig-page</a> liên quan đến người Brazil là hợp lý.
 
 
 ---
 
 ##### Bài tập 19.2
 
-For each of the following determinations, write down the logical
-representation and explain why the determination is true (if it is):<br>
+Đối với mỗi xác định sau đây, hãy viết biểu diễn logic và giải thích tại sao xác định đó đúng (nếu có):<br>
 
-1.  Design and denomination determine the mass of a coin.<br>
+1.  Thiết kế và mệnh giá xác định khối lượng của một đồng xu.<br>
 
-2.  For a given program, input determines output.<br>
+2.  Đối với một chương trình cho trước, đầu vào xác định đầu ra.<br>
 
-3.  Climate, food intake, exercise, and metabolism determine weight gain
-    and loss.<br>
+3.  Khí hậu, lượng thức ăn nạp vào, tập thể dục và trao đổi chất xác định sự tăng và giảm cân.<br>
 
-4.  Baldness is determined by the baldness (or lack thereof) of one’s
-    maternal grandfather. <br>
+4.  Hói đầu được xác định bởi tình trạng hói đầu (hoặc không hói đầu) của ông ngoại.<br>
 
 
 ---
 
 ##### Bài tập 19.3
 
-For each of the following determinations, write down the logical
-representation and explain why the determination is true (if it is):<br>
+Đối với mỗi xác định sau đây, hãy viết biểu diễn logic và giải thích tại sao xác định đó đúng (nếu có):<br>
 
-1.  Zip code determines the state (U.S.).<br>
+1.  Mã bưu điện xác định tiểu bang (Hoa Kỳ).<br>
 
-2.  Design and denomination determine the mass of a coin.<br>
+2.  Thiết kế và mệnh giá xác định khối lượng của một đồng xu.<br>
 
-3.  Climate, food intake, exercise, and metabolism determine weight gain
-    and loss.<br>
+3.  Khí hậu, lượng thức ăn nạp vào, tập thể dục và trao đổi chất xác định sự tăng và giảm cân.<br>
 
-4.  Baldness is determined by the baldness (or lack thereof) of one’s
-    maternal grandfather.<br>
+4.  Hói đầu được xác định bởi tình trạng hói đầu (hoặc không hói đầu) của ông ngoại.<br>
 
 
 ---
 
 ##### Bài tập 19.4
 
-Would a probabilistic version of determinations be useful? Suggest a
-definition.
+Liệu một phiên bản xác định dựa trên xác suất có hữu ích không? Đề xuất một định nghĩa.
 
 
 ---
 
 ##### Bài tập 19.5
 
-Fill in the missing values for the clauses $C_1$ or
-$C_2$ (or both) in the following sets of clauses, given that $C$ is the
-resolvent of $C_1$ and $C_2$:<br>
+Điền các giá trị còn thiếu cho các mệnh đề $C_1$ hoặc $C_2$ (hoặc cả hai) trong các tập hợp mệnh đề sau, biết rằng $C$ là kết quả phân giải của $C_1$ và $C_2$:<br>
 
 1.  $C = {True} \Rightarrow P(A,B)$,
     $C_1 = P(x,y) \Rightarrow Q(x,y)$, $C_2 = ??$.<br>
@@ -116,56 +106,36 @@ resolvent of $C_1$ and $C_2$:<br>
 3.  $C = P(x,y) \Rightarrow P(x,f(y))$, $C_1 = ??$,
     $C_2 = ??$.<br>
 
-If there is more than one possible solution, provide one example of each
-different kind.<br>
+Nếu có nhiều hơn một giải pháp khả thi, hãy cung cấp một ví dụ cho mỗi loại khác nhau.<br>
 
 
 ---
 
 ##### Bài tập 19.6
 
-Suppose one writes a logic program that carries
-out a resolution inference step. That is, let ${Resolve}(c_1,c_2,c)$
-succeed if $c$ is the result of resolving $c_1$ and $c_2$. Normally,
-${Resolve}$ would be used as part of a theorem prover by calling it
-with $c_1$ and $c_2$ instantiated to particular clauses, thereby
-generating the resolvent $c$. Now suppose instead that we call it with
-$c$ instantiated and $c_1$ and $c_2$ uninstantiated. Will this succeed
-in generating the appropriate results of an inverse resolution step?
-Would you need any special modifications to the logic programming system
-for this to work?
+Giả sử người ta viết một chương trình logic thực hiện một bước suy luận phân giải. Tức là, ${Resolve}(c_1,c_2,c)$ thành công nếu $c$ là kết quả của việc phân giải $c_1$ và $c_2$. Thông thường, ${Resolve}$ sẽ được sử dụng như một phần của bộ chứng minh định lý bằng cách gọi nó với $c_1$ và $c_2$ được gán giá trị cho các mệnh đề cụ thể, từ đó tạo ra mệnh đề phân giải $c$. Bây giờ, giả sử thay vào đó, chúng ta gọi nó với $c$ được gán giá trị và $c_1$ và $c_2$ không được gán giá trị. Liệu điều này có thành công trong việc tạo ra các kết quả phù hợp của một bước phân giải ngược (inverse resolution step) không? Bạn có cần bất kỳ sửa đổi đặc biệt nào đối với hệ thống lập trình logic để điều này hoạt động không?
 
 
 ---
 
 ##### Bài tập 19.7
 
-Suppose that is considering adding a literal
-to a clause using a binary predicate $P$ and that previous literals
-(including the head of the clause) contain five different variables.<br>
+Giả sử đang xem xét việc thêm một mệnh đề (literal) vào một mệnh đề (clause) bằng cách sử dụng một vị từ nhị phân $P$ và các mệnh đề trước đó (bao gồm cả đầu của mệnh đề) chứa năm biến khác nhau.<br>
 
-1.  How many functionally different literals can be generated? Two
-    literals are functionally identical if they differ only in the names
-    of the *new* variables that they contain.<br>
+1.  Có bao nhiêu mệnh đề khác biệt về mặt chức năng có thể được tạo ra? Hai mệnh đề được coi là giống hệt nhau về mặt chức năng nếu chúng chỉ khác nhau về tên của các biến *mới* mà chúng chứa.<br>
 
-2.  Can you find a general formula for the number of different literals
-    with a predicate of arity $r$ when there are $n$ variables
-    previously used?<br>
+2.  Bạn có thể tìm thấy một công thức tổng quát cho số lượng mệnh đề khác nhau với một vị từ có số ngôi (arity) là $r$ khi có $n$ biến đã được sử dụng trước đó không?<br>
 
-3.  Why does not allow literals that contain no previously used
-    variables?<br>
+3.  Tại sao không cho phép các mệnh đề không chứa biến nào đã được sử dụng trước đó?<br>
 
 
 ---
 
 ##### Bài tập 19.8
 
-Using the data from the family tree in
-Figure <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/family2-figure.png">family2-figure</a>, or a subset thereof, apply the
-algorithm to learn a definition for the ${Ancestor}$ predicate.
+Sử dụng dữ liệu từ cây gia đình trong Hình <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/family2-figure.png">family2-figure</a>, hoặc một tập con của nó, hãy áp dụng thuật toán để học một định nghĩa cho vị từ ${Ancestor}$.
 
 
 ---
-
 
 <!-- tabs:end -->

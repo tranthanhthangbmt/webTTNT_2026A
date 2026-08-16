@@ -42,302 +42,205 @@
 
 #### **Bài tập**
 
+
 ##### Bài tập 6.1
 
-How many solutions are there for the map-coloring problem in
-Figure <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/australia-figure.png">australia-figure</a>? How many solutions if four
-colors are allowed? Two colors?
+Có bao nhiêu nghiệm cho bài toán tô màu bản đồ trong Hình <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/australia-figure.png">australia-figure</a>? Có bao nhiêu nghiệm nếu cho phép bốn màu? Hai màu?
 
 
 ---
 
 ##### Bài tập 6.2
 
-Consider the problem of placing $k$ knights on an $n\times n$
-chessboard such that no two knights are attacking each other, where $k$
-is given and $k\leq n^2$.<br>
+Xem xét bài toán đặt $k$ quân mã trên bàn cờ $n\times n$ sao cho không có hai quân mã nào tấn công lẫn nhau, với $k$ được cho trước và $k\leq n^2$.<br>
 
-1.  Choose a CSP formulation. In your formulation, what are the
-    variables?<br>
+1.  Chọn một công thức CSP. Trong công thức của bạn, các biến là gì?<br>
 
-2.  What are the possible values of each variable?<br>
+2.  Các giá trị có thể có của mỗi biến là gì?<br>
 
-3.  What sets of variables are constrained, and how?<br>
+3.  Những tập hợp biến nào bị ràng buộc, và bằng cách nào?<br>
 
-4.  Now consider the problem of putting *as many knights as
-    possible* on the board without any attacks. Explain how to
-    solve this with local search by defining appropriate ACTIONS and RESULT functions
-    and a sensible objective function.<br>
+4.  Bây giờ hãy xem xét bài toán đặt *càng nhiều quân mã càng tốt* trên bàn cờ mà không có bất kỳ cuộc tấn công nào. Giải thích cách giải bài toán này bằng local search bằng cách định nghĩa các hàm ACTIONS và RESULT phù hợp và một hàm mục tiêu hợp lý.<br>
 
 
 ---
 
 ##### Bài tập 6.3
 
-Consider the problem of <a href="#footnote1">constructing</a> (not solving)
-crossword puzzles fitting words into a rectangular grid. The grid,
-which is given as part of the problem, specifies which squares are blank
-and which are shaded. Assume that a list of words (i.e., a dictionary)
-is provided and that the task is to fill in the blank squares by using
-any subset of the list. Formulate this problem precisely in two ways:<br>
+Xem xét bài toán <a href="#footnote1">xây dựng</a> (không phải giải) các câu đố ô chữ bằng cách khớp các từ vào một lưới hình chữ nhật. Lưới, được cung cấp như một phần của bài toán, chỉ định ô nào trống và ô nào bị tô bóng. Giả sử rằng một danh sách các từ (tức là một từ điển) được cung cấp và nhiệm vụ là điền vào các ô trống bằng cách sử dụng bất kỳ tập con nào của danh sách. Hãy định nghĩa chính xác bài toán này theo hai cách:<br>
 
-1.  As a general search problem. Choose an appropriate search algorithm
-    and specify a heuristic function. Is it better to fill in blanks one
-    letter at a time or one word at a time?<br>
+1.  Dưới dạng một bài toán search tổng quát. Chọn một thuật toán search phù hợp và chỉ định một hàm heuristic. Việc điền vào các ô trống từng chữ cái hay từng từ một sẽ tốt hơn?<br>
 
-2.  As a constraint satisfaction problem. Should the variables be words
-    or letters?<br>
+2.  Dưới dạng một bài toán constraint satisfaction. Các biến nên là từ hay chữ cái?<br>
 
-Which formulation do you think will be better? Why?<br>
+Bạn nghĩ công thức nào sẽ tốt hơn? Tại sao?<br>
 
 
 ---
 
 ##### Bài tập 6.4
 
-Give precise formulations for each of the
-following as constraint satisfaction problems:<br>
+Đưa ra các công thức chính xác cho mỗi bài toán sau đây dưới dạng bài toán constraint satisfaction:<br>
 
-1.  Rectilinear floor-planning: find non-overlapping places in a large
-    rectangle for a number of smaller rectangles.<br>
+1.  Rectilinear floor-planning: tìm các vị trí không chồng lấn trong một hình chữ nhật lớn cho một số hình chữ nhật nhỏ hơn.<br>
 
-2.  Class scheduling: There is a fixed number of professors and
-    classrooms, a list of classes to be offered, and a list of possible
-    time slots for classes. Each professor has a set of classes that he
-    or she can teach.<br>
+2.  Lập lịch lớp học: có một số lượng cố định các giáo sư và phòng học, một danh sách các lớp học sẽ được cung cấp và một danh sách các khung giờ có thể có cho các lớp học. Mỗi giáo sư có một tập hợp các lớp học mà họ có thể dạy.<br>
 
-3.  Hamiltonian tour: given a network of cities connected by roads,
-    choose an order to visit all cities in a country without
-    repeating any.<br>
+3.  Hamiltonian tour: cho một mạng lưới các thành phố được kết nối bằng đường bộ, chọn một thứ tự để ghé thăm tất cả các thành phố trong một quốc gia mà không lặp lại bất kỳ thành phố nào.<br>
 
 
 ---
 
 ##### Bài tập 6.5
 
-Solve the cryptarithmetic problem in
-Figure <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/cryptarithmetic-figure.png">cryptarithmetic-figure</a> by hand, using the
-strategy of backtracking with forward checking and the MRV and
-least-constraining-value heuristics.
+Giải bài toán cryptarithmetic trong Hình <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/cryptarithmetic-figure.png">cryptarithmetic-figure</a> bằng tay, sử dụng chiến lược backtracking với forward checking và các heuristic MRV và least-constraining-value.
 
 
 ---
 
 ##### Bài tập 6.6
 
-Show how a single ternary constraint such as
-“$A + B = C$” can be turned into three binary constraints by using an
-auxiliary variable. You may assume finite domains. (*Hint:*
-Consider a new variable that takes on values that are pairs of other
-values, and consider constraints such as “$X$ is the first element of
-the pair $Y$.”) Next, show how constraints with more than three
-variables can be treated similarly. Finally, show how unary constraints
-can be eliminated by altering the domains of variables. This completes
-the demonstration that any CSP can be transformed into a CSP with only
-binary constraints.
+Chỉ ra cách một ràng buộc ternary duy nhất như “$A + B = C$” có thể được chuyển đổi thành ba ràng buộc nhị phân bằng cách sử dụng một biến phụ trợ. Bạn có thể giả định các miền hữu hạn. (*Gợi ý:* Xem xét một biến mới nhận các giá trị là các cặp của các giá trị khác, và xem xét các ràng buộc như “$X$ là phần tử đầu tiên của cặp $Y$.”) Tiếp theo, chỉ ra cách các ràng buộc có nhiều hơn ba biến có thể được xử lý tương tự. Cuối cùng, chỉ ra cách các ràng buộc đơn có thể được loại bỏ bằng cách thay đổi các miền của biến. Điều này hoàn thành việc chứng minh rằng bất kỳ CSP nào cũng có thể được chuyển đổi thành một CSP chỉ với các ràng buộc nhị phân.
 
 
 ---
 
 ##### Bài tập 6.7
 
-Consider the following logic puzzle: In five houses,
-each with a different color, live five persons of different
-nationalities, each of whom prefers a different brand of candy, a
-different drink, and a different pet. Given the following facts, the
-questions to answer are “Where does the zebra live, and in which house
-do they drink water?”<br>
+Xem xét câu đố logic sau: Trong năm ngôi nhà, mỗi ngôi nhà có một màu khác nhau, sống năm người thuộc các quốc tịch khác nhau, mỗi người thích một thương hiệu kẹo khác nhau, một loại đồ uống khác nhau và một con vật cưng khác nhau. Dựa trên các sự kiện sau, các câu hỏi cần trả lời là “Con ngựa vằn sống ở đâu, và họ uống nước trong ngôi nhà nào?”<br>
 
-The Englishman lives in the red house.<br>
+Người Anh sống trong ngôi nhà màu đỏ.<br>
 
-The Spaniard owns the dog.<br>
+Người Tây Ban Nha sở hữu con chó.<br>
 
-The Norwegian lives in the first house on the left.<br>
+Người Na Uy sống trong ngôi nhà đầu tiên bên trái.<br>
 
-The green house is immediately to the right of the ivory house.<br>
+Ngôi nhà màu xanh lá cây nằm ngay bên phải ngôi nhà màu ngà.<br>
 
-The man who eats Hershey bars lives in the house next to the man with
-the fox.<br>
+Người ăn kẹo Hershey sống trong ngôi nhà bên cạnh người có con cáo.<br>
 
-Kit Kats are eaten in the yellow house.<br>
+Kẹo Kit Kats được ăn trong ngôi nhà màu vàng.<br>
 
-The Norwegian lives next to the blue house.<br>
+Người Na Uy sống cạnh ngôi nhà màu xanh lam.<br>
 
-The Smarties eater owns snails.<br>
+Người ăn kẹo Smarties sở hữu ốc sên.<br>
 
-The Snickers eater drinks orange juice.<br>
+Người ăn kẹo Snickers uống nước cam.<br>
 
-The Ukrainian drinks tea.<br>
+Người Ukraine uống trà.<br>
 
-The Japanese eats Milky Ways.<br>
+Người Nhật ăn kẹo Milky Ways.<br>
 
-Kit Kats are eaten in a house next to the house where the horse is kept.<br>
+Kẹo Kit Kats được ăn trong một ngôi nhà cạnh ngôi nhà có con ngựa.<br>
 
-Coffee is drunk in the green house.<br>
+Cà phê được uống trong ngôi nhà màu xanh lá cây.<br>
 
-Milk is drunk in the middle house.<br>
+Sữa được uống trong ngôi nhà giữa.<br>
 
-Discuss different representations of this problem as a CSP. Why would
-one prefer one representation over another?
+Thảo luận về các biểu diễn khác nhau của bài toán này dưới dạng CSP. Tại sao lại ưu tiên biểu diễn này hơn biểu diễn khác?
 
 
 ---
 
 ##### Bài tập 6.8
 
-Consider the graph with 8 nodes $A_1$, $A_2$, $A_3$, $A_4$, $H$, $T$,
-$F_1$, $F_2$. $A_i$ is connected to $A_{i+1}$ for all $i$, each $A_i$ is
-connected to $H$, $H$ is connected to $T$, and $T$ is connected to each
-$F_i$. Find a 3-coloring of this graph by hand using the following
-strategy: backtracking with conflict-directed backjumping, the variable
-order $A_1$, $H$, $A_4$, $F_1$, $A_2$, $F_2$, $A_3$, $T$, and the value
-order $R$, $G$, $B$.
+Xem xét đồ thị có 8 nút $A_1$, $A_2$, $A_3$, $A_4$, $H$, $T$, $F_1$, $F_2$. $A_i$ được nối với $A_{i+1}$ cho mọi $i$, mỗi $A_i$ được nối với $H$, $H$ được nối với $T$, và $T$ được nối với mỗi $F_i$. Tìm một phép tô màu 3 màu cho đồ thị này bằng tay bằng cách sử dụng chiến lược sau: backtracking với conflict-directed backjumping, thứ tự biến $A_1$, $H$, $A_4$, $F_1$, $A_2$, $F_2$, $A_3$, $T$, và thứ tự giá trị $R$, $G$, $B$.
 
 
 ---
 
 ##### Bài tập 6.9
 
-Explain why it is a good heuristic to choose the variable that is
-*most* constrained but the value that is
-*least* constraining in a CSP search.
+Giải thích tại sao việc chọn biến *bị ràng buộc nhất* nhưng giá trị *ít ràng buộc nhất* trong một CSP search lại là một heuristic tốt.
 
 
 ---
 
 ##### Bài tập 6.10
 
-Generate random instances of map-coloring problems as follows: scatter
-$n$ points on the unit square; select a point $X$ at random, connect $X$
-by a straight line to the nearest point $Y$ such that $X$ is not already
-connected to $Y$ and the line crosses no other line; repeat the previous
-step until no more connections are possible. The points represent
-regions on the map and the lines connect neighbors. Now try to find
-$k$-colorings of each map, for both $k3$ and
-$k4$, using min-conflicts, backtracking, backtracking with
-forward checking, and backtracking with MAC. Construct a table of
-average run times for each algorithm for values of $n$ up to the largest
-you can manage. Comment on your results.
+Tạo các trường hợp ngẫu nhiên của bài toán tô màu bản đồ như sau: rải $n$ điểm trên hình vuông đơn vị; chọn ngẫu nhiên một điểm $X$, nối $X$ bằng một đường thẳng đến điểm gần nhất $Y$ sao cho $X$ chưa được nối với $Y$ và đường thẳng không cắt bất kỳ đường thẳng nào khác; lặp lại bước trước cho đến khi không còn kết nối nào có thể thực hiện được. Các điểm đại diện cho các vùng trên bản đồ và các đường thẳng nối các vùng lân cận. Bây giờ hãy thử tìm các phép tô màu $k$ màu cho mỗi bản đồ, cho cả $k3$ và $k4$, bằng cách sử dụng min-conflicts, backtracking, backtracking với forward checking và backtracking với MAC. Lập một bảng thời gian chạy trung bình cho mỗi thuật toán với các giá trị của $n$ cho đến giá trị lớn nhất bạn có thể thực hiện được. Nhận xét về kết quả của bạn.
 
 
 ---
 
 ##### Bài tập 6.11
 
-Use the AC-3 algorithm to show that arc consistency can detect the
-inconsistency of the partial assignment
-${{WA}}{green},V{red}$ for the problem
-shown in Figure <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/australia-figure.png">australia-figure</a>.
+Sử dụng thuật toán AC-3 để chứng minh rằng arc consistency có thể phát hiện sự không nhất quán của phép gán một phần
+${{WA}}{green},V{red}$ cho bài toán được hiển thị trong Hình <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/australia-figure.png">australia-figure</a>.
 
 
 ---
 
 ##### Bài tập 6.12
 
-Use the AC-3 algorithm to show that arc consistency can detect the
-inconsistency of the partial assignment
-${{WA}}{red},V{blue}$ for the problem
-shown in Figure <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/australia-figure.png">australia-figure</a>.
+Sử dụng thuật toán AC-3 để chứng minh rằng arc consistency có thể phát hiện sự không nhất quán của phép gán một phần
+${{WA}}{red},V{blue}$ cho bài toán được hiển thị trong Hình <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/australia-figure.png">australia-figure</a>.
 
 
 ---
 
 ##### Bài tập 6.13
 
-What is the worst-case complexity of running AC-3 on a tree-structured
-CSP?
+Độ phức tạp trường hợp xấu nhất khi chạy AC-3 trên một CSP có cấu trúc cây là bao nhiêu?
 
 
 ---
 
 ##### Bài tập 6.14
 
-AC-3 puts back on the queue <i>every</i> arc
-($X_{k}, X_{i}$) whenever <i>any</i> value is deleted from the
-domain of $X_{i}$, even if each value of $X_{k}$ is consistent with
-several remaining values of $X_{i}$. Suppose that, for every arc
-($X_{k}, X_{i}$), we keep track of the number of remaining values of
-$X_{i}$ that are consistent with each value of $X_{k}$. Explain how to
-update these numbers efficiently and hence show that arc consistency can
-be enforced in total time $O(n^2d^2)$.
+AC-3 đưa trở lại hàng đợi *mọi* cung ($X_{k}, X_{i}$) bất cứ khi nào *bất kỳ* giá trị nào bị xóa khỏi miền của $X_{i}$, ngay cả khi mỗi giá trị của $X_{k}$ nhất quán với nhiều giá trị còn lại của $X_{i}$. Giả sử rằng, đối với mọi cung ($X_{k}, X_{i}$), chúng ta theo dõi số lượng các giá trị còn lại của $X_{i}$ nhất quán với mỗi giá trị của $X_{k}$. Giải thích cách cập nhật các số này một cách hiệu quả và do đó chứng minh rằng arc consistency có thể được thực thi trong tổng thời gian $O(n^2d^2)$.
 
 
 ---
 
 ##### Bài tập 6.15
 
-The Tree-CSP-Solver (Figure <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/tree-csp-figure.png">tree-csp-figure</a>) makes arcs consistent
-starting at the leaves and working backwards towards the root. Why does
-it do that? What would happen if it went in the opposite direction?
+Thuật toán Tree-CSP-Solver (Hình <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/tree-csp-figure.png">tree-csp-figure</a>) làm cho các cung nhất quán bắt đầu từ các lá và làm việc ngược về phía gốc. Tại sao nó lại làm như vậy? Điều gì sẽ xảy ra nếu nó đi theo hướng ngược lại?
 
 
 ---
 
 ##### Bài tập 6.16
 
-We introduced Sudoku as a CSP to be solved by search over partial
-assignments because that is the way people generally undertake solving
-Sudoku problems. It is also possible, of course, to attack these
-problems with local search over complete assignments. How well would a
-local solver using the min-conflicts heuristic do on Sudoku problems?
+Chúng ta đã giới thiệu Sudoku như một CSP để giải bằng search trên các phép gán một phần vì đó là cách mọi người thường giải Sudoku. Tất nhiên, cũng có thể tấn công các bài toán này bằng local search trên các phép gán hoàn chỉnh. Một solver cục bộ sử dụng heuristic min-conflicts sẽ hoạt động tốt như thế nào trên các bài toán Sudoku?
 
 
 ---
 
 ##### Bài tập 6.17
 
-Define in your own words the terms constraint, backtracking search, arc
-consistency, backjumping, min-conflicts, and cycle cutset.
+Định nghĩa bằng lời của riêng bạn các thuật ngữ constraint, backtracking search, arc consistency, backjumping, min-conflicts và cycle cutset.
 
 
 ---
 
 ##### Bài tập 6.18
 
-Define in your own words the terms constraint, commutativity, arc
-consistency, backjumping, min-conflicts, and cycle cutset.
+Định nghĩa bằng lời của riêng bạn các thuật ngữ constraint, commutativity, arc consistency, backjumping, min-conflicts và cycle cutset.
 
 
 ---
 
 ##### Bài tập 6.19
 
-Suppose that a graph is known to have a cycle cutset of no more than $k$
-nodes. Describe a simple algorithm for finding a minimal cycle cutset
-whose run time is not much more than $O(n^k)$ for a CSP with $n$
-variables. Search the literature for methods for finding approximately
-minimal cycle cutsets in time that is polynomial in the size of the
-cutset. Does the existence of such algorithms make the cycle cutset
-method practical?
+Giả sử rằng một đồ thị được biết là có một cycle cutset không quá $k$ nút. Mô tả một thuật toán đơn giản để tìm một cycle cutset tối thiểu có thời gian chạy không quá $O(n^k)$ cho một CSP có $n$ biến. Tìm kiếm tài liệu về các phương pháp tìm cycle cutset gần tối thiểu trong thời gian đa thức theo kích thước của cutset. Sự tồn tại của các thuật toán như vậy có làm cho phương pháp cycle cutset trở nên thực tế không?
 
 
 ---
 
 ##### Bài tập 6.20
 
-Consider the problem of tiling a surface (completely and exactly
-covering it) with $n$ dominoes ($2\times 1$ rectangles). The surface is an arbitrary edge-connected (i.e.,
-adjacent along an edge, not just a corner) collection of $2n$
-$1\times 1$ squares (e.g., a checkerboard, a checkerboard with some
-squares missing, a $10\times 1$ row of squares, etc.).<br>
+Xem xét bài toán lát một bề mặt (bao phủ hoàn toàn và chính xác) bằng $n$ quân domino ($2\times 1$ hình chữ nhật). Bề mặt là một tập hợp tùy ý các hình vuông $1\times 1$ được kết nối cạnh (tức là liền kề theo một cạnh, không chỉ theo góc) với tổng số $2n$ hình vuông (ví dụ: một bàn cờ, một bàn cờ với một số ô bị thiếu, một hàng 10 ô vuông, v.v.).<br>
 
-1.  Formulate this problem precisely as a CSP where the dominoes are
-    the variables.<br>
+1.  Định nghĩa chính xác bài toán này dưới dạng một CSP trong đó các quân domino là các biến.<br>
 
-2.  Formulate this problem precisely as a CSP where the squares are the
-    variables, keeping the state space as small as possible.
-    (*Hint:* does it matter which particular domino goes on
-    a given pair of squares?)<br>
+2.  Định nghĩa chính xác bài toán này dưới dạng một CSP trong đó các ô vuông là các biến, giữ cho không gian trạng thái nhỏ nhất có thể. (*Gợi ý:* liệu việc quân domino nào được đặt trên một cặp ô vuông cụ thể có quan trọng không?)<br>
 
-3.  Construct a surface consisting of 6 squares such that your CSP
-    formulation from part (b) has a *tree-structured*
-    constraint graph.<br>
+3.  Xây dựng một bề mặt gồm 6 ô vuông sao cho công thức CSP của bạn từ phần (b) có một đồ thị ràng buộc *có cấu trúc cây*.<br>
 
-4.  Describe exactly the set of solvable instances that have a
-    tree-structured constraint graph.<br>
+4.  Mô tả chính xác tập hợp các trường hợp có thể giải được có đồ thị ràng buộc có cấu trúc cây.<br>
 
 
 ---
-
 
 <!-- tabs:end -->

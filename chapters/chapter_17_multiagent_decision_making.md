@@ -49,148 +49,111 @@
 
 #### **Bài tập**
 
+
 ##### Bài tập 17.1
 
-For the $4\times 3$ world shown in
-Figure <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/sequential-decision-world-figure.png">sequential-decision-world-figure</a>., calculate
-which squares can be reached from (1,1) by the action sequence
-$[{Up},{Up},{Right},{Right},{Right}]$ and with what
-probabilities. Explain how this computation is related to the prediction
-task (see Section <a href="#">general-filtering-section</a> for a
-hidden Markov model.
+Đối với thế giới $4\times 3$ được hiển thị trong
+Hình <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/sequential-decision-world-figure.png">sequential-decision-world-figure</a>, hãy tính toán
+những ô vuông nào có thể đạt được từ (1,1) bằng chuỗi hành động
+$[{Up},{Up},{Right},{Right},{Right}]$ và với xác suất nào. Giải thích cách tính toán này liên quan đến tác vụ dự đoán (xem Phần <a href="#">general-filtering-section</a> cho một hidden Markov model.
 
 
 ---
 
 ##### Bài tập 17.2
 
-For the $4\times 3$ world shown in
-Figure <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/sequential-decision-world-figure.png">sequential-decision-world-figure</a>, calculate
-which squares can be reached from (1,1) by the action sequence
-$[{Right},{Right},{Right},{Up},{Up}]$ and with what
-probabilities. Explain how this computation is related to the prediction
-task (see Section <a class="sectionRef" title="" href="#">general-filtering-section</a>) for a
-hidden Markov model.
+Đối với thế giới $4\times 3$ được hiển thị trong
+Hình <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/sequential-decision-world-figure.png">sequential-decision-world-figure</a>, hãy tính toán
+những ô vuông nào có thể đạt được từ (1,1) bằng chuỗi hành động
+$[{Right},{Right},{Right},{Up},{Up}]$ và với xác suất nào. Giải thích cách tính toán này liên quan đến tác vụ dự đoán (xem Phần <a class="sectionRef" title="" href="#">general-filtering-section</a>) cho một hidden Markov model.
 
 
 ---
 
 ##### Bài tập 17.3
 
-Select a specific member of the set of policies that are optimal for
-$R(s)>0$ as shown in
-Figure <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/sequential-decision-policies-figure.png">sequential-decision-policies-figure</a>(b), and
-calculate the fraction of time the agent spends in each state, in the
-limit, if the policy is executed forever. (<i>Hint</i>:
-Construct the state-to-state transition probability matrix corresponding
-to the policy and see
-Exercise <a class="exerciseRef" href="{{ site.baseurl }}/dbn-exercises/ex_2/">markov-convergence-exercise</a>.)
+Chọn một thành viên cụ thể trong tập hợp các policies tối ưu cho
+$R(s)>0$ như được hiển thị trong
+Hình <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/sequential-decision-policies-figure.png">sequential-decision-policies-figure</a>(b), và
+tính toán tỷ lệ thời gian agent dành ở mỗi state, trong giới hạn, nếu policy được thực thi mãi mãi. (<i>Gợi ý</i>:
+Xây dựng ma trận xác suất chuyển đổi từ state sang state tương ứng với policy và xem
+Bài tập <a class="exerciseRef" href="{{ site.baseurl }}/dbn-exercises/ex_2/">markov-convergence-exercise</a>.)
 
 
 ---
 
 ##### Bài tập 17.4
 
-Suppose that we define the utility of a state
-sequence to be the <i>maximum</i> reward obtained in any state
-in the sequence. Show that this utility function does not result in
-stationary preferences between state sequences. Is it still possible to
-define a utility function on states such that MEU decision making gives
-optimal behavior?
+Giả sử rằng chúng ta định nghĩa utility của một chuỗi state
+là phần thưởng *tối đa* thu được ở bất kỳ state nào trong chuỗi. Chứng minh rằng hàm utility này không dẫn đến sở thích tĩnh giữa các chuỗi state. Liệu vẫn có thể định nghĩa một hàm utility trên các state sao cho việc ra quyết định theo MEU mang lại hành vi tối ưu?
 
 
 ---
 
 ##### Bài tập 17.5
 
-Can any finite search problem be translated exactly into a Markov
-decision problem such that an optimal solution of the latter is also an
-optimal solution of the former? If so, explain <i>precisely</i>
-how to translate the problem and how to translate the solution back; if
-not, explain <i>precisely</i> why not (i.e., give a
-counterexample).
+Liệu bất kỳ bài toán search hữu hạn nào có thể được dịch chính xác thành một Markov decision problem sao cho một giải pháp tối ưu của cái sau cũng là một giải pháp tối ưu của cái trước không? Nếu có, hãy giải thích *chính xác* cách dịch bài toán và cách dịch giải pháp trở lại; nếu không, hãy giải thích *chính xác* tại sao không (tức là, đưa ra một phản ví dụ).
 
 
 ---
 
 ##### Bài tập 17.6
 
-Sometimes MDPs are formulated with a
-reward function $R(s,a)$ that depends on the action taken or with a
-reward function $R(s,a,s')$ that also depends on the outcome state.<br>
+Đôi khi MDPs được xây dựng với một hàm phần thưởng $R(s,a)$ phụ thuộc vào hành động được thực hiện hoặc với một hàm phần thưởng $R(s,a,s')$ cũng phụ thuộc vào state kết quả.<br>
 
-1.  Write the Bellman equations for these formulations.<br>
+1.  Viết các phương trình Bellman cho các công thức này.<br>
 
-2.  Show how an MDP with reward function $R(s,a,s')$ can be transformed
-    into a different MDP with reward function $R(s,a)$, such that
-    optimal policies in the new MDP correspond exactly to optimal
-    policies in the original MDP.<br>
+2.  Chỉ ra cách một MDP với hàm phần thưởng $R(s,a,s')$ có thể được biến đổi thành một MDP khác với hàm phần thưởng $R(s,a)$, sao cho các policies tối ưu trong MDP mới tương ứng chính xác với các policies tối ưu trong MDP gốc.<br>
 
-3.  Now do the same to convert MDPs with $R(s,a)$ into MDPs with $R(s)$.<br>
+3.  Bây giờ hãy làm tương tự để chuyển đổi MDPs với $R(s,a)$ thành MDPs với $R(s)$.<br>
 
 
 ---
 
 ##### Bài tập 17.7
 
-For the environment shown in
-Figure <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/sequential-decision-world-figure.png">sequential-decision-world-figure</a>, find all the
-threshold values for $R(s)$ such that the optimal policy changes when
-the threshold is crossed. You will need a way to calculate the optimal
-policy and its value for fixed $R(s)$. (<i>Hint</i>: Prove that
-the value of any fixed policy varies linearly with $R(s)$.)
+Đối với môi trường được hiển thị trong
+Hình <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/sequential-decision-world-figure.png">sequential-decision-world-figure</a>, tìm tất cả các
+giá trị ngưỡng cho $R(s)$ sao cho policy tối ưu thay đổi khi vượt qua ngưỡng. Bạn sẽ cần một cách để tính toán policy tối ưu và giá trị của nó cho $R(s)$ cố định. (<i>Gợi ý</i>: Chứng minh rằng giá trị của bất kỳ policy cố định nào thay đổi tuyến tính với $R(s)$.)
 
 
 ---
 
 ##### Bài tập 17.8
 
-Equation (<a class="equationRef" title="" href="#">vi-contraction-equation</a>) on
-page <a class="pageRef" title="" href="#">vi-contraction-equation</a> states that the Bellman operator is a contraction.<br>
+Phương trình (<a class="equationRef" title="" href="#">vi-contraction-equation</a>) trên trang <a class="pageRef" title="" href="#">vi-contraction-equation</a> nói rằng toán tử Bellman là một phép co. <br>
 
-1.  Show that, for any functions $f$ and $g$,
+1.  Chứng minh rằng, với bất kỳ hàm $f$ và $g$ nào,
     $$|\max_a f(a) - \max_a g(a)| \leq \max_a |f(a) - g(a)|\ .$$<br>
 
-2.  Write out an expression for $$|(B\,U_i - B\,U'_i)(s)|$$ and then apply
-    the result from (1) to complete the proof that the Bellman operator
-    is a contraction.<br>
+2.  Viết ra một biểu thức cho $$|(B\,U_i - B\,U'_i)(s)|$$ và sau đó áp dụng
+    kết quả từ (1) để hoàn thành chứng minh rằng toán tử Bellman
+    là một phép co.<br>
 
 
 ---
 
 ###### Bài tập 17.9
 
-This exercise considers two-player MDPs that correspond to zero-sum,
-turn-taking games like those in
-Chapter <a class="chapterRef" href="{{site.baseurl}}/game-playing-exercises/">game-playing-chapter</a>. Let the players be $A$
-and $B$, and let $R(s)$ be the reward for player $A$ in state $s$. (The
-reward for $B$ is always equal and opposite.)<br>
+Bài tập này xem xét các MDP hai người chơi tương ứng với các trò chơi tổng bằng không, chơi luân phiên như trong
+Chương <a class="chapterRef" href="{{site.baseurl}}/game-playing-exercises/">game-playing-chapter</a>. Gọi người chơi là $A$ và $B$, và gọi $R(s)$ là phần thưởng cho người chơi $A$ trong state $s$. (Phần thưởng cho $B$ luôn bằng và đối lập.)<br>
 
-1.  Let $U_A(s)$ be the utility of state $s$ when it is $A$’s turn to
-    move in $s$, and let $U_B(s)$ be the utility of state $s$ when it is
-    $B$’s turn to move in $s$. All rewards and utilities are calculated
-    from $A$’s point of view (just as in a minimax game tree). Write
-    down Bellman equations defining $U_A(s)$ and $U_B(s)$.<br>
+1.  Gọi $U_A(s)$ là utility của state $s$ khi đến lượt $A$ di chuyển trong $s$, và gọi $U_B(s)$ là utility của state $s$ khi đến lượt $B$ di chuyển trong $s$. Tất cả phần thưởng và utility đều được tính từ góc nhìn của $A$ (giống như trong cây minimax game). Viết các phương trình Bellman định nghĩa $U_A(s)$ và $U_B(s)$.<br>
 
-2.  Explain how to do two-player value iteration with these equations,
-    and define a suitable termination criterion.<br>
+2.  Giải thích cách thực hiện two-player value iteration với các phương trình này, và định nghĩa một tiêu chí dừng phù hợp.<br>
 
-3.  Consider the game described in
-    Figure <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/line-game4-figure.png">line-game4-figure</a> on page <a class="pageRef" id="pageref" title="" href="#">line-game4-figure</a>.
-    Draw the state space (rather than the game tree), showing the moves
-    by $A$ as solid lines and moves by $B$ as dashed lines. Mark each
-    state with $R(s)$. You will find it helpful to arrange the states
-    $(s_A,s_B)$ on a two-dimensional grid, using $s_A$ and $s_B$ as
-    “coordinates.”<br>
+3.  Xem xét trò chơi được mô tả trong
+    Hình <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/line-game4-figure.png">line-game4-figure</a> trên trang <a class="pageRef" id="pageref" title="" href="#">line-game4-figure</a>.
+    Vẽ không gian state (thay vì cây game), hiển thị các nước đi của $A$ bằng các đường liền nét và các nước đi của $B$ bằng các đường nét đứt. Đánh dấu mỗi state với $R(s)$. Bạn sẽ thấy hữu ích khi sắp xếp các state
+    $(s_A,s_B)$ trên một lưới hai chiều, sử dụng $s_A$ và $s_B$ làm “tọa độ.”<br>
 
-4.  Now apply two-player value iteration to solve this game, and derive
-    the optimal policy.<br>
+4.  Bây giờ áp dụng two-player value iteration để giải trò chơi này, và suy ra policy tối ưu.<br>
 
 
     <figure>
       <img src="https://aimacode.github.io/aima-exercises/figures/grid-mdp-figure.svg" alt="grid-mdp-figure" id="grid-mdp-figure" style="width:100%">
-      <figcaption><center><b>(a) $3 \times 3$ world for Exercise <a href="#">3x3-mdp-exercise</a>. The reward for each state is indicated. The upper right square is a terminal state. (b) $101 \times 3$ world for Exercise <a href="#">101x3-mdp-exercise</a> (omitting 93 identical columns in the middle).
-      The start state has reward 0.</b></center></figcaption>
+      <figcaption><center><b>(a) Thế giới $3 \times 3$ cho Bài tập <a href="#">3x3-mdp-exercise</a>. Phần thưởng cho mỗi state được chỉ ra. Ô vuông trên cùng bên phải là một state kết thúc. (b) Thế giới $101 \times 3$ cho Bài tập <a href="#">101x3-mdp-exercise</a> (bỏ qua 93 cột giống hệt nhau ở giữa).
+      State bắt đầu có phần thưởng 0.</b></center></figcaption>
     </figure>
 
 
@@ -198,17 +161,12 @@ reward for $B$ is always equal and opposite.)<br>
 
 ##### Bài tập 17.10
 
-Consider the $3 \times 3$ world shown in
-Figure <a class="insideExercisesFigRef"  href="#grid-mdp-figure">grid-mdp-figure</a>(a). The transition model is the
-same as in the $4\times 3$
-Figure <a class="insideBookFigRef" id="insidebookfigref" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/sequential-decision-world-figure.png">sequential-decision-world-figure</a>: 80% of the
-time the agent goes in the direction it selects; the rest of the time it
-moves at right angles to the intended direction.<br>
+Xem xét thế giới $3 \times 3$ được hiển thị trong
+Hình <a class="insideExercisesFigRef"  href="#grid-mdp-figure">grid-mdp-figure</a>(a). Mô hình chuyển đổi giống như trong
+Hình <a class="insideBookFigRef" id="insidebookfigref" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/sequential-decision-world-figure.png">sequential-decision-world-figure</a> $4\times 3$: 80% thời gian agent đi theo hướng nó chọn; phần còn lại thời gian nó di chuyển vuông góc với hướng dự định.<br>
 
-Implement value iteration for this world for each value of $r$ below.
-Use discounted rewards with a discount factor of 0.99. Show the policy
-obtained in each case. Explain intuitively why the value of $r$ leads to
-each policy.<br>
+Triển khai value iteration cho thế giới này với mỗi giá trị của $r$ dưới đây.
+Sử dụng phần thưởng chiết khấu với hệ số chiết khấu là 0.99. Hiển thị policy thu được trong mỗi trường hợp. Giải thích trực quan tại sao giá trị của $r$ dẫn đến mỗi policy.<br>
 
 1.  $r = -100$<br>
 
@@ -223,164 +181,109 @@ each policy.<br>
 
 ##### Bài tập 17.11
 
-Consider the $101 \times 3$ world shown in
-Figure <a class="insideExercisesFigRef"  href="#grid-mdp-figure">grid-mdp-figure</a>(b). In the start state the agent
-has a choice of two deterministic actions, <i>Up</i> or
-<i>Down</i>, but in the other states the agent has one
-deterministic action, <i>Right</i>. Assuming a discounted reward
-function, for what values of the discount $\gamma$ should the agent
-choose <i>Up</i> and for which <i>Down</i>? Compute the
-utility of each action as a function of $\gamma$. (Note that this simple
-example actually reflects many real-world situations in which one must
-weigh the value of an immediate action versus the potential continual
-long-term consequences, such as choosing to dump pollutants into a
-lake.)
+Xem xét thế giới $101 \times 3$ được hiển thị trong
+Hình <a class="insideExercisesFigRef"  href="#grid-mdp-figure">grid-mdp-figure</a>(b). Trong state bắt đầu, agent có lựa chọn hai hành động xác định, *Up* hoặc
+*Down*, nhưng trong các state khác, agent có một hành động xác định, *Right*. Giả sử hàm phần thưởng chiết khấu, với những giá trị nào của hệ số chiết khấu $\gamma$ thì agent nên chọn *Up* và với những giá trị nào thì nên chọn *Down*? Tính toán utility của mỗi hành động như một hàm của $\gamma$. (Lưu ý rằng ví dụ đơn giản này thực sự phản ánh nhiều tình huống thực tế trong đó người ta phải cân nhắc giá trị của một hành động tức thời so với các hậu quả lâu dài liên tục có thể xảy ra, chẳng hạn như chọn đổ chất ô nhiễm vào hồ.)
 
 
 ---
 
 ##### Bài tập 17.12
 
-Consider an undiscounted MDP having three states, (1, 2, 3), with
-rewards $-1$, $-2$, $0$, respectively. State 3 is a terminal state. In
-states 1 and 2 there are two possible actions: $a$ and $b$. The
-transition model is as follows:<br>
+Xem xét một MDP không chiết khấu có ba state, (1, 2, 3), với phần thưởng lần lượt là $-1$, $-2$, $0$. State 3 là một state kết thúc. Trong các state 1 và 2 có hai hành động khả thi: $a$ và $b$. Mô hình chuyển đổi như sau:<br>
 
--   In state 1, action $a$ moves the agent to state 2 with probability
-    0.8 and makes the agent stay put with probability 0.2.<br>
+-   Trong state 1, hành động $a$ đưa agent đến state 2 với xác suất 0.8 và giữ nguyên agent với xác suất 0.2.<br>
 
--   In state 2, action $a$ moves the agent to state 1 with probability
-    0.8 and makes the agent stay put with probability 0.2.<br>
+-   Trong state 2, hành động $a$ đưa agent đến state 1 với xác suất 0.8 và giữ nguyên agent với xác suất 0.2.<br>
 
--   In either state 1 or state 2, action $b$ moves the agent to state 3
-    with probability 0.1 and makes the agent stay put with
-    probability 0.9.<br>
+-   Trong cả state 1 hoặc state 2, hành động $b$ đưa agent đến state 3 với xác suất 0.1 và giữ nguyên agent với xác suất 0.9.<br>
 
-Answer the following questions:<br>
+Trả lời các câu hỏi sau:<br>
 
-1.  What can be determined <i>qualitatively</i> about the
-    optimal policy in states 1 and 2?<br>
+1.  Có thể xác định *chất lượng* gì về policy tối ưu trong các state 1 và 2?<br>
 
-2.  Apply policy iteration, showing each step in full, to determine the
-    optimal policy and the values of states 1 and 2. Assume that the
-    initial policy has action $b$ in both states.<br>
+2.  Áp dụng policy iteration, hiển thị từng bước đầy đủ, để xác định policy tối ưu và giá trị của các state 1 và 2. Giả sử policy ban đầu có hành động $b$ ở cả hai state.<br>
 
-3.  What happens to policy iteration if the initial policy has action
-    $a$ in both states? Does discounting help? Does the optimal policy
-    depend on the discount factor?<br>
+3.  Điều gì xảy ra với policy iteration nếu policy ban đầu có hành động $a$ ở cả hai state? Liệu chiết khấu có giúp ích không? Liệu policy tối ưu có phụ thuộc vào hệ số chiết khấu không?<br>
 
 
 ---
 
 ##### Bài tập 17.13
 
-Consider the $4\times 3$ world shown in
-Figure <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/sequential-decision-world-figure.png">sequential-decision-world-figure</a><br>.
+Xem xét thế giới $4\times 3$ được hiển thị trong
+Hình <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/sequential-decision-world-figure.png">sequential-decision-world-figure</a><br>.
 
-1.  Implement an environment simulator for this environment, such that
-    the specific geography of the environment is easily altered. Some
-    code for doing this is already in the online code repository.<br>
+1.  Triển khai một trình mô phỏng môi trường cho môi trường này, sao cho địa lý cụ thể của môi trường có thể dễ dàng thay đổi. Một số mã cho việc này đã có trong kho mã trực tuyến.<br>
 
-2.  Create an agent that uses policy iteration, and measure its
-    performance in the environment simulator from various
-    starting states. Perform several experiments from each starting
-    state, and compare the average total reward received per run with
-    the utility of the state, as determined by your algorithm.<br>
+2.  Tạo một agent sử dụng policy iteration, và đo lường hiệu suất của nó trong trình mô phỏng môi trường từ các state bắt đầu khác nhau. Thực hiện nhiều thử nghiệm từ mỗi state bắt đầu, và so sánh phần thưởng tổng trung bình nhận được mỗi lần chạy với utility của state, như được xác định bởi thuật toán của bạn.<br>
 
-3.  Experiment with increasing the size of the environment. How does the
-    run time for policy iteration vary with the size of the environment?<br>
+3.  Thử nghiệm với việc tăng kích thước của môi trường. Thời gian chạy cho policy iteration thay đổi như thế nào với kích thước của môi trường?<br>
 
 
 ---
 
 ##### Bài tập 17.14
 
-How can the value determination algorithm be
-used to calculate the expected loss experienced by an agent using a
-given set of utility estimates ${U}$ and an estimated
-model ${P}$, compared with an agent using correct values?
+Thuật toán xác định giá trị có thể được sử dụng như thế nào để tính toán tổn thất kỳ vọng mà một agent trải qua khi sử dụng một bộ ước tính utility ${U}$ và một mô hình ước tính ${P}$, so với một agent sử dụng các giá trị chính xác?
 
 
 ---
 
 ##### Bài tập 17.15
 
-Let the initial belief state $b_0$ for the
-$4\times 3$ POMDP on page <a class="pageRef" title="" href="#">4x3-pomdp-page</a> be the uniform distribution
-over the nonterminal states, i.e.,
+Cho belief state ban đầu $b_0$ cho POMDP $4\times 3$ trên trang <a class="pageRef" title="" href="#">4x3-pomdp-page</a> là phân phối đều trên các state không kết thúc, tức là
 $< \frac{1}{9},\frac{1}{9},\frac{1}{9},\frac{1}{9},\frac{1}{9},\frac{1}{9},\frac{1}{9},\frac{1}{9},\frac{1}{9},0,0 >$.
-Calculate the exact belief state $b_1$ after the agent moves and its
-sensor reports 1 adjacent wall. Also calculate $b_2$ assuming that the
-same thing happens again.
+Tính toán belief state chính xác $b_1$ sau khi agent di chuyển và cảm biến của nó báo cáo 1 bức tường liền kề. Cũng tính toán $b_2$ giả sử điều tương tự xảy ra một lần nữa.
 
 
 ---
 
 ##### Bài tập 17.16
 
-What is the time complexity of $d$ steps of POMDP value iteration for a
-sensorless environment?
+Độ phức tạp thời gian của $d$ bước POMDP value iteration cho một môi trường không có cảm biến là bao nhiêu?
 
 
 ---
 
 ##### Bài tập 17.17
 
-Consider a version of the two-state POMDP on
-page <a class="pageRef" title="" href="#">2state-pomdp-page</a> in which the sensor is 90% reliable in state 0 but
-provides no information in state 1 (that is, it reports 0 or 1 with
-equal probability). Analyze, either qualitatively or quantitatively, the
-utility function and the optimal policy for this problem.
+Xem xét một phiên bản của POMDP hai state trên trang <a class="pageRef" title="" href="#">2state-pomdp-page</a> trong đó cảm biến có độ tin cậy 90% trong state 0 nhưng không cung cấp thông tin trong state 1 (tức là, nó báo cáo 0 hoặc 1 với xác suất bằng nhau). Phân tích, định tính hoặc định lượng, hàm utility và policy tối ưu cho bài toán này.
 
 
 ---
 
 ##### Bài tập 17.18
 
-Show that a dominant strategy
-equilibrium is a Nash equilibrium, but not vice versa.
+Chứng minh rằng một dominant strategy equilibrium là một Nash equilibrium, nhưng ngược lại thì không.
 
 
 ---
 
 ##### Bài tập 17.19
 
-In the children’s game of rock–paper–scissors each player reveals at the
-same time a choice of rock, paper, or scissors. Paper wraps rock, rock
-blunts scissors, and scissors cut paper. In the extended version
-rock–paper–scissors–fire–water, fire beats rock, paper, and scissors;
-rock, paper, and scissors beat water; and water beats fire. Write out
-the payoff matrix and find a mixed-strategy solution to this game.
+Trong trò chơi oẳn tù tì của trẻ em, mỗi người chơi đồng thời đưa ra lựa chọn kéo, búa hoặc giấy. Giấy gói đá, đá làm cùn kéo, và kéo cắt giấy. Trong phiên bản mở rộng rock–paper–scissors–fire–water, lửa thắng đá, giấy và kéo; đá, giấy và kéo thắng nước; và nước thắng lửa. Viết ma trận thanh toán và tìm một giải pháp chiến lược hỗn hợp cho trò chơi này.
 
 
 ---
 
 ##### Bài tập 17.20
 
-Solve the game of <i>three</i>-finger Morra.
+Giải trò chơi *ba* ngón Morra.
 
 
 ---
 
 ##### Bài tập 17.21
 
-In the <i>Prisoner’s Dilemma</i>, consider the case where after
-each round, Alice and Bob have probability $X$ meeting again. Suppose
-both players choose the perpetual punishment strategy (where each will
-choose ${refuse}$ unless the other player has ever played
-${testify}$). Assume neither player has played ${testify}$ thus far.
-What is the expected future total payoff for choosing to ${testify}$
-versus ${refuse}$ when $X = .2$? How about when $X = .05$? For what
-value of $X$ is the expected future total payoff the same whether one
-chooses to ${testify}$ or ${refuse}$ in the current round?
+Trong *Prisoner’s Dilemma*, xem xét trường hợp sau mỗi vòng, Alice và Bob có xác suất $X$ gặp lại nhau. Giả sử cả hai người chơi đều chọn chiến lược trừng phạt vĩnh viễn (trong đó mỗi người sẽ chọn ${refuse}$ trừ khi người kia đã từng chơi ${testify}$). Giả sử chưa có người chơi nào chơi ${testify}$. Lợi ích tổng tương lai kỳ vọng cho việc chọn ${testify}$ so với ${refuse}$ khi $X = .2$ là bao nhiêu? Còn khi $X = .05$ thì sao? Với giá trị nào của $X$ thì lợi ích tổng tương lai kỳ vọng là như nhau cho dù người ta chọn ${testify}$ hay ${refuse}$ trong vòng hiện tại?
 
 
 ---
 
 ##### Bài tập 17.22
 
-The following payoff matrix, from @Blinder:1983 by way of <a class="paperRef" title="" href="">Bernstein:1996</a>, shows a game between
-politicians and the Federal Reserve.<br>
+Ma trận thanh toán sau đây, từ @Blinder:1983 qua <a class="paperRef" title="" href="">Bernstein:1996</a>, cho thấy một trò chơi giữa các chính trị gia và Cục Dự trữ Liên bang.<br>
 
 $$
 \begin{array} 
@@ -394,81 +297,37 @@ $$
 $$
 
 <br>
-Politicians can expand or contract fiscal policy, while the Fed can
-expand or contract monetary policy. (And of course either side can
-choose to do nothing.) Each side also has preferences for who should do
-what—neither side wants to look like the bad guys. The payoffs shown are
-simply the rank orderings: 9 for first choice through 1 for last choice.
-Find the Nash equilibrium of the game in pure strategies. Is this a
-Pareto-optimal solution? You might wish to analyze the policies of
-recent administrations in this light.
+Các chính trị gia có thể mở rộng hoặc thu hẹp chính sách tài khóa, trong khi Fed có thể mở rộng hoặc thu hẹp chính sách tiền tệ. (Và tất nhiên, cả hai bên đều có thể chọn không làm gì cả.) Mỗi bên cũng có sở thích về việc ai nên làm gì—không bên nào muốn trông giống như kẻ xấu. Các khoản thanh toán được hiển thị đơn giản là thứ hạng: 9 cho lựa chọn đầu tiên đến 1 cho lựa chọn cuối cùng. Tìm Nash equilibrium của trò chơi ở các chiến lược thuần túy. Đây có phải là một giải pháp Pareto-optimal không? Bạn có thể muốn phân tích các chính sách của các chính quyền gần đây dưới ánh sáng này.
 
 
 ---
 
 ##### Bài tập 17.23
 
-A Dutch auction is similar in an English auction, but rather than
-starting the bidding at a low price and increasing, in a Dutch auction
-the seller starts at a high price and gradually lowers the price until
-some buyer is willing to accept that price. (If multiple bidders accept
-the price, one is arbitrarily chosen as the winner.) More formally, the
-seller begins with a price $p$ and gradually lowers $p$ by increments of
-$d$ until at least one buyer accepts the price. Assuming all bidders act
-rationally, is it true that for arbitrarily small $d$, a Dutch auction
-will always result in the bidder with the highest value for the item
-obtaining the item? If so, show mathematically why. If not, explain how
-it may be possible for the bidder with highest value for the item not to
-obtain it.
+Một cuộc đấu giá kiểu Hà Lan tương tự như một cuộc đấu giá kiểu Anh, nhưng thay vì bắt đầu đấu giá ở mức giá thấp và tăng dần, trong một cuộc đấu giá kiểu Hà Lan, người bán bắt đầu ở mức giá cao và giảm dần giá cho đến khi có ít nhất một người mua chấp nhận mức giá đó. (Nếu nhiều người trả giá chấp nhận mức giá, một người sẽ được chọn tùy ý làm người thắng cuộc.) Chính thức hơn, người bán bắt đầu với mức giá $p$ và giảm dần $p$ theo các bước tăng $d$ cho đến khi ít nhất một người mua chấp nhận mức giá đó. Giả sử tất cả người mua đều hành động hợp lý, liệu có đúng là với $d$ nhỏ tùy ý, một cuộc đấu giá kiểu Hà Lan sẽ luôn dẫn đến việc người trả giá có giá trị cao nhất cho món hàng sẽ nhận được món hàng đó không? Nếu có, hãy chứng minh bằng toán học tại sao. Nếu không, hãy giải thích làm thế nào có thể xảy ra trường hợp người trả giá có giá trị cao nhất cho món hàng không nhận được nó.
 
 
 ---
 
 ##### Bài tập 17.24
 
-Imagine an auction mechanism that is just like an ascending-bid auction,
-except that at the end, the winning bidder, the one who bid $b_{max}$,
-pays only $b_{max}/2$ rather than $b_{max}$. Assuming all agents are
-rational, what is the expected revenue to the auctioneer for this
-mechanism, compared with a standard ascending-bid auction?
+Hãy tưởng tượng một cơ chế đấu giá giống như một cuộc đấu giá tăng giá, ngoại trừ việc cuối cùng, người thắng cuộc, người trả giá $b_{max}$, chỉ phải trả $b_{max}/2$ thay vì $b_{max}$. Giả sử tất cả các agent đều hợp lý, doanh thu kỳ vọng của người bán cho cơ chế này so với một cuộc đấu giá tăng giá tiêu chuẩn là bao nhiêu?
 
 
 ---
 
 ##### Bài tập 17.25
 
-Teams in the National Hockey League historically received 2 points for
-winning a game and 0 for losing. If the game is tied, an overtime period
-is played; if nobody wins in overtime, the game is a tie and each team
-gets 1 point. But league officials felt that teams were playing too
-conservatively in overtime (to avoid a loss), and it would be more
-exciting if overtime produced a winner. So in 1999 the officials
-experimented in mechanism design: the rules were changed, giving a team
-that loses in overtime 1 point, not 0. It is still 2 points for a win
-and 1 for a tie. <br>
+Các đội trong National Hockey League theo lịch sử nhận được 2 điểm cho mỗi trận thắng và 0 cho mỗi trận thua. Nếu trận đấu hòa, một hiệp phụ sẽ được chơi; nếu không ai thắng trong hiệp phụ, trận đấu sẽ hòa và mỗi đội nhận được 1 điểm. Nhưng các quan chức giải đấu cảm thấy rằng các đội đã chơi quá thận trọng trong hiệp phụ (để tránh thua), và sẽ thú vị hơn nếu hiệp phụ tạo ra người thắng cuộc. Vì vậy, vào năm 1999, các quan chức đã thử nghiệm thiết kế cơ chế: các quy tắc đã được thay đổi, cho đội thua trong hiệp phụ 1 điểm, không phải 0. Vẫn là 2 điểm cho một trận thắng và 1 cho một trận hòa.<br>
 
-1.  Was hockey a zero-sum game before the rule change? After?<br>
+1.  Trò chơi khúc côn cầu có phải là trò chơi tổng bằng không trước khi thay đổi luật không? Sau đó thì sao?<br>
 
-2.  Suppose that at a certain time $t$ in a game, the home team has
-    probability $p$ of winning in regulation time, probability $0.78-p$
-    of losing, and probability 0.22 of going into overtime, where they
-    have probability $q$ of winning, $.9-q$ of losing, and .1 of tying.
-    Give equations for the expected value for the home and
-    visiting teams.<br>
+2.  Giả sử rằng tại một thời điểm $t$ nhất định trong một trận đấu, đội chủ nhà có xác suất $p$ thắng trong thời gian thi đấu chính thức, xác suất $0.78-p$ thua, và xác suất 0.22 phải thi đấu hiệp phụ, nơi họ có xác suất $q$ thắng, $.9-q$ thua, và .1 hòa.
+    Đưa ra các phương trình cho giá trị kỳ vọng cho đội chủ nhà và đội khách.<br>
 
-3.  Imagine that it were legal and ethical for the two teams to enter
-    into a pact where they agree that they will skate to a tie in
-    regulation time, and then both try in earnest to win in overtime.
-    Under what conditions, in terms of $p$ and $q$, would it be rational
-    for both teams to agree to this pact?<br>
+3.  Hãy tưởng tượng rằng việc hai đội tham gia vào một thỏa thuận, trong đó họ đồng ý sẽ hòa trong thời gian thi đấu chính thức, và sau đó cả hai đều cố gắng hết sức để thắng trong hiệp phụ, là hợp pháp và có đạo đức.
+    Trong những điều kiện nào, theo $p$ và $q$, thì việc cả hai đội đồng ý với thỏa thuận này là hợp lý?<br>
 
-4.  <a class="paperRef" title="" href="">Longley+Sankaran:2005</a> report that since the rule change, the percentage of games with a
-    winner in overtime went up 18.2%, as desired, but the percentage of
-    overtime games also went up 3.6%. What does that suggest about
-    possible collusion or conservative play after the rule change?<br>
-
-
----
-
+4.  <a class="paperRef" title="" href="">Longley+Sankaran:2005</a> báo cáo rằng kể từ khi thay đổi luật, tỷ lệ các trận đấu có người thắng trong hiệp phụ đã tăng 18.2%, như mong muốn, nhưng tỷ lệ các trận đấu hiệp phụ cũng tăng 3.6%. Điều đó gợi ý gì về khả năng thông đồng hoặc chơi thận trọng sau khi thay đổi luật?<br>
 
 <!-- tabs:end -->

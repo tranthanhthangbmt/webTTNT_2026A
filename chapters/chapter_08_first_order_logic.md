@@ -39,89 +39,62 @@
 
 #### **Bài tập**
 
+
 ##### Bài tập 8.1
 
-A logical knowledge base represents the world using a set of sentences
-with no explicit structure. An <b>analogical</b>
-representation, on the other hand, has physical structure that
-corresponds directly to the structure of the thing represented. Consider
-a road map of your country as an analogical representation of facts
-about the country—it represents facts with a map language. The
-two-dimensional structure of the map corresponds to the two-dimensional
-surface of the area.<br>
+Một knowledge base logic biểu diễn thế giới bằng một tập hợp các câu không có cấu trúc tường minh. Ngược lại, một biểu diễn <b>analogical</b> có cấu trúc vật lý tương ứng trực tiếp với cấu trúc của sự vật được biểu diễn. Hãy xem xét bản đồ đường bộ của quốc gia bạn như một biểu diễn analogical của các sự kiện về quốc gia đó—nó biểu diễn các sự kiện bằng ngôn ngữ bản đồ. Cấu trúc hai chiều của bản đồ tương ứng với bề mặt hai chiều của khu vực.<br>
 
-1.  Give five examples of <i>symbols</i> in the map language.<br>
+1.  Đưa ra năm ví dụ về các <i>symbols</i> trong ngôn ngữ bản đồ.<br>
 
-2.  An <i>explicit</i> sentence is a sentence that the creator
-    of the representation actually writes down. An
-    <i>implicit</i> sentence is a sentence that results from
-    explicit sentences because of properties of the analogical
-    representation. Give three examples each of <i>implicit</i>
-    and <i>explicit</i> sentences in the map language.<br>
+2.  Một câu <i>explicit</i> là một câu mà người tạo ra biểu diễn thực sự viết ra. Một câu <i>implicit</i> là một câu phát sinh từ các câu explicit do các thuộc tính của biểu diễn analogical. Đưa ra ba ví dụ về các câu <i>implicit</i> và ba ví dụ về các câu <i>explicit</i> trong ngôn ngữ bản đồ.<br>
 
-3.  Give three examples of facts about the physical structure of your
-    country that cannot be represented in the map language.<br>
+3.  Đưa ra ba ví dụ về các sự kiện liên quan đến cấu trúc vật lý của quốc gia bạn mà không thể biểu diễn trong ngôn ngữ bản đồ.<br>
 
-4.  Give two examples of facts that are much easier to express in the
-    map language than in first-order logic.<br>
+4.  Đưa ra hai ví dụ về các sự kiện dễ biểu diễn hơn nhiều trong ngôn ngữ bản đồ so với logic bậc nhất.<br>
 
-5.  Give two other examples of useful analogical representations. What
-    are the advantages and disadvantages of each of these languages?
+5.  Đưa ra hai ví dụ khác về các biểu diễn analogical hữu ích. Ưu và nhược điểm của mỗi ngôn ngữ này là gì?
 
 
 ---
 
 ##### Bài tập 8.2
 
-Consider a knowledge base containing just two sentences: $P(a)$ and
-$P(b)$. Does this knowledge base entail $\forall\,x\ P(x)$? Explain your
-answer in terms of models.
+Xem xét một knowledge base chỉ chứa hai câu: $P(a)$ và $P(b)$. Knowledge base này có suy ra $\forall\,x\ P(x)$ không? Giải thích câu trả lời của bạn theo các mô hình (models).
 
 
 ---
 
 ##### Bài tập 8.3
 
-Is the sentence ${\exists\,x,y\;\;} x{{\,=\,}}y$ valid? Explain.
+Câu ${\exists\,x,y\;\;} x{{\,=\,}}y$ có hợp lệ (valid) không? Giải thích.
 
 
 ---
 
 ##### Bài tập 8.4
 
-Write down a logical sentence such that every world in which it is true
-contains exactly one object.
+Viết một câu logic sao cho mọi thế giới mà nó đúng chứa chính xác một đối tượng.
 
 
 ---
 
 ##### Bài tập 8.5
 
-Write down a logical sentence such that every world in which it is true
-contains exactly two objects.
+Viết một câu logic sao cho mọi thế giới mà nó đúng chứa chính xác hai đối tượng.
 
 
 ---
 
 ##### Bài tập 8.6
 
-Consider a symbol vocabulary that contains
-$c$ constant symbols, $p_k$ predicate symbols of each arity $k$, and
-$f_k$ function symbols of each arity $k$, where $1\leq k\leq A$. Let the
-domain size be fixed at $D$. For any given model, each predicate or
-function symbol is mapped onto a relation or function, respectively, of
-the same arity. You may assume that the functions in the model allow
-some input tuples to have no value for the function (i.e., the value is
-the invisible object). Derive a formula for the number of possible
-models for a domain with $D$ elements. Don’t worry about eliminating
-redundant combinations.
+Xem xét một bộ từ vựng ký hiệu chứa $c$ ký hiệu hằng số, $p_k$ ký hiệu vị từ có mỗi arity $k$, và $f_k$ ký hiệu hàm có mỗi arity $k$, với $1\leq k\leq A$. Giả sử kích thước miền (domain size) được cố định là $D$. Đối với bất kỳ mô hình (model) nào, mỗi ký hiệu vị từ hoặc hàm được ánh xạ tới một quan hệ hoặc hàm tương ứng, có cùng arity. Bạn có thể giả định rằng các hàm trong mô hình cho phép một số bộ giá trị đầu vào không có giá trị cho hàm (tức là, giá trị là đối tượng vô hình). Hãy suy ra một công thức cho số lượng các mô hình có thể có cho một miền có $D$ phần tử. Đừng bận tâm đến việc loại bỏ các tổ hợp dư thừa.
 
 
 ---
 
 ##### Bài tập 8.7
 
-Which of the following are valid (necessarily true) sentences?<br>
+Những câu nào sau đây là hợp lệ (luôn đúng)?<br>
 
 1.  $(\exists x\ x{{\,=\,}}x) {\:\;{\Rightarrow}\:\;}({\forall\,y\;\;} \exists z\ y{{\,=\,}}z)$. <br>
 
@@ -134,40 +107,23 @@ Which of the following are valid (necessarily true) sentences?<br>
 
 ##### Bài tập 8.8
 
-Consider a version of the semantics for
-first-order logic in which models with empty domains are allowed. Give
-at least two examples of sentences that are valid according to the
-standard semantics but not according to the new semantics. Discuss which
-outcome makes more intuitive sense for your examples.
+Xem xét một phiên bản ngữ nghĩa (semantics) cho logic bậc nhất mà trong đó các mô hình có miền rỗng (empty domains) được cho phép. Đưa ra ít nhất hai ví dụ về các câu hợp lệ theo ngữ nghĩa tiêu chuẩn nhưng không hợp lệ theo ngữ nghĩa mới. Thảo luận xem kết quả nào có ý nghĩa trực quan hơn cho các ví dụ của bạn.
 
 
 ---
 
 ##### Bài tập 8.9
 
-Does the fact
-$\lnot {Spouse}({George},{Laura})$ follow from the facts
-${Jim}\neq {George}$ and ${Spouse}({Jim},{Laura})$? If so,
-give a proof; if not, supply additional axioms as needed. What happens
-if we use ${Spouse}$ as a unary function symbol instead of a binary
-predicate?
+Sự kiện $\lnot {Spouse}({George},{Laura})$ có suy ra từ các sự kiện ${Jim}\neq {George}$ và ${Spouse}({Jim},{Laura})$ không? Nếu có, hãy đưa ra một chứng minh; nếu không, hãy cung cấp các tiên đề bổ sung khi cần thiết. Điều gì xảy ra nếu chúng ta sử dụng ${Spouse}$ như một ký hiệu hàm một ngôi (unary function symbol) thay vì một vị từ hai ngôi (binary predicate)?
 
 
 ---
 
 ##### Bài tập 8.10
 
-This exercise uses the function ${MapColor}$ and predicates
-${In}(x,y)$, ${Borders}(x,y)$, and ${Country}(x)$, whose arguments
-are geographical regions, along with constant symbols for various
-regions. In each of the following we give an English sentence and a
-number of candidate logical expressions. For each of the logical
-expressions, state whether it (1) correctly expresses the English
-sentence; (2) is syntactically invalid and therefore meaningless; or (3)
-is syntactically valid but does not express the meaning of the English
-sentence.<br>
+Bài tập này sử dụng ký hiệu hàm ${MapColor}$ và các vị từ ${In}(x,y)$, ${Borders}(x,y)$, và ${Country}(x)$, có các đối số là các vùng địa lý, cùng với các ký hiệu hằng số cho các vùng khác nhau. Trong mỗi trường hợp sau đây, chúng tôi đưa ra một câu tiếng Anh và một số biểu thức logic ứng viên. Đối với mỗi biểu thức logic, hãy cho biết liệu nó (1) biểu diễn đúng câu tiếng Anh; (2) không hợp lệ về mặt cú pháp và do đó vô nghĩa; hay (3) hợp lệ về mặt cú pháp nhưng không biểu diễn ý nghĩa của câu tiếng Anh.<br>
 
-1.  Paris and Marseilles are both in France.<br>
+1.  Paris và Marseilles đều ở Pháp.<br>
 
     1.  ${In}({Paris} \land {Marseilles}, {France})$.<br>
 
@@ -175,7 +131,7 @@ sentence.<br>
 
     3.  ${In}({Paris},{France}) \lor {In}({Marseilles},{France})$.<br>
 
-2.  There is a country that borders both Iraq and Pakistan.<br>
+2.  Có một quốc gia giáp cả Iraq và Pakistan.<br>
 
     1.  ${\exists\,c\;\;}$
         ${Country}(c) \land {Border}(c,{Iraq}) \land {Border}(c,{Pakistan})$.<br>
@@ -189,7 +145,7 @@ sentence.<br>
     4.  ${\exists\,c\;\;}$
         ${Border}({Country}(c),{Iraq} \land {Pakistan})$.<br>
 
-3.  All countries that border Ecuador are in South America.<br>
+3.  Tất cả các quốc gia giáp Ecuador đều ở Nam Mỹ.<br>
 
     1.  ${\forall\,c\;\;}  Country(c) \land {Border}(c,{Ecuador}) {\:\;{\Rightarrow}\:\;}{In}(c,{SouthAmerica})$.<br>
 
@@ -199,7 +155,7 @@ sentence.<br>
 
     4.  ${\forall\,c\;\;}  Country(c) \land {Border}(c,{Ecuador}) \land {In}(c,{SouthAmerica})$.<br>
 
-4.  No region in South America borders any region in Europe.<br>
+4.  Không có vùng nào ở Nam Mỹ giáp với vùng nào ở Châu Âu.<br>
 
     1.  $\lnot [{\exists\,c,d\;\;}  {In}(c,{SouthAmerica}) \land {In}(d,{Europe}) \land {Borders}(c,d)]$.<br>
 
@@ -209,7 +165,7 @@ sentence.<br>
 
     4.  ${\forall\,c\;\;} {In}(c,{SouthAmerica}) {\:\;{\Rightarrow}\:\;}{\forall\,d\;\;} {In}(d,{Europe}) {\:\;{\Rightarrow}\:\;}\lnot {Borders}(c,d)$.<br>
 
-5.  No two adjacent countries have the same map color.<br>
+5.  Không có hai quốc gia liền kề nào có cùng màu bản đồ.<br>
 
     1.  ${\forall\,x,y\;\;} \lnot {Country}(x) \lor \lnot {Country}(y) \lor \lnot {Borders}(x,y) \lor {}$\
         $\lnot ({MapColor}(x) = {MapColor}(y))$.<br>
@@ -228,47 +184,42 @@ sentence.<br>
 
 ##### Bài tập 8.11
 
-Consider a vocabulary with the following symbols:<br>
+Xem xét một bộ từ vựng chứa các ký hiệu sau:<br>
 
-> ${Occupation}(p,o)$: Predicate. Person $p$ has occupation $o$.
+> ${Occupation}(p,o)$: Vị từ. Người $p$ có nghề nghiệp $o$.
 
-> ${Customer}(p1,p2)$: Predicate. Person $p1$ is a customer of person $p2$.
+> ${Customer}(p1,p2)$: Vị từ. Người $p1$ là khách hàng của người $p2$.
 
-> ${Boss}(p1,p2)$: Predicate. Person $p1$ is a boss of person $p2$.
+> ${Boss}(p1,p2)$: Vị từ. Người $p1$ là sếp của người $p2$.
 
-> ${Doctor}$, $ {Surgeon}$, $ {Lawyer}$, $ {Actor}$: Constants denoting occupations.
+> ${Doctor}$, $ {Surgeon}$, $ {Lawyer}$, $ {Actor}$: Các hằng số biểu thị nghề nghiệp.
 
-> ${Emily}$, $ {Joe}$: Constants denoting people.
+> ${Emily}$, $ {Joe}$: Các hằng số biểu thị người.
 
-Use these symbols to write the following assertions in first-order
-logic:<br>
+Sử dụng các ký hiệu này để viết các khẳng định sau đây bằng logic bậc nhất:<br>
 
-1.  Emily is either a surgeon or a lawyer.<br>
+1.  Emily hoặc là bác sĩ phẫu thuật hoặc là luật sư.<br>
 
-2.  Joe is an actor, but he also holds another job.<br>
+2.  Joe là diễn viên, nhưng anh ấy còn có một công việc khác.<br>
 
-3.  All surgeons are doctors.<br>
+3.  Tất cả bác sĩ phẫu thuật đều là bác sĩ.<br>
 
-4.  Joe does not have a lawyer (i.e., is not a customer of any lawyer).<br>
+4.  Joe không có luật sư (tức là không phải là khách hàng của bất kỳ luật sư nào).<br>
 
-5.  Emily has a boss who is a lawyer.<br>
+5.  Emily có một người sếp là luật sư.<br>
 
-6.  There exists a lawyer all of whose customers are doctors.<br>
+6.  Tồn tại một luật sư mà tất cả khách hàng của người đó đều là bác sĩ.<br>
 
-7.  Every surgeon has a lawyer.<br>
+7.  Mọi bác sĩ phẫu thuật đều có một luật sư.<br>
 
 
 ---
 
 ##### Bài tập 8.12
 
-In each of the following we give an English sentence and a number of
-candidate logical expressions. For each of the logical expressions,
-state whether it (1) correctly expresses the English sentence; (2) is
-syntactically invalid and therefore meaningless; or (3) is syntactically
-valid but does not express the meaning of the English sentence.<br>
+Trong mỗi trường hợp sau đây, chúng tôi đưa ra một câu tiếng Anh và một số biểu thức logic ứng viên. Đối với mỗi biểu thức logic, hãy cho biết liệu nó (1) biểu diễn đúng câu tiếng Anh; (2) không hợp lệ về mặt cú pháp và do đó vô nghĩa; hay (3) hợp lệ về mặt cú pháp nhưng không biểu diễn ý nghĩa của câu tiếng Anh.<br>
 
-1.  Every cat loves its mother or father.<br>
+1.  Mọi con mèo đều yêu mẹ hoặc cha của nó.<br>
 
     1.  ${\forall\,x\;\;} {Cat}(x) {\:\;{\Rightarrow}\:\;}{Loves}(x,{Mother}(x)\lor {Father}(x))$.<br>
 
@@ -276,7 +227,7 @@ valid but does not express the meaning of the English sentence.<br>
 
     3.  ${\forall\,x\;\;} {Cat}(x) \land ({Loves}(x,{Mother}(x))\lor {Loves}(x,{Father}(x)))$.<br>
 
-2.  Every dog who loves one of its brothers is happy.<br>
+2.  Mọi con chó yêu một trong những người anh em của nó đều hạnh phúc.<br>
 
     1.  ${\forall\,x\;\;} {Dog}(x) \land (\exists y\ {Brother}(y,x) \land {Loves}(x,y)) {\:\;{\Rightarrow}\:\;}{Happy}(x)$.<br>
 
@@ -284,7 +235,7 @@ valid but does not express the meaning of the English sentence.<br>
 
     3.  ${\forall\,x\;\;} {Dog}(x) \land [{\forall\,y\;\;} {Brother}(y,x) {\;\;{\Leftrightarrow}\;\;}{Loves}(x,y)] {\:\;{\Rightarrow}\:\;}{Happy}(x)$.<br>
 
-3.  No dog bites a child of its owner.<br>
+3.  Không có con chó nào cắn con của chủ sở hữu của nó.<br>
 
     1.  ${\forall\,x\;\;} {Dog}(x) {\:\;{\Rightarrow}\:\;}\lnot {Bites}(x,{Child}({Owner}(x)))$.<br>
 
@@ -294,7 +245,7 @@ valid but does not express the meaning of the English sentence.<br>
 
     4.  $\lnot {\exists\,x\;\;} {Dog}(x) {\:\;{\Rightarrow}\:\;}({\exists\,y\;\;} {Child}(y,{Owner}(x)) \land {Bites}(x,y))$.<br>
 
-4.  Everyone’s zip code within a state has the same first digit.<br>
+4.  Mã zip của mọi người trong một tiểu bang có cùng chữ số đầu tiên.<br>
 
     1.  ${\forall\,x,s,z_1\;\;} [{State}(s) \land {LivesIn}(x,s) \land {Zip}(x){{\,=\,}}z_1] {\:\;{\Rightarrow}\:\;}{}$\
         $[{\forall\,y,z_2\;\;} {LivesIn}(y,s) \land {Zip}(y){{\,=\,}}z_2 {\:\;{\Rightarrow}\:\;}{Digit}(1,z_1) {{\,=\,}}{Digit}(1,z_2) ]$.<br>
@@ -313,100 +264,72 @@ valid but does not express the meaning of the English sentence.<br>
 
 ##### Bài tập 8.13
 
-Complete the following exercises
-about logical sentences:<br>
+Hoàn thành các bài tập sau về các câu logic:<br>
 
-1.  Translate into *good, natural* English (no $x$s or $y$s!):<br>
+1.  Dịch sang tiếng Anh *hay, tự nhiên* (không có $x$ hay $y$!):<br>
 
 $$
 {\forall\,x,y,l\;\;} SpeaksLanguage(x, l) \land SpeaksLanguage(y, l)
     \implies Understands(x, y) \land Understands(y,x).<br>
 $$
 
-2.  Explain why this sentence is entailed by the sentence<br>
+2.  Giải thích tại sao câu này được suy ra từ câu<br>
 
 $$
 {\forall\,x,y,l\;\;} SpeaksLanguage(x, l) \land SpeaksLanguage(y, l)
     \implies Understands(x, y).<br>
 $$
 
-3.  Translate into first-order logic the following sentences:<br>
+3.  Dịch sang logic bậc nhất các câu sau:<br>
 
-    1.  Understanding leads to friendship.<br>
+    1.  Sự thấu hiểu dẫn đến tình bạn.<br>
 
-    2.  Friendship is transitive.<br>
+    2.  Tình bạn có tính bắc cầu.<br>
 
-    Remember to define all predicates, functions, and constants you use.
+    Nhớ định nghĩa tất cả các vị từ, hàm và hằng số bạn sử dụng.
 
 
 ---
 
 ##### Bài tập 8.14
 
-True or false? Explain.<br>
+Đúng hay sai? Giải thích.<br>
 
-1.  ${\exists\,x\;\;} x{{\,=\,}}{Rumpelstiltskin}$ is a valid
-    (necessarily true) sentence of first-order logic.<br>
+1.  ${\exists\,x\;\;} x{{\,=\,}}{Rumpelstiltskin}$ là một câu hợp lệ (luôn đúng) của logic bậc nhất.<br>
 
-2.  Every existentially quantified sentence in first-order logic is true
-    in any model that contains exactly one object.<br>
+2.  Mọi câu lượng từ hóa tồn tại (existentially quantified sentence) trong logic bậc nhất đều đúng trong bất kỳ mô hình nào chứa chính xác một đối tượng.<br>
 
-3.  ${\forall\,x,y\;\;} x{{\,=\,}}y$is satisfiable.<br>
+3.  ${\forall\,x,y\;\;} x{{\,=\,}}y$ có thể thỏa mãn (satisfiable).<br>
 
 
 ---
 
 ##### Bài tập 8.15
 
-Rewrite the first two Peano axioms in
-Section <a class="sectionRef" title="" href="#">Peano-section</a> as a single axiom that defines
-${NatNum}(x)$ so as to exclude the possibility of natural numbers
-except for those generated by the successor function.
+Viết lại hai tiên đề Peano đầu tiên trong Phần <a class="sectionRef" title="" href="#">Peano-section</a> thành một tiên đề duy nhất định nghĩa ${NatNum}(x)$ để loại trừ khả năng có các số tự nhiên ngoại trừ những số được tạo ra bởi hàm kế tiếp (successor function).
 
 
 ---
 
 ##### Bài tập 8.16
 
-Equation (<a class="equationRef" title="" href="#">pit-biconditional-equation</a>) on
-page <a class="pageRef" title="" href="#">pit-biconditional-equation</a> defines the conditions under which a square is
-breezy. Here we consider two other ways to describe this aspect of the
-wumpus world.<br>
+Phương trình (<a class="equationRef" title="" href="#">pit-biconditional-equation</a>) trên trang <a class="pageRef" title="" href="#">pit-biconditional-equation</a> định nghĩa các điều kiện mà theo đó một ô vuông bị gió thổi. Ở đây chúng ta xem xét hai cách khác để mô tả khía cạnh này của thế giới wumpus.<br>
 
-1.  We can write [diagnostic rule] leading from observed effects to hidden causes. For
-    finding pits, the obvious diagnostic rules say that if a square is
-    breezy, some adjacent square must contain a pit; and if a square is
-    not breezy, then no adjacent square contains a pit. Write these two
-    rules in first-order logic and show that their conjunction is
-    logically equivalent to
-    Equation (<a href="#">pit-biconditional-equation</a>).<br>
+1.  Chúng ta có thể viết [quy tắc chẩn đoán] dẫn từ các hiệu ứng quan sát được đến các nguyên nhân ẩn. Để tìm các hố, các quy tắc chẩn đoán rõ ràng nói rằng nếu một ô vuông bị gió thổi, thì một ô vuông liền kề phải chứa một hố; và nếu một ô vuông không bị gió thổi, thì không có ô vuông liền kề nào chứa hố. Viết hai quy tắc này bằng logic bậc nhất và cho thấy rằng phép hội của chúng tương đương logic với Phương trình (<a href="#">pit-biconditional-equation</a>).<br>
 
-2.  We can write [causal rule] leading from cause to effect. One obvious causal rule
-    is that a pit causes all adjacent squares to be breezy. Write this
-    rule in first-order logic, explain why it is incomplete compared to
-    Equation (<a href="#">pit-biconditional-equation</a>), and supply
-    the missing axiom.<br>
+2.  Chúng ta có thể viết [quy tắc nhân quả] dẫn từ nguyên nhân đến hiệu ứng. Một quy tắc nhân quả rõ ràng là một hố gây ra tất cả các ô vuông liền kề bị gió thổi. Viết quy tắc này bằng logic bậc nhất, giải thích tại sao nó không đầy đủ so với Phương trình (<a href="#">pit-biconditional-equation</a>), và cung cấp tiên đề còn thiếu.<br>
 
 
 ---
 
 ###### Bài tập 8.17
 
-Write axioms describing the predicates
-${Grandchild}$, ${Greatgrandparent}$, ${Ancestor}$, ${Brother}$,
-${Sister}$, ${Daughter}$, ${Son}$, ${FirstCousin}$,
-${BrotherInLaw}$, ${SisterInLaw}$, ${Aunt}$, and ${Uncle}$. Find
-out the proper definition of $m$th cousin $n$ times removed, and write
-the definition in first-order logic. Now write down the basic facts
-depicted in the family tree in Figure <a class="insideExerciseFigRef" href="#family1-figure">family1-figure</a>.
-Using a suitable logical reasoning system, it all the sentences you have
-written down, and it who are Elizabeth’s grandchildren, Diana’s
-brothers-in-law, Zara’s great-grandparents, and Eugenie’s ancestors.<br>
+Viết các tiên đề mô tả các vị từ ${Grandchild}$, ${Greatgrandparent}$, ${Ancestor}$, ${Brother}$, ${Sister}$, ${Daughter}$, ${Son}$, ${FirstCousin}$, ${BrotherInLaw}$, ${SisterInLaw}$, ${Aunt}$, và ${Uncle}$. Tìm hiểu định nghĩa chính xác của $m$th cousin $n$ times removed, và viết định nghĩa bằng logic bậc nhất. Bây giờ hãy viết các sự kiện cơ bản được mô tả trong cây gia đình ở Hình <a class="insideExerciseFigRef" href="#family1-figure">family1-figure</a>. Sử dụng một hệ thống suy luận logic phù hợp, hãy chứng minh tất cả các câu bạn đã viết, và xác định ai là cháu của Elizabeth, anh rể của Diana, ông cố của Zara, và tổ tiên của Eugenie.<br>
 
 
 <figure>
   <img src="https://aimacode.github.io/aima-exercises/figures/family1.svg" alt="family1-figure" id="family1-figure" style="width:100%">
-  <figcaption><center><b>A typical family tree. The symbol $\bowtie$ connects spouses and arrows point to children.</b></center></figcaption>
+  <figcaption><center><b>Một cây gia đình điển hình. Ký hiệu $\bowtie$ nối các cặp vợ chồng và các mũi tên chỉ đến con cái.</b></center></figcaption>
 </figure>
 
 
@@ -414,35 +337,29 @@ brothers-in-law, Zara’s great-grandparents, and Eugenie’s ancestors.<br>
 
 ##### Bài tập 8.18
 
-Write down a sentence asserting that + is a commutative function. Does
-your sentence follow from the Peano axioms? If so, explain why; if not,
-give a model in which the axioms are true and your sentence is false.
+Viết một câu khẳng định rằng + là một hàm giao hoán. Câu của bạn có suy ra từ các tiên đề Peano không? Nếu có, giải thích tại sao; nếu không, hãy đưa ra một mô hình mà các tiên đề đúng và câu của bạn sai.
 
 
 ---
 
 ##### Bài tập 8.19
 
-Explain what is wrong with the following proposed definition of the set
-membership predicate <br>
-$$ {\forall,x,s;;} x \in {x|s} $$ $$ {\forall,x,s;;} x \in s \implies {\forall,y;;} x \in {y|s} $$
+Giải thích điều gì sai với định nghĩa được đề xuất sau đây cho vị từ thuộc tập hợp <br>
+$$ {\forall,x,s;;} x \in {x|s} $$ $$ {\forall,x,s;;} x \in {s} \implies {\forall,y;;} x \in {y|s} $$
 
 
 ---
 
 ##### Bài tập 8.20
 
-Using the set axioms as examples, write
-axioms for the list domain, including all the constants, functions, and
-predicates mentioned in the chapter.
+Sử dụng các tiên đề tập hợp làm ví dụ, hãy viết các tiên đề cho miền danh sách (list domain), bao gồm tất cả các hằng số, hàm và vị từ được đề cập trong chương.
 
 
 ---
 
 ##### Bài tập 8.21
 
-Explain what is wrong with the following proposed
-definition of adjacent squares in the wumpus world:
+Giải thích điều gì sai với định nghĩa được đề xuất sau đây cho các ô vuông liền kề trong thế giới wumpus:
 $${\forall\,x,y\;\;} {Adjacent}([x,y], [x+1, y]) \land {Adjacent}([x,y], [x, y+1])\ .$$
 
 
@@ -450,134 +367,98 @@ $${\forall\,x,y\;\;} {Adjacent}([x,y], [x+1, y]) \land {Adjacent}([x,y], [x, y+1
 
 ##### Bài tập 8.22
 
-Write out the axioms required for reasoning about the wumpus’s location,
-using a constant symbol ${Wumpus}$ and a binary predicate
-${At}({Wumpus}, {Location})$. Remember that there is only one
-wumpus.
+Viết ra các tiên đề cần thiết để suy luận về vị trí của wumpus, sử dụng một ký hiệu hằng số ${Wumpus}$ và một vị từ hai ngôi ${At}({Wumpus}, {Location})$. Hãy nhớ rằng chỉ có một wumpus.
 
 
 ---
 
 ##### Bài tập 8.23
 
-Assuming predicates ${Parent}(p,q)$ and ${Female}(p)$ and constants
-${Joan}$ and ${Kevin}$, with the obvious meanings, express each of
-the following sentences in first-order logic. (You may use the
-abbreviation $\exists^{1}$ to mean “there exists exactly one.”)<br>
+Giả sử các vị từ ${Parent}(p,q)$ và ${Female}(p)$ và các hằng số ${Joan}$ và ${Kevin}$, với ý nghĩa rõ ràng, hãy biểu diễn mỗi câu sau đây bằng logic bậc nhất. (Bạn có thể sử dụng ký hiệu viết tắt $\exists^{1}$ để chỉ "tồn tại duy nhất một.")<br>
 
-1.  Joan has a daughter (possibly more than one, and possibly sons
-    as well).<br>
+1.  Joan có một cô con gái (có thể nhiều hơn một, và có thể cả con trai).<br>
 
-2.  Joan has exactly one daughter (but may have sons as well).<br>
+2.  Joan có đúng một cô con gái (nhưng có thể có cả con trai).<br>
 
-3.  Joan has exactly one child, a daughter.<br>
+3.  Joan có đúng một đứa con, là con gái.<br>
 
-4.  Joan and Kevin have exactly one child together.<br>
+4.  Joan và Kevin có đúng một đứa con chung.<br>
 
-5.  Joan has at least one child with Kevin, and no children with
-    anyone else.
+5.  Joan có ít nhất một đứa con với Kevin, và không có con với ai khác.
 
 
 ---
 
 ##### Bài tập 8.24
 
-Arithmetic assertions can be written in first-order logic with the
-predicate symbol $<$, the function symbols ${+}$ and ${\times}$, and the
-constant symbols 0 and 1. Additional predicates can also be defined with
-biconditionals.<br>
+Các khẳng định số học có thể được viết bằng logic bậc nhất với ký hiệu vị từ $<$, các ký hiệu hàm ${+}$ và ${\times}$, và các ký hiệu hằng số 0 và 1. Các vị từ bổ sung cũng có thể được định nghĩa bằng các phép tương đương hai chiều (biconditionals).<br>
 
-1.  Represent the property “$x$ is an even number.”<br>
+1.  Biểu diễn thuộc tính “$x$ là một số chẵn.”<br>
 
-2.  Represent the property “$x$ is prime.”<br>
+2.  Biểu diễn thuộc tính “$x$ là số nguyên tố.”<br>
 
-3.  Goldbach’s conjecture is the conjecture (unproven as yet) that every
-    even number is equal to the sum of two primes. Represent this
-    conjecture as a logical sentence.
+3.  Giả thuyết Goldbach là giả thuyết (chưa được chứng minh) rằng mọi số chẵn đều bằng tổng của hai số nguyên tố. Biểu diễn giả thuyết này dưới dạng một câu logic.
 
 
 ---
 
 ##### Bài tập 8.25
 
-In Chapter <a class="chapterRef" title="" href="{{site.baseurl}}/csp-exercises/">csp-chapter</a>, we used equality to indicate
-the relation between a variable and its value. For instance, we wrote
-${WA}{{\,=\,}}{red}$ to mean that Western Australia is colored
-red. Representing this in first-order logic, we must write more
-verbosely ${ColorOf}({WA}){{\,=\,}}{red}$. What incorrect
-inference could be drawn if we wrote sentences such as
-${WA}{{\,=\,}}{red}$ directly as logical assertions?
+Trong Chương <a class="chapterRef" title="" href="{{site.baseurl}}/csp-exercises/">csp-chapter</a>, chúng ta đã sử dụng phép bằng để chỉ mối quan hệ giữa một biến và giá trị của nó. Ví dụ, chúng ta đã viết ${WA}{{\,=\,}}{red}$ để có nghĩa là Tây Úc được tô màu đỏ. Khi biểu diễn điều này bằng logic bậc nhất, chúng ta phải viết một cách dài dòng hơn là ${ColorOf}({WA}){{\,=\,}}{red}$. Suy luận sai nào có thể được rút ra nếu chúng ta viết trực tiếp các câu như ${WA}{{\,=\,}}{red}$ dưới dạng các khẳng định logic?
 
 
 ---
 
 ##### Bài tập 8.26
 
-Write in first-order logic the assertion that every key and at least one
-of every pair of socks will eventually be lost forever, using only the
-following vocabulary: ${Key}(x)$, $x$ is a key; ${Sock}(x)$, $x$ is
-a sock; ${Pair}(x,y)$, $x$ and $y$ are a pair; ${Now}$, the current
-time; ${Before}(t_1,t_2)$, time $t_1$ comes before time $t_2$;
-${Lost}(x,t)$, object $x$ is lost at time $t$.
+Viết bằng logic bậc nhất khẳng định rằng mọi chìa khóa và ít nhất một trong mỗi cặp tất sẽ cuối cùng bị mất vĩnh viễn, chỉ sử dụng bộ từ vựng sau: ${Key}(x)$, $x$ là một chìa khóa; ${Sock}(x)$, $x$ là một chiếc tất; ${Pair}(x,y)$, $x$ và $y$ là một cặp; ${Now}$, thời điểm hiện tại; ${Before}(t_1,t_2)$, thời điểm $t_1$ đến trước thời điểm $t_2$; ${Lost}(x,t)$, đối tượng $x$ bị mất tại thời điểm $t$.
 
 
 ---
 
 ##### Bài tập 8.27
 
-For each of the following sentences in English, decide if the
-accompanying first-order logic sentence is a good translation. If not,
-explain why not and correct it. (Some sentences may have more than one
-error!)<br>
+Đối với mỗi câu tiếng Anh sau đây, hãy quyết định xem câu logic bậc nhất đi kèm có phải là bản dịch tốt hay không. Nếu không, hãy giải thích tại sao không và sửa lại. (Một số câu có thể có nhiều hơn một lỗi!)<br>
 
-1.  No two people have the same social security number.
+1.  Không có hai người nào có cùng số an sinh xã hội.
     $$\lnot {\exists\,x,y,n\;\;} {Person}(x) \land {Person}(y) {\:\;{\Rightarrow}\:\;}[{HasSS}\#(x,n) \land {HasSS}\#(y,n)].$$<br>
 
-2.  John’s social security number is the same as Mary’s.
+2.  Số an sinh xã hội của John giống với của Mary.
     $${\exists\,n\;\;} {HasSS}\#({John},n) \land {HasSS}\#({Mary},n).$$<br>
 
-3.  Everyone’s social security number has nine digits.<br>
+3.  Số an sinh xã hội của mọi người đều có chín chữ số.<br>
     $${\forall\,x,n\;\;} {Person}(x) {\:\;{\Rightarrow}\:\;}[{HasSS}\#(x,n) \land {Digits}(n,9)].$$<br>
 
-4.  Rewrite each of the above (uncorrected) sentences using a function
-    symbol ${SS}\#$ instead of the predicate ${HasSS}\#$.
+4.  Viết lại mỗi câu trên (chưa sửa lỗi) bằng cách sử dụng một ký hiệu hàm ${SS}\#$ thay vì vị từ ${HasSS}\#$.
 
 
 ---
 
 ##### Bài tập 8.28
 
-Translate into first-order logic the sentence “Everyone’s DNA is unique
-and is derived from their parents’ DNA.” You must specify the precise
-intended meaning of your vocabulary terms. (*Hint*: Do not
-use the predicate ${Unique}(x)$, since uniqueness is not really a
-property of an object in itself!)
+Dịch sang logic bậc nhất câu “DNA của mỗi người là duy nhất và có nguồn gốc từ DNA của cha mẹ họ.” Bạn phải chỉ định ý nghĩa chính xác của các thuật ngữ từ vựng của mình. (*Gợi ý*: Đừng sử dụng vị từ ${Unique}(x)$, vì tính duy nhất thực sự không phải là thuộc tính của một đối tượng tự thân nó!)
 
 
 ---
 
 ##### Bài tập 8.29
 
-For each of the following sentences in English, decide if the
-accompanying first-order logic sentence is a good translation. If not,
-explain why not and correct it.<br>
+Đối với mỗi câu tiếng Anh sau đây, hãy quyết định xem câu logic bậc nhất đi kèm có phải là bản dịch tốt hay không. Nếu không, hãy giải thích tại sao không và sửa lại.<br>
 
-1.  Any apartment in London has lower rent than some apartments
-    in Paris.<br>
+1.  Bất kỳ căn hộ nào ở London đều có giá thuê thấp hơn một số căn hộ ở Paris.<br>
 
 $$
 \forall {x} [{Apt}(x) \land {In}(x,{London})]
 \implies \exists {y} ([{Apt}(y) \land {In}(y,{Paris})] \implies ({Rent}(x) < {Rent}(y)))
 $$
 
-2.  There is exactly one apartment in Paris with rent below \$1000.<br>
+2.  Chỉ có duy nhất một căn hộ ở Paris có giá thuê dưới 1000 đô la.<br>
 
 $$
 \exists {x} {Apt}(x) \land {In}(x,{Paris}) \land \forall{y} [{Apt}(y) \land {In}(y,{Paris}) \land ({Rent}(y) < {Dollars}(1000))] \implies (y = x)
 $$
 
-3.  If an apartment is more expensive than all apartments in London, it
-    must be in Moscow.<br>
+3.  Nếu một căn hộ đắt hơn tất cả các căn hộ ở London, thì nó phải ở Moscow.<br>
 
 $$
 \forall{x} {Apt}(x) \land [\forall{y} {Apt}(y) \land {In}(y,{London}) \land ({Rent}(x) > {Rent}(y))] \implies
@@ -589,105 +470,81 @@ $$
 
 ##### Bài tập 8.30
 
-Represent the following sentences in first-order logic, using a
-consistent vocabulary (which you must define):<br>
+Biểu diễn các câu sau đây bằng logic bậc nhất, sử dụng một bộ từ vựng nhất quán (mà bạn phải định nghĩa):<br>
 
-1.  Some students took French in spring 2001.<br>
+1.  Một số sinh viên đã học tiếng Pháp vào mùa xuân năm 2001.<br>
 
-2.  Every student who takes French passes it.<br>
+2.  Mọi sinh viên học tiếng Pháp đều vượt qua nó.<br>
 
-3.  Only one student took Greek in spring 2001.<br>
+3.  Chỉ có một sinh viên học tiếng Hy Lạp vào mùa xuân năm 2001.<br>
 
-4.  The best score in Greek is always higher than the best score
-    in French.<br>
+4.  Điểm cao nhất môn tiếng Hy Lạp luôn cao hơn điểm cao nhất môn tiếng Pháp.<br>
 
-5.  Every person who buys a policy is smart.<br>
+5.  Mọi người mua một hợp đồng bảo hiểm đều thông minh.<br>
 
-6.  No person buys an expensive policy.<br>
+6.  Không ai mua một hợp đồng bảo hiểm đắt tiền.<br>
 
-7.  There is an agent who sells policies only to people who are
-    not insured.<br>
+7.  Có một agent bán hợp đồng bảo hiểm chỉ cho những người chưa được bảo hiểm.<br>
 
-8.  There is a barber who shaves all men in town who do not
-    shave themselves.<br>
+8.  Có một thợ cạo râu cạo cho tất cả đàn ông trong thị trấn không tự cạo râu.<br>
 
-9.  A person born in the UK, each of whose parents is a UK citizen or a
-    UK resident, is a UK citizen by birth.<br>
+9.  Một người sinh ra ở Vương quốc Anh, mà mỗi phụ huynh của họ là công dân hoặc cư dân Vương quốc Anh, là công dân Vương quốc Anh theo khai sinh.<br>
 
-10. A person born outside the UK, one of whose parents is a UK citizen
-    by birth, is a UK citizen by descent.<br>
+10. Một người sinh ra bên ngoài Vương quốc Anh, mà một trong những phụ huynh của họ là công dân Vương quốc Anh theo khai sinh, là công dân Vương quốc Anh theo dòng dõi.<br>
 
-11. Politicians can fool some of the people all of the time, and they
-    can fool all of the people some of the time, but they can’t fool all
-    of the people all of the time.<br>
+11. Các chính trị gia có thể lừa dối một số người mọi lúc, và họ có thể lừa dối tất cả mọi người một lúc nào đó, nhưng họ không thể lừa dối tất cả mọi người mọi lúc.<br>
 
-12. All Greeks speak the same language. (Use ${Speaks}(x,l)$ to mean
-    that person $x$ speaks language $l$.)<br>
+12. Tất cả người Hy Lạp nói cùng một ngôn ngữ. (Sử dụng ${Speaks}(x,l)$ để có nghĩa là người $x$ nói ngôn ngữ $l$.)
 
 
 ---
 
 ##### Bài tập 8.31
 
-Represent the following sentences in first-order logic, using a
-consistent vocabulary (which you must define):<br>
+Biểu diễn các câu sau đây bằng logic bậc nhất, sử dụng một bộ từ vựng nhất quán (mà bạn phải định nghĩa):<br>
 
-1.  Some students took French in spring 2001.<br>
+1.  Một số sinh viên đã học tiếng Pháp vào mùa xuân năm 2001.<br>
 
-2.  Every student who takes French passes it.<br>
+2.  Mọi sinh viên học tiếng Pháp đều vượt qua nó.<br>
 
-3.  Only one student took Greek in spring 2001.<br>
+3.  Chỉ có một sinh viên học tiếng Hy Lạp vào mùa xuân năm 2001.<br>
 
-4.  The best score in Greek is always higher than the best score
-    in French.<br>
+4.  Điểm cao nhất môn tiếng Hy Lạp luôn cao hơn điểm cao nhất môn tiếng Pháp.<br>
 
-5.  Every person who buys a policy is smart.<br>
+5.  Mọi người mua một hợp đồng bảo hiểm đều thông minh.<br>
 
-6.  No person buys an expensive policy.<br>
+6.  Không ai mua một hợp đồng bảo hiểm đắt tiền.<br>
 
-7.  There is an agent who sells policies only to people who are
-    not insured.<br>
+7.  Có một agent bán hợp đồng bảo hiểm chỉ cho những người chưa được bảo hiểm.<br>
 
-8.  There is a barber who shaves all men in town who do not
-    shave themselves.<br>
+8.  Có một thợ cạo râu cạo cho tất cả đàn ông trong thị trấn không tự cạo râu.<br>
 
-9.  A person born in the UK, each of whose parents is a UK citizen or a
-    UK resident, is a UK citizen by birth.<br>
+9.  Một người sinh ra ở Vương quốc Anh, mà mỗi phụ huynh của họ là công dân hoặc cư dân Vương quốc Anh, là công dân Vương quốc Anh theo khai sinh.<br>
 
-10. A person born outside the UK, one of whose parents is a UK citizen
-    by birth, is a UK citizen by descent.<br>
+10. Một người sinh ra bên ngoài Vương quốc Anh, mà một trong những phụ huynh của họ là công dân Vương quốc Anh theo khai sinh, là công dân Vương quốc Anh theo dòng dõi.<br>
 
-11. Politicians can fool some of the people all of the time, and they
-    can fool all of the people some of the time, but they can’t fool all
-    of the people all of the time.<br>
+11. Các chính trị gia có thể lừa dối một số người mọi lúc, và họ có thể lừa dối tất cả mọi người một lúc nào đó, nhưng họ không thể lừa dối tất cả mọi người mọi lúc.<br>
 
-12. All Greeks speak the same language. (Use ${Speaks}(x,l)$ to mean
-    that person $x$ speaks language $l$.)<br>
+12. Tất cả người Hy Lạp nói cùng một ngôn ngữ. (Sử dụng ${Speaks}(x,l)$ để có nghĩa là người $x$ nói ngôn ngữ $l$.)
 
 
 ---
 
 ##### Bài tập 8.32
 
-Write a general set of facts and axioms to represent the assertion
-“Wellington heard about Napoleon’s death” and to correctly answer the
-question “Did Napoleon hear about Wellington’s death?”
+Viết một tập hợp các sự kiện và tiên đề chung để biểu diễn khẳng định “Wellington đã nghe về cái chết của Napoleon” và để trả lời đúng câu hỏi “Napoleon có nghe về cái chết của Wellington không?”
 
 
 ---
 
 ###### Bài tập 8.33
 
-Extend the vocabulary from
-Section <a class="sectionRef" title="" href="#">circuits-section</a> to define addition for $n$-bit
-binary numbers. Then encode the description of the four-bit adder in
-Figure <A href="#4bit-adder-figure">4bit-adder-figure</a>, and pose the queries needed
-to verify that it is in fact correct.
+Mở rộng bộ từ vựng từ Phần <a class="sectionRef" title="" href="#">circuits-section</a> để định nghĩa phép cộng cho các số nhị phân $n$-bit. Sau đó mã hóa mô tả của bộ cộng bốn bit trong Hình <A href="#4bit-adder-figure">4bit-adder-figure</a>, và đặt các truy vấn cần thiết để xác minh rằng nó thực sự chính xác.<br>
 
 
 <figure>
   <img src="https://aimacode.github.io/aima-exercises/figures/4bit-adder.svg" alt="4bit-adder-figure" id="4bit-adder-figure" style="width:100%">
-  <figcaption><center><b>A four-bit adder. Each ${Ad}_i$ is a one-bit adder, as in figure <a class="insideExercisesFigRef" id="insideexercisesfigref" href="#4bit-adder-figure">adder-figure</a> on page <a href=""#">adder-figure</a></b></center></figcaption>
+  <figcaption><center><b>Một bộ cộng bốn bit. Mỗi ${Ad}_i$ là một bộ cộng một bit, như trong hình <a class="insideExercisesFigRef" id="insideexercisesfigref" href="#4bit-adder-figure">adder-figure</a> trên trang <a href=""#">adder-figure</a></b></center></figcaption>
 </figure>
 
 
@@ -695,90 +552,61 @@ to verify that it is in fact correct.
 
 ##### Bài tập 8.34
 
-The circuit representation in the chapter is more detailed than
-necessary if we care only about circuit functionality. A simpler
-formulation describes any $m$-input, $n$-output gate or circuit using a
-predicate with $m+n$ arguments, such that the predicate is true exactly
-when the inputs and outputs are consistent. For example, NOT gates are
-described by the binary predicate ${NOT}(i,o)$, for which
-${NOT}(0,1)$ and ${NOT}(1,0)$ are known. Compositions of gates are
-defined by conjunctions of gate predicates in which shared variables
-indicate direct connections. For example, a NAND circuit can be composed
-from ${AND}$s and ${NOT}$s:
+Biểu diễn mạch trong chương chi tiết hơn mức cần thiết nếu chúng ta chỉ quan tâm đến chức năng của mạch. Một cách diễn đạt đơn giản hơn mô tả bất kỳ cổng hoặc mạch $m$-đầu vào, $n$-đầu ra nào bằng một vị từ có $m+n$ đối số, sao cho vị từ đó đúng chính xác khi các đầu vào và đầu ra nhất quán. Ví dụ, các cổng NOT được mô tả bởi vị từ hai ngôi ${NOT}(i,o)$, với ${NOT}(0,1)$ và ${NOT}(1,0)$ đã biết. Các hợp của các cổng được định nghĩa bằng phép hội của các vị từ cổng mà các biến chung chỉ ra các kết nối trực tiếp. Ví dụ, một mạch NAND có thể được tạo thành từ các cổng ${AND}$ và ${NOT}$:
 $${\forall\,i_1,i_2,o_a,o\;\;} {AND}(i_1,i_2,o_a) \land {NOT}(o_a,o) {\:\;{\Rightarrow}\:\;}{NAND}(i_1,i_2,o)\ .$$
-Using this representation, define the one-bit adder in
-Figure <a class="insideExercisesFigRef" href="#4bit-adder-figure">adder-figure</a> and the four-bit adder in
-Figure <a class="insideExercisesFigRef" href="#4bit-adder-figure">adder-figure</a>, and explain what queries you
-would use to verify the designs. What kinds of queries are
-*not* supported by this representation that
-*are* supported by the representation in
-Section <a class="sectionRef" title="" href="#">circuits-section</a>?
+Sử dụng biểu diễn này, hãy định nghĩa bộ cộng một bit trong Hình <a class="insideExercisesFigRef" href="#4bit-adder-figure">adder-figure</a> và bộ cộng bốn bit trong Hình <a class="insideExercisesFigRef" href="#4bit-adder-figure">adder-figure</a>, và giải thích các truy vấn bạn sẽ sử dụng để xác minh các thiết kế. Những loại truy vấn nào *không* được hỗ trợ bởi biểu diễn này mà *được* hỗ trợ bởi biểu diễn trong Phần <a class="sectionRef" title="" href="#">circuits-section</a>?
 
 
 ---
 
 ##### Bài tập 8.35
 
-Obtain a passport application for your country, identify the rules
-determining eligibility for a passport, and translate them into
-first-order logic, following the steps outlined in
-Section <a class="sectionRef" title="" href="#">circuits-section</a>
+Lấy một đơn xin cấp hộ chiếu cho quốc gia của bạn, xác định các quy tắc xác định tính đủ điều kiện để được cấp hộ chiếu, và dịch chúng sang logic bậc nhất, tuân theo các bước được nêu trong Phần <a class="sectionRef" title="" href="#">circuits-section</a>
 
 
 ---
 
 ##### Bài tập 8.36
 
-Consider a first-order logical knowledge base that describes worlds
-containing people, songs, albums (e.g., “Meet the Beatles”) and disks
-(i.e., particular physical instances of CDs). The vocabulary contains
-the following symbols:<br>
+Xem xét một knowledge base logic bậc nhất mô tả các thế giới chứa người, bài hát, album (ví dụ: “Meet the Beatles”) và đĩa (tức là, các bản sao vật lý cụ thể của CD). Bộ từ vựng chứa các ký hiệu sau:<br>
 
-> ${CopyOf}(d,a)$: Predicate. Disk $d$ is a copy of album $a$.
+> ${CopyOf}(d,a)$: Vị từ. Đĩa $d$ là bản sao của album $a$.
 
-> ${Owns}(p,d)$: Predicate. Person $p$ owns disk $d$.
+> ${Owns}(p,d)$: Vị từ. Người $p$ sở hữu đĩa $d$.
 
-> ${Sings}(p,s,a)$: Album $a$ includes a recording of song $s$ sung by person $p$.
+> ${Sings}(p,s,a)$: Album $a$ bao gồm bản thu âm bài hát $s$ do người $p$ hát.
 
-> ${Wrote}(p,s)$: Person $p$ wrote song $s$.
+> ${Wrote}(p,s)$: Người $p$ đã viết bài hát $s$.
 
-> ${McCartney}$, ${Gershwin}$, ${BHoliday}$, ${Joe}$, ${EleanorRigby}$, ${TheManILove}$, ${Revolver}$: Constants with the obvious meanings.
+> ${McCartney}$, ${Gershwin}$, ${BHoliday}$, ${Joe}$, ${EleanorRigby}$, ${TheManILove}$, ${Revolver}$: Các hằng số với ý nghĩa rõ ràng.
 
-Express the following statements in first-order logic:<br>
+Biểu diễn các phát biểu sau đây bằng logic bậc nhất:<br>
 
-1.  Gershwin wrote “The Man I Love.”<br>
+1.  Gershwin đã viết “The Man I Love.”<br>
 
-2.  Gershwin did not write “Eleanor Rigby.”<br>
+2.  Gershwin đã không viết “Eleanor Rigby.”<br>
 
-3.  Either Gershwin or McCartney wrote “The Man I Love.”<br>
+3.  Hoặc Gershwin hoặc McCartney đã viết “The Man I Love.”<br>
 
-4.  Joe has written at least one song.<br>
+4.  Joe đã viết ít nhất một bài hát.<br>
 
-5.  Joe owns a copy of *Revolver*.<br>
+5.  Joe sở hữu một bản sao của *Revolver*.<br>
 
-6.  Every song that McCartney sings on *Revolver* was
-    written by McCartney.<br>
+6.  Mọi bài hát mà McCartney hát trong *Revolver* đều được viết bởi McCartney.<br>
 
-7.  Gershwin did not write any of the songs on *Revolver*.<br>
+7.  Gershwin đã không viết bất kỳ bài hát nào trong *Revolver*.<br>
 
-8.  Every song that Gershwin wrote has been recorded on some album.
-    (Possibly different songs are recorded on different albums.)<br>
+8.  Mọi bài hát mà Gershwin đã viết đều được thu âm trên một album nào đó. (Có thể các bài hát khác nhau được thu âm trên các album khác nhau.)<br>
 
-9.  There is a single album that contains every song that Joe
-    has written.<br>
+9.  Có một album duy nhất chứa mọi bài hát mà Joe đã viết.<br>
 
-10. Joe owns a copy of an album that has Billie Holiday singing “The Man
-    I Love.”<br>
+10. Joe sở hữu một bản sao của một album có Billie Holiday hát “The Man I Love.”<br>
 
-11. Joe owns a copy of every album that has a song sung by McCartney.
-    (Of course, each different album is instantiated in a different
-    physical CD.)<br>
+11. Joe sở hữu một bản sao của mọi album có bài hát do McCartney hát. (Tất nhiên, mỗi album khác nhau được thể hiện bằng một CD vật lý khác nhau.)<br>
 
-12. Joe owns a copy of every album on which all the songs are sung by
-    Billie Holiday.<br>
+12. Joe sở hữu một bản sao của mọi album mà tất cả các bài hát trên đó đều do Billie Holiday hát.<br>
 
 
 ---
-
 
 <!-- tabs:end -->

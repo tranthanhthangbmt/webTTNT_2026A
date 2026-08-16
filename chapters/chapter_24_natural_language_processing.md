@@ -43,133 +43,78 @@
 
 #### **Bài tập**
 
+
 ##### Bài tập 24.1
 
-In the shadow of a tree with a dense, leafy canopy, one sees a number of
-light spots. Surprisingly, they all appear to be circular. Why? After
-all, the gaps between the leaves through which the sun shines are not
-likely to be circular.
-
+Dưới bóng cây có tán lá rậm rạp, người ta nhìn thấy một số đốm sáng. Điều đáng ngạc nhiên là tất cả chúng đều có vẻ tròn. Tại sao? Xét cho cùng, các khe hở giữa các lá cây mà ánh nắng chiếu qua khó có thể có hình tròn.
 
 ---
 
 ##### Bài tập 24.2
 
-Consider a picture of a white sphere floating in front of a black
-backdrop. The image curve separating white pixels from black pixels is
-sometimes called the “outline” of the sphere. Show that the outline of a
-sphere, viewed in a perspective camera, can be an ellipse. Why do
-spheres not look like ellipses to you?
-
+Hãy xem xét một bức ảnh chụp một quả cầu trắng lơ lửng trước phông nền đen. Đường cong hình ảnh phân tách các pixel trắng và đen đôi khi được gọi là "đường viền" của quả cầu. Chứng minh rằng đường viền của một quả cầu, khi nhìn qua một camera phối cảnh, có thể là một hình ellipse. Tại sao quả cầu không trông giống hình ellipse đối với bạn?
 
 ---
 
 ##### Bài tập 24.3
 
-Consider an infinitely long cylinder of radius $r$ oriented with its
-axis along the $y$-axis. The cylinder has a Lambertian surface and is
-viewed by a camera along the positive $z$-axis. What will you expect to
-see in the image if the cylinder is illuminated by a point source at
-infinity located on the positive $x$-axis? Draw the contours of constant
-brightness in the projected image. Are the contours of equal brightness
-uniformly spaced?
-
+Hãy xem xét một hình trụ dài vô hạn có bán kính $r$ được định hướng với trục của nó dọc theo trục $y$. Hình trụ có bề mặt Lambertian và được quan sát bởi một camera dọc theo trục $z$ dương. Bạn sẽ mong đợi nhìn thấy gì trong ảnh nếu hình trụ được chiếu sáng bởi một nguồn sáng điểm ở vô cùng nằm trên trục $x$ dương? Vẽ các đường đồng mức có độ sáng không đổi trong ảnh chiếu. Các đường đồng mức có độ sáng bằng nhau có cách đều nhau không?
 
 ---
 
 ##### Bài tập 24.4
 
-Edges in an image can correspond to a variety of events in a scene.
-Consider Figure <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/illuminationfigure.png">illuminationfigure</a>
-(page <a class="pageRef" title="" href="#">illuminationfigure</a>, and assume that it is a picture of a real
-three-dimensional scene. Identify ten different brightness edges in the
-image, and for each, state whether it corresponds to a discontinuity in
-(a) depth, (b) surface orientation, (c) reflectance, or (d)
-illumination.
-
+Các cạnh trong một ảnh có thể tương ứng với nhiều sự kiện khác nhau trong một cảnh. Hãy xem xét Hình <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/illuminationfigure.png">illuminationfigure</a> (trang <a class="pageRef" title="" href="#">illuminationfigure</a>, và giả sử đó là ảnh chụp một cảnh ba chiều thực tế. Xác định mười cạnh sáng khác nhau trong ảnh, và đối với mỗi cạnh, hãy cho biết nó tương ứng với sự gián đoạn về (a) độ sâu, (b) hướng bề mặt, (c) phản xạ, hay (d) chiếu sáng.
 
 ---
 
 ##### Bài tập 24.5
 
-A stereoscopic system is being contemplated for terrain mapping. It will
-consist of two CCD cameras, each having ${512}\times {512}$ pixels on a
-10 cm $\times$ 10 cm square sensor. The lenses to be used have a focal
-length of 16 cm, with the focus fixed at infinity. For corresponding
-points ($u_1,v_1$) in the left image and ($u_2,v_2$) in the right image,
-$v_1=v_2$ because the $x$-axes in the two image planes are parallel to
-the epipolar lines—the lines from the object to the camera. The optical
-axes of the two cameras are parallel. The baseline between the cameras
-is 1 meter.<br>
+Một hệ thống lập thể đang được xem xét để lập bản đồ địa hình. Nó sẽ bao gồm hai camera CCD, mỗi camera có ${512}\times {512}$ pixel trên một cảm biến vuông 10 cm $\times$ 10 cm. Các ống kính được sử dụng có tiêu cự 16 cm, với tiêu điểm cố định ở vô cực. Đối với các điểm tương ứng ($u_1,v_1$) trong ảnh trái và ($u_2,v_2$) trong ảnh phải, $v_1=v_2$ vì các trục $x$ trong hai mặt phẳng ảnh song song với các đường epipolar—các đường nối từ vật thể đến camera. Các trục quang học của hai camera song song. Khoảng cách giữa hai camera là 1 mét.<br>
 
-1.  If the nearest distance to be measured is 16 meters, what is the
-    largest disparity that will occur (in pixels)?<br>
+1. Nếu khoảng cách gần nhất cần đo là 16 mét, thì độ lệch lớn nhất sẽ xảy ra là bao nhiêu (tính bằng pixel)?<br>
 
-2.  What is the distance resolution at 16 meters, due to the pixel
-    spacing?<br>
+2. Độ phân giải khoảng cách ở 16 mét, do khoảng cách giữa các pixel, là bao nhiêu?<br>
 
-3.  What distance corresponds to a disparity of one pixel?<br>
-
+3. Khoảng cách nào tương ứng với độ lệch một pixel?<br>
 
 ---
 
 ##### Bài tập 24.6
 
-Which of the following are true, and which are false?<br>
+Phát biểu nào sau đây là đúng, và phát biểu nào là sai?<br>
 
-1.  Finding corresponding points in stereo images is the easiest phase
-    of the stereo depth-finding process.<br>
+1. Tìm các điểm tương ứng trong ảnh lập thể là giai đoạn dễ nhất của quá trình tìm độ sâu lập thể.<br>
 
-2.  Shape-from-texture can be done by projecting a grid of light-stripes
-    onto the scene.<br>
+2. Shape-from-texture có thể được thực hiện bằng cách chiếu một lưới các dải sáng lên cảnh.<br>
 
-3.  Lines with equal lengths in the scene always project to equal
-    lengths in the image.<br>
+3. Các đường có độ dài bằng nhau trong cảnh luôn chiếu thành các đường có độ dài bằng nhau trong ảnh.<br>
 
-4.  Straight lines in the image necessarily correspond to straight lines
-    in the scene.
-
+4. Các đường thẳng trong ảnh nhất thiết tương ứng với các đường thẳng trong cảnh.
 
 ---
 
 ###### Bài tập 24.7
 
-Which of the following are true, and which are false?<br>
+Phát biểu nào sau đây là đúng, và phát biểu nào là sai?<br>
 
-1.  Finding corresponding points in stereo images is the easiest phase
-    of the stereo depth-finding process.<br>
+1. Tìm các điểm tương ứng trong ảnh lập thể là giai đoạn dễ nhất của quá trình tìm độ sâu lập thể.<br>
 
-2.  In stereo views of the same scene, greater accuracy is obtained in
-    the depth calculations if the two camera positions are
-    farther apart.<br>
+2. Trong các góc nhìn lập thể của cùng một cảnh, độ chính xác cao hơn trong các phép tính độ sâu sẽ đạt được nếu hai vị trí camera cách xa nhau hơn.<br>
 
-3.  Lines with equal lengths in the scene always project to equal
-    lengths in the image.<br>
+3. Các đường có độ dài bằng nhau trong cảnh luôn chiếu thành các đường có độ dài bằng nhau trong ảnh.<br>
 
-4.  Straight lines in the image necessarily correspond to straight lines
-    in the scene.<br>
+4. Các đường thẳng trong ảnh nhất thiết tương ứng với các đường thẳng trong cảnh.<br>
 
-
-
-    <figure>
-      <img src="https://aimacode.github.io/aima-exercises/figures/bottle-stereo.svg" alt="bottle-figure" id="bottle-figure" style="width:100%">
-      <figcaption><center><b>Top view of
-      a two-camera vision system observing a bottle with a wall behind it.</b></center></figcaption>
-    </figure>
-
+<figure>
+  <img src="https://aimacode.github.io/aima-exercises/figures/bottle-stereo.svg" alt="bottle-figure" id="bottle-figure" style="width:100%">
+  <figcaption><center><b>Nhìn từ trên xuống của hệ thống hai camera quan sát một chai rượu với bức tường phía sau.</b></center></figcaption>
+</figure>
 
 ---
 
 ##### Bài tập 24.8
 
-(Courtesy of Pietro Perona.) Figure <a class="insideExercisesFigRef"  href="#bottle-figure">bottle-figure</a> shows
-two cameras at X and Y observing a scene. Draw the image seen at each
-camera, assuming that all named points are in the same horizontal plane.
-What can be concluded from these two images about the relative distances
-of points A, B, C, D, and E from the camera baseline, and on what basis?
-
-
----
-
+(Được cung cấp bởi Pietro Perona.) Hình <a class="insideExercisesFigRef" href="#bottle-figure">bottle-figure</a> cho thấy hai camera ở X và Y đang quan sát một cảnh. Vẽ ảnh nhìn thấy ở mỗi camera, giả sử tất cả các điểm được đặt tên đều nằm trên cùng một mặt phẳng ngang. Có thể rút ra kết luận gì từ hai ảnh này về khoảng cách tương đối của các điểm A, B, C, D và E so với đường cơ sở của camera, và dựa trên cơ sở nào?
 
 <!-- tabs:end -->

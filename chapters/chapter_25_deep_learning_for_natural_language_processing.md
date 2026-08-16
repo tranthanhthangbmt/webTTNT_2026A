@@ -37,68 +37,44 @@
 
 #### **Bài tập**
 
+
 ##### Bài tập 25.1
 
-Monte Carlo localization is
-<i>biased</i> for any finite sample size—i.e., the expected
-value of the location computed by the algorithm differs from the true
-expected value—because of the way particle filtering works. In this
-question, you are asked to quantify this bias.<br>
+Monte Carlo localization là một thuật toán <i>thiên vị</i> với bất kỳ kích thước mẫu hữu hạn nào—tức là, giá trị kỳ vọng của vị trí được tính toán bởi thuật toán khác với giá trị kỳ vọng thực—do cách hoạt động của bộ lọc hạt. Trong câu hỏi này, bạn được yêu cầu định lượng sự thiên vị này.<br>
 
-To simplify, consider a world with four possible robot locations:
-$X=\{x_1,x_2,x_3,x_4\}$. Initially, we
-draw $N\geq {{\rm 1}}$ samples uniformly from among those locations. As
-usual, it is perfectly acceptable if more than one sample is generated
-for any of the locations $X$. Let $Z$ be a Boolean sensor variable
-characterized by the following conditional probabilities:<br>
+Để đơn giản hóa, hãy xem xét một thế giới với bốn vị trí robot có thể có: $X=\{x_1,x_2,x_3,x_4\}$. Ban đầu, chúng ta rút ra $N\geq {{\rm 1}}$ mẫu đồng nhất từ ​​trong số các vị trí đó. Như thường lệ, hoàn toàn chấp nhận được nếu có nhiều hơn một mẫu được tạo ra cho bất kỳ vị trí nào trong $X$. Gọi $Z$ là một biến cảm biến Boolean được đặc trưng bởi các xác suất có điều kiện sau:<br>
 
 
 $$\begin{aligned}
-P(z | x_1) = 0.8 \qquad\qquad P(z | x_1) = 0.2  \\
-P(z | x_2) = 0.4 \qquad\qquad P(z | x_2) = 0.6  \\
-P(z | x_3) = 0.1 \qquad\qquad P(z | x_3) = 0.9  \\
-P(z | x_4) = 0.1 \qquad\qquad P(z | x_4) = 0.9 
+P(z | x_1) = 0.8 \qquad\qquad P(\neg z | x_1) = 0.2  \\
+P(z | x_2) = 0.4 \qquad\qquad P(\neg z | x_2) = 0.6  \\
+P(z | x_3) = 0.1 \qquad\qquad P(\neg z | x_3) = 0.9  \\
+P(z | x_4) = 0.1 \qquad\qquad P(\neg z | x_4) = 0.9 
 \end{aligned}$$
 
 
 <br>
 
-MCL uses these probabilities to generate particle weights, which are
-subsequently normalized and used in the resampling process. For
-simplicity, let us assume we generate only one new sample in the
-resampling process, regardless of $N$. This sample might correspond to
-any of the four locations in $X$. Thus, the sampling process defines a
-probability distribution over $X$.<br>
+MCL sử dụng các xác suất này để tạo ra trọng số hạt, sau đó được chuẩn hóa và sử dụng trong quá trình lấy mẫu lại. Để đơn giản, hãy giả sử chúng ta chỉ tạo ra một mẫu mới trong quá trình lấy mẫu lại, bất kể $N$. Mẫu này có thể tương ứng với bất kỳ vị trí nào trong bốn vị trí trong $X$. Do đó, quá trình lấy mẫu xác định một phân phối xác suất trên $X$.<br>
 
-1.  What is the resulting probability distribution over $X$ for this new
-    sample? Answer this question separately for
-    $N=1,\ldots,10$, and for $N=\infty$.<br>
+1.  Phân phối xác suất kết quả trên $X$ cho mẫu mới này là gì? Trả lời câu hỏi này riêng biệt cho $N=1,\ldots,10$, và cho $N=\infty$.<br>
 
-2.  The difference between two probability distributions $P$ and $Q$ can
-    be measured by the KL divergence, which is defined as
-    $${KL}(P,Q) = \sum_i P(x_i)\log\frac{P(x_i)}{Q(x_i)}\ .$$ What are
-    the KL divergences between the distributions in (a) and the true
-    posterior?<br>
+2.  Sự khác biệt giữa hai phân phối xác suất $P$ và $Q$ có thể được đo bằng độ phân kỳ KL, được định nghĩa là
+    $${KL}(P,Q) = \sum_i P(x_i)\log\frac{P(x_i)}{Q(x_i)}\ .$$ Độ phân kỳ KL giữa các phân phối trong (a) và posterior thực sự là gì?<br>
 
-3.  What modification of the problem formulation (not the algorithm!)
-    would guarantee that the specific estimator above is unbiased even
-    for finite values of $N$? Provide at least two such modifications
-    (each of which should be sufficient).<br>
+3.  Cần sửa đổi công thức bài toán (không phải thuật toán!) như thế nào để đảm bảo rằng ước lượng cụ thể trên là không thiên vị ngay cả đối với các giá trị hữu hạn của $N$? Cung cấp ít nhất hai sửa đổi như vậy (mỗi sửa đổi đều đủ).<br>
 
 
 ---
 
 ###### Bài tập 25.2
 
-Implement Monte Carlo localization for a
-simulated robot with range sensors. A grid map and range data are
-available from the code repository at
-<a href="http://aima.cs.berkeley.edu">aima.cs.berkeley.edu</a>. You should demonstrate
-successful global localization of the robot.
+Triển khai Monte Carlo localization cho một robot mô phỏng với các cảm biến đo khoảng cách. Bản đồ lưới và dữ liệu đo khoảng cách có sẵn từ kho mã nguồn tại
+<a href="http://aima.cs.berkeley.edu">aima.cs.berkeley.edu</a>. Bạn nên chứng minh khả năng định vị toàn cục thành công của robot.
 
 <figure>
   <img src="https://aimacode.github.io/aima-exercises/figures/figRobot2.svg" alt="figRobot2" id="figRobot2" style="width:100%">
-  <figcaption><center><b>A Robot manipulator in two of its possible configurations.</b></center></figcaption>
+  <figcaption><center><b>Một bộ thao tác robot trong hai cấu hình có thể có của nó.</b></center></figcaption>
 </figure>
 
 
@@ -106,118 +82,80 @@ successful global localization of the robot.
 
 ##### Bài tập 25.3
 
-Consider a robot with two simple manipulators, as
-shown in figure <a href="#figRobot2">figRobot2</a>. Manipulator A is a square block of side 2
-which can slide back and on a rod that runs along the x-axis from
-x=$-$10 to x=10. Manipulator B is a square block of side 2 which can
-slide back and on a rod that runs along the y-axis from y=-10 to y=10.
-The rods lie outside the plane of manipulation, so the rods do not
-interfere with the movement of the blocks. A configuration is then a
-pair ${\langle}x,y{\rangle}$ where $x$ is the x-coordinate of the center
-of manipulator A and where $y$ is the y-coordinate of the center of
-manipulator B. Draw the configuration space for this robot, indicating
-the permitted and excluded zones.
+Xem xét một robot có hai bộ thao tác đơn giản, như được hiển thị trong hình 
+<a href="#figRobot2">figRobot2</a>. Bộ thao tác A là một khối vuông cạnh 2 có thể trượt tới lui trên một thanh chạy dọc theo trục x từ x=-10 đến x=10. Bộ thao tác B là một khối vuông cạnh 2 có thể trượt tới lui trên một thanh chạy dọc theo trục y từ y=-10 đến y=10. Các thanh nằm ngoài mặt phẳng thao tác, vì vậy các thanh không cản trở chuyển động của các khối. Một cấu hình sau đó là một cặp ${\langle}x,y{\rangle}$ trong đó $x$ là tọa độ x của tâm của bộ thao tác A và $y$ là tọa độ y của tâm của bộ thao tác B. Vẽ không gian cấu hình cho robot này, chỉ ra các vùng được phép và bị loại trừ.
 
 
 ---
 
 ##### Bài tập 25.4
 
-Suppose that you are working with the robot in
-Exercise <a class="exerciseRef" href="{{ site.baseurl }}/nlp-english-exercises/ex_3/">AB-manipulator-ex</a> and you are given the
-problem of finding a path from the starting configuration of
-figure <a class="insideExercisesFigRef" href="#figRobot2">figRobot2</a> to the ending configuration. Consider a potential
-function $$D(A, {Goal})^2 + D(B, {Goal})^2 + \frac{1}{D(A, B)^2}$$
-where $D(A,B)$ is the distance between the closest points of A and B.<br>
+Giả sử bạn đang làm việc với robot trong Bài tập 
+<a class="exerciseRef" href="{{ site.baseurl }}/nlp-english-exercises/ex_3/">AB-manipulator-ex</a> và bạn được giao nhiệm vụ tìm một đường đi từ cấu hình ban đầu của hình 
+<a class="insideExercisesFigRef" href="#figRobot2">figRobot2</a> đến cấu hình kết thúc. Xem xét một hàm thế năng
+$$D(A, {Goal})^2 + D(B, {Goal})^2 + \frac{1}{D(A, B)^2}$$
+trong đó $D(A,B)$ là khoảng cách giữa các điểm gần nhất của A và B.<br>
 
-1.  Show that hill climbing in this potential field will get stuck in a
-    local minimum.<br>
+1.  Chứng minh rằng leo đồi trong trường thế năng này sẽ bị kẹt ở cực tiểu cục bộ.<br>
 
-2.  Describe a potential field where hill climbing will solve this
-    particular problem. You need not work out the exact numerical
-    coefficients needed, just the general form of the solution. (Hint:
-    Add a term that “rewards" the hill climber for moving A out of B’s
-    way, even in a case like this where this does not reduce the
-    distance from A to B in the above sense.)<br>
+2.  Mô tả một trường thế năng mà leo đồi sẽ giải quyết được bài toán cụ thể này. Bạn không cần phải tính toán các hệ số số chính xác cần thiết, chỉ cần dạng chung của giải pháp. (Gợi ý: Thêm một số hạng "thưởng" cho người leo đồi khi di chuyển A ra khỏi đường đi của B, ngay cả trong trường hợp như thế này, nơi mà điều này không làm giảm khoảng cách từ A đến B theo nghĩa trên.)<br>
 
 
 ---
 
 ##### Bài tập 25.5
 
-Consider the robot arm shown in
-Figure <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/FigArm1.png">FigArm1</a>. Assume that the robot’s base element is
-60cm long and that its upper arm and forearm are each 40cm long. As
-argued on page <a class="pageRef" title="" href="#">inverse-kinematics-not-unique</a>, the inverse kinematics of a robot is often
-not unique. State an explicit closed-form solution of the inverse
-kinematics for this arm. Under what exact conditions is the solution
-unique?
+Xem xét cánh tay robot được hiển thị trong
+Hình 
+<a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/FigArm1.png">FigArm1</a>. Giả sử rằng phần tử cơ sở của robot dài 60cm và cánh tay trên và cánh tay dưới mỗi chiếc dài 40cm. Như đã lập luận trên trang 
+<a class="pageRef" title="" href="#">inverse-kinematics-not-unique</a>, động học ngược của robot thường không duy nhất. Nêu một giải pháp dạng đóng rõ ràng cho động học ngược của cánh tay này. Dưới những điều kiện chính xác nào thì giải pháp là duy nhất?
 
 
 ---
 
 ##### Bài tập 25.6
 
-Consider the robot arm shown in
-Figure <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/FigArm1.png">FigArm1</a>. Assume that the robot’s base element is
-70cm long and that its upper arm and forearm are each 50cm long. As
-argued on page <a class="pageRef" title="" href="#">inverse-kinematics-not-unique</a>, the inverse kinematics of a robot is often
-not unique. State an explicit closed-form solution of the inverse
-kinematics for this arm. Under what exact conditions is the solution
-unique?
+Xem xét cánh tay robot được hiển thị trong
+Hình 
+<a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/FigArm1.png">FigArm1</a>. Giả sử rằng phần tử cơ sở của robot dài 70cm và cánh tay trên và cánh tay dưới mỗi chiếc dài 50cm. Như đã lập luận trên trang 
+<a class="pageRef" title="" href="#">inverse-kinematics-not-unique</a>, động học ngược của robot thường không duy nhất. Nêu một giải pháp dạng đóng rõ ràng cho động học ngược của cánh tay này. Dưới những điều kiện chính xác nào thì giải pháp là duy nhất?
 
 
 ---
 
 ##### Bài tập 25.7
 
-Implement an algorithm for calculating the Voronoi
-diagram of an arbitrary 2D environment, described by an $n\times n$
-Boolean array. Illustrate your algorithm by plotting the Voronoi diagram
-for 10 interesting maps. What is the complexity of your algorithm?
+Triển khai một thuật toán để tính toán biểu đồ Voronoi của một môi trường 2D tùy ý, được mô tả bởi một mảng Boolean $n\times n$. Minh họa thuật toán của bạn bằng cách vẽ biểu đồ Voronoi cho 10 bản đồ thú vị. Độ phức tạp của thuật toán của bạn là bao nhiêu?
 
 
 ---
 
 ###### Bài tập 25.8
 
-This exercise explores the relationship between
-workspace and configuration space using the examples shown in
-Figure <a class="insideExercisesFigRef"  href="#FigEx2">FigEx2</a>.
+Bài tập này khám phá mối quan hệ giữa không gian làm việc và không gian cấu hình bằng cách sử dụng các ví dụ được hiển thị trong Hình 
+<a class="insideExercisesFigRef"  href="#FigEx2">FigEx2</a>.
 
-1.  Consider the robot configurations shown in
-    Figure <a class="insideExercisesFigRef"  href="#FigEx2">FigEx2</a>(a) through (c), ignoring the obstacle
-    shown in each of the diagrams. Draw the corresponding arm
-    configurations in configuration space. (<i>Hint:</i> Each
-    arm configuration maps to a single point in configuration space, as
-    illustrated in Figure <a class="insideExercisesFigRef"  href="#FigEx2">FigArm1</a>(b).)<br>
+1.  Xem xét các cấu hình robot được hiển thị trong
+    Hình 
+    <a class="insideExercisesFigRef"  href="#FigEx2">FigEx2</a>(a) đến (c), bỏ qua chướng ngại vật được hiển thị trong mỗi sơ đồ. Vẽ các cấu hình cánh tay tương ứng trong không gian cấu hình. (<i>Gợi ý:</i> Mỗi cấu hình cánh tay ánh xạ tới một điểm duy nhất trong không gian cấu hình, như minh họa trong Hình 
+    <a class="insideExercisesFigRef"  href="#FigEx2">FigArm1</a>(b).)<br>
 
-2.  Draw the configuration space for each of the workspace diagrams in
-    Figure <a class="insideExercisesFigRef"  href="#FigEx2">FigEx2</a>(a)–(c). (<i>Hint:</i> The
-    configuration spaces share with the one shown in
-    Figure <a class="insideExercisesFigRef"  href="#FigEx2">FigEx2</a>(a) the region that corresponds to
-    self-collision, but differences arise from the lack of enclosing
-    obstacles and the different locations of the obstacles in these
-    individual figures.)<br>
+2.  Vẽ không gian cấu hình cho mỗi sơ đồ không gian làm việc trong Hình 
+    <a class="insideExercisesFigRef"  href="#FigEx2">FigEx2</a>(a)–(c). (<i>Gợi ý:</i> Không gian cấu hình chia sẻ với không gian được hiển thị trong
+    Hình 
+    <a class="insideExercisesFigRef"  href="#FigEx2">FigEx2</a>(a) vùng tương ứng với va chạm tự thân, nhưng sự khác biệt phát sinh từ việc thiếu các chướng ngại vật bao quanh và các vị trí khác nhau của chướng ngại vật trong các hình riêng lẻ này.)<br>
 
-3.  For each of the black dots in Figure <a href="#">FigEx2</a>(e)–(f),
-    draw the corresponding configurations of the robot arm in workspace.
-    Please ignore the shaded regions in this exercise.<br>
+3.  Đối với mỗi dấu chấm đen trong Hình 
+    <a href="#">FigEx2</a>(e)–(f), vẽ các cấu hình cánh tay robot tương ứng trong không gian làm việc.
+    Vui lòng bỏ qua các vùng tô bóng trong bài tập này.<br>
 
-4.  The configuration spaces shown in
-    Figure <a class="insideExercisesFigRef"  href="#FigEx2">FigEx2</a>(e)–(f) have all been generated by a
-    single workspace obstacle (dark shading), plus the constraints
-    arising from the self-collision constraint (light shading). Draw,
-    for each diagram, the workspace obstacle that corresponds to the
-    darkly shaded area.<br>
+4.  Không gian cấu hình được hiển thị trong
+    Hình 
+    <a class="insideExercisesFigRef"  href="#FigEx2">FigEx2</a>(e)–(f) đều được tạo ra bởi một chướng ngại vật không gian làm việc duy nhất (tô bóng tối), cộng với các ràng buộc phát sinh từ ràng buộc va chạm tự thân (tô bóng nhạt). Vẽ, cho mỗi sơ đồ, chướng ngại vật không gian làm việc tương ứng với vùng tô bóng tối.<br>
 
-5.  Figure <a class="insideExercisesFigRef"  href="#FigEx2">FigEx2</a>(d) illustrates that a single planar
-    obstacle can decompose the workspace into two disconnected regions.
-    What is the maximum number of disconnected regions that can be
-    created by inserting a planar obstacle into an obstacle-free,
-    connected workspace, for a 2DOF robot? Give an example, and argue
-    why no larger number of disconnected regions can be created. How
-    about a non-planar obstacle?<br>
+5.  Hình 
+    <a class="insideExercisesFigRef"  href="#FigEx2">FigEx2</a>(d) minh họa rằng một chướng ngại vật phẳng duy nhất có thể phân chia không gian làm việc thành hai vùng không kết nối.
+    Số lượng vùng không kết nối tối đa có thể được tạo ra bằng cách chèn một chướng ngại vật phẳng vào một không gian làm việc không có chướng ngại vật, kết nối, cho robot 2DOF là bao nhiêu? Đưa ra một ví dụ và lập luận tại sao không thể tạo ra số lượng vùng không kết nối lớn hơn. Còn chướng ngại vật không phẳng thì sao?<br>
 
     <figure>
       <img src="https://aimacode.github.io/aima-exercises/figures/exerciseRobot1.svg" alt="FigEx2" id="FigEx2" style="width:100%">
@@ -249,57 +187,26 @@ Figure <a class="insideExercisesFigRef"  href="#FigEx2">FigEx2</a>.
 
 ###### Bài tập 25.9
 
-Consider a mobile robot moving on a horizontal surface. Suppose that the
-robot can execute two kinds of motions:<br>
+Xem xét một robot di động di chuyển trên bề mặt ngang. Giả sử rằng robot có thể thực hiện hai loại chuyển động:<br>
 
--   Rolling forward a specified distance.<br>
+-   Lăn về phía trước một khoảng cách xác định.<br>
 
--   Rotating in place through a specified angle.<br>
+-   Quay tại chỗ một góc xác định.<br>
 
-The state of such a robot can be characterized in terms of three
-parameters ${\langle}x,y,\phi$, the x-coordinate and y-coordinate of the
-robot (more precisely, of its center of rotation) and the robot’s
-orientation expressed as the angle from the positive x direction. The
-action “$Roll(D)$” has the effect of changing state ${\langle}x,y,\phi$
-to ${\langle}x+D \cos(\phi), y+D \sin(\phi), \phi {\rangle}$, and the
-action $Rotate(\theta)$ has the effect of changing state<br>
-${\langle}x,y,\phi {\rangle}$ to
+Trạng thái của một robot như vậy có thể được đặc trưng bởi ba tham số ${\langle}x,y,\phi$, tọa độ x và y của robot (chính xác hơn là tâm quay của nó) và hướng của robot được biểu thị bằng góc so với trục x dương. Hành động “$Roll(D)$” có tác dụng thay đổi trạng thái ${\langle}x,y,\phi$ thành ${\langle}x+D \cos(\phi), y+D \sin(\phi), \phi {\rangle}$, và hành động $Rotate(\theta)$ có tác dụng thay đổi trạng thái<br>
+${\langle}x,y,\phi {\rangle}$ thành
 ${\langle}x,y, \phi + \theta {\rangle}$.
 
-1.  Suppose that the robot is initially at ${\langle}0,0,0 {\rangle}$
-    and then executes the actions $Rotate(60^{\circ})$, $Roll(1)$,
-    $Rotate(25^{\circ})$, $Roll(2)$. What is the final state of the
-    robot?<br>
+1.  Giả sử robot ban đầu ở ${\langle}0,0,0 {\rangle}$ và sau đó thực hiện các hành động $Rotate(60^{\circ})$, $Roll(1)$, $Rotate(25^{\circ})$, $Roll(2)$. Trạng thái cuối cùng của robot là gì?<br>
 
-2.  Now suppose that the robot has imperfect control of its own
-    rotation, and that, if it attempts to rotate by $\theta$, it may
-    actually rotate by any angle between $\theta-10^{\circ}$ and
-    $\theta+10^{\circ}$. In that case, if the robot attempts to carry
-    out the sequence of actions in (A), there is a range of possible
-    ending states. What are the minimal and maximal values of the
-    x-coordinate, the y-coordinate and the orientation in the final
-    state?<br>
+2.  Bây giờ giả sử rằng robot có khả năng kiểm soát việc quay của mình không hoàn hảo, và nếu nó cố gắng quay một góc $\theta$, nó có thể thực sự quay một góc bất kỳ trong khoảng $\theta-10^{\circ}$ và $\theta+10^{\circ}$. Trong trường hợp đó, nếu robot cố gắng thực hiện chuỗi hành động trong (A), sẽ có một phạm vi các trạng thái kết thúc có thể. Giá trị nhỏ nhất và lớn nhất của tọa độ x, tọa độ y và hướng trong trạng thái cuối cùng là gì?<br>
 
-3.  Let us modify the model in (B) to a probabilistic model in which,
-    when the robot attempts to rotate by $\theta$, its actual angle of
-    rotation follows a Gaussian distribution with mean $\theta$ and
-    standard deviation $10^{\circ}$. Suppose that the robot executes the
-    actions $Rotate(90^{\circ})$, $Roll(1)$. Give a simple argument
-    that (a) the expected value of the location at the end is not equal
-    to the result of rotating exactly $90^{\circ}$ and then rolling
-    forward 1 unit, and (b) that the distribution of locations at the
-    end does not follow a Gaussian. (Do not attempt to calculate the
-    true mean or the true distribution.)<br>
+3.  Hãy sửa đổi mô hình trong (B) thành một mô hình xác suất, trong đó, khi robot cố gắng quay một góc $\theta$, góc quay thực tế của nó tuân theo phân phối Gaussian với giá trị trung bình $\theta$ và độ lệch chuẩn $10^{\circ}$. Giả sử robot thực hiện các hành động $Rotate(90^{\circ})$, $Roll(1)$. Đưa ra một lập luận đơn giản rằng (a) giá trị kỳ vọng của vị trí ở cuối không bằng kết quả của việc quay chính xác $90^{\circ}$ và sau đó lăn về phía trước 1 đơn vị, và (b) phân phối các vị trí ở cuối không tuân theo phân phối Gaussian. (Không cố gắng tính toán giá trị trung bình thực hoặc phân phối thực.)<br>
 
-    The point of this exercise is that rotational uncertainty quickly
-    gives rise to a lot of positional uncertainty and that dealing with
-    rotational uncertainty is painful, whether uncertainty is treated in
-    terms of hard intervals or probabilistically, due to the fact that
-    the relation between orientation and position is both non-linear
-    and non-monotonic.<br>
+    Điểm của bài tập này là sự không chắc chắn về góc quay nhanh chóng dẫn đến nhiều sự không chắc chắn về vị trí và việc xử lý sự không chắc chắn về góc quay rất khó khăn, cho dù sự không chắc chắn được xem xét theo các khoảng cứng hay theo xác suất, do mối quan hệ giữa hướng và vị trí vừa phi tuyến tính vừa không đơn điệu.<br>
 <figure>
   <img src="http://aimacode.github.io/aima-exercises/figures/robotics-pic7.svg" alt="FigEx3" id="FigEx3" style="width:100%">
-    <figcaption><center><b>Simplified robot in a maze. See Exercise <a href="#">robot-exploration-exercise</a></b></center></figcaption>
+    <figcaption><center><b>Robot đơn giản hóa trong mê cung. Xem Bài tập <a href="#">robot-exploration-exercise</a></b></center></figcaption>
 </figure>
 
 
@@ -307,94 +214,42 @@ ${\langle}x,y, \phi + \theta {\rangle}$.
 
 ##### Bài tập 25.10
 
-Consider the simplified robot shown in
-Figure <a class="insideExercisesFigRef"  href="#FigEx3">FigEx3</a>. Suppose the robot’s Cartesian
-coordinates are known at all times, as are those of its goal location.
-However, the locations of the obstacles are unknown. The robot can sense
-obstacles in its immediate proximity, as illustrated in this figure. For
-simplicity, let us assume the robot’s motion is noise-free, and the
-state space is discrete. Figure <a class="insideExercisesFigRef"  href="#FigEx3">FigEx3</a> is only one
-example; in this exercise you are required to address all possible grid
-worlds with a valid path from the start to the goal location.<br>
+Xem xét robot đơn giản hóa được hiển thị trong
+Hình 
+<a class="insideExercisesFigRef"  href="#FigEx3">FigEx3</a>. Giả sử tọa độ Descartes của robot được biết tại mọi thời điểm, cũng như tọa độ của vị trí mục tiêu của nó. Tuy nhiên, vị trí của các chướng ngại vật là không xác định. Robot có thể cảm nhận các chướng ngại vật ở gần nó, như minh họa trong hình này. Để đơn giản, hãy giả sử chuyển động của robot không có nhiễu, và không gian trạng thái là rời rạc. Hình 
+<a class="insideExercisesFigRef"  href="#FigEx3">FigEx3</a> chỉ là một ví dụ; trong bài tập này, bạn được yêu cầu giải quyết tất cả các thế giới lưới có đường đi hợp lệ từ điểm bắt đầu đến vị trí mục tiêu.<br>
 
-1.  Design a deliberate controller that guarantees that the robot always
-    reaches its goal location if at all possible. The deliberate
-    controller can memorize measurements in the form of a map that is
-    being acquired as the robot moves. Between individual moves, it may
-    spend arbitrary time deliberating.<br>
+1.  Thiết kế một bộ điều khiển có chủ đích đảm bảo rằng robot luôn đạt được vị trí mục tiêu nếu có thể. Bộ điều khiển có chủ đích có thể ghi nhớ các phép đo dưới dạng một bản đồ đang được thu thập khi robot di chuyển. Giữa các lần di chuyển riêng lẻ, nó có thể dành thời gian tùy ý để suy nghĩ.<br>
 
-2.  Now design a <i>reactive</i> controller for the same task.
-    This controller may not memorize past sensor measurements. (It may
-    not build a map!) Instead, it has to make all decisions based on the
-    current measurement, which includes knowledge of its own location
-    and that of the goal. The time to make a decision must be
-    independent of the environment size or the number of past
-    time steps. What is the maximum number of steps that it may take for
-    your robot to arrive at the goal?<br>
+2.  Bây giờ hãy thiết kế một bộ điều khiển <i>phản ứng</i> cho cùng một nhiệm vụ.
+    Bộ điều khiển này không được phép ghi nhớ các phép đo cảm biến trong quá khứ. (Nó không được xây dựng bản đồ!) Thay vào đó, nó phải đưa ra tất cả các quyết định dựa trên phép đo hiện tại, bao gồm kiến thức về vị trí của chính nó và vị trí của mục tiêu. Thời gian để đưa ra quyết định phải độc lập với kích thước môi trường hoặc số lượng các bước thời gian trước đó. Số bước tối đa mà robot của bạn có thể mất để đến đích là bao nhiêu?<br>
 
-3.  How will your controllers from (a) and (b) perform if any of the
-    following six conditions apply: continuous state space, noise in
-    perception, noise in motion, noise in both perception and motion,
-    unknown location of the goal (the goal can be detected only when
-    within sensor range), or moving obstacles. For each condition and
-    each controller, give an example of a situation where the robot
-    fails (or explain why it cannot fail).<br>
+3.  Bộ điều khiển của bạn từ (a) và (b) sẽ hoạt động như thế nào nếu bất kỳ điều kiện nào sau đây áp dụng: không gian trạng thái liên tục, nhiễu trong nhận thức, nhiễu trong chuyển động, nhiễu trong cả nhận thức và chuyển động, vị trí mục tiêu không xác định (mục tiêu chỉ có thể phát hiện khi trong phạm vi cảm biến), hoặc chướng ngại vật di chuyển. Đối với mỗi điều kiện và mỗi bộ điều khiển, hãy đưa ra một ví dụ về một tình huống mà robot thất bại (hoặc giải thích tại sao nó không thể thất bại).<br>
 
 
 ---
 
 ##### Bài tập 25.11
 
-In Figure <a class="insideExercisesFigRef" href="#">Fig5</a>(b) on
-page <a class="pageRef" title="" href="#">Fig5</a>, we encountered an augmented finite state machine for
-the control of a single leg of a hexapod robot. In this exercise, the
-aim is to design an AFSM that, when combined with six copies of the
-individual leg controllers, results in efficient, stable locomotion. For
-this purpose, you have to augment the individual leg controller to pass
-messages to your new AFSM and to wait until other messages arrive. Argue
-why your controller is efficient, in that it does not unnecessarily
-waste energy (e.g., by sliding legs), and in that it propels the robot
-at reasonably high speeds. Prove that your controller satisfies the
-dynamic stability condition given on page <a href="#">polygon-stability-condition-page</a>.
+Trong Hình 
+<a class="insideExercisesFigRef" href="#">Fig5</a>(b) trên trang 
+<a class="pageRef" title="" href="#">Fig5</a>, chúng ta đã gặp một máy trạng thái hữu hạn tăng cường để điều khiển một chân duy nhất của robot lục giác. Trong bài tập này, mục tiêu là thiết kế một AFSM, khi kết hợp với sáu bản sao của bộ điều khiển chân riêng lẻ, sẽ dẫn đến khả năng di chuyển hiệu quả, ổn định. Vì mục đích này, bạn phải tăng cường bộ điều khiển chân riêng lẻ để truyền tin nhắn đến AFSM mới của bạn và đợi cho đến khi các tin nhắn khác đến. Lập luận tại sao bộ điều khiển của bạn hiệu quả, theo đó nó không lãng phí năng lượng một cách không cần thiết (ví dụ: bằng cách làm trượt chân), và theo đó nó đẩy robot với tốc độ tương đối cao. Chứng minh rằng bộ điều khiển của bạn thỏa mãn điều kiện ổn định đa giác được đưa ra trên trang 
+<a href="#">polygon-stability-condition-page</a>.
 
 
 ---
 
 ##### Bài tập 25.12
 
-(This exercise was first devised by Michael
-Genesereth and Nils Nilsson. It works for first graders through graduate
-students.) Humans are so adept at basic household tasks that they often
-forget how complex these tasks are. In this exercise you will discover
-the complexity and recapitulate the last 30 years of developments in
-robotics. Consider the task of building an arch out of three blocks.
-Simulate a robot with four humans as follows:<br>
+(Bài tập này ban đầu được Michael Genesereth và Nils Nilsson nghĩ ra. Nó phù hợp với học sinh lớp một đến sinh viên sau đại học.) Con người rất giỏi trong các công việc gia đình cơ bản đến nỗi họ thường quên đi sự phức tạp của những công việc này. Trong bài tập này, bạn sẽ khám phá sự phức tạp và tái hiện lại 30 năm phát triển trong lĩnh vực robot. Xem xét nhiệm vụ xây dựng một vòm bằng ba khối. Mô phỏng một robot với bốn người như sau:<br>
 
-<b>Brain.</b> The Brain direct the hands in the execution of a
-plan to achieve the goal. The Brain receives input from the Eyes, but
-<i>cannot see the scene directly</i>. The brain is the only one
-who knows what the goal is.<br>
+<b>Bộ não.</b> Bộ não chỉ đạo các bàn tay thực hiện một kế hoạch để đạt được mục tiêu. Bộ não nhận đầu vào từ Mắt, nhưng <i>không thể nhìn trực tiếp cảnh vật</i>. Bộ não là người duy nhất biết mục tiêu là gì.<br>
 
-<b>Eyes.</b> The Eyes report a brief description of the scene
-to the Brain: “There is a red box standing on top of a green box, which
-is on its side” Eyes can also answer questions from the Brain such as,
-“Is there a gap between the Left Hand and the red box?” If you have a
-video camera, point it at the scene and allow the eyes to look at the
-viewfinder of the video camera, but not directly at the scene.<br>
+<b>Mắt.</b> Mắt báo cáo một mô tả ngắn gọn về cảnh vật cho Bộ não: “Có một hộp màu đỏ đứng trên một hộp màu xanh lá cây, đang nằm nghiêng.” Mắt cũng có thể trả lời các câu hỏi từ Bộ não như, “Có khoảng trống nào giữa Tay trái và hộp màu đỏ không?” Nếu bạn có máy quay video, hãy hướng nó vào cảnh vật và cho phép mắt nhìn vào kính ngắm của máy quay video, nhưng không nhìn trực tiếp vào cảnh vật.<br>
 
-<b>Left hand</b> and <b>right hand.</b> One person
-plays each Hand. The two Hands stand next to each other, each wearing an
-oven mitt on one hand, Hands execute only simple commands from the
-Brain—for example, “Left Hand, move two inches forward.” They cannot
-execute commands other than motions; for example, they cannot be
-commanded to “Pick up the box.” The Hands must be
-<i>blindfolded</i>. The only sensory capability they have is the
-ability to tell when their path is blocked by an immovable obstacle such
-as a table or the other Hand. In such cases, they can beep to inform the
-Brain of the difficulty.
+<b>Tay trái</b> và <b>tay phải.</b> Một người đóng vai mỗi Tay. Hai Tay đứng cạnh nhau, mỗi người đeo một chiếc găng tay lò nướng trên một tay, Tay chỉ thực hiện các lệnh đơn giản từ Bộ não—ví dụ, “Tay trái, di chuyển hai inch về phía trước.” Chúng không thể thực hiện các lệnh khác ngoài chuyển động; ví dụ, chúng không thể được ra lệnh “Nhặt hộp lên.” Tay phải <i>bị bịt mắt</i>. Khả năng cảm nhận duy nhất của chúng là khả năng nhận biết khi đường đi của chúng bị chặn bởi một chướng ngại vật không thể di chuyển như bàn hoặc Tay kia. Trong những trường hợp như vậy, chúng có thể kêu bíp để thông báo cho Bộ não về khó khăn.
 
 
 ---
-
 
 <!-- tabs:end -->

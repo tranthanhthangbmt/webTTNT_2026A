@@ -351,131 +351,89 @@ Lập kế hoạch chuyển động trong không gian cấu hình
 
 #### **Bài tập**
 
+
 ##### Bài tập 26.1
 
-Go through Turing’s list of alleged
-“disabilities” of machines, identifying which have been achieved, which
-are achievable in principle by a program, and which are still
-problematic because they require conscious mental states.
+Xem xét danh sách các "hạn chế" được cho là của máy móc của Turing, xác định những gì đã đạt được, những gì có thể đạt được về nguyên tắc bằng một chương trình và những gì vẫn còn là vấn đề vì chúng đòi hỏi các trạng thái tinh thần có ý thức.
 
 
 ---
 
 ##### Bài tập 26.2
 
-Find and analyze an account in the popular media of one or more of the
-arguments to the effect that AI is impossible.
+Tìm và phân tích một bài báo trên phương tiện truyền thông đại chúng về một hoặc nhiều lập luận cho rằng AI là không thể.
 
 
 ---
 
 ##### Bài tập 26.3
 
-Attempt to write definitions of the terms “intelligence,” “thinking,”
-and “consciousness.” Suggest some possible objections to your
-definitions.
+Cố gắng viết định nghĩa cho các thuật ngữ "intelligence," "thinking," và "consciousness." Đề xuất một số phản đối có thể có đối với định nghĩa của bạn.
 
 
 ---
 
 ##### Bài tập 26.4
 
-Does a refutation of the Chinese room argument necessarily prove that
-appropriately programmed computers have mental states? Does an
-acceptance of the argument necessarily mean that computers cannot have
-mental states?
+Việc bác bỏ lập luận phòng Trung Quốc có nhất thiết chứng minh rằng các máy tính được lập trình phù hợp có các trạng thái tinh thần không? Việc chấp nhận lập luận có nhất thiết có nghĩa là máy tính không thể có các trạng thái tinh thần không?
 
 
 ---
 
 ##### Bài tập 26.5
 
-In the brain replacement argument, it is
-important to be able to restore the subject’s brain to normal, such that
-its external behavior is as it would have been if the operation had not
-taken place. Can the skeptic reasonably object that this would require
-updating those neurophysiological properties of the neurons relating to
-conscious experience, as distinct from those involved in the functional
-behavior of the neurons?
+Trong lập luận thay thế não, điều quan trọng là phải có khả năng phục hồi não của đối tượng về trạng thái bình thường, sao cho hành vi bên ngoài của nó giống như thể hoạt động đã không diễn ra. Liệu người hoài nghi có thể phản đối một cách hợp lý rằng điều này sẽ đòi hỏi phải cập nhật các đặc tính thần kinh sinh lý của các tế bào thần kinh liên quan đến trải nghiệm có ý thức, khác với những đặc tính liên quan đến hành vi chức năng của các tế bào thần kinh không?
 
 
 ---
 
 ##### Bài tập 26.6
 
-Suppose that a Prolog program containing many clauses about the rules of
-British citizenship is compiled and run on an ordinary computer. Analyze
-the “brain states” of the computer under wide and narrow content.
+Giả sử rằng một chương trình Prolog chứa nhiều mệnh đề về các quy tắc quốc tịch Anh được biên dịch và chạy trên một máy tính thông thường. Phân tích các "brain states" của máy tính dưới nội dung rộng và hẹp.
 
 
 ---
 
 ##### Bài tập 26.7
 
-Alan Perlis [<a class="paperRef" title="" href="">Perlis:1982</a>] wrote, “A year spent in artificial
-intelligence is enough to make one believe in God”. He also wrote, in a
-letter to Philip Davis, that one of the central dreams of computer
-science is that “through the performance of computers and their programs
-we will remove all doubt that there is only a chemical distinction
-between the living and nonliving world.” To what extent does the
-progress made so far in artificial intelligence shed light on these
-issues? Suppose that at some future date, the AI endeavor has been
-completely successful; that is, we have build intelligent agents capable
-of carrying out any human cognitive task at human levels of ability. To
-what extent would that shed light on these issues?
+Alan Perlis [<a class="paperRef" title="" href="">Perlis:1982</a>] đã viết, "Một năm dành cho artificial intelligence là đủ để khiến người ta tin vào Chúa". Ông cũng viết, trong một lá thư gửi Philip Davis, rằng một trong những giấc mơ trung tâm của khoa học máy tính là "thông qua hiệu suất của máy tính và các chương trình của chúng, chúng ta sẽ loại bỏ mọi nghi ngờ rằng chỉ có sự khác biệt hóa học giữa thế giới sống và không sống." Mức độ nào mà tiến bộ đã đạt được cho đến nay trong artificial intelligence soi sáng các vấn đề này? Giả sử rằng vào một ngày nào đó trong tương lai, nỗ lực AI đã hoàn toàn thành công; nghĩa là, chúng ta đã xây dựng được các intelligent agents có khả năng thực hiện bất kỳ nhiệm vụ nhận thức nào của con người ở cấp độ năng lực của con người. Mức độ nào mà điều đó sẽ soi sáng các vấn đề này?
 
 
 ---
 
 ##### Bài tập 26.8
 
-Compare the social impact of artificial intelligence in the last fifty
-years with the social impact of the introduction of electric appliances
-and the internal combustion engine in the fifty years between 1890 and
-1940.
+So sánh tác động xã hội của artificial intelligence trong năm mươi năm qua với tác động xã hội của việc giới thiệu các thiết bị điện và động cơ đốt trong trong năm mươi năm từ 1890 đến 1940.
 
 
 ---
 
 ##### Bài tập 26.9
 
-I. J. Good claims that intelligence is the most important quality, and
-that building ultraintelligent machines will change everything. A
-sentient cheetah counters that “Actually speed is more important; if we
-could build ultrafast machines, that would change everything,” and a
-sentient elephant claims “You’re both wrong; what we need is ultrastrong
-machines.” What do you think of these arguments?
+I. J. Good cho rằng intelligence là phẩm chất quan trọng nhất, và việc xây dựng các máy móc siêu thông minh sẽ thay đổi mọi thứ. Một con báo có tri giác phản bác rằng "Thực ra tốc độ quan trọng hơn; nếu chúng ta có thể chế tạo máy móc siêu tốc, điều đó sẽ thay đổi mọi thứ," và một con voi có tri giác tuyên bố "Cả hai bạn đều sai; cái chúng ta cần là máy móc siêu mạnh." Bạn nghĩ gì về những lập luận này?
 
 
 ---
 
 ##### Bài tập 26.10
 
-Analyze the potential threats from AI technology to society. What
-threats are most serious, and how might they be combated? How do they
-compare to the potential benefits?
+Phân tích các mối đe dọa tiềm ẩn từ công nghệ AI đối với xã hội. Những mối đe dọa nào là nghiêm trọng nhất và làm thế nào chúng có thể được đối phó? Chúng so sánh như thế nào với các lợi ích tiềm năng?
 
 
 ---
 
 ##### Bài tập 26.11
 
-How do the potential threats from AI technology compare with those from
-other computer science technologies, and to bio-, nano-, and nuclear
-technologies?
+Các mối đe dọa tiềm ẩn từ công nghệ AI so sánh như thế nào với các mối đe dọa từ các công nghệ khoa học máy tính khác, và với công nghệ sinh học, công nghệ nano và công nghệ hạt nhân?
 
 
 ---
 
 ##### Bài tập 26.12
 
-Some critics object that AI is impossible, while others object that it
-is <i>too</i> possible and that ultraintelligent machines pose a
-threat. Which of these objections do you think is more likely? Would it
-be a contradiction for someone to hold both positions?
+Một số nhà phê bình phản đối rằng AI là không thể, trong khi những người khác phản đối rằng nó là *quá* có thể và các máy móc siêu thông minh gây ra mối đe dọa. Bạn nghĩ rằng những phản đối nào có khả năng xảy ra hơn? Liệu có mâu thuẫn khi một người giữ cả hai quan điểm này không?
 
 
 ---
-
 
 <!-- tabs:end -->

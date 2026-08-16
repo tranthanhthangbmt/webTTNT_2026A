@@ -42,50 +42,26 @@
 
 #### **Bài tập**
 
+
 ##### Bài tập 23.1
 
-Read the following text once for
-understanding, and remember as much of it as you can. There will be a
-test later.<br>
+Đọc đoạn văn sau một lần để hiểu, và ghi nhớ càng nhiều càng tốt. Sẽ có một bài kiểm tra sau.<br>
 
-> The procedure is actually quite simple. First you arrange things into
-different groups. Of course, one pile may be sufficient depending on how
-much there is to do. If you have to go somewhere else due to lack of
-facilities that is the next step, otherwise you are pretty well set. It
-is important not to overdo things. That is, it is better to do too few
-things at once than too many. In the short run this may not seem
-important but complications can easily arise. A mistake is expensive as
-well. At first the whole procedure will seem complicated. Soon, however,
-it will become just another facet of life. It is difficult to foresee
-any end to the necessity for this task in the immediate future, but then
-one can never tell. After the procedure is completed one arranges the
-material into different groups again. Then they can be put into their
-appropriate places. Eventually they will be used once more and the whole
-cycle will have to be repeated. However, this is part of life.
+> Thủ tục thực ra khá đơn giản. Đầu tiên bạn sắp xếp mọi thứ thành các nhóm khác nhau. Tất nhiên, một đống có thể đủ tùy thuộc vào khối lượng công việc. Nếu bạn phải đi đến nơi khác do thiếu tiện nghi, đó là bước tiếp theo, nếu không thì bạn đã khá sẵn sàng. Điều quan trọng là không làm quá nhiều việc. Nghĩa là, thà làm quá ít việc cùng một lúc còn hơn làm quá nhiều. Về ngắn hạn, điều này có vẻ không quan trọng nhưng các biến chứng có thể dễ dàng phát sinh. Một sai lầm cũng rất tốn kém. Ban đầu, toàn bộ thủ tục sẽ có vẻ phức tạp. Tuy nhiên, chẳng bao lâu nữa, nó sẽ trở thành một khía cạnh khác của cuộc sống. Rất khó để dự đoán bất kỳ kết thúc nào cho sự cần thiết của nhiệm vụ này trong tương lai gần, nhưng rồi người ta không bao giờ biết được. Sau khi thủ tục hoàn thành, người ta lại sắp xếp tài liệu thành các nhóm khác nhau. Sau đó, chúng có thể được đặt vào đúng vị trí của chúng. Cuối cùng, chúng sẽ được sử dụng một lần nữa và toàn bộ chu kỳ sẽ phải lặp lại. Tuy nhiên, đây là một phần của cuộc sống.
 
 
 ---
 
 ##### Bài tập 23.2
 
-An <i>HMM grammar</i> is essentially a standard HMM whose state
-variable is $N$ (nonterminal, with values such as $Det$, $Adjective$,
-$Noun$ and so on) and whose evidence variable is $W$ (word, with values
-such as $is$, $duck$, and so on). The HMM model includes a prior
-${\textbf{P}}(N_0)$, a transition model
-${\textbf{P}}(N_{t+1}|N_t)$, and a sensor model
-${\textbf{P}}(W_t|N_t)$. Show that every HMM grammar can be
-written as a PCFG. [Hint: start by thinking about how the HMM prior can
-be represented by PCFG rules for the sentence symbol. You may find it
-helpful to illustrate for the particular HMM with values $A$, $B$ for
-$N$ and values $x$, $y$ for $W$.]
+Một <i>HMM grammar</i> về cơ bản là một HMM tiêu chuẩn có biến trạng thái là $N$ (nonterminal, với các giá trị như $Det$, $Adjective$, $Noun$ v.v.) và biến bằng chứng là $W$ (word, với các giá trị như $is$, $duck$, v.v.). Mô hình HMM bao gồm một prior ${\textbf{P}}(N_0)$, một mô hình chuyển tiếp ${\textbf{P}}(N_{t+1}|N_t)$, và một mô hình cảm biến ${\textbf{P}}(W_t|N_t)$. Chứng minh rằng mọi HMM grammar có thể được viết dưới dạng PCFG. [Gợi ý: bắt đầu bằng cách suy nghĩ về cách prior của HMM có thể được biểu diễn bằng các quy tắc PCFG cho ký hiệu câu. Bạn có thể thấy hữu ích khi minh họa cho HMM cụ thể với các giá trị $A$, $B$ cho $N$ và các giá trị $x$, $y$ cho $W$.]
 
 
 ---
 
 ##### Bài tập 23.3
 
-Consider the following PCFG for simple verb phrases:<br>
+Xem xét PCFG sau cho các cụm động từ đơn giản:<br>
 
 > 0.1: VP $\rightarrow$ Verb<br>
 
@@ -115,23 +91,22 @@ Consider the following PCFG for simple verb phrases:<br>
 
 > 0.4: Noun $\rightarrow$ <b>well</b><br>
 
-1.  Which of the following have a nonzero probability as a VP? (i)
+1.  Trong các câu sau, câu nào có xác suất khác 0 với tư cách là VP? (i)
     shoots the duck well well well(ii) seems the well well(iii) shoots
     the unwell well badly<br>
 
-2.  What is the probability of generating “is well well”?<br>
+2.  Xác suất để tạo ra “is well well” là bao nhiêu?<br>
 
-3.  What types of ambiguity are exhibited by the phrase in (b)?<br>
+3.  Các loại mơ hồ nào được thể hiện bởi cụm từ trong (b)?<br>
 
-4.  Given any PCFG, is it possible to calculate the probability that the
-    PCFG generates a string of exactly 10 words?<br>
+4.  Cho bất kỳ PCFG nào, có thể tính toán xác suất mà PCFG đó tạo ra một chuỗi gồm đúng 10 từ không?<br>
 
 
 ---
 
 ##### Bài tập 23.4
 
-Consider the following simple PCFG for noun phrases:<br>
+Xem xét PCFG đơn giản sau cho các cụm danh từ:<br>
 
 > 0.6: NP $\rightarrow$ Det\ AdjString\ Noun<br>
 
@@ -155,58 +130,46 @@ Consider the following simple PCFG for noun phrases:<br>
 
 > 0.4: Noun $\rightarrow$ <b>green</b><br>
 
-where $\Lambda$ denotes the empty string.<br>
+trong đó $\Lambda$ biểu thị chuỗi rỗng.<br>
 
-1.  What is the longest NP that can be generated by this grammar? (i)
-    three words(ii) four words(iii) infinitely many words<br>
+1.  NP dài nhất có thể được tạo ra bởi ngữ pháp này là gì? (i)
+    ba từ(ii) bốn từ(iii) vô số từ<br>
 
-2.  Which of the following have a nonzero probability of being generated
-    as complete NPs? (i) a small green village(ii) a green
+2.  Trong các câu sau, câu nào có xác suất khác 0 để được tạo ra dưới dạng NP hoàn chỉnh? (i) a small green village(ii) a green
     green green(iii) a small village green<br>
 
-3.  What is the probability of generating “the green green”?<br>
+3.  Xác suất để tạo ra “the green green” là bao nhiêu?<br>
 
-4.  What types of ambiguity are exhibited by the phrase in (c)?<br>
+4.  Các loại mơ hồ nào được thể hiện bởi cụm từ trong (c)?<br>
 
-5.  Given any PCFG and any finite word sequence, is it possible to
-    calculate the probability that the sequence was generated by the
-    PCFG?<br>
+5.  Cho bất kỳ PCFG nào và bất kỳ chuỗi từ hữu hạn nào, có thể tính toán xác suất mà chuỗi đó được tạo ra bởi PCFG không?<br>
 
 
 ---
 
 ##### Bài tập 23.5
 
-Outline the major differences between Java (or any other computer
-language with which you are familiar) and English, commenting on the
-“understanding” problem in each case. Think about such things as
-grammar, syntax, semantics, pragmatics, compositionality,
-context-dependence, lexical ambiguity, syntactic ambiguity, reference
-finding (including pronouns), background knowledge, and what it means to
-“understand” in the first place.
+Phác thảo những khác biệt chính giữa Java (hoặc bất kỳ ngôn ngữ máy tính nào khác mà bạn quen thuộc) và tiếng Anh, bình luận về vấn đề “hiểu” trong mỗi trường hợp. Hãy suy nghĩ về các khía cạnh như ngữ pháp, cú pháp, ngữ nghĩa, ngữ dụng, tính cấu thành, sự phụ thuộc vào ngữ cảnh, sự mơ hồ về từ vựng, sự mơ hồ về cú pháp, tìm kiếm tham chiếu (bao gồm cả đại từ), kiến thức nền và ý nghĩa của việc “hiểu” ngay từ đầu.
 
 
 ---
 
 ##### Bài tập 23.6
 
-This exercise concerns grammars for very simple languages.<br>
+Bài tập này liên quan đến các ngữ pháp cho các ngôn ngữ rất đơn giản.<br>
 
-1.  Write a context-free grammar for the language $a^n b^n$.<br>
+1.  Viết một ngữ pháp ngữ cảnh tự do cho ngôn ngữ $a^n b^n$.<br>
 
-2.  Write a context-free grammar for the palindrome language: the set of
-    all strings whose second half is the reverse of the first half.<br>
+2.  Viết một ngữ pháp ngữ cảnh tự do cho ngôn ngữ palindrome: tập hợp tất cả các chuỗi mà nửa sau là đảo ngược của nửa đầu.<br>
 
-3.  Write a context-sensitive grammar for the duplicate language: the
-    set of all strings whose second half is the same as the first half.<br>
+3.  Viết một ngữ pháp ngữ cảnh cho ngôn ngữ nhân đôi: tập hợp tất cả các chuỗi mà nửa sau giống hệt nửa đầu.<br>
 
 
 ---
 
 ##### Bài tập 23.7
 
-Consider the sentence “Someone walked slowly to the supermarket” and a
-lexicon consisting of the following words:<br>
+Xem xét câu “Someone walked slowly to the supermarket” và một từ điển bao gồm các từ sau:<br>
 
 $Pronoun \rightarrow \textbf{someone} \quad Verb \rightarrow \textbf{walked}$<br>
 
@@ -214,8 +177,7 @@ $Adv \rightarrow \textbf{slowly} \quad Prep \rightarrow \textbf{to}$<br>
 
 $Article \rightarrow \textbf{the} \quad Noun \rightarrow \textbf{supermarket}$<br>
 
-Which of the following three grammars, combined with the lexicon,
-generates the given sentence? Show the corresponding parse tree(s).<br>
+Trong ba ngữ pháp sau, ngữ pháp nào kết hợp với từ điển đã cho sẽ tạo ra câu trên? Trình bày cây phân tích cú pháp tương ứng.<br>
 
 $$
 \quad\quad\quad\quad (A):\quad\quad\quad\quad  \quad\quad\quad\quad(B):\quad\quad\quad\quad  \quad\quad\quad\quad(C):\\
@@ -231,100 +193,51 @@ $$
 
 $$
 
-For each of the preceding three grammars, write down three sentences of
-English and three sentences of non-English generated by the grammar.
-Each sentence should be significantly different, should be at least six
-words long, and should include some new lexical entries (which you
-should define). Suggest ways to improve each grammar to avoid generating
-the non-English sentences.
+Đối với mỗi ngữ pháp trên, hãy viết ba câu tiếng Anh và ba câu không phải tiếng Anh được tạo ra bởi ngữ pháp đó. Mỗi câu phải khác biệt đáng kể, ít nhất sáu từ, và bao gồm một số mục từ vựng mới (mà bạn nên định nghĩa). Đề xuất các cách để cải thiện mỗi ngữ pháp để tránh tạo ra các câu không phải tiếng Anh.
 
 
 ---
 
 ##### Bài tập 23.8
 
-Collect some examples of time expressions, such as “two o’clock,”
-“midnight,” and “12:46.” Also think up some examples that are
-ungrammatical, such as “thirteen o’clock” or “half past two fifteen.”
-Write a grammar for the time language.
+Thu thập một số ví dụ về cách diễn đạt thời gian, chẳng hạn như “two o’clock,” “midnight,” và “12:46.” Cũng nghĩ ra một số ví dụ không đúng ngữ pháp, chẳng hạn như “thirteen o’clock” hoặc “half past two fifteen.” Viết một ngữ pháp cho ngôn ngữ thời gian.
 
 
 ---
 
 ##### Bài tập 23.9
 
-Some linguists have argued as follows:<br>
+Một số nhà ngôn ngữ học đã lập luận như sau:<br>
 <br>
- Children learning a language hear only <i>positive
- examples</i> of the language and no <i>negative
- examples</i>. Therefore, the hypothesis that “every possible
- sentence is in the language” is consistent with all the observed
- examples. Moreover, this is the simplest consistent hypothesis.
- Furthermore, all grammars for languages that are supersets of the true
- language are also consistent with the observed data. Yet children do
- induce (more or less) the right grammar. It follows that they begin
- with very strong innate grammatical constraints that rule out all of
- these more general hypotheses <i>a priori</i>.<br>
+ Trẻ em học ngôn ngữ chỉ nghe các <i>ví dụ tích cực</i> về ngôn ngữ và không có <i>ví dụ tiêu cực</i>. Do đó, giả thuyết rằng “mọi câu có thể có đều thuộc về ngôn ngữ” là nhất quán với tất cả các ví dụ đã quan sát được. Hơn nữa, đây là giả thuyết nhất quán đơn giản nhất. Hơn nữa, tất cả các ngữ pháp cho các ngôn ngữ là tập hợp cha của ngôn ngữ thực sự cũng nhất quán với dữ liệu đã quan sát được. Tuy nhiên, trẻ em suy luận (ít nhiều) ngữ pháp đúng. Do đó, chúng bắt đầu với các ràng buộc ngữ pháp bẩm sinh rất mạnh mẽ loại trừ tất cả các giả thuyết tổng quát hơn này <i>a priori</i>.<br>
 
-Comment on the weak point(s) in this argument from a statistical
-learning viewpoint.
+Bình luận về điểm yếu trong lập luận này từ quan điểm học thống kê.
 
 
 ---
 
 ##### Bài tập 23.10
 
-In this exercise you will transform $\large \varepsilon_0$  into
-Chomsky Normal Form (CNF). There are five steps: (a) Add a new start
-symbol, (b) Eliminate $\epsilon$ rules, (c) Eliminate multiple words on
-right-hand sides, (d) Eliminate rules of the form
-(${\it X} \rightarrow{{\;}}$${\it Y}$),
-(e) Convert long right-hand sides into binary rules.<br>
+Trong bài tập này, bạn sẽ chuyển đổi $\large \varepsilon_0$ sang dạng chuẩn Chomsky (CNF). Có năm bước: (a) Thêm một ký hiệu bắt đầu mới, (b) Loại bỏ các quy tắc $\epsilon$, (c) Loại bỏ nhiều từ ở vế phải, (d) Loại bỏ các quy tắc có dạng (${\it X} \rightarrow{{\;}}$${\it Y}$), (e) Chuyển đổi các vế phải dài thành các quy tắc nhị phân.<br>
 
-1.  The start symbol, $S$, can occur only on the left-hand side in CNF.
-    Replace ${\it S}$ everywhere by a new symbol
-    ${\it S'}$ and add a rule of the form
-    ${\it S}$
-    ${{\;}}\rightarrow{{\;}}$${\it S'}$.<br>
+1.  Ký hiệu bắt đầu, $S$, chỉ có thể xuất hiện ở vế trái trong CNF. Thay thế ${\it S}$ ở mọi nơi bằng một ký hiệu mới ${\it S'}$ và thêm một quy tắc có dạng ${\it S}$ ${{\;}}\rightarrow{{\;}}$${\it S'}$.<br>
 
-2.  The empty string, $\epsilon$ cannot appear on the right-hand side
-    in CNF. $\large \varepsilon_0$ does not have any rules with $\epsilon$, so this is not
-    an issue.<br>
+2.  Chuỗi rỗng, $\epsilon$, không thể xuất hiện ở vế phải trong CNF. $\large \varepsilon_0$ không có quy tắc nào có $\epsilon$, vì vậy đây không phải là vấn đề.<br>
 
-3.  A word can appear on the right-hand side in a rule only of the form
-    (${\it X}$
-    ${{\;}}\rightarrow{{\;}}$<i>word</i>).
-    Replace each rule of the form (${\it X}$
-    ${{\;}}\rightarrow{{\;}}$…<i>word</i> …)
-    with (${\it X}$
-    ${{\;}}\rightarrow{{\;}}$…${\it W'}$ …)
-    and (${\it W'}$
-    ${{\;}}\rightarrow{{\;}}$<i>word</i>),
-    using a new symbol ${\it W'}$.<br>
+3.  Một từ có thể xuất hiện ở vế phải trong một quy tắc chỉ có dạng (${\it X}$ ${{\;}}\rightarrow{{\;}}$<i>word</i>). Thay thế mỗi quy tắc có dạng (${\it X}$ ${{\;}}\rightarrow{{\;}}$…<i>word</i> …) bằng (${\it X}$ ${{\;}}\rightarrow{{\;}}$…${\it W'}$ …) và (${\it W'}$ ${{\;}}\rightarrow{{\;}}$<i>word</i>), sử dụng một ký hiệu mới ${\it W'}$.<br>
 
-4.  A rule (${\it X}$
-    ${{\;}}\rightarrow{{\;}}$${\it Y}$)
-    is not allowed in CNF; it must be (${\it X}$
-    ${{\;}}\rightarrow{{\;}}$${\it Y}$ ${\it Z}$) or (${\it X}$ ${{\;}}\rightarrow{{\;}}$<i>word</i>). Replace each rule of the form (${\it X}$ ${{\;}}\rightarrow{{\;}}$${\it Y}$)
-    with a set of rules of the form (${\it X}$
-    ${{\;}}\rightarrow{{\;}}$…), one
-    for each rule (${\it Y}$
-    ${{\;}}\rightarrow{{\;}}$…),
-    where (…) indicates one or more symbols.<br>
+4.  Quy tắc (${\it X}$ ${{\;}}\rightarrow{{\;}}$${\it Y}$) không được phép trong CNF; nó phải là (${\it X}$ ${{\;}}\rightarrow{{\;}}$${\it Y}$ ${\it Z}$) hoặc (${\it X}$ ${{\;}}\rightarrow{{\;}}$<i>word</i>). Thay thế mỗi quy tắc có dạng (${\it X}$ ${{\;}}\rightarrow{{\;}}$${\it Y}$) bằng một tập hợp các quy tắc có dạng (${\it X}$ ${{\;}}\rightarrow{{\;}}$…), một cho mỗi quy tắc (${\it Y}$ ${{\;}}\rightarrow{{\;}}$…), trong đó (…) biểu thị một hoặc nhiều ký hiệu.<br>
 
-5.  Replace each rule of the form (${\it X}$
-    ${{\;}}\rightarrow{{\;}}$${\it Y}$ ${\it Z}$ …) with two rules, (${\it X}$ ${{\;}}\rightarrow{{\;}}$${\it Y}$
-    ${\it Z'}$) and (${\it Z'}$
-    ${{\;}}\rightarrow{{\;}}$${\it Z}$ …), where ${\it Z'}$ is a new symbol.<br>
+5.  Thay thế mỗi quy tắc có dạng (${\it X}$ ${{\;}}\rightarrow{{\;}}$${\it Y}$ ${\it Z}$ …) bằng hai quy tắc, (${\it X}$ ${{\;}}\rightarrow{{\;}}$${\it Y}$ ${\it Z'}$) và (${\it Z'}$ ${{\;}}\rightarrow{{\;}}$${\it Z}$ …), trong đó ${\it Z'}$ là một ký hiệu mới.<br>
 
-Show each step of the process and the final set of rules.<br>
+Trình bày từng bước của quy trình và tập hợp các quy tắc cuối cùng.<br>
 
 
 ---
 
 ##### Bài tập 23.11
 
-Consider the following toy grammar:<br>
+Xem xét ngữ pháp đồ chơi sau:<br>
 
 > $S \rightarrow NP\space VP$<br>
 
@@ -348,28 +261,23 @@ Consider the following toy grammar:<br>
 
 > $Verb \rightarrow pools\space; streams\space; swims$<br>
 
-1.  Show all the parse trees in this grammar for the sentence “Sally
-    swims in streams and pools.”<br>
+1.  Trình bày tất cả các cây phân tích cú pháp trong ngữ pháp này cho câu “Sally swims in streams and pools.”<br>
 
-2.  Show all the table entries that would be made by
-    a (non-probabalistic) CYK parser on this sentence.<br>
+2.  Trình bày tất cả các mục bảng sẽ được tạo ra bởi một trình phân tích cú pháp CYK (không xác suất) trên câu này.<br>
 
 
 ---
 
 ##### Bài tập 23.12
 
-Using DCG notation, write a grammar for a
-language that is just like $\large \varepsilon_1$, except that it enforces agreement between
-the subject and verb of a sentence and thus does not generate
-ungrammatical sentences such as “I smells the wumpus.”
+Sử dụng ký hiệu DCG, viết một ngữ pháp cho một ngôn ngữ giống hệt $\large \varepsilon_1$, ngoại trừ việc nó thực thi sự hòa hợp giữa chủ ngữ và động từ của một câu và do đó không tạo ra các câu không đúng ngữ pháp như “I smells the wumpus.”
 
 
 ---
 
 ##### Bài tập 23.13
 
-Consider the following PCFG:<br>
+Xem xét PCFG sau:<br>
 
 > $S \rightarrow NP \space VP[1.0] $<br>
 
@@ -385,108 +293,80 @@ Consider the following PCFG:<br>
 
 > $\textit{Modal} \rightarrow \textbf{can}[0.3] \space|\space ...$<br>
 
-The sentence “I can fish” has two parse trees with this grammar. Show
-the two trees, their prior probabilities, and their conditional
-probabilities, given the sentence.
+Câu “I can fish” có hai cây phân tích cú pháp với ngữ pháp này. Trình bày hai cây, xác suất tiên nghiệm của chúng và xác suất có điều kiện của chúng, cho trước câu đó.
 
 
 ---
 
 ##### Bài tập 23.14
 
-An augmented context-free grammar can represent languages that a regular
-context-free grammar cannot. Show an augmented context-free grammar for
-the language $a^nb^nc^n$. The allowable values for augmentation
-variables are 1 and $SUCCESSOR(n)$, where $n$ is a value. The rule for a sentence
-in this language is<br>
+Một ngữ pháp ngữ cảnh tự do tăng cường có thể biểu diễn các ngôn ngữ mà ngữ pháp ngữ cảnh tự do thông thường không thể. Trình bày một ngữ pháp ngữ cảnh tự do tăng cường cho ngôn ngữ $a^nb^nc^n$. Các giá trị cho phép cho các biến tăng cường là 1 và $SUCCESSOR(n)$, trong đó $n$ là một giá trị. Quy tắc cho một câu trong ngôn ngữ này là<br>
 $$S(n) \rightarrow A(n) B(n) C(n) \ .$$
-Show the rule(s) for each of ${\it A}$,
-${\it B}$, and ${\it C}$.
+Trình bày quy tắc(các quy tắc) cho mỗi ${\it A}$, ${\it B}$, và ${\it C}$.
 
 
 ---
 
 ##### Bài tập 23.15
 
-Augment the $\large \varepsilon_1$ grammar so that it handles article–noun agreement. That is,
-make sure that “agents” and “an agent” are ${\it NP}$s, but
-“agent” and “an agents” are not.
+Tăng cường ngữ pháp $\large \varepsilon_1$ để nó xử lý sự hòa hợp giữa mạo từ và danh từ. Nghĩa là, đảm bảo rằng “agents” và “an agent” là các NP, nhưng “agent” và “an agents” thì không.
 
 
 ---
 
 ##### Bài tập 23.16
 
-Consider the following sentence (from <i>The New York Times,</i>
-July 28, 2008):<br>
+Xem xét câu sau (từ <i>The New York Times,</i> ngày 28 tháng 7 năm 2008):<br>
 
 > Banks struggling to recover from multibillion-dollar loans on real
 > estate are curtailing loans to American businesses, depriving even
 > healthy companies of money for expansion and hiring.
 
-1.  Which of the words in this sentence are lexically ambiguous?<br>
+1.  Những từ nào trong câu này bị mơ hồ về mặt từ vựng?<br>
 
-2.  Find two cases of syntactic ambiguity in this sentence (there are
-    more than two.)<br>
+2.  Tìm hai trường hợp mơ hồ về cú pháp trong câu này (có nhiều hơn hai.)<br>
 
-3.  Give an instance of metaphor in this sentence.<br>
+3.  Đưa ra một ví dụ về phép ẩn dụ trong câu này.<br>
 
-4.  Can you find semantic ambiguity?
-<br>
+4.  Bạn có thể tìm thấy sự mơ hồ về ngữ nghĩa không?<br>
 
 
 ---
 
 ##### Bài tập 23.17
 
-Without looking back at
-Exercise <a class="exerciseRef" href="{{ site.baseurl }}/nlp-english-exercises/ex_1/">washing-clothes-exercise</a>, answer the following
-questions:<br>
+Không nhìn lại Bài tập <a class="exerciseRef" href="{{ site.baseurl }}/nlp-english-exercises/ex_1/">washing-clothes-exercise</a>, trả lời các câu hỏi sau:<br>
 
-1.  What are the four steps that are mentioned?<br>
+1.  Bốn bước được đề cập là gì?<br>
 
-2.  What step is left out?<br>
+2.  Bước nào bị bỏ sót?<br>
 
-3.  What is “the material” that is mentioned in the text?<br>
+3.  “Tài liệu” được đề cập trong văn bản là gì?<br>
 
-4.  What kind of mistake would be expensive?<br>
+4.  Loại sai lầm nào sẽ tốn kém?<br>
 
-5.  Is it better to do too few things or too many? Why?<br>
+5.  Thà làm quá ít việc hay quá nhiều việc? Tại sao?<br>
 
 
 ---
 
 ##### Bài tập 23.18
 
-Select five sentences and submit them to an online translation service.
-Translate them from English to another language and back to English.
-Rate the resulting sentences for grammaticality and preservation of
-meaning. Repeat the process; does the second round of iteration give
-worse results or the same results? Does the choice of intermediate
-language make a difference to the quality of the results? If you know a
-foreign language, look at the translation of one paragraph into that
-language. Count and describe the errors made, and conjecture why these
-errors were made.
+Chọn năm câu và gửi chúng đến một dịch vụ dịch thuật trực tuyến. Dịch chúng từ tiếng Anh sang một ngôn ngữ khác và quay lại tiếng Anh. Đánh giá các câu kết quả về tính ngữ pháp và sự bảo toàn ý nghĩa. Lặp lại quy trình; vòng lặp thứ hai cho kết quả tệ hơn hay giống nhau? Việc lựa chọn ngôn ngữ trung gian có tạo ra sự khác biệt về chất lượng kết quả không? Nếu bạn biết một ngoại ngữ, hãy xem bản dịch của một đoạn văn sang ngôn ngữ đó. Đếm và mô tả các lỗi đã mắc phải, và suy đoán lý do tại sao những lỗi đó lại xảy ra.
 
 
 ---
 
 ##### Bài tập 23.19
 
-The $D_i$ values for the sentence in
-Figure <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/mt-alignment-figure.png">mt-alignment-figure</a> sum to 0. Will that be true
-of every translation pair? Prove it or give a counterexample.
+Các giá trị $D_i$ cho câu trong Hình <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/mt-alignment-figure.png">mt-alignment-figure</a> có tổng bằng 0. Điều này có đúng với mọi cặp dịch không? Chứng minh hoặc đưa ra một phản ví dụ.
 
 
 ---
 
 ##### Bài tập 23.20
 
-(Adapted from [<a class="paperRef" title="" href="">Knight:1999</a>].) Our translation model assumes that, after the phrase
-translation model selects phrases and the distortion model permutes
-them, the language model can unscramble the permutation. This exercise
-investigates how sensible that assumption is. Try to unscramble these
-proposed lists of phrases into the correct order:<br>
+(Chuyển thể từ [<a class="paperRef" title="" href="">Knight:1999</a>].) Mô hình dịch của chúng tôi giả định rằng, sau khi mô hình dịch cụm chọn các cụm và mô hình biến dạng sắp xếp lại chúng, mô hình ngôn ngữ có thể sắp xếp lại sự sắp xếp đó. Bài tập này điều tra mức độ hợp lý của giả định đó. Hãy thử sắp xếp lại các danh sách cụm được đề xuất sau đây theo đúng thứ tự:<br>
 
 1.  have, programming, a, seen, never, I, language, better<br>
 
@@ -499,36 +379,23 @@ proposed lists of phrases into the correct order:<br>
 4.  created, that, we hold these, to be, all men, truths, are, equal,
     self-evident<br>
 
-Which ones could you do? What type of knowledge did you draw upon? Train
-a bigram model from a training corpus, and use it to find the
-highest-probability permutation of some sentences from a test corpus.
-Report on the accuracy of this model.
+Bạn có thể làm được những câu nào? Bạn đã sử dụng loại kiến thức nào? Huấn luyện một mô hình bigram từ một tập dữ liệu huấn luyện và sử dụng nó để tìm hoán vị có xác suất cao nhất của một số câu từ một tập dữ liệu kiểm tra. Báo cáo về độ chính xác của mô hình này.
 
 
 ---
 
 ##### Bài tập 23.21
 
-Calculate the most probable path through the HMM in
-Figure <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/sr-hmm-figure.png">sr-hmm-figure</a> for the output sequence
-$[C_1,C_2,C_3,C_4,C_4,C_6,C_7]$. Also give its probability.
+Tính toán đường đi có xác suất cao nhất qua HMM trong Hình <a class="insideBookFigRef" target="_blank" href="https://aimacode.github.io/aima-exercises/figures/sr-hmm-figure.png">sr-hmm-figure</a> cho chuỗi đầu ra $[C_1,C_2,C_3,C_4,C_4,C_6,C_7]$. Cũng đưa ra xác suất của nó.
 
 
 ---
 
 ##### Bài tập 23.22
 
-We forgot to mention that the text in
-Exercise <a class="exerciseRef" href="{{ site.baseurl }}/nlp-english-exercises/ex_1/">washing-clothes-exercise</a> is entitled “Washing
-Clothes.” Reread the text and answer the questions in
-Exercise <a class="exerciseRef" href="{{ site.baseurl }}/nlp-english-exercises/ex_17/">washing-clothes2-exercise</a>. Did you do better
-this time? Bransford and Johnson [<a class="paperRef"  title="" href="">Bransford+Johnson:1973</a>] used this
-text in a controlled experiment and found that the title helped
-significantly. What does this tell you about how language and memory
-works?
+Chúng tôi quên đề cập rằng văn bản trong Bài tập <a class="exerciseRef" href="{{ site.baseurl }}/nlp-english-exercises/ex_1/">washing-clothes-exercise</a> có tiêu đề “Washing Clothes.” Đọc lại văn bản và trả lời các câu hỏi trong Bài tập <a class="exerciseRef" href="{{ site.baseurl }}/nlp-english-exercises/ex_17/">washing-clothes2-exercise</a>. Lần này bạn làm tốt hơn chứ? Bransford và Johnson [<a class="paperRef" title="" href="">Bransford+Johnson:1973</a>] đã sử dụng văn bản này trong một thí nghiệm có kiểm soát và nhận thấy rằng tiêu đề đã giúp ích đáng kể. Điều này cho bạn biết gì về cách ngôn ngữ và trí nhớ hoạt động?
 
 
 ---
-
 
 <!-- tabs:end -->

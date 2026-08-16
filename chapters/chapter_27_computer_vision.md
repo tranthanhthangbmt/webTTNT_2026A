@@ -413,6 +413,7 @@ So khớp hình ảnh/đối tượng: tính năng, đường nét, vùng, v.v.
 
 #### **Bài tập**
 
+
 *(Hiện chưa có bài tập cho chương này)*
 
 <!-- tabs:end -->
