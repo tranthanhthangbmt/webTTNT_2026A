@@ -28,14 +28,14 @@
 *(Chưa có bài tập trắc nghiệm)*
 
 #### **Pseudocode**
-- <a href="codeAndExercises/aima-pseudocode-master/md/Simple-Problem-Solving-Agent.md" target="_blank" data-ignore>SIMPLE-PROBLEM-SOLVING-AGENT</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Tree-Search-and-Graph-Search.md" target="_blank" data-ignore>BEST-FIRST-SEARCH</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Breadth-First-Search.md" target="_blank" data-ignore>BREADTH-FIRST-SEARCH</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Iterative-Deepening-Search.md" target="_blank" data-ignore>ITERATIVE-DEEPENING-SEARCH</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Simple-Problem-Solving-Agent.md" target="_blank">SIMPLE-PROBLEM-SOLVING-AGENT</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Tree-Search-and-Graph-Search.md" target="_blank">BEST-FIRST-SEARCH</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Breadth-First-Search.md" target="_blank">BREADTH-FIRST-SEARCH</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Iterative-Deepening-Search.md" target="_blank">ITERATIVE-DEEPENING-SEARCH</a>
 - <a href="codeAndExercises/aima-pseudocode-master/" target="_blank" data-ignore>BIBF-SEARCH</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Uniform-Cost-Search.md" target="_blank" data-ignore>UNIFORM-COST-SEARCH</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Depth-Limited-Search.md" target="_blank" data-ignore>DEPTH-LIMITED-SEARCH</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Recursive-Best-First-Search.md" target="_blank" data-ignore>RECURSIVE-BEST-FIRST-SEARCH</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Uniform-Cost-Search.md" target="_blank">UNIFORM-COST-SEARCH</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Depth-Limited-Search.md" target="_blank">DEPTH-LIMITED-SEARCH</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Recursive-Best-First-Search.md" target="_blank">RECURSIVE-BEST-FIRST-SEARCH</a>
 
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 

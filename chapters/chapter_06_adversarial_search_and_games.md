@@ -28,10 +28,10 @@
 *(Chưa có bài tập trắc nghiệm)*
 
 #### **Pseudocode**
-- <a href="codeAndExercises/aima-pseudocode-master/md/AC-3.md" target="_blank" data-ignore>AC-3</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Backtracking-Search.md" target="_blank" data-ignore>BACKTRACKING-SEARCH</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Min-Conflicts.md" target="_blank" data-ignore>MIN-CONFLICTS</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Tree-CSP-Solver.md" target="_blank" data-ignore>TREE-CSP-SOLVER</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/AC-3.md" target="_blank">AC-3</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Backtracking-Search.md" target="_blank">BACKTRACKING-SEARCH</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Min-Conflicts.md" target="_blank">MIN-CONFLICTS</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Tree-CSP-Solver.md" target="_blank">TREE-CSP-SOLVER</a>
 
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 

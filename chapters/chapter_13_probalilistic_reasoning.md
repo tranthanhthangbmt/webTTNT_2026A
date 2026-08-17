@@ -28,12 +28,12 @@
 *(Chưa có bài tập trắc nghiệm)*
 
 #### **Pseudocode**
-- <a href="codeAndExercises/aima-pseudocode-master/md/Enumeration-Ask.md" target="_blank" data-ignore>ENUMERATION-ASK</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Elimination-Ask.md" target="_blank" data-ignore>ELIMINATION-ASK</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Prior-Sample.md" target="_blank" data-ignore>PRIOR-SAMPLE</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Rejection-Sampling.md" target="_blank" data-ignore>REJECTION-SAMPLING</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Likelihood-Weighting.md" target="_blank" data-ignore>LIKELIHOOD-WEIGHTING</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Gibbs-Ask.md" target="_blank" data-ignore>GIBBS-ASK</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Enumeration-Ask.md" target="_blank">ENUMERATION-ASK</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Elimination-Ask.md" target="_blank">ELIMINATION-ASK</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Prior-Sample.md" target="_blank">PRIOR-SAMPLE</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Rejection-Sampling.md" target="_blank">REJECTION-SAMPLING</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Likelihood-Weighting.md" target="_blank">LIKELIHOOD-WEIGHTING</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Gibbs-Ask.md" target="_blank">GIBBS-ASK</a>
 
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 

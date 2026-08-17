@@ -342,7 +342,7 @@ Lập kế hoạch chuyển động trong không gian cấu hình
 *(Chưa có bài tập trắc nghiệm)*
 
 #### **Pseudocode**
-- <a href="codeAndExercises/aima-pseudocode-master/md/Monte-Carlo-Localization.md" target="_blank" data-ignore>MONTE-CARLO-LOCALIZATION</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Monte-Carlo-Localization.md" target="_blank">MONTE-CARLO-LOCALIZATION</a>
 
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 

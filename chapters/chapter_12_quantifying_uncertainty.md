@@ -28,7 +28,7 @@
 *(Chưa có bài tập trắc nghiệm)*
 
 #### **Pseudocode**
-- <a href="codeAndExercises/aima-pseudocode-master/md/DT-Agent.md" target="_blank" data-ignore>DT-AGENT</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/DT-Agent.md" target="_blank">DT-AGENT</a>
 
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 

@@ -28,14 +28,14 @@
 *(Chưa có bài tập trắc nghiệm)*
 
 #### **Pseudocode**
-- <a href="codeAndExercises/aima-pseudocode-master/md/KB-Agent.md" target="_blank" data-ignore>KB-AGENT</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/TT-Entails.md" target="_blank" data-ignore>TT-ENTAILS</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/PL-Resolution.md" target="_blank" data-ignore>PL-RESOLUTION</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/PL-FC-Entails.md" target="_blank" data-ignore>PL-FC-ENTAILS?</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/DPLL-Satisfiable.md" target="_blank" data-ignore>DPLL-SATISFIABLE?</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/WalkSAT.md" target="_blank" data-ignore>WALKSAT</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Hybrid-Wumpus-Agent.md" target="_blank" data-ignore>HYBRID-WUMPUS-AGENT</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/SATPlan.md" target="_blank" data-ignore>SATPLAN</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/KB-Agent.md" target="_blank">KB-AGENT</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/TT-Entails.md" target="_blank">TT-ENTAILS</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/PL-Resolution.md" target="_blank">PL-RESOLUTION</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/PL-FC-Entails.md" target="_blank">PL-FC-ENTAILS?</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/DPLL-Satisfiable.md" target="_blank">DPLL-SATISFIABLE?</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/WalkSAT.md" target="_blank">WALKSAT</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Hybrid-Wumpus-Agent.md" target="_blank">HYBRID-WUMPUS-AGENT</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/SATPlan.md" target="_blank">SATPLAN</a>
 
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 

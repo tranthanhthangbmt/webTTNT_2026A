@@ -28,15 +28,15 @@
 *(Chưa có bài tập trắc nghiệm)*
 
 #### **Pseudocode**
-- <a href="codeAndExercises/aima-pseudocode-master/md/Air-Cargo-Transport-Problem.md" target="_blank" data-ignore>AIR-CARGO-TRANSPORT-PROBLEM</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Spare-Tire-Problem.md" target="_blank" data-ignore>SPARE-TIRE-PROBLEM</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Blocks-World.md" target="_blank" data-ignore>BLOCKS-WORLD</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Have-Cake-And-Eat-Cake-Too.md" target="_blank" data-ignore>HAVE-CAKE-AND-EAT-CAKE-TOO-PROBLEM</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/GraphPlan.md" target="_blank" data-ignore>GRAPHPLAN</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Refinement-High-Level-Actions.md" target="_blank" data-ignore>REFINEMENT-HIGH-LEVEL-ACTIONS</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Hierarchical-Search.md" target="_blank" data-ignore>HIERARCHICAL-SEARCH</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Angelic-Search.md" target="_blank" data-ignore>ANGELIC-SEARCH</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Job-Shop-Scheduling-Problem.md" target="_blank" data-ignore>JOB-SHOP-SCHEDULING-PROBLEM</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Air-Cargo-Transport-Problem.md" target="_blank">AIR-CARGO-TRANSPORT-PROBLEM</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Spare-Tire-Problem.md" target="_blank">SPARE-TIRE-PROBLEM</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Blocks-World.md" target="_blank">BLOCKS-WORLD</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Have-Cake-And-Eat-Cake-Too.md" target="_blank">HAVE-CAKE-AND-EAT-CAKE-TOO-PROBLEM</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/GraphPlan.md" target="_blank">GRAPHPLAN</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Refinement-High-Level-Actions.md" target="_blank">REFINEMENT-HIGH-LEVEL-ACTIONS</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Hierarchical-Search.md" target="_blank">HIERARCHICAL-SEARCH</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Angelic-Search.md" target="_blank">ANGELIC-SEARCH</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Job-Shop-Scheduling-Problem.md" target="_blank">JOB-SHOP-SCHEDULING-PROBLEM</a>
 
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 

@@ -28,7 +28,7 @@
 *(Chưa có bài tập trắc nghiệm)*
 
 #### **Pseudocode**
-- <a href="codeAndExercises/aima-pseudocode-master/md/Powers-Of-2.md" target="_blank" data-ignore>POWERS-OF-2</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Powers-Of-2.md" target="_blank">POWERS-OF-2</a>
 
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 

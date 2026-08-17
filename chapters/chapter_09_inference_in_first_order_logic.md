@@ -36,10 +36,10 @@
 *(Chưa có bài tập trắc nghiệm)*
 
 #### **Pseudocode**
-- <a href="codeAndExercises/aima-pseudocode-master/md/Unify.md" target="_blank" data-ignore>UNIFY</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/FOL-FC-Ask.md" target="_blank" data-ignore>FOL-FC-ASK</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/FOL-BC-Ask.md" target="_blank" data-ignore>FOL-BC-ASK</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Append.md" target="_blank" data-ignore>APPEND</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Unify.md" target="_blank">UNIFY</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/FOL-FC-Ask.md" target="_blank">FOL-FC-ASK</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/FOL-BC-Ask.md" target="_blank">FOL-BC-ASK</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Append.md" target="_blank">APPEND</a>
 
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 

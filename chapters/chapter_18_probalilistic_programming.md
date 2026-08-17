@@ -28,7 +28,7 @@
 *(Chưa có bài tập trắc nghiệm)*
 
 #### **Pseudocode**
-- <a href="codeAndExercises/aima-pseudocode-master/md/Doubles-Tennis-Problem.md" target="_blank" data-ignore>DOUBLES-TENNIS-PROBLEM</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Doubles-Tennis-Problem.md" target="_blank">DOUBLES-TENNIS-PROBLEM</a>
 
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 

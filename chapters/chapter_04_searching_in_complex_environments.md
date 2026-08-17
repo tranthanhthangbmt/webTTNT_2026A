@@ -32,12 +32,12 @@
 *(Chưa có bài tập trắc nghiệm)*
 
 #### **Pseudocode**
-- <a href="codeAndExercises/aima-pseudocode-master/md/Hill-Climbing.md" target="_blank" data-ignore>HILL-CLIMBING</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Simulated-Annealing.md" target="_blank" data-ignore>SIMULATED-ANNEALING</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Genetic-Algorithm.md" target="_blank" data-ignore>GENETIC-ALGORITHM</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/And-Or-Graph-Search.md" target="_blank" data-ignore>AND-OR-GRAPH-SEARCH</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Online-DFS-Agent.md" target="_blank" data-ignore>ONLINE-DFS-AGENT</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/LRTAStar-Agent.md" target="_blank" data-ignore>LRTA*-AGENT</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Hill-Climbing.md" target="_blank">HILL-CLIMBING</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Simulated-Annealing.md" target="_blank">SIMULATED-ANNEALING</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Genetic-Algorithm.md" target="_blank">GENETIC-ALGORITHM</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/And-Or-Graph-Search.md" target="_blank">AND-OR-GRAPH-SEARCH</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Online-DFS-Agent.md" target="_blank">ONLINE-DFS-AGENT</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/LRTAStar-Agent.md" target="_blank">LRTA*-AGENT</a>
 
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 

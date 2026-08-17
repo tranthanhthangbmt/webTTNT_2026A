@@ -28,9 +28,9 @@
 *(Chưa có bài tập trắc nghiệm)*
 
 #### **Pseudocode**
-- <a href="codeAndExercises/aima-pseudocode-master/md/Minimax-Decision.md" target="_blank" data-ignore>MINIMAX-SEARCH</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Alpha-Beta-Search.md" target="_blank" data-ignore>ALPHA-BETA-SEARCH</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Monte-Carlo-Tree-Search.md" target="_blank" data-ignore>MONTE-CARLO-TREE-SEARCH</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Minimax-Decision.md" target="_blank">MINIMAX-SEARCH</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Alpha-Beta-Search.md" target="_blank">ALPHA-BETA-SEARCH</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Monte-Carlo-Tree-Search.md" target="_blank">MONTE-CARLO-TREE-SEARCH</a>
 
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 

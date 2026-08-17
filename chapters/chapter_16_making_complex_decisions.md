@@ -28,7 +28,7 @@
 *(Chưa có bài tập trắc nghiệm)*
 
 #### **Pseudocode**
-- <a href="codeAndExercises/aima-pseudocode-master/md/Information-Gathering-Agent.md" target="_blank" data-ignore>INFORMATION-GATHERING-AGENT</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Information-Gathering-Agent.md" target="_blank">INFORMATION-GATHERING-AGENT</a>
 
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 

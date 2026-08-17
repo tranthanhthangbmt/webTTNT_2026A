@@ -28,10 +28,10 @@
 *(Chưa có bài tập trắc nghiệm)*
 
 #### **Pseudocode**
-- <a href="codeAndExercises/aima-pseudocode-master/md/Table-Driven-Agent.md" target="_blank" data-ignore>TABLE-DRIVEN-AGENT</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Reflex-Vacuum-Agent.md" target="_blank" data-ignore>REFLEX-VACUUM-AGENT</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Simple-Reflex-Agent.md" target="_blank" data-ignore>SIMPLE-REFLEX-AGENT</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Model-Based-Reflex-Agent.md" target="_blank" data-ignore>MODEL-BASED-REFLEX-AGENT</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Table-Driven-Agent.md" target="_blank">TABLE-DRIVEN-AGENT</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Reflex-Vacuum-Agent.md" target="_blank">REFLEX-VACUUM-AGENT</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Simple-Reflex-Agent.md" target="_blank">SIMPLE-REFLEX-AGENT</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Model-Based-Reflex-Agent.md" target="_blank">MODEL-BASED-REFLEX-AGENT</a>
 
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 

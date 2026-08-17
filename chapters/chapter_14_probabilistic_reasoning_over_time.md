@@ -36,9 +36,9 @@
 *(Chưa có bài tập trắc nghiệm)*
 
 #### **Pseudocode**
-- <a href="codeAndExercises/aima-pseudocode-master/md/Forward-Backward.md" target="_blank" data-ignore>FORWARD-BACKWARD</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Fixed-Lag-Smoothing.md" target="_blank" data-ignore>FIXED-LAG-SMOOTHING</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Particle-Filtering.md" target="_blank" data-ignore>PARTICLE-FILTERING</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Forward-Backward.md" target="_blank">FORWARD-BACKWARD</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Fixed-Lag-Smoothing.md" target="_blank">FIXED-LAG-SMOOTHING</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Particle-Filtering.md" target="_blank">PARTICLE-FILTERING</a>
 
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 

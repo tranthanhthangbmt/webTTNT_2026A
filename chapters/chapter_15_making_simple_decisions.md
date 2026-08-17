@@ -32,11 +32,11 @@
 *(Chưa có bài tập trắc nghiệm)*
 
 #### **Pseudocode**
-- <a href="codeAndExercises/aima-pseudocode-master/md/oupm.md" target="_blank" data-ignore>OUPM</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/net-visa.md" target="_blank" data-ignore>NET-VISA</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/radar.md" target="_blank" data-ignore>RADAR</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/generate-image.md" target="_blank" data-ignore>GENERATE-IMAGE</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/generate-markov-letters.md" target="_blank" data-ignore>GENERATE-MARKOV-LETTERS</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/oupm.md" target="_blank">OUPM</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/net-visa.md" target="_blank">NET-VISA</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/radar.md" target="_blank">RADAR</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/generate-image.md" target="_blank">GENERATE-IMAGE</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/generate-markov-letters.md" target="_blank">GENERATE-MARKOV-LETTERS</a>
 
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 

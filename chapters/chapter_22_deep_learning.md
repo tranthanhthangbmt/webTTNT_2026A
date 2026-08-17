@@ -28,10 +28,10 @@
 *(Chưa có bài tập trắc nghiệm)*
 
 #### **Pseudocode**
-- <a href="codeAndExercises/aima-pseudocode-master/md/Passive-ADP-Agent.md" target="_blank" data-ignore>PASSIVE-ADP-AGENT</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Passive-TD-Agent.md" target="_blank" data-ignore>PASSIVE-TD-AGENT</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Q-Learning-Agent.md" target="_blank" data-ignore>Q-LEARNING-AGENT</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Hits.md" target="_blank" data-ignore>HITS</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Passive-ADP-Agent.md" target="_blank">PASSIVE-ADP-AGENT</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Passive-TD-Agent.md" target="_blank">PASSIVE-TD-AGENT</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Q-Learning-Agent.md" target="_blank">Q-LEARNING-AGENT</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Hits.md" target="_blank">HITS</a>
 
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 

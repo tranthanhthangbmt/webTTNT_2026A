@@ -28,14 +28,14 @@
 *(Chưa có bài tập trắc nghiệm)*
 
 #### **Pseudocode**
-- <a href="codeAndExercises/aima-pseudocode-master/md/Decision-Tree-Learning.md" target="_blank" data-ignore>LEARN-DECISION-TREE</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Cross-Validation-Wrapper.md" target="_blank" data-ignore>CROSS-VALIDATION-WRAPPER</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Decision-List-Learning.md" target="_blank" data-ignore>DECISION-LIST-LEARNING</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/AdaBoost.md" target="_blank" data-ignore>ADABOOST</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Current-Best-Learning.md" target="_blank" data-ignore>CURRENT-BEST-LEARNING</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Version-Space-Learning.md" target="_blank" data-ignore>VERSION-SPACE-LEARNING</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Minimal-Consistent-Det.md" target="_blank" data-ignore>MINIMAL-CONSISTENT-DET</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Foil.md" target="_blank" data-ignore>FOIL</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Decision-Tree-Learning.md" target="_blank">LEARN-DECISION-TREE</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Cross-Validation-Wrapper.md" target="_blank">CROSS-VALIDATION-WRAPPER</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Decision-List-Learning.md" target="_blank">DECISION-LIST-LEARNING</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/AdaBoost.md" target="_blank">ADABOOST</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Current-Best-Learning.md" target="_blank">CURRENT-BEST-LEARNING</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Version-Space-Learning.md" target="_blank">VERSION-SPACE-LEARNING</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Minimal-Consistent-Det.md" target="_blank">MINIMAL-CONSISTENT-DET</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Foil.md" target="_blank">FOIL</a>
 
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 

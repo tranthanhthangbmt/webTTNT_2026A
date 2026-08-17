@@ -36,9 +36,9 @@
 *(Chưa có bài tập trắc nghiệm)*
 
 #### **Pseudocode**
-- <a href="codeAndExercises/aima-pseudocode-master/md/Value-Iteration.md" target="_blank" data-ignore>VALUE-ITERATION</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Policy-Iteration.md" target="_blank" data-ignore>POLICY-ITERATION</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/POMDP-Value-Iteration.md" target="_blank" data-ignore>POMDP-VALUE-ITERATION</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Value-Iteration.md" target="_blank">VALUE-ITERATION</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Policy-Iteration.md" target="_blank">POLICY-ITERATION</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/POMDP-Value-Iteration.md" target="_blank">POMDP-VALUE-ITERATION</a>
 
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 

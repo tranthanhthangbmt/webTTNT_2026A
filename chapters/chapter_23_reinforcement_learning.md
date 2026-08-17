@@ -28,8 +28,8 @@
 *(Chưa có bài tập trắc nghiệm)*
 
 #### **Pseudocode**
-- <a href="codeAndExercises/aima-pseudocode-master/md/CYK-Parse.md" target="_blank" data-ignore>CYK-PARSE</a>
-- <a href="codeAndExercises/aima-pseudocode-master/md/Sentence-Tree.md" target="_blank" data-ignore>SENTENCE-TREE</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/CYK-Parse.md" target="_blank">CYK-PARSE</a>
+- <a href="#/codeAndExercises/aima-pseudocode-master/md/Sentence-Tree.md" target="_blank">SENTENCE-TREE</a>
 
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 
