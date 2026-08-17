@@ -1,0 +1,457 @@
+[
+  {
+    "id": 1,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Mục tiêu chính của lĩnh vực Kỹ nghệ Bản thể luận (Ontological Engineering) trong AI là gì?",
+    "options": [
+      "Chế tạo các phần cứng máy tính mạnh hơn (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Xây dựng các bộ giải mã mật khẩu (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Thiết kế các biểu diễn tổng quát để hệ thống hóa mọi khái niệm trên thế giới phục vụ việc suy luận.",
+      "Tối ưu hóa các thuật toán tìm kiếm mù (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 2,
+    "feedback": "Ontological Engineering xây dựng một bộ 'từ vựng' và cấu trúc cấp cao nhất (Upper Ontology) để mọi hệ chuyên gia trong các lĩnh vực khác nhau có thể hiểu và giao tiếp được với nhau. (Giải thích thêm: (Upper Ontology) (như thời gian, không gian, đối tượng, sự kiện))"
+  },
+  {
+    "id": 2,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Trong biểu diễn tri thức, một khái niệm bao trùm nhiều đối tượng cụ thể (ví dụ: 'Con người', 'Quả táo', 'Động vật có vú') được gọi là một ____________ (Category / Thể loại).",
+    "options": [
+      "Instance (Thực thể)",
+      "Category (Thể loại)",
+      "Action (Hành động)",
+      "Relation (Quan hệ)"
+    ],
+    "answer": 1,
+    "feedback": "Category (Thể loại hay Lớp) đóng vai trò cốt lõi. Trong FOL, một Thể loại có thể được biểu diễn như một Vị từ một ngôi (VD: Human(x)) hoặc như một Đối tượng Tập hợp (VD: x ∈ Humans)."
+  },
+  {
+    "id": 3,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Hai mối quan hệ cốt lõi nhất để tổ chức các Thể loại (Categories) thành một hệ thống phân cấp (Taxonomy) là gì? (Chọn đáp án đúng)",
+    "options": [
+      "Quan hệ 'Là một' - Một thể loại là tập con của thể loại khác.",
+      "Quan hệ 'Thuộc về' - Một đối tượng cụ thể thuộc về một thể loại.",
+      "Quan hệ 'Nhân quả' (Cause-Effect).",
+      "Quan hệ 'Nhanh hơn' (Faster-than)."
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "feedback": "Tổ chức phân cấp dựa trên Is-a (Chó là Động vật có vú) và Instance-of (Cậu Vàng là một con Chó). Điều này giúp suy luận tính kế thừa (Inheritance) một cách tự nhiên. (Giải thích thêm: (Is-a / Subclass)) (Giải thích thêm: (Instance-of / Member))"
+  },
+  {
+    "id": 4,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Thuật ngữ 'Phân hoạch' (Partition) của một tập hợp lớn (ví dụ: Động vật) có nghĩa là gì?",
+    "options": [
+      "Chia tập hợp lớn thành các tập con có thể giao nhau.",
+      "Chia tập hợp lớn thành các tập con Rời rạc VÀ Phủ kín.",
+      "Chọn ra một phần tử duy nhất đại diện cho tập hợp.",
+      "Xóa bỏ tập hợp đó (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 1,
+    "feedback": "Phân hoạch (Partition). Ví dụ: Phân hoạch 'Động vật' thành 'Con đực' và 'Con cái'. Không con nào vừa đực vừa cái (Disjoint) và con nào cũng phải thuộc một trong hai (Exhaustive). (Giải thích thêm: (cùng chứa một đối tượng)) (Giải thích thêm: (Disjoint - không giao nhau) (Exhaustive - hợp lại bằng đúng tập ban đầu))"
+  },
+  {
+    "id": 5,
+    "type": "matching",
+    "difficulty": "Khó",
+    "question": "Ghép nối các khái niệm về Cấu trúc đối tượng (Part-Whole relationships) với ví dụ của nó:",
+    "pairs": [
+      {
+        "left": "Part-of (Một phần của)",
+        "right": "Bánh xe là một phần của Ô tô (BánhXe ∈ Parts(ÔTô))"
+      },
+      {
+        "left": "Sub-part (Phần tử con)",
+        "right": "Bánh xe là một phần của Ô tô, Bơm là một phần của Bánh xe -> Bơm là một phần của Ô tô (Tính bắc cầu)"
+      },
+      {
+        "left": "Bất biến (Invariant)",
+        "right": "Một cái bàn làm từ gỗ, dù cưa ra làm đôi thì những mảnh vỡ vẫn mang bản chất là gỗ"
+      },
+      {
+        "left": "Đếm được (Count noun)",
+        "right": "Một cái bàn khi chia đôi thì không còn là 'Cái bàn' nữa (Mất bản chất)"
+      }
+    ],
+    "feedback": "Việc phân biệt Stuff (Chất liệu như Nước, Gỗ) và Thing (Đồ vật như Bàn, Ghế) là một thách thức lớn trong ngôn ngữ tự nhiên và biểu diễn tri thức."
+  },
+  {
+    "id": 6,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Tính Kế thừa (Inheritance) cho phép một đối tượng thuộc một thể loại con (Subclass) tự động sở hữu tất cả các thuộc tính của thể loại cha (Superclass) mà không cần phải định nghĩa lại.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Đây là lợi ích lớn nhất của việc xây dựng hệ thống phân loại. Nếu biết 'Mọi loài chim đều đẻ trứng' và 'Đà điểu là chim', AI tự suy ra 'Đà điểu đẻ trứng'."
+  },
+  {
+    "id": 7,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Khái niệm 'Calculus Sự kiện' (Event Calculus) khác với 'Calculus Hoàn cảnh' (Situation Calculus) ở điểm quan trọng nào?",
+    "options": [
+      "Event Calculus không thể xử lý các hành động (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Situation Calculus biểu diễn thời gian trôi qua qua một chuỗi các hành động liên tiếp.",
+      "Event Calculus chạy chậm hơn (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Situation Calculus được dùng riêng cho mạng nơ-ron (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 1,
+    "feedback": "Situation Calculus bị kẹt ở chỗ các hành động phải tuần tự và rời rạc. Event Calculus cho phép biểu diễn 'Sự kiện A bắt đầu lúc 1h và kết thúc lúc 3h, trong lúc đó sự kiện B diễn ra'. (Giải thích thêm: (t0, t1...) (Intervals) Event Calculus sử dụng trực tiếp các khoảng thời gian và điểm thời gian thực tế để cho phép các sự kiện diễn ra đồng thời hoặc kéo dài.)"
+  },
+  {
+    "id": 8,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Trong Event Calculus, một tính chất hoặc trạng thái có thể thay đổi theo thời gian (ví dụ: 'Tại nhà' hoặc 'Sống sót') được gọi là một ____________ (Fluent).",
+    "options": [
+      "Fluent",
+      "Constant",
+      "Action",
+      "Process"
+    ],
+    "answer": 0,
+    "feedback": "Fluent (dịch nôm na là 'Trạng thái động') là khái niệm dùng để mô tả một tính chất chỉ đúng trong một khoảng thời gian nhất định (HoldsAt(f, t))."
+  },
+  {
+    "id": 9,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Sắp xếp cấu trúc cơ bản của Event Calculus từ nguyên nhân đến kết quả:",
+    "items": [
+      "Một Sự kiện (Event E) xảy ra tại thời điểm t",
+      "Sự kiện E Khởi tạo (Initiates) một trạng thái động (Fluent F)",
+      "Trạng thái F được Duy trì (Holds) trong suốt khoảng thời gian sau đó",
+      "Một Sự kiện khác (E2) xảy ra tại thời điểm t2 làm Chấm dứt (Terminates) F",
+      "Trạng thái F không còn được duy trì nữa (Not Holds)"
+    ],
+    "feedback": "Initiates(e, f, t), Terminates(e, f, t), Clipped(t1, f, t2) và HoldsAt(f, t) là những vị từ nền tảng của Event Calculus."
+  },
+  {
+    "id": 10,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Để mô tả 'Sự kiện Tinh thần' (Mental Events) như Niềm tin (Belief) hay Tri thức (Knowledge), First-Order Logic thuần túy gặp thất bại vì tính 'Trong suốt tham chiếu' (Referential Transparency). Vấn đề này là gì? (Chọn đáp án đúng)",
+    "options": [
+      "Trong FOL, nếu ClarkKent = Superman, thì câu Believes) tự động suy ra Believes) (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "FOL không cho phép các hàm lồng nhau (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "FOL không có toán tử AND (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Tính trong suốt tham chiếu nghĩa là ta luôn có thể thay thế một thuật ngữ bằng một thuật ngữ khác tương đương mà không làm thay đổi giá trị chân lý của câu, điều này sai trong môi trường Niềm tin."
+    ],
+    "answer": [
+      0,
+      3
+    ],
+    "feedback": "Trong toán học/FOL, thay '2+2' bằng '4' là hợp lệ. Nhưng trong Belief, thay 'Superman' bằng 'Clark' sẽ làm sai ý nghĩa vì trong não của Lois, đó là 2 người khác nhau. Để giải quyết, ta cần Modal Logic (Logic Kiểu cách). (Giải thích thêm: (Lois, Flies(Superman) (Lois, Flies(ClarkKent) (Dù Lois không biết thân phận thật của Superman))"
+  },
+  {
+    "id": 11,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Logic Kiểu cách (Modal Logic) đưa vào các toán tử đặc biệt nào để giải quyết vấn đề Niềm tin và Tri thức?",
+    "options": [
+      "Toán tử AND và OR (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Toán tử ∀ và ∃ (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Toán tử Modal như K và B, cho phép tạo ra các 'Thế giới khả dĩ' khác nhau trong tâm trí của mỗi tác tử.",
+      "Toán tử cộng và trừ (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 2,
+    "feedback": "Modal Logic dùng toán tử K_a(P) (Tác tử a biết P). Ngữ nghĩa của K_a(P) là: P là ĐÚNG trong TẤT CẢ các thế giới mà tác tử a cho là có thể xảy ra (Possible worlds). (Giải thích thêm: (Knows - Biết) (Believes - Tin) (Possible Worlds))"
+  },
+  {
+    "id": 12,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Sự khác biệt giữa Tri thức (Knowledge - K) và Niềm tin (Belief - B) trong logic là: Những gì bạn Biết thì bắt buộc phải là Sự thật (True), còn những gì bạn Tin thì có thể là Sai (False).",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Axiom of Knowledge (Tiên đề Tri thức) phát biểu K_a(P) ⇒ P. Nhưng ta KHÔNG CÓ B_a(P) ⇒ P. Ai đó có thể tin rằng Trái Đất phẳng, nhưng không thể 'biết' Trái Đất phẳng."
+  },
+  {
+    "id": 13,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Ghép nối các hệ thống lập luận về Thể loại (Category Reasoning) với đặc điểm của chúng:",
+    "pairs": [
+      {
+        "left": "Semantic Networks (Mạng ngữ nghĩa)",
+        "right": "Biểu diễn trực quan bằng Đồ thị, trong đó các nút là khái niệm, các cạnh là quan hệ (Is-a, Has-part)"
+      },
+      {
+        "left": "Description Logics (Logic mô tả)",
+        "right": "Cung cấp cú pháp hình thức chặt chẽ, được tối ưu hóa đặc biệt để tính toán sự Bao hàm (Subsumption) giữa các tập hợp"
+      },
+      {
+        "left": "Frames (Khung)",
+        "right": "Một biến thể của mạng ngữ nghĩa tập trung vào các Slot (thuộc tính) và Filler (giá trị mặc định) của đối tượng"
+      }
+    ],
+    "feedback": "Mạng ngữ nghĩa rất trực quan cho con người nhưng thiếu ý nghĩa logic chặt chẽ. Logic mô tả (DL) ra đời để vá lỗ hổng này và trở thành cốt lõi của Web Ngữ nghĩa (OWL) hiện đại."
+  },
+  {
+    "id": 14,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Bài toán lớn nhất khi sử dụng 'Đa kế thừa' (Multiple Inheritance) trong Mạng ngữ nghĩa là gì?",
+    "options": [
+      "Tốn quá nhiều bộ nhớ để vẽ đồ thị.",
+      "Xung đột thuộc tính.",
+      "Máy tính bị vòng lặp vô hạn.",
+      "Không thể biểu diễn được đối tượng con người."
+    ],
+    "answer": 1,
+    "feedback": "Khi một đối tượng kế thừa từ nhiều lớp cha có thuộc tính mâu thuẫn nhau (Nixon Diamond problem), mạng ngữ nghĩa cơ bản không biết phải ưu tiên thuộc tính nào, đòi hỏi phải có cơ chế phân giải (Defeasible reasoning). (Giải thích thêm: (Diamond problem) (chuộng hòa bình) (ủng hộ chiến tranh) Ví dụ: 'Nixon là tín đồ Quaker' VÀ 'Nixon là đảng viên Cộng hòa'. Thuộc tính nào sẽ được thừa kế?)"
+  },
+  {
+    "id": 15,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Một tính năng mạnh mẽ của Mạng ngữ nghĩa là khả năng khai báo Giá trị Mặc định (Default Value). Nếu ta nói 'Chim có thể bay', nhưng 'Đà điểu là chim' và 'Đà điểu không thể bay', việc 'không thể bay' sẽ ____________ (Override) giá trị mặc định của chim.",
+    "options": [
+      "Kế thừa (Inherit)",
+      "Bổ sung (Add)",
+      "Ghi đè (Override)",
+      "Sao chép (Copy)"
+    ],
+    "answer": 2,
+    "feedback": "Thuộc tính cụ thể của lớp con sẽ Ghi đè (Override) thuộc tính mặc định của lớp cha. Mọi loài chim đều bay, ngoại trừ đà điểu và chim cánh cụt."
+  },
+  {
+    "id": 16,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Logic Mô tả (Description Logics - DL) sinh ra 2 nhiệm vụ lập luận chính. Đó là những nhiệm vụ nào? (Chọn đáp án đúng)",
+    "options": [
+      "Subsumption: Kiểm tra xem một thể loại có phải là tập con của một thể loại khác hay không.",
+      "Classification: Kiểm tra xem một đối tượng cụ thể có thuộc về một thể loại nào đó hay không.",
+      "Tìm đường đi ngắn nhất (Shortest Path) (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Tính đạo hàm (Derivative) (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "feedback": "DL được thiết kế riêng biệt và tối ưu hóa cực hạn cho 2 việc: Kiểm tra tính tập con (VD: 'Người đàn ông độc thân' có là tập con của 'Người đàn ông' không) và Phân loại đối tượng. (Giải thích thêm: (Sự bao hàm) (Category)) (Giải thích thêm: (Phân loại) (Object))"
+  },
+  {
+    "id": 17,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Thuật ngữ 'Nonmonotonic Logic' (Logic Phi đơn điệu) mô tả một hệ thống có đặc tính gì?",
+    "options": [
+      "Số lượng luật luôn luôn giữ nguyên (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Mọi thứ đều là đường thẳng (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Sự gia tăng kiến thức mới có thể LÀM VÔ HIỆU HÓA các kết luận đã được rút ra trước đó.",
+      "Kiến thức mới chỉ có thể sinh ra các kết luận mới, không bao giờ bác bỏ kết luận cũ."
+    ],
+    "answer": 2,
+    "feedback": "Trong logic cổ điển (Đơn điệu - Monotonic): Biết thêm thì chỉ suy ra nhiều hơn. Trong Nonmonotonic (như đời thực): Bạn tưởng Tweety bay được vì nó là chim. Hôm sau người ta bảo Tweety là đà điểu, bạn phải RÚT LẠI kết luận (rằng nó bay được). (Giải thích thêm: (thêm tiên đề mới vào KB))"
+  },
+  {
+    "id": 18,
+    "type": "true_false",
+    "difficulty": "Khó",
+    "question": "Circumscription (Khoanh vùng) là một kỹ thuật của Logic phi đơn điệu. Nó giả định rằng những gì không được phát biểu rõ ràng là Bất thường (Abnormal) thì sẽ được coi là Bình thường (Normal).",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. 'Khoanh vùng' cố gắng tối thiểu hóa các ngoại lệ. Cụ thể, giả sử 'Mọi con chim bình thường đều bay được'. Trừ khi KB nói rõ con chim X này có ngoại lệ (bị gãy cánh, đà điểu), nếu không, ta mặc định nó bay được."
+  },
+  {
+    "id": 19,
+    "type": "ordering",
+    "difficulty": "Khó",
+    "question": "Sắp xếp cách hệ thống Truth Maintenance System (TMS - Hệ thống bảo trì chân lý) hoạt động khi phải Rút lại niềm tin (Belief Revision):",
+    "items": [
+      "Sự kiện ban đầu: A là Chim, do đó suy luận (Justification): A Bay được",
+      "Sự kiện mới được bổ sung vào KB: A là Đà điểu",
+      "TMS phát hiện mâu thuẫn (Contradiction) giữa 'Đà điểu không bay' và 'A Bay được'",
+      "TMS truy ngược lại đồ thị phụ thuộc (Dependency graph) để tìm ra cội nguồn suy luận",
+      "TMS Rút lại (Retract) niềm tin 'A Bay được' và lan truyền việc gỡ bỏ này cho tất cả những gì suy ra từ nó"
+    ],
+    "feedback": "TMS không xóa dữ liệu một cách mù quáng, nó giữ một 'Sợi dây liên kết' (Justification). Nếu cái gốc rụng, tất cả lá (các kết luận phái sinh) tự động rụng theo."
+  },
+  {
+    "id": 20,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "JTMS (Justification-Based TMS) và ATMS (Assumption-Based TMS) khác nhau ở điểm cốt lõi nào?",
+    "options": [
+      "JTMS chỉ dùng cho tiếng Anh, ATMS dùng cho tiếng Pháp.",
+      "JTMS duy trì một trạng thái duy nhất của các Niềm tin đang được chấp nhận.",
+      "ATMS không thể phát hiện mâu thuẫn (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "JTMS chạy chậm hơn ATMS trong mọi trường hợp."
+    ],
+    "answer": 1,
+    "feedback": "ATMS rất mạnh để chuyển đổi ngữ cảnh (Context switching). Thay vì phải sửa lại database liên tục như JTMS, ATMS chỉ cần thay đổi tập Giả định (Assumptions) hiện tại, các câu tương ứng sẽ tự động 'bật/tắt'. (Giải thích thêm: (label) ATMS duy trì TẤT CẢ các trạng thái có thể xảy ra song song bằng cách dán nhãn mỗi câu với tập các giả định tạo ra nó.)"
+  },
+  {
+    "id": 21,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Một ____________ (Ontology) trong AI là một 'đặc tả hình thức, tường minh của một khái niệm hóa'. Nói cách khác, nó là một danh mục các loại sự vật tồn tại trong một miền cụ thể và các mối quan hệ giữa chúng.",
+    "options": [
+      "Thuật toán",
+      "Ontology (Bản thể luận)",
+      "Database (Cơ sở dữ liệu)",
+      "Heuristic"
+    ],
+    "answer": 1,
+    "feedback": "Khái niệm 'Ontology' mượn từ triết học, nhưng trong AI nó mang tính kỹ thuật: Bộ từ vựng tiêu chuẩn để biểu diễn tri thức (ví dụ: SNOMED CT cho Y tế)."
+  },
+  {
+    "id": 22,
+    "type": "matching",
+    "difficulty": "Dễ",
+    "question": "Ghép nối các hệ thống biểu diễn tri thức tự nhiên với thực thể đời sống:",
+    "pairs": [
+      {
+        "left": "Intervals (Khoảng thời gian)",
+        "right": "Tổng thống nhiệm kỳ 2020-2024"
+      },
+      {
+        "left": "Points (Điểm thời gian)",
+        "right": "Đúng 12h00 trưa nay"
+      },
+      {
+        "left": "Category (Thể loại)",
+        "right": "Giáo viên, Bác sĩ"
+      },
+      {
+        "left": "Instance (Thực thể)",
+        "right": "Ông Nguyễn Văn A"
+      }
+    ],
+    "feedback": "Biểu diễn tri thức cần công cụ để mô tả cả sự vật tĩnh và sự kiện theo thời gian."
+  },
+  {
+    "id": 23,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Trong AI, 'Tri thức ngây thơ' (Naïve Physics / Qualitative Physics) nhằm mục đích biểu diễn các công thức vi phân chính xác tuyệt đối như môn Vật lý đại học.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai. Naïve Physics mô phỏng cách bộ não CON NGƯỜI hiểu vật lý (Định tính - Qualitative). Ví dụ: 'Nước chảy từ trên cao xuống thấp', 'Rót đầy quá thì tràn'. Nó dùng logic thay vì phương trình vi phân."
+  },
+  {
+    "id": 24,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Trong Logic Mặc định (Default Logic) của hệ thống phi đơn điệu, một luật mặc định thường có cấu trúc: (Tiền đề : Giả định / Kết luận). Ví dụ: (Bird(x) : Flies(x) / Flies(x)). Luật này được hiểu như thế nào? (Chọn đáp án đúng)",
+    "options": [
+      "Nếu x là con chim, thì x chắc chắn bay được (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Nếu x là chim VÀ ta CÓ THỂ GIẢ ĐỊNH một cách nhất quán rằng x bay được, thì ta KẾT LUẬN x bay được.",
+      "Nếu x không phải chim thì x không bay được (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Nó cho phép suy luận ngay cả khi thông tin không đầy đủ (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": [
+      1,
+      3
+    ],
+    "feedback": "Default Logic là cơ chế xử lý thông tin thiếu: 'Nghĩ nó đúng cho đến khi có bằng chứng chứng minh nó sai'. (Giải thích thêm: (không mâu thuẫn với các sự kiện khác))"
+  },
+  {
+    "id": 25,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Thuật ngữ 'Reification' (Cụ thể hóa khái niệm) trong Biểu diễn tri thức có nghĩa là gì?",
+    "options": [
+      "Xóa một câu khỏi cơ sở dữ liệu (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Biến một Hành động, Sự kiện, hoặc một Mệnh đề thành một ĐỐI TƯỢNG độc lập để có thể gán thuộc tính cho nó.",
+      "Tăng cường bộ nhớ cho máy tính (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Làm cho một con robot có nhận thức (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 1,
+    "feedback": "Reification. Thay vì viết vị từ Play(John, Tennis, 3PM, Sunday, Hard), ta biến sự kiện chơi thành đối tượng E: InstanceOf(E, Playing) ∧ Player(E, John) ∧ Sport(E, Tennis) ∧ Time(E, 3PM). Dễ mở rộng hơn rất nhiều. (Giải thích thêm: (Object))"
+  },
+  {
+    "id": 26,
+    "type": "ordering",
+    "difficulty": "Dễ",
+    "question": "Sắp xếp cấp bậc phân loại (Taxonomy) từ Tổng quát nhất (Trên cùng) xuống Cụ thể nhất (Dưới cùng) đối với con người:",
+    "items": [
+      "Thực thể Vật lý (Physical Object)",
+      "Sinh vật sống (Living Thing)",
+      "Động vật (Animal)",
+      "Động vật có vú (Mammal)",
+      "Con người (Human)",
+      "Nhà khoa học Einstein (Instance)"
+    ],
+    "feedback": "Hệ thống phân cấp Is-a kinh điển xây dựng sườn cấu trúc (backbone) cho bất kỳ Upper Ontology nào (như CYC, SUMO)."
+  },
+  {
+    "id": 27,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Tại sao các mạng ngữ nghĩa sơ khai (Semantic Networks) bị các nhà logic học chỉ trích mạnh mẽ?",
+    "options": [
+      "Vì chúng không có màu sắc.",
+      "Vì chúng vẽ đồ thị quá xấu.",
+      "Vì chúng thiếu Ngữ nghĩa hình thức.",
+      "Vì chúng chạy quá nhanh."
+    ],
+    "answer": 2,
+    "feedback": "Mạng ngữ nghĩa sơ khai rất tùy tiện, người ta vẽ mũi tên từ 'Nhà' đến 'Cửa' (Part-of), rồi từ 'Người' đến 'Nhà' (Owns). Không có toán học nền tảng, hệ thống không thể tự động suy luận an toàn. (Giải thích thêm: (Formal semantics) Một mũi tên 'Is-a' có thể mang nhiều ý nghĩa nhập nhằng khác nhau tùy người lập trình.)"
+  },
+  {
+    "id": 28,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Dự án Cyc là một trong những dự án Trí tuệ nhân tạo lâu đời và tham vọng nhất thế giới về Biểu diễn tri thức. Mục tiêu chính của Cyc là gì? (Chọn đáp án đúng)",
+    "options": [
+      "Đánh bại con người trong cờ vây (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Mã hóa toàn bộ 'Tri thức thông thường' của nhân loại vào một cơ sở tri thức khổng lồ.",
+      "Xây dựng hàng triệu tiên đề và luật về cuộc sống hàng ngày.",
+      "Tạo ra một chiếc ô tô tự lái (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": [
+      1,
+      2
+    ],
+    "feedback": "Douglas Lenat đã khởi xướng Cyc từ năm 1984 để giải quyết 'Gót chân Achilles' của AI: AI có thể giải toán cao cấp nhưng lại không biết rằng 'bạn không thể ở 2 nơi cùng một lúc'. (Giải thích thêm: (Common sense knowledge)) (Giải thích thêm: (như 'Cốc rơi sẽ vỡ', 'Tổng thống là một con người'))"
+  },
+  {
+    "id": 29,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Trong AI, sự khác biệt giữa 'Closed-World Assumption' (Giả định thế giới đóng) và 'Open-World Assumption' (Giả định thế giới mở) là gì?",
+    "options": [
+      "Closed-World chỉ chạy offline, Open-World cần kết nối internet.",
+      "Closed-World giả định bất cứ điều gì không có trong cơ sở dữ liệu đều là SAI.",
+      "Closed-World an toàn hơn cho người dùng.",
+      "Open-World dùng cho trò chơi thế giới mở (như GTA)."
+    ],
+    "answer": 1,
+    "feedback": "Cơ sở dữ liệu thông thường (như SQL) dùng Closed-World (Không có tên trong danh sách lớp nghĩa là bạn Không phải học sinh lớp này). Nhưng Biểu diễn Tri thức (Semantic Web) thường dùng Open-World (Có thể bạn có học, chỉ là tôi chưa ghi vào sổ). (Giải thích thêm: Open-World cho rằng điều chưa biết thì có thể Đúng hoặc Sai.)"
+  },
+  {
+    "id": 30,
+    "type": "true_false",
+    "difficulty": "Khó",
+    "question": "Web Ngữ nghĩa (Semantic Web) và ngôn ngữ OWL (Web Ontology Language) được thiết kế dựa trên nền tảng của Logic Mô tả (Description Logics).",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. OWL là bản nâng cấp của Logic mô tả, giúp biến Internet từ một kho chứa các trang web cho con người đọc, thành một kho cơ sở tri thức liên kết khổng lồ cho AI tự đọc và tự suy luận."
+  }
+]

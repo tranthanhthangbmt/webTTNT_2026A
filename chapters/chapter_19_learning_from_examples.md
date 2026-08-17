@@ -25,7 +25,7 @@
 </div>
 
 #### **Trắc nghiệm**
-*(Chưa có bài tập trắc nghiệm)*
+<div id="quiz-container" data-chapter="19"></div>
 
 #### **Pseudocode**
 - <a href="#/codeAndExercises/aima-pseudocode-master/md/Decision-Tree-Learning.md" target="_blank">LEARN-DECISION-TREE</a>

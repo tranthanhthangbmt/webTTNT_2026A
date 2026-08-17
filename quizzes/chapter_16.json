@@ -1,0 +1,459 @@
+[
+  {
+    "id": 1,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Trong bài toán Quyết định tuần tự (Sequential Decision Problem), mục tiêu của tác tử không phải là chọn một hành động đơn lẻ, mà là tìm ra một ____________ (Policy).",
+    "options": [
+      "Trạng thái đích (Goal State) (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Chính sách - một ánh xạ từ mọi Trạng thái sang Hành động.",
+      "Hàm heuristic (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Cây tìm kiếm (Search Tree) (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 1,
+    "feedback": "Chính sách (Policy), ký hiệu là $\\pi(s)$, cho biết Tác tử nên làm gì ở MỌI trạng thái có thể xảy ra. Vì môi trường có tính Ngẫu nhiên, tác tử không thể lên một kế hoạch cố định (như rẽ trái rồi rẽ phải), mà phải chuẩn bị sẵn cách phản ứng ở mọi nơi."
+  },
+  {
+    "id": 2,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Quá trình Quyết định ____________ (Markov Decision Process - MDP) là một mô hình toán học cho các bài toán quyết định tuần tự, trong đó môi trường có thể quan sát được hoàn toàn, đi kèm với mô hình chuyển đổi ngẫu nhiên và phần thưởng cộng dồn.",
+    "options": [
+      "Bayes",
+      "Markov",
+      "Gaussian",
+      "Viterbi"
+    ],
+    "answer": 1,
+    "feedback": "MDP (Markov Decision Process) là nền tảng của toàn bộ nhánh Học tăng cường (Reinforcement Learning). Nó gồm 4 yếu tố: S (States), A (Actions), P (Transition Probability) và R (Reward)."
+  },
+  {
+    "id": 3,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Trong môi trường lưới (Grid world) kinh điển của bài toán MDP, mỗi bước đi của tác tử đều có tính Ngẫu nhiên. Giả sử tác tử ra lệnh 'Đi Lên', điều gì có thể xảy ra? (Chọn đáp án đúng)",
+    "options": [
+      "Tác tử luôn luôn đi lên thành công với xác suất 100%.",
+      "Tác tử đi lên thành công với xác suất cao.",
+      "Tác tử bị trượt sang trái hoặc sang phải với xác suất nhỏ.",
+      "Tác tử bay lên không trung (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": [
+      1,
+      2
+    ],
+    "feedback": "Đây là đặc trưng của môi trường Ngẫu nhiên (Stochastic). Một hành động có thể dẫn đến nhiều Trạng thái kết quả khác nhau. Mô hình Transition Model $P(s' | s, a)$ quy định các xác suất này. (Giải thích thêm: (Ví dụ: 80%)) (Giải thích thêm: (Ví dụ: 10% mỗi bên))"
+  },
+  {
+    "id": 4,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Chính sách tối ưu (Optimal Policy), ký hiệu là $\\pi^*$, được định nghĩa là chính sách mang lại điều gì?",
+    "options": [
+      "Thời gian chạy thuật toán ngắn nhất (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Lợi ích kỳ vọng lớn nhất có thể đạt được, khi tác tử xuất phát từ trạng thái ban đầu.",
+      "Xác suất đi đến đích bằng 100% (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Tổng phần thưởng luôn dương (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 1,
+    "feedback": "Do môi trường ngẫu nhiên, ta không thể đảm bảo một lộ trình chắc chắn. Ta chỉ có thể tìm một Chính sách $\\pi^*$ giúp Tối đa hóa Lợi ích (Tổng phần thưởng) TRUNG BÌNH KỲ VỌNG. (Giải thích thêm: (Expected Utility))"
+  },
+  {
+    "id": 5,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Ghép nối các hành vi của tác tử với Giá trị Phần thưởng (Reward $R(s)$) tại các ô trống trong môi trường Lưới 4x3:",
+    "pairs": [
+      {
+        "left": "R(s) = -0.04 (Phạt nhẹ)",
+        "right": "Tác tử đi đường vòng để né ô nguy hiểm, nhưng vẫn muốn đến đích vì tiền phạt mỗi bước nhỏ"
+      },
+      {
+        "left": "R(s) = -2.0 (Phạt cực nặng)",
+        "right": "Tác tử muốn đâm đầu vào ô Nguy hiểm (-1) để kết thúc trò chơi càng sớm càng tốt vì mỗi bước đi đều quá đau đớn"
+      },
+      {
+        "left": "R(s) = -0.1 (Phạt trung bình)",
+        "right": "Tác tử sẵn sàng đi đường tắt băng qua sát mép ô Nguy hiểm để tiết kiệm thời gian"
+      },
+      {
+        "left": "R(s) = +0.0 (Không phạt)",
+        "right": "Tác tử có thể đi lang thang vô tận mà không bao giờ muốn kết thúc trò chơi"
+      }
+    ],
+    "feedback": "Bằng cách tinh chỉnh $R(s)$, ta có thể tạo ra các hành vi rất khác nhau cho AI: Từ Cẩn thận, Liều lĩnh, đến Tự sát. Phần thưởng âm ở mỗi bước đóng vai trò như 'Chi phí sinh hoạt' thúc đẩy tác tử tìm đích."
+  },
+  {
+    "id": 6,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Trong bài toán MDP hữu hạn (Finite Horizon), tức là tác tử chỉ được đi tối đa N bước rồi trò chơi kết thúc. Khi đó, Chính sách tối ưu $\\pi^*$ sẽ thay đổi theo thời gian (Non-stationary policy).",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Nếu bạn có 100 bước, bạn có thể đi đường vòng an toàn. Nếu bạn chỉ còn 2 bước, bạn buộc phải chọn đường tắt mạo hiểm. Quyết định (Policy) thay đổi tùy thuộc vào thời gian còn lại."
+  },
+  {
+    "id": 7,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Để giải quyết vấn đề Chính sách bị thay đổi theo thời gian ở trên, người ta thiết lập MDP theo dạng 'Vô hạn bước' (Infinite Horizon). Tuy nhiên, nếu thời gian là vô hạn, Tổng phần thưởng cộng dồn có thể vọt lên Vô cực. Công cụ toán học nào được dùng để giữ cho Tổng phần thưởng là một số hữu hạn?",
+    "options": [
+      "Hệ số chiết khấu (Discount factor - $\\gamma$).",
+      "Đạo hàm bậc nhất.",
+      "Phép chia cho vô cực.",
+      "Logarit cơ số 2."
+    ],
+    "answer": 0,
+    "feedback": "Hệ số chiết khấu $0 \\le \\gamma < 1$. Phần thưởng nhận được ở bước thứ t sẽ bị nhân với $\\gamma^t$. Nghĩa là 1 đồng của tương lai xa không có giá trị bằng 1 đồng của hiện tại. Do chuỗi hình học hội tụ, tổng lợi ích sẽ luôn hữu hạn."
+  },
+  {
+    "id": 8,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Phương trình ____________ (Bellman Equation) là phương trình cốt lõi của bài toán MDP. Nó phát biểu rằng: Lợi ích của một trạng thái s bằng Phần thưởng tại s, cộng với Lợi ích kỳ vọng của trạng thái tiếp theo (bị chiết khấu), giả sử tác tử chọn Hành động tối ưu.",
+    "options": [
+      "Markov",
+      "Bayes",
+      "Bellman",
+      "Newton"
+    ],
+    "answer": 2,
+    "feedback": "Phương trình Bellman: $U(s) = R(s) + \\gamma \\max_{a} \\sum_{s'} P(s' | s, a) U(s')$. Đây là nền tảng của quy hoạch động trong AI."
+  },
+  {
+    "id": 9,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Sắp xếp vòng lặp của thuật toán Lặp Giá trị (Value Iteration) để tìm Lợi ích U cho mọi trạng thái:",
+    "items": [
+      "Khởi tạo U(s) = 0 cho tất cả các trạng thái",
+      "Bắt đầu một vòng lặp cập nhật",
+      "Tại mỗi trạng thái s, thử mọi hành động a, tính Kỳ vọng lợi ích của các trạng thái tương lai U(s')",
+      "Cập nhật U mới của s = R(s) + gamma * max(Kỳ vọng trên)",
+      "Tính độ chênh lệch giữa mảng U cũ và mảng U mới",
+      "Nếu độ chênh lệch nhỏ hơn một ngưỡng epsilon (Hội tụ), dừng thuật toán"
+    ],
+    "feedback": "Value Iteration liên tục lan truyền các 'Điểm số' từ trạng thái Đích ngược trở lại các trạng thái xung quanh thông qua phương trình Bellman."
+  },
+  {
+    "id": 10,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Tại sao phương trình Bellman không thể được giải trực tiếp bằng các phép toán đại số tuyến tính (Ví dụ nghịch đảo ma trận), mà phải dùng vòng lặp (Iteration)? (Chọn đáp án đúng)",
+    "options": [
+      "Vì hệ phương trình này chứa hàm phi tuyến tính.",
+      "Hàm MAX ngăn cản việc rút gọn thành ma trận vuông.",
+      "Vì số lượng phương trình quá ít.",
+      "Vì máy tính không thể tính ma trận."
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "feedback": "Nếu ta đã BIẾT TRƯỚC Chính sách $\\pi$, hàm MAX biến mất, hệ phương trình trở thành Tuyến tính và có thể giải bằng ma trận $U = (I - \\gamma P)^{-1} R$. Nhưng vì ta ĐANG TÌM hành động tốt nhất (chứa hàm max), hệ là phi tuyến, buộc phải giải bằng đệ quy hội tụ. (Giải thích thêm: (Hàm MAX))"
+  },
+  {
+    "id": 11,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Thuật toán Lặp Chính sách (Policy Iteration) hoạt động bằng cách luân phiên giữa hai quá trình nào?",
+    "options": [
+      "Dự đoán (Prediction) và Cập nhật (Update).",
+      "Đánh giá chính sách và Cải thiện chính sách.",
+      "Lấy mẫu (Sampling) và Bỏ mẫu (Rejection).",
+      "Tìm kiếm mù và Tìm kiếm có kinh nghiệm."
+    ],
+    "answer": 1,
+    "feedback": "Bước 1 (Evaluation): Tính xem Policy HIỆN TẠI mang lại Lợi ích (U) bao nhiêu. Bước 2 (Improvement): Tham lam chọn Hành động MỚI tốt hơn dựa trên Lợi ích U vừa tính. Lặp lại đến khi Policy không đổi nữa. (Giải thích thêm: (Policy Evaluation) (Policy Improvement))"
+  },
+  {
+    "id": 12,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Giữa hai thuật toán 'Value Iteration' và 'Policy Iteration', thuật toán nào thường tìm ra Chính sách Tối ưu (Optimal Policy) VỚI SỐ LƯỢNG VÒNG LẶP (iterations) ÍT HƠN?",
+    "options": [
+      "Value Iteration.",
+      "Policy Iteration.",
+      "Cả hai như nhau.",
+      "Không thể so sánh."
+    ],
+    "answer": 1,
+    "feedback": "Policy Iteration hội tụ với số vòng lặp RẤT ÍT. Vì khi bạn tính xong Lợi ích của 1 chính sách, việc tham lam chọn chính sách mới tạo ra bước nhảy vọt rất lớn. Tuy nhiên, MỖI vòng lặp của Policy Iteration lại tốn nhiều thời gian tính toán (để giải hệ phương trình tuyến tính)."
+  },
+  {
+    "id": 13,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Sau khi thuật toán Value Iteration tìm ra Lợi ích $U(s)$ cho mọi trạng thái, ta có thể trích xuất ra Chính sách tối ưu $\\pi^*(s)$ bằng cách chọn Hành động $a$ giúp tối đa hóa Kỳ vọng lợi ích bước tiếp theo.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Đó là bước Policy Extraction (Trích xuất chính sách). $\\pi^*(s) = \\arg\\max_{a} \\sum_{s'} P(s' | s, a) U(s')$. Lưu ý: Ta vẫn cần dùng Transition Model P ở bước này."
+  },
+  {
+    "id": 14,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Ghép nối các thuật ngữ của MDP với ký hiệu toán học tương ứng:",
+    "pairs": [
+      {
+        "left": "Transition Model (Xác suất chuyển trạng thái)",
+        "right": "$P(s' | s, a)$"
+      },
+      {
+        "left": "Reward Function (Phần thưởng tại trạng thái)",
+        "right": "$R(s)$"
+      },
+      {
+        "left": "Utility / Value Function (Lợi ích kỳ vọng dài hạn)",
+        "right": "$U(s)$ hoặc $V(s)$"
+      },
+      {
+        "left": "Policy (Hành động nên làm)",
+        "right": "$\\pi(s)$"
+      }
+    ],
+    "feedback": "Phần thưởng R(s) là mục tiêu ngắn hạn (chỉ nhận được ngay lúc đó). Lợi ích U(s) là mục tiêu dài hạn (bao gồm cả R(s) hiện tại và tất cả R của tương lai). AI luôn nhìn vào U(s) để ra quyết định."
+  },
+  {
+    "id": 15,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "POMDP (Partially Observable Markov Decision Process) là gì?",
+    "options": [
+      "Một MDP không có phần thưởng (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Một MDP mà tác tử KHÔNG BIẾT CHÍNH XÁC mình đang ở Trạng thái nào, mà chỉ có thể thu nhận được các Quan sát thông qua cảm biến nhiễu.",
+      "Một MDP không có thời gian (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Một MDP mà mọi hành động đều 100% thành công (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": 1,
+    "feedback": "POMDP = POM (Partially Observable) + MDP. Trong MDP, bạn luôn biết s hiện tại. Trong POMDP, bạn bị bịt mắt, bạn phải duy trì một 'Belief State' $b(s)$ - Tức là phân phối xác suất về việc mình ĐANG ở đâu. (Giải thích thêm: (State) (Observations))"
+  },
+  {
+    "id": 16,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Vì trong POMDP, tác tử không biết mình ở đâu (State s), nên nó không thể ánh xạ Policy từ S sang Hành động. Thay vào đó, Chính sách của POMDP là một ánh xạ từ ____________ State (Trạng thái Niềm tin - $b(s)$) sang Hành động.",
+    "options": [
+      "Belief",
+      "Hidden",
+      "Logic",
+      "Action"
+    ],
+    "answer": 0,
+    "feedback": "Policy trong POMDP là $\\pi(b)$. Vấn đề là Belief State b là một KHÔNG GIAN LIÊN TỤC (Ví dụ: b có thể là (0.1, 0.9), (0.2, 0.8)...). Việc giải POMDP khó hơn MDP gấp hàng nghìn lần (PSPACE-hard)."
+  },
+  {
+    "id": 17,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Sắp xếp vòng đời của một tác tử trong môi trường POMDP tại mỗi bước:",
+    "items": [
+      "Tác tử đang có Trạng thái Niềm tin hiện tại b (Belief)",
+      "Tra cứu Chính sách POMDP $\\pi(b)$ để chọn ra hành động Tối ưu $a$",
+      "Thực thi hành động $a$ trong môi trường thực tế",
+      "Môi trường tiến hóa (chuyển trạng thái ẩn) và phát ra Quan sát $o$",
+      "Dùng Luật Bayes, Mô hình chuyển đổi P và Mô hình cảm biến O để Cập nhật (Update) b thành Niềm tin mới b'"
+    ],
+    "feedback": "Đây thực chất là sự kết hợp giữa Đưa ra Quyết định (Action Selection) và Lọc Bayes (Bayesian Filtering / State Estimation)."
+  },
+  {
+    "id": 18,
+    "type": "multiple_select",
+    "difficulty": "Dễ",
+    "question": "Khái niệm 'Hệ số chiết khấu' (Discount Factor $\\gamma$) có ý nghĩa gì trong thực tiễn? (Chọn đáp án đúng)",
+    "options": [
+      "Nó thể hiện Lãi suất trong kinh tế (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Nó thể hiện Tuổi thọ / Tỷ lệ tử vong (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Nó thể hiện sự ưu tiên các mục tiêu ngắn hạn hơn các mục tiêu quá xa xôi.",
+      "Nó làm cho AI luôn luôn chọn phần thưởng âm."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Nếu $\\gamma = 1$, AI sẽ nhìn xa vô tận. Nếu $\\gamma = 0$, AI chỉ quan tâm đến phần thưởng ngay lập tức (Myopic / Tham lam). Thường $\\gamma$ được đặt ở mức 0.9 đến 0.99. (Giải thích thêm: (Interest rate) Tiền nhận được hôm nay có giá trị hơn ngày mai.) (Giải thích thêm: (1 - \\gamma) Trò chơi có xác suất $$ kết thúc ở mỗi bước, nên ăn phần thưởng sớm cho chắc.)"
+  },
+  {
+    "id": 19,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Bài toán giải POMDP cực kỳ khó vì hàm Lợi ích U(b) chạy trên không gian liên tục (Belief space). Tuy nhiên, hàm U(b) này có một tính chất hình học đặc biệt giúp nó có thể tính toán được. Đó là gì?",
+    "options": [
+      "Nó luôn là một đường tròn.",
+      "Nó luôn bằng 0.",
+      "Nó là một hàm Lồi Tuyến tính Từng khúc.",
+      "Nó là một hàm Sin/Cos."
+    ],
+    "answer": 2,
+    "feedback": "Piecewise Linear Convex. Hình dạng 'Cái bát ngửa lên được ghép từ nhiều mặt phẳng' này có nghĩa là, đối với mỗi vùng Niềm tin (Belief), sẽ có MỘT Hành động (đại diện bởi 1 mặt phẳng) là vượt trội nhất. (Giải thích thêm: (Piecewise Linear Convex))"
+  },
+  {
+    "id": 20,
+    "type": "true_false",
+    "difficulty": "Khó",
+    "question": "Thuật toán Lặp giá trị sửa đổi (Modified Policy Iteration) khác với Policy Iteration gốc ở chỗ: Thay vì giải hệ phương trình tuyến tính một cách chính xác hoàn hảo để tìm $U^\\pi$, nó chỉ lặp vài vòng cập nhật Bellman đơn giản để ƯỚC LƯỢNG $U^\\pi$ rồi nhảy ngay sang bước Cải thiện Chính sách.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Việc giải chính xác hệ phương trình $U = (I - \\gamma P)^{-1}R$ cho ma trận hàng triệu trạng thái là bất khả thi. Modified Policy Iteration tiết kiệm cực nhiều thời gian mà vẫn đảm bảo hội tụ."
+  },
+  {
+    "id": 21,
+    "type": "matching",
+    "difficulty": "Dễ",
+    "question": "Ghép nối ví dụ thực tế với mô hình lý thuyết Quyết định phù hợp:",
+    "pairs": [
+      {
+        "left": "Cờ vua, Cờ vây",
+        "right": "Tìm kiếm đối kháng (Adversarial Search - Minimax)"
+      },
+      {
+        "left": "Robot dọn rác nhìn thấy mọi phòng (Fully observable), nhưng việc hút rác đôi khi bị kẹt máy (Stochastic)",
+        "right": "MDP (Markov Decision Process)"
+      },
+      {
+        "left": "Robot dọn rác bị hỏng camera, chỉ dựa vào cảm biến va chạm (Partially observable, Stochastic)",
+        "right": "POMDP (Partially Observable MDP)"
+      }
+    ],
+    "feedback": "POMDP là mô hình thực tế nhất cho Robot tự hành ngoài đời, vì cảm biến ngoài đời LUÔN LUÔN bị nhiễu (Partially Observable)."
+  },
+  {
+    "id": 22,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Khái niệm 'Q-Value' (Giá trị Q) hoặc $Q(s, a)$ trong thuật toán MDP đại diện cho điều gì?",
+    "options": [
+      "Xác suất đi từ s đến a (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Lợi ích dài hạn nếu xuất phát từ trạng thái s, THỰC HIỆN HÀNH ĐỘNG a, và SAU ĐÓ tuân theo chính sách tối ưu.",
+      "Phần thưởng ngay lập tức của hành động a (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Chi phí của thuật toán (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 1,
+    "feedback": "$U(s)$ là điểm số TỐT NHẤT của s. $Q(s,a)$ là điểm số của SẾP HẠNG các hành động a tại s. Do đó $U(s) = \\max_{a} Q(s,a)$. Q-Value là nền tảng của thuật toán Q-Learning trong Reinforcement Learning. (Giải thích thêm: (Utility))"
+  },
+  {
+    "id": 23,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Thuật toán Value Iteration có một đặc tính tuyệt vời là nó sẽ CHẮC CHẮN ____________ (Converge) đến một giá trị Lợi ích duy nhất $U^*$, cho dù bạn khởi tạo các giá trị $U$ ban đầu bằng số 0, số âm, hay số ngẫu nhiên đi chăng nữa.",
+    "options": [
+      "Hội tụ (Converge)",
+      "Phân kỳ (Diverge)",
+      "Lặp lại vô hạn",
+      "Sụp đổ"
+    ],
+    "answer": 0,
+    "feedback": "Phép cập nhật Bellman là một 'Phép co' (Contraction mapping) trong không gian vector (nhờ vào hệ số chiết khấu $\\gamma < 1$). Mỗi lần lặp, sai số giữa U hiện tại và U* bị triệt tiêu đi một lượng $\\gamma$."
+  },
+  {
+    "id": 24,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Đặc tính của Chính sách (Policy) trong POMDP có một điểm cực kỳ ưu việt so với MDP là Hành vi 'Thu thập thông tin' (Information Gathering). Điều này thể hiện như thế nào? (Chọn đáp án đúng)",
+    "options": [
+      "Vì tác tử không biết mình ở đâu, hàm Lợi ích U sẽ có xu hướng TỰ ĐỘNG THƯỞNG cho tác tử nếu tác tử thực hiện một hành động giúp làm TĂNG độ chắc chắn của Niềm tin.",
+      "Tác tử POMDP có khả năng chủ động hy sinh năng lượng để lấy thông tin, nếu thông tin đó giúp nó ra quyết định tốt hơn ở tương lai.",
+      "Tác tử không quan tâm đến thông tin (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Tác tử chỉ thu thập thông tin nếu con người code cứng luật IF-THEN (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "feedback": "Đây là phép màu của POMDP. Không ai lập trình cho robot là 'Mày phải đi dò đường'. Robot tự nhận ra rằng Belief của nó đang mờ mịt (nhiều hướng đều rủi ro), nên hành động 'Đi lấy dữ liệu' mang lại Expected Utility cao nhất. (Giải thích thêm: (b) (như 'Nhìn/Kiểm tra') (Belief))"
+  },
+  {
+    "id": 25,
+    "type": "ordering",
+    "difficulty": "Khó",
+    "question": "Thuật toán Value Iteration cho POMDP (Cách tiếp cận Point-based):",
+    "items": [
+      "Lấy tập hợp các hàm (mặt phẳng) biểu diễn $U_{t-1}(b)$ từ bước trước",
+      "Chiếu (Project) các mặt phẳng này ngược về một bước thời gian thông qua Mô hình Transition và Observation (Tạo ra một lượng lớn các mặt phẳng mới)",
+      "Cắt tỉa (Prune) loại bỏ những mặt phẳng BỊ THỐNG TRỊ (Dominated vectors) không bao giờ là tối ưu ở bất kỳ Belief nào",
+      "Giữ lại tập hợp các mặt phẳng $U_t(b)$ tối giản để tiếp tục vòng lặp mới"
+    ],
+    "feedback": "Quá trình này biến POMDP thành các tính toán Đại số hình học phức tạp. Kỹ thuật Point-based POMDP (PBVI) chỉ chọn một số điểm Belief nhất định để tính, giúp giải được bài toán thực tế."
+  },
+  {
+    "id": 26,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Đại lượng $R(s, a, s')$ thường được dùng trong các bài báo nghiên cứu để chỉ cái gì?",
+    "options": [
+      "Xác suất ngẫu nhiên (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Phần thưởng nhận được khi tác tử đang ở trạng thái s, thực hiện hành động a, và đáp xuống trạng thái s'.",
+      "Hàm đệ quy (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Giá trị của thông tin (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 1,
+    "feedback": "Trong sách AIMA, để đơn giản, phần thưởng thường chỉ phụ thuộc vào trạng thái hiện tại $R(s)$. Trong lý thuyết tổng quát, phần thưởng có thể tính khi quá cảnh (Transition Reward) $R(s, a, s')$. (Giải thích thêm: (Reward))"
+  },
+  {
+    "id": 27,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Trong quá trình chạy thuật toán Policy Iteration, nếu một trạng thái s có 2 hành động khác nhau cùng mang lại một Lợi ích kỳ vọng tối đa (hòa nhau), tác tử buộc phải giữ nguyên hành động cũ để đảm bảo thuật toán không bị lặp vô tận (Infinite loop).",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Nếu chính sách mới và chính sách cũ tốt BẰNG NHAU, thuật toán phải DỪNG (Khai báo đã hội tụ). Nếu nó nhảy sang chính sách mới bằng điểm, vòng lặp sau nó lại nhảy về chính sách cũ, gây ra Treo (Thrashing)."
+  },
+  {
+    "id": 28,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Yếu tố nào làm cho bài toán MDP được gọi là 'Markov'?",
+    "options": [
+      "Phần thưởng luôn dương (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Các tính toán dùng đến số phức (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Trạng thái tương lai chỉ phụ thuộc vào trạng thái và hành động hiện tại, không phụ thuộc vào chuỗi lịch sử trong quá khứ.",
+      "Vì nó không thể tính toán được bằng máy (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 2,
+    "feedback": "Tính chất không nhớ (Memoryless) là đặc điểm quan trọng nhất của mọi quá trình Markov."
+  },
+  {
+    "id": 29,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Bài toán giải Quyết định cho hệ thống nhiều Tác tử (Multi-agent) cùng lúc bị giới hạn thông tin được gọi là ____________ (Dec-POMDP) - Decentralized POMDP.",
+    "options": [
+      "Deep",
+      "Decentralized (Dec)",
+      "Dynamic",
+      "Discrete"
+    ],
+    "answer": 1,
+    "feedback": "Dec-POMDP (Decentralized POMDP) thuộc lớp bài toán NEXP-Hard (Siêu siêu khó). Hai con robot (như 2 người khiêng chung 1 cái tủ) không biết bạn mình nghĩ gì, mà vẫn phải hợp tác để tối đa hóa phần thưởng chung."
+  },
+  {
+    "id": 30,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Những nguyên nhân chính làm cho bài toán MDP trong thực tế rất khó giải bằng Quy hoạch động (Dynamic Programming)? (Chọn đáp án đúng)",
+    "options": [
+      "Curse of Dimensionality (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Chúng ta hiếm khi CÓ SẴN Bảng chuyển đổi xác suất $P$ của thế giới thực.",
+      "Thuật toán quy hoạch động bị cấm sử dụng (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Hàm MAX không thể chạy trên GPU (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "feedback": "Vì ta không có sẵn Bảng Xác Suất và Bảng Phần Thưởng của cuộc đời, ta không thể ngồi tính toán Value Iteration được. Đây là Động lực chính để ra đời Chương tiếp theo: Reinforcement Learning (Học bằng cách Thử và Sai). (Giải thích thêm: (Lời nguyền số chiều) (Ví dụ: bàn cờ vua, game cờ vây) Số lượng trạng thái bùng nổ theo hàm mũ khi thêm biến.) (Giải thích thêm: (Biết trước) (s'|s,a))"
+  }
+]

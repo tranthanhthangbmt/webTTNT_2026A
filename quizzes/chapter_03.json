@@ -1,0 +1,459 @@
+[
+  {
+    "id": 1,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Quá trình xem xét và quyết định những hành động, trạng thái nào cần đưa vào xem xét để tìm kiếm giải pháp được gọi là gì?",
+    "options": [
+      "Kiểm tra mục tiêu (Goal Test)",
+      "Định dạng bài toán (Problem Formulation)",
+      "Đo lường hiệu suất (Performance Measure)",
+      "Tìm kiếm Heuristic (Heuristic Search)"
+    ],
+    "answer": 1,
+    "feedback": "Problem formulation (định dạng bài toán) là quá trình trích xuất các hành động và trạng thái cần thiết để tạo thành một bài toán tìm kiếm từ một mục tiêu ban đầu."
+  },
+  {
+    "id": 2,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Một bài toán tìm kiếm (Search Problem) được định nghĩa chính thức bao gồm những thành phần nào sau đây? (Chọn các đáp án đúng)",
+    "options": [
+      "Trạng thái ban đầu (Initial State)",
+      "Mô hình chuyển đổi & Hành động",
+      "Kiểm tra mục tiêu & Chi phí đường đi",
+      "Hàm Heuristic (Heuristic Function)"
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Một bài toán tìm kiếm gốc không bắt buộc phải có hàm Heuristic. Hàm Heuristic chỉ là tri thức bổ sung để giải bài toán nhanh hơn (Informed Search). (Giải thích thêm: (Transition Model) (Actions)) (Giải thích thêm: (Goal Test) (Path Cost))"
+  },
+  {
+    "id": 3,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Trong cây tìm kiếm, thuật toán ____________ Search (Tìm kiếm theo đồ thị) khác với Tree Search ở chỗ nó duy trì một 'tập đã khám phá' (explored set / closed list) để tránh việc lặp lại các trạng thái đã xét.",
+    "options": [
+      "Heuristic",
+      "Graph",
+      "Tree",
+      "Bidirectional"
+    ],
+    "answer": 1,
+    "feedback": "Graph Search lưu lại các trạng thái đã duyệt trong 'explored set' để tránh vòng lặp vô hạn hoặc tốn công duyệt lại, trong khi Tree Search không lưu."
+  },
+  {
+    "id": 4,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Nối các tiêu chí đánh giá hiệu suất của một thuật toán tìm kiếm với ý nghĩa của nó:",
+    "pairs": [
+      {
+        "left": "Completeness (Tính đầy đủ)",
+        "right": "Đảm bảo luôn tìm thấy nghiệm (nếu tồn tại nghiệm)"
+      },
+      {
+        "left": "Optimality (Tính tối ưu)",
+        "right": "Đảm bảo tìm được nghiệm có chi phí thấp nhất"
+      },
+      {
+        "left": "Time complexity (Độ phức tạp thời gian)",
+        "right": "Mất bao lâu để tìm ra một giải pháp"
+      },
+      {
+        "left": "Space complexity (Độ phức tạp không gian)",
+        "right": "Cần bao nhiêu bộ nhớ trong quá trình tìm kiếm"
+      }
+    ],
+    "feedback": "Đây là 4 tiêu chí cốt lõi để đánh giá và so sánh bất kỳ thuật toán tìm kiếm nào."
+  },
+  {
+    "id": 5,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Với Tìm kiếm theo chiều rộng (BFS - Breadth-First Search), cấu trúc dữ liệu nào thường được sử dụng cho tập biên (Frontier)?",
+    "options": [
+      "Ngăn xếp (Stack - LIFO)",
+      "Hàng đợi (Queue - FIFO)",
+      "Hàng đợi ưu tiên (Priority Queue)",
+      "Danh sách liên kết đôi (Doubly Linked List)"
+    ],
+    "answer": 1,
+    "feedback": "BFS sử dụng FIFO Queue (Vào trước ra trước) để luôn mở rộng các nút ở độ sâu nông nhất trước."
+  },
+  {
+    "id": 6,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Tìm kiếm theo chiều rộng (BFS) luôn luôn là thuật toán tìm ra nghiệm Tối ưu (Optimal) trong mọi trường hợp.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai. BFS chỉ tối ưu khi tất cả các bước (hành động) đều có chi phí ngang nhau. Nếu chi phí khác nhau, BFS sẽ chỉ tìm ra đường đi ngắn nhất về số bước, chưa chắc là chi phí thấp nhất."
+  },
+  {
+    "id": 7,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Nhược điểm lớn nhất của Tìm kiếm theo chiều rộng (BFS) là gì?",
+    "options": [
+      "Không bao giờ tìm được nghiệm (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Tiêu tốn quá nhiều bộ nhớ (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Dễ bị mắc kẹt vào vòng lặp vô hạn (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Không thể giải các bài toán có không gian trạng thái rời rạc."
+    ],
+    "answer": 1,
+    "feedback": "Độ phức tạp không gian của BFS là O(b^d). Với b (hệ số phân nhánh) lớn, bộ nhớ sẽ cạn kiệt rất nhanh trước khi thuật toán kịp hết thời gian chạy. (Giải thích thêm: (Độ phức tạp không gian rất lớn))"
+  },
+  {
+    "id": 8,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Thuật toán nào mở rộng nút có chi phí đường đi g(n) từ nút gốc thấp nhất?",
+    "options": [
+      "BFS (Tìm kiếm chiều rộng)",
+      "DFS (Tìm kiếm chiều sâu)",
+      "Uniform-Cost Search (Tìm kiếm chi phí đồng nhất)",
+      "Greedy Best-First Search (Tìm kiếm tham lam)"
+    ],
+    "answer": 2,
+    "feedback": "Uniform-Cost Search (UCS) sắp xếp tập biên bằng hàng đợi ưu tiên theo g(n). Nhờ đó nó hoàn chỉnh và tối ưu với mọi chi phí bước đi > 0."
+  },
+  {
+    "id": 9,
+    "type": "fill_blank",
+    "difficulty": "Dễ",
+    "question": "Tìm kiếm theo chiều sâu (DFS) sử dụng cấu trúc dữ liệu ____________ (LIFO) cho tập biên, ưu tiên mở rộng nút sâu nhất hiện tại.",
+    "options": [
+      "Hàng đợi (Queue)",
+      "Cây (Tree)",
+      "Ngăn xếp (Stack)",
+      "Mảng (Array)"
+    ],
+    "answer": 2,
+    "feedback": "DFS dùng Stack (LIFO - Vào sau ra trước) để đi sâu xuống một nhánh cho đến khi kết thúc rồi mới quay lui."
+  },
+  {
+    "id": 10,
+    "type": "true_false",
+    "difficulty": "Khó",
+    "question": "Tìm kiếm theo chiều sâu (DFS) phiên bản Tree Search luôn luôn hoàn chỉnh (Complete) trong không gian trạng thái hữu hạn.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai. Dù không gian hữu hạn, Tree Search DFS vẫn có thể đi vào vòng lặp vô hạn (chu trình) dẫn đến không bao giờ dừng. Phải dùng Graph Search (hoặc hạn chế vòng lặp) mới hoàn chỉnh."
+  },
+  {
+    "id": 11,
+    "type": "matching",
+    "difficulty": "Khó",
+    "question": "Nối các thuật toán tìm kiếm mù (Uninformed) với độ phức tạp Không gian (Space complexity) của chúng (b = hệ số phân nhánh, d = độ sâu nghiệm, m = độ sâu tối đa):",
+    "pairs": [
+      {
+        "left": "BFS (Breadth-First Search)",
+        "right": "O(b^d)"
+      },
+      {
+        "left": "DFS (Depth-First Search)",
+        "right": "O(b * m)"
+      },
+      {
+        "left": "IDS (Iterative Deepening Search)",
+        "right": "O(b * d)"
+      },
+      {
+        "left": "Bidirectional Search",
+        "right": "O(b^(d/2))"
+      }
+    ],
+    "feedback": "Điểm mạnh tuyệt đối của DFS và IDS là không gian nhớ tuyến tính (O(bm) hoặc O(bd)), rất tiết kiệm RAM so với O(b^d) của BFS."
+  },
+  {
+    "id": 12,
+    "type": "ordering",
+    "difficulty": "Khó",
+    "question": "Sắp xếp quá trình hoạt động của thuật toán Tìm kiếm sâu dần (Iterative Deepening Search - IDS):",
+    "items": [
+      "Thiết lập giới hạn độ sâu ban đầu L = 0",
+      "Thực hiện Tìm kiếm sâu hạn chế (DLS) với độ sâu tối đa L",
+      "Nếu DLS tìm thấy nghiệm, trả về nghiệm đó",
+      "Nếu DLS không tìm thấy nghiệm (do chạm đáy L), tăng L lên L = L + 1",
+      "Bắt đầu lại DLS từ trạng thái gốc với giới hạn L mới"
+    ],
+    "feedback": "IDS thực chất là việc gọi lại DLS lặp đi lặp lại với độ sâu L tăng dần (0, 1, 2...) cho đến khi chạm được nghiệm."
+  },
+  {
+    "id": 13,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Tại sao thuật toán Tìm kiếm sâu dần (Iterative Deepening Search - IDS) thường được coi là thuật toán tìm kiếm mù tốt nhất cho các không gian tìm kiếm lớn?",
+    "options": [
+      "Nó đòi hỏi rất ít bộ nhớ (giống DFS) (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Nó luôn tìm thấy nghiệm và tìm nghiệm tối ưu nếu chi phí các bước bằng nhau.",
+      "Nó chạy nhanh hơn BFS hàng nghìn lần trong mọi trường hợp.",
+      "Nó là thuật toán có thông tin nên biết trước đường đi."
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "feedback": "IDS kết hợp được ưu điểm của cả BFS (Hoàn chỉnh & Tối ưu) và DFS (Tiết kiệm bộ nhớ). Mặc dù duyệt lại các nút nông nhiều lần, tổng thời gian vẫn cùng cấp O(b^d) với BFS. (Giải thích thêm: (giống BFS)) (Giải thích thêm: (informed search))"
+  },
+  {
+    "id": 14,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Các thuật toán BFS, DFS, UCS thuộc nhóm tìm kiếm mù (Uninformed Search) bởi vì:",
+    "options": [
+      "Chúng không biết cách kiểm tra mục tiêu (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Chúng không được cung cấp thông tin nào khác ngoài định nghĩa cơ bản của bài toán.",
+      "Chúng luôn chọn ngẫu nhiên các đường đi (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Chúng không thể tìm thấy nghiệm (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 1,
+    "feedback": "Uninformed (Blind) search chỉ biết mở rộng nút theo trạng thái và luật chơi, không có 'gợi ý' (Heuristic) về việc nút nào gần đích hơn. (Giải thích thêm: (Goal Test))"
+  },
+  {
+    "id": 15,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Thuật toán tìm kiếm ____________ (Informed/Heuristic Search) sử dụng một hàm đánh giá f(n) kết hợp với tri thức đặc thù của miền để ưu tiên mở rộng các nút hứa hẹn nhất.",
+    "options": [
+      "Có thông tin (Informed)",
+      "Mù (Uninformed)",
+      "Sâu dần (Iterative)",
+      "Hai chiều (Bidirectional)"
+    ],
+    "answer": 0,
+    "feedback": "Informed search sử dụng hàm Heuristic h(n) mang 'thông tin' ước tính để hướng tìm kiếm thẳng về phía đích."
+  },
+  {
+    "id": 16,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Hàm heuristic h(n) biểu diễn ý nghĩa gì?",
+    "options": [
+      "Chi phí thực tế để đi từ gốc đến nút n.",
+      "Ước lượng chi phí rẻ nhất để đi từ nút n đến mục tiêu đích.",
+      "Tổng số trạng thái đã được duyệt cho đến hiện tại.",
+      "Độ sâu của nút n trong cây tìm kiếm."
+    ],
+    "answer": 1,
+    "feedback": "h(n) là hàm ước tính (estimated cost). Ví dụ: khoảng cách đường chim bay từ thành phố hiện tại đến thành phố đích."
+  },
+  {
+    "id": 17,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Tìm kiếm tốt nhất đầu tiên tham lam (Greedy Best-First Search) sử dụng hàm đánh giá f(n) như thế nào?",
+    "options": [
+      "f(n) = g(n) (chỉ quan tâm đến chi phí từ gốc)",
+      "f = h",
+      "f(n) = g(n) + h(n)",
+      "f(n) = g(n) - h(n)"
+    ],
+    "answer": 1,
+    "feedback": "Greedy Best-First chỉ quan tâm xem nút nào có vẻ gần đích nhất (f(n) = h(n)) mà hoàn toàn lờ đi cái giá đã phải trả để đến được nút đó (g(n)). (Giải thích thêm: (n) (n) (chỉ quan tâm đến chi phí ước tính đến đích))"
+  },
+  {
+    "id": 18,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Thuật toán Greedy Best-First Search luôn luôn tìm được đường đi tối ưu (ngắn nhất) đến đích.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai. Vì nó có tính 'tham lam', nó chỉ nhìn vào đích trước mắt mà lờ đi tổng chi phí đường đi, dẫn đến việc thường xuyên chọn sai đường tối ưu, thậm chí mắc kẹt (incomplete)."
+  },
+  {
+    "id": 19,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Thuật toán A* (A-star) kết hợp hàm g(n) và h(n) để tạo thành hàm f(n) = g(n) + h(n). Ý nghĩa của f(n) là gì?",
+    "options": [
+      "Ước tính chi phí của đường đi rẻ nhất bắt đầu từ gốc, đi qua nút n, và đến đích.",
+      "Chi phí thực tế từ n đến mục tiêu (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Thời gian dự kiến thuật toán sẽ chạy để xét xong nút n.",
+      "Chênh lệch chi phí giữa hành động tốt nhất và tệ nhất."
+    ],
+    "answer": 0,
+    "feedback": "g(n) là chi phí đã trả (từ gốc tới n). h(n) là chi phí dự kiến (từ n tới đích). Vậy f(n) là tổng chi phí đường đi ước tính đi qua n."
+  },
+  {
+    "id": 20,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Ghép nối các hàm đánh giá f(n) với tên thuật toán tương ứng:",
+    "pairs": [
+      {
+        "left": "f(n) = g(n)",
+        "right": "Uniform-Cost Search (UCS)"
+      },
+      {
+        "left": "f(n) = h(n)",
+        "right": "Greedy Best-First Search"
+      },
+      {
+        "left": "f(n) = g(n) + h(n)",
+        "right": "A* Search"
+      }
+    ],
+    "feedback": "A* là sự kết hợp điểm mạnh của cả UCS (tối ưu, chắc chắn) và Greedy (hướng đích nhanh)."
+  },
+  {
+    "id": 21,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Để thuật toán A* đảm bảo tìm được nghiệm Tối ưu (Optimal) trong tìm kiếm trên đồ thị (Graph Search), hàm heuristic h(n) phải thỏa mãn những điều kiện nào?",
+    "options": [
+      "Phải luôn bằng 0.",
+      "Phải Chấp nhận được.",
+      "Phải Nhất quán (Consistent / Monotonic).",
+      "Phải lớn hơn hàm g(n)."
+    ],
+    "answer": [
+      1,
+      2
+    ],
+    "feedback": "Trong Tree Search, h(n) chỉ cần Admissible. Nhưng trong Graph Search (có lưu tập đã xét), h(n) phải Consistent (nhất quán) để tránh việc vô tình loại bỏ một đường đi tốt hơn vừa tìm thấy. (Giải thích thêm: (Admissible - không bao giờ đánh giá quá cao chi phí đến đích))"
+  },
+  {
+    "id": 22,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Một hàm heuristic h(n) được gọi là ____________ (Admissible) nếu nó không bao giờ đánh giá quá cao chi phí để đi tới đích. Nghĩa là h(n) ≤ h*(n) với mọi n (trong đó h* là chi phí thực sự).",
+    "options": [
+      "Chấp nhận được (Admissible)",
+      "Nhất quán (Consistent)",
+      "Áp đảo (Dominant)",
+      "Tối ưu (Optimal)"
+    ],
+    "answer": 0,
+    "feedback": "Admissible (Chấp nhận được / Lạc quan): Luôn nghĩ con đường tới đích rẻ hơn hoặc bằng thực tế, không bao giờ bi quan."
+  },
+  {
+    "id": 23,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Tính Nhất quán (Consistency) của hàm heuristic h(n) được biểu diễn bằng bất đẳng thức tam giác nào sau đây (với c là chi phí bước đi từ n sang n')?",
+    "options": [
+      "h(n) ≤ c(n, a, n') + h(n')",
+      "h(n) ≥ c(n, a, n') + h(n')",
+      "h(n) = g(n) + h(n')",
+      "h(n) + h(n') ≤ c(n, a, n')"
+    ],
+    "answer": 0,
+    "feedback": "Tính nhất quán (Monotonicity): Chi phí ước tính từ n đến đích không được lớn hơn chi phí bước đi c từ n đến n' cộng với chi phí ước tính từ n' đến đích."
+  },
+  {
+    "id": 24,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Nếu một hàm heuristic h(n) là Nhất quán (Consistent), thì nó tự động được đảm bảo là Chấp nhận được (Admissible).",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Consistency là một điều kiện khắt khe hơn Admissibility. Mọi hàm Consistent đều Admissible, nhưng ngược lại thì không chắc chắn."
+  },
+  {
+    "id": 25,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Giả sử bạn có 2 hàm heuristic h1 và h2 đều admissible. Nếu với mọi nút n, ta luôn có h2(n) ≥ h1(n), điều nào sau đây là ĐÚNG?",
+    "options": [
+      "h1 trội hơn h2 và h1 sẽ duyệt ít nút hơn.",
+      "h2 trội hơn h1 và A* dùng h2 sẽ duyệt ít nút hơn.",
+      "Cả 2 hàm sẽ duyệt chính xác cùng số lượng nút.",
+      "h2 không còn admissible nữa."
+    ],
+    "answer": 1,
+    "feedback": "Tính trội (Dominance): Hàm nào có giá trị lớn hơn (nhưng vẫn <= h*) thì sẽ càng gần với giá trị thực h* hơn, giúp thuật toán A* cắt tỉa không gian tìm kiếm tốt hơn và duyệt ít nút hơn. (Giải thích thêm: (dominates)) (Giải thích thêm: (dominates) (hoặc bằng))"
+  },
+  {
+    "id": 26,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Đặc điểm nào sau đây thuộc về thuật toán A* (A-star)? (Chọn các đáp án đúng)",
+    "options": [
+      "Hoàn chỉnh (Complete) - chắc chắn tìm được nghiệm nếu tồn tại.",
+      "Tối ưu - luôn tìm được nghiệm ngắn nhất nếu heuristic admissible/consistent.",
+      "Tối ưu về số lượng nút mở rộng (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Bộ nhớ sử dụng cực thấp, hoạt động tương tự DFS."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "A* hoàn chỉnh, tối ưu và mở rộng ít nút nhất có thể. Tuy nhiên, nó lại ngốn rất nhiều RAM (không gian lưu trữ) do phải lưu mọi nút vào bộ nhớ. (Giải thích thêm: (Optimal)) (Giải thích thêm: không có thuật toán nào mở rộng ít nút hơn A* với cùng một hàm heuristic.)"
+  },
+  {
+    "id": 27,
+    "type": "ordering",
+    "difficulty": "Khó",
+    "question": "Sắp xếp độ phức tạp Không gian (RAM) của các thuật toán tìm kiếm từ TIẾT KIỆM BỘ NHỚ NHẤT đến TỐN BỘ NHỚ NHẤT:",
+    "items": [
+      "DFS (Depth-First Search)",
+      "IDS (Iterative Deepening Search)",
+      "BFS (Breadth-First Search)",
+      "A* (A-star Graph Search)"
+    ],
+    "feedback": "DFS và IDS rất tiết kiệm bộ nhớ (O(bm)). BFS lưu toàn bộ biên (O(b^d)). A* còn tồi tệ hơn vì phải lưu toàn bộ đồ thị đã duyệt vào RAM (explored set)."
+  },
+  {
+    "id": 28,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Thuật toán IDA* (Iterative Deepening A*) giải quyết điểm yếu lớn nhất của A* là ____________, bằng cách mượn cơ chế duyệt lặp của IDS, chỉ lưu trữ một nhánh đường đi tại một thời điểm.",
+    "options": [
+      "Tính hoàn chỉnh (Completeness)",
+      "Tiêu tốn quá nhiều bộ nhớ (Space Complexity)",
+      "Thời gian chạy chậm (Time Complexity)",
+      "Tính tối ưu (Optimality)"
+    ],
+    "answer": 1,
+    "feedback": "Điểm nghẽn lớn nhất của A* là bộ nhớ. IDA* giải quyết điều này bằng cách kết hợp A* với kỹ thuật duyệt DFS/IDS để giảm RAM xuống mức tuyến tính."
+  },
+  {
+    "id": 29,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Trong bài toán 8-puzzle (Trò chơi xếp 8 ô vuông), ghép nối cách tính của 2 hàm heuristic kinh điển:",
+    "pairs": [
+      {
+        "left": "h1(n): Số ô đặt sai vị trí",
+        "right": "Đếm xem có bao nhiêu ô hiện tại không nằm ở vị trí đích"
+      },
+      {
+        "left": "h2(n): Khoảng cách Manhattan",
+        "right": "Tổng khoảng cách theo hàng và cột từ vị trí hiện tại của mỗi ô đến vị trí đích"
+      }
+    ],
+    "feedback": "Cả hai đều admissible, nhưng h2 luôn lớn hơn hoặc bằng h1, tức là h2 trội (dominates) h1, do đó h2 hiệu quả hơn cho A*."
+  },
+  {
+    "id": 30,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Làm thế nào để tạo ra một hàm heuristic 'chấp nhận được' (admissible) cho một bài toán phức tạp?",
+    "options": [
+      "Nhân đôi chi phí thực tế lên 2 lần (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Tạo ra một 'bài toán nới lỏng' bằng cách loại bỏ một số luật lệ cấm, và giải bài toán dễ hơn đó.",
+      "Chọn ngẫu nhiên một con số bất kỳ (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Đếm tổng số trạng thái có thể có (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": 1,
+    "feedback": "Relaxed problem (Bài toán nới lỏng) là phương pháp kinh điển để thiết kế hàm heuristic. Ví dụ: bỏ qua vật cản, tính đường chim bay sẽ ra khoảng cách tối thiểu -> luôn admissible. (Giải thích thêm: (relaxed problem))"
+  }
+]

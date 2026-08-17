@@ -1,0 +1,467 @@
+[
+  {
+    "id": 1,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Sự khác biệt cốt lõi về 'Cam kết bản thể luận' (Ontological Commitment) giữa Logic mệnh đề (Propositional Logic) và Logic bậc nhất (First-Order Logic - FOL) là gì?",
+    "options": [
+      "Logic mệnh đề giả định thế giới bao gồm các số học, FOL giả định thế giới bao gồm chữ cái.",
+      "Logic mệnh đề giả định thế giới chỉ gồm các SỰ KIỆN Đúng/Sai.",
+      "Logic mệnh đề dùng cho AI cổ điển, FOL dùng cho Mạng nơ-ron.",
+      "Không có sự khác biệt nào (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 1,
+    "feedback": "Đây là lý do FOL mạnh hơn rất nhiều. Thay vì chỉ nói 'TroiMua = True', FOL có thể nói 'Mua(HomNay)' dựa trên đối tượng 'HomNay' và quan hệ 'Mua'. (Giải thích thêm: (Facts) (Objects) (Relations) (Functions) FOL giả định thế giới bao gồm các ĐỐI TƯỢNG, QUAN HỆ và HÀM.)"
+  },
+  {
+    "id": 2,
+    "type": "fill_blank",
+    "difficulty": "Dễ",
+    "question": "Trong Logic Bậc nhất (FOL), các biểu thức chỉ tới (đại diện cho) một ĐỐI TƯỢNG (Object) trong thế giới thực được gọi là ____________ (Term - Hạng thức).",
+    "options": [
+      "Mệnh đề (Clause)",
+      "Vị từ (Predicate)",
+      "Hạng thức (Term)",
+      "Hằng số (Constant)"
+    ],
+    "answer": 2,
+    "feedback": "Hạng thức (Term) có thể là một Hằng số (như 'John'), một Biến (như 'x'), hoặc một Hàm áp dụng lên Term khác (như 'Father(John)'). Kết quả của nó luôn trỏ về một vật/người cụ thể."
+  },
+  {
+    "id": 3,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Cú pháp của Logic bậc nhất (FOL) bao gồm những loại Ký hiệu (Symbols) cơ bản nào? (Chọn các đáp án đúng)",
+    "options": [
+      "Ký hiệu Hằng.",
+      "Ký hiệu Vị từ.",
+      "Ký hiệu Hàm.",
+      "Ký hiệu Khối lượng (Mass symbols)."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Ký hiệu Hằng trỏ đến 1 đối tượng. Ký hiệu Hàm trỏ đến 1 đối tượng khác thông qua tham số. Ký hiệu Vị từ biểu diễn quan hệ (trả về Đúng/Sai). (Giải thích thêm: (Constant symbols - ví dụ: John, Vua_Arthur)) (Giải thích thêm: (Predicate symbols - ví dụ: Anh_Trai, Yêu)) (Giải thích thêm: (Function symbols - ví dụ: Bố_của, Chân_trái_của))"
+  },
+  {
+    "id": 4,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Trong Logic bậc nhất, Ký hiệu Vị từ (Predicate) và Ký hiệu Hàm (Function) là hoàn toàn giống nhau và có thể dùng thay thế cho nhau.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai hoàn toàn. Hàm (Function) trả về một ĐỐI TƯỢNG (VD: Father(John) = Paul). Vị từ (Predicate) trả về giá trị CHÂN LÝ ĐÚNG/SAI (VD: Is_Father(Paul, John) = True)."
+  },
+  {
+    "id": 5,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Ghép nối các thành phần cú pháp của FOL với ví dụ tương ứng:",
+    "pairs": [
+      {
+        "left": "Constant Symbol (Hằng)",
+        "right": "Richard"
+      },
+      {
+        "left": "Variable (Biến)",
+        "right": "x, y"
+      },
+      {
+        "left": "Predicate (Vị từ)",
+        "right": "Brother(Richard, John)"
+      },
+      {
+        "left": "Function (Hàm)",
+        "right": "LeftLeg(Richard)"
+      }
+    ],
+    "feedback": "Hiểu rõ sự khác biệt giữa các thành phần cú pháp này là bước đầu tiên để làm chủ First-Order Logic."
+  },
+  {
+    "id": 6,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Một 'Câu nguyên tử' (Atomic Sentence) trong FOL được định nghĩa là gì?",
+    "options": [
+      "Một câu chứa nhiều toán tử AND và OR (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Một vị từ có các đối số là các hạng thức, hoặc một phép bằng giữa 2 Terms.",
+      "Một câu có chứa lượng từ Tất cả (∀) (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Bất kỳ biểu thức nào trả về một đối tượng (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 1,
+    "feedback": "Câu nguyên tử là cấu trúc nhỏ nhất mang giá trị Đúng/Sai. VD: Brother(Richard, John) hoặc Father(John) = Paul. (Giải thích thêm: (Predicate) (Terms) (Equality))"
+  },
+  {
+    "id": 7,
+    "type": "ordering",
+    "difficulty": "Khó",
+    "question": "Sắp xếp quá trình đánh giá tính Đúng/Sai của một câu nguyên tử 'Brother(Richard, John)' trong một Mô hình (Model):",
+    "items": [
+      "Tìm đối tượng mà Ký hiệu hằng 'Richard' trỏ tới trong mô hình (VD: Người A)",
+      "Tìm đối tượng mà Ký hiệu hằng 'John' trỏ tới trong mô hình (VD: Người B)",
+      "Tra cứu tập hợp các cặp đối tượng thuộc về Quan hệ 'Brother' trong mô hình",
+      "Kiểm tra xem cặp (Người A, Người B) có nằm trong tập hợp quan hệ đó không",
+      "Nếu có trả về True, ngược lại trả về False"
+    ],
+    "feedback": "Đây là cách Ngữ nghĩa (Semantics) của FOL hoạt động. Nó ánh xạ các ký hiệu trên giấy vào các đối tượng và tập hợp trong thế giới thực."
+  },
+  {
+    "id": 8,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Lượng từ Phổ dụng (Universal Quantifier), ký hiệu là ∀, được dùng để diễn đạt ý nghĩa gì?",
+    "options": [
+      "Chỉ có duy nhất một đối tượng thỏa mãn.",
+      "Tồn tại ít nhất một đối tượng thỏa mãn.",
+      "Tất cả mọi đối tượng trong thế giới đều thỏa mãn.",
+      "Không có đối tượng nào thỏa mãn."
+    ],
+    "answer": 2,
+    "feedback": "∀x P(x) nghĩa là P(x) ĐÚNG với MỌI x. Ví dụ: ∀x (Bird(x) ⇒ HasWings(x)) - Mọi con chim đều có cánh."
+  },
+  {
+    "id": 9,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Khi sử dụng Lượng từ Phổ dụng (∀), ta TÙY HẦU HẾT LUÔN LUÔN kết hợp nó với phép toán logic ____________ (Kéo theo / Implies: ⇒).",
+    "options": [
+      "AND (∧)",
+      "OR (∨)",
+      "NOT (¬)",
+      "IMPLIES (⇒)"
+    ],
+    "answer": 3,
+    "feedback": "Lỗi kinh điển của sinh viên là viết ∀x (Bird(x) ∧ HasWings(x)). Câu này có nghĩa là 'Mọi thứ trên đời đều là chim VÀ có cánh', điều này sai. Viết đúng là ∀x (Bird(x) ⇒ HasWings(x))."
+  },
+  {
+    "id": 10,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Khi sử dụng Lượng từ Tồn tại (Existential Quantifier - ∃), toán tử logic nào thường xuyên (hầu như luôn luôn) được kết nối đi kèm?",
+    "options": [
+      "IMPLIES (⇒)",
+      "AND (∧)",
+      "OR (∨)",
+      "BICONDITIONAL (⇔)"
+    ],
+    "answer": 1,
+    "feedback": "∃x (King(x) ∧ Evil(x)) nghĩa là 'Có tồn tại một Vua VÀ ông ta xấu xa'. Nếu dùng ⇒: ∃x (King(x) ⇒ Evil(x)), nó chỉ cần x không phải là Vua thì câu đã Đúng (trivial truth), rất vô nghĩa."
+  },
+  {
+    "id": 11,
+    "type": "true_false",
+    "difficulty": "Khó",
+    "question": "Trong FOL, câu '∀x ∃y Loves(x,y)' và câu '∃y ∀x Loves(x,y)' mang ý nghĩa hoàn toàn giống hệt nhau.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai hoàn toàn! '∀x ∃y Loves(x,y)' nghĩa là 'Mọi người đều yêu một ai đó (có thể khác nhau)'. Nhưng '∃y ∀x Loves(x,y)' nghĩa là 'Có MỘT người y cụ thể mà TẤT CẢ mọi người x trên thế giới đều yêu người đó'. (Thứ tự lượng từ cực kỳ quan trọng)."
+  },
+  {
+    "id": 12,
+    "type": "matching",
+    "difficulty": "Khó",
+    "question": "Nối các câu tiếng Anh với công thức FOL tương ứng của chúng:",
+    "pairs": [
+      {
+        "left": "Mọi vị vua đều là người.",
+        "right": "∀x King(x) ⇒ Person(x)"
+      },
+      {
+        "left": "Tồn tại một vị vua độc ác.",
+        "right": "∃x King(x) ∧ Evil(x)"
+      },
+      {
+        "left": "Mọi người đều có một người mẹ.",
+        "right": "∀x ∃y Mother(y, x)"
+      },
+      {
+        "left": "Chỉ có một vị vua duy nhất.",
+        "right": "∃x King(x) ∧ (∀y King(y) ⇒ x = y)"
+      }
+    ],
+    "feedback": "Biểu diễn câu tiếng tự nhiên thành FOL là kỹ năng cốt lõi nhất của Kỹ nghệ tri thức (Knowledge Engineering)."
+  },
+  {
+    "id": 13,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Hai Lượng từ ∀ và ∃ có quan hệ mật thiết với nhau thông qua phép phủ định (tương tự như luật De Morgan). Đẳng thức nào sau đây là ĐÚNG? (Chọn các đáp án đúng)",
+    "options": [
+      "¬(∀x P(x)) ≡ ∃x ¬P(x)",
+      "¬(∃x P(x)) ≡ ∀x ¬P(x)",
+      "¬(∀x P(x)) ≡ ∀x ¬P(x)",
+      "¬(∃x P(x)) ≡ ∃x ¬P(x)"
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "feedback": "Nếu 'Không phải ai cũng thích táo' (¬∀), điều đó nghĩa là 'Có ai đó không thích táo' (∃¬). Nếu 'Không tồn tại ai sống mãi' (¬∃), nghĩa là 'Ai cũng phải chết' (∀¬)."
+  },
+  {
+    "id": 14,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Dấu Bằng (=) trong FOL được sử dụng với ý nghĩa gì?",
+    "options": [
+      "Để gán giá trị cho một biến (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Để chỉ ra rằng hai Hạng thức thực chất đang trỏ tới cùng một ĐỐI TƯỢNG duy nhất trong thế giới thực.",
+      "Để so sánh hai câu Đúng / Sai (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Để tạo thành một hằng đúng (tautology) (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 1,
+    "feedback": "Trong FOL, 'MorningStar = EveningStar' có nghĩa là hai khái niệm này (Sao Hôm, Sao Mai) thực ra chỉ là cùng 1 đối tượng duy nhất (Sao Kim). (Giải thích thêm: (Terms))"
+  },
+  {
+    "id": 15,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Trong kỹ nghệ tri thức, các câu thiết lập những định nghĩa và quy tắc cơ bản không thể thay đổi của một miền tri thức (ví dụ: 'Người anh em là người có chung cha mẹ') được gọi là các ____________ (Axioms / Tiên đề).",
+    "options": [
+      "Tiên đề (Axioms)",
+      "Định lý (Theorems)",
+      "Sự kiện (Facts)",
+      "Lý thuyết (Theories)"
+    ],
+    "answer": 0,
+    "feedback": "Axioms (Tiên đề) là những sự thật cơ bản, không cần chứng minh. Từ các Axioms, AI sẽ suy diễn ra các Định lý (Theorems)."
+  },
+  {
+    "id": 16,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Một biến trong FOL được gọi là Biến tự do (Free Variable) nếu nó KHÔNG bị ràng buộc bởi bất kỳ Lượng từ (∀ hoặc ∃) nào trong câu.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Ví dụ: Trong câu '∀x Loves(x, y)', x là biến bị ràng buộc (bound), còn y là biến tự do (free). Một câu hợp lệ chuẩn (sentence) không được có biến tự do."
+  },
+  {
+    "id": 17,
+    "type": "ordering",
+    "difficulty": "Khó",
+    "question": "Sắp xếp các bước cơ bản của Kỹ nghệ Tri thức (Knowledge Engineering) khi áp dụng FOL để giải quyết một bài toán thực tế:",
+    "items": [
+      "Xác định bài toán và những câu hỏi (queries) cần hệ thống AI trả lời",
+      "Thu thập tri thức chuyên môn liên quan đến bài toán",
+      "Quyết định một tập hợp từ vựng (Các Hằng, Vị từ, Hàm) để biểu diễn tri thức",
+      "Mã hóa các quy luật chung của miền (Viết các Tiên đề - Axioms bằng FOL)",
+      "Nạp các sự kiện thực tế (Facts) vào Cơ sở tri thức và Thực hiện Truy vấn (ASK)"
+    ],
+    "feedback": "Từ bài toán -> Hiểu luật -> Thiết kế TỪ VỰNG -> Viết LUẬT CHUNG -> Nạp DỮ LIỆU CỤ THỂ -> Truy vấn."
+  },
+  {
+    "id": 18,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Trong miền Gia phả (Kinship domain), định nghĩa của một quan hệ thường được viết dưới dạng tương đương (⇔). Đoạn mã nào biểu diễn đúng định nghĩa: 'x là ông/bà của y nếu tồn tại z sao cho x là cha/mẹ của z và z là cha/mẹ của y'?",
+    "options": [
+      "∀x,y Grandparent(x,y) ⇒ ∃z (Parent(x,z) ∧ Parent(z,y))",
+      "∀x,y Grandparent(x,y) ⇔ ∃z (Parent(x,z) ∧ Parent(z,y))",
+      "∃z Grandparent(x,y) ⇔ ∀x,y (Parent(x,z) ∧ Parent(z,y))",
+      "∀x,y Grandparent(x,y) ⇔ (Parent(x,z) ∨ Parent(z,y))"
+    ],
+    "answer": 1,
+    "feedback": "Dấu tương đương (⇔) rất quan trọng trong định nghĩa, vì nó đảm bảo tính hai chiều: (1) Nếu là ông thì chắc chắn có con là cha của cháu, và (2) Nếu có con là cha của cháu thì chắc chắn là ông."
+  },
+  {
+    "id": 19,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Để mô tả trạng thái thế giới Wumpus thay đổi theo thời gian bằng FOL, người ta thêm biến thời gian (t) vào các Vị từ. Kỹ thuật này được gọi là 'Calculus Hoàn cảnh' (Situation Calculus). Trong Situation Calculus, có những yếu tố cốt lõi nào? (Chọn đáp án đúng)",
+    "options": [
+      "Fluents: Các vị từ hoặc hàm có thể thay đổi giá trị theo thời gian).",
+      "Atemporal predicates: Các vị từ vĩnh viễn không đổi).",
+      "Effect axioms: Các luật mô tả KẾT QUẢ của hành động lên tình huống tiếp theo.",
+      "Quy hoạch động (Dynamic Programming) (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Situation Calculus (Phép tính Hoàn cảnh) là kỹ thuật kinh điển để giúp FOL đối phó với sự thay đổi của thời gian và hành động (Frame problem). (Giải thích thêm: (ví dụ: At(Agent, [1,1], t)) (Giải thích thêm: (ví dụ: Wall([0,1]))"
+  },
+  {
+    "id": 20,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Trong Situation Calculus, có một vấn đề đau đầu gọi là 'Frame Problem' (Vấn đề khung). Ghép nối các khái niệm để giải quyết nó:",
+    "pairs": [
+      {
+        "left": "Frame Problem",
+        "right": "Khó khăn trong việc mô tả tất cả những thứ KHÔNG bị thay đổi bởi một hành động (VD: bắn cung thì mũi tên bay đi, nhưng các hố pit vẫn giữ nguyên)"
+      },
+      {
+        "left": "Effect Axioms",
+        "right": "Luật chỉ ra những thứ BỊ THAY ĐỔI sau hành động"
+      },
+      {
+        "left": "Frame Axioms",
+        "right": "Luật chỉ ra những thứ KHÔNG BỊ THAY ĐỔI sau hành động (phải viết rất nhiều, gây nặng KB)"
+      },
+      {
+        "left": "Successor-State Axioms",
+        "right": "Kết hợp cả Effect và Frame Axioms thành một luật ⇔ duy nhất (Rất hiệu quả)"
+      }
+    ],
+    "feedback": "Successor-State Axioms: Một Fluent F sẽ True ở bước t+1 NẾU VÀ CHỈ NẾU (Hành động ở bước t LÀM NÓ TRUE) HOẶC (Nó đã True ở bước t VÀ Hành động t KHÔNG LÀM NÓ FALSE)."
+  },
+  {
+    "id": 21,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Điều nào sau đây là lợi thế KHÔNG THỂ CHỐI CÃI của FOL so với Logic Mệnh đề khi áp dụng cho bài toán như Cờ vua hoặc Wumpus World?",
+    "options": [
+      "FOL có thể biểu diễn các quy luật chung chỉ bằng 1 câu ngắn gọn, thay vì phải viết hàng trăm câu độc lập cho từng ô cờ.",
+      "FOL chạy nhanh hơn Logic mệnh đề trong mọi trường hợp (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "FOL không bao giờ bị rơi vào vòng lặp vô hạn (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "FOL chỉ dùng số 0 và 1, tiết kiệm bộ nhớ (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": 0,
+    "feedback": "Expressive Power (Sức mạnh biểu diễn). Lượng từ (∀, ∃) giúp FOL tóm gọn hàng nghìn luật mệnh đề vào 1 dòng duy nhất. (Giải thích thêm: (như 'mọi hố đều có gió xung quanh'))"
+  },
+  {
+    "id": 22,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Trong toán học, một mô hình mà các ký hiệu toán học (như +, -, =) có ý nghĩa cố định và chuẩn mực được gọi là mô hình ____________ (Standard Model). Tuy nhiên, FOL không thể cấm các 'Mô hình không chuẩn' (Non-standard models).",
+    "options": [
+      "Bình thường (Normal)",
+      "Chuẩn (Standard)",
+      "Đơn giản (Simple)",
+      "Hoàn hảo (Perfect)"
+    ],
+    "answer": 1,
+    "feedback": "Standard Model là mô hình tự nhiên (ví dụ tập số tự nhiên). Định lý Bất toàn của Gödel (Gödel's Incompleteness Theorem) cho thấy FOL không bao giờ có thể mô tả trọn vẹn số học mà loại trừ hết các non-standard models."
+  },
+  {
+    "id": 23,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Trong FOL, câu '∀x (P(x) ∨ ¬P(x))' (Với mọi x, x là P hoặc x không phải là P) là một Hằng đúng (Tautology) và luôn luôn ĐÚNG bất kể P là gì hay mô hình là gì.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Đây là Luật Bài Trung (Law of Excluded Middle). Trong logic cổ điển, một sự vật hoặc có tính chất P, hoặc không có tính chất P, không có trạng thái thứ ba."
+  },
+  {
+    "id": 24,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Câu 'Tất cả mọi người đều có chung MỘT người mẹ' được biểu diễn bằng FOL như thế nào?",
+    "options": [
+      "∀x ∃y (Person(x) ⇒ Mother(y, x))",
+      "∃y ∀x (Person(x) ⇒ Mother(y, x))",
+      "∀y ∃x (Person(x) ⇒ Mother(y, x))",
+      "∃x ∀y (Person(x) ⇒ Mother(y, x))"
+    ],
+    "answer": 1,
+    "feedback": "∃y (Tồn tại một người mẹ y duy nhất), sao cho ∀x (với mọi người x), y là mẹ của x. Do đó, ∃y ∀x là đáp án đúng."
+  },
+  {
+    "id": 25,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Quy trình ánh xạ (Mapping) từ thế giới thực vào ngôn ngữ FOL:",
+    "items": [
+      "Đối tượng vật lý / Khái niệm trong thế giới (VD: Richard, Vua, Tòa nhà)",
+      "Nhận diện và gán cho chúng các Ký hiệu Hằng (Constant: Richard_1)",
+      "Xác định các Đặc điểm / Tính chất của đối tượng (VD: Là người, Độc ác)",
+      "Gán cho chúng các Ký hiệu Vị từ (Predicate: Person, Evil)",
+      "Xác định các Mối quan hệ giữa các đối tượng để nối chúng lại (VD: Brother(Richard, John))"
+    ],
+    "feedback": "Từ Thực thể -> Hằng. Từ Tính chất -> Vị từ 1 tham số. Từ Quan hệ -> Vị từ nhiều tham số."
+  },
+  {
+    "id": 26,
+    "type": "multiple_select",
+    "difficulty": "Dễ",
+    "question": "Đâu là những ví dụ hợp lệ của 'Hạng thức' (Terms) trong FOL? (Chọn đáp án đúng)",
+    "options": [
+      "Hằng số (Ví dụ: 'Socrates').",
+      "Biến số (Ví dụ: 'x', 'y').",
+      "Hàm áp dụng lên các hạng thức').",
+      "Vị từ (Ví dụ: 'Is_Human(Socrates)')."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Vị từ (Predicate) KHÔNG PHẢI là Term. Vị từ trả về Đúng/Sai. Term chỉ trả về Đối tượng. (Giải thích thêm: (Ví dụ: 'Mother_of(Socrates))"
+  },
+  {
+    "id": 27,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Trong Lý thuyết tập hợp được mô tả bằng FOL, phép giao (Intersection) giữa tập s1 và s2 được biểu diễn như thế nào?",
+    "options": [
+      "∀x (x ∈ (s1 ∩ s2) ⇔ (x ∈ s1 ∧ x ∈ s2))",
+      "∀x (x ∈ (s1 ∩ s2) ⇒ (x ∈ s1 ∨ x ∈ s2))",
+      "∃x (x ∈ (s1 ∩ s2) ⇔ (x ∈ s1 ∧ x ∈ s2))",
+      "∀x (x ∈ (s1 ∪ s2) ⇔ (x ∈ s1 ∧ x ∈ s2))"
+    ],
+    "answer": 0,
+    "feedback": "Toán học tập hợp có thể được định nghĩa hoàn toàn bằng FOL. Phép Giao (∩) tương đương với phép Hội logic (∧) áp dụng lên mọi phần tử x."
+  },
+  {
+    "id": 28,
+    "type": "true_false",
+    "difficulty": "Khó",
+    "question": "Định lý Bất toàn thứ nhất của Gödel (Gödel's First Incompleteness Theorem) chứng minh rằng: Mọi hệ thống tiên đề FOL có khả năng biểu diễn số học đều KHÔNG THỂ vừa nhất quán (consistent) vừa hoàn chỉnh (complete). (Tức là luôn có những sự thật đúng nhưng không bao giờ chứng minh được).",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Đây là một trong những định lý vĩ đại nhất của logic toán học. Nó chỉ ra giới hạn tận cùng của AI dựa trên suy diễn FOL: Sẽ luôn có những chân lý toán học mà AI không bao giờ tự chứng minh được."
+  },
+  {
+    "id": 29,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Nối tên của các Ngôn ngữ/Hệ thống AI với nền tảng Logic mà chúng dựa vào:",
+    "pairs": [
+      {
+        "left": "SAT Solvers (Giải quyết bài toán thỏa mãn)",
+        "right": "Dựa trên Propositional Logic (Logic mệnh đề)"
+      },
+      {
+        "left": "Prolog (Ngôn ngữ lập trình logic)",
+        "right": "Dựa trên First-Order Logic (giới hạn ở mệnh đề Horn)"
+      },
+      {
+        "left": "Kỹ nghệ tri thức Ontology (OWL, Semantic Web)",
+        "right": "Dựa trên Description Logic (Một tập con của FOL)"
+      }
+    ],
+    "feedback": "Các ngôn ngữ thực tế thường phải hy sinh một phần sức mạnh của FOL (chỉ dùng Horn clause hoặc Description logic) để đổi lấy tốc độ chạy ứng dụng."
+  },
+  {
+    "id": 30,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Để mô tả số học (Arithmetic) bằng FOL, người ta thường dùng Tiên đề Peano (Peano Axioms). Trong đó, tất cả các số tự nhiên có thể được tạo ra chỉ từ một Hằng số (0) và một Hàm ____________ (Successor - hàm kế tiếp).",
+    "options": [
+      "S",
+      "Plus",
+      "Add",
+      "Next"
+    ],
+    "answer": 0,
+    "feedback": "Hàm Successor S(x) trả về x+1. Nhờ đó: 1 = S(0), 2 = S(S(0)). Toàn bộ vũ trụ số tự nhiên được sinh ra chỉ từ 0 và S."
+  }
+]

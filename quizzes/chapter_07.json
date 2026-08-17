@@ -1,0 +1,457 @@
+[
+  {
+    "id": 1,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Thành phần cốt lõi trung tâm của một Tác tử Dựa trên Tri thức (Knowledge-Based Agent) là gì?",
+    "options": [
+      "Mạng nơ-ron sâu.",
+      "Cơ sở Tri thức (Knowledge Base - KB).",
+      "Thuật toán A*.",
+      "Hệ thống Camera."
+    ],
+    "answer": 1,
+    "feedback": "Cơ sở tri thức (KB) là trái tim của tác tử logic. Nó là một tập hợp các 'câu' (sentences) biểu diễn những gì tác tử biết về thế giới, được viết bằng một ngôn ngữ biểu diễn tri thức."
+  },
+  {
+    "id": 2,
+    "type": "fill_blank",
+    "difficulty": "Dễ",
+    "question": "Hai thao tác cơ bản nhất mà một tác tử có thể thực hiện với Cơ sở tri thức (KB) của nó là ____________ (thêm tri thức mới) và ASK (truy vấn tri thức).",
+    "options": [
+      "TELL",
+      "WRITE",
+      "INSERT",
+      "LEARN"
+    ],
+    "answer": 0,
+    "feedback": "TELL (Nói) dùng để nạp thông tin mới vào KB, còn ASK (Hỏi) dùng để rút trích thông tin hoặc quyết định hành động."
+  },
+  {
+    "id": 3,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Thế giới Wumpus (Wumpus World) được sử dụng làm môi trường thử nghiệm tiêu chuẩn cho tác tử logic. Những yếu tố nào sau đây là Mối nguy hiểm (Hazards) trong thế giới này? (Chọn các đáp án đúng)",
+    "options": [
+      "Quái vật Wumpus (bị ăn thịt nếu bước vào).",
+      "Vàng (Gold).",
+      "Các Hố không đáy (Pits - rơi xuống là chết).",
+      "Cây cung (Bow) và Mũi tên (Arrow)."
+    ],
+    "answer": [
+      0,
+      2
+    ],
+    "feedback": "Wumpus World có 2 mối nguy hiểm chính: Con Wumpus (có mùi Stench xung quanh) và Các hố Pits (có gió Breeze xung quanh)."
+  },
+  {
+    "id": 4,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Thế giới Wumpus là một môi trường Quan sát hoàn toàn (Fully Observable).",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai. Nó là Partially Observable. Tác tử chỉ cảm nhận được (Stench, Breeze, Glitter, Bump, Scream) tại chính ô nó đang đứng, không nhìn thấy toàn bộ hang động."
+  },
+  {
+    "id": 5,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Nối các cảm biến (Percepts) trong Thế giới Wumpus với ý nghĩa của chúng:",
+    "pairs": [
+      {
+        "left": "Breeze (Gió nhẹ)",
+        "right": "Có một cái Hố (Pit) ở một trong các ô kề bên cạnh"
+      },
+      {
+        "left": "Stench (Mùi hôi)",
+        "right": "Con quái vật Wumpus đang ở một trong các ô kề bên cạnh"
+      },
+      {
+        "left": "Glitter (Lấp lánh)",
+        "right": "Có Vàng (Gold) ngay tại ô đang đứng"
+      },
+      {
+        "left": "Bump (Va chạm)",
+        "right": "Tác tử vừa đi đâm đầu vào tường"
+      }
+    ],
+    "feedback": "Tri thức về các cảm biến này (luật của môi trường) được nạp vào KB. Tác tử sẽ dùng Logic để suy diễn xem ô nào an toàn để đi tiếp."
+  },
+  {
+    "id": 6,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Trong Logic, khái niệm 'Hệ quả Logic' hay 'Kéo theo' (Entailment), ký hiệu là KB ⊨ α, có nghĩa là gì?",
+    "options": [
+      "Câu α có thể được dịch ra từ KB (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Trong TẤT CẢ các mô hình mà KB là Đúng, thì câu α cũng bắt buộc phải Đúng.",
+      "Câu α đối lập hoàn toàn với KB (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Trong ÍT NHẤT MỘT mô hình mà KB là Đúng, câu α là Đúng."
+    ],
+    "answer": 1,
+    "feedback": "Entailment (⊨) nghĩa là $\\alpha$ là hệ quả tất yếu của KB. Nếu KB đúng thì $\\alpha$ không thể nào sai được. (Giải thích thêm: (thế giới khả dĩ))"
+  },
+  {
+    "id": 7,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Sự khác biệt giữa Cú pháp (Syntax) và Ngữ nghĩa (Semantics) trong ngôn ngữ biểu diễn tri thức là gì?",
+    "options": [
+      "Cú pháp xác định cách viết một câu hợp lệ, còn Ngữ nghĩa xác định tính Đúng/Sai của câu đó trong một thế giới cụ thể.",
+      "Cú pháp dùng cho máy tính, Ngữ nghĩa dùng cho con người (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Chúng là hai từ đồng nghĩa (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Cú pháp là các phép toán logic, Ngữ nghĩa là các biến (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 0,
+    "feedback": "Syntax quy định văn phạm (ví dụ: 'x + y = 4' là đúng cú pháp, 'x 4 y + =' là sai). Semantics định nghĩa ý nghĩa (ví dụ: 'x + y = 4' là Đúng nếu x=2, y=2)."
+  },
+  {
+    "id": 8,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Một thuật toán Suy diễn (Inference algorithm) được gọi là ____________ (Sound / Truth-preserving) nếu nó chỉ suy ra những câu thực sự là Hệ quả logic (Entailed) của KB.",
+    "options": [
+      "Hoàn chỉnh (Complete)",
+      "Đúng đắn (Sound)",
+      "Tối ưu (Optimal)",
+      "Nhanh (Fast)"
+    ],
+    "answer": 1,
+    "feedback": "Tính Đúng đắn (Soundness) đảm bảo thuật toán không bao giờ nói dối (không bịa ra $\\alpha$ nếu KB không thực sự ⊨ $\\alpha$). 'Hoàn chỉnh' (Completeness) là khả năng tìm ra MỌI $\\alpha$ được KB ⊨."
+  },
+  {
+    "id": 9,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Sắp xếp độ ưu tiên của các toán tử logic trong Logic Mệnh đề (Propositional Logic) từ CAO NHẤT (thực hiện trước) đến THẤP NHẤT (thực hiện sau):",
+    "items": [
+      "Phủ định (NOT / ¬)",
+      "Hội (AND / ∧)",
+      "Tuyển (OR / ∨)",
+      "Kéo theo (IMPLIES / ⇒)",
+      "Tương đương (BICONDITIONAL / ⇔)"
+    ],
+    "feedback": "Thứ tự ưu tiên giống toán học: NOT (như dấu âm) -> AND (như phép nhân) -> OR (như phép cộng) -> IMPLIES -> BICONDITIONAL."
+  },
+  {
+    "id": 10,
+    "type": "multiple_select",
+    "difficulty": "Dễ",
+    "question": "Cho hai mệnh đề P và Q. Phép Kéo theo (Implication) P ⇒ Q sẽ có giá trị SAI (False) trong trường hợp duy nhất nào dưới đây?",
+    "options": [
+      "P là Đúng, Q là Đúng.",
+      "P là Đúng, Q là Sai.",
+      "P là Sai, Q là Đúng.",
+      "P là Sai, Q là Sai."
+    ],
+    "answer": [
+      1
+    ],
+    "feedback": "P ⇒ Q (Nếu P thì Q) CHỈ SAI khi Lời hứa bị phá vỡ: Điều kiện P xảy ra (Đúng) nhưng kết quả Q lại không xảy ra (Sai)."
+  },
+  {
+    "id": 11,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Ghép nối các thuật ngữ logic với định nghĩa tương ứng của chúng:",
+    "pairs": [
+      {
+        "left": "Tautology (Hằng đúng / Valid)",
+        "right": "Một câu luôn luôn ĐÚNG trong TẤT CẢ các mô hình (ví dụ: P ∨ ¬P)"
+      },
+      {
+        "left": "Contradiction (Mâu thuẫn / Unsatisfiable)",
+        "right": "Một câu luôn luôn SAI trong TẤT CẢ các mô hình (ví dụ: P ∧ ¬P)"
+      },
+      {
+        "left": "Satisfiable (Có thể thỏa mãn)",
+        "right": "Một câu ĐÚNG trong ÍT NHẤT MỘT mô hình"
+      }
+    ],
+    "feedback": "Những khái niệm này là nền tảng cho việc chứng minh định lý. Ta chứng minh KB ⊨ $\\alpha$ bằng cách chứng minh (KB ∧ ¬$\\alpha$) là một Mâu thuẫn (Contradiction)."
+  },
+  {
+    "id": 12,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Hai câu α và β được gọi là 'Tương đương Logic' (Logically Equivalent), ký hiệu α ≡ β, nếu và chỉ nếu chúng có cùng giá trị chân lý trong mọi mô hình.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. (α ≡ β) tương đương với việc nói (α ⊨ β) VÀ (β ⊨ α). Ví dụ: (P ⇒ Q) ≡ (¬P ∨ Q)."
+  },
+  {
+    "id": 13,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Luật De Morgan (De Morgan's Laws) phát biểu điều nào sau đây là đúng?",
+    "options": [
+      "¬(P ∧ Q) ≡ (¬P ∧ ¬Q)",
+      "¬(P ∧ Q) ≡ (¬P ∨ ¬Q)",
+      "¬(P ∨ Q) ≡ (¬P ∨ ¬Q)",
+      "(P ∧ Q) ≡ ¬(P ∨ Q)"
+    ],
+    "answer": 1,
+    "feedback": "Luật De Morgan: Phủ định của một phép Hội (AND) là Tuyển (OR) của các phủ định. Tương tự, ¬(P ∨ Q) ≡ (¬P ∧ ¬Q)."
+  },
+  {
+    "id": 14,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Thuật toán Hợp giải (Resolution) yêu cầu các câu trong Cơ sở tri thức phải được chuyển đổi về dạng nào trước khi thực hiện?",
+    "options": [
+      "Dạng Chuẩn Tuyển (DNF - Disjunctive Normal Form).",
+      "Dạng Chuẩn Hội (CNF - Conjunctive Normal Form).",
+      "Dạng Mệnh đề Horn (Horn Clauses).",
+      "Dạng Cây nhị phân (Binary Tree)."
+    ],
+    "answer": 1,
+    "feedback": "CNF (Conjunctive Normal Form) là 'Hội của các Tuyển' (AND của các OR). Ví dụ: (A ∨ B) ∧ (¬C ∨ D). Mọi câu trong Logic mệnh đề đều có thể đưa về dạng CNF."
+  },
+  {
+    "id": 15,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Kỹ thuật Hợp giải (Resolution) dựa trên một quy tắc suy diễn duy nhất: Nếu ta có (l1 ∨ l2) và (¬l2 ∨ l3), ta có thể suy ra câu mới là ____________. (l2 và ¬l2 triệt tiêu nhau).",
+    "options": [
+      "(l1 ∧ l3)",
+      "(l1 ∨ l3)",
+      "(l1 ⇒ l3)",
+      "Tautology"
+    ],
+    "answer": 1,
+    "feedback": "Quy tắc Hợp giải: (l1 ∨ l2) ∧ (¬l2 ∨ l3) ⊨ (l1 ∨ l3). Các Literal đối nghịch nhau (l2 và ¬l2) sẽ bị loại bỏ."
+  },
+  {
+    "id": 16,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Để chứng minh KB ⊨ α bằng thuật toán Hợp giải (Resolution Theorem Proving), ta làm theo các bước nào? (Chọn đáp án đúng)",
+    "options": [
+      "Chuyển đổi KB ∧ ¬α sang dạng CNF (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Chuyển đổi KB ⇒ α sang dạng CNF (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Liên tục áp dụng quy tắc hợp giải cho đến khi sinh ra một 'Mệnh đề rỗng'.",
+      "Sinh ra mọi câu có thể cho đến khi thấy câu α."
+    ],
+    "answer": [
+      0,
+      2
+    ],
+    "feedback": "Resolution dùng phương pháp 'Chứng minh phản chứng'. Giả sử điều ngược lại của $\\alpha$ là đúng (¬$\\alpha$). Thêm nó vào KB. Nếu từ (KB ∧ ¬$\\alpha$) ta suy ra được mâu thuẫn (Empty clause), nghĩa là $\\alpha$ phải Đúng. (Giải thích thêm: (Empty clause - Mâu thuẫn))"
+  },
+  {
+    "id": 17,
+    "type": "true_false",
+    "difficulty": "Khó",
+    "question": "Thuật toán Hợp giải (Resolution) trên Logic Mệnh đề là Hoàn chỉnh (Complete), nghĩa là nó có thể chứng minh hoặc bác bỏ MỌI câu hế quả logic (Entailment).",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Resolution Theorem Proving hoàn toàn đúng đắn (sound) và hoàn chỉnh (complete) cho Propositional Logic."
+  },
+  {
+    "id": 18,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Một 'Mệnh đề Horn' (Horn clause) có đặc điểm gì đặc biệt giúp cho việc suy diễn trở nên cực kỳ nhanh (thời gian tuyến tính)?",
+    "options": [
+      "Nó không chứa bất kỳ phép tính Tuyển (OR) nào.",
+      "Nó là một tuyển của các literals, trong đó có TỐI ĐA MỘT literal dương.",
+      "Nó chỉ chứa toàn literal dương (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Nó không thể chuyển sang dạng CNF (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 1,
+    "feedback": "Mệnh đề Horn có tối đa 1 literal dương (VD: ¬A ∨ ¬B ∨ C). Khá thú vị là, câu này hoàn toàn tương đương với (A ∧ B) ⇒ C. Điều này rất tự nhiên với cách con người viết luật (Rules). (Giải thích thêm: (OR) (khẳng định))"
+  },
+  {
+    "id": 19,
+    "type": "ordering",
+    "difficulty": "Khó",
+    "question": "Sắp xếp luồng chạy của thuật toán Forward Chaining (Suy diễn tiến) để chứng minh truy vấn Q:",
+    "items": [
+      "Bắt đầu với các Sự kiện đã biết (Known facts - Các mệnh đề Horn chỉ có 1 literal dương)",
+      "Tìm tất cả các Luật (Rules: P1 ∧ P2 ⇒ C) mà mọi tiền đề (P1, P2) của nó đều đã biết",
+      "Thêm kết luận (C) của các luật đó vào tập Sự kiện đã biết",
+      "Lặp lại quá trình cho đến khi suy ra được Q, hoặc không thể suy thêm được gì"
+    ],
+    "feedback": "Forward chaining là data-driven (hướng dữ liệu): Đi từ cái đã biết -> kích hoạt luật -> suy ra cái mới -> kích hoạt luật mới -> đạt đích."
+  },
+  {
+    "id": 20,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Trái ngược với Suy diễn tiến, thuật toán Backward Chaining (Suy diễn lùi) hoạt động như thế nào?",
+    "options": [
+      "Đi từ Dữ kiện ban đầu và đoán ngẫu nhiên mục tiêu (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Hướng mục tiêu: Bắt đầu từ truy vấn Q, tìm các luật có kết luận là Q, rồi đệ quy chứng minh các tiền đề của luật đó.",
+      "Dùng bảng chân trị (Truth Table) để thử mọi trường hợp (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Xóa dần các luật khỏi KB cho đến khi KB rỗng (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": 1,
+    "feedback": "Backward chaining đi ngược từ mục tiêu (Query Q). Để có Q cần A và B. Để có A cần C. Đi lùi cho đến khi chạm vào các Fact đã biết. Đây là cơ chế của ngôn ngữ lập trình Prolog. (Giải thích thêm: (Goal-driven))"
+  },
+  {
+    "id": 21,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Bài toán kiểm tra tính thỏa mãn của Logic Mệnh đề (Propositional Satisfiability Problem), hay còn gọi tắt là bài toán ____________, là bài toán đầu tiên được chứng minh thuộc lớp NP-Đầy đủ (NP-Complete).",
+    "options": [
+      "CSP",
+      "SAT",
+      "WUMPUS",
+      "HORN"
+    ],
+    "answer": 1,
+    "feedback": "Bài toán SAT. Giải được SAT trong thời gian đa thức có nghĩa là giải được bài toán P=NP lớn nhất của Khoa học máy tính."
+  },
+  {
+    "id": 22,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Thuật toán DPLL (Davis-Putnam-Logemann-Loveland) để giải bài toán SAT có những cải tiến Heuristic nào để cắt tỉa cây tìm kiếm Backtracking? (Chọn đáp án đúng)",
+    "options": [
+      "Kiểm tra Dừng sớm: Nếu 1 clause sai, cả câu sai luôn.",
+      "Pure Symbol Heuristic (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Unit Clause Heuristic (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Đột biến gen (Mutation) ngẫu nhiên."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "DPLL là nền tảng của mọi SAT solver hiện đại, sử dụng kỹ thuật Backtracking thông minh kết hợp với Pure Symbol và Unit Clause propagation. (Giải thích thêm: (Early Termination)) (Giải thích thêm: Gán giá trị True cho biến luôn luôn xuất hiện dưới dạng khẳng định trong toàn bộ KB.) (Giải thích thêm: Gán ngay giá trị bắt buộc cho mệnh đề chỉ còn đúng 1 biến chưa được gán.)"
+  },
+  {
+    "id": 23,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "WalkSAT là một thuật toán để giải bài toán SAT. Đặc trưng cốt lõi của WalkSAT là gì?",
+    "options": [
+      "Nó là thuật toán Hoàn chỉnh, luôn báo 'Vô nghiệm' nếu không giải được.",
+      "Nó là một thuật toán Tìm kiếm Cục bộ, chọn ngẫu nhiên một biến trong mệnh đề sai để lật giá trị T/F của biến đó.",
+      "Nó sử dụng thuật toán A* (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Nó dịch Logic Mệnh đề sang Tiếng Anh (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": 1,
+    "feedback": "WalkSAT giống Min-Conflicts (ở chương CSP), nó gán cứng toàn bộ T/F ban đầu, sau đó lật lật (flip) các biến ở các mệnh đề bị vi phạm để sửa lỗi dần dần. Rất nhanh nhưng Không hoàn chỉnh (Incomplete). (Giải thích thêm: (Complete)) (Giải thích thêm: (Local Search) (flip))"
+  },
+  {
+    "id": 24,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Nối các công nghệ suy diễn logic với đặc tính của chúng:",
+    "pairs": [
+      {
+        "left": "Model Checking (Bảng chân trị)",
+        "right": "Liệt kê và kiểm tra TẤT CẢ các tổ hợp T/F. Độ phức tạp O(2^n)"
+      },
+      {
+        "left": "Resolution (Hợp giải)",
+        "right": "Suy diễn dựa trên CNF. Hoàn chỉnh nhưng có thể sinh ra số lượng mệnh đề khổng lồ (bùng nổ tổ hợp)"
+      },
+      {
+        "left": "Forward/Backward Chaining",
+        "right": "Chỉ hoạt động trên Mệnh đề Horn. Cực kỳ nhanh (O(n))"
+      },
+      {
+        "left": "DPLL & SAT Solvers",
+        "right": "Phiên bản Backtracking thông minh của Model Checking. Là công cụ giải mã mạnh nhất thực tế hiện nay"
+      }
+    ],
+    "feedback": "Việc lựa chọn thuật toán suy diễn tùy thuộc vào cấu trúc của Cơ sở tri thức (KB là Horn hay là CNF tổng quát)."
+  },
+  {
+    "id": 25,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Logic mệnh đề (Propositional Logic) có sức mạnh biểu diễn vô hạn, có thể dễ dàng mô tả các quy luật chung cho toàn bộ vũ trụ (ví dụ: 'Mọi con chim đều có cánh').",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai. Logic mệnh đề RẤT YẾU trong việc biểu diễn (Expressive power). Để nói 'Mọi ô kề Hố đều có Gió', bạn phải viết hàng trăm câu luật cho từng ô cụ thể (P1,1, P1,2...). Để giải quyết việc này, ta cần Logic Bậc Nhất (First-Order Logic)."
+  },
+  {
+    "id": 26,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Một tác tử logic trong thế giới Wumpus gặp một tình huống: Không có ô nào an toàn 100% để đi. Tác tử nên làm gì?",
+    "options": [
+      "Đứng im tại chỗ mãi mãi (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Kết thúc trò chơi (Quit) (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Dùng xác suất hoặc Heuristic để chọn ô có khả năng nguy hiểm thấp nhất.",
+      "Chạy đâm đầu vào Wumpus (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 2,
+    "feedback": "Logic thuần túy chỉ phân biệt 100% True / False / Unknown. Nếu tất cả Unknown, tác tử logic bị kẹt. Trong thực tế, AI phải kết hợp Logic với Xác suất để đưa ra 'lựa chọn rủi ro thấp nhất'. (Giải thích thêm: (Probability))"
+  },
+  {
+    "id": 27,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Trong Wumpus World, nếu KB chứa (B1,1 ⇔ (P1,2 ∨ P2,1)) và nhận thức hiện tại là ¬B1,1 (Không có gió ở 1,1). Áp dụng luật De Morgan và Modus Tollens, tác tử có thể suy luận chắc chắn rằng ¬P1,2 ∧ ____________ (Không có hố ở 1,2 VÀ 2,1).",
+    "options": [
+      "¬P1,1",
+      "P2,2",
+      "¬P2,1",
+      "W1,2"
+    ],
+    "answer": 2,
+    "feedback": "¬(P1,2 ∨ P2,1) tương đương với (¬P1,2 ∧ ¬P2,1). Sự vắng mặt của gió suy ra sự vắng mặt của hố ở tất cả các ô xung quanh."
+  },
+  {
+    "id": 28,
+    "type": "multiple_select",
+    "difficulty": "Dễ",
+    "question": "Đâu là những hạn chế của Logic Mệnh đề khi xây dựng AI? (Chọn các đáp án đúng)",
+    "options": [
+      "Cơ sở tri thức phátình quá lớn do phải viết lặp lại các luật giống nhau cho từng đối tượng / thời điểm khác nhau.",
+      "Không xử lý được các khái niệm liên quan đến 'Tất cả' hoặc 'Tồn tại'.",
+      "Nó không thể được lập trình trên máy tính (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Nó không thể xử lý trạng thái thay đổi theo thời gian một cách tự nhiên."
+    ],
+    "answer": [
+      0,
+      1,
+      3
+    ],
+    "feedback": "Chính những hạn chế nặng nề này (Lack of Expressive Power) là lý do ra đời của First-Order Logic (Chương 8). (Giải thích thêm: (KB)) (Giải thích thêm: (For all) (Exists)) (Giải thích thêm: (cần đánh chỉ số thời gian t cho mỗi biến))"
+  },
+  {
+    "id": 29,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Sắp xếp vòng lặp hoạt động cơ bản của Tác tử Dựa trên Tri thức (Knowledge-Based Agent) mỗi khi nhận được Percept (nhận thức):",
+    "items": [
+      "TELL KB về thông tin Percept vừa nhận được (tại thời điểm t)",
+      "ASK KB xem hành động tốt nhất nên làm (Action) tại thời điểm t là gì",
+      "TELL KB rằng Action đó đã được thực thi (để KB cập nhật trạng thái)",
+      "Trả về Action cho môi trường thực thi và Tăng thời gian t lên t+1"
+    ],
+    "feedback": "Nhận -> Nạp vào não (TELL percept) -> Hỏi não (ASK action) -> Cập nhật não (TELL action) -> Hành động."
+  },
+  {
+    "id": 30,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Điều nào sau đây là mô tả ĐÚNG NHẤT về 'Logic' trong AI?",
+    "options": [
+      "Logic là việc viết mã bằng ngôn ngữ C++ hoặc Python (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Logic là một công cụ toán học nghiêm ngặt để biểu diễn tri thức một cách khách quan và suy luận ra tri thức mới một cách chính xác.",
+      "Logic là khả năng học hỏi từ dữ liệu Big Data (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Logic chỉ dùng cho trò chơi Sudoku (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 1,
+    "feedback": "Logic (Propositional / First-Order) tạo nền tảng cho Symbolic AI (AI Ký hiệu - Good Old-Fashioned AI), cho phép hệ thống giải thích (Explainable) chính xác TẠI SAO nó lại đưa ra quyết định đó."
+  }
+]

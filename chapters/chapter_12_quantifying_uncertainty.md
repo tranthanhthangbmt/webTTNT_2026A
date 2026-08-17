@@ -25,7 +25,7 @@
 </div>
 
 #### **Trắc nghiệm**
-*(Chưa có bài tập trắc nghiệm)*
+<div id="quiz-container" data-chapter="12"></div>
 
 #### **Pseudocode**
 - <a href="#/codeAndExercises/aima-pseudocode-master/md/DT-Agent.md" target="_blank">DT-AGENT</a>

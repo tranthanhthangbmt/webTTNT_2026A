@@ -1,0 +1,455 @@
+[
+  {
+    "id": 1,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Trong AI, sự khác biệt chính giữa 'Tìm kiếm' (Search) và 'Lập kế hoạch' (Planning) là gì?",
+    "options": [
+      "Tìm kiếm dùng cho robot, Lập kế hoạch dùng cho máy tính.",
+      "Tìm kiếm coi các trạng thái và hành động như những 'hộp đen'.",
+      "Tìm kiếm có thể tìm ra đường đi ngắn nhất, còn lập kế hoạch thì không.",
+      "Không có sự khác biệt nào (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 1,
+    "feedback": "Planning là bản nâng cấp của Search. Bằng cách hiểu cấu trúc bên trong của trạng thái (ví dụ: Tại(Robot, Cửa) ∧ Có(Khóa)), AI có thể tự động sinh ra các hàm heuristic rất mạnh thay vì cần chuyên gia cung cấp. (Giải thích thêm: (variables, predicates) Lập kế hoạch mở các hộp đen đó ra, biểu diễn trạng thái và hành động bằng cấu trúc logic để suy luận hiệu quả hơn.)"
+  },
+  {
+    "id": 2,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Ngôn ngữ tiêu chuẩn và phổ biến nhất được sử dụng để mô tả các bài toán lập kế hoạch cổ điển được viết tắt là ____________ (Planning Domain Definition Language).",
+    "options": [
+      "STRIPS",
+      "PDDL",
+      "HTML",
+      "PROLOG"
+    ],
+    "answer": 1,
+    "feedback": "PDDL (Planning Domain Definition Language) được phát triển vào năm 1998, kết hợp sức mạnh của các ngôn ngữ sơ khai như STRIPS và ADL."
+  },
+  {
+    "id": 3,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Trong PDDL, một Hành động (Action) được định nghĩa bởi các thành phần cốt lõi nào? (Chọn đáp án đúng)",
+    "options": [
+      "Tên hành động (Action Name) và Tham số (Parameters).",
+      "Tiền điều kiện - Những gì phải ĐÚNG trước khi hành động có thể thực thi.",
+      "Kết quả - Những gì sẽ thay đổi sau khi hành động hoàn tất.",
+      "Thuật toán (Algorithm) - Đoạn code Python để chạy hành động."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Một Action trong PDDL hoàn toàn bersifat mô tả (Declarative), không có code thuật toán bên trong. Ví dụ: Action(Fly(p, from, to), Precond: At(p, from) ∧ Plane(p), Effect: ¬At(p, from) ∧ At(p, to)). (Giải thích thêm: (Preconditions)) (Giải thích thêm: (Effects) (thành ĐÚNG hoặc SAI))"
+  },
+  {
+    "id": 4,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Giả định 'Closed-World Assumption' (Giả định thế giới đóng) trong PDDL có ý nghĩa gì đối với việc biểu diễn trạng thái?",
+    "options": [
+      "Bài toán lập kế hoạch chỉ chạy được trên Trái đất (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Bất kỳ sự thật nào KHÔNG được liệt kê một cách rõ ràng trong trạng thái hiện tại sẽ MẶC ĐỊNH được coi là SAI.",
+      "Tất cả các hành động đều bị cấm trừ khi được mở khóa (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Trạng thái không thể thay đổi (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 1,
+    "feedback": "Closed-world assumption giúp rút gọn trạng thái cực kỳ nhiều. Bạn chỉ cần liệt kê những gì đang có mặt (VD: Có_Chìa_Khóa, Tại_Phòng_Khách), những thứ không được nhắc đến tự động hiểu là False. (Giải thích thêm: (fact) (False))"
+  },
+  {
+    "id": 5,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Ghép nối các khái niệm về biểu diễn trạng thái trong PDDL:",
+    "pairs": [
+      {
+        "left": "Trạng thái (State)",
+        "right": "Một phép Hội (AND) của các Hạng thức không chứa biến (Ground atoms). Ví dụ: At(A) ∧ Clear(A)"
+      },
+      {
+        "left": "Mục tiêu (Goal)",
+        "right": "Một phép Hội của các Literals (có thể chứa biến). Trạng thái s thỏa mãn mục tiêu nếu s chứa tất cả các literals đó"
+      },
+      {
+        "left": "Action Schema (Lược đồ hành động)",
+        "right": "Khuôn mẫu chung của một hành động, chứa các biến (như x, y) đại diện cho nhiều hành động cụ thể"
+      },
+      {
+        "left": "Ground Action (Hành động cụ thể)",
+        "right": "Một hành động mà tất cả các biến đã được thay thế bằng Hằng số (như Fly(JFK, SFO))"
+      }
+    ],
+    "feedback": "Cú pháp của PDDL bị giới hạn rất chặt (ít sức mạnh biểu diễn hơn FOL) để đổi lấy tốc độ giải thuật cực nhanh."
+  },
+  {
+    "id": 6,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Trong PDDL cơ bản (giống STRIPS), một trạng thái (State) CÓ THỂ chứa các ký hiệu phủ định (như ¬At(Robot, Room1)).",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai. State chỉ chứa các atom DƯƠNG (Khẳng định). Nhờ Closed-World Assumption, nếu ¬At(Robot, Room1) là thật thì hệ thống đơn giản là KHÔNG liệt kê At(Robot, Room1) vào State."
+  },
+  {
+    "id": 7,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Trong Lập kế hoạch, 'Forward State-Space Search' (Tìm kiếm tiến) thường gặp khó khăn gì nếu không có hàm Heuristic tốt?",
+    "options": [
+      "Thuật toán không thể code được (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Hệ số phân nhánh rất lớn vì từ trạng thái hiện tại có quá nhiều hành động hợp lệ có thể thực hiện, đa số là các hành động vô ích đối với mục tiêu.",
+      "Không thể biết được trạng thái kết thúc (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Máy tính sẽ tự động tắt nguồn (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 1,
+    "feedback": "Tìm kiếm tiến mở rộng theo mọi hướng từ trạng thái đầu. Nếu bạn đang ở nhà và muốn đi siêu thị, tìm kiếm tiến sẽ xem xét cả việc 'Đọc sách', 'Bật tivi' - những thứ hợp lệ nhưng vô ích. (Giải thích thêm: (Branching factor))"
+  },
+  {
+    "id": 8,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Trái ngược với Tìm kiếm Tiến, 'Backward Relevant-States Search' (Tìm kiếm lùi / Lập kế hoạch lùi) có ưu điểm gì?",
+    "options": [
+      "Nó chỉ xem xét những hành động có 'Kết quả' giúp đạt được tới Mục tiêu, do đó làm giảm mạnh hệ số phân nhánh.",
+      "Nó chạy nhanh gấp 10 lần ở mọi trường hợp (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Nó không cần đọc tập tin PDDL (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Nó có thể dự đoán tương lai (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 0,
+    "feedback": "Tìm kiếm lùi (Regression) bắt đầu từ Mục tiêu. Nếu Mục tiêu là At(Siêu_Thị), nó chỉ xét các hành động có Effect tạo ra At(Siêu_Thị) (VD: Lái_Xe(Nhà, Siêu_Thị)). Điều này cắt tỉa nhánh vô ích rất tốt. (Giải thích thêm: (Effects) (hoặc tiến gần hơn))"
+  },
+  {
+    "id": 9,
+    "type": "ordering",
+    "difficulty": "Khó",
+    "question": "Sắp xếp quá trình hoạt động của một bước trong Tìm kiếm lùi (Backward Regression):",
+    "items": [
+      "Bắt đầu với một Mô tả Mục tiêu (Goal Description G)",
+      "Tìm một Hành động (A) có Effect khớp (unify) với ít nhất một yêu cầu của G, và KHÔNG có Effect nào mâu thuẫn với G",
+      "Tính toán Mục tiêu Mới (G') = G - (Các Effect của A) + (Các Precondition của A)",
+      "Tiếp tục đệ quy tìm kiếm lùi từ G' cho đến khi G' hoàn toàn được thỏa mãn bởi Trạng thái Ban đầu"
+    ],
+    "feedback": "Regression dời mục tiêu về phía trước trong thời gian: Để đạt G, ta làm A. Để làm được A, ta cần đạt được Precondition của A. Vậy Precondition của A trở thành Mục tiêu Mới."
+  },
+  {
+    "id": 10,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Vẻ đẹp của PDDL là nó cho phép AI TỰ ĐỘNG sinh ra các hàm đánh giá (Heuristic Functions) vô cùng mạnh mẽ bằng cách giải một bài toán ____________ (Relaxed Problem) - một phiên bản dễ hơn của bài toán gốc.",
+    "options": [
+      "Lỏng lẻo (Relaxed)",
+      "Ngẫu nhiên (Random)",
+      "Cứng nhắc (Strict)",
+      "Tối ưu (Optimal)"
+    ],
+    "answer": 0,
+    "feedback": "Khác với Search (người lập trình phải tự nghĩ ra hàm khoảng cách Manhattan), trong Planning, AI tự 'nới lỏng' luật chơi (ví dụ: Bỏ qua mọi tiền điều kiện) để tự tính ra số bước ước tính đến đích."
+  },
+  {
+    "id": 11,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Những kỹ thuật 'Nới lỏng bài toán' (Relaxation) nào thường được AI sử dụng để tự động tính Heuristic trong Lập kế hoạch? (Chọn đáp án đúng)",
+    "options": [
+      "Bỏ qua Tiền điều kiện (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Bỏ qua Kết quả Phủ định: Giả sử hành động chỉ THÊM sự kiện mới, không bao giờ XÓA đi sự kiện cũ.",
+      "Sinh ngẫu nhiên số lượng bước (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Trừu tượng hóa Trạng thái (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": [
+      0,
+      1,
+      3
+    ],
+    "feedback": "Kỹ thuật 'Ignore Delete Lists' là nổi tiếng nhất. Nó giả định rằng nếu bạn lái xe từ A sang B, bạn sẽ có mặt ở B, NHƯNG bạn VẪN ĐANG ở A. Bài toán lúc này giải cực dễ và cho ra một heuristic admissible rất xuất sắc. (Giải thích thêm: (Ignore Preconditions) Giả sử mọi hành động đều làm được ngay lập tức.) (Giải thích thêm: (Ignore Delete Lists) (Add) (Delete) Thế giới chỉ ngày càng tốt lên.) (Giải thích thêm: (State Abstraction) (VD: Bỏ bớt thuộc tính màu sắc của xe) Nhóm nhiều trạng thái thành 1 để giảm không gian tìm kiếm.)"
+  },
+  {
+    "id": 12,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Thuật toán Đồ thị lập kế hoạch (Planning Graph / GRAPHPLAN) hoạt động theo cơ chế nào?",
+    "options": [
+      "Duyệt cây nhị phân bằng đệ quy (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Xây dựng một đồ thị phân tầng xen kẽ giữa 'Tầng Trạng Thái' và 'Tầng Hành Động' cho đến khi mục tiêu xuất hiện mà không bị xung đột.",
+      "Biến bài toán thành trò chơi cờ vua 2 người (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Tối ưu hóa hàm gradient descent (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 1,
+    "feedback": "Planning Graph không tìm kiếm theo cây. Nó trải rộng tất cả những gì CÓ THỂ xảy ra tại t=0, t=1... Nếu mục tiêu không xuất hiện ở t=k, nó mở rộng sang t=k+1. Thuật toán này có đa thức thời gian. (Giải thích thêm: (State Level) (Action Level))"
+  },
+  {
+    "id": 13,
+    "type": "matching",
+    "difficulty": "Khó",
+    "question": "Trong Đồ thị lập kế hoạch, 'Mutex' (Mutually Exclusive) là các liên kết đánh dấu 2 hành động KHÔNG THỂ thực hiện cùng lúc. Ghép nối các loại Mutex với định nghĩa của chúng:",
+    "pairs": [
+      {
+        "left": "Inconsistent effects (Kết quả mâu thuẫn)",
+        "right": "Hành động này tạo ra Effect mâu thuẫn (phủ định) lại Effect của hành động kia"
+      },
+      {
+        "left": "Interference (Can thiệp)",
+        "right": "Effect của hành động này XÓA BỎ Precondition của hành động kia"
+      },
+      {
+        "left": "Competing needs (Cạnh tranh nhu cầu)",
+        "right": "Precondition của hành động này và Precondition của hành động kia là Mutex với nhau (không thể cùng thỏa mãn ở tầng trạng thái hiện tại)"
+      }
+    ],
+    "feedback": "Cơ chế Mutex là sức mạnh của Planning Graph. Nhờ nó, đồ thị biết chính xác những hành động nào dù hợp lệ nhưng không thể đi đôi với nhau, cắt tỉa không gian tìm kiếm triệt để."
+  },
+  {
+    "id": 14,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Trong Planning Graph, nếu một mục tiêu xuất hiện ở Tầng trạng thái $S_k$ và các yếu tố cấu thành mục tiêu đó KHÔNG bị Mutex với nhau, thì thuật toán CHẮC CHẮN 100% sẽ tìm được kế hoạch có độ dài $k$.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai. Planning Graph chỉ là một sự ĐÁNH GIÁ (Heuristic) lạc quan (Relaxed). Nếu mục tiêu không có ở $S_k$, ta chắc chắn 100% KHÔNG có kế hoạch. Nhưng nếu có ở $S_k$, ta vẫn phải 'rút trích' (extract) kế hoạch bằng thuật toán tìm kiếm lùi, và quá trình rút trích có thể thất bại, đòi hỏi phải mở rộng đồ thị thêm."
+  },
+  {
+    "id": 15,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Ngoài tìm kiếm Trạng thái (State-space) và Đồ thị (Planning Graph), một kỹ thuật kinh điển khác là biến toàn bộ bài toán lập kế hoạch thành một bài toán Logic Mệnh đề khổng lồ rồi dùng bộ giải SAT để giải. Kỹ thuật này được gọi là ____________ (SATPlan).",
+    "options": [
+      "GraphPlan",
+      "LogicPlan",
+      "SATPlan",
+      "PrologPlan"
+    ],
+    "answer": 2,
+    "feedback": "SATPlan đoán rằng kế hoạch có K bước. Nó sinh ra một công thức CNF mô tả luật chơi cho K bước, nếu bộ giải SAT báo Satisfiable, ta giải mã kết quả thành chuỗi hành động."
+  },
+  {
+    "id": 16,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Trong 'Lập kế hoạch trong thế giới thực' (Planning and Acting in the Real World), yếu tố quan trọng nào bị Lập kế hoạch Cổ điển (Classical Planning) bỏ qua?",
+    "options": [
+      "Trạng thái đích (Goal) (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Hành động (Actions) (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Thời gian kéo dài của hành động và Ràng buộc Tài nguyên.",
+      "Biến số (Variables) (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 2,
+    "feedback": "Classical Planning giả định hành động diễn ra ngay lập tức (Instantaneous) và chỉ có 1 tác tử. Thế giới thực cần phải Lập lịch (Scheduling): 'Xây móng mất 3 ngày', 'Chỉ có 2 chiếc máy xúc'. (Giải thích thêm: (Time & Resources))"
+  },
+  {
+    "id": 17,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Mạng Nhiệm vụ Phân cấp (Hierarchical Task Networks - HTN) là một phương pháp lập kế hoạch thực tế rất mạnh. Điểm khác biệt của HTN so với PDDL cổ điển là gì? (Chọn đáp án đúng)",
+    "options": [
+      "Bắt đầu với một 'Hành động cấp cao' chứ không phải chỉ là Mục tiêu.",
+      "HTN sử dụng thư viện các 'Phương thức' để phân rã một Hành động cấp cao thành chuỗi các Hành động nhỏ hơn.",
+      "HTN cấm hoàn toàn việc sử dụng Heuristic (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "HTN chạy chậm hơn rất nhiều so với PDDL cổ điển (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "feedback": "Ví dụ: 'Xây nhà' là một High-level action. HTN có method phân rã: Xây nhà -> [Làm móng, Xây tường, Lợp mái]. Nó cung cấp tri thức chuyên gia (Domain Knowledge) giúp AI lập kế hoạch cực kỳ nhanh vì không phải mò mẫm từ số không. (Giải thích thêm: (High-level Action / Tác vụ)) (Giải thích thêm: (Methods))"
+  },
+  {
+    "id": 18,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Sắp xếp các bước cơ bản trong quá trình Lập kế hoạch theo Mạng Nhiệm vụ Phân cấp (HTN):",
+    "items": [
+      "Bắt đầu với một Tác vụ cấp cao cần thực hiện (VD: Xây nhà)",
+      "Kiểm tra xem tác vụ đó có phải là Hành động Nguyên thủy (Primitive action - có thể chạy ngay) không",
+      "Nếu chưa nguyên thủy, tìm một Phương thức (Method) phù hợp trong thư viện để phân rã tác vụ",
+      "Phân rã tác vụ cấp cao thành các tác vụ cấp thấp hơn (VD: Làm móng, Xây tường)",
+      "Tiếp tục đệ quy phân rã cho đến khi toàn bộ kế hoạch chỉ còn các Hành động Nguyên thủy"
+    ],
+    "feedback": "HTN là cách con người tư duy (Top-down approach). Bắt đầu từ mục đích lớn, chia nhỏ thành các mục tiêu con, rồi chia nhỏ tiếp cho đến khi thành hành động tay chân."
+  },
+  {
+    "id": 19,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Phương pháp HTN (Mạng nhiệm vụ phân cấp) hoàn toàn vô dụng nếu không có chuyên gia con người cung cấp sẵn thư viện các 'Phương thức phân rã' (Methods).",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Sức mạnh của HTN đến từ Tri thức miền (Domain knowledge) do con người viết. Nếu không có Methods, HTN không biết cách phân rã và hoàn toàn tê liệt."
+  },
+  {
+    "id": 20,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Trong Lập lịch có Tài nguyên (Scheduling with Resources), phương pháp 'Critical Path Method' (CPM - Đường găng) được sử dụng để làm gì?",
+    "options": [
+      "Tìm ra hành động nguy hiểm nhất để loại bỏ (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Xác định chuỗi các hành động tuần tự dài nhất quy định thời gian tối thiểu để hoàn thành toàn bộ dự án.",
+      "Tìm kiếm thuật toán nén bộ nhớ (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Giải quyết bài toán SAT (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 1,
+    "feedback": "Đường găng (Critical Path) quyết định 'Nút thắt cổ chai' của thời gian. Bất kỳ sự chậm trễ nào trên đường găng đều làm chậm toàn bộ dự án. Các công việc không nằm trên đường găng thì có 'thời gian dự trữ' (Slack). (Giải thích thêm: (chiếm nhiều thời gian nhất))"
+  },
+  {
+    "id": 21,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Khi lập kế hoạch trong môi trường Không tất định (Nondeterministic) mà KHÔNG có cảm biến (Sensorless Planning / Conformant Planning), kế hoạch tạo ra không phải là một nhánh đơn lẻ, mà nó phải bao trùm toàn bộ không gian Trạng thái ____________ (Belief State).",
+    "options": [
+      "Vật lý (Physical)",
+      "Niềm tin (Belief)",
+      "Tĩnh (Static)",
+      "Ngẫu nhiên (Random)"
+    ],
+    "answer": 1,
+    "feedback": "Vì không có cảm biến để biết kết quả hành động, tác tử phải tính toán sao cho hành động của nó sẽ ép TẤT CẢ các trạng thái vật lý khả dĩ (Belief State) hội tụ về chung một trạng thái đích."
+  },
+  {
+    "id": 22,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Kế hoạch dự phòng (Contingency Planning) khác với Kế hoạch không cảm biến (Sensorless Planning) ở điểm nào?",
+    "options": [
+      "Contingency Planning không dùng cho robot (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Contingency Planning tạo ra các nhánh phụ thuộc vào kết quả của các Hành động Cảm nhận trong quá trình thực thi.",
+      "Sensorless Planning tạo ra các nhánh (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Contingency Planning chạy nhanh hơn (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 1,
+    "feedback": "Contingency (Dự phòng) có nghĩa là 'Nếu - Thì'. Kế hoạch sẽ có dạng: Đi tới cửa -> Nhìn (Sensing action) -> Nếu cửa khóa THÌ dùng chìa KHÁC bẻ khóa. (Giải thích thêm: (branches) (Sensing Actions))"
+  },
+  {
+    "id": 23,
+    "type": "matching",
+    "difficulty": "Khó",
+    "question": "Ghép nối các phương pháp lập kế hoạch với đặc tính môi trường tương ứng:",
+    "pairs": [
+      {
+        "left": "Classical Planning (Lập kế hoạch cổ điển)",
+        "right": "Môi trường Hoàn toàn quan sát được, Tất định, Tĩnh (Fully Observable, Deterministic, Static)"
+      },
+      {
+        "left": "Sensorless Planning (Lập kế hoạch không cảm biến)",
+        "right": "Môi trường KHÔNG quan sát được, Nondeterministic"
+      },
+      {
+        "left": "Contingency Planning (Lập kế hoạch dự phòng)",
+        "right": "Môi trường Quan sát một phần (Partially Observable), Nondeterministic"
+      },
+      {
+        "left": "Continuous Planning (Lập kế hoạch liên tục)",
+        "right": "Môi trường Động (Dynamic - mục tiêu và hoàn cảnh có thể thay đổi trong lúc đang chạy)"
+      }
+    ],
+    "feedback": "Mỗi môi trường đòi hỏi một cấu trúc giải pháp (Kế hoạch) hoàn toàn khác nhau: Từ chuỗi tuyến tính, đến cây If-Then, đến các hàm phản xạ thời gian thực."
+  },
+  {
+    "id": 24,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Trong Lập kế hoạch Đa tác tử (Multiagent Planning), nếu các tác tử có chung một mục tiêu (Cooperative), chúng có thể chia sẻ toàn bộ kế hoạch để phối hợp hoạt động mà không bao giờ xảy ra xung đột.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai. Ngay cả khi hợp tác (Cooperative), nếu chúng chạy các kế hoạch riêng rẽ, chúng vẫn có thể vô tình cản trở nhau (ví dụ: đâm nhau ở ngã tư). Do đó cần phải 'Đồng bộ hóa' (Synchronization) hoặc lập kế hoạch tập trung (Centralized planning)."
+  },
+  {
+    "id": 25,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Bài toán lập lịch Job-Shop (Job-Shop Scheduling) liên quan đến việc phân bổ thời gian cho các hành động. Đâu là các đặc tính của bài toán này? (Chọn đáp án đúng)",
+    "options": [
+      "Có các ràng buộc về thứ tự thực hiện -",
+      "Có các ràng buộc về tài nguyên -",
+      "Mục tiêu là tìm ra lịch trình có thời gian hoàn thành ngắn nhất.",
+      "Nó luôn giải được trong thời gian O(n)."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Job-Shop Scheduling là một trong những bài toán NP-Khó (NP-Hard) khét tiếng nhất trong vận trù học. Giải chính xác nó đòi hỏi thời gian hàm mũ. (Giải thích thêm: (Ordering constraints) Ví dụ: Xây móng trước khi Xây tường.) (Giải thích thêm: (Resource constraints) Ví dụ: Chỉ có 1 máy trộn bê tông.) (Giải thích thêm: (Makespan))"
+  },
+  {
+    "id": 26,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Trong PDDL, hành động 'Di chuyển khối A từ khối B sang mặt bàn' có thể biểu diễn các Effect (Kết quả) nào sau đây?",
+    "options": [
+      "On(A, Table), Clear(B), ¬On(A, B)",
+      "On(B, Table), Clear(A), ¬On(A, B)",
+      "On(A, Table), ¬Clear(B), On(A, B)",
+      "Clear(A), Clear(B), ¬On(A, Table)"
+    ],
+    "answer": 0,
+    "feedback": "Kết quả: Khối A giờ nằm trên bàn (On(A, Table)). Khối B không còn ai đè lên (Clear(B)). Khối A không còn nằm trên khối B (¬On(A, B))."
+  },
+  {
+    "id": 27,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Sắp xếp quy trình Lập kế hoạch Liên tục (Continuous Planning / Execution Monitoring) trong môi trường thực tế (Động):",
+    "items": [
+      "Sinh ra một Kế hoạch ban đầu dựa trên trạng thái hiện tại",
+      "Thực thi hành động đầu tiên trong Kế hoạch",
+      "Đọc cảm biến để nhận thức Trạng thái Mới của môi trường",
+      "Kiểm tra xem Trạng thái Mới có khớp với kết quả dự kiến của hành động không",
+      "Nếu Mâu thuẫn (Ví dụ: Hành động thất bại), kích hoạt Replanning (Lập kế hoạch lại)"
+    ],
+    "feedback": "Robot thực tế không bao giờ tin tưởng mù quáng vào kế hoạch. Nó luôn phải Giám sát Thực thi (Execution Monitoring) sau mỗi bước đi."
+  },
+  {
+    "id": 28,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Khái niệm 'Frame Problem' (Vấn đề khung) được xử lý như thế nào trong Lập kế hoạch cổ điển (PDDL)?",
+    "options": [
+      "Lập trình viên phải viết hàng trăm câu lệnh Frame Axioms cho từng hành động.",
+      "PDDL sử dụng 'Giả định STRIPS' (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "PDDL không thể giải quyết Frame Problem (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Chuyển qua dùng Modal Logic (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 1,
+    "feedback": "Giả định STRIPS (STRIPS Assumption) là một phát minh thiên tài. Nếu tôi mở cửa, tôi chỉ cần viết Effect(Cửa=Mở). Mọi thứ khác (Màu tường, Thời tiết, Số tiền trong ví) tự động được giữ nguyên mà không cần phải viết code bảo vệ. (Giải thích thêm: (Predicate) Bất kỳ thuộc tính nào KHÔNG được liệt kê trong danh sách Effect của một hành động thì MẶC ĐỊNH giữ nguyên trạng thái cũ.)"
+  },
+  {
+    "id": 29,
+    "type": "fill_blank",
+    "difficulty": "Dễ",
+    "question": "Một bài toán lập kế hoạch nổi tiếng trong AI là bài toán Thế giới Khối (____________ World), nơi một cánh tay robot phải sắp xếp các khối lập phương xếp chồng lên nhau thành một cấu trúc mục tiêu.",
+    "options": [
+      "Block",
+      "Blocks",
+      "Cube",
+      "Box"
+    ],
+    "answer": 1,
+    "feedback": "Blocks World (Thế giới Khối) là môi trường 'Hello World' của lĩnh vực Lập kế hoạch tự động."
+  },
+  {
+    "id": 30,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Lập kế hoạch tự động (Automated Planning) đã từng được NASA sử dụng thành công để lên lịch hoạt động tự động cho kính viễn vọng không gian Hubble và xe tự hành trên sao Hỏa.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. MAPGEN (Mixed Initiative Activity Plan GENerator) dựa trên hệ thống lập kế hoạch EUROPA đã được sử dụng điều hành xe tự hành Spirit và Opportunity trên sao Hỏa."
+  }
+]

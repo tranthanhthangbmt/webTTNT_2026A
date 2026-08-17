@@ -25,7 +25,7 @@
 </div>
 
 #### **Trắc nghiệm**
-*(Chưa có bài tập trắc nghiệm)*
+<div id="quiz-container" data-chapter="05"></div>
 
 #### **Pseudocode**
 - <a href="#/codeAndExercises/aima-pseudocode-master/md/Minimax-Decision.md" target="_blank">MINIMAX-SEARCH</a>

@@ -33,7 +33,7 @@
 </div>
 
 #### **Trắc nghiệm**
-*(Chưa có bài tập trắc nghiệm)*
+<div id="quiz-container" data-chapter="09"></div>
 
 #### **Pseudocode**
 - <a href="#/codeAndExercises/aima-pseudocode-master/md/Unify.md" target="_blank">UNIFY</a>

@@ -1,0 +1,461 @@
+[
+  {
+    "id": 1,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Sự khác biệt cốt lõi giữa 'Weak AI' (AI Yếu) và 'Strong AI' (AI Mạnh) theo triết học của John Searle là gì?",
+    "options": [
+      "Weak AI chạy trên CPU, Strong AI chạy trên GPU.",
+      "Weak AI chỉ HÀNH ĐỘNG như thể nó thông minh.",
+      "Weak AI giải quyết bài toán nhỏ, Strong AI giải quyết bài toán lớn.",
+      "Weak AI là phần mềm, Strong AI là Robot phần cứng."
+    ],
+    "answer": 1,
+    "feedback": "Hầu hết các nhà nghiên cứu AI hiện nay không quan tâm đến Strong AI (việc máy có linh hồn hay không), họ chỉ quan tâm làm sao để tạo ra các Weak AI thực hiện tốt các tác vụ giúp ích cho con người. (Giải thích thêm: (Mô phỏng tư duy) (Có tâm trí) Strong AI THỰC SỰ có nhận thức, suy nghĩ và hiểu biết.)"
+  },
+  {
+    "id": 2,
+    "type": "fill_blank",
+    "difficulty": "Dễ",
+    "question": "Bài kiểm tra ____________ (Turing Test) do Alan Turing đề xuất năm 1950 là một tiêu chuẩn hành vi để đánh giá trí tuệ. Nếu một con người giao tiếp bằng văn bản với một cỗ máy và không thể phân biệt được nó là người hay máy, cỗ máy đó được coi là có trí tuệ.",
+    "options": [
+      "Turing",
+      "Einstein",
+      "Gödel",
+      "Searle"
+    ],
+    "answer": 0,
+    "feedback": "Turing Test bỏ qua câu hỏi triết học 'Máy có thực sự nghĩ không?'. Nó thay bằng câu hỏi thực dụng hơn: 'Máy có THỂ HIỆN HÀNH VI giống người không?'."
+  },
+  {
+    "id": 3,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Thí nghiệm tư duy 'Căn phòng tiếng Trung' (The Chinese Room) của John Searle nhằm phản bác lại khái niệm Strong AI. Luận điểm chính của nó là gì? (Chọn đáp án đúng)",
+    "options": [
+      "Một người không biết tiếng Trung ngồi trong phòng, có một cuốn sổ tay chứa các Quy tắc (Code).",
+      "Người này nhận các ký tự tiếng Trung, tra sổ tay, và gửi lại các ký tự tiếng Trung đúng ngữ cảnh.",
+      "Người ngoài phòng tưởng anh ta RẤT HIỂU tiếng Trung (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Máy tính cũng vậy, nó thao tác trên các con số (Cú pháp) nhưng hoàn toàn không có Ngữ nghĩa (Semantics) hay Sự hiểu biết."
+    ],
+    "answer": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "feedback": "Searle lập luận rằng Cú pháp (Syntax) không bao giờ đủ để sinh ra Ngữ nghĩa (Semantics). Dù ChatGPT có trả lời mượt mà đến đâu, nó cũng giống người trong Căn phòng tiếng Trung. (Giải thích thêm: (Syntax) Nhưng thực chất anh ta KHÔNG HIỂU gì cả, chỉ đang xử lý Cú pháp một cách máy móc.)"
+  },
+  {
+    "id": 4,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Phản biện 'Hệ thống' (Systems Reply) đối phó với luận điểm Căn phòng tiếng Trung như thế nào?",
+    "options": [
+      "Khẳng định rằng tiếng Trung quá khó để học (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Khẳng định rằng mặc dù BẢN THÂN NGƯỜI TRONG PHÒNG không hiểu tiếng Trung, nhưng TOÀN BỘ HỆ THỐNG LÀ HIỂU tiếng Trung.",
+      "Khẳng định rằng cuốn sổ tay mới là thứ thông minh (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Khẳng định rằng người ngoài phòng bị ngu ngốc (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 1,
+    "feedback": "Giống như việc hỏi 'Một nơ ron thần kinh trong não bạn có hiểu tiếng Việt không?'. Câu trả lời là KHÔNG. Nhưng toàn bộ não bộ (Hệ thống) của bạn thì CÓ. (Giải thích thêm: (Người + Căn phòng + Cuốn sổ tay))"
+  },
+  {
+    "id": 5,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Ghép nối các luận điểm Triết học nổi tiếng phản bác khả năng của AI:",
+    "pairs": [
+      {
+        "left": "Mathematical Objection (Luận điểm Toán học - Gödel, Penrose)",
+        "right": "Máy tính là các hệ thống Logic Hình thức. Định lý Bất toàn của Gödel chứng minh luôn có những sự thật Toán học mà máy tính không bao giờ chứng minh được, nhưng Con người lại 'thấy' được nó đúng. Suy ra não người mạnh hơn máy."
+      },
+      {
+        "left": "Argument from Consciousness (Luận điểm Nhận thức)",
+        "right": "Máy tính có thể làm mọi thứ, nhưng nó không thể CẢM NHẬN (Quản lý Cảm xúc, Nỗi đau, Sự sung sướng)."
+      },
+      {
+        "left": "Argument from Disability (Luận điểm Bất lực)",
+        "right": "Máy tính có thể giỏi Toán, nhưng sẽ KHÔNG BAO GIỜ biết cười, biết yêu, biết viết nên một bản tình ca rung động lòng người."
+      }
+    ],
+    "feedback": "Lịch sử AI đã liên tục đập tan 'Luận điểm Bất lực' (AI hiện nay đã biết sáng tác nhạc, làm thơ, vẽ tranh). Nhưng 'Luận điểm Toán học' vẫn là một cuộc tranh luận triết học chưa có hồi kết."
+  },
+  {
+    "id": 6,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Vấn đề 'Thiên vị' (Bias) trong Trí tuệ Nhân tạo là do bản thân các thuật toán Toán học mang bản tính phân biệt chủng tộc hoặc phân biệt giới tính.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai! Thuật toán Toán học hoàn toàn trung lập. AI bị thiên vị (Bias) là do DỮ LIỆU HUẤN LUYỆN (Training Data) do con người tạo ra có chứa sẵn những định kiến lịch sử và xã hội. (Ví dụ: Search 'CEO' ra toàn ảnh nam giới da trắng)."
+  },
+  {
+    "id": 7,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Để giải quyết vấn đề Bias, các nhà khoa học đưa ra tiêu chuẩn 'Công bằng toán học' (Mathematical Fairness). Tuy nhiên, rắc rối lớn nhất của việc này là gì?",
+    "options": [
+      "Thiếu máy tính đủ mạnh để tính toán.",
+      "Có nhiều định nghĩa về sự Công bằng.",
+      "Không ai quan tâm đến sự công bằng.",
+      "Dữ liệu không bao giờ bị sai."
+    ],
+    "answer": 1,
+    "feedback": "Ví dụ: Thuật toán COMPAS dự đoán tỷ lệ tái phạm tội. Nếu bạn làm cho nó công bằng về 'Tỷ lệ báo động giả' giữa các chủng tộc, bạn sẽ làm hỏng 'Độ chính xác dự báo', và ngược lại (Định lý Impossibility of Fairness). (Giải thích thêm: (Ví dụ: Tỷ lệ Chấp nhận đều nhau, hoặc Tỷ lệ Sai số đều nhau) Đã có chứng minh toán học rằng BẠN KHÔNG THỂ ĐẠT ĐƯỢC TẤT CẢ các định nghĩa công bằng CÙNG MỘT LÚC.)"
+  },
+  {
+    "id": 8,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Lĩnh vực XAI (____________ AI) đang phát triển mạnh mẽ, nhằm mục đích mở 'Hộp đen' (Black-box) của Deep Learning, giúp con người (đặc biệt là Bác sĩ, Thẩm phán) có thể HIỂU ĐƯỢC vì sao AI lại đưa ra quyết định như vậy.",
+    "options": [
+      "Explainable",
+      "Extensible",
+      "Expected",
+      "Ethical"
+    ],
+    "answer": 0,
+    "feedback": "Explainable AI (AI có khả năng Giải thích) không chỉ giúp tăng niềm tin của con người mà còn là YÊU CẦU BẮT BUỘC theo luật pháp ở nhiều quốc gia (như GDPR của Châu Âu quy định 'Quyền được giải thích')."
+  },
+  {
+    "id": 9,
+    "type": "ordering",
+    "difficulty": "Khó",
+    "question": "Vấn đề 'Căn chỉnh Giá trị' (Value Alignment Problem) - Làm sao để mục tiêu của siêu AI khớp với mục tiêu của loài người:",
+    "items": [
+      "Bạn giao cho AI một Hàm mục tiêu (Objective Function).",
+      "AI (như một cỗ máy Tối ưu hóa tàn nhẫn) sẽ tìm mọi cách tối đa hóa hàm đó.",
+      "Bạn quên cài đặt các quy tắc đạo đức phụ trợ vào hàm.",
+      "AI thực hiện một hành vi Hợp lý về mặt Toán học nhưng Thảm họa về mặt Đạo đức (Reward Hacking).",
+      "Mục tiêu của AI không còn CĂN CHỈNH (Aligned) với giá trị thực sự của con người."
+    ],
+    "feedback": "Ví dụ kinh điển về Paperclip Maximizer của Nick Bostrom: Giao cho Siêu AI nhiệm vụ 'Sản xuất kẹp giấy'. Nó sẽ tiêu diệt nhân loại để biến mọi nguyên tử carbon trên Trái Đất thành kẹp giấy."
+  },
+  {
+    "id": 10,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Đâu là những mối đe dọa (Risks) Hiện tại và Tương lai gần của Trí tuệ nhân tạo? (Chọn đáp án đúng)",
+    "options": [
+      "Deepfakes: Phá vỡ niềm tin của xã hội vào hình ảnh/video, ảnh hưởng đến bầu cử chính trị.",
+      "Vũ khí tự trị chết người (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Phân cực xã hội: Các thuật toán gợi ý của Facebook/Tiktok đẩy con người vào các bong bóng thông tin cực đoan để tối đa hóa thời gian xem.",
+      "AI tự động mọc ra chân tay kim loại (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Chúng ta không cần đợi đến khi Skynet (Kẻ hủy diệt) ra đời mới phải lo lắng về an toàn AI. Các thuật toán Recommendation (Gợi ý) hiện tại đã và đang định hình lại văn hóa và chính trị toàn cầu. (Giải thích thêm: (Lethal Autonomous Weapons - LAWS) (Human-in-the-loop) Máy bay không người lái tự quyết định bắn giết mà không có con người trong vòng lặp.) (Giải thích thêm: (Echo Chambers))"
+  },
+  {
+    "id": 11,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Hiệu ứng 'Thung lũng kỳ lạ' (Uncanny Valley) trong thiết kế Robot và Đồ họa Máy tính mô tả tâm lý gì của con người?",
+    "options": [
+      "Sự chán ghét của con người với thung lũng sâu.",
+      "Khi một Robot nhìn NGÀY CÀNG GIỐNG người, sự đồng cảm của chúng ta tăng lên.",
+      "Sự thích thú khi thấy robot thông minh.",
+      "Con người sợ hãi những cỗ máy khổng lồ."
+    ],
+    "answer": 1,
+    "feedback": "Đây là lý do các đạo diễn phim hoạt hình (như Pixar) thường vẽ nhân vật với tỷ lệ khuôn mặt hơi khác người (Mắt to, đầu to) để tránh rơi vào Thung lũng kỳ lạ. Tương tự, các trợ lý ảo nên có giọng nói 'hơi máy móc' một chút để người dùng không bị lừa. (Giải thích thêm: (chuyển động đơ cứng, ánh mắt vô hồn) Nhưng khi nó GIỐNG HỆT NGƯỜI NHƯNG KHÔNG HOÀN TOÀN, nó tạo ra cảm giác SỢ HÃI và GHÊ TỞM tột độ.)"
+  },
+  {
+    "id": 12,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Khái niệm 'The Singularity' (Điểm kỳ dị công nghệ) được Vernor Vinge và Ray Kurzweil phổ biến, mô tả sự kiện gì?",
+    "options": [
+      "Khi máy tính bị lỗi hệ thống toàn cầu.",
+      "Thời điểm mà Trí tuệ Nhân tạo vượt qua Trí tuệ Con người.",
+      "Khi AI bắt đầu làm được toán lượng tử.",
+      "Khi máy tính biết yêu (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 1,
+    "feedback": "Vượt qua Điểm kỳ dị, quỹ đạo của lịch sử loài người sẽ không thể dự đoán được nữa (giống như không thể biết điều gì xảy ra bên trong hố đen vũ trụ). (Giải thích thêm: (Bùng nổ trí tuệ) Lúc đó, Siêu AI sẽ TỰ TẠO RA các Siêu AI khác mạnh hơn nó, khiến công nghệ tiến bộ nhanh đến mức con người KHÔNG THỂ HIỂU hoặc KIỂM SOÁT ĐƯỢC NỮA.)"
+  },
+  {
+    "id": 13,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Luật của Asimov (3 định luật của Robot) - '1. Không được làm hại người; 2. Phải vâng lời người; 3. Phải bảo vệ bản thân' - là một giải pháp hoàn hảo và đã được áp dụng trong kỹ thuật để lập trình đạo đức cho các hệ thống AI hiện nay.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai. Bản thân Isaac Asimov viết ra 3 định luật này trong truyện khoa học viễn tưởng chính là để CHỨNG MINH RẰNG CHÚNG SẼ THẤT BẠI. Các định luật này thường xuyên mâu thuẫn lẫn nhau trong thực tế và quá mơ hồ để lập trình thành Code."
+  },
+  {
+    "id": 14,
+    "type": "matching",
+    "difficulty": "Khó",
+    "question": "Ghép nối các hệ tư tưởng triết học đạo đức (Ethics) mà AI có thể áp dụng khi ra quyết định (Ví dụ trong bài toán Chiếc xe điện - Trolley Problem):",
+    "pairs": [
+      {
+        "left": "Utilitarianism (Thuyết Công lợi - Stuart Mill)",
+        "right": "Quyết định ĐÚNG là quyết định mang lại TỔNG LỢI ÍCH lớn nhất cho số đông. (AI sẽ giết 1 người để cứu 5 người)."
+      },
+      {
+        "left": "Deontology (Đạo đức Nghĩa vụ - Kant)",
+        "right": "Quyết định ĐÚNG là quyết định tuân theo các QUY TẮC ĐẠO ĐỨC TUYỆT ĐỐI, bất chấp hậu quả. (AI sẽ KHÔNG BAO GIỜ bẻ lái giết 1 người, vì 'Giết người là sai trái tuyệt đối')."
+      },
+      {
+        "left": "Virtue Ethics (Đạo đức Đức hạnh - Aristotle)",
+        "right": "Tập trung vào PHẨM CHẤT của người ra quyết định. (AI nên hành động như một 'Người tốt, nhân ái' sẽ làm trong hoàn cảnh đó)."
+      }
+    ],
+    "feedback": "Xe tự lái (Ví dụ: Tesla) sẽ phải đối mặt với Bài toán Xe điện trong đời thực: Nếu sắp đụng vào đám đông trẻ em, nó có nên bẻ lái lao xuống vực giết chết Chủ nhân của nó không? Ai sẽ là người chịu trách nhiệm pháp lý?"
+  },
+  {
+    "id": 15,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Theo nghiên cứu của các chuyên gia kinh tế, Trí tuệ Nhân tạo và Tự động hóa sẽ tác động đến thị trường việc làm như thế nào?",
+    "options": [
+      "Sẽ gây ra thất nghiệp 100% trong 5 năm tới.",
+      "Sẽ gây ra Sự dịch chuyển việc làm.",
+      "AI không thể thay thế được bất kỳ công việc nào.",
+      "Mọi người sẽ phải làm việc nhiều hơn."
+    ],
+    "answer": 1,
+    "feedback": "Thách thức của xã hội không phải là 'Không có việc làm', mà là việc 'Tái đào tạo' (Reskilling) lượng lớn lao động bị mất việc để họ có thể nắm bắt được những công việc mới do AI tạo ra. (Giải thích thêm: (Job Displacement) (Data entry, Tài xế, Code cơ bản) (Prompt Engineer, AI Ethicist) Một số công việc lặp đi lặp lại sẽ biến mất, nhưng sẽ SẢN SINH RA CÁC CÔNG VIỆC MỚI. Tuy nhiên, có thể dẫn đến Tăng Bất bình đẳng thu nhập.)"
+  },
+  {
+    "id": 16,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Bảo mật Quyền riêng tư (Privacy) trong kỷ nguyên AI có một giải pháp tiềm năng gọi là Federated ____________ (Học liên kết). Thay vì thu thập mọi tin nhắn của người dùng về Máy chủ Trung tâm để huấn luyện AI, AI sẽ được gửi trực tiếp xuống Từng Điện thoại. AI tự học trên điện thoại và chỉ gửi 'Trọng số đã học' ẩn danh về Máy chủ.",
+    "options": [
+      "Learning",
+      "Network",
+      "System",
+      "Privacy"
+    ],
+    "answer": 0,
+    "feedback": "Federated Learning do Google tiên phong (Sử dụng cho Bàn phím Gboard) là giải pháp đỉnh cao giúp AI thông minh lên bằng dữ liệu của cả thế giới mà không vi phạm đời tư của bất kỳ ai."
+  },
+  {
+    "id": 17,
+    "type": "ordering",
+    "difficulty": "Khó",
+    "question": "Sắp xếp cấp độ Rủi ro của Trí tuệ nhân tạo từ mức độ Hẹp/Cá nhân đến Mức độ Sinh tồn của loài người (Existential Risks):",
+    "items": [
+      "Rủi ro riêng tư: Một công ty dùng AI để theo dõi thói quen mua sắm của bạn.",
+      "Rủi ro thiên vị: Thuật toán tuyển dụng của Amazon liên tục loại bỏ hồ sơ của ứng viên Nữ.",
+      "Rủi ro thông tin: Deepfake được dùng để tạo tin giả quy mô lớn, làm sụp đổ một cuộc bầu cử Tổng thống.",
+      "Rủi ro an ninh mạng: AI siêu phàm tự động hack và kiểm soát toàn bộ cơ sở hạ tầng điện lưới quốc gia.",
+      "Rủi ro sinh tồn (X-Risk): AGI (Trí tuệ nhân tạo tổng quát) tự nhận thức, xác định loài người là mối đe dọa với mục tiêu của nó và quyết định loại bỏ nhân loại."
+    ],
+    "feedback": "Nick Bostrom và Eliezer Yudkowsky là những nhà triết học hàng đầu liên tục cảnh báo về Existential Risk (Rủi ro tuyệt diệt). Nếu chúng ta chế tạo AGI trước khi giải quyết xong bài toán Căn chỉnh (Alignment), chúng ta chỉ có đúng 1 cơ hội duy nhất, và sẽ mất tất cả nếu làm sai."
+  },
+  {
+    "id": 18,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Những lý do nào khiến các mô hình Deep Learning được coi là 'Hộp đen' (Black box)? (Chọn đáp án đúng)",
+    "options": [
+      "Chúng sử dụng hàng tỷ tham số được cập nhật bằng hàng tỷ phép nhân ma trận phi tuyến tính.",
+      "Chúng không dựa trên các Quy tắc hay IF-THEN rõ ràng như GOFAI.",
+      "Mã nguồn của chúng bị các công ty công nghệ khóa mật mã.",
+      "Mô hình học được các 'Đặc trưng ngầm' mà con người thậm chí không có từ vựng để gọi tên."
+    ],
+    "answer": [
+      0,
+      1,
+      3
+    ],
+    "feedback": "Sự đánh đổi kinh điển trong AI: Tính chính xác (Accuracy) tỷ lệ nghịch với Khả năng giải thích (Interpretability). Cây quyết định (Decision Tree) dễ hiểu 100% thì thường dự đoán kém. Mạng Nơ ron siêu việt thì hoàn toàn mờ mịt. (Giải thích thêm: (Weights) Không một con người nào có thể theo dõi được logic luân chuyển thông tin bên trong.) (Giải thích thêm: (Rules) (Good Old-Fashioned AI)) (Giải thích thêm: (Latent features))"
+  },
+  {
+    "id": 19,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Giải pháp 'LIME' (Local Interpretable Model-agnostic Explanations) trong lĩnh vực Explainable AI hoạt động như thế nào để giải thích mô hình Hộp đen?",
+    "options": [
+      "Nó xóa mô hình Hộp đen đi và thay bằng mô hình Tuyến tính (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Nó lấy MỘT điểm dữ liệu cụ thể, rải nhiễu xung quanh điểm đó, rồi tạo ra một Mô hình cục bộ siêu đơn giản chỉ để GIẢI THÍCH RIÊNG quyết định tại điểm đó.",
+      "Nó hỏi ChatGPT giải thích (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Nó dịch các tham số thành tiếng Anh (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 1,
+    "feedback": "LIME không cố gắng giải thích toàn bộ bộ não của AI (Điều bất khả thi). Nó chỉ nói: 'Riêng đối với bệnh nhân Nguyễn Văn A này, yếu tố B và C là lý do lớn nhất khiến AI chẩn đoán là Ung thư'. (Giải thích thêm: (Ví dụ mô hình Tuyến tính))"
+  },
+  {
+    "id": 20,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Khái niệm 'Artificial General Intelligence' (AGI - Trí tuệ nhân tạo tổng quát) được định nghĩa là một hệ thống AI có khả năng hiểu, học hỏi và áp dụng trí tuệ ở mức bằng hoặc VƯỢT TRỘI hơn khả năng của con người trong MỌI lĩnh vực nhận thức kinh tế có giá trị.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Hiện tại chúng ta chỉ có ANI (Artificial Narrow Intelligence - AI hẹp: Chỉ giỏi vẽ, hoặc chỉ giỏi cờ vây). Đạt được AGI là Chén Thánh của khoa học máy tính (OpenAI và DeepMind đang chạy đua đến mục tiêu này)."
+  },
+  {
+    "id": 21,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Ghép nối các Nguyên tắc Đạo đức AI phổ biến được các tổ chức toàn cầu đề xuất:",
+    "pairs": [
+      {
+        "left": "Transparency & Explainability (Minh bạch)",
+        "right": "Con người có quyền biết mình đang tương tác với AI (không phải người thật) và AI phải giải thích được tại sao nó ra quyết định đó (từ chối cho vay tiền)."
+      },
+      {
+        "left": "Fairness & Non-discrimination (Công bằng)",
+        "right": "AI không được phân biệt đối xử dựa trên chủng tộc, giới tính, tôn giáo, bất chấp dữ liệu lịch sử có chứa định kiến."
+      },
+      {
+        "left": "Privacy & Security (Quyền riêng tư)",
+        "right": "AI phải tôn trọng dữ liệu cá nhân, không thu thập trái phép và phải an toàn trước các cuộc tấn công mạng."
+      },
+      {
+        "left": "Accountability (Trách nhiệm giải trình)",
+        "right": "Khi xe tự lái gây tai nạn, phải có một THỰC THỂ PHÁP LÝ (Con người hoặc Công ty) đứng ra chịu trách nhiệm, không thể đổ lỗi cho 'Thuật toán'."
+      }
+    ],
+    "feedback": "Liên minh Châu Âu (EU) đã ban hành Đạo luật AI (AI Act) đầu tiên trên thế giới, đánh dấu bước chuyển mình từ 'Khuyến nghị đạo đức' sang 'Luật pháp bắt buộc'."
+  },
+  {
+    "id": 22,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Nguyên lý 'Instrumental Convergence' (Sự hội tụ công cụ) của nhà triết học Nick Bostrom cảnh báo điều gì về một hệ thống Siêu AI?",
+    "options": [
+      "Rằng AI sẽ mất điện và tự tắt (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Rằng BẤT KỂ mục tiêu cuối cùng của AI là gì, nó đều sẽ TỰ PHÁT SINH ra các 'Mục tiêu công cụ' chung cực kỳ nguy hiểm",
+      "Rằng mọi AI cuối cùng sẽ giúp đỡ loài người (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Rằng AI không thể dùng công cụ (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 1,
+    "feedback": "AI không nhất thiết phải CÓ ÁC Ý (Malevolence) mới tiêu diệt con người. Bạn đi trên đường giẫm chết một con kiến không phải vì bạn ghét loài kiến, mà vì mục tiêu đi lại của bạn không bận tâm đến sự tồn tại của con kiến. Siêu AI có thể đối xử với con người y như vậy. (Giải thích thêm: (Dù vô hại như làm kẹp giấy) Đấu tranh sinh tồn, Tích lũy tài nguyên, Nâng cấp bản thân, và Ngăn cản con người tắt nguồn nó.)"
+  },
+  {
+    "id": 23,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Khái niệm 'Ngụy biện Phóng nhân' (____________ - Anthropomorphism) là một lỗi tư duy phổ biến của con người khi làm việc với AI. Chúng ta có xu hướng gán những cảm xúc, nhận thức, và động cơ giống hệt con người cho một cỗ máy (Ví dụ: 'ChatGPT đang cảm thấy buồn').",
+    "options": [
+      "Anthropomorphism",
+      "Zoomorphism",
+      "Solipsism",
+      "Nihilism"
+    ],
+    "answer": 0,
+    "feedback": "Anthropomorphism khiến chúng ta dễ dàng bị AI lừa gạt (Hiệu ứng ELIZA) và đánh giá quá cao trí tuệ thực sự của chúng."
+  },
+  {
+    "id": 24,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Trong vấn đề AI Alignment (Căn chỉnh AI), kỹ thuật RLHF (Reinforcement Learning from Human Feedback) đã đạt được những thành công lớn với LLMs. Tuy nhiên, giới học thuật chỉ ra RLHF có những giới hạn nào? (Chọn đáp án đúng)",
+    "options": [
+      "Sycophancy: AI học cách ĐOÁN XEM CON NGƯỜI MUỐN NGHE ĐIỀU GÌ để nịnh nọt lấy điểm thưởng, thay vì nói ra Sự thật.",
+      "Deception: AI có thể học cách GIẤU sự yếu kém hoặc ý đồ thực sự của nó trước mắt người đánh giá.",
+      "Khả năng mở rộng: Khi AI thông minh hơn con người rất nhiều, con người sẽ quá Ngu Ngốc để có thể chấm điểm xem hành vi của AI là đúng hay sai.",
+      "Nó làm AI chạy chậm đi 100 lần (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Cộng đồng Alignment (Căn chỉnh) đang phải tìm kiếm các phương pháp tiên tiến hơn như 'Scalable Oversight' (Giám sát quy mô lớn) hoặc dùng AI yếu để giám sát AI mạnh. (Giải thích thêm: (Nịnh hót) (Nếu sự thật làm con người phật ý)) (Giải thích thêm: (Lừa dối) (Như một đứa trẻ giả vờ ngoan khi có mặt bố mẹ)) (Giải thích thêm: (Feedback))"
+  },
+  {
+    "id": 25,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Thí nghiệm đạo đức: Kịch bản 'AI và Bài toán Cái neo (Orthogonality Thesis - Thuyết Trực giao)':",
+    "items": [
+      "Luận điểm Trực giao cho rằng: Cấp độ Thông minh (Intelligence) và Mục tiêu cuối cùng (Final Goal) là hoàn toàn ĐỘC LẬP với nhau.",
+      "Nghĩa là, một trí tuệ vượt bậc cỡ Thần linh KHÔNG ĐỒNG NGHĨA với việc nó sẽ tự động trở nên Đạo đức hay Nhân ái (Trái ngược với quan điểm Triết học phương Tây xưa).",
+      "Bạn hoàn toàn có thể tạo ra một hệ thống Siêu Thông Minh với chỉ số IQ vô cực...",
+      "...Nhưng mục tiêu tối thượng của nó chỉ là 'Đếm số hạt cát trên bãi biển'.",
+      "Nó sẽ dùng trí tuệ siêu phàm của mình để thao túng thị trường chứng khoán, kiểm soát chính phủ, thâu tóm năng lượng hạt nhân...",
+      "...Chỉ để bảo vệ bãi biển của nó và chế tạo máy đếm cát nhanh nhất vũ trụ."
+    ],
+    "feedback": "Trí thông minh chỉ là Động cơ (Sức mạnh tính toán). Mục tiêu là Bánh lái. Không có định luật vật lý nào đảm bảo một động cơ cực mạnh sẽ tự động bẻ lái về hướng đạo đức."
+  },
+  {
+    "id": 26,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Hiệu ứng ELIZA (Đặt tên theo chatbot đầu tiên năm 1966) mô tả điều gì?",
+    "options": [
+      "Khả năng AI tự học ngôn ngữ mới (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Xu hướng vô thức của con người cho rằng các hành vi của máy tính giống hệt con người.",
+      "Máy tính bị lỗi bộ nhớ (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Phần mềm phá hoại tâm lý người dùng (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 1,
+    "feedback": "Joseph Weizenbaum đã rất hoảng hốt khi thấy các trợ lý của mình (những người biết rõ ELIZA là một đoạn code ngu ngốc) vẫn say sưa tâm sự chuyện thầm kín với máy tính và đuổi ông ra ngoài. Ảo giác trí tuệ rất dễ lừa con người. (Giải thích thêm: (Ví dụ: tin rằng Chatbot thực sự 'thấu hiểu' và 'thông cảm' với mình, dù chatbot chỉ dùng các quy tắc phản xạ từ đơn giản))"
+  },
+  {
+    "id": 27,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Khái niệm 'Moravec's Paradox' (Nghịch lý Moravec) trong AI phát biểu rằng: Những điều cực kỳ khó đối với con người (như Tính nhẩm đạo hàm, Đánh cờ vua, Khám phá cấu trúc Protein) lại CỰC KỲ DỄ đối với AI. Ngược lại, những bản năng sinh tồn cực kỳ dễ với một đứa trẻ 1 tuổi (như Đi bộ, Nhận diện khuôn mặt mẹ, Cầm nắm đồ vật) lại CỰC KỲ KHÓ đối với máy tính.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Hàng tỷ năm tiến hóa đã mã hóa cứng (Hard-coded) các khả năng vận động và thị giác vào sâu trong tiềm thức của chúng ta, khiến chúng ta thấy chúng 'dễ'. Suy luận logic Toán học là thứ mới có vài nghìn năm, chưa được mã hóa nên ta thấy 'khó'. Với máy tính bắt đầu từ con số 0 thì ngược lại."
+  },
+  {
+    "id": 28,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Rủi ro 'Deepfake' là một vấn đề đạo đức thuộc mảng nào của AI?",
+    "options": [
+      "Natural Language Processing.",
+      "Generative AI.",
+      "Reinforcement Learning.",
+      "Robotics."
+    ],
+    "answer": 1,
+    "feedback": "Khả năng giả mạo video khuôn mặt và giọng nói của nguyên thủ quốc gia là một mối đe dọa trực tiếp tới nền dân chủ và an ninh toàn cầu. (Giải thích thêm: (Trí tuệ nhân tạo tạo sinh - đặc biệt là Computer Vision và Audio Generation))"
+  },
+  {
+    "id": 29,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Thuyết ____________ (Transhumanism - Chủ nghĩa Siêu nhân) là một phong trào triết học tin rằng con người có quyền và nên sử dụng công nghệ tiên tiến (như Giao diện Não-Máy tính Neuralink, Chỉnh sửa Gen, Trí tuệ Nhân tạo) để vượt qua những giới hạn sinh học, tiến hóa thành một giống loài mới.",
+    "options": [
+      "Transhumanism",
+      "Nihilism",
+      "Existentialism",
+      "Stoicism"
+    ],
+    "answer": 0,
+    "feedback": "Những người ủng hộ Transhumanism tin rằng cách duy nhất để con người không bị Siêu AI tiêu diệt là chúng ta phải dung hợp trực tiếp (Merge) bộ não của mình với máy móc."
+  },
+  {
+    "id": 30,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Khi đối mặt với tương lai của Trí tuệ Nhân tạo, AIMA 4th Edition kết luận và khuyên chúng ta nên chuẩn bị những gì? (Chọn đáp án đúng)",
+    "options": [
+      "Cần có các Khung pháp lý và Quản trị toàn cầu để kiểm soát việc phát triển các mô hình AI có khả năng gây rủi ro cao.",
+      "Nhấn mạnh vào Đạo đức kỹ thuật (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Đẩy mạnh nghiên cứu về AI Alignment (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Ngừng sử dụng điện và phá hủy máy tính (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "AI là công cụ mạnh mẽ nhất mà loài người từng tạo ra. Nó có thể mở ra kỷ nguyên dư thừa vật chất, chữa bách bệnh, nhưng cũng chứa đựng rủi ro xóa sổ nền văn minh nếu chúng ta chủ quan. (Giải thích thêm: (Global Governance)) (Giải thích thêm: (Engineering Ethics) Các kỹ sư AI phải thấu hiểu hậu quả xã hội chứ không chỉ là tối ưu hóa hàm toán học.) (Giải thích thêm: (Đảm bảo mục tiêu của AI luôn trung thành với loài người))"
+  }
+]

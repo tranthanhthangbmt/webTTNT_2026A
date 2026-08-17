@@ -1,0 +1,452 @@
+[
+  {
+    "id": 1,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Trong lĩnh vực Robotics, thành phần nào đóng vai trò như 'Giác quan' giúp Robot thu thập thông tin từ môi trường?",
+    "options": [
+      "Effectors (Cơ cấu chấp hành).",
+      "Sensors (Cảm biến).",
+      "Actuators (Động cơ).",
+      "Controllers (Bộ điều khiển)."
+    ],
+    "answer": 1,
+    "feedback": "Cảm biến (Sensors) như Camera, Lidar, Radar, Sonar giúp Robot 'nhìn' và 'nghe' thế giới xung quanh. Ngược lại, Effectors/Actuators giúp Robot tác động vật lý lên môi trường."
+  },
+  {
+    "id": 2,
+    "type": "fill_blank",
+    "difficulty": "Dễ",
+    "question": "Các khớp nối của một cánh tay Robot thường cung cấp cho nó một số Bậc Tự Do (Degrees of ____________ - DoF). Số Bậc Tự Do cho biết số lượng tọa độ độc lập cần thiết để xác định hoàn toàn vị trí và tư thế của Robot.",
+    "options": [
+      "Freedom",
+      "Force",
+      "Flexibility",
+      "Function"
+    ],
+    "answer": 0,
+    "feedback": "Một vật thể rắn bay lơ lửng trong không gian 3D có 6 Bậc Tự Do (3 trục tịnh tiến X, Y, Z và 3 trục xoay Roll, Pitch, Yaw). Cánh tay người có khoảng 7 DoF."
+  },
+  {
+    "id": 3,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Cảm biến Proprioceptive (Cảm nhận bản thể) khác với Cảm biến Exteroceptive (Cảm nhận ngoại vi) ở điểm nào? (Chọn đáp án đúng)",
+    "options": [
+      "Proprioceptive đo lường trạng thái BÊN TRONG của chính Robot.",
+      "Exteroceptive đo lường môi trường BÊN NGOÀI.",
+      "Proprioceptive dùng để giao tiếp với con người.",
+      "Exteroceptive luôn hoạt động bằng sóng âm."
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "feedback": "Con người nhắm mắt lại vẫn biết tay mình đang giơ lên cao hay hạ xuống thấp, đó là nhờ các cảm biến Proprioceptive trong cơ bắp. (Giải thích thêm: (Ví dụ: Góc quay của khớp bằng Encoder, Gia tốc bằng IMU)) (Giải thích thêm: (Ví dụ: Camera chụp ảnh, Lidar đo khoảng cách đến chướng ngại vật))"
+  },
+  {
+    "id": 4,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Bài toán Động học (Kinematics) trong Robot nghiên cứu về vấn đề gì?",
+    "options": [
+      "Sự liên hệ giữa Khối lượng, Lực và Gia tốc của Robot (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Sự liên hệ toán học giữa Hình học và Tọa độ không gian, KHÔNG XÉT ĐẾN khối lượng hay lực.",
+      "Sự tiêu thụ điện năng của Robot (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Lập trình AI cho Robot (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 1,
+    "feedback": "Kinematics (Động học) trả lời câu hỏi: Nếu tôi bẻ khớp vai 30 độ và khớp khuỷu tay 45 độ, thì bàn tay tôi sẽ nằm ở tọa độ không gian nào? (Forward Kinematics). (Giải thích thêm: (Vị trí, Góc quay các khớp) (X,Y,Z))"
+  },
+  {
+    "id": 5,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Ghép nối các bài toán Động học của Robot Manipulator (Cánh tay Robot):",
+    "pairs": [
+      {
+        "left": "Forward Kinematics (Động học thuận)",
+        "right": "Biết góc của tất cả các khớp (q1, q2...) $\\rightarrow$ Tính ra Tọa độ (x,y,z) của Mũi kẹp (End-effector). Thường có DỄ và CHỈ CÓ 1 NGHIỆM DUY NHẤT."
+      },
+      {
+        "left": "Inverse Kinematics (Động học nghịch)",
+        "right": "Biết Tọa độ (x,y,z) muốn Mũi kẹp đi tới $\\rightarrow$ Tính ngược ra các Khớp phải quay bao nhiêu độ. RẤT KHÓ và CÓ THỂ CÓ NHIỀU NGHIỆM (Ví dụ: Cùng 1 điểm chạm, bạn có thể quặp tay từ trên xuống hoặc từ dưới lên)."
+      }
+    ],
+    "feedback": "Inverse Kinematics (IK) là bài toán cốt lõi để điều khiển Robot gắp vật thể. Nó thường yêu cầu giải các phương trình phi tuyến tính phức tạp."
+  },
+  {
+    "id": 6,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Không gian Cấu hình (Configuration Space - C-Space) là một khái niệm cực kỳ quan trọng trong Lập kế hoạch quỹ đạo (Motion Planning). Trong C-Space, bản thân con Robot khổng lồ được thu gọn lại thành MỘT ĐIỂM DUY NHẤT, còn các chướng ngại vật sẽ được 'phình to' (Minkowski sum) ra tương ứng với kích thước của Robot.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Bằng cách biến Robot thành một điểm toán học, việc tìm đường đi cho Robot tránh vật cản trở thành bài toán tìm đường đi đơn giản cho một Dấu chấm giữa các vùng bị cấm (Obstacle Region)."
+  },
+  {
+    "id": 7,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Trong Không gian Cấu hình (C-Space), một cánh tay Robot có 6 khớp quay (6 DoF) sẽ tạo ra một C-Space có bao nhiêu chiều?",
+    "options": [
+      "3 chiều (X, Y, Z).",
+      "6 chiều.",
+      "Không thể xác định.",
+      "12 chiều."
+    ],
+    "answer": 1,
+    "feedback": "Số chiều của C-Space ĐÚNG BẰNG số Bậc Tự Do (DoF) của Robot. Cánh tay 6 khớp sẽ di chuyển trong một không gian toán học 6 chiều. Tìm đường trong không gian 6 chiều khó hơn không gian 2D rất rất nhiều."
+  },
+  {
+    "id": 8,
+    "type": "fill_blank",
+    "difficulty": "Dễ",
+    "question": "Thuật toán Sinh bản đồ lộ trình xác suất (Probabilistic ____________ - PRM) giải quyết bài toán tìm đường trong Không gian Cấu hình chiều cao bằng cách: Rải hàng ngàn ĐIỂM NGẪU NHIÊN vào C-Space, loại bỏ các điểm chạm vật cản, và nối các điểm an toàn lại thành một Đồ thị (Roadmap) để tìm đường bằng A*.",
+    "options": [
+      "Roadmap",
+      "Routing",
+      "Region",
+      "Robot"
+    ],
+    "answer": 0,
+    "feedback": "PRM (Probabilistic Roadmap) và RRT (Rapidly-exploring Random Trees) là hai thuật toán Sampling-based (Dựa trên lấy mẫu) thống trị lĩnh vực Motion Planning hiện tại vì chúng rất nhanh trong không gian nhiều chiều."
+  },
+  {
+    "id": 9,
+    "type": "ordering",
+    "difficulty": "Khó",
+    "question": "Quá trình hoạt động của thuật toán RRT (Rapidly-exploring Random Tree) để tìm đường đi từ Điểm Bắt đầu đến Điểm Đích:",
+    "items": [
+      "Khởi tạo một Cây (Tree) chỉ có một nút gốc là Điểm Bắt đầu.",
+      "Chọn ngẫu nhiên một Điểm Bất kỳ (q_rand) trong Không gian Cấu hình.",
+      "Tìm Nút gần nhất (q_near) nằm trên Cây hiện tại so với Điểm Bất kỳ vừa chọn.",
+      "Mọc thêm một nhánh mới từ Nút gần nhất hướng thẳng về phía Điểm Bất kỳ (q_new).",
+      "Kiểm tra xem đoạn nhánh mới có đâm vào chướng ngại vật không. Nếu an toàn, thêm Nút mới vào Cây.",
+      "Lặp lại quá trình cho đến khi Cây mọc tới gần Điểm Đích."
+    ],
+    "feedback": "Sự kỳ diệu của RRT là nhánh cây có xu hướng tự động 'Mọc' nhanh về phía những vùng không gian còn trống (Voronoi bias), giúp nó luồn lách qua các hành lang hẹp rất giỏi."
+  },
+  {
+    "id": 10,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Robotics đối mặt với sự Bất định (Uncertainty) khủng khiếp từ thế giới thực. Những nguyên nhân nào gây ra sự bất định này? (Chọn đáp án đúng)",
+    "options": [
+      "Nhiễu cảm biến: Cảm biến Lidar/Camera không bao giờ đo chính xác 100%, luôn có sai số.",
+      "Nhiễu hành động: Ra lệnh cho bánh xe quay 10cm, nhưng do ma sát mặt đường trơn trượt, nó chỉ đi được 9cm.",
+      "Môi trường động: Thế giới liên tục thay đổi nằm ngoài sự kiểm soát của Robot.",
+      "Bất định do Robot mệt mỏi (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "AI trong phần mềm chỉ đối mặt với bit 0 và 1 tuyệt đối. AI trong Robotics phải đối mặt với vật lý và nhiệt động lực học. Đó là lý do 'Sim-to-Real' (Từ giả lập ra đời thực) là bài toán nan giải. (Giải thích thêm: (Sensor Noise)) (Giải thích thêm: (Action Noise)) (Giải thích thêm: (Dynamic Environment) (con người đi lại))"
+  },
+  {
+    "id": 11,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Để giải quyết sự Bất định trong việc xác định Vị trí hiện tại (Localization), Robot sử dụng khái niệm 'Belief State' (Trạng thái Niềm tin). Belief State được biểu diễn bằng gì?",
+    "options": [
+      "Một tọa độ (X, Y) duy nhất (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Một Phân phối Xác suất trên TOÀN BỘ các tọa độ có thể có.",
+      "Một đồ thị hình cây (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Một số nguyên (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 1,
+    "feedback": "Robot không bao giờ tự tin 100% nói 'Tôi đang ở tọa độ (5, 5)'. Nó sẽ nói 'Tôi tin 80% tôi ở (5,5), 10% ở (5,6) và 10% ở (4,5)'. Dữ liệu này được duy trì và cập nhật liên tục. (Giải thích thêm: (Probability Distribution))"
+  },
+  {
+    "id": 12,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Bộ lọc Kalman (Kalman Filter) là thuật toán tối ưu để theo dõi và ước lượng vị trí (Belief State) khi nào?",
+    "options": [
+      "Khi môi trường hoàn toàn là các chướng ngại vật hình vuông.",
+      "Khi Trạng thái Niềm tin có dạng Hình chuông và Hệ thống có tính Tuyến tính.",
+      "Khi Robot không có cảm biến (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Khi không gian tìm kiếm là rời rạc (Grid) (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 1,
+    "feedback": "Kalman Filter đại diện cho Belief State chỉ bằng 2 con số: Kỳ vọng (Mean $\\mu$ - Vị trí tin tưởng nhất) và Hiệp phương sai (Covariance $\\Sigma$ - Mức độ không chắc chắn/Độ mập của hình chuông). (Giải thích thêm: (Belief State) (Phân phối Chuẩn - Gaussian))"
+  },
+  {
+    "id": 13,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Bộ lọc Hạt (Particle Filter), hay còn gọi là Monte Carlo Localization (MCL), biểu diễn Trạng thái Niềm tin (Belief State) bằng hàng ngàn 'Hạt' (Particles). Mỗi hạt đại diện cho MỘT DỰ ĐOÁN cụ thể về vị trí của Robot trong bản đồ.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Vùng nào có nhiều hạt tụ tập, nghĩa là Robot rất tin tưởng mình đang ở vùng đó. Vùng nào thưa thớt hạt nghĩa là xác suất thấp."
+  },
+  {
+    "id": 14,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Ghép nối các bước của thuật toán Bộ lọc Hạt (Particle Filter - MCL) để cập nhật vị trí của Robot:",
+    "pairs": [
+      {
+        "left": "Prediction (Dự đoán theo Hành động)",
+        "right": "Khi Robot tiến lên 1m, ta DỊCH CHUYỂN tất cả các Hạt lên 1m (có cộng thêm chút nhiễu ngẫu nhiên để mô phỏng ma sát)."
+      },
+      {
+        "left": "Update (Cập nhật theo Cảm biến)",
+        "right": "Đánh giá từng Hạt: 'NẾU tôi thực sự đứng ở vị trí của hạt này, thì Camera của tôi có nhìn thấy cảnh giống như thực tế đang thấy không?'. Cấp Trọng số (Weight) cho Hạt dựa trên độ trùng khớp."
+      },
+      {
+        "left": "Resampling (Lấy mẫu lại)",
+        "right": "Giết chết các Hạt có trọng số thấp (sai lệch thực tế). Nhân bản các Hạt có trọng số cao (Khớp với thực tế). Các Hạt dần tụ tập về vị trí đúng."
+      }
+    ],
+    "feedback": "Particle Filter mạnh hơn Kalman Filter ở chỗ nó có thể mô hình hóa được phân phối đa đỉnh (Ví dụ: Robot đang đứng ở một hành lang dài, nó phân vân không biết mình ở đầu hay cuối hành lang)."
+  },
+  {
+    "id": 15,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "SLAM là một bài toán cực kỳ kinh điển trong Robotics và Xe tự lái (như Tesla, Waymo). SLAM là viết tắt của chữ gì?",
+    "options": [
+      "Simple Localization And Mapping.",
+      "Simultaneous Localization And Mapping.",
+      "Systematic Learning And Motion.",
+      "Sensor Linear Array Matrix."
+    ],
+    "answer": 1,
+    "feedback": "SLAM là bài toán 'Con gà và Quả trứng': Để biết mình ở đâu, bạn cần một tấm bản đồ. Để vẽ được tấm bản đồ, bạn cần biết mình đang ở đâu. SLAM dùng AI để giải quyết ĐỒNG THỜI cả hai việc. (Giải thích thêm: (Đồng thời Xác định vị trí và Xây dựng bản đồ))"
+  },
+  {
+    "id": 16,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Robot di động có bánh xe thường gặp phải Ràng buộc Non-holonomic (Không holonomic). Ví dụ: Xe ô tô không thể tự nhiên dịch chuyển ngang sang trái hoặc phải ngay lập tức, mà phải bẻ lái và tiến lùi. Điều này làm cho số lượng Bậc Tự Do có thể điều khiển ____________ (nhỏ hơn / bằng / lớn hơn) tổng số Bậc Tự Do của nó trong không gian.",
+    "options": [
+      "nhỏ hơn",
+      "bằng",
+      "lớn hơn",
+      "tỷ lệ nghịch"
+    ],
+    "answer": 0,
+    "feedback": "Ô tô có 3 DoF (Tọa độ X, Y và Góc quay Heading). Nhưng nó chỉ có 2 Bậc điều khiển (Đạp ga và Đánh lái). Sự chênh lệch này khiến việc đỗ xe song song trở nên rất khó."
+  },
+  {
+    "id": 17,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Sắp xếp hệ thống phân cấp Kiến trúc Phần mềm của một con Robot hiện đại (Từ cấp Thấp nhất đến cấp Cao nhất):",
+    "items": [
+      "Phần cứng (Hardware): Động cơ, Cảm biến thực.",
+      "Điều khiển cấp thấp (Low-level Control): Ví dụ PID Controller giữ tốc độ bánh xe ổn định ở 50 vòng/phút.",
+      "Lập kế hoạch quỹ đạo (Motion Planning): Tính toán các điểm tọa độ (Waypoint) để đi từ A đến B không đụng tường.",
+      "Lập kế hoạch Hành động/Nhiệm vụ (Task Planning): AI suy luận Logic (Đến tủ lạnh -> Mở tủ -> Lấy bia).",
+      "Giao tiếp người dùng (Human-Robot Interaction): Nhận lệnh giọng nói 'Lấy cho tôi lon bia'."
+    ],
+    "feedback": "Kiến trúc này thường được thiết kế theo kiểu Reactive (Phản xạ tức thời ở tầng thấp - tránh đụng vật ngay lập tức) và Deliberative (Suy nghĩ sâu ở tầng cao)."
+  },
+  {
+    "id": 18,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Trong Lý thuyết Điều khiển (Control Theory), Bộ điều khiển PID (Proportional-Integral-Derivative) duy trì sự ổn định của Robot bằng cách phản hồi lại Lỗi (Error). 3 thành phần P, I, D có tác dụng gì? (Chọn đáp án đúng)",
+    "options": [
+      "P: Cung cấp lực kéo TỶ LỆ THUẬN với mức độ Lỗi hiện tại..",
+      "I: Cộng dồn các Lỗi NHỎ TRONG QUÁ KHỨ.",
+      "D: Quan sát TỐC ĐỘ THAY ĐỔI của Lỗi.",
+      "P, I, D là tên của 3 loại AI."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Dù Deep Learning đang nổi lên, 95% robot công nghiệp ngày nay vẫn đang chạy bằng thuật toán PID kinh điển. (Giải thích thêm: (Proportional - Tỷ lệ) (Lỗi càng lớn kéo càng mạnh)) (Giải thích thêm: (Integral - Tích phân) (Ví dụ gió thổi nhẹ liên tục làm máy bay lệch mục tiêu dù P đã bằng 0) Giúp khắc phục sai số tĩnh.) (Giải thích thêm: (Derivative - Đạo hàm) (Tương lai) (Damping) (Overshoot) Nếu đang tiến về mục tiêu quá nhanh, D sẽ tạo lực Phanh để chống Vượt đích.)"
+  },
+  {
+    "id": 19,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Đặc điểm của Robot bầy đàn (Swarm Robotics) là gì?",
+    "options": [
+      "Gồm một Robot khổng lồ và cực kỳ thông minh điều khiển tất cả.",
+      "Gồm hàng trăm/nghìn Robot NHỎ, ĐƠN GIẢN.",
+      "Các Robot giao tiếp qua Internet đám mây.",
+      "Robot không có thân thể vật lý."
+    ],
+    "answer": 1,
+    "feedback": "Swarm Robotics đề cao tính Dư thừa (Redundancy). Mất đi 10 con robot trong bầy 1000 con không làm hệ thống sụp đổ. Rất hữu ích trong tìm kiếm cứu nạn. (Giải thích thêm: (Ví dụ: Kiến, Ong) (Emergent behavior) Mỗi con chỉ hành động theo luật cục bộ ngu ngốc, nhưng cả bầy tạo ra một trí tuệ tập thể cực kỳ phức tạp.)"
+  },
+  {
+    "id": 20,
+    "type": "true_false",
+    "difficulty": "Khó",
+    "question": "Dynamics (Động lực học) khó hơn Kinematics (Động học) vì Dynamics phải tính đến Khối lượng, Quán tính, Lực hấp dẫn, và Ma sát để xác định Lực (Torque) cần thiết cho động cơ thực thi.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Kinematics chỉ vẽ đường trên giấy. Dynamics (Ví dụ: phương trình Newton-Euler hay Lagrangian) mới quyết định xem động cơ có đủ khỏe để nâng vật nặng đó theo quỹ đạo đó hay không."
+  },
+  {
+    "id": 21,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Phân loại các Cảm biến phổ biến của Robot:",
+    "pairs": [
+      {
+        "left": "Lidar (Light Detection and Ranging)",
+        "right": "Bắn tia Laser và đo thời gian dội lại. Tạo ra Đám mây điểm 3D (Point Cloud) cực kỳ chính xác. Nhược điểm: Rất đắt và bị nhiễu bởi sương mù/kính."
+      },
+      {
+        "left": "Camera (RGB / Depth)",
+        "right": "Mô phỏng mắt người. Thu thập thông tin màu sắc và ngữ nghĩa cực phong phú. Cần thuật toán Computer Vision để hiểu ảnh. Giá rẻ."
+      },
+      {
+        "left": "Sonar (Siêu âm)",
+        "right": "Bắn sóng âm thanh. Cực kỳ rẻ, thường dùng để đo khoảng cách gần (như cảm biến lùi ô tô). Bị nhiễu bởi góc phản xạ."
+      }
+    ],
+    "feedback": "Việc kết hợp ưu điểm của Lidar, Camera, Radar lại với nhau được gọi là Cảm biến Hợp nhất (Sensor Fusion)."
+  },
+  {
+    "id": 22,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Khi lập kế hoạch đường đi tránh vật cản, phương pháp Cell Decomposition (Phân rã lưới) chia bản đồ thành các ô vuông rời rạc. Vấn đề lớn nhất của phương pháp này (khiến người ta phải dùng RRT hoặc PRM) là gì?",
+    "options": [
+      "Nó không tìm được đường đi ngắn nhất (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Sự Bùng nổ Tổ hợp. Nếu không gian cấu hình có 6 chiều, chia mỗi chiều 10 ô, ta có $10^6 = 1.000.000$ ô. Tốn quá nhiều RAM và CPU để dò đường.",
+      "Nó chỉ dùng cho robot có 1 bánh xe (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Nó bị lỗi với hình tròn (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 1,
+    "feedback": "Cell Decomposition rất tuyệt vời cho không gian 2D (Nhân vật game đi trên mặt phẳng). Nhưng đối với cánh tay 6 trục (6D), thuật toán Sampling-based (lấy mẫu ngẫu nhiên) mới là vua. (Giải thích thêm: (Curse of Dimensionality))"
+  },
+  {
+    "id": 23,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Khái niệm ____________ (Odometry) là quá trình Robot ước lượng vị trí của mình bằng cách đếm số vòng quay của bánh xe (Encoders). Tuy nhiên, phương pháp này gặp vấn đề 'Tích lũy sai số' (Drift) rất lớn do bánh xe bị trượt trên mặt sàn.",
+    "options": [
+      "Odometry",
+      "Telemetry",
+      "Geometry",
+      "Symmetry"
+    ],
+    "answer": 0,
+    "feedback": "Điểm mù của Odometry là nó tưởng mình đang tiến tới vì bánh xe đang quay, nhưng thực chất bánh xe đang bị trượt trên vũng dầu. Do đó phải kết hợp Odometry với Cảm biến ngoại vi (Camera/Lidar)."
+  },
+  {
+    "id": 24,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Reinforcement Learning (Học tăng cường) ngày càng được dùng nhiều trong Robotics (Đặc biệt là Robot đi bằng 4 chân - Quadruped). Vì sao RL lại hấp dẫn so với Điều khiển cổ điển (PID)? (Chọn đáp án đúng)",
+    "options": [
+      "RL không cần con người viết tay các phương trình vật lý Động lực học vô cùng phức tạp của việc bước đi.",
+      "RL tự động học được dáng đi thông qua quá trình Thử (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Chính sách sinh ra từ RL có khả năng phản xạ và thích nghi với các lực đẩy bất ngờ cực kỳ dẻo dai.",
+      "RL không tiêu thụ điện năng (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Đây là lý do các con robot chó của Boston Dynamics hay Unitree có thể đi trên băng tuyết, leo cầu thang và đứng dậy khi bị đá ngã một cách rất tự nhiên. (Giải thích thêm: (vốn thay đổi khi mặt đất gồ ghề)) (Giải thích thêm: (Gait) (Simulation) Sai trong môi trường Mô phỏng.) (Giải thích thêm: (Policy Network))"
+  },
+  {
+    "id": 25,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Quy trình giải bài toán Inverse Kinematics (Động học nghịch) bằng phương pháp Lặp số học (Numerical Approach - Jacobian Inverse):",
+    "items": [
+      "Đoán bừa một tư thế các khớp hiện tại.",
+      "Dùng Forward Kinematics để xem với tư thế đoán đó, Mũi kẹp đang ở tọa độ nào.",
+      "Tính Lỗi (Error) = Tọa độ Mục tiêu - Tọa độ Mũi kẹp hiện tại.",
+      "Tính Ma trận Jacobian (Đạo hàm riêng) thể hiện mối quan hệ: Nếu bẻ mỗi khớp 1 độ thì Mũi kẹp sẽ nhích đi đâu.",
+      "Dùng Nghịch đảo Ma trận Jacobian (hoặc Pseudo-inverse) nhân với Lỗi để tìm ra góc cần bẻ thêm cho mỗi khớp.",
+      "Cập nhật góc mới cho các khớp và lặp lại quá trình cho đến khi Lỗi tiến về 0."
+    ],
+    "feedback": "Cách này giống như thuật toán Gradient Descent trong Machine Learning. Nó chậm hơn cách giải phương trình phân tích (Analytical), nhưng có thể áp dụng cho MỌI cánh tay robot."
+  },
+  {
+    "id": 26,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Đặc trưng lớn nhất của Đồ thị Voronoi (Voronoi Diagram) khi áp dụng vào Lập kế hoạch quỹ đạo là gì?",
+    "options": [
+      "Nó tìm đường đi CỰC KỲ NGẮN NHẤT (Sát sạt tường) (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Đường đi tạo bởi Voronoi Diagram luôn nằm CHÍNH GIỮA các chướng ngại vật, tạo ra đường đi AN TOÀN NHẤT cho Robot, tránh va quẹt.",
+      "Nó phá hủy các chướng ngại vật (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Nó chỉ hoạt động ở ngoài vũ trụ (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 1,
+    "feedback": "Ngược với Voronoi là Visibility Graph (Đồ thị tầm nhìn), luôn nối các đỉnh của chướng ngại vật với nhau, tạo ra đường đi ngắn nhất nhưng cực kỳ rủi ro vì sượt qua mép tường. (Giải thích thêm: (Cách đều tối đa))"
+  },
+  {
+    "id": 27,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Theo Kiến trúc Bao hàm (Subsumption Architecture) do Rodney Brooks khởi xướng, Robot KHÔNG CẦN một Hệ thống Suy luận Trung tâm phức tạp. Thay vào đó, nó là sự chồng chéo của nhiều Phản xạ đơn giản. Lớp phản xạ thấp (Tránh va chạm) luôn có quyền VƯỢT QUYỀN (Subsume) lớp phản xạ cao (Đi tìm vàng) nếu nguy hiểm xảy ra.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Tôn chỉ của kiến trúc này là 'The world is its own best model' (Thế giới thực chính là mô hình tốt nhất). Không cần vẽ bản đồ, cứ thấy tường là rẽ."
+  },
+  {
+    "id": 28,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Thuật ngữ 'Cobot' trong công nghiệp hiện đại có nghĩa là gì?",
+    "options": [
+      "Robot có thể nấu ăn.",
+      "Collaborative Robot - Robot cộng tác.",
+      "Robot bay không người lái.",
+      "Robot được làm từ Cobalt."
+    ],
+    "answer": 1,
+    "feedback": "Robot công nghiệp truyền thống (như tay máy hàn ô tô) rất khỏe nhưng ngu ngốc và cực kỳ nguy hiểm, có thể đập chết người nếu vào nhầm vùng hoạt động. (Giải thích thêm: (tự dừng khi chạm nhẹ) Loại robot được thiết kế an toàn tuyệt đối để CÙNG LÀM VIỆC CHUNG KHÔNG GIAN với con người, không cần lồng sắt bảo vệ.)"
+  },
+  {
+    "id": 29,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Trong Lý thuyết điều khiển tối ưu, phương trình ____________ (Bellman) là sợi chỉ đỏ xuyên suốt kết nối giữa Điều khiển học cổ điển và Reinforcement Learning. LQR (Linear Quadratic Regulator) là bộ điều khiển tối ưu giải phương trình này cho hệ tuyến tính.",
+    "options": [
+      "Bellman",
+      "Newton",
+      "Euler",
+      "Laplace"
+    ],
+    "answer": 0,
+    "feedback": "Rất nhiều khái niệm của Học tăng cường thực chất đã được giới Toán học - Điều khiển tự động phát minh từ những năm 1950 (dưới cái tên Quy hoạch động)."
+  },
+  {
+    "id": 30,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Tại sao Lập trình Robot (Robotics) lại được đánh giá là khó hơn rất nhiều so với Lập trình AI phần mềm thuần túy? (Chọn đáp án đúng)",
+    "options": [
+      "Robot bị giới hạn bởi Định luật Vật lý (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Giới hạn phần cứng: Khác với Cloud Server, AI trên Robot phải tính toán cực nhanh theo Thời gian thực trong khi chỉ có lượng Pin và chip máy tính cực kỳ hạn hẹp.",
+      "Nếu AI phần mềm sai, nó xuất ra một câu chữ sai (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Vì không có ngôn ngữ lập trình nào hỗ trợ (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Robotics là sự hội tụ đỉnh cao của Cơ khí, Điện tử, Lý thuyết điều khiển và Trí tuệ nhân tạo. Sự xuất hiện của ROS (Robot Operating System) đã giúp phần mềm hóa đáng kể quy trình này. (Giải thích thêm: (Quán tính, Trọng lực, Ma sát phi tuyến)) (Giải thích thêm: (như Drone) (Real-time) (Edge computing)) (Giải thích thêm: Nếu AI Robot sai, nó có thể phá hủy hàng triệu USD phần cứng hoặc gây chết người.)"
+  }
+]

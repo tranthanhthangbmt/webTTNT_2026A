@@ -1,0 +1,461 @@
+[
+  {
+    "id": 1,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Sự khác biệt căn bản nhất giữa cách NLP truyền thống và Deep Learning biểu diễn Từ vựng (Words) là gì?",
+    "options": [
+      "NLP truyền thống dùng số nguyên, Deep Learning dùng số thập phân.",
+      "NLP truyền thống biểu diễn từ bằng One-hot Vector rời rạc và không có ngữ nghĩa liên quan.",
+      "NLP truyền thống dịch từ sang tiếng Anh, Deep Learning giữ nguyên.",
+      "Deep Learning không cần biểu diễn từ, nó đọc trực tiếp văn bản."
+    ],
+    "answer": 1,
+    "feedback": "One-hot Vector coi từ 'Chó' và 'Mèo' vuông góc với nhau (Khoảng cách = 1), không hề có sự liên hệ. Word Embeddings sẽ đặt 'Chó' và 'Mèo' rất gần nhau trong không gian nhiều chiều. (Giải thích thêm: (Ví dụ: [0, 1, 0, 0...]) (Vector số thực dày đặc) Deep Learning dùng Word Embeddings chứa đựng NGỮ NGHĨA và SỰ TƯƠNG ĐỒNG.)"
+  },
+  {
+    "id": 2,
+    "type": "fill_blank",
+    "difficulty": "Dễ",
+    "question": "Thuật toán ____________ (Word2Vec) do Tomas Mikolov (Google) giới thiệu năm 2013 là một bước ngoặt của NLP, giúp nhúng (embed) các từ vào không gian vector sao cho các thao tác toán học như: Vector('Vua') - Vector('Đàn ông') + Vector('Phụ nữ') $\\approx$ Vector('Nữ hoàng') trở nên khả thi.",
+    "options": [
+      "Word2Vec",
+      "FastText",
+      "GloVe",
+      "BERT"
+    ],
+    "answer": 0,
+    "feedback": "Word2Vec có 2 cấu trúc huấn luyện chính là CBOW (Đoán từ trung tâm dựa vào từ xung quanh) và Skip-gram (Dùng từ trung tâm để đoán các từ xung quanh)."
+  },
+  {
+    "id": 3,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Thuật toán FastText (do Facebook AI phát triển) cải tiến Word2Vec ở những điểm nào? (Chọn đáp án đúng)",
+    "options": [
+      "Nó không dùng Nơ ron, chỉ dùng đếm xác suất truyền thống (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Thay vì học Vector cho toàn bộ một TỪ, nó học Vector cho từng mảnh ký tự nhỏ.",
+      "Nó CÓ THỂ ĐOÁN ĐƯỢC NGỮ NGHĨA CỦA TỪ MỚI chưa từng xuất hiện trong từ điển, bằng cách cộng các Vector mảnh ký tự lại với nhau.",
+      "Nó chỉ hoạt động với tiếng Anh (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": [
+      1,
+      2
+    ],
+    "feedback": "Khả năng xử lý từ mới và từ sai chính tả của FastText là một bước tiến cực lớn, đặc biệt đối với các ngôn ngữ chắp dính hoặc có nhiều biến thể từ loại (Morphology) như tiếng Đức hay Tiếng Việt. (Giải thích thêm: (Word) (Subword / Character N-grams) Ví dụ 'where' được tách thành '<wh', 'whe', 'her', 'ere', 're>'.) (Giải thích thêm: (Out-of-vocabulary))"
+  },
+  {
+    "id": 4,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Nhược điểm chung của Word2Vec, GloVe và FastText (Các mô hình Word Embedding tĩnh) là gì?",
+    "options": [
+      "Không thể chạy trên GPU (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Chúng gán cho mỗi từ ĐÚNG MỘT Vector duy nhất, bất chấp ngữ cảnh.",
+      "Kích thước file quá nhỏ (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Quá khó để huấn luyện (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 1,
+    "feedback": "Đây là lý do ELMo và sau này là BERT ra đời (Contextualized Embeddings). Trong BERT, vector của từ 'Bank' sẽ thay đổi linh hoạt tùy thuộc vào các từ xung quanh nó trong câu. (Giải thích thêm: (Static Embedding) (Polysemy) (Bờ sông / Ngân hàng) Do đó chúng BẤT LỰC trước hiện tượng Từ nhiều nghĩa như từ 'Bank'.)"
+  },
+  {
+    "id": 5,
+    "type": "matching",
+    "difficulty": "Khó",
+    "question": "Ghép nối các kiến trúc Deep Learning NLP thời kỳ trước Transformer với đặc điểm của chúng:",
+    "pairs": [
+      {
+        "left": "RNN (Recurrent Neural Network)",
+        "right": "Đọc câu từ trái sang phải, chuyển Trạng thái ẩn (Hidden state) từ bước này sang bước kia. Bị vấn đề Tiêu biến đạo hàm (Quên thông tin dài)."
+      },
+      {
+        "left": "LSTM / GRU",
+        "right": "Cải tiến của RNN, có thêm các 'Cổng' (Gates) để quyết định Nhớ hay Quên thông tin, giúp đọc được câu dài hơn."
+      },
+      {
+        "left": "Bi-directional RNN (Bi-RNN)",
+        "right": "Đọc câu theo HAI CHIỀU (Trái->Phải và Phải->Trái) cùng lúc. Giúp từ hiện tại hiểu được ngữ cảnh của cả quá khứ lẫn tương lai."
+      },
+      {
+        "left": "Seq2Seq (Sequence-to-Sequence)",
+        "right": "Kiến trúc Gồm 1 mạng Encoder (Nén câu nguồn thành 1 Vector bối cảnh) và 1 mạng Decoder (Sinh ra câu đích từ Vector đó). Dùng cho Dịch máy."
+      }
+    ],
+    "feedback": "Mô hình Seq2Seq (có Encoder-Decoder) là thiết kế kinh điển cho bài toán Dịch thuật. Tuy nhiên, việc ép Encoder nén một đoạn văn 100 từ vào vỏn vẹn MỘT Vector duy nhất (Nút thắt cổ chai) đã làm hỏng chất lượng dịch thuật."
+  },
+  {
+    "id": 6,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Cơ chế Attention (Chú ý) được sinh ra để giải quyết vấn đề 'Nút thắt cổ chai' (Bottleneck) của kiến trúc Seq2Seq cơ bản. Nó cho phép mạng Decoder khi sinh ra mỗi từ mới CÓ QUYỀN 'NHÌN LẠI' toàn bộ các từ trong câu nguồn để tự quyết định xem nên TẬP TRUNG (Chú ý) vào từ nào nhất.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Thay vì chỉ nhận 1 Vector nén cuối cùng, Decoder nhận TẤT CẢ các trạng thái của Encoder, tính điểm tương đồng (Attention weights) để tạo ra một Vector Bối cảnh ĐỘNG (Dynamic Context Vector) riêng biệt cho mỗi từ được sinh ra."
+  },
+  {
+    "id": 7,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Bước ngoặt lớn nhất mà kiến trúc Transformer (2017) mang lại để đánh bại hoàn toàn RNN/LSTM là gì?",
+    "options": [
+      "Nó dùng nhiều lớp hơn.",
+      "Nó vứt bỏ hoàn toàn cấu trúc RNN tuần tự.",
+      "Nó không dùng số thực, chỉ dùng số nguyên.",
+      "Nó loại bỏ khái niệm Encoder và Decoder."
+    ],
+    "answer": 1,
+    "feedback": "Bài báo 'Attention Is All You Need' là kinh thánh của AI hiện đại. RNN phải đợi từ thứ 1 xong mới tính được từ thứ 2. Transformer tính cả 1000 từ cùng lúc (nhờ Ma trận), khiến khả năng mở rộng (Scale up) mô hình trở nên vô hạn. (Giải thích thêm: Nó sử dụng cơ chế Self-Attention để TÍNH TOÁN SONG SONG tất cả các từ trong câu cùng MỘT LÚC, giúp tăng tốc độ huấn luyện trên GPU lên hàng nghìn lần.)"
+  },
+  {
+    "id": 8,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Vì Transformer tính toán song song tất cả các từ, nó bị 'Mù' về thứ tự thời gian. Nó không phân biệt được 'Chó cắn mèo' và 'Mèo cắn chó'. Để khắc phục, người ta phải cộng thêm một Vector gọi là ____________ Encoding (Mã hóa Vị trí) vào mỗi từ trước khi đưa vào mạng.",
+    "options": [
+      "Positional",
+      "Temporal",
+      "Sequential",
+      "Spatial"
+    ],
+    "answer": 0,
+    "feedback": "Positional Encoding (Thường dùng hàm Sine/Cosine) giống như việc đánh số trang cho các từ, giúp Transformer biết từ nào đứng trước, từ nào đứng sau."
+  },
+  {
+    "id": 9,
+    "type": "ordering",
+    "difficulty": "Khó",
+    "question": "Sắp xếp quá trình tính toán của cơ chế Self-Attention (Sự tự chú ý) trong mạng Transformer cho một từ (Ví dụ từ 'Bank'):",
+    "items": [
+      "Nhân Vector nhúng (Embedding) của từ 'Bank' với 3 ma trận trọng số $W_Q, W_K, W_V$ để tạo ra 3 vector: Query (Q), Key (K), Value (V)",
+      "Lấy vector Query của 'Bank' nhân vô hướng (Dot Product) với vector Key của TẤT CẢ các từ khác trong câu để tính Điểm thô (Raw score)",
+      "Chia Điểm thô cho căn bậc hai của kích thước vector (Scale) để tránh đạo hàm bị bão hòa",
+      "Đưa qua hàm Softmax để biến thành Trọng số chú ý (Attention Weights) có tổng bằng 1",
+      "Lấy các Trọng số chú ý nhân với vector Value (V) của các từ tương ứng",
+      "Cộng tổng tất cả lại để ra Output Vector cuối cùng mang ngữ cảnh của cả câu cho từ 'Bank'"
+    ],
+    "feedback": "Công thức kinh điển: $\\text{Attention}(Q, K, V) = \\text{softmax}\\left(\\frac{QK^T}{\\sqrt{d_k}}\\right)V$. Trông có vẻ phức tạp nhưng nó chỉ là những phép nhân ma trận thuần túy, cực kỳ phù hợp cho phần cứng GPU."
+  },
+  {
+    "id": 10,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Cơ chế Multi-Head Attention (Chú ý Đa đầu) trong Transformer có tác dụng gì? (Chọn đáp án đúng)",
+    "options": [
+      "Thay vì chỉ có 1 cơ chế Self-Attention, mạng chia tách thành nhiều 'Đầu' chú ý độc lập.",
+      "Mỗi 'Đầu' có thể học cách chú ý vào MỘT KHÍA CẠNH NGỮ PHÁP/NGỮ NGHĨA KHÁC NHAU..",
+      "Nó làm giảm thời gian tính toán đi 8 lần (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Giúp mô hình có cái nhìn đa chiều phong phú hơn về câu văn."
+    ],
+    "answer": [
+      0,
+      1,
+      3
+    ],
+    "feedback": "Multi-Head Attention giống như việc bạn đọc một đoạn văn với nhiều chiếc kính lọc khác nhau: Kính tìm lỗi chính tả, kính cảm thụ văn học, kính tóm tắt nội dung... (Giải thích thêm: (Heads) (Ví dụ 8 heads)) (Giải thích thêm: (Ví dụ: Đầu 1 chú ý vào Động từ, Đầu 2 chú ý vào Đại từ nhân xưng, Đầu 3 chú ý vào Tính từ))"
+  },
+  {
+    "id": 11,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Mô hình BERT (Bidirectional Encoder Representations from Transformers) do Google tạo ra (2018) chỉ sử dụng phần nào của kiến trúc Transformer gốc?",
+    "options": [
+      "Chỉ sử dụng phần Decoder.",
+      "Chỉ sử dụng phần Encoder.",
+      "Sử dụng cả Encoder và Decoder.",
+      "Không sử dụng Transformer."
+    ],
+    "answer": 1,
+    "feedback": "Vì chỉ dùng Encoder, BERT 'nhìn thấy' được toàn bộ câu cùng một lúc (Hai chiều - Bidirectional). Nó sinh ra để HIỂU ngôn ngữ (Text Classification, Question Answering, NER) chứ KHÔNG PHẢI để SINH văn bản."
+  },
+  {
+    "id": 12,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Mô hình GPT (Generative Pre-trained Transformer) của OpenAI sử dụng phần nào của kiến trúc Transformer?",
+    "options": [
+      "Chỉ sử dụng phần Encoder.",
+      "Chỉ sử dụng phần Decoder (Autoregressive).",
+      "Sử dụng cả hai.",
+      "Dùng RNN."
+    ],
+    "answer": 1,
+    "feedback": "Decoder bị 'che khuất' (Masked) tương lai, nghĩa là khi đang sinh từ thứ 3, nó TUYỆT ĐỐI không được nhìn thấy từ thứ 4. Do đó GPT rất giỏi trong việc SINH văn bản tiếp theo (Text Generation), tạo nên nền tảng của ChatGPT."
+  },
+  {
+    "id": 13,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Mô hình T5 (Text-to-Text Transfer Transformer) của Google sử dụng CẢ Encoder VÀ Decoder. Điểm đặc biệt của T5 là nó đúc kết MỌI BÀI TOÁN NLP (Dịch thuật, Tóm tắt, Trả lời câu hỏi) về cùng một định dạng duy nhất: Đầu vào là Text, Đầu ra là Text.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Với T5, nếu muốn dịch, bạn đưa input: 'translate English to German: That is good'. Đầu ra sẽ là: 'Das ist gut'. Điều này chuẩn hóa toàn bộ quá trình huấn luyện."
+  },
+  {
+    "id": 14,
+    "type": "matching",
+    "difficulty": "Khó",
+    "question": "Ghép nối các phương pháp Tiền huấn luyện (Pre-training) của các Mô hình Ngôn ngữ Lớn (LLMs):",
+    "pairs": [
+      {
+        "left": "Causal Language Modeling (CLM) / Autoregressive",
+        "right": "Cho mô hình đọc 1 nửa câu và ép nó ĐOÁN TỪ TIẾP THEO (Next-word prediction). Dùng cho các mô hình họ GPT (Decoder)."
+      },
+      {
+        "left": "Masked Language Modeling (MLM)",
+        "right": "Cố tình ĐỤC LỖ (Che ngẫu nhiên 15% từ) trong câu, sau đó ép mô hình dựa vào ngữ cảnh HAI CHIỀU xung quanh để Điền vào chỗ trống. Dùng cho BERT (Encoder)."
+      },
+      {
+        "left": "Next Sentence Prediction (NSP)",
+        "right": "Đưa cho mô hình 2 câu A và B, hỏi xem câu B có phải là câu đứng ngay sau câu A trong thực tế không? (Cũng dùng trong BERT để học mối quan hệ đoạn văn)."
+      }
+    ],
+    "feedback": "Việc Pre-training được thực hiện theo kiểu 'Tự Giám Sát' (Self-Supervised Learning) trên hàng Terabyte văn bản Wikipedia/Internet mà KHÔNG CẦN CON NGƯỜI GÁN NHÃN."
+  },
+  {
+    "id": 15,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Một Mô hình Ngôn ngữ Lớn (LLM) sau khi hoàn thành bước Pre-training (Học nhồi sọ trên Internet) thường cư xử như thế nào?",
+    "options": [
+      "Trở thành một trợ lý ảo lịch sự và ngoan ngoãn.",
+      "Nó chỉ là một cỗ máy Gợi ý từ tiếp theo khổng lồ.",
+      "Nó không biết nói tiếng người.",
+      "Nó tự động phân loại được mọi loại dữ liệu."
+    ],
+    "answer": 1,
+    "feedback": "Pre-trained LLM (Mô hình nền tảng - Foundation Model) giống như một cuốn Bách khoa toàn thư vô tri. Để biến nó thành Trợ lý ảo hiểu lệnh (như ChatGPT), người ta phải thực hiện bước tiếp theo: Fine-tuning. (Giải thích thêm: (Next-word predictor) (Tiếp tục liệt kê câu hỏi) Nếu bạn hỏi 'Thủ đô của Pháp là gì?', nó có thể trả lời 'Thủ đô của Anh là gì?' thay vì đưa ra câu trả lời.)"
+  },
+  {
+    "id": 16,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Quá trình lấy một Mô hình ngôn ngữ đã Pre-trained và huấn luyện thêm nó với một lượng nhỏ dữ liệu chất lượng cao (gồm các cặp Câu Lệnh - Phản Hồi) để dạy nó cách Tuân theo chỉ thị của người dùng được gọi là Instruction ____________ (Hoặc Instruction Tuning).",
+    "options": [
+      "Fine-tuning",
+      "Learning",
+      "Engineering",
+      "Generation"
+    ],
+    "answer": 0,
+    "feedback": "Instruction Fine-tuning (kết hợp với RLHF - Học tăng cường từ phản hồi con người) chính là 'Phép màu' biến GPT-3 thô sơ thành ChatGPT lừng danh."
+  },
+  {
+    "id": 17,
+    "type": "ordering",
+    "difficulty": "Dễ",
+    "question": "Sắp xếp Kích thước/Tham số (Parameters) của các mô hình nổi tiếng theo thứ tự từ Nhỏ đến Rất Lớn (Thể hiện sự phình to của Kỷ nguyên LLM):",
+    "items": [
+      "Word2Vec (2013): Vài chục triệu tham số",
+      "ELMo (2018): 94 triệu tham số",
+      "BERT Base (2018): 110 triệu tham số",
+      "GPT-2 (2019): 1.5 Tỷ tham số",
+      "GPT-3 (2020): 175 Tỷ tham số",
+      "GPT-4 / Gemini (2023+): Hàng ngàn tỷ tham số (Trillions of parameters)"
+    ],
+    "feedback": "Cùng với sự tăng lên của Tham số là Định luật Scaling Law (Quy luật tỷ lệ): Cứ cho AI mô hình to hơn và dữ liệu nhiều hơn, nó sẽ tự dưng 'Trỗi dậy' (Emergent Abilities) những kỹ năng chưa ai dạy như: Dịch thuật, Viết Code, Làm toán."
+  },
+  {
+    "id": 18,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Việc mã hóa văn bản (Tokenization) trong các LLM hiện đại (như GPT) không dùng Mức Từ (Word-level) cũng không dùng Mức Ký tự (Char-level). Họ sử dụng Mức Từ phụ (Subword Tokenization - ví dụ Byte Pair Encoding - BPE). Ưu điểm của BPE là gì? (Chọn đáp án đúng)",
+    "options": [
+      "Các từ thông dụng được giữ nguyên là 1 Token (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Các từ hiếm hoặc từ dài bị bẻ nhỏ thành các Token phụ (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Giới hạn được kích thước của bảng Từ vựng ở một con số cố định để tiết kiệm RAM mạng Nơ ron.",
+      "Nó dịch mọi văn bản sang mã nhị phân (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "BPE (Byte Pair Encoding) và WordPiece (Dùng trong BERT) là chuẩn mực Tokenization hiện tại. BPE đếm các cặp ký tự đi liền nhau nhiều nhất và gộp chúng lại, lặp đi lặp lại cho đến khi đạt đủ số lượng Token mong muốn. (Giải thích thêm: (như 'the', 'hello')) (Giải thích thêm: (như 'Unbelievable') ('Un', 'believ', 'able') (Out-of-Vocabulary) Điều này giúp mô hình XÓA BỎ hoàn toàn vấn đề Không có trong Từ điển.) (Giải thích thêm: (Vocabulary size) (ví dụ 50.000 tokens))"
+  },
+  {
+    "id": 19,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Kỹ thuật 'Prompt Engineering' (Kỹ nghệ Nhắc lệnh) trong thời đại LLMs hoạt động dựa trên nguyên lý nào?",
+    "options": [
+      "Cập nhật lại trọng số (Weights) của mạng Nơ ron.",
+      "Giữ NGUYÊN các trọng số của mô hình.",
+      "Viết code Python để điều khiển mạng.",
+      "Mở khóa các file dữ liệu ẩn."
+    ],
+    "answer": 1,
+    "feedback": "Đây là khái niệm In-Context Learning (Học trong ngữ cảnh). Prompt 'Act as a Senior Python Developer...' khiến mô hình tự kích hoạt vùng không gian vector chứa tri thức lập trình của nó mà không cần bất kỳ thuật toán Backpropagation nào. (Giải thích thêm: (Zero-shot / Few-shot) (Prompt) ví dụ mẫu VÀO TRONG ĐẦU VÀO, ép mô hình tự suy diễn ra cách làm bài mà không cần huấn luyện lại. Người dùng chỉ cung cấp Ngữ cảnh, Lời giải thích, hoặc Vài)"
+  },
+  {
+    "id": 20,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Kỹ thuật RAG (Retrieval-Augmented Generation) kết hợp khả năng Sinh văn bản của LLM với một Cơ sở dữ liệu Tìm kiếm (Vector Database). Nó giúp giải quyết triệt để vấn đề Ảo giác (Hallucination) và Thiếu cập nhật thông tin của LLM.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. GPT-4 không biết giá vàng hôm nay. Nhưng RAG sẽ Lấy (Retrieve) bài báo giá vàng hôm nay, nhét nó vào Prompt, rồi yêu cầu GPT-4 Đọc và Sinh ra (Generate) câu trả lời dựa trên bài báo đó. Trí tuệ của máy + Dữ liệu của con người."
+  },
+  {
+    "id": 21,
+    "type": "matching",
+    "difficulty": "Khó",
+    "question": "So sánh các phương pháp Fine-Tuning LLMs để phù hợp với người dùng bình thường (không có siêu máy tính):",
+    "pairs": [
+      {
+        "left": "Full Fine-tuning",
+        "right": "Cập nhật TOÀN BỘ hàng tỷ tham số của mô hình. Tốn cực nhiều VRAM và tài nguyên (Rất đắt đỏ)."
+      },
+      {
+        "left": "LoRA (Low-Rank Adaptation)",
+        "right": "Đóng băng toàn bộ mô hình gốc. Chỉ chèn thêm các Ma trận Hạng thấp (Low-rank) siêu nhỏ vào mạng và huấn luyện chúng. Giảm 99% tham số cần huấn luyện (Rẻ, chạy được trên 1 Card đồ họa)."
+      },
+      {
+        "left": "Prompt Tuning / P-Tuning",
+        "right": "Chỉ huấn luyện các Vector Nhúng Ảo (Soft Prompts) gắn ở đầu chuỗi Input, đóng băng toàn bộ mạng."
+      }
+    ],
+    "feedback": "LoRA là cứu cánh của cộng đồng Mã nguồn mở. Nhờ LoRA, mọi người đều có thể tải LLaMA về nhà và Fine-tune nó thành chuyên gia Toán học, Y tế, hay Chatbot tiếng Việt chỉ với vài chục Đô la tiền điện toán."
+  },
+  {
+    "id": 22,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Vì sao các Mô hình ngôn ngữ thường gặp khó khăn với các bài toán Toán học hay Suy luận logic dài, dù chúng rất giỏi ngôn ngữ?",
+    "options": [
+      "Vì chúng không được dạy Toán (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Vì chúng sinh văn bản theo kiểu 'Phản xạ có điều kiện'.",
+      "Vì số thực của máy tính bị tràn bộ nhớ.",
+      "Vì chúng ghét môn Toán (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 1,
+    "feedback": "Để khắc phục, người ta phát minh ra kỹ thuật Chain-of-Thought (Chuỗi Suy Nghĩ). Bằng cách mồi câu lệnh 'Hãy suy nghĩ từng bước một' (Let's think step by step), mô hình bị ép sinh ra các câu trung gian, giúp nó có 'Không gian nháp' để tư duy chậm lại (Hệ thống 2). (Giải thích thêm: (Hệ thống 1 của con người) Mỗi từ sinh ra chỉ tốn 1 mức thời gian tính toán cố định, không có thời gian để 'Dừng lại và Suy nghĩ'.)"
+  },
+  {
+    "id": 23,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Trong kiến trúc Transformer, hiện tượng 'Tiêu biến độ dài' (Context Window Limit) xảy ra vì độ phức tạp tính toán của thuật toán Self-Attention tăng theo tỷ lệ ____________ (Bình phương / Khối / Tuyến tính) chiều dài chuỗi đầu vào ($O(N^2)$). Tức là chuỗi dài gấp 10 thì RAM tốn gấp 100 lần.",
+    "options": [
+      "Bình phương",
+      "Khối",
+      "Tuyến tính",
+      "Logarit"
+    ],
+    "answer": 0,
+    "feedback": "Độ phức tạp $O(N^2)$ (Bình phương / Quadratic) là rào cản lớn nhất của Transformer. Gần đây, nhờ các kỹ thuật tối ưu phần cứng (FlashAttention) và kiến trúc mới (Mamba, RingAttention), Context Window đã tăng từ 2.000 tokens (GPT-3) lên 1.000.000 tokens (Gemini 1.5 Pro)."
+  },
+  {
+    "id": 24,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Mô hình ngôn ngữ BERT (Encoder-only) rất mạnh trong các bài toán nào dưới đây? (Chọn đáp án đúng)",
+    "options": [
+      "Phân loại cảm xúc (Sentiment Analysis) (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Nhận dạng thực thể có tên (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Tìm câu trả lời bằng cách trích xuất một đoạn nhỏ trong đoạn văn lớn.",
+      "Sáng tác bài hát và viết Thơ (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "BERT (Encoder) xuất sắc trong việc HIỂU văn bản. Nhưng nó hoàn toàn vô dụng trong việc SINH văn bản (không thể sáng tác thơ như GPT-Decoder) vì nó không có cấu trúc Autoregressive. (Giải thích thêm: (Named Entity Recognition)) (Giải thích thêm: (Extractive Question Answering))"
+  },
+  {
+    "id": 25,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Quy trình ứng dụng BERT để phân loại văn bản (Ví dụ: Thư rác / Không rác):",
+    "items": [
+      "Thêm thẻ [CLS] vào ĐẦU câu văn và thẻ [SEP] vào CUỐI câu văn",
+      "Tokenize câu văn thành các Subwords (WordPiece)",
+      "Truyền câu qua 12 lớp Transformer Encoder của mô hình BERT đã được Pre-trained",
+      "Lấy ra Vector Output tương ứng của riêng thẻ [CLS]. (Vì BERT được thiết kế để Vector [CLS] tổng hợp toàn bộ ngữ cảnh của câu)",
+      "Đưa Vector [CLS] này qua một Lớp Linear đơn giản (Fully Connected) và hàm Softmax",
+      "Dùng dữ liệu (Thư rác/Không rác) để Fine-tune nhẹ (Cập nhật Backpropagation) lớp Linear và BERT"
+    ],
+    "feedback": "Thẻ đặc biệt [CLS] (Classification) là một thiết kế thông minh của Google, biến bài toán chuỗi độ dài tùy ý thành bài toán lấy 1 vector có chiều dài cố định để phân loại."
+  },
+  {
+    "id": 26,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Sự xuất hiện của 'Zero-Shot Translation' (Dịch thuật Không mẫu) trong các Mô hình Đa ngôn ngữ (Multilingual Models như mBERT, XLM) có nghĩa là gì?",
+    "options": [
+      "Dịch với 0% độ chính xác.",
+      "Bạn dạy mô hình Dịch Tiếng Anh -> Tiếng Pháp.",
+      "Dịch ngay lập tức trong 0 giây.",
+      "Không cần dùng máy tính."
+    ],
+    "answer": 1,
+    "feedback": "Điều này chứng minh rằng các Mô hình Ngôn ngữ đã tạo ra một 'Không gian biểu diễn Ngôn ngữ chung' (Interlingua) bên trong mạng nơ ron. Từ 'Cat', 'Chat' (Pháp), 'Mèo' (Việt) đều hội tụ về một tọa độ vector chung trong không gian. (Giải thích thêm: Bạn dạy nó Dịch Tiếng Anh -> Tiếng Việt. Nó TỰ ĐỘNG biết dịch Tiếng Pháp -> Tiếng Việt mà không cần bạn cung cấp bất kỳ một câu song ngữ Pháp-Việt nào để huấn luyện.)"
+  },
+  {
+    "id": 27,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Trong xử lý ngôn ngữ tự nhiên, kỹ thuật Masked Language Modeling (MLM) của BERT giống như trò chơi 'Điền từ vào chỗ trống' mà học sinh hay làm trong môn Tiếng Anh.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Việc bắt mô hình đoán từ bị che giấu 'Bầu trời màu [MASK]' ép mô hình phải học về thế giới vật lý và cú pháp ngôn ngữ."
+  },
+  {
+    "id": 28,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Để khắc phục việc Transformer chỉ xử lý được Text, các nhà nghiên cứu đã tạo ra Vision Transformer (ViT) dùng cho Hình ảnh bằng cách nào?",
+    "options": [
+      "Chuyển ảnh thành file MP3.",
+      "Cắt hình ảnh thành các Mảnh vuông nhỏ.",
+      "Chỉ dùng mạng CNN.",
+      "Dùng máy quét 3D."
+    ],
+    "answer": 1,
+    "feedback": "ViT (Vision Transformer) chứng minh rằng Transformer là một kiến trúc Đa Năng (General Architecture), không bị bó buộc vào Ngôn ngữ. Đây là khởi nguồn cho các AI Đa phương thức (Multimodal AI) hiện tại. (Giải thích thêm: (Patches - ví dụ 16x16 pixel) (Coing nó như 1 Từ/Word) Duỗi thẳng mỗi mảnh thành 1 Vector. Sau đó đưa chuỗi Mảnh ảnh này vào Transformer y hệt như đưa văn bản Text.)"
+  },
+  {
+    "id": 29,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Ảo giác (____________ - Hallucinations) là hiện tượng các mô hình ngôn ngữ lớn đưa ra các thông tin sai sự thật một cách cực kỳ tự tin và trôi chảy. Nguyên nhân sâu xa là do chúng chỉ học cách Tối đa hóa Likelihood của chuỗi từ, chứ không hề có một Khung tham chiếu Thực tế (Ground truth) nào trong quá trình Pre-training.",
+    "options": [
+      "Hallucination",
+      "Delusion",
+      "Illusion",
+      "Dreaming"
+    ],
+    "answer": 0,
+    "feedback": "Hallucination là vấn đề đau đầu số 1 của LLMs. Một con AI có thể bịa ra một bài báo khoa học với tên tác giả, tên tạp chí, số trang y như thật nhưng hoàn toàn không tồn tại."
+  },
+  {
+    "id": 30,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Những kỹ thuật 'Decoding' (Giải mã) nào được sử dụng phổ biến khi mô hình LLMs (như GPT) Sinh văn bản để kiểm soát độ sáng tạo? (Chọn đáp án đúng)",
+    "options": [
+      "Greedy Search (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Beam Search (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Top-K / Top-p Sampling kết hợp với thông số Nhiệt độ.",
+      "Backpropagation (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Temperature (Nhiệt độ) càng cao (ví dụ 1.0) thì câu chữ càng điên rồ và sáng tạo. Temperature = 0 thì mô hình biến thành Greedy Search, luôn luôn ra câu trả lời y hệt nhau, nghiêm túc và ít lỗi. (Giải thích thêm: (Chỉ lấy từ có xác suất lớn nhất ở mỗi bước - Văn bản rất khô khan, lặp lại)) (Giải thích thêm: (Giữ lại top K nhánh tiềm năng nhất để dò tìm câu tốt nhất)) (Giải thích thêm: (Nucleus Sampling) (Temperature) Cắt bỏ các từ có xác suất quá thấp, rồi Gieo xúc xắc ngẫu nhiên trong đám từ còn lại để văn bản bay bổng, sáng tạo hơn.)"
+  }
+]

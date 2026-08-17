@@ -1,0 +1,460 @@
+[
+  {
+    "id": 1,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Trong AI, để đưa ra quyết định hợp lý, hệ thống cần kết hợp hai yếu tố cốt lõi nào?",
+    "options": [
+      "Tốc độ CPU và dung lượng RAM.",
+      "Niềm tin và Mong muốn.",
+      "Thuật toán tìm kiếm và Thuật toán sắp xếp.",
+      "Logic bậc nhất và Logic mệnh đề."
+    ],
+    "answer": 1,
+    "feedback": "Xác suất (Beliefs) cho biết ĐIỀU GÌ CÓ THỂ xảy ra. Lợi ích (Desires/Utility) cho biết MÌNH THÍCH điều gì hơn. Kết hợp 2 cái này tạo ra 'Lý thuyết Quyết định' (Decision Theory). (Giải thích thêm: (Beliefs - Dựa trên Xác suất) (Desires - Dựa trên Lý thuyết Lợi ích))"
+  },
+  {
+    "id": 2,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Nguyên lý cơ bản nhất của Lý thuyết Quyết định nói rằng một tác tử hợp lý (Rational agent) phải luôn chọn hành động giúp Tối đa hóa ____________ (Expected Utility - Lợi ích Kỳ vọng).",
+    "options": [
+      "Độ tin cậy (Certainty)",
+      "Lợi ích Kỳ vọng (Expected Utility)",
+      "Lợi nhuận (Profit)",
+      "Chi phí (Cost)"
+    ],
+    "answer": 1,
+    "feedback": "Maximum Expected Utility (MEU). Lợi ích kỳ vọng của một hành động được tính bằng Tổng [Xác suất xảy ra Kết quả i × Lợi ích của Kết quả i]."
+  },
+  {
+    "id": 3,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Lý thuyết Lợi ích (Utility Theory) dựa trên một bộ 6 Tiên đề (Axioms of Rationality) do von Neumann và Morgenstern đề xuất. Những tiên đề nào sau đây thuộc bộ 6 tiên đề đó? (Chọn đáp án đúng)",
+    "options": [
+      "Tính bắc cầu (Transitivity): Nếu thích A hơn B, và B hơn C, thì phải thích A hơn C (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Tính sắp xếp được: Đối với mọi A và B, bạn phải xác định được bạn thích A hơn B, hay thích B hơn A, hay thích chúng ngang nhau.",
+      "Tính phi logic (Illogicality): Bạn có thể thích A hơn B hôm nay và thích B hơn A vào ngày mai vô cớ (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Tính liên tục: Nếu A tốt nhất, B trung bình, C tệ nhất, luôn tồn tại một xác suất p sao cho việc 'Chắc chắn nhận B' hoàn toàn tương đương với việc 'Chơi xổ số: trúng A với xác suất p, thua được C'."
+    ],
+    "answer": [
+      0,
+      1,
+      3
+    ],
+    "feedback": "Nếu một tác tử vi phạm bất kỳ tiên đề nào (ví dụ: vi phạm tính bắc cầu), người ta có thể chứng minh tác tử đó sẽ bị thua sạch tiền trong một trò chơi cược (Dutch book). (Giải thích thêm: (Orderability)) (Giải thích thêm: (Continuity))"
+  },
+  {
+    "id": 4,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Nếu một người luôn từ chối một trò chơi tung đồng xu công bằng (50% được 100 đô, 50% mất 100 đô) và thà chọn việc không chơi (chắc chắn không mất gì), người đó được mô tả là người có tính cách gì trong kinh tế học?",
+    "options": [
+      "Thích rủi ro (Risk-seeking).",
+      "Trung lập với rủi ro (Risk-neutral).",
+      "Ngại rủi ro (Risk-averse).",
+      "Không biết tính toán."
+    ],
+    "answer": 2,
+    "feedback": "Lợi ích kỳ vọng (Expected Monetary Value - EMV) của trò chơi là 0 đô la. Việc không chơi cũng được 0 đô la. Nhưng người Ngại rủi ro (Risk-averse) đánh giá 'nỗi đau mất 100 đô' LỚN HƠN 'niềm vui được 100 đô', nên họ từ chối."
+  },
+  {
+    "id": 5,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Ghép nối đường cong của Hàm Lợi ích theo Tiền (Utility of Money) với tính cách của tác tử:",
+    "pairs": [
+      {
+        "left": "Đường cong Lõm (Concave - Càng nhiều tiền, giá trị của 1 đồng càng giảm)",
+        "right": "Ngại rủi ro (Risk-averse - Đa số con người)"
+      },
+      {
+        "left": "Đường thẳng (Linear - 1 đồng luôn có giá trị như nhau)",
+        "right": "Trung lập với rủi ro (Risk-neutral)"
+      },
+      {
+        "left": "Đường cong Lồi (Convex - Càng nhiều tiền, 1 đồng tiếp theo càng quý)",
+        "right": "Thích rủi ro / Máu cờ bạc (Risk-seeking)"
+      }
+    ],
+    "feedback": "Đối với người nghèo (Risk-averse), trúng 1 tỷ rất quan trọng. Nhưng với tỷ phú, thêm 1 tỷ chẳng có cảm giác gì. Đó là lý do hàm Lợi ích theo tiền luôn Lõm (Logarithmic)."
+  },
+  {
+    "id": 6,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Giá trị Lợi ích (Utility) không phải là Tiền bạc. Nó là một con số vô hướng, do người thiết kế AI định nghĩa, dùng để đo lường mức độ 'Hài lòng' hoặc 'Thỏa mãn' của tác tử đối với một trạng thái cụ thể.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Tiền (Money) có tính khách quan. Lợi ích (Utility) có tính chủ quan. Mục tiêu của AI là tối đa hóa Utility, chứ không nhất thiết là Tiền."
+  },
+  {
+    "id": 7,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Trong Lợi ích đa thuộc tính (Multiattribute Utility), khái niệm 'Sự thống trị chặt chẽ' (Strict Dominance) nghĩa là gì?",
+    "options": [
+      "Lựa chọn A có tổng điểm lớn hơn Lựa chọn B.",
+      "Lựa chọn A tốt hơn Lựa chọn B ở MỌI thuộc tính.",
+      "Lựa chọn A tốt hơn B ở một vài thuộc tính quan trọng nhất.",
+      "Lựa chọn A được nhiều người mua hơn."
+    ],
+    "answer": 1,
+    "feedback": "Nếu A có 'Strict Dominance' so với B, ta có thể tự tin gạch bỏ B ngay lập tức mà không cần phải thực hiện bất kỳ tính toán cân nhắc (Trade-off) nào. (Giải thích thêm: (Ví dụ: Một chiếc xe vừa rẻ hơn, vừa an toàn hơn, vừa đẹp hơn))"
+  },
+  {
+    "id": 8,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Trường hợp khó hơn là 'Sự thống trị ____________' (Stochastic Dominance), khi mà lựa chọn A không chắc chắn thắng lựa chọn B ở mọi tình huống, nhưng BẢNG PHÂN PHỐI XÁC SUẤT của A luôn hứa hẹn kết quả tốt hơn (hoặc rủi ro thấp hơn) so với B.",
+    "options": [
+      "Logic",
+      "Tuyệt đối (Absolute)",
+      "Ngẫu nhiên / Thống kê (Stochastic)",
+      "Biên (Marginal)"
+    ],
+    "answer": 2,
+    "feedback": "Stochastic Dominance rất quan trọng khi đầu tư. Kế hoạch A có thể xui xẻo mang lại 0 đồng, Kế hoạch B có thể may mắn mang lại 100 đồng. Nhưng nếu XÁC SUẤT ăn tiền của A luôn đè bẹp B trên mọi mốc lợi nhuận, thì A thống trị B về mặt Thống kê."
+  },
+  {
+    "id": 9,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Sắp xếp quá trình hoạt động của một Tác tử ra quyết định dựa trên lý thuyết lợi ích (Utility-based Agent):",
+    "items": [
+      "Cảm biến nhận diện trạng thái hiện tại của môi trường",
+      "Liệt kê tất cả các Hành động khả dĩ",
+      "Dùng Mô hình xác suất để tính toán Phân phối các Trạng thái kết quả cho từng Hành động",
+      "Dùng Hàm lợi ích (Utility Function) để chấm điểm từng kết quả có thể xảy ra",
+      "Tính Lợi ích Kỳ vọng (Expected Utility) cho mỗi Hành động bằng cách nhân Xác suất với Điểm",
+      "Chọn và thực thi hành động có Expected Utility cao nhất (MEU)"
+    ],
+    "feedback": "Đây là vòng lặp tư duy 'Hoàn hảo' của một AI, kết hợp cả Cảm nhận, Dự đoán xác suất và Đánh giá lợi ích chủ quan."
+  },
+  {
+    "id": 10,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Khi đối mặt với việc đánh giá Lợi ích trên nhiều thuộc tính (Multiattribute), ví dụ Mua nhà (Giá cả, Vị trí, An ninh), việc gán một hàm Utility chung $U(x_1, x_2, ..., x_n)$ là rất khó. Người ta thường làm đơn giản bài toán bằng cách nào? (Chọn đáp án đúng)",
+    "options": [
+      "Giả định tính Độc lập ưu tiên",
+      "Tách hàm Lợi ích chung thành tổng của các hàm lợi ích con",
+      "Bỏ qua tất cả các thuộc tính ngoại trừ cái rẻ nhất.",
+      "Dùng hàm nhân (Multiplicative Utility Function)."
+    ],
+    "answer": [
+      0,
+      1,
+      3
+    ],
+    "feedback": "Giống như Conditional Independence trong Mạng Bayes giúp đơn giản hóa bảng CPT. Preferential Independence giúp đơn giản hóa hàm Utility từ 1 bảng khổng lồ thành Tổng (Additive) hoặc Tích (Multiplicative) của các bảng nhỏ. (Giải thích thêm: (Preferential Independence) Sở thích về Vị trí không phụ thuộc vào Giá cả.) (Giải thích thêm: (Additive Utility Function) (x_1) (x_2) $U = w_1 U_1 + w_2 U_2 + ...$)"
+  },
+  {
+    "id": 11,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Mạng Quyết định (Decision Networks) hay còn gọi là Influence Diagrams, mở rộng Mạng Bayes bằng cách thêm 2 loại Nút (Nodes) mới nào?",
+    "options": [
+      "Nút AND và Nút OR.",
+      "Nút Quyết định và Nút Lợi ích.",
+      "Nút Động và Nút Tĩnh.",
+      "Nút Gốc (Root) và Nút Lá (Leaf)."
+    ],
+    "answer": 1,
+    "feedback": "Mạng Bayes chỉ có Nút Cơ hội (Chance Nodes - Hình bầu dục). Decision Network thêm Nút Hình chữ nhật (Đại diện cho Lựa chọn của ta) và Nút Hình thoi (Đại diện cho Điểm số nhận được). (Giải thích thêm: (Decision Nodes - Hình chữ nhật) (Utility Nodes - Hình thoi)) (Giải thích thêm: (Dynamic Nodes) (Static Nodes))"
+  },
+  {
+    "id": 12,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Trong Decision Network, một mũi tên (cạnh) đi từ một Nút Quan sát (Chance Node) chỉa thẳng vào một Nút Quyết định (Decision Node) mang ý nghĩa gì?",
+    "options": [
+      "Nó mang ý nghĩa Nhân quả",
+      "Nó mang ý nghĩa Thông tin",
+      "Nó là một lỗi vẽ đồ thị.",
+      "Nó nghĩa là Quyết định bị cấm."
+    ],
+    "answer": 1,
+    "feedback": "Mũi tên chỉ vào Decision Node được gọi là 'Information link'. Ví dụ: Có mũi tên từ 'Kết quả Siêu âm' -> 'Quyết định Mổ'. Nghĩa là Bác sĩ CÓ xem kết quả siêu âm rồi mới quyết định mổ. (Giải thích thêm: Quan sát đó GÂY RA quyết định.) (Giải thích thêm: Tại thời điểm phải đưa ra Quyết định đó, tác tử ĐÃ BIẾT chắc chắn giá trị của nút Quan sát kia.)"
+  },
+  {
+    "id": 13,
+    "type": "true_false",
+    "difficulty": "Khó",
+    "question": "Giá trị của Thông tin hoàn hảo (Value of Perfect Information - VPI) về một biến E là số tiền (hoặc điểm utility) TỐI ĐA mà tác tử nên trả để biết chắc chắn trạng thái của E trước khi đưa ra quyết định.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. $VPI(E) = MEU(khi\\;biết\\;E) - MEU(khi\\;không\\;biết\\;E)$. Nếu thông tin mới không làm bạn THAY ĐỔI quyết định hiện tại, thì VPI của nó = 0 (bạn không nên tốn tiền mua thông tin đó)."
+  },
+  {
+    "id": 14,
+    "type": "matching",
+    "difficulty": "Dễ",
+    "question": "Ghép nối các loại Nút trong Mạng Quyết định (Decision Network) với hình dạng tiêu chuẩn của nó:",
+    "pairs": [
+      {
+        "left": "Chance Node (Nút cơ hội / Biến ngẫu nhiên)",
+        "right": "Hình Oval (Bầu dục)"
+      },
+      {
+        "left": "Decision Node (Nút quyết định / Hành động)",
+        "right": "Hình Chữ nhật (Rectangle)"
+      },
+      {
+        "left": "Utility Node (Nút lợi ích / Giá trị)",
+        "right": "Hình Thoi (Diamond)"
+      }
+    ],
+    "feedback": "Đây là tiêu chuẩn quốc tế để vẽ Influence Diagrams. AI sẽ tính toán để tìm ra giá trị tối ưu cho các ô Hình chữ nhật nhằm cực đại hóa ô Hình thoi."
+  },
+  {
+    "id": 15,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Tính chất nào sau đây của Giá trị Thông tin Hoàn hảo (VPI) là LUÔN ĐÚNG?",
+    "options": [
+      "VPI có thể nhận giá trị ÂM.",
+      "VPI luôn luôn Không âm ($VPI \\ge 0$).",
+      "VPI luôn lớn hơn 100.",
+      "VPI có tính cộng gộp (VPI(A,B) = VPI(A) + VPI(B))."
+    ],
+    "answer": 1,
+    "feedback": "Thông tin KHÔNG BAO GIỜ làm bạn tệ hơn (Trong một thế giới duy lý, không tính yếu tố tâm lý). $VPI \\ge 0$. Cùng lắm là thông tin đó vô dụng (VPI = 0), bạn vẫn chọn quyết định cũ. (Giải thích thêm: (Tức là biết thêm thông tin làm giảm lợi ích của bạn))"
+  },
+  {
+    "id": 16,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "VPI KHÔNG có tính cộng gộp (Not Additive). Nghĩa là $VPI(A, B)$ không nhất thiết bằng $VPI(A) + VPI(B)$. Tuy nhiên, VPI lại độc lập với ____________ (Thứ tự / Order) thu thập thông tin.",
+    "options": [
+      "Xác suất",
+      "Chi phí",
+      "Thứ tự (Order)",
+      "Thời gian"
+    ],
+    "answer": 2,
+    "feedback": "Bất kể bạn hỏi thông tin A trước rồi B sau, hay B trước A sau, tổng giá trị thông tin bạn nhận được cho quyết định cuối cùng vẫn y hệt nhau."
+  },
+  {
+    "id": 17,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Sắp xếp thuật toán Đánh giá một Mạng Quyết định (Evaluating Decision Networks) với 1 nút quyết định:",
+    "items": [
+      "Khởi tạo Bằng chứng (Evidence) cho các Nút Cơ hội đã biết",
+      "Duyệt qua MỖI hành động khả dĩ $a$ trong Nút Quyết định",
+      "Tính Xác suất Hậu nghiệm (Posterior) của các Nút Cha của Nút Lợi ích (dùng Mạng Bayes)",
+      "Tính Lợi ích Kỳ vọng (Expected Utility) của hành động $a$ bằng cách nhân Xác suất với Bảng Utility",
+      "So sánh và trả về hành động $a$ có Lợi ích Kỳ vọng cao nhất"
+    ],
+    "feedback": "Mạng Quyết định chỉ là một cái Mạng Bayes phải 'Chạy đi chạy lại nhiều lần'. Mỗi lần tương ứng với một 'What-if' (Nếu tôi chọn hành động A thì sao?)."
+  },
+  {
+    "id": 18,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Thuật ngữ 'Hệ chuyên gia (Expert System)' thường được đánh giá là kém cỏi hơn so với 'Hệ thống ra quyết định dựa trên Lợi ích (Utility-based system)'. Tại sao? (Chọn đáp án đúng)",
+    "options": [
+      "Hệ chuyên gia dựa trên các luật IF-THEN cứng nhắc, không xử lý tốt sự không chắc chắn.",
+      "Hệ chuyên gia thường đưa ra Khuyến nghị cố định.",
+      "Utility-based system kết hợp Xác suất thành công và Giá trị mạng sống để cân nhắc trade-off.",
+      "Hệ chuyên gia lập trình bằng Python, Utility lập trình bằng C++."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Việc ra quyết định luôn là sự cân bằng giữa Khả năng thành công (Xác suất) và Hậu quả (Utility). Các luật IF-THEN (như MYCIN thời xưa) thất bại vì đã 'Code cứng' sự cân bằng này vào luật. (Giải thích thêm: (Ví dụ: Viêm ruột thừa -> Mổ) (nguy cơ chết khi mổ rất cao) Nhưng nếu bệnh nhân là cụ già 90 tuổi, hệ chuyên gia IF-THEN không biết đường lùi.)"
+  },
+  {
+    "id": 19,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Hàm Utility (Hàm lợi ích) quy định rằng Lợi ích của cái chết đột ngột (Death) là...",
+    "options": [
+      "Trừ vô cực (-∞) (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Một số hữu hạn, vì nếu là -∞, con người sẽ không bao giờ dám bước ra khỏi nhà hay đi máy bay.",
+      "Bằng 100 (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Không thể định lượng (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": 1,
+    "feedback": "Trong AI và Kinh tế, rủi ro tử vong phải được gán một con số hữu hạn (Định giá sinh mạng con người - Micromort). Nếu không, AI sẽ luôn chọn 'Nằm im trên giường' để có MEU cao nhất. (Giải thích thêm: (Ví dụ: 0) (vì có 0.0001% xác suất chết, nhân với -∞ vẫn là -∞))"
+  },
+  {
+    "id": 20,
+    "type": "true_false",
+    "difficulty": "Khó",
+    "question": "Tính chất 'Substitutability' (Tính thay thế được) trong Lý thuyết lợi ích phát biểu rằng: Nếu bạn coi Trạng thái A và Trạng thái B là tương đương nhau, bạn có thể hoán đổi A và B trong MỌI trò chơi cá cược (lottery) phức tạp hơn mà không làm thay đổi Lợi ích của trò chơi đó.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Đây là cơ sở để quy hoạch động: Nếu phần lõi của vấn đề không thay đổi, phần vỏ bọc bên ngoài cũng không thay đổi. Giúp chia nhỏ bài toán quyết định lớn thành các quyết định nhỏ."
+  },
+  {
+    "id": 21,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Định giá một hành động (Ví dụ: Thăm dò dầu khí). Ghép nối:",
+    "pairs": [
+      {
+        "left": "Kỳ vọng khoan ngay không cần khảo sát",
+        "right": "$MEU = 50\\%$ ra dầu (Lãi 10M) + $50\\%$ khô (Lỗ 5M) = 2.5M"
+      },
+      {
+        "left": "Kỳ vọng khoan SAU KHI khảo sát địa chất",
+        "right": "$MEU_{sau khảo sát} = 4.0M$ (Nhờ né được các lỗ khoan khô)"
+      },
+      {
+        "left": "Giá trị của thông tin khảo sát (VPI)",
+        "right": "$4.0M - 2.5M = 1.5M$"
+      },
+      {
+        "left": "Hành động hợp lý",
+        "right": "Nếu công ty địa chất thu phí $1M (< 1.5M)$, HÃY THUÊ HỌ. Nếu họ thu $2M (> 1.5M)$, HÃY TỰ KHOAN MÙ."
+      }
+    ],
+    "feedback": "Đây là lý thuyết nền tảng cho việc Information Gathering (Thu thập thông tin). AI sẽ tính toán xem 'Việc nhìn/cảm nhận/hỏi' có đáng giá hơn so với 'Chi phí' bỏ ra không."
+  },
+  {
+    "id": 22,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Khái niệm 'Micromort' trong phân tích rủi ro có nghĩa là gì?",
+    "options": [
+      "Một loại vi khuẩn cực nhỏ (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Đơn vị đo lường cơ hội sống sót (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Đơn vị đo lường rủi ro, tương đương với 1 phần triệu xác suất tử vong.",
+      "Đơn vị tiền tệ trong AI (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 2,
+    "feedback": "Để định lượng rủi ro đời sống (Lái xe hơi, nhảy dù), người ta dùng Micromort. Nó giúp AI cân bằng giữa Lợi ích (Thời gian tiết kiệm được khi đi máy bay) và Rủi ro (Xác suất tai nạn). (Giải thích thêm: (1/1,000,000))"
+  },
+  {
+    "id": 23,
+    "type": "fill_blank",
+    "difficulty": "Dễ",
+    "question": "Chữ M trong nguyên lý MEU viết tắt của từ ____________ (Maximum - Tối đa hóa).",
+    "options": [
+      "Minimum",
+      "Maximum",
+      "Mean",
+      "Marginal"
+    ],
+    "answer": 1,
+    "feedback": "Maximum Expected Utility là tiêu chuẩn vàng (gold standard) của sự hợp lý (rationality)."
+  },
+  {
+    "id": 24,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Trong Lý thuyết Trò chơi (được phát triển từ Lý thuyết Quyết định), Nghịch lý Allais (Allais Paradox) cho thấy điều gì? (Chọn đáp án đúng)",
+    "options": [
+      "Con người thực tế KHÔNG HOÀN TOÀN TUÂN THEO các tiên đề của lý thuyết lợi ích (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Con người thường bị 'Hiệu ứng chắc chắn' lôi cuốn, họ sẵn sàng hy sinh một Expected Utility lớn để chọn một phần thưởng tuy nhỏ nhưng CHẮC CHẮN 100%.",
+      "Máy tính luôn đưa ra quyết định sai (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Xác suất không có thật (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "feedback": "Allais Paradox (và Ellsberg Paradox) chứng minh rằng Tâm lý học con người (Behavioral Economics) khác với AI duy lý. Con người ghét sự không chắc chắn (Ambiguity aversion). (Giải thích thêm: (Ví dụ: Tính thay thế được - Substitutability)) (Giải thích thêm: (Certainty effect))"
+  },
+  {
+    "id": 25,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Sắp xếp thứ tự một AI đưa ra quyết định Khám bệnh (Medical Decision Making) bằng Mạng Quyết định:",
+    "items": [
+      "Nhập Triệu chứng ban đầu của bệnh nhân vào các Chance Nodes",
+      "Tính VPI cho các Xét nghiệm y tế (Information Gathering)",
+      "Nếu VPI của một Xét nghiệm > Chi phí xét nghiệm (tiền bạc, đau đớn), chỉ định Bệnh nhân đi Xét nghiệm",
+      "Nhận kết quả Xét nghiệm và cập nhật Xác suất Hậu nghiệm cho bệnh (Disease)",
+      "Tính Expected Utility cho các phương án Điều trị (Mổ, Dùng thuốc, Không làm gì)",
+      "Chọn phương pháp Điều trị tối ưu nhất"
+    ],
+    "feedback": "Một quy trình khép kín: Hỏi/Khám (Information Gathering) cho đến khi thông tin không còn 'đáng giá' nữa, rồi mới ra Quyết định Hành động (Action)."
+  },
+  {
+    "id": 26,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Hàm Lợi ích (Utility Function) của một cá nhân thường được chuẩn hóa. Thang đo phổ biến nhất là:",
+    "options": [
+      "Từ -100 đến 100.",
+      "Từ 0 đến 1.",
+      "Bằng đúng số tiền đô la.",
+      "Từ 1 đến 10."
+    ],
+    "answer": 1,
+    "feedback": "Chuẩn hóa về [0, 1] giúp việc tính Expected Utility (cũng là số từ 0-1) rất dễ dàng và có thể so sánh trực tiếp như Xác suất. (Giải thích thêm: (U=0 là thảm họa tồi tệ nhất, U=1 là kết quả tốt nhất))"
+  },
+  {
+    "id": 27,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Tác tử ra quyết định dựa trên Lợi ích (Utility-based agent) thông minh và linh hoạt hơn nhiều so với Tác tử dựa trên Mục tiêu (Goal-based agent).",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Goal-based agent chỉ biết 2 trạng thái: Đạt mục tiêu (Thành công) hoặc Không (Thất bại). Utility-based agent biết cân nhắc 'Thành công nhưng tốn nhiều xăng' và 'Đi chậm nhưng an toàn', nó có thể tính toán Mức độ hài lòng."
+  },
+  {
+    "id": 28,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Khi hai hành động có cùng Expected Utility (Lợi ích kỳ vọng), AI sẽ làm gì?",
+    "options": [
+      "Bị sập hệ thống.",
+      "Tùy ý chọn ngẫu nhiên một trong hai.",
+      "Không chọn cái nào.",
+      "Hỏi người dùng."
+    ],
+    "answer": 1,
+    "feedback": "Nếu A và B mang lại cùng MEU, một tác tử hợp lý hoàn toàn trung lập giữa A và B (Nguyên lý Indifference). (Giải thích thêm: (bởi vì chúng hoàn toàn tương đương về mặt toán học))"
+  },
+  {
+    "id": 29,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Trong bài toán QALYs (Quality-Adjusted Life Years) ứng dụng cho Y tế, hàm Lợi ích của một đời người được tính bằng: (Số năm sống còn lại) × (Chất lượng ____________ của năm đó).",
+    "options": [
+      "Tiền bạc",
+      "Cuộc sống (Quality)",
+      "Công việc",
+      "Tình yêu"
+    ],
+    "answer": 1,
+    "feedback": "QALY = Life Years x Quality of Life. 10 năm sống trên giường bệnh (Quality 0.5) chỉ bằng 5 năm sống khỏe mạnh (Quality 1.0). Đây là tiêu chuẩn để Hệ thống ra quyết định trong Y tế phân bổ vắc-xin và phương pháp điều trị."
+  },
+  {
+    "id": 30,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Điều nào sau đây là hệ quả của Định lý Neumann-Morgenstern về Lợi ích? (Chọn đáp án đúng)",
+    "options": [
+      "Nếu một tác tử có Hành vi tuân thủ 6 tiên đề hợp lý.",
+      "Thì CHẮC CHẮN TỒN TẠI một hàm giá trị thực U biểu diễn các sở thích đó.",
+      "Và tác tử đó đưa ra quyết định y hệt như việc nó đang Tối đa hóa Lợi ích kỳ vọng.",
+      "Tác tử không bao giờ cần dùng đến xác suất."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Đây là cầu nối nền tảng của AI: Miễn là bạn là người 'hợp lý' (không mâu thuẫn), thì não của bạn đang vô tình vận hành một Hàm Utility, dù bạn có biết hay không. AI chỉ việc học lại hàm Utility đó. (Giải thích thêm: (Sở thích/Preferences)) (Giải thích thêm: (Utility function)) (Giải thích thêm: (MEU))"
+  }
+]

@@ -1,0 +1,464 @@
+[
+  {
+    "id": 1,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Tác tử (Agent) là bất cứ thứ gì có khả năng nhận thức môi trường thông qua ____________ và hành động trong môi trường đó thông qua ____________.",
+    "options": [
+      "Bộ xử lý (Processors) / Mạng (Networks)",
+      "Cảm biến (Sensors) / Cơ cấu chấp hành (Actuators)",
+      "Mắt (Eyes) / Tay (Hands)",
+      "Phần mềm (Software) / Phần cứng (Hardware)"
+    ],
+    "answer": 1,
+    "feedback": "Agent giao tiếp với môi trường bằng cách dùng Sensors để nhận thức (perceive) và Actuators để hành động (act)."
+  },
+  {
+    "id": 2,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Tính hợp lý (Rationality) đồng nghĩa với tính toàn tri (Omniscience). Một tác tử hợp lý bắt buộc phải biết trước mọi kết quả hành động của mình.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai. Omniscience (Toàn tri) là biết trước kết quả thực tế, trong khi Rationality (Hợp lý) chỉ là tối đa hóa hiệu suất kỳ vọng dựa trên những gì tác tử nhận thức được cho đến hiện tại."
+  },
+  {
+    "id": 3,
+    "type": "multiple_select",
+    "difficulty": "Dễ",
+    "question": "Đánh giá hiệu suất (Performance Measure) của một tác tử hút bụi lý tưởng có thể dựa trên các yếu tố nào sau đây? (Chọn các đáp án đúng)",
+    "options": [
+      "Lượng bụi đã hút được.",
+      "Lượng điện năng tiêu thụ (càng ít càng tốt).",
+      "Lượng thời gian bỏ ra để dọn dẹp.",
+      "Kích thước bộ nhớ RAM của tác tử."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Đánh giá hiệu suất dựa trên kết quả ở môi trường: sạch bụi, tiết kiệm điện, nhanh chóng. Dung lượng RAM chỉ là cấu trúc bên trong, không phải tiêu chí đánh giá thành quả."
+  },
+  {
+    "id": 4,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "PEAS là mô tả về môi trường tác vụ, viết tắt của: Performance measure, Environment, Actuators, và ____________.",
+    "options": [
+      "Software",
+      "Sensors",
+      "States",
+      "System"
+    ],
+    "answer": 1,
+    "feedback": "PEAS = Performance (Hiệu suất), Environment (Môi trường), Actuators (Cơ cấu chấp hành), Sensors (Cảm biến)."
+  },
+  {
+    "id": 5,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Nối các thành phần PEAS với ví dụ tương ứng đối với Tác tử Lái xe taxi tự động:",
+    "pairs": [
+      {
+        "left": "Performance",
+        "right": "Đến nơi an toàn, nhanh chóng, đúng luật, tối đa lợi nhuận"
+      },
+      {
+        "left": "Environment",
+        "right": "Đường xá, các xe khác, người đi bộ, khách hàng"
+      },
+      {
+        "left": "Actuators",
+        "right": "Vô lăng, chân ga, phanh, xi-nhan, còi"
+      },
+      {
+        "left": "Sensors",
+        "right": "Camera, sonar, GPS, công tơ mét"
+      }
+    ],
+    "feedback": "Đây là cách phân tích PEAS kinh điển cho bài toán lái xe tự động."
+  },
+  {
+    "id": 6,
+    "type": "ordering",
+    "difficulty": "Khó",
+    "question": "Sắp xếp quá trình hoạt động cơ bản của một Tác tử có học (Learning Agent) theo thứ tự luồng thông tin:",
+    "items": [
+      "Cảm biến (Sensors) nhận thông tin từ môi trường",
+      "Nhà phê bình (Critic) đánh giá chất lượng dựa trên tiêu chuẩn hiệu suất",
+      "Thành phần học (Learning Element) nhận phản hồi và đưa ra cải tiến",
+      "Thành phần hoạt động (Performance Element) quyết định hành động tiếp theo",
+      "Cơ cấu chấp hành (Actuators) thực thi hành động ra môi trường"
+    ],
+    "feedback": "Sensors -> Critic -> Learning Element -> Performance Element -> Actuators."
+  },
+  {
+    "id": 7,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Nếu cảm biến của tác tử cung cấp quyền truy cập vào trạng thái hoàn chỉnh của môi trường tại mọi thời điểm, môi trường đó được gọi là:",
+    "options": [
+      "Quan sát toàn phần (Fully observable)",
+      "Quan sát một phần (Partially observable)",
+      "Tất định (Deterministic)",
+      "Động (Dynamic)"
+    ],
+    "answer": 0,
+    "feedback": "Môi trường là Fully observable nếu sensors lấy được đầy đủ trạng thái cần thiết ở mỗi bước."
+  },
+  {
+    "id": 8,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Trò chơi Cờ vua đối kháng với một người chơi khác là một môi trường Tác tử đơn (Single-agent).",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai. Đây là môi trường Đa tác tử (Multiagent) và có tính cạnh tranh (competitive)."
+  },
+  {
+    "id": 9,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Một môi trường mà trạng thái tiếp theo được xác định hoàn toàn bởi trạng thái hiện tại và hành động do tác tử thực hiện, nhưng ngoại trừ hành động của các tác tử khác, thì được gọi là:",
+    "options": [
+      "Tất định (Deterministic)",
+      "Ngẫu nhiên (Stochastic)",
+      "Chiến lược (Strategic)",
+      "Giai đoạn (Episodic)"
+    ],
+    "answer": 2,
+    "feedback": "Theo AIMA, nếu môi trường deterministic ngoại trừ hành động của agent khác thì gọi là Strategic (Chiến lược)."
+  },
+  {
+    "id": 10,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Trong môi trường ____________ (Episodic), kinh nghiệm của tác tử được chia thành các tình huống độc lập. Hành động ở mỗi tình huống không ảnh hưởng đến các tình huống sau.",
+    "options": [
+      "Tuần tự (Sequential)",
+      "Giai đoạn (Episodic)",
+      "Rời rạc (Discrete)",
+      "Tĩnh (Static)"
+    ],
+    "answer": 1,
+    "feedback": "Episodic (Giai đoạn/Tập): Các quyết định hiện tại không làm thay đổi bài toán ở giai đoạn tiếp theo (ví dụ: phân loại hình ảnh)."
+  },
+  {
+    "id": 11,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Nối đặc tính của môi trường với định nghĩa đúng của nó:",
+    "pairs": [
+      {
+        "left": "Static (Tĩnh)",
+        "right": "Môi trường không thay đổi trong khi tác tử đang suy nghĩ."
+      },
+      {
+        "left": "Dynamic (Động)",
+        "right": "Môi trường thay đổi liên tục trong lúc tác tử đang ra quyết định."
+      },
+      {
+        "left": "Semidynamic (Bán động)",
+        "right": "Môi trường không đổi, nhưng điểm hiệu suất (thời gian) thay đổi khi tác tử nghĩ."
+      }
+    ],
+    "feedback": "Static: Giải ô chữ không bấm giờ. Dynamic: Lái xe taxi. Semidynamic: Chơi cờ vua có đồng hồ bấm giờ."
+  },
+  {
+    "id": 12,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Tác tử phản xạ đơn giản (Simple reflex agent) ra quyết định dựa trên điều gì?",
+    "options": [
+      "Lịch sử nhận thức toàn bộ từ trước đến nay.",
+      "Nhận thức hiện tại, bỏ qua toàn bộ lịch sử nhận thức.",
+      "Dự đoán về tương lai của môi trường.",
+      "Kế hoạch dài hạn mà nó đã lập ra."
+    ],
+    "answer": 1,
+    "feedback": "Tác tử phản xạ đơn giản chỉ quan tâm đến percept hiện tại, sử dụng luật điều kiện-hành động (condition-action rules)."
+  },
+  {
+    "id": 13,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Hạn chế lớn nhất của Tác tử phản xạ đơn giản là gì? (Chọn đáp án đúng)",
+    "options": [
+      "Nó đòi hỏi quá nhiều bộ nhớ để lưu trữ.",
+      "Nó chỉ hoạt động tốt nếu môi trường là quan sát toàn phần.",
+      "Nó dễ rơi vào vòng lặp vô hạn trong môi trường quan sát một phần.",
+      "Nó không thể dùng luật điều kiện-hành động."
+    ],
+    "answer": [
+      1,
+      2
+    ],
+    "feedback": "Vì bỏ qua quá khứ, nếu môi trường không fully observable, nó sẽ không thể biết được trạng thái thực sự và dễ bị lặp vô hạn. (Giải thích thêm: (fully observable))"
+  },
+  {
+    "id": 14,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Tác tử phản xạ dựa trên mô hình (Model-based reflex agent) sử dụng bộ nhớ nội bộ để duy trì thông tin về trạng thái thế giới hiện tại, giúp xử lý các môi trường quan sát một phần.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. 'Mô hình' ở đây là kiến thức về cách thế giới hoạt động để nó tự cập nhật trạng thái nội bộ."
+  },
+  {
+    "id": 15,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Một tác tử biết được trạng thái môi trường nhưng cần thêm ____________ (Goal) để quyết định hành động nào sẽ đưa nó đến tình huống mong muốn.",
+    "options": [
+      "Phần thưởng (Reward)",
+      "Luật lệ (Rules)",
+      "Mục tiêu (Goal)",
+      "Tiện ích (Utility)"
+    ],
+    "answer": 2,
+    "feedback": "Goal-based agent (Tác tử dựa trên mục tiêu) sử dụng thông tin mục tiêu để lựa chọn hành động dẫn tới mục tiêu."
+  },
+  {
+    "id": 16,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Sự khác biệt giữa Tác tử dựa trên mục tiêu (Goal-based) và Tác tử dựa trên tiện ích (Utility-based) là gì?",
+    "options": [
+      "Mục tiêu chỉ phân biệt trạng thái 'đạt/không đạt', còn tiện ích đo lường mức độ 'tốt/hạnh phúc' của trạng thái đó.",
+      "Mục tiêu dùng cho môi trường động, còn tiện ích dùng cho môi trường tĩnh.",
+      "Tiện ích không quan tâm đến trạng thái, chỉ quan tâm đến hành động (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Không có sự khác biệt, hai khái niệm này là một (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 0,
+    "feedback": "Tiện ích (Utility) là một hàm ánh xạ trạng thái sang số thực, biểu diễn độ thỏa mãn. Mục tiêu chỉ là hệ nhị phân (Goal/Not goal)."
+  },
+  {
+    "id": 17,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Sắp xếp các cấp độ tác tử từ cơ bản/đơn giản nhất đến phức tạp/linh hoạt nhất theo giáo trình AIMA:",
+    "items": [
+      "Tác tử phản xạ đơn giản (Simple reflex agent)",
+      "Tác tử phản xạ dựa trên mô hình (Model-based reflex agent)",
+      "Tác tử dựa trên mục tiêu (Goal-based agent)",
+      "Tác tử dựa trên tiện ích (Utility-based agent)"
+    ],
+    "feedback": "Đơn giản nhất là Simple Reflex -> Model-based -> Goal-based -> phức tạp nhất là Utility-based."
+  },
+  {
+    "id": 18,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Trong kiến trúc Tác tử học (Learning Agent), thành phần 'Bộ tạo vấn đề' (Problem Generator) có vai trò gì?",
+    "options": [
+      "Tạo ra các lỗi để hệ thống tự sập và khởi động lại.",
+      "Đề xuất các hành động mới để khám phá môi trường, thay vì chỉ khai thác tối ưu hiện tại.",
+      "Sinh ra các bài toán ngẫu nhiên cho người dùng giải.",
+      "Ngăn cản tác tử làm những hành động an toàn theo lối mòn."
+    ],
+    "answer": [
+      1,
+      3
+    ],
+    "feedback": "Problem Generator có nhiệm vụ xúi giục tác tử khám phá (exploration) thực hiện những hành động mới có thể tối ưu hơn trong tương lai, thay vì chỉ dậm chân tại chỗ."
+  },
+  {
+    "id": 19,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Bản mô tả phần mềm biến một chuỗi nhận thức thành một hành động cụ thể được gọi là gì?",
+    "options": [
+      "Chương trình tác tử (Agent Program)",
+      "Kiến trúc tác tử (Agent Architecture)",
+      "Môi trường (Environment)",
+      "Bộ cảm biến (Sensor)"
+    ],
+    "answer": 0,
+    "feedback": "Agent = Architecture (phần cứng/nền tảng tính toán) + Program (chương trình phần mềm)."
+  },
+  {
+    "id": 20,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Một môi trường 'Rời rạc' (Discrete) là môi trường có số lượng các trạng thái, nhận thức và hành động là vô hạn và không thể đếm được.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai. Discrete là hữu hạn hoặc vô hạn đếm được (như cờ vua). Continuous (Liên tục) mới là không đếm được (như lái xe thực tế)."
+  },
+  {
+    "id": 21,
+    "type": "matching",
+    "difficulty": "Khó",
+    "question": "Nối loại Môi trường với một ứng dụng đặc trưng nhất:",
+    "pairs": [
+      {
+        "left": "Cờ vua (không bấm giờ)",
+        "right": "Fully observable, Multiagent, Deterministic, Static, Discrete"
+      },
+      {
+        "left": "Lái xe taxi tự động",
+        "right": "Partially observable, Multiagent, Stochastic, Dynamic, Continuous"
+      },
+      {
+        "left": "Phân loại hình ảnh y tế",
+        "right": "Fully observable, Single-agent, Episodic, Static, Continuous"
+      },
+      {
+        "left": "Giao dịch cổ phiếu",
+        "right": "Partially observable, Multiagent, Stochastic, Dynamic, Discrete"
+      }
+    ],
+    "feedback": "Đây là các ví dụ phân loại môi trường nổi tiếng trong sách AIMA (Bảng 2.6)."
+  },
+  {
+    "id": 22,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Môi trường mà tác tử biết trước hoàn toàn 'luật chơi' hay các quy luật vật lý tác động đến kết quả hành động được gọi là môi trường ____________ (Known).",
+    "options": [
+      "Tất định (Deterministic)",
+      "Toàn phần (Fully observable)",
+      "Đã biết (Known)",
+      "Liên tục (Continuous)"
+    ],
+    "answer": 2,
+    "feedback": "Known/Unknown liên quan đến kiến thức của tác tử về quy luật môi trường. Fully/Partially observable liên quan đến những gì cảm biến nhìn thấy hiện tại."
+  },
+  {
+    "id": 23,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Trong môi trường máy tính/Internet, một 'Tác tử phần mềm' (Software Agent / Softbot) thường sử dụng gì để làm Actuators?",
+    "options": [
+      "Bánh xe, cánh tay robot (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Gửi các gói tin mạng, ghi file, hiện hiển thị lên màn hình.",
+      "Camera, bàn phím, chuột (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Động cơ điện, loa ngoài (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 1,
+    "feedback": "Softbot không có cơ thể vật lý. Actuators của nó là các hàm API ghi file, gửi mạng, hiển thị GUI."
+  },
+  {
+    "id": 24,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Trạng thái nội bộ (Internal state) trong Tác tử phản xạ dựa trên mô hình phụ thuộc vào 2 loại tri thức nào?",
+    "options": [
+      "Cách thế giới tiến hóa độc lập và Cách hành động của tác tử ảnh hưởng đến thế giới.",
+      "Trạng thái tương lai hoàn hảo và Hàm phần thưởng (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Kiến thức về các tác tử khác và Luật đạo đức (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Thuật toán tìm kiếm và Cây quyết định (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 0,
+    "feedback": "Để duy trì mô hình thế giới, tác tử cần biết (1) thế giới tự tiến hóa ra sao, và (2) hành động của mình làm thế giới thay đổi thế nào."
+  },
+  {
+    "id": 25,
+    "type": "multiple_select",
+    "difficulty": "Dễ",
+    "question": "Tính tự chủ (Autonomy) của một tác tử thể hiện qua việc:",
+    "options": [
+      "Hành vi của nó được xác định dựa trên chính kinh nghiệm và khả năng học hỏi của nó.",
+      "Nó hoàn toàn không có bất kỳ kiến thức nền nào từ người tạo ra nó.",
+      "Nó có thể thay thế hoàn toàn con người trong mọi công việc.",
+      "Nó không phụ thuộc 100% vào các giả định cứng nhắc do lập trình viên thiết lập."
+    ],
+    "answer": [
+      0,
+      3
+    ],
+    "feedback": "Autonomy là khả năng tự bù đắp phần kiến thức còn thiếu thông qua việc tự học (learning), không dựa dẫm hoàn toàn vào kiến thức lập trình sẵn. (Giải thích thêm: (hard-coded))"
+  },
+  {
+    "id": 26,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Môi trường mà hệ thống gợi ý sản phẩm (như Amazon, Netflix) hoạt động là môi trường Tập/Giai đoạn (Episodic) hoàn toàn độc lập.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai. Hệ thống gợi ý mang tính Tuần tự (Sequential) vì các gợi ý hiện tại ảnh hưởng trực tiếp đến sở thích và tương tác của người dùng trong tương lai."
+  },
+  {
+    "id": 27,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Điều nào sau đây là Môi trường của 'Tác tử chẩn đoán y tế'?",
+    "options": [
+      "Màn hình, máy in.",
+      "Nhập thông tin triệu chứng từ bàn phím.",
+      "Bệnh nhân, bệnh viện, nhân viên y tế.",
+      "Chẩn đoán đúng bệnh, bệnh nhân khỏe lại."
+    ],
+    "answer": 2,
+    "feedback": "Bệnh nhân và bệnh viện là Environment. Chẩn đoán đúng là Performance. Màn hình là Actuator. Bàn phím là Sensor."
+  },
+  {
+    "id": 28,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Cấu trúc hàm đánh giá (Evaluation function) của Tác tử dựa trên ___________ (Utility) ánh xạ từ một trạng thái (hoặc chuỗi trạng thái) sang một số thực thể hiện mức độ hài lòng.",
+    "options": [
+      "Reflex (Phản xạ)",
+      "Utility (Tiện ích)",
+      "Goal (Mục tiêu)",
+      "Learning (Học)"
+    ],
+    "answer": 1,
+    "feedback": "Tác tử Utility dùng hàm utility để gán điểm số thực (thể hiện sự thỏa mãn) cho mỗi trạng thái."
+  },
+  {
+    "id": 29,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Ghép nối kiến trúc Tác tử với nguyên lý cốt lõi của nó:",
+    "pairs": [
+      {
+        "left": "Simple reflex agent",
+        "right": "Nếu Điều kiện X đúng, thực hiện Hành động Y (Không cần nhớ quá khứ)"
+      },
+      {
+        "left": "Model-based reflex agent",
+        "right": "Cập nhật trạng thái nội bộ dựa trên việc theo dõi thế giới diễn biến ra sao"
+      },
+      {
+        "left": "Goal-based agent",
+        "right": "Tìm kiếm và Lập kế hoạch để đi đến một trạng thái đích mong muốn"
+      },
+      {
+        "left": "Learning agent",
+        "right": "Dùng phản hồi từ nhà phê bình để cải thiện hành vi thông qua tự học"
+      }
+    ],
+    "feedback": "Đây là 4 nguyên lý của 4 kiến trúc tác tử căn bản."
+  },
+  {
+    "id": 30,
+    "type": "ordering",
+    "difficulty": "Dễ",
+    "question": "Một vòng lặp tương tác cơ bản giữa Tác tử và Môi trường diễn ra theo thứ tự nào?",
+    "items": [
+      "Môi trường sinh ra tín hiệu/trạng thái",
+      "Tác tử nhận thức thông qua cảm biến (Sensors)",
+      "Chương trình tác tử quyết định hành động",
+      "Tác tử thực thi thông qua cơ cấu chấp hành (Actuators)",
+      "Môi trường thay đổi dựa trên tác động của tác tử"
+    ],
+    "feedback": "Môi trường (trạng thái) -> Nhận thức -> Xử lý (Program) -> Hành động -> Môi trường thay đổi."
+  }
+]

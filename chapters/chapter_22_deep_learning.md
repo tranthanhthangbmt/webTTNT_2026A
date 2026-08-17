@@ -25,7 +25,7 @@
 </div>
 
 #### **Trắc nghiệm**
-*(Chưa có bài tập trắc nghiệm)*
+<div id="quiz-container" data-chapter="22"></div>
 
 #### **Pseudocode**
 - <a href="#/codeAndExercises/aima-pseudocode-master/md/Passive-ADP-Agent.md" target="_blank">PASSIVE-ADP-AGENT</a>

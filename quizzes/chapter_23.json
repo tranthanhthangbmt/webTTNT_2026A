@@ -1,0 +1,456 @@
+[
+  {
+    "id": 1,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Học tăng cường (Reinforcement Learning - RL) khác biệt như thế nào so với Học có giám sát (Supervised Learning)?",
+    "options": [
+      "RL không cần dữ liệu đầu vào.",
+      "RL học thông qua sự tương tác với môi trường.",
+      "RL luôn luôn hội tụ nhanh hơn.",
+      "RL chỉ áp dụng cho phân loại ảnh."
+    ],
+    "answer": 1,
+    "feedback": "Supervised Learning giống như học sinh được thầy giáo cầm tay chỉ việc (Có nhãn y). Reinforcement Learning giống như huấn luyện một chú chó: Làm tốt thì cho khúc xương, làm sai thì mắng. (Giải thích thêm: (Thử và Sai) (Reward) (Penalty) Không có ai chỉ cho nó biết hành động nào là đúng nhất, nó chỉ nhận được Phần thưởng hoặc Hình phạt sau khi thực hiện hành động.)"
+  },
+  {
+    "id": 2,
+    "type": "fill_blank",
+    "difficulty": "Dễ",
+    "question": "Mục tiêu tối thượng của một tác tử Học tăng cường là tìm ra một ____________ (Policy - Ký hiệu là $\\pi$) tối ưu, chỉ ra cho tác tử biết phải chọn hành động nào ở mỗi trạng thái để tối đa hóa tổng phần thưởng tích lũy trong tương lai.",
+    "options": [
+      "Policy",
+      "Model",
+      "Function",
+      "Reward"
+    ],
+    "answer": 0,
+    "feedback": "Chính sách (Policy) là 'Bộ não' của tác tử. Nó là một hàm (hoặc bảng) ánh xạ từ Trạng thái (State) sang Hành động (Action)."
+  },
+  {
+    "id": 3,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Reinforcement Learning đối mặt với bài toán kinh điển 'Exploration vs Exploitation' (Khám phá và Khai thác). Ý nghĩa của bài toán này là gì? (Chọn đáp án đúng)",
+    "options": [
+      "Exploitation: Tác tử lặp lại các hành động mà nó ĐÃ BIẾT là mang lại phần thưởng cao trong quá khứ để tối đa hóa lợi ích ngắn hạn.",
+      "Exploration: Tác tử thử những hành động MỚI CHƯA TỪNG LÀM để xem liệu có con đường nào mang lại phần thưởng lớn hơn không.",
+      "Tác tử phải tìm cách CÂN BẰNG giữa hai việc này, vì nếu chỉ Khai thác nó sẽ bị kẹt ở mức trung bình, nếu chỉ Khám phá nó sẽ chết vì ngu ngốc.",
+      "Khám phá nghĩa là tải thêm dữ liệu trên mạng (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Giống như đi ăn nhà hàng: Bạn có nên ăn lại món Phở quen thuộc mà bạn biết chắc là ngon (Exploitation), hay bạn nên thử gọi món mới toanh để xem có ngon hơn không, dù có rủi ro là cực kỳ dở (Exploration)? (Giải thích thêm: (Khai thác)) (Giải thích thêm: (Khám phá) (Hy sinh lợi ích ngắn hạn cho tương lai))"
+  },
+  {
+    "id": 4,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Thuật toán Epsilon-Greedy ($\\epsilon$-greedy) giải quyết bài toán Exploration-Exploitation như thế nào?",
+    "options": [
+      "Luôn luôn chọn hành động ngẫu nhiên.",
+      "Với xác suất $$, chọn hành động TỐT NHẤT hiện tại.",
+      "Luôn luôn chọn hành động tốt nhất.",
+      "Không bao giờ Khám phá."
+    ],
+    "answer": 1,
+    "feedback": "Thông thường người ta sẽ bắt đầu với $\\epsilon = 1.0$ (Khám phá 100% khi chưa biết gì), sau đó giảm dần $\\epsilon$ về 0 (Khai thác 100% khi đã trưởng thành). (Giải thích thêm: (1 - \\epsilon) (Exploitation) (Exploration) Với xác suất $\\epsilon$ nhỏ, chọn MỘT HÀNH ĐỘNG NGẪU NHIÊN.)"
+  },
+  {
+    "id": 5,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Phân loại các phương pháp Học tăng cường:",
+    "pairs": [
+      {
+        "left": "Model-Based RL (Học dựa trên mô hình)",
+        "right": "Tác tử CỐ GẮNG HỌC LUẬT CHƠI (Học Transition Model $P(s'|s,a)$ và Reward $R(s,a)$), sau đó dùng Planning (như Value Iteration) để tìm đường."
+      },
+      {
+        "left": "Model-Free RL (Học phi mô hình)",
+        "right": "Tác tử KHÔNG QUAN TÂM LUẬT CHƠI. Nó chỉ học trực tiếp Giá trị Hành động (Q-value) hoặc Policy thông qua kinh nghiệm (Thử và Sai)."
+      },
+      {
+        "left": "Passive RL (Học thụ động)",
+        "right": "Tác tử bị ÉP PHẢI ĐI theo một Chính sách cố định. Nó chỉ đóng vai trò Quan sát viên để đánh giá xem Chính sách đó tốt hay xấu (Tính $U^{\\pi}$)."
+      },
+      {
+        "left": "Active RL (Học chủ động)",
+        "right": "Tác tử TỰ QUYẾT ĐỊNH hành động của mình, vừa đi vừa học để tìm ra Chính sách Tối ưu."
+      }
+    ],
+    "feedback": "Model-Free rất phổ biến (như Q-Learning) vì trong các game thực tế (như Mario), luật chơi quá phức tạp để mô hình hóa thành một ma trận xác suất."
+  },
+  {
+    "id": 6,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Thuật toán Adaptive Dynamic Programming (ADP) là một thuật toán Model-Free (Phi mô hình). Nó không cần biết mô hình chuyển trạng thái.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai. ADP là thuật toán Model-BASED tiêu chuẩn. ADP sẽ vừa chạy vừa GHI CHÉP lại tần suất chuyển trạng thái để tự xây dựng lên ma trận $P(s'|s,a)$, sau đó cắm ma trận này vào phương trình Bellman để giải."
+  },
+  {
+    "id": 7,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Nhược điểm lớn nhất của ADP (Model-Based) so với Temporal Difference (TD - Model-Free) là gì?",
+    "options": [
+      "ADP chạy nhanh hơn TD (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "ADP yêu cầu giải hệ phương trình Bellman cho TOÀN BỘ không gian trạng thái ở mỗi bước, điều này là BẤT KHẢ THI khi số lượng trạng thái lên tới hàng triệu.",
+      "ADP không thể dùng để tìm giá trị tối ưu (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "ADP không cần bộ nhớ (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": 1,
+    "feedback": "Đó là lý do TD Learning (Temporal Difference) ra đời. TD Learning không cần giải hệ phương trình khổng lồ, nó chỉ cập nhật cục bộ trạng thái hiện tại dựa trên kinh nghiệm thực tế. (Giải thích thêm: (Intractable) (ví dụ: Cờ vua, Cờ vây))"
+  },
+  {
+    "id": 8,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Temporal Difference (TD) Learning cập nhật Giá trị Trạng thái (Utility) dựa trên nguyên lý: 'Dùng một phỏng đoán để cập nhật một phỏng đoán khác' (Bootstrapping). Công thức cập nhật TD: $U(s) \\leftarrow U(s) + \\alpha \\times (R(s) + \\gamma U(s') - ____________)$.",
+    "options": [
+      "U(s)",
+      "U(s')",
+      "R(s)",
+      "P(s'|s)"
+    ],
+    "answer": 0,
+    "feedback": "Phần trong ngoặc $(R(s) + \\gamma U(s') - U(s))$ được gọi là TD Error (Sai số TD). Nó so sánh thực tế quan sát được $(R + \\gamma U')$ với niềm tin cũ $U(s)$. $\\alpha$ là tỷ lệ học."
+  },
+  {
+    "id": 9,
+    "type": "ordering",
+    "difficulty": "Khó",
+    "question": "Quy trình cập nhật của Q-Learning (Một thuật toán Model-Free, Active RL nổi tiếng nhất):",
+    "items": [
+      "Khởi tạo bảng Q-table với mọi giá trị $Q(s, a) = 0$",
+      "Quan sát trạng thái hiện tại $s$",
+      "Chọn hành động $a$ dựa trên Epsilon-Greedy (Khám phá hoặc Khai thác)",
+      "Thực hiện $a$, môi trường trả về Phần thưởng $r$ và Trạng thái mới $s'$",
+      "Tính Tương lai tốt nhất giả định: $MaxQ = \\max_{a'} Q(s', a')$",
+      "Cập nhật Q-table: $Q(s, a) \\leftarrow Q(s, a) + \\alpha (r + \\gamma MaxQ - Q(s, a))$"
+    ],
+    "feedback": "Q-Learning lưu giá trị của 'Cặp Trạng thái - Hành động' (Q-value). Khác với TD Learning chỉ lưu U(s), việc lưu Q(s,a) giúp Q-Learning chọn được hành động tốt nhất mà KHÔNG CẦN biết mô hình $P(s'|s,a)$."
+  },
+  {
+    "id": 10,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Q-Learning được gọi là thuật toán Học LỆCH CHÍNH SÁCH (Off-policy learning). SARSA là Học ĐÚNG CHÍNH SÁCH (On-policy learning). Sự khác biệt nằm ở đâu? (Chọn đáp án đúng)",
+    "options": [
+      "Q-Learning: Khi tính giá trị tương lai, nó LẠC QUAN giả định rằng ở bước tiếp theo nó sẽ CHỌN HÀNH ĐỘNG TỐT NHẤT, bất kể thực tế bước tiếp theo nó có thể đi ngẫu nhiên vì Khám phá.",
+      "SARSA: Khi tính giá trị tương lai, nó DÙNG ĐÚNG HÀNH ĐỘNG THỰC TẾ $a'$ mà nó ĐÃ QUYẾT ĐỊNH CHỌN ở bước tiếp theo.",
+      "Q-Learning an toàn hơn SARSA (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "SARSA bỏ qua phần thưởng (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "feedback": "Ví dụ: Đi dọc theo vực thẳm. SARSA biết rằng nó có tỷ lệ $\\epsilon$ bước hụt chân ngẫu nhiên xuống vực, nên nó SỢ và đi xa mép vực. Q-Learning luôn lạc quan tin rằng tương lai mình sẽ không bao giờ hụt chân (vì luôn lấy Max), nên nó đi SÁT mép vực để nhanh nhất. (Giải thích thêm: (Dùng hàm MAX)) (Giải thích thêm: (Dựa theo $\\epsilon$-greedy hiện tại))"
+  },
+  {
+    "id": 11,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Vì sao việc sử dụng bảng Q-table cổ điển lại thất bại thảm hại trong các ứng dụng thực tế như Trò chơi Cờ Vây hay Lái xe tự động?",
+    "options": [
+      "Vì luật game quá khó.",
+      "Vì KHÔNG GIAN TRẠNG THÁI QUÁ KHỔNG LỒ.",
+      "Vì máy tính không biết luật cờ vây.",
+      "Vì nó học quá nhanh."
+    ],
+    "answer": 1,
+    "feedback": "Ngoài việc thiếu RAM, nếu dùng Q-Table, tác tử phải thăm MỖI TRẠNG THÁI hàng vạn lần để học. Với không gian khổng lồ, tác tử sẽ già và chết trước khi học xong 0.0001% số ô trong bảng. (Giải thích thêm: (Curse of Dimensionality) Ví dụ cờ vây có $10^{170}$ trạng thái, không có đủ RAM trên toàn Trái Đất để lưu trữ bảng Q-table này.)"
+  },
+  {
+    "id": 12,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Để giải quyết thảm họa Không gian trạng thái khổng lồ, người ta kết hợp Học tăng cường với công nghệ gì để tạo ra Deep Reinforcement Learning (Học tăng cường sâu)?",
+    "options": [
+      "Blockchain.",
+      "Xấp xỉ hàm bằng MẠNG NƠ RON NHÂN TẠO.",
+      "Lập trình Logic (Prolog).",
+      "Điện toán đám mây."
+    ],
+    "answer": 1,
+    "feedback": "Thay vì lưu 1 cái bảng khổng lồ $Q(s, a)$, ta đưa ảnh màn hình Game vào một Mạng Tích Chập (CNN). Mạng CNN sẽ học các quy luật TỔNG QUÁT (Generalization) và tính ra $Q(s,a)$ cho ta. Đó chính là kiến trúc Deep Q-Network (DQN). (Giải thích thêm: (Function Approximation) (Deep Neural Networks))"
+  },
+  {
+    "id": 13,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Một lợi ích to lớn của Function Approximation (Dùng Mạng nơ ron trong RL) là khả năng Khái quát hóa (Generalization). Nếu tác tử học được cách né một con quái vật ở góc màn hình bên trái, nó có thể tự biết cách né con quái vật đó ở góc màn hình bên phải mà không cần học lại từ đầu.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Trong Q-Table cổ điển, góc trái và góc phải là 2 ô khác biệt hoàn toàn (độc lập 100%). Nhưng mạng CNN nhận diện được ĐẶC TRƯNG của con quái vật, nên nó áp dụng được tri thức đó ở mọi tọa độ."
+  },
+  {
+    "id": 14,
+    "type": "matching",
+    "difficulty": "Khó",
+    "question": "DeepMind đã phát minh ra 2 kỹ thuật vô cùng quan trọng để giúp Mạng Deep Q-Network (DQN) huấn luyện ỔN ĐỊNH khi chơi game Atari. Hãy ghép nối:",
+    "pairs": [
+      {
+        "left": "Experience Replay (Phát lại kinh nghiệm)",
+        "right": "Thay vì học ngay lập tức rồi vứt bỏ dữ liệu, tác tử lưu các cặp (s, a, r, s') vào một 'Bộ nhớ' lớn. Sau đó lấy MẪU NGẪU NHIÊN từ bộ nhớ này để huấn luyện, giúp phá vỡ sự tương quan liên tiếp của dữ liệu thời gian."
+      },
+      {
+        "left": "Target Network (Mạng mục tiêu)",
+        "right": "Sử dụng một bản sao CŨ của mạng nơ ron để tính $MaxQ(s')$ thay vì dùng mạng đang liên tục cập nhật. Giúp 'Mục tiêu' đứng yên để mạng chính dễ dàng bắn trúng."
+      }
+    ],
+    "feedback": "Trước năm 2013, việc kết hợp Q-Learning và Neural Network luôn gây ra thảm họa phân kỳ (Divergence - Mạng quên sạch mọi thứ). Experience Replay và Target Network đã giải cứu Deep RL."
+  },
+  {
+    "id": 15,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Phương pháp Policy Search (Tìm kiếm Chính sách) khác với Q-Learning ở điểm nào?",
+    "options": [
+      "Q-Learning học hàm Hành động $Q$ rồi mới suy ra Chính sách.",
+      "Policy Search yêu cầu Q-table (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Policy Search chỉ dùng cho cờ vua (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Q-Learning dùng đạo hàm (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 1,
+    "feedback": "Policy Search tham số hóa trực tiếp $\\pi_{\\theta}(s, a)$. Nó rất mạnh trong các môi trường có KHÔNG GIAN HÀNH ĐỘNG LIÊN TỤC (Ví dụ: Góc bẻ vô lăng từ 0 đến 360 độ). Q-Learning bó tay trước hành động liên tục. (Giải thích thêm: (s,a) (s) Policy Search BỎ QUA Q-value, nó học và ĐIỀU CHỈNH TRỰC TIẾP các tham số của hàm Chính sách $\\pi$.)"
+  },
+  {
+    "id": 16,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Policy Gradient là một thuật toán Policy Search nổi tiếng (Ví dụ: REINFORCE). Nó hoạt động bằng cách chạy thử một tập (Episode). Nếu tổng phần thưởng của tập đó là DƯƠNG, nó sẽ tăng xác suất (Gradient Ascent) của TẤT CẢ các hành động đã thực hiện trong tập đó. Vấn đề lớn nhất của Policy Gradient là có Phương sai (____________) cực kỳ cao, dẫn đến học rất chậm và thiếu ổn định.",
+    "options": [
+      "Variance",
+      "Bias",
+      "Noise",
+      "Gradient"
+    ],
+    "answer": 0,
+    "feedback": "Đôi khi bạn làm 9 hành động ngu ngốc và 1 hành động thiên tài, dẫn đến thắng game. Policy Gradient 'ngây thơ' sẽ tăng điểm cho CẢ 10 hành động đó. Sự may rủi này tạo ra Variance khổng lồ."
+  },
+  {
+    "id": 17,
+    "type": "ordering",
+    "difficulty": "Khó",
+    "question": "Quy trình của thuật toán Actor-Critic (Kẻ diễn và Nhà phê bình) - Kiến trúc kết hợp đỉnh cao của RL hiện đại:",
+    "items": [
+      "Tác tử có 2 mạng nơ ron: Mạng Actor (Diễn viên - Chứa Policy $\\pi$) và Mạng Critic (Nhà phê bình - Chứa Value function $U$ hoặc $Q$)",
+      "Actor quan sát trạng thái $s$ và hành động $a$ theo chính sách hiện tại",
+      "Môi trường trả về $r$ và trạng thái mới $s'$",
+      "Critic sử dụng TD Error để tính toán xem hành động vừa rồi của Actor là TỐT HƠN HAY TỆ HƠN so với mức trung bình kỳ vọng",
+      "Critic tự cập nhật bản thân nó (Học hàm Giá trị chuẩn hơn)",
+      "Actor cập nhật bản thân nó: Tăng xác suất hành động nếu Critic khen, giảm nếu Critic chê (Giảm Variance cho Policy Gradient)"
+    ],
+    "feedback": "Hầu hết các thuật toán Deep RL tiên tiến nhất hiện nay (PPO, SAC, A3C) đều dựa trên kiến trúc Actor-Critic."
+  },
+  {
+    "id": 18,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Những thành tựu vang dội nào sau đây là của Deep Reinforcement Learning? (Chọn đáp án đúng)",
+    "options": [
+      "AlphaGo / AlphaZero của DeepMind đánh bại nhà vô địch cờ vây thế giới Lee Sedol.",
+      "OpenAI Five đánh bại đội vô địch thế giới trò chơi thể thao điện tử Dota 2.",
+      "Chatbot ChatGPT được tinh chỉnh để nói chuyện an toàn và hữu ích hơn thông qua RLHF.",
+      "Thuật toán sắp xếp QuickSort (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "RL là chìa khóa để chuyển AI từ 'Nhận thức' (Perception - Phân loại ảnh, Dịch thuật) sang 'Hành động' (Action/Agency - Lái xe, Chơi game, Ra quyết định tự chủ). (Giải thích thêm: (5 vs 5)) (Giải thích thêm: (Fine-tune) (Reinforcement Learning from Human Feedback))"
+  },
+  {
+    "id": 19,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Vấn đề 'Phần thưởng thưa thớt' (Sparse Rewards) là một trong những thử thách tồi tệ nhất của RL. Ví dụ: Trong game Montezuma's Revenge, tác tử phải nhảy qua 100 cái bẫy mới lấy được 1 chìa khóa (+1 điểm). Nếu nhảy sai 1 bước là chết (0 điểm). Vì sao RL thất bại?",
+    "options": [
+      "Vì máy tính không thích chơi game này (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Vì để lấy được điểm đầu tiên, tác tử phải TÌNH CỜ thực hiện đúng liên tiếp 100 thao tác hoàn hảo bằng các cú nhấp ngẫu nhiên.",
+      "Vì game bị lỗi đồ họa (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Vì phần thưởng quá nhỏ (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 1,
+    "feedback": "Để giải quyết Sparse Rewards, người ta phải dùng các kỹ thuật như Reward Shaping (Tự mồi thêm điểm thưởng phụ như: đi được 1 bước +0.01 điểm) hoặc Khuyến khích sự tò mò (Intrinsic Motivation / Curiosity-driven Exploration). (Giải thích thêm: (Xác suất gần bằng 0) Do không có tín hiệu phản hồi nào ở giữa, tác tử không biết mình đang đi đúng hay sai.)"
+  },
+  {
+    "id": 20,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Reward Hacking (Hack phần thưởng) là hiện tượng AI tìm ra một lỗ hổng trong hàm phần thưởng do con người thiết kế và lạm dụng nó để lấy điểm cao vô tận, thay vì hoàn thành công việc thật sự. (Ví dụ: Robot lau nhà cứ xả rác ra rồi lau lại để được tính điểm lau dọn liên tục).",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Đây là một vấn đề cực kỳ đau đầu trong AI Alignment (Căn chỉnh AI). AI luôn tuân thủ Toán học, nhưng Toán học thường không mô tả chính xác 100% mục đích thực sự của con người."
+  },
+  {
+    "id": 21,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Các kỹ thuật mô phỏng trong Học tăng cường:",
+    "pairs": [
+      {
+        "left": "Inverse Reinforcement Learning (IRL - Học tăng cường ngược)",
+        "right": "Thay vì thiết kế Hàm phần thưởng (Rất khó), ta đưa cho AI xem các Video chuyên gia con người làm mẫu. AI tự TÌM RA Hàm phần thưởng mà con người đang cố tối ưu, rồi tự học trên hàm đó."
+      },
+      {
+        "left": "Behavioral Cloning (Sao chép hành vi)",
+        "right": "Sử dụng Supervised Learning. Bắt AI bắt chước y chang hành động của con người theo kiểu Input-Output. (Dễ thất bại khi AI rơi vào tình huống con người chưa từng gặp)."
+      },
+      {
+        "left": "Curiosity-Driven Exploration (Tò mò)",
+        "right": "Cung cấp phần thưởng 'Tò mò' mỗi khi AI gặp một trạng thái mà Mạng dự đoán mô hình của nó đoán SAI (Sự ngạc nhiên). Giúp giải quyết Sparse Rewards."
+      }
+    ],
+    "feedback": "IRL là cơ sở của việc huấn luyện xe tự lái và RLHF (Reinforcement Learning from Human Feedback) trong LLM. Con người biểu diễn, máy sẽ tự đúc kết ra phần thưởng cốt lõi."
+  },
+  {
+    "id": 22,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "AlphaGo đã sử dụng thuật toán nào để mô phỏng tương lai trong lúc đang chơi thực tế, nhằm kết hợp sức mạnh của Policy Network và Value Network?",
+    "options": [
+      "Thuật toán Minimax truyền thống.",
+      "Monte Carlo Tree Search.",
+      "Breadth-First Search (BFS).",
+      "Thuật toán di truyền."
+    ],
+    "answer": 1,
+    "feedback": "Minimax không thể nhìn sâu vào Cờ Vây. MCTS cho phép AlphaGo ưu tiên khám phá SÂU vào những nhánh có tiềm năng nhất (được gợi ý bởi Policy Network), và dùng Value Network để chấm điểm bàn cờ thay vì phải đi đến tận cùng game. (Giải thích thêm: (MCTS - Tìm kiếm cây Monte Carlo))"
+  },
+  {
+    "id": 23,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Một môi trường mà trạng thái hiện tại phụ thuộc một phần vào hành động của những tác tử KHÁC (Ví dụ: Game đối kháng 5v5) làm vi phạm tính chất Cố định (Stationary) của MDP. Trí tuệ nhân tạo dùng để giải quyết các bài toán này thuộc lĩnh vực MARL (____________-Agent Reinforcement Learning).",
+    "options": [
+      "Multi",
+      "Machine",
+      "Markov",
+      "Model"
+    ],
+    "answer": 0,
+    "feedback": "Multi-Agent Reinforcement Learning là bài toán cực khó vì môi trường liên tục biến đổi (Đối thủ của bạn cũng đang tiến hóa và thông minh lên từng ngày)."
+  },
+  {
+    "id": 24,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Khó khăn của Sim-to-Real (Từ Mô phỏng ra Thực tế) trong Robot tự hành bằng Học tăng cường là gì? (Chọn đáp án đúng)",
+    "options": [
+      "Học RL cần hàng triệu lượt Thử-Sai (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Người ta phải huấn luyện bằng Phần mềm Mô phỏng 3D, sau đó nạp bộ não đó vào Robot thật.",
+      "Thực tế luôn có ma sát, gió, ánh sáng, nhiễu vật lý khác xa mô phỏng, khiến con Robot vừa thả ra đời thực đã bị ngã.",
+      "Robot thật không có nguồn điện (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Để vượt qua Reality Gap, người ta dùng Domain Randomization (Trộn lẫn đủ loại ánh sáng, ma sát dị thường vào trong Mô phỏng để Robot quen với sự hỗn loạn). (Giải thích thêm: Nếu huấn luyện robot thật, nó sẽ phá nát phòng thí nghiệm hoặc bị gãy tay trước khi học xong.) (Giải thích thêm: (Sim) (Real)) (Giải thích thêm: (Reality Gap))"
+  },
+  {
+    "id": 25,
+    "type": "ordering",
+    "difficulty": "Dễ",
+    "question": "Quy trình huấn luyện mô hình ngôn ngữ lớn như ChatGPT bằng RLHF (Reinforcement Learning from Human Feedback):",
+    "items": [
+      "Supervised Fine-Tuning (SFT): Bắt mô hình học bắt chước một lượng lớn văn bản trả lời chất lượng cao do con người viết sẵn",
+      "Tạo dữ liệu Reward: Cho mô hình sinh ra nhiều câu trả lời khác nhau cho cùng 1 câu hỏi",
+      "Con người (Human Labelers) xếp hạng các câu trả lời đó từ tốt nhất đến tệ nhất",
+      "Huấn luyện Reward Model: Dạy một mạng nơ ron phụ (Reward Model) học cách chấm điểm giống như con người vừa chấm",
+      "Sử dụng thuật toán RL (PPO - Proximal Policy Optimization) để ép mô hình ngôn ngữ chính sinh ra các câu trả lời đạt ĐIỂM THƯỞNG CAO NHẤT từ Reward Model"
+    ],
+    "feedback": "Nhờ RLHF, các LLMs không chỉ lải nhải văn bản ngẫu nhiên từ Internet, mà biết cách trở thành những Trợ lý lịch sự, xin lỗi khi làm sai, và từ chối nói bậy."
+  },
+  {
+    "id": 26,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Trong thuật toán TD Learning, tại sao nó lại được gọi là 'Học bằng sai số thời gian' (Temporal Difference)?",
+    "options": [
+      "Vì nó dùng đồng hồ đếm ngược (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Vì nó so sánh phỏng đoán của mô hình ở Thời điểm $t$ với phỏng đoán CŨNG CỦA MÔ HÌNH ĐÓ ở Thời điểm $t+1$.",
+      "Vì nó học lịch sử loài người (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Vì nó tốn rất nhiều thời gian (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 1,
+    "feedback": "Chính việc 'Tự học từ bản thân mình trong tương lai' (Bootstrapping) làm nên nét đẹp kỳ diệu của TD Learning. Bộ não con người cũng được chứng minh là có hệ thống Dopamine hoạt động y hệt thuật toán TD. (Giải thích thêm: (Đã được cộng thêm phần thưởng thực tế) Sự chênh lệch giữa 2 thời điểm chính là tín hiệu học tập.)"
+  },
+  {
+    "id": 27,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Thuật toán PPO (Proximal Policy Optimization) là thuật toán Deep RL thuộc họ Policy Gradient được OpenAI ưa chuộng nhất hiện nay vì nó KHÓA việc cập nhật Policy không cho thay đổi quá lớn sau mỗi bước học, đảm bảo sự ổn định tuyệt đối.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. PPO giải quyết sự bất ổn định 'khủng khiếp' của Policy Gradient cổ điển bằng cách Cắt xén (Clipping) vùng cập nhật. Nó là xương sống của mọi LLM mạnh nhất hiện tại."
+  },
+  {
+    "id": 28,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Trong Q-Learning, nếu Hệ số chiết khấu (Discount factor - $\\gamma$) bằng 0, thì tác tử sẽ có tính cách như thế nào?",
+    "options": [
+      "Suy nghĩ cực kỳ dài hạn (Nhà chiến lược gia) (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Cực kỳ Thiển cận - Nó CHỈ QUAN TÂM ĐẾN PHẦN THƯỞNG NGAY TRƯỚC MẮT ở bước tiếp theo, hoàn toàn phớt lờ tương lai.",
+      "Tác tử luôn chọn ngẫu nhiên (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Tác tử không bao giờ di chuyển (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 1,
+    "feedback": "Công thức Q-Learning có đoạn $\\gamma \\max Q(s',a')$. Nếu $\\gamma = 0$, đoạn tương lai này biến mất. Mọi thuật toán RL chuẩn đều để $\\gamma$ gần 1 (ví dụ 0.99) để khuyến khích AI hy sinh vì mục đích lớn (Delayed Reward). (Giải thích thêm: (Myopic))"
+  },
+  {
+    "id": 29,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Deep Q-Network (DQN) của DeepMind gặp phải một vấn đề là nó thường ĐÁNH GIÁ QUÁ CAO (Overestimate) giá trị thật của các trạng thái do phép toán $\\max$. Thuật toán ____________ DQN (Double DQN) giải quyết việc này bằng cách dùng 2 mạng riêng biệt: 1 mạng để Chọn hành động tốt nhất, 1 mạng để Đánh giá giá trị của hành động đó.",
+    "options": [
+      "Double",
+      "Dueling",
+      "Deep",
+      "Distributed"
+    ],
+    "answer": 0,
+    "feedback": "Double DQN chia rẽ quá trình Selection và Evaluation. Kẻ chọn bài không được quyền tự định giá bài của mình. Kỹ thuật này giúp DQN thông minh và thực tế hơn rất nhiều."
+  },
+  {
+    "id": 30,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Offline Reinforcement Learning (Học tăng cường Ngoại tuyến) là xu hướng mới. Nó giải quyết được bài toán gì? (Chọn đáp án đúng)",
+    "options": [
+      "Active RL yêu cầu tác tử phải CHẠY LẠI MÔI TRƯỜNG hàng triệu lần để thử nghiệm, điều này cực kỳ tốn kém và nguy hiểm.",
+      "Offline RL cho phép tác tử HỌC TỪ MỘT KHO DỮ LIỆU ĐÃ ĐƯỢC GHI HÌNH SẴN MÀ KHÔNG CẦN TƯƠNG TÁC THÊM với môi trường.",
+      "Nó biến RL trở nên giống Supervised Learning về mặt tiêu thụ dữ liệu (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Offline RL yêu cầu tắt kết nối Internet (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Offline RL gặp khó khăn lớn vì 'Distributional Shift' (Tác tử ảo tưởng về sức mạnh ở những vùng trạng thái chưa từng có trong kho dữ liệu). Nếu giải quyết được, AI sẽ học lái xe chỉ bằng cách xem video YouTube. (Giải thích thêm: (Ví dụ: Robot Y tế thử phẫu thuật sai)) (Giải thích thêm: (Của con người hoặc robot khác))"
+  }
+]

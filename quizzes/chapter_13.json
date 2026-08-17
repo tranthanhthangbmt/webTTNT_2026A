@@ -1,0 +1,445 @@
+[
+  {
+    "id": 1,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Mạng Bayes (Bayesian Network) được biểu diễn bằng loại đồ thị nào?",
+    "options": [
+      "Đồ thị vô hướng (Undirected Graph).",
+      "Đồ thị có hướng và có chu trình.",
+      "Đồ thị có hướng và phi chu trình.",
+      "Cây nhị phân phân tìm kiếm (Binary Search Tree)."
+    ],
+    "answer": 2,
+    "feedback": "DAG (Directed Acyclic Graph) là bắt buộc. Mạng Bayes không được phép có chu trình (A -> B -> C -> A) vì nó biểu diễn quan hệ nhân quả (nguyên nhân sinh ra kết quả), kết quả không thể quay ngược lại làm nguyên nhân sinh ra chính nó. (Giải thích thêm: (Directed Cyclic Graph)) (Giải thích thêm: (Directed Acyclic Graph - DAG))"
+  },
+  {
+    "id": 2,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Trong Mạng Bayes, mỗi nút (node) đại diện cho một Biến ngẫu nhiên, và mỗi nút đi kèm với một Bảng Xác suất ____________ (Conditional Probability Table - CPT).",
+    "options": [
+      "Có điều kiện (Conditional)",
+      "Đồng thời (Joint)",
+      "Tiên nghiệm (Prior)",
+      "Biên (Marginal)"
+    ],
+    "answer": 0,
+    "feedback": "CPT liệt kê xác suất của nút đó dựa trên TẤT CẢ các tổ hợp giá trị của các Nút Cha (Parents) của nó. Ví dụ nút Alarm có cha là Burglary và Earthquake, CPT sẽ có 4 hàng."
+  },
+  {
+    "id": 3,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Mạng Bayes mang lại hai lợi ích vô cùng to lớn nào so với việc dùng Bảng phân phối đồng thời (Full Joint Distribution)? (Chọn đáp án đúng)",
+    "options": [
+      "Trực quan hóa cấu trúc Nhân quả giúp con người dễ dàng xây dựng và hiểu hệ thống.",
+      "Giảm đột phá số lượng tham số cần lưu trữ nhờ tận dụng tính Độc lập có điều kiện.",
+      "Luôn luôn đưa ra dự đoán đúng 100% (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Chạy nhanh hơn bảng Full Joint trong mọi thuật toán."
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "feedback": "Ví dụ với 30 biến Boolean, Full Joint cần lưu $2^{30} \\approx 1$ tỷ con số. Nếu dùng Mạng Bayes (mỗi nút có tối đa 5 cha), ta chỉ cần lưu $30 \\times 2^5 = 960$ con số. Tuy nhiên, thuật toán suy diễn trên Mạng Bayes vẫn là NP-hard (chứ không phải lúc nào cũng nhanh). (Giải thích thêm: (Causal structure))"
+  },
+  {
+    "id": 4,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Ý nghĩa Ngữ nghĩa (Semantics) của toàn bộ Mạng Bayes là gì?",
+    "options": [
+      "Nó là một cách vẽ sơ đồ tư duy (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Nó là một công cụ nén thuật toán (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Nó là một biểu diễn tóm gọn của Bảng phân phối đồng thời, dựa trên Quy tắc chuỗi rút gọn.",
+      "Nó là một thuật toán lấy mẫu (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": 2,
+    "feedback": "Mọi mạng Bayes đều định nghĩa một hàm Joint Distribution: $P(x_1, ..., x_n) = \\prod_{i=1}^n P(x_i | parents(X_i))$. Tức là Xác suất của một thế giới bằng Tích các xác suất của mỗi biến với điều kiện là Cha của nó. (Giải thích thêm: (Full Joint Distribution) (Chain Rule))"
+  },
+  {
+    "id": 5,
+    "type": "matching",
+    "difficulty": "Khó",
+    "question": "Ghép nối các cấu trúc cơ bản trong Mạng Bayes với tính chất 'Độc lập có điều kiện' của chúng (D-Separation):",
+    "pairs": [
+      {
+        "left": "Chuỗi tuần tự (Linear: A → B → C)",
+        "right": "A độc lập với C NẾU ĐÃ BIẾT B (B là đường truyền thông tin duy nhất, nếu biết B thì A và C bị ngắt kết nối)"
+      },
+      {
+        "left": "Phân nhánh (Diverging: B ← A → C)",
+        "right": "B độc lập với C NẾU ĐÃ BIẾT A (Cùng chung nguyên nhân, nếu biết nguyên nhân thì hai kết quả độc lập)"
+      },
+      {
+        "left": "Hội tụ (Converging / V-Structure: A → C ← B)",
+        "right": "A ĐỘC LẬP VỚI B NẾU CHƯA BIẾT C (Hiệu ứng Explaining Away). Nếu biết C, A và B bỗng nhiên bị phụ thuộc nhau!"
+      }
+    ],
+    "feedback": "V-Structure (Hội tụ) rất đặc biệt. Trộm (A) và Động đất (B) ban đầu hoàn toàn không liên quan. Nhưng nếu Chuông kêu (C), và bạn biết không có Động đất, thì khả năng có Trộm tăng vọt. Vậy khi BIẾT C, A và B LẠI BỊ RÀNG BUỘC."
+  },
+  {
+    "id": 6,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Một biến X trong Mạng Bayes luôn hoàn toàn độc lập với các nút Không phải Hậu duệ (Non-descendants) của nó, cho trước (nếu biết) trạng thái các nút CHA (Parents) của X.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Đây là Ngữ nghĩa Độc lập cục bộ (Local semantics) cốt lõi của Mạng Bayes. Ví dụ: Nếu biết (Cha) CÓ TRỘM, thì việc (Không hậu duệ) JOHN GỌI ĐIỆN hoàn toàn phụ thuộc vào chuông, mọi thứ khác (động đất) trở nên vô nghĩa với nó."
+  },
+  {
+    "id": 7,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Khái niệm 'Markov Blanket' (Chăn Markov) của một nút X trong Mạng Bayes bao gồm tập hợp những nút nào?",
+    "options": [
+      "Chỉ bao gồm các nút Cha của X (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Chỉ bao gồm các nút Con của X (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Bao gồm các nút Cha, các nút Con, và các nút Cha khác của nút Con.",
+      "Bao gồm tất cả các nút trong mạng (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 2,
+    "feedback": "Markov Blanket là 'tấm khiên' bảo vệ nút X. Nút X sẽ HOÀN TOÀN ĐỘC LẬP với phần còn lại của mạng, miễn là ta đã biết giá trị của tất cả các nút trong Markov Blanket của nó."
+  },
+  {
+    "id": 8,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Thứ tự tối ưu khi XÂY DỰNG một Mạng Bayes bằng tay để đảm bảo mạng gọn gàng (ít cạnh nhất):",
+    "items": [
+      "Thêm các nút Nguyên nhân gốc rễ (Root causes - ví dụ: Bão, Động đất)",
+      "Thêm các nút là hệ quả trực tiếp của các nguyên nhân gốc (Ví dụ: Cây đổ, Kẹt xe)",
+      "Thêm các nút là hệ quả của các hệ quả trên (Ví dụ: Đi làm muộn)",
+      "Tránh việc thêm nút Kết quả trước, rồi mới vẽ ngược lên Nguyên nhân (Sẽ làm mạng rất rườm rà)"
+    ],
+    "feedback": "Xây dựng Mạng Bayes theo chiều Nhân - Quả (Causal order) luôn tạo ra đồ thị có số lượng cạnh ít nhất (Sparse graph), và các con số xác suất cũng dễ dàng lấy từ thực tế nhất."
+  },
+  {
+    "id": 9,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Thuật toán Suy diễn chính xác 'Enumeration' (Liệt kê) trên Mạng Bayes hoạt động bằng cách nào?",
+    "options": [
+      "Tính toán đạo hàm của các xác suất (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Sử dụng mạng nơ ron để đoán kết quả (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Cộng dồn tất cả các biến ẩn bằng cách lặp qua mọi trạng thái khả dĩ của chúng, sau đó tính tổng các tích xác suất theo công thức Joint Distribution.",
+      "Chỉ lấy giá trị trung bình của mạng (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 2,
+    "feedback": "Enumeration quét qua một cây tìm kiếm gồm TẤT CẢ các tổ hợp trạng thái. Rất dễ lập trình nhưng thời gian chạy là $O(d^n)$ (hàm mũ), không thể áp dụng cho mạng lớn. (Giải thích thêm: (Marginalize) (Hidden variables))"
+  },
+  {
+    "id": 10,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Để khắc phục nhược điểm của Enumeration (tính toán trùng lặp quá nhiều), thuật toán ____________ Elimination (Loại bỏ biến) sử dụng quy hoạch động để lưu các kết quả trung gian thành các 'Nhân tố' (Factors) và nhân chúng lại với nhau.",
+    "options": [
+      "Constant",
+      "Function",
+      "Variable",
+      "State"
+    ],
+    "answer": 2,
+    "feedback": "Variable Elimination (Loại bỏ biến). Tương tự như việc gom thừa số chung trong đại số: $ab + ac = a(b+c)$. Bằng cách nhóm các biến trước khi cộng dồn, VE giảm độ phức tạp xuống đáng kể."
+  },
+  {
+    "id": 11,
+    "type": "true_false",
+    "difficulty": "Khó",
+    "question": "Dù Variable Elimination chạy nhanh hơn Enumeration rất nhiều, nhưng bài toán Suy diễn Chính xác (Exact Inference) trên Mạng Bayes đa kết nối (Multiply connected networks) nói chung vẫn thuộc lớp bài toán NP-Hard.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Hợp lý hóa xác suất cho các mạng lớn đan chéo nhau (multiply connected) là bài toán cực khó. Do đó, trong thực tế, các mạng lớn (ví dụ hàng triệu nút) BẮT BUỘC phải dùng các phương pháp Suy diễn Xấp xỉ (Lấy mẫu ngẫu nhiên)."
+  },
+  {
+    "id": 12,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Ghép nối các kỹ thuật Suy diễn Xấp xỉ (Approximate Inference bằng cách Lấy mẫu - Sampling) với cơ chế của chúng:",
+    "pairs": [
+      {
+        "left": "Direct Sampling (Lấy mẫu trực tiếp)",
+        "right": "Sinh các mẫu ngẫu nhiên từ gốc mạng xuống lá dựa vào xác suất tại mỗi CPT. Không có điều kiện (Evidence)"
+      },
+      {
+        "left": "Rejection Sampling (Lấy mẫu loại bỏ)",
+        "right": "Sinh mẫu như Direct. Nếu mẫu sinh ra KHÔNG KHỚP với Bằng chứng (Evidence), vứt bỏ mẫu đó đi"
+      },
+      {
+        "left": "Likelihood Weighting (Trọng số khả năng)",
+        "right": "Thay vì vứt bỏ mẫu sai, ép các biến Bằng chứng lấy đúng giá trị yêu cầu, nhưng gắn cho mẫu đó một 'Trọng số' dựa trên xác suất xảy ra của Bằng chứng đó"
+      }
+    ],
+    "feedback": "Rejection Sampling lãng phí quá nhiều công sức nếu Bằng chứng (Evidence) là một sự kiện hiếm (VD: Trúng số độc đắc - Sinh ra 1 triệu mẫu mới có 1 mẫu khớp để lấy). Likelihood Weighting giải quyết hiệu quả vấn đề này."
+  },
+  {
+    "id": 13,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Thuật toán MCMC (Markov Chain Monte Carlo), cụ thể là thuật toán Lấy mẫu Gibbs (Gibbs Sampling) trong mạng Bayes, hoạt động như thế nào?",
+    "options": [
+      "Bắt đầu với một trạng thái ngẫu nhiên.",
+      "Tạo ra hàng triệu mẫu hoàn toàn độc lập với nhau từ đầu đến cuối.",
+      "Luôn luôn bắt đầu từ nút gốc rồi đi xuống nút lá.",
+      "Sử dụng đạo hàm để tìm ra đỉnh cao nhất của xác suất."
+    ],
+    "answer": 0,
+    "feedback": "Thay vì sinh lại toàn bộ trạng thái mạng từ đầu (gây khó khớp Bằng chứng), MCMC chỉ sửa 1 biến mỗi lần. Quá trình này tạo ra một chuỗi Markov hội tụ về đúng phân phối xác suất mong muốn (Stationary distribution). (Giải thích thêm: (dựa trên trạng thái hiện tại của Markov Blanket của nó) (Random Walk) Sau đó, tại mỗi bước, lấy mẫu lại MỘT biến duy nhất, tạo thành một chuyến đi dạo ngẫu nhiên qua không gian trạng thái.)"
+  },
+  {
+    "id": 14,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Điều nào sau đây là những hạn chế/nhược điểm của thuật toán Lấy mẫu Trọng số Khả năng (Likelihood Weighting)? (Chọn đáp án đúng)",
+    "options": [
+      "Nếu các biến Bằng chứng nằm ở cuối mạng, thuật toán sẽ sinh ra rất nhiều trạng thái trên không phù hợp, dẫn đến Trọng số của đa số các mẫu sẽ rất gần bằng 0.",
+      "Nó thường mất nhiều mẫu hơn để hội tụ so với Rejection Sampling (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Trong trường hợp xấu, chỉ có một vài mẫu có Trọng số lớn chi phối toàn bộ kết quả, làm sai lệch phân phối trung bình.",
+      "Nó không thể xử lý được bằng chứng (Evidence) (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": [
+      0,
+      2
+    ],
+    "feedback": "LW sinh mẫu từ Gốc xuống. Nó không quan tâm biến Lá cần gì. Nên khi nó sinh xong 90% mạng, đến khúc cuối ép bằng biến Lá thì nhận ra 'A, kịch bản này tạo ra Lá này với xác suất 0.0001', thế là mẫu đó gần như vứt đi. MCMC (Gibbs) ra đời để trị bệnh này. (Giải thích thêm: (Evidence variables) (Lá))"
+  },
+  {
+    "id": 15,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Mạng Bayes (Bayesian Network) được ứng dụng rộng rãi nhất trong lĩnh vực nào sau đây?",
+    "options": [
+      "Nén file zip (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Chẩn đoán y khoa, phát hiện thư rác, chẩn đoán lỗi phần cứng máy tính và xử lý ngôn ngữ tự nhiên.",
+      "Vẽ đồ họa 3D (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Quản lý bộ nhớ RAM (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 1,
+    "feedback": "Mạng Bayes là xương sống của các Hệ chuyên gia chẩn đoán thời kỳ hoàng kim. Các hệ thống như Pathfinder (chẩn đoán ung thư hạch) đã cứu sống vô số người."
+  },
+  {
+    "id": 16,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Thứ tự của các phép toán trong thuật toán Loại bỏ Biến (Variable Elimination) để tính $P(X | e)$:",
+    "items": [
+      "Khởi tạo danh sách các Nhân tố (Factors) từ các CPT của mạng",
+      "Lọc (Giảm chiều) các Nhân tố bằng Bằng chứng (Evidence e)",
+      "Chọn một biến Ẩn (Hidden variable) $Z_i$ để loại bỏ",
+      "Nhân tất cả các Nhân tố có chứa $Z_i$ lại với nhau (Pointwise product)",
+      "Cộng dồn (Sum out) biến $Z_i$ ra khỏi Nhân tố tích đó",
+      "Nhân các Nhân tố còn lại ở cuối và Chuẩn hóa (Normalize) để lấy kết quả"
+    ],
+    "feedback": "VE hoạt động y hệt như việc gộp nhân tử chung và rút gọn biểu thức đại số. Việc chọn thứ tự biến để loại bỏ ảnh hưởng cực lớn đến kích thước của Nhân tố tích (độ phức tạp bộ nhớ)."
+  },
+  {
+    "id": 17,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Một cấu trúc đồ thị Polytree (hay Mạng Đa liên kết - Singly connected network) là một Mạng Bayes mà giữa hai nút bất kỳ chỉ có tối đa ____________ đường đi vô hướng duy nhất.",
+    "options": [
+      "1",
+      "0",
+      "2",
+      "Nhiều"
+    ],
+    "answer": 0,
+    "feedback": "Trong mạng Polytree, thuật toán Variable Elimination chạy cực nhanh, tuyến tính với kích thước mạng $O(n)$. Nhưng nếu mạng bị đan chéo (Multiply connected - có nhiều hơn 1 đường giữa 2 nút), thời gian chạy có thể là hàm mũ."
+  },
+  {
+    "id": 18,
+    "type": "true_false",
+    "difficulty": "Khó",
+    "question": "Thuật toán MCMC (Monte Carlo Markov Chain) gặp vấn đề nếu đồ thị phân phối xác suất bị chia thành các 'hòn đảo' cô lập (tức là có các trạng thái hợp lệ nhưng cách nhau bởi một dải trạng thái có xác suất bằng 0). Khi đó MCMC không bao giờ duyệt hết được không gian mẫu.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Đây gọi là tính Ergodic (Liên thông). Nếu chuỗi Markov không Ergordic (không thể đi từ mọi trạng thái này đến mọi trạng thái khác), việc đi dạo ngẫu nhiên (random walk) của MCMC sẽ bị kẹt mãi mãi ở một đảo."
+  },
+  {
+    "id": 19,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Khi thiết kế một Mạng Bayes cho bài toán chẩn đoán Bệnh (Disease) và Triệu chứng (Symptom), mũi tên nên được vẽ theo hướng nào để tối ưu và tuân theo nguyên lý nhân quả?",
+    "options": [
+      "Disease → Symptom (Bệnh chỉa vào Triệu chứng).",
+      "Symptom → Disease (Triệu chứng chỉa vào Bệnh).",
+      "Cả hai mũi tên (Disease ↔ Symptom).",
+      "Không cần mũi tên, chỉ cần vẽ đường vô hướng."
+    ],
+    "answer": 0,
+    "feedback": "Theo nguyên lý nhân quả (Causal direction), Bệnh GÂY RA Triệu chứng. Vẽ theo hướng này vừa đảm bảo ít cạnh nhất, vừa dễ lấy số liệu thống kê y tế."
+  },
+  {
+    "id": 20,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Tại sao người ta ít khi sử dụng Hướng Chẩn đoán (Symptom → Disease) để vẽ Mạng Bayes? (Chọn đáp án đúng)",
+    "options": [
+      "Vì nó không thể tính toán được (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Vì số lượng liên kết giữa các Triệu chứng sẽ tăng vọt để giải thích sự phụ thuộc của chúng vào nhau.",
+      "Xác suất chẩn đoán $P$ rất nhạy cảm với những biến động cục bộ của môi trường.",
+      "Xác suất chẩn đoán không bao giờ nhỏ hơn 0.5 (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": [
+      1,
+      2
+    ],
+    "feedback": "Mạng chẩn đoán buộc phải thêm cạnh giữa các Triệu chứng (vì chúng không còn độc lập có điều kiện nữa nếu thiếu Bệnh làm gốc). Điều này làm Bảng CPT phình to và rất khó gán số liệu. (Giải thích thêm: (cạnh)) (Giải thích thêm: (Disease|Symptom) (Ví dụ dịch bệnh bùng phát))"
+  },
+  {
+    "id": 21,
+    "type": "matching",
+    "difficulty": "Khó",
+    "question": "Mở rộng Mạng Bayes sang Logic Bậc Nhất tạo ra các Hệ thống Xác suất Quan hệ (Relational Probability Models). Ghép nối các khái niệm:",
+    "pairs": [
+      {
+        "left": "OOBN (Object-Oriented Bayesian Network)",
+        "right": "Đóng gói mạng Bayes thành các Lớp đối tượng (Classes), giúp tạo nhiều bản sao dễ dàng (như lập trình hướng đối tượng)"
+      },
+      {
+        "left": "PRM (Probabilistic Relational Model)",
+        "right": "Sử dụng trực tiếp cấu trúc của cơ sở dữ liệu quan hệ (SQL) để tạo ra các phụ thuộc xác suất"
+      },
+      {
+        "left": "Markov Logic Networks (MLN)",
+        "right": "Gắn một 'Trọng số' (Weight) cho từng câu Logic bậc nhất thay vì bắt buộc nó phải luôn đúng. Trọng số càng cao, xác suất nó đúng càng lớn"
+      }
+    ],
+    "feedback": "Sự giao thoa giữa Xác suất (Probability) và Logic bậc nhất (FOL) là đỉnh cao của Trí tuệ nhân tạo biểu tượng (Symbolic AI)."
+  },
+  {
+    "id": 22,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Tính chất 'D-Separation' được sử dụng để làm gì trong Mạng Bayes?",
+    "options": [
+      "Để vẽ đồ thị đẹp hơn (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Để nén file cấu hình của mạng (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Để kiểm tra nhanh trên đồ thị xem hai biến X và Y có Độc lập Có Điều kiện với nhau, cho trước Bằng chứng Z hay không, mà không cần phải thực hiện bất kỳ phép tính nhân chia nào.",
+      "Để sinh các giá trị ngẫu nhiên (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 2,
+    "feedback": "D-Separation là một thuật toán Đồ thị (Graph theory). Nó kiểm tra các luồng thông tin (paths) có bị Block (chặn) bởi bằng chứng Z hay không. Rất nhanh và cực kỳ hữu ích."
+  },
+  {
+    "id": 23,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Trong Suy diễn Xấp xỉ, việc lấy mẫu ngẫu nhiên từ phân phối đồng thời để đếm xem sự kiện xảy ra bao nhiêu lần được gọi là phương pháp ____________ (Monte Carlo).",
+    "options": [
+      "Vegas",
+      "Markov",
+      "Bayes",
+      "Monte Carlo"
+    ],
+    "answer": 3,
+    "feedback": "Monte Carlo algorithms là họ thuật toán dựa trên việc 'tung xúc xắc' (sinh số ngẫu nhiên lặp đi lặp lại) để ước tính các đại lượng toán học khó tính chính xác."
+  },
+  {
+    "id": 24,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Một nút (Biến ngẫu nhiên) trong Mạng Bayes KHÔNG CÓ NÚT CHA (Root node) sẽ chỉ lưu duy nhất Xác suất tiên nghiệm (Prior probability) của nó trong bảng CPT.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Vì không có điều kiện nào để dựa vào, CPT của nút Gốc chỉ đơn giản là $P(X)$. Nếu là Boolean, CPT chỉ cần lưu 1 con số (vd: P(X=true)=0.01)."
+  },
+  {
+    "id": 25,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Quy trình tính toán Xác suất của một Chuỗi sự kiện (Joint Probability) dựa trên Mạng Bayes:",
+    "items": [
+      "Nhận truy vấn: Tính $P(X_1=x_1, X_2=x_2, ..., X_n=x_n)$",
+      "Xét nút $X_1$, tra cứu bảng CPT của nó với điều kiện là các nút Cha của $X_1$ trong chuỗi",
+      "Thực hiện tương tự cho mọi nút $X_i$ từ 2 đến n",
+      "Nhân tất cả các xác suất tra cứu được lại với nhau (Chain Rule) để ra kết quả"
+    ],
+    "feedback": "Đây là bài toán dễ nhất trên Mạng Bayes (Forward evaluation). Chỉ cần đọc bảng CPT và nhân chúng lại với nhau."
+  },
+  {
+    "id": 26,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Hiệu ứng 'Explaining Away' (Giải thích loại trừ) trong Mạng Bayes xảy ra ở cấu trúc V-Structure (A → C ← B). Điều gì mô tả đúng nhất hiệu ứng này? (Chọn đáp án đúng)",
+    "options": [
+      "Ban đầu A và B độc lập (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Nhưng nếu ta nhận thêm bằng chứng xác nhận B LÀ ĐÚNG, thì niềm tin của ta vào A LẠI GIẢM XUỐNG.",
+      "Vì B đã 'giải thích' đủ lý do để C xảy ra, A không còn cần thiết nữa.",
+      "B luôn luôn làm A sai hoàn toàn (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Đây là cách con người suy luận. Thấy cỏ ướt (C), bạn nghĩ do Mưa (A) hoặc Vòi phun (B). Nếu bạn biết Mưa là có thật (B), bạn sẽ HẾT NGHI NGỜ (giảm niềm tin) vào việc ai đó đã bật vòi phun (A). Dù trước đó A và B không liên quan gì nhau. (Giải thích thêm: Khi biết hệ quả C xảy ra, ta tăng niềm tin vào cả A và B.) (Giải thích thêm: (explaining away))"
+  },
+  {
+    "id": 27,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Trong thuật toán Variable Elimination (Loại bỏ biến), một 'Factor' (Nhân tố) là một bảng đa chiều chứa các giá trị. Phép toán 'Pointwise Product' (Nhân theo điểm) giữa 2 Factors $f_1(X, Y)$ và $f_2(Y, Z)$ sẽ tạo ra một Factor mới phụ thuộc vào những biến nào?",
+    "options": [
+      "Chỉ phụ thuộc vào Y.",
+      "Phụ thuộc vào X, Y, Z.",
+      "Không phụ thuộc vào biến nào.",
+      "Chỉ phụ thuộc vào X và Z."
+    ],
+    "answer": 1,
+    "feedback": "Phép nhân Pointwise tạo ra Factor mới $f_3(X,Y,Z)$. Sau đó ta sẽ thực hiện Summing Out (Lấy tổng) biến Y để ra Factor cuối cùng $f_4(X,Z)$. Quá trình này giúp loại dần biến ra khỏi hệ thống."
+  },
+  {
+    "id": 28,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Trong Lấy mẫu Rejection Sampling, tại sao nó lại được coi là không hiệu quả (inefficient) khi số lượng biến Bằng chứng (Evidence) tăng lên?",
+    "options": [
+      "Vì nó ngốn quá nhiều RAM (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Xác suất để một mẫu ngẫu nhiên KHỚP HOÀN TOÀN với rất nhiều biến Bằng chứng là cực kỳ thấp.",
+      "Vì nó yêu cầu Mạng Bayes phải là Polytree (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Vì nó không dùng Random seed (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": 1,
+    "feedback": "Càng nhiều Evidence, vùng 'khớp' trong không gian mẫu càng nhỏ bé. Sinh 10,000 mẫu ngẫu nhiên mà không trúng được mẫu nào thỏa mãn Evidence thì thuật toán coi như bị treo (Tỷ lệ chấp nhận theo hàm mũ âm). (Giải thích thêm: (reject) Hệ thống sẽ vứt bỏ gần như 99.9% số lượng mẫu được sinh ra.)"
+  },
+  {
+    "id": 29,
+    "type": "fill_blank",
+    "difficulty": "Dễ",
+    "question": "Một nút (Biến) trong Mạng Bayes đại diện cho một ____________ (Variable) ngẫu nhiên.",
+    "options": [
+      "Variable",
+      "Constant",
+      "Function",
+      "Predicate"
+    ],
+    "answer": 0,
+    "feedback": "Bayesian Network biểu diễn mối quan hệ giữa các Biến ngẫu nhiên (Random Variables)."
+  },
+  {
+    "id": 30,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Theo lịch sử AI, Mạng Bayes được phát minh bởi nhà khoa học máy tính Judea Pearl, người đã giành giải Turing Award nhờ công trình đưa Xác suất thay thế cho Logic nguyên thủy trong AI.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Judea Pearl đã giải thoát AI khỏi bế tắc của Hệ chuyên gia (dựa trên IF-THEN logic) bằng cách chứng minh rằng Đồ thị có hướng (DAG) có thể mã hóa các sự phụ thuộc xác suất một cách thanh lịch và hoàn hảo."
+  }
+]

@@ -1,0 +1,455 @@
+[
+  {
+    "id": 1,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Lý do chính khiến Logic bậc nhất (FOL) thường thất bại khi áp dụng vào các miền thực tế như y tế (chẩn đoán bệnh) là gì?",
+    "options": [
+      "FOL không có đủ ký hiệu toán học (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Logic FOL đòi hỏi phải viết ra tất cả các ngoại lệ và chúng ta thường thiếu kiến thức lý thuyết hoàn chỉnh hoặc thiếu dữ liệu thực tế.",
+      "Logic FOL chạy quá chậm trên máy tính hiện đại (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Logic FOL không thể diễn đạt được khái niệm bệnh (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": 1,
+    "feedback": "Để viết luật 'Đau răng => Sâu răng' bằng FOL, ta phải liệt kê hàng ngàn nguyên nhân ngoại lệ (răng khôn, viêm nướu...). Xác suất cung cấp cách tóm tắt sự thiếu hiểu biết đó thành một con số (VD: 80% đau răng là do sâu răng). (Giải thích thêm: (Quá lười biếng / Laziness) (Theoretical Ignorance) (Practical Ignorance))"
+  },
+  {
+    "id": 2,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Trong Lý thuyết Xác suất AI, Xác suất không đo lường 'mức độ ĐÚNG' của một câu (như Fuzzy Logic), mà nó đo lường 'mức độ ____________' (Degree of Belief) của tác tử vào một sự kiện dựa trên những bằng chứng hiện có.",
+    "options": [
+      "Niềm tin (Belief)",
+      "Đúng (Truth)",
+      "Sai (False)",
+      "Hoàn hảo (Perfect)"
+    ],
+    "answer": 0,
+    "feedback": "Xác suất là 'Niềm tin' (Epistemological). Câu 'Bệnh nhân bị sâu răng' trên thực tế chỉ có thể ĐÚNG (1) hoặc SAI (0), nhưng vì ta không biết chắc, ta gán cho nó một Niềm tin là 0.8."
+  },
+  {
+    "id": 3,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Trong Lý thuyết quyết định (Decision Theory), một tác tử hợp lý (Rational Agent) sẽ đưa ra quyết định dựa trên việc tối đa hóa hàm nào sau đây? (Chọn đáp án đúng)",
+    "options": [
+      "Tối đa hóa Xác suất thành công cao nhất.",
+      "Tối đa hóa Lợi ích kỳ vọng (Expected Utility).",
+      "Tối thiểu hóa chi phí ngắn hạn.",
+      "Tối đa hóa số lượng hành động."
+    ],
+    "answer": [
+      1
+    ],
+    "feedback": "Decision Theory = Probability Theory + Utility Theory. Tác tử không chỉ chọn điều có khả năng xảy ra cao nhất, mà chọn điều mang lại LỢI ÍCH trung bình (Expected Utility) cao nhất. (Giải thích thêm: (Maximum Probability))"
+  },
+  {
+    "id": 4,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Tập hợp TẤT CẢ các thế giới khả dĩ (Possible worlds) hoặc kết quả khả dĩ của một phép thử ngẫu nhiên được gọi là gì?",
+    "options": [
+      "Biến ngẫu nhiên (Random Variable).",
+      "Sự kiện nguyên tử (Atomic Event).",
+      "Không gian mẫu (Sample Space).",
+      "Phân phối xác suất (Probability Distribution)."
+    ],
+    "answer": 2,
+    "feedback": "Không gian mẫu Ω chứa tất cả các biến cố nguyên tử ω (Mutually exclusive and exhaustive). Tổng xác suất của tất cả ω trong Ω luôn bằng 1."
+  },
+  {
+    "id": 5,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Ghép nối các loại Biến ngẫu nhiên (Random Variables) với ví dụ của nó:",
+    "pairs": [
+      {
+        "left": "Biến ngẫu nhiên Boolean",
+        "right": "Bị_Sâu_Răng (Nhận giá trị: True, False)"
+      },
+      {
+        "left": "Biến ngẫu nhiên Rời rạc (Discrete)",
+        "right": "Thời_Tiết (Nhận giá trị: Nắng, Mưa, Mây, Tuyết)"
+      },
+      {
+        "left": "Biến ngẫu nhiên Liên tục (Continuous)",
+        "right": "Nhiệt_Độ_Ngày_Mai (Nhận giá trị là số thực từ khoảng -10.0 đến 40.0)"
+      }
+    ],
+    "feedback": "Biến ngẫu nhiên là cầu nối: Nó ánh xạ từ một thế giới trừu tượng ω thành một giá trị có thể tính toán được."
+  },
+  {
+    "id": 6,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Xác suất tiên nghiệm (Prior Probability), ví dụ $P(Cavity = true) = 0.1$, là xác suất được đánh giá TRƯỚC KHI có bất kỳ thông tin hay bằng chứng mới nào được ghi nhận.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Prior (Tiên nghiệm / Vô điều kiện) là những gì bạn biết ban đầu. Nếu bạn đi khám và bác sĩ nói bạn bị đau răng (Evidence), xác suất sâu răng sẽ thay đổi, lúc này gọi là Posterior (Hậu nghiệm)."
+  },
+  {
+    "id": 7,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Giả sử có 2 biến ngẫu nhiên Boolean: Cavity (Sâu răng) và Toothache (Đau răng). Bảng 'Phân phối xác suất đồng thời đầy đủ' (Full Joint Probability Distribution) của hệ thống này sẽ có bao nhiêu hàng (hoặc ô) chứa các con số xác suất?",
+    "options": [
+      "2",
+      "4",
+      "8",
+      "16"
+    ],
+    "answer": 1,
+    "feedback": "2 biến Boolean có $2^2 = 4$ tổ hợp: (T,T), (T,F), (F,T), (F,F). Nếu có n biến Boolean, bảng Full Joint sẽ có $2^n$ hàng. Đây là lý do ta không thể lưu trữ nó với n lớn (bùng nổ tổ hợp)."
+  },
+  {
+    "id": 8,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Theo Định lý Kolmogorov (Các tiên đề xác suất), xác suất của một sự kiện A bất kỳ (ký hiệu là P(A)) luôn phải nằm trong khoảng từ ____________ đến 1.",
+    "options": [
+      "-1",
+      "0",
+      "0.5",
+      "0.1"
+    ],
+    "answer": 1,
+    "feedback": "Tiên đề 1: $0 \\le P(A) \\le 1$. Tiên đề 2: P(True) = 1, P(False) = 0. Tiên đề 3: $P(A \\lor B) = P(A) + P(B) - P(A \\land B)$."
+  },
+  {
+    "id": 9,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Sắp xếp quá trình tính toán Xác suất Hậu nghiệm (Posterior Probability) $P(A|B)$ từ bảng Full Joint Distribution (Sử dụng công thức điều kiện hóa):",
+    "items": [
+      "Xác định Bằng chứng (Evidence B) đã xảy ra (Ví dụ: Đau răng = True)",
+      "Quét bảng Full Joint, TÍNH TỔNG các ô mà biến B = True để lấy $P(B)$ (Lấy biên / Marginalization)",
+      "Tìm ô cụ thể mà (A = True VÀ B = True) để lấy $P(A \\land B)$",
+      "Chia $P(A \\land B)$ cho $P(B)$ để ra $P(A|B)$"
+    ],
+    "feedback": "Công thức xác suất có điều kiện: $P(A|B) = \\frac{P(A \\land B)}{P(B)}$. Quá trình chia cho P(B) còn được gọi là Chuẩn hóa (Normalization)."
+  },
+  {
+    "id": 10,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Công thức nào sau đây diễn đạt quy tắc Nhân (Product Rule) trong lý thuyết xác suất? (Chọn đáp án đúng)",
+    "options": [
+      "$P(A \\land B) = P(A|B) P(B)$",
+      "$P(A \\land B) = P(B|A) P(A)$",
+      "$P(A \\lor B) = P(A) + P(B)$",
+      "$P(A) = 1 - P(\\lnot A)$"
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "feedback": "Quy tắc nhân (Product rule) liên kết phân phối đồng thời $P(A \\land B)$ với phân phối có điều kiện. Nó đúng theo cả hai chiều: $A|B$ nhân $B$, hoặc $B|A$ nhân $A$."
+  },
+  {
+    "id": 11,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Luật Bayes (Bayes' Rule) được biểu diễn bằng công thức nào?",
+    "options": [
+      "$P(Y|X) = \\frac{P(X|Y) P(Y)}{P(X)}$",
+      "$P(Y|X) = P(X|Y) P(Y) P(X)$",
+      "$P(Y|X) = \\frac{P(X)}{P(X|Y) P(Y)}$",
+      "$P(Y|X) = \\frac{P(X \\land Y)}{P(Y)}$"
+    ],
+    "answer": 0,
+    "feedback": "Bayes' Rule suy ra từ Product Rule: $P(Y|X)P(X) = P(X|Y)P(Y)$. Nó là công thức vĩ đại nhất trong AI vì nó cho phép tính 'Nguyên nhân từ Kết quả'."
+  },
+  {
+    "id": 12,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Tại sao Luật Bayes lại cực kỳ hữu ích trong hệ thống chẩn đoán y tế (Diagnostic systems)?",
+    "options": [
+      "Vì nó không cần dữ liệu (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Vì bác sĩ thường biết $P$, và biết $P$, nhưng họ cần tính $P$ để chẩn đoán cho bệnh nhân đang ngồi trước mặt.",
+      "Vì nó biến toán học thành logic Mệnh đề (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Vì nó tính ra xác suất luôn luôn bằng 100% (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 1,
+    "feedback": "$P(Triệu chứng | Bệnh)$ là tri thức 'Nhân quả' (Causal), nó cực kỳ ổn định (Ví dụ: Viêm màng não thì 50% cứng cổ). $P(Bệnh | Triệu chứng)$ là tri thức 'Chẩn đoán' (Diagnostic), nó hay dao động theo dịch bệnh. Bayes giúp dùng cái Ổn định để tính cái Biến động. (Giải thích thêm: (Triệu\\_chứng | Bệnh) (từ sách vở y khoa) (Bệnh) (từ thống kê dịch tễ) (Bệnh | Triệu\\_chứng))"
+  },
+  {
+    "id": 13,
+    "type": "matching",
+    "difficulty": "Khó",
+    "question": "Trong tính toán Bayes, ta thường dùng biến $\\alpha$ (Alpha) làm Hằng số Chuẩn hóa (Normalization constant). Ghép nối để hoàn thành phương trình:",
+    "pairs": [
+      {
+        "left": "Tính tử số cho trường hợp Bệnh = True",
+        "right": "$P(TriệuChứng | Bệnh=True) \\times P(Bệnh=True)$"
+      },
+      {
+        "left": "Tính tử số cho trường hợp Bệnh = False",
+        "right": "$P(TriệuChứng | Bệnh=False) \\times P(Bệnh=False)$"
+      },
+      {
+        "left": "Hằng số chuẩn hóa $\\alpha = 1 / P(TriệuChứng)$",
+        "right": "$1 / (TửSố_{True} + TửSố_{False})$"
+      },
+      {
+        "left": "Kết quả cuối cùng $P(Bệnh=True | TriệuChứng)$",
+        "right": "$\\alpha \\times TửSố_{True}$"
+      }
+    ],
+    "feedback": "Chuẩn hóa giúp ta KHÔNG CẦN biết Mẫu số $P(X)$. Ta chỉ cần tính Tử số cho mọi trường hợp, cộng chúng lại làm mẫu số chung (để đảm bảo tổng = 1)."
+  },
+  {
+    "id": 14,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Hai biến A và B được gọi là Độc lập tuyệt đối (Absolute Independence) nếu $P(A|B) = P(A)$. Khi đó, bảng Joint Distribution $P(A, B)$ có thể được tính đơn giản bằng $P(A) \\times P(B)$.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Độc lập tuyệt đối nghĩa là việc biết B xảy ra không cung cấp thêm bất kỳ thông tin nào làm thay đổi xác suất của A (Ví dụ: Trúng số và Thời tiết trên sao Hỏa). Tuy nhiên, Độc lập tuyệt đối rất hiếm gặp trong thực tế."
+  },
+  {
+    "id": 15,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Vũ khí mạnh nhất để thu gọn bảng Full Joint Distribution trong AI là tính Độc lập ____________ (Conditional Independence). Ví dụ: Đau răng (Toothache) và Bị mắc kẹt mũi dò (Catch) là ĐỘC LẬP VỚI NHAU NẾU ta đã biết Bệnh nhân bị Sâu răng (Cavity).",
+    "options": [
+      "Toàn phần (Full)",
+      "Biên (Marginal)",
+      "Tuyệt đối (Absolute)",
+      "Có điều kiện (Conditional)"
+    ],
+    "answer": 3,
+    "feedback": "Conditional Independence: $P(Toothache, Catch | Cavity) = P(Toothache | Cavity) \\times P(Catch | Cavity)$. Đây là nền tảng cốt lõi của thuật toán Naive Bayes và Mạng Bayes."
+  },
+  {
+    "id": 16,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Mô hình Naive Bayes (Bayes ngây thơ) giả định điều gì khiến nó mang tên 'Ngây thơ'? (Chọn đáp án đúng)",
+    "options": [
+      "Giả định rằng tất cả các Đặc trưng đều ĐỘC LẬP CÓ ĐIỀU KIỆN với nhau, nếu đã biết Lớp.",
+      "Giả định rằng xác suất luôn bằng 50-50 (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Giả định rằng có thể bỏ qua mọi công thức toán học (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Công thức của nó là $P = P \\prod_{i} P$ (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": [
+      0,
+      3
+    ],
+    "feedback": "Trong thực tế, các triệu chứng như 'Sốt' và 'Ho' vẫn có thể ảnh hưởng lẫn nhau dù đã biết là bị 'Cảm cúm'. Nhưng Naive Bayes 'ngây thơ' cho rằng chúng hoàn toàn độc lập để tính toán cho nhanh. Dù giả định sai, nó vẫn hoạt động cực kỳ hiệu quả (ví dụ: Lọc Spam email). (Giải thích thêm: (Features/Triệu chứng) (Class/Bệnh)) (Giải thích thêm: (Cause, E_1, ..., E_n) (Cause) (E_i | Cause))"
+  },
+  {
+    "id": 17,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Quy tắc chuỗi (Chain Rule) cho phân phối đồng thời của n biến $X_1, X_2, ..., X_n$ được viết như thế nào?",
+    "options": [
+      "$P = P + P + ... + P$",
+      "$P = P P P ... P$",
+      "$P(X_1, ..., X_n) = P(X_1) P(X_2) ... P(X_n)$",
+      "$P(X_1, ..., X_n) = 1$"
+    ],
+    "answer": 1,
+    "feedback": "Chain Rule là việc áp dụng liên tiếp Product Rule. Nó ĐÚNG TRONG MỌI TRƯỜNG HỢP mà không cần bất kỳ giả định độc lập nào. (Giải thích thêm: (X_1, ..., X_n) (X_1) (X_2) (X_n)) (Giải thích thêm: (X_1, ..., X_n) (X_1) (X_2 | X_1) (X_3 | X_1, X_2) (X_n | X_1, ..., X_{n-1}))"
+  },
+  {
+    "id": 18,
+    "type": "ordering",
+    "difficulty": "Dễ",
+    "question": "Sắp xếp các bước để áp dụng Luật Bayes tìm xác suất $P(Bệnh | TriệuChứng)$:",
+    "items": [
+      "Thu thập $P(Bệnh)$ (Prior probability của bệnh từ dân số)",
+      "Thu thập $P(TriệuChứng | Bệnh)$ (Độ nhạy của xét nghiệm / Tỷ lệ có triệu chứng khi mắc bệnh)",
+      "Thu thập $P(TriệuChứng | KhôngBệnh)$ (Tỷ lệ dương tính giả)",
+      "Tính tử số $P(TriệuChứng | Bệnh) \\times P(Bệnh)$",
+      "Tính mẫu số $P(TriệuChứng)$ bằng định lý xác suất toàn phần",
+      "Lấy Tử số chia Mẫu số để có $P(Bệnh | TriệuChứng)$"
+    ],
+    "feedback": "Quá trình này giải thích lý do tại sao một căn bệnh cực hiếm (Prior rất thấp), dù xét nghiệm Dương tính có độ chính xác 99%, thì khả năng bạn thực sự mắc bệnh vẫn RẤT THẤP (Base-rate fallacy)."
+  },
+  {
+    "id": 19,
+    "type": "true_false",
+    "difficulty": "Khó",
+    "question": "Quá trình 'Marginalization' (Lấy biên / Tính tổng xác suất ra ngoài) cho phép tính toán Phân phối xác suất của một biến $Y$ bằng cách TÍNH TỔNG tất cả các giá trị của biến $Z$ trong bảng Joint Distribution $P(Y, Z)$. Công thức: $P(Y) = \\sum_z P(Y, z)$.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Tưởng tượng bảng Joint Distribution là ma trận 2D. Marginalization chính là việc CỘNG TẤT CẢ CÁC CỘT trên 1 hàng để ra tổng của hàng đó (triệt tiêu đi chiều của Z)."
+  },
+  {
+    "id": 20,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Luật Bayes (Bayes' Rule) đặc biệt quan trọng vì nó liên kết hai loại xác suất có điều kiện đối nghịch nhau. Hai loại đó thường được gọi là gì?",
+    "options": [
+      "Xác suất tiên nghiệm và Xác suất biên.",
+      "Mô hình nhân quả$) và Mô hình chẩn đoán$).",
+      "Xác suất rời rạc và Xác suất liên tục.",
+      "Xác suất đúng và Xác suất sai."
+    ],
+    "answer": 1,
+    "feedback": "Tri thức Nhân quả (Causal) dễ ước lượng, dễ xây dựng và thường là hằng số. Tri thức chẩn đoán (Diagnostic) là cái AI cần tìm ra để trả lời người dùng. Luật Bayes là cầu nối đảo ngược mũi tên. (Giải thích thêm: (Prior) (Marginal)) (Giải thích thêm: (Causal direction: $P(Effect|Cause) (Diagnostic direction: $P(Cause|Effect))"
+  },
+  {
+    "id": 21,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Khi có nhiều hơn một bằng chứng (ví dụ: Vừa Đau răng, vừa Mắc mũi dò), Luật Bayes mở rộng sẽ gặp khó khăn vì mẫu số $P(Toothache \\land Catch)$ rất khó tìm dữ liệu. Mọi chuyện được giải quyết triệt để nhờ thuật toán Naive Bayes với giả định ____________ (Conditional Independence).",
+    "options": [
+      "Independence",
+      "Prior",
+      "Joint",
+      "Conditional"
+    ],
+    "answer": 3,
+    "feedback": "Giả định này cho phép biến $P(Toothache \\land Catch | Cavity)$ phức tạp thành phép nhân đơn giản: $P(Toothache|Cavity) \\times P(Catch|Cavity)$."
+  },
+  {
+    "id": 22,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Nối các thuật ngữ Tiếng Anh về Xác suất với khái niệm Tiếng Việt tương ứng:",
+    "pairs": [
+      {
+        "left": "Prior probability",
+        "right": "Xác suất tiên nghiệm (Biết trước khi có bằng chứng)"
+      },
+      {
+        "left": "Posterior probability",
+        "right": "Xác suất hậu nghiệm (Sau khi cập nhật bằng chứng)"
+      },
+      {
+        "left": "Joint distribution",
+        "right": "Phân phối đồng thời (Bảng mọi kết hợp)"
+      },
+      {
+        "left": "Marginalization",
+        "right": "Tính lấy biên (Cộng dồn để loại bỏ biến thừa)"
+      }
+    ],
+    "feedback": "Sự nhầm lẫn giữa Prior và Posterior là nguyên nhân số một dẫn đến việc hiểu sai thống kê."
+  },
+  {
+    "id": 23,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Sử dụng bảng Full Joint Distribution để trả lời mọi truy vấn là hoàn toàn KHẢ THI và HIỆU QUẢ cho các bài toán AI thế giới thực có hàng ngàn biến số (như xe tự lái).",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai. Bảng Full Joint Distribution có kích thước $O(2^n)$ (hoặc $O(d^n)$). Với 100 biến, số lượng hàng lớn hơn số nguyên tử trong vũ trụ, không bộ nhớ nào chứa nổi. Ta BẮT BUỘC phải dùng Mạng Bayes (Bayesian Networks) để giảm chiều."
+  },
+  {
+    "id": 24,
+    "type": "multiple_select",
+    "difficulty": "Dễ",
+    "question": "Các Tiên đề Xác suất (Axioms of Probability) của Kolmogorov mang ý nghĩa gì? (Chọn đáp án đúng)",
+    "options": [
+      "Chúng là những quy tắc bắt buộc để một hệ thống niềm tin được coi là 'Hợp lý'.",
+      "Nếu tác tử vi phạm các tiên đề này, tác tử có thể bị đánh lừa để thua cược trong mọi trường hợp.",
+      "Chúng giải quyết được mọi vấn đề của Logic (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Chúng do nhà toán học Bayes sáng tạo ra (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "feedback": "De Finetti (1931) đã chứng minh bằng 'Dutch Book': Bất cứ ai cược tiền dựa trên một bộ niềm tin vi phạm tiên đề xác suất (ví dụ tổng xác suất > 1), người đó chắc chắn sẽ mất tiền trước một nhà cái khôn ngoan. (Giải thích thêm: (Rational)) (Giải thích thêm: (ví dụ: niềm tin A và B mâu thuẫn) (Dutch book argument))"
+  },
+  {
+    "id": 25,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Hệ số Chuẩn hóa $\\alpha$ (Alpha) trong phương trình $P(Y|X) = \\alpha P(X|Y)P(Y)$ thực chất có giá trị bằng bao nhiêu?",
+    "options": [
+      "$1 / P(X|Y)$",
+      "$1 / P(Y)$",
+      "$1 / P(X)$",
+      "$1 / (P(X) + P(Y))$"
+    ],
+    "answer": 2,
+    "feedback": "Mẫu số của Định lý Bayes nguyên bản là $P(X)$. Do đó $\\alpha = 1 / P(X)$. Ta gọi nó là $\\alpha$ để nhấn mạnh rằng ta không cần biết trực tiếp giá trị của $P(X)$, chỉ cần cộng tổng các trường hợp tử số lại là tìm ra nó."
+  },
+  {
+    "id": 26,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Sắp xếp theo thứ tự lịch sử xử lý sự không chắc chắn (Uncertainty) trong AI:",
+    "items": [
+      "Hệ chuyên gia thời kỳ đầu cố gắng dùng Strict Logic (FOL) nhưng thất bại vì có quá nhiều ngoại lệ",
+      "Sử dụng các phương pháp Heuristic ad-hoc như 'Certainty Factors' (Hệ số chắc chắn) trong hệ MYCIN",
+      "Sử dụng Fuzzy Logic (Logic mờ) để đo mức độ đúng/sai (degree of truth) nhưng gây hiểu lầm cho chẩn đoán nhân quả",
+      "Chuyển sang nền tảng vững chắc của Lý thuyết Xác suất (Probability Theory - Degree of belief)",
+      "Phát minh ra Mạng Bayes (Bayesian Networks) bởi Judea Pearl để tính toán xác suất khả thi cho hàng ngàn biến"
+    ],
+    "feedback": "Mạng Bayes (chương tiếp theo) là cuộc cách mạng thực sự mang lại sức sống cho AI trước khi Deep Learning trỗi dậy."
+  },
+  {
+    "id": 27,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Tính chất 'Mutually Exclusive' (Xung khắc) của Không gian mẫu nghĩa là gì?",
+    "options": [
+      "Các sự kiện nguyên tử không bao giờ xảy ra (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Tại một thời điểm, chỉ có MỘT VÀ CHỈ MỘT sự kiện nguyên tử có thể xảy ra.",
+      "Các sự kiện hỗ trợ lẫn nhau (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Các sự kiện độc lập tuyệt đối (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 1,
+    "feedback": "Mutually exclusive (Không giao nhau / Xung khắc) và Exhaustive (Bao hàm tất cả) là 2 điều kiện bắt buộc của Không gian mẫu Ω. (Giải thích thêm: (atomic event) (Ví dụ: Không thể vừa 'Nắng' vừa 'Mưa' nếu quy định trạng thái là duy nhất))"
+  },
+  {
+    "id": 28,
+    "type": "multiple_select",
+    "difficulty": "Dễ",
+    "question": "Khi xác suất của một sự kiện A là $P(A) = 1$, điều này có nghĩa là gì?",
+    "options": [
+      "Sự kiện A chắc chắn sẽ xảy ra.",
+      "Sự kiện A tương đương với hằng đúng (True).",
+      "Sự kiện A hoàn toàn độc lập với mọi sự kiện khác.",
+      "Sự kiện A không thể tính được."
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "feedback": "Xác suất là một dải liên tục từ 0 (Chắc chắn KHÔNG) đến 1 (Chắc chắn CÓ). Logic Mệnh đề truyền thống chỉ là hai điểm cực trị (0 và 1) của không gian Xác suất. (Giải thích thêm: (hoặc được tác tử tin là chắc chắn xảy ra))"
+  },
+  {
+    "id": 29,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Việc sử dụng các bộ lọc thư rác (Spam Filter) hiện đại đánh giá xác suất một email là Spam dựa trên sự xuất hiện của các từ (như 'Free', 'Viagra', 'Money'). Hầu hết các bộ lọc này dựa trên thuật toán ____________ (Naive) Bayes.",
+    "options": [
+      "Naive",
+      "Smart",
+      "Deep",
+      "Fuzzy"
+    ],
+    "answer": 0,
+    "feedback": "Naive Bayes (Bayes ngây thơ) giả định rằng việc xuất hiện từ 'Free' và 'Money' là hoàn toàn độc lập với nhau miễn là biết email đó là Spam. Nhờ vậy nó tính toán siêu nhanh và lọc rác cực kỳ hiệu quả."
+  },
+  {
+    "id": 30,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Công thức Conditioning (Điều kiện hóa) $P(A) = \\sum_b P(A|b) P(b)$ có thể được hiểu là: Xác suất của A bằng trung bình cộng có trọng số của các xác suất của A trong từng trường hợp b.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Đây là Luật Xác suất toàn phần (Law of Total Probability). Bạn muốn tính xác suất Mai mưa (A). Bạn tính xác suất Mai mưa nếu Đêm nay mây (A|b1) nhân với khả năng đêm nay mây P(b1), cộng với xác suất Mai mưa nếu Đêm nay trong (A|b2) nhân với khả năng đêm nay trong P(b2)."
+  }
+]

@@ -1,0 +1,453 @@
+[
+  {
+    "id": 1,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Mục tiêu chính của các thuật toán Suy diễn trong Logic Bậc Nhất (Inference in FOL) là gì?",
+    "options": [
+      "Dịch tiếng Anh sang ngôn ngữ FOL (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Tìm ra một chiến lược chiến thắng cho trò chơi cờ vua.",
+      "Chứng minh một câu hỏi có phải là hệ quả logic của Cơ sở tri thức hay không.",
+      "Tính toán xác suất xảy ra của một sự kiện (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 2,
+    "feedback": "Cũng giống như trong Logic Mệnh đề, suy diễn trong FOL dùng để trả lời câu hỏi: Từ những điều ta đã biết (KB), liệu câu mới này có bắt buộc phải Đúng hay không? (Giải thích thêm: (query) (entailment) (KB))"
+  },
+  {
+    "id": 2,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Quy tắc ____________ Phổ dụng (Universal Instantiation) cho phép chúng ta thay thế một biến bị ràng buộc bởi lượng từ ∀ bằng BẤT KỲ hạng thức (term) cụ thể nào không chứa biến.",
+    "options": [
+      "Khái quát hóa (Generalization)",
+      "Cụ thể hóa (Instantiation)",
+      "Hợp nhất (Unification)",
+      "Hợp giải (Resolution)"
+    ],
+    "answer": 1,
+    "feedback": "Universal Instantiation. Ví dụ: Từ '∀x King(x) ⇒ Person(x)', ta có thể cụ thể hóa x thành John để sinh ra câu 'King(John) ⇒ Person(John)'."
+  },
+  {
+    "id": 3,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Quy tắc Cụ thể hóa Tồn tại (Existential Instantiation) nói rằng: Từ câu ∃x Crown(x) (Tồn tại một cái vương miện), ta có thể suy ra Crown(C). Điều kiện C BẮT BUỘC phải thỏa mãn là gì? (Chọn các đáp án đúng)",
+    "options": [
+      "C phải là một Ký hiệu Hằng số (Constant Symbol).",
+      "C phải là một đối tượng đã được nhắc đến từ trước trong Cơ sở tri thức.",
+      "C phải là một Ký hiệu HOÀN TOÀN MỚI, chưa từng xuất hiện ở bất cứ đâu trong KB.",
+      "C phải là một biến số (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": [
+      0,
+      2
+    ],
+    "feedback": "Nếu bạn có 'Tồn tại một sát thủ', bạn có thể gọi hắn là 'Kẻ-X-Nào-Đó' (Skolem Constant). Nhưng bạn KHÔNG THỂ gọi hắn là 'John' (nếu John đã có trong KB), vì như thế là vu oan cho John. (Giải thích thêm: (KB)) (Giải thích thêm: (gọi là Hằng số Skolem))"
+  },
+  {
+    "id": 4,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Định lý Herbrand (Herbrand's Theorem) phát biểu một ý tưởng nền tảng nào?",
+    "options": [
+      "Logic bậc nhất không thể giải được trên máy tính (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Nếu một câu FOL có thể chứng minh được, thì nó có thể chứng minh được bằng cách tạo ra một KB Mệnh đề hữu hạn thông qua Cụ thể hóa, và dùng thuật toán của Logic Mệnh đề để giải.",
+      "Mọi bài toán toán học đều có thể chứng minh (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Không thể chuyển đổi FOL sang CNF (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 1,
+    "feedback": "Định lý Herbrand là cầu nối: Ta có thể 'phẳng hóa' (propositionalize) FOL thành Logic Mệnh đề bằng cách thay thế tất cả các biến bằng tất cả các hằng số khả dĩ. (Giải thích thêm: (Propositional KB) (Instantiation))"
+  },
+  {
+    "id": 5,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Phương pháp 'Mệnh đề hóa' (Propositionalization) toàn bộ Cơ sở tri thức FOL thường chạy cực kỳ nhanh và tiết kiệm bộ nhớ, nên luôn luôn được ưu tiên sử dụng.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai. Mệnh đề hóa tạo ra sự Bùng nổ tổ hợp khổng lồ (Ví dụ: ∀x,y,z có 100 đối tượng sẽ sinh ra 1,000,000 câu mệnh đề). Nó quá chậm, vì vậy chúng ta cần các thuật toán suy diễn TRỰC TIẾP trên FOL như Hợp nhất (Unification)."
+  },
+  {
+    "id": 6,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Để tránh việc sinh ra hàng triệu câu mệnh đề vô ích, FOL sử dụng kỹ thuật ____________ (Unification) để tìm ra một 'Phép thế' (Substitution) θ làm cho 2 câu trở nên giống hệt nhau.",
+    "options": [
+      "Skolem hóa (Skolemization)",
+      "Hợp giải (Resolution)",
+      "Hợp nhất (Unification)",
+      "Mệnh đề hóa (Propositionalization)"
+    ],
+    "answer": 2,
+    "feedback": "Hợp nhất (Unification) là trái tim của Suy diễn FOL. Thuật toán UNIFY lấy 2 câu và trả về một phép thế. VD: UNIFY(Knows(John, x), Knows(John, Jane)) trả về {x / Jane}."
+  },
+  {
+    "id": 7,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Ghép nối các đầu vào của hàm UNIFY với Phép thế (Substitution) θ mà nó trả về (hoặc 'Thất bại'):",
+    "pairs": [
+      {
+        "left": "UNIFY( King(x), King(John) )",
+        "right": "{x / John}"
+      },
+      {
+        "left": "UNIFY( Knows(John, x), Knows(y, Bill) )",
+        "right": "{x / Bill, y / John}"
+      },
+      {
+        "left": "UNIFY( Knows(John, x), Knows(x, Elizabeth) )",
+        "right": "Thất bại (Fail)"
+      },
+      {
+        "left": "UNIFY( Loves(x, y), Loves(y, x) )",
+        "right": "{x / y} hoặc {y / x} (nhưng thường chuẩn hóa biến trước khi hợp nhất)"
+      }
+    ],
+    "feedback": "Biến x không thể cùng lúc bằng John và Elizabeth. Đây là lý do ta phải 'chuẩn hóa biến' (Standardize apart) trước khi Hợp nhất các luật khác nhau."
+  },
+  {
+    "id": 8,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Một Hợp nhất tổng quát nhất (Most General Unifier - MGU) là gì?",
+    "options": [
+      "Một phép thế chỉ thay thế các biến bằng Hằng số (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Một phép thế tạo ra câu có số lượng ký tự ngắn nhất (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Một phép thế ràng buộc các biến ÍT NHẤT CÓ THỂ, để lại tối đa sự tự do cho các bước suy diễn sau này.",
+      "Một phép thế thay thế toàn bộ KB bằng False (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 2,
+    "feedback": "Ví dụ: UNIFY(Knows(John, x), Knows(y, z)) có thể trả về {y/John, x/John, z/John} (đúng nhưng quá cụ thể). MGU sẽ trả về {y/John, x/z} (tổng quát nhất), giữ lại biến z để linh hoạt. (Giải thích thêm: (biến số))"
+  },
+  {
+    "id": 9,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Sắp xếp quy trình cơ bản của thuật toán Suy diễn tiến (Forward Chaining) trong Logic Bậc nhất (cho KB dạng Horn):",
+    "items": [
+      "Lấy các Fact (sự kiện) đã biết trong KB",
+      "Dùng UNIFY để khớp các Fact này với phần Tiền đề (Premises) của các Luật (Rules)",
+      "Nếu khớp thành công, thu được phép thế θ",
+      "Áp dụng θ vào phần Kết luận (Conclusion) của Luật để tạo ra Fact mới",
+      "Thêm Fact mới vào KB và lặp lại cho đến khi tìm thấy Truy vấn (Query)"
+    ],
+    "feedback": "Suy diễn tiến liên tục áp dụng Modus Ponens Tổng quát (Generalized Modus Ponens) kết hợp với Unification để đẻ ra tri thức mới từ dưới lên."
+  },
+  {
+    "id": 10,
+    "type": "true_false",
+    "difficulty": "Khó",
+    "question": "Thuật toán Suy diễn tiến (Forward Chaining) trong FOL được đảm bảo sẽ dừng lại (Terminate) nếu Truy vấn (Query) KHÔNG PHẢI là hệ quả logic của KB (tức là vô nghiệm).",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai. Logic bậc nhất là Nửa quyết định (Semi-decidable). Nếu truy vấn ĐÚNG, thuật toán sẽ tìm ra và dừng. Nếu SAI, thuật toán có thể rơi vào vòng lặp sinh ra vô hạn các đối tượng mới (ví dụ: cha của cha của cha...) và không bao giờ dừng."
+  },
+  {
+    "id": 11,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Ngôn ngữ lập trình Prolog là ngôn ngữ nổi tiếng nhất đại diện cho mô hình 'Lập trình Logic' (Logic Programming). Nó sử dụng thuật toán suy diễn cốt lõi nào?",
+    "options": [
+      "Forward Chaining (Suy diễn tiến).",
+      "Backward Chaining kết hợp với Depth-First Search.",
+      "WalkSAT.",
+      "Thuật toán di truyền."
+    ],
+    "answer": 1,
+    "feedback": "Prolog bắt đầu từ mục tiêu (Query), đi ngược lên các luật để tìm xem cần phải chứng minh những tiền đề (sub-goals) nào. Nó duyệt theo chiều sâu (DFS). (Giải thích thêm: (Suy diễn lùi))"
+  },
+  {
+    "id": 12,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Prolog có một số điểm khác biệt (thậm chí khiếm khuyết) so với Logic Bậc Nhất lý thuyết. Đó là những điểm nào? (Chọn đáp án đúng)",
+    "options": [
+      "Prolog không hỗ trợ phép Phủ định logic hoàn chỉnh (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Prolog duyệt cây theo chiều sâu theo thứ tự từ trên xuống dưới, trái sang phải, nên có thể rơi vào vòng lặp vô hạn dù bài toán có nghiệm.",
+      "Prolog yêu cầu lập trình viên phải lập trình bằng C++ trước (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Prolog không có cơ chế Unification (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "feedback": "Prolog bỏ qua kiểm tra chu trình (Occur-check) để chạy nhanh, dùng DFS dễ kẹt vòng lặp, và ¬P chỉ đơn giản nghĩa là 'Tôi không thể chứng minh P' chứ không hẳn P là Sai. (Giải thích thêm: (Nó dùng 'Phủ định do thất bại' - Negation as failure)) (Giải thích thêm: (DFS))"
+  },
+  {
+    "id": 13,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Để chuyển đổi một câu FOL có chứa Lượng từ tồn tại (∃) sang Dạng chuẩn hội (CNF) dùng cho thuật toán Hợp giải (Resolution), ta phải sử dụng một quá trình gọi là ____________ (Skolemization).",
+    "options": [
+      "Lượng từ hóa (Quantification)",
+      "Skolem hóa (Skolemization)",
+      "Chuẩn hóa (Normalization)",
+      "Mệnh đề hóa (Propositionalization)"
+    ],
+    "answer": 1,
+    "feedback": "Skolemization loại bỏ dấu ∃ bằng cách thay thế biến bằng một Hằng số Skolem (nếu ∃ nằm ngoài cùng) hoặc một Hàm Skolem (nếu ∃ nằm bên trong một ∀)."
+  },
+  {
+    "id": 14,
+    "type": "matching",
+    "difficulty": "Khó",
+    "question": "Nối các câu chứa lượng từ ∃ với kết quả sau khi Skolem hóa (với C là Hằng Skolem, F(x) là Hàm Skolem):",
+    "pairs": [
+      {
+        "left": "∃x Rich(x)",
+        "right": "Rich(C)"
+      },
+      {
+        "left": "∀x ∃y Loves(x, y)",
+        "right": "∀x Loves(x, F(x))"
+      },
+      {
+        "left": "∃y ∀x Loves(x, y)",
+        "right": "∀x Loves(x, C)"
+      }
+    ],
+    "feedback": "Nếu ∃y nằm trong ∀x (mọi người đều có 1 người họ yêu), người được yêu phụ thuộc vào x -> Dùng HÀM F(x). Nếu ∃y nằm ngoài (có 1 thần tượng mà ai cũng yêu), người đó là cố định -> Dùng HẰNG C."
+  },
+  {
+    "id": 15,
+    "type": "ordering",
+    "difficulty": "Khó",
+    "question": "Sắp xếp các bước cơ bản để chuyển đổi một câu FOL bất kỳ sang dạng Chuẩn Hội (CNF) phục vụ Hợp giải:",
+    "items": [
+      "Loại bỏ dấu kéo theo (⇒) và tương đương (⇔)",
+      "Đẩy dấu phủ định (¬) vào trong cùng (áp dụng De Morgan cho ∀ và ∃)",
+      "Chuẩn hóa biến (Standardize variables - đổi tên các biến bị trùng)",
+      "Skolem hóa (Loại bỏ lượng từ ∃)",
+      "Vứt bỏ tất cả lượng từ ∀ (Mặc định mọi biến còn lại đều là ∀)",
+      "Phân phối ∨ vào trong ∧ để tạo thành cấu trúc CNF"
+    ],
+    "feedback": "Đây là 6 bước kinh điển (Implications -> Negations -> Standardize -> Skolemize -> Drop Universal -> Distribute)."
+  },
+  {
+    "id": 16,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Luật Hợp giải cho FOL (First-Order Resolution Rule) hoạt động như thế nào so với Logic mệnh đề?",
+    "options": [
+      "Nó hoàn toàn không thể áp dụng được (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Nó yêu cầu người dùng phải tự tính toán (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Nó hoàn toàn giống Logic mệnh đề, nhưng cần sử dụng UNIFY để tìm phép thế θ làm cho hai Literals trở thành đối nghịch nhau.",
+      "Nó chỉ làm việc với Mệnh đề Horn (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": 2,
+    "feedback": "Ví dụ: (Animal(F(x)) ∨ Loves(G, x)) hợp giải với ¬Animal(y) bằng phép thế θ = {y / F(x)}. Ta sẽ thu được Loves(G, x). (Giải thích thêm: (l1θ = ¬l2θ))"
+  },
+  {
+    "id": 17,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Thuật toán Hợp giải (Resolution) trong FOL là Bác bỏ Hoàn chỉnh (Refutation-Complete), nghĩa là nếu một câu là hệ quả logic của KB, Hợp giải chắc chắn sẽ tìm ra được mâu thuẫn (empty clause).",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Đây là định lý của Robinson (1965). Tuy nhiên, nếu câu KHÔNG PHẢI là hệ quả, Hợp giải có thể chạy mãi mãi không dừng (do đặc tính semi-decidable)."
+  },
+  {
+    "id": 18,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Khi hai mệnh đề trong FOL chứa các Literals có thể hợp nhất (Unify) với nhau, ta có thể rút gọn chúng thành một Literal duy nhất. Kỹ thuật này được gọi là gì?",
+    "options": [
+      "Cắt tỉa (Pruning).",
+      "Skolem hóa (Skolemization).",
+      "Thừa số hóa (Factoring).",
+      "Hợp nhất (Unification)."
+    ],
+    "answer": 2,
+    "feedback": "Factoring: Nếu có (P(x) ∨ P(y)), ta có thể hợp nhất x và y bằng phép thế {x/y} để rút gọn mệnh đề thành P(y). Điều này BẮT BUỘC để đảm bảo tính Hoàn chỉnh của Hợp giải FOL."
+  },
+  {
+    "id": 19,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Dấu bằng (Equality) gây ra sự khó khăn rất lớn cho các hệ thống suy diễn Theorem Provers vì nó làm bùng nổ số lượng phép toán. Các kỹ thuật nào sau đây được dùng để xử lý dấu Bằng hiệu quả? (Chọn đáp án đúng)",
+    "options": [
+      "Demodulation: Dùng luật x=y để thay thế liên tục y bằng x trong mọi mệnh đề.",
+      "Paramodulation: Kết hợp Hợp giải và Demodulation trong một bước.",
+      "Cấm hoàn toàn việc sử dụng dấu Bằng (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Dùng mạng nơ-ron để đoán (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "feedback": "Thay vì phải viết các Tiên đề phản xạ, đối xứng, bắc cầu cho dấu =, các Theorem Provers hiện đại xây dựng sẵn thuật toán Demodulation/Paramodulation vào lõi engine để chạy cực nhanh. (Giải thích thêm: (Giải điều chế)) (Giải thích thêm: (Điều chế tham số))"
+  },
+  {
+    "id": 20,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Thuật toán Rete (Rete Algorithm) nổi tiếng được sử dụng trong hệ thống nào?",
+    "options": [
+      "Các bộ giải SAT (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Chương trình cờ vua Deep Blue (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Các hệ chuyên gia sử dụng Suy diễn tiến dựa trên luật.",
+      "Lập trình logic Prolog (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 2,
+    "feedback": "Rete Algorithm là một cấu trúc dữ liệu mạng rất hiệu quả để kiểm tra Pattern Matching, giúp các Hệ chuyên gia (như CLIPS, JBoss Drools) tăng tốc hàng nghìn lần so với vòng lặp quét thông thường. (Giải thích thêm: (Expert Systems) (Forward Chaining) (Rule-based systems))"
+  },
+  {
+    "id": 21,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Ngôn ngữ ____________ (Datalog) là một ngôn ngữ lập trình logic tương tự như Prolog nhưng KHÔNG cho phép sử dụng các Ký hiệu Hàm (Function symbols). Điều này giúp các truy vấn của nó luôn luôn kết thúc (terminate).",
+    "options": [
+      "C++",
+      "LISP",
+      "SQL",
+      "Datalog"
+    ],
+    "answer": 3,
+    "feedback": "Datalog là cốt lõi của các cơ sở dữ liệu diễn dịch (Deductive Databases). Vì không có Function, nó không thể sinh ra vô hạn các đối tượng (như f(f(f(x)))), nên nó được đảm bảo luôn luôn dừng."
+  },
+  {
+    "id": 22,
+    "type": "matching",
+    "difficulty": "Khó",
+    "question": "Ghép nối các hệ thống/ngôn ngữ với chiến lược suy diễn cốt lõi của chúng:",
+    "pairs": [
+      {
+        "left": "Prolog",
+        "right": "Suy diễn lùi (Backward Chaining) với DFS"
+      },
+      {
+        "left": "Datalog",
+        "right": "Thường dùng Suy diễn tiến (Forward Chaining) để tìm tất cả hệ quả mà không lo vòng lặp vô hạn"
+      },
+      {
+        "left": "Production Systems (Ví dụ: Drools, CLIPS)",
+        "right": "Suy diễn tiến sử dụng thuật toán Rete"
+      },
+      {
+        "left": "Vampire, OTTER (Theorem Provers)",
+        "right": "Hợp giải (Resolution) kết hợp Paramodulation"
+      }
+    ],
+    "feedback": "Mỗi chiến lược phục vụ một mục đích: Prolog để truy vấn mục tiêu, Production Systems để phản ứng với luồng dữ liệu, Theorem Provers để chứng minh toán học."
+  },
+  {
+    "id": 23,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Kỹ thuật 'Magic Sets' (Tập ma thuật) kết hợp ưu điểm hướng-mục-tiêu (goal-directed) của Suy diễn lùi vào trong thuật toán Suy diễn tiến, giúp Suy diễn tiến chạy nhanh hơn nhiều bằng cách chỉ xét những luật liên quan đến mục tiêu.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Magic Sets thiết lập lại KB sao cho Forward Chaining không còn 'sinh ra mọi thứ mù quáng' mà bị định hướng bởi các mục tiêu 'Magic'."
+  },
+  {
+    "id": 24,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Khi chạy Prolog với đoạn mã:\n`parent(john, mary).`\n`ancestor(X, Y) :- parent(X, Y).`\n`ancestor(X, Y) :- parent(X, Z), ancestor(Z, Y).`\nNếu bạn đặt câu hỏi `?- ancestor(john, mary).`, Prolog sẽ trả về gì?",
+    "options": [
+      "False",
+      "True",
+      "Lỗi cú pháp",
+      "Vòng lặp vô hạn"
+    ],
+    "answer": 1,
+    "feedback": "Prolog sẽ match `ancestor(john, mary)` với luật 1, thấy `parent(john, mary)` có thật trong cơ sở dữ liệu, nên nó trả về True ngay lập tức."
+  },
+  {
+    "id": 25,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Cũng với đoạn mã Prolog trên, nếu thứ tự các luật bị lập trình viên viết sai thành:\n`ancestor(X, Y) :- ancestor(Z, Y), parent(X, Z).`\nThì điều gì sẽ xảy ra khi truy vấn?",
+    "options": [
+      "Prolog tự động sửa lại thứ tự và trả về True.",
+      "Prolog gặp vòng lặp vô hạn và báo lỗi Stack Overflow.",
+      "Prolog trả về False (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Prolog bỏ qua luật thứ hai (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 1,
+    "feedback": "Vì Prolog dùng DFS từ trên xuống, trái sang phải, nó sẽ gọi `ancestor(Z, Y)`, rồi hàm đó lại gọi `ancestor(Z1, Y)`... dẫn đến vòng lặp vô hạn đệ quy trái. (Đây là điểm yếu của Prolog). (Giải thích thêm: (Infinite Loop))"
+  },
+  {
+    "id": 26,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Sắp xếp các thao tác của UNIFY( P(x, f(y)), P(John, z) ):",
+    "items": [
+      "So sánh ký hiệu Vị từ: P giống P (Tiếp tục)",
+      "So sánh tham số thứ nhất: x và John -> Tạo phép thế θ = {x/John}",
+      "So sánh tham số thứ hai: f(y) và z -> Bổ sung vào phép thế θ = {x/John, z/f(y)}",
+      "Trả về phép thế θ cuối cùng"
+    ],
+    "feedback": "Hợp nhất duyệt qua từng tham số từ trái sang phải, tạo ra các phép thế và áp dụng chúng cho các tham số còn lại."
+  },
+  {
+    "id": 27,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Trong AI, Logic Bậc Nhất và Suy diễn thường được ứng dụng vào những lĩnh vực thực tế nào? (Chọn đáp án đúng)",
+    "options": [
+      "Chứng minh tính đúng đắn của các vi mạch phần cứng máy tính.",
+      "Tạo ra các Hệ chuyên gia y tế chẩn đoán bệnh.",
+      "Nhận diện khuôn mặt trong hình ảnh (Computer Vision).",
+      "Sinh ngôn ngữ tự nhiên bằng Mạng nơ-ron."
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "feedback": "Logic/Symbolic AI rất mạnh trong việc Suy luận chính xác và Xác minh hình thức (Formal Verification). Nhận diện ảnh và sinh ngôn ngữ (Deep Learning) không dùng logic quy luật cứng."
+  },
+  {
+    "id": 28,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Một bộ chứng minh định lý (Theorem Prover) khác với một bộ giải đáp logic (Logic Programming Engine - như Prolog) ở điểm nào?",
+    "options": [
+      "Theorem Prover chỉ giải toán học, Prolog giải văn học (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Theorem Prover sử dụng toàn bộ sức mạnh của FOL, còn Prolog bị giới hạn ở Mệnh đề Horn và chạy theo thứ tự lập trình viên viết.",
+      "Theorem Prover chạy nhanh hơn Prolog hàng triệu lần (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Không có sự khác biệt (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 1,
+    "feedback": "Prolog là một ngôn ngữ lập trình, nó tin tưởng vào cấu trúc thứ tự của lập trình viên. Theorem Provers tự động sắp xếp và tối ưu hóa để chứng minh toán học một cách triệt để nhất. (Giải thích thêm: (chấp nhận mọi hàm CNF, hoàn chỉnh))"
+  },
+  {
+    "id": 29,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Trong Unification, quy trình kiểm tra xem một biến (ví dụ: x) có xuất hiện bên trong một Hạng thức (ví dụ: f(x)) hay không trước khi tạo phép thế {x / f(x)} được gọi là phép kiểm tra ____________ (Occur Check).",
+    "options": [
+      "Tồn tại (Exist)",
+      "Vòng lặp (Loop)",
+      "Chu trình (Cycle)",
+      "Xuất hiện (Occur)"
+    ],
+    "answer": 3,
+    "feedback": "Occur Check (Kiểm tra xuất hiện). Nếu x = f(x) thì nó sẽ tạo ra x = f(f(f(f...)))) vô hạn. Prolog bỏ qua Occur Check để chạy nhanh, nhưng các hệ thống toán học bắt buộc phải có nó."
+  },
+  {
+    "id": 30,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Nhờ có thuật toán Hợp giải (Resolution), AI ngày nay có thể tự động chứng minh được hầu hết mọi bài toán chưa có lời giải của Toán học nhân loại.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai. Dù FOL Resolution là Complete, không gian tìm kiếm chứng minh toán học là khổng lồ (bùng nổ tổ hợp). AI hiện tại chỉ có thể chứng minh các định lý có độ dài hữu hạn và thường phải có sự hướng dẫn/cung cấp tiên đề trung gian từ con người."
+  }
+]

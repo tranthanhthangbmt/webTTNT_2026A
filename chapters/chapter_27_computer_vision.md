@@ -401,7 +401,7 @@ So khớp hình ảnh/đối tượng: tính năng, đường nét, vùng, v.v.
 </div>
 
 #### **Trắc nghiệm**
-*(Chưa có bài tập trắc nghiệm)*
+<div id="quiz-container" data-chapter="27"></div>
 
 #### **Pseudocode**
 *(Không có mã giả cho chương này trong thư viện)*

@@ -1,0 +1,454 @@
+[
+  {
+    "id": 1,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Lý thuyết Trò chơi (Game Theory) được sử dụng để phân tích các bài toán trong môi trường nào?",
+    "options": [
+      "Môi trường chỉ có một tác tử duy nhất (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Môi trường đa tác tử, nơi phần thưởng của một tác tử phụ thuộc vào hành động của các tác tử khác.",
+      "Môi trường hoàn toàn tĩnh và không thay đổi (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Môi trường ngẫu nhiên nhưng không có trí tuệ (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": 1,
+    "feedback": "Game Theory nghiên cứu sự tương tác chiến lược giữa nhiều 'người chơi' duy lý. Khác với MDP (thiên nhiên ngẫu nhiên mù quáng), trong Game Theory, 'thiên nhiên' là những đối thủ thông minh đang cố gắng tối đa hóa lợi ích của chính họ. (Giải thích thêm: (Multiagent) (Utility))"
+  },
+  {
+    "id": 2,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Một trò chơi được biểu diễn dưới dạng Ma trận phần thưởng (Payoff Matrix) gọi là Trò chơi dạng ____________ (Normal Form Game).",
+    "options": [
+      "Extensive",
+      "Normal",
+      "Stochastic",
+      "Markov"
+    ],
+    "answer": 1,
+    "feedback": "Normal Form Game (Trò chơi dạng chuẩn) thường dùng cho các trò chơi hành động ĐỒNG THỜI (Simultaneous) và chỉ có 1 bước (Single-move). Ví dụ: Oẳn tù tì."
+  },
+  {
+    "id": 3,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Trò chơi 'Tổng bằng không' (Zero-Sum Game) có đặc điểm gì? (Chọn đáp án đúng)",
+    "options": [
+      "Tổng lợi ích của tất cả người chơi luôn bằng 0.",
+      "Lợi ích của người này đúng bằng thiệt hại của người kia.",
+      "Tất cả người chơi đều nhận được 0 điểm.",
+      "Được giải quyết bằng thuật toán Minimax."
+    ],
+    "answer": [
+      0,
+      1,
+      3
+    ],
+    "feedback": "Trong Zero-Sum Game, không có chỗ cho sự hợp tác (Cooperation), vì bạn chỉ có thể thắng nếu người kia thua. Cờ vua, Cờ vây là Zero-Sum Games. (Giải thích thêm: (Cạnh tranh thuần túy))"
+  },
+  {
+    "id": 4,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Chiến lược Thống trị Ưu việt (Strictly Dominant Strategy) là gì?",
+    "options": [
+      "Chiến lược mang lại phần thưởng cao nhất trong bảng ma trận (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Chiến lược mà người chơi luôn muốn sử dụng BẤT KỂ đối thủ chọn hành động nào, vì nó luôn mang lại kết quả TỐT HƠN so với mọi chiến lược khác của chính họ.",
+      "Chiến lược khiến đối thủ bị thua lỗ nặng nhất (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Chiến lược chỉ hiệu quả khi đối thủ mắc sai lầm (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 1,
+    "feedback": "Nếu bạn có một Dominant Strategy, bạn không cần phải 'đọc não' đối thủ. Cứ việc nhắm mắt chọn chiến lược đó là xong."
+  },
+  {
+    "id": 5,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Ghép nối các ví dụ Trò chơi kinh điển với đặc tính của nó:",
+    "pairs": [
+      {
+        "left": "Oẳn tù tì (Rock-Paper-Scissors)",
+        "right": "Zero-Sum Game. Không có chiến lược thuần túy nào thống trị. Cân bằng đạt được khi chọn ngẫu nhiên 33%."
+      },
+      {
+        "left": "Tiến thoái lưỡng nan của người tù (Prisoner's Dilemma)",
+        "right": "Non-Zero-Sum Game. Cả hai người đều có chiến lược thống trị là Phản bội, dẫn đến kết cục tệ cho cả hai."
+      },
+      {
+        "left": "Trò chơi Băng qua đường hẹp (Game of Chicken)",
+        "right": "Non-Zero-Sum Game. Không có chiến lược thống trị. Làm ngược lại với những gì đối thủ làm (Đối thủ liều thì mình nhát, đối thủ nhát thì mình liều)."
+      }
+    ],
+    "feedback": "Prisoner's Dilemma là ví dụ nổi tiếng nhất giải thích tại sao hai bên dù biết hợp tác (Im lặng) là tốt nhất, nhưng sự nghi ngờ và tính toán cá nhân lại ép họ phải Phản bội (Thú tội)."
+  },
+  {
+    "id": 6,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Điểm Cân bằng Nash (Nash Equilibrium) là một bộ các chiến lược (mỗi người chơi 1 chiến lược), sao cho KHÔNG CÓ người chơi nào có thể tăng thêm phần thưởng của mình bằng cách ĐƠN PHƯƠNG THAY ĐỔI chiến lược của bản thân.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Cân bằng Nash là trạng thái 'Không ai muốn nhúc nhích'. Giả sử bạn biết mọi đối thủ đang chơi bài gì, và bạn nhận ra 'Nếu mình đổi bài khác thì mình chỉ có thiệt hoặc hòa', thì đó là Cân bằng Nash."
+  },
+  {
+    "id": 7,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "John Nash đã chứng minh được điều gì mang lại cho ông giải Nobel Kinh tế?",
+    "options": [
+      "Mọi trò chơi đều có một chiến lược Thống trị (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "MỌI trò chơi hữu hạn LUÔN LUÔN tồn tại ít nhất một Cân bằng Nash, nếu cho phép sử dụng Chiến lược Hỗn hợp.",
+      "Tổng phần thưởng của mọi trò chơi bằng 0 (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Không bao giờ có sự hợp tác thực sự (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 1,
+    "feedback": "Trước Nash, người ta bế tắc với các game như Oẳn Tù Tì (không có cân bằng hành động cố định - Pure Strategy). Nash chứng minh rằng nếu cho phép người chơi 'Tung xúc xắc' để chọn hành động (Mixed Strategy), thì Cân bằng luôn tồn tại. (Giải thích thêm: (số lượng hành động hữu hạn) (Mixed Strategies))"
+  },
+  {
+    "id": 8,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Trong bài toán Tiến thoái lưỡng nan của Người tù, kết cục (Phản bội, Phản bội) là một điểm Cân bằng Nash, nhưng nó lại KHÔNG phải là tối ưu ____________ (Pareto Optimality).",
+    "options": [
+      "Nash",
+      "Pareto",
+      "Markov",
+      "Bayes"
+    ],
+    "answer": 1,
+    "feedback": "Tối ưu Pareto là một trạng thái mà bạn không thể làm cho một người tốt lên mà không làm người khác tệ đi. Kết cục (Im lặng, Im lặng) làm CẢ HAI tốt lên so với (Phản bội, Phản bội), do đó (Phản, Phản) không tối ưu Pareto."
+  },
+  {
+    "id": 9,
+    "type": "ordering",
+    "difficulty": "Khó",
+    "question": "Quy trình tìm Cân bằng Nash (Pure Strategy) trong một ma trận trò chơi 2 người (Dùng phương pháp Gạch chân):",
+    "items": [
+      "Giả định Người chơi 2 (Cột) chọn cột thứ nhất",
+      "Tìm giá trị lớn nhất trong Cột đó cho Người chơi 1 (Hàng) và gạch chân nó",
+      "Lặp lại việc gạch chân phần thưởng của Người 1 cho tất cả các cột của Người 2",
+      "Đổi vai, giả định Người chơi 1 (Hàng) chọn hàng thứ nhất",
+      "Tìm giá trị lớn nhất trong Hàng đó cho Người chơi 2 (Cột) và gạch chân nó",
+      "Ô nào có CẢ HAI con số đều được gạch chân chính là điểm Cân bằng Nash"
+    ],
+    "feedback": "Đây là thuật toán Best Response (Phản hồi tốt nhất). Ô được gạch 2 gạch nghĩa là: Khi Hàng chọn bài đó, Cột không muốn đổi. Và khi Cột chọn bài đó, Hàng cũng không muốn đổi."
+  },
+  {
+    "id": 10,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Chiến lược Hỗn hợp (Mixed Strategy) nghĩa là gì? (Chọn đáp án đúng)",
+    "options": [
+      "Người chơi chọn một hành động cố định duy nhất (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Người chơi sử dụng một hàm phân phối ngẫu nhiên để chọn hành động, nhằm làm cho đối thủ không thể đoán trước.",
+      "Được biểu diễn bằng một vector xác suất $[p_1, p_2, ..., p_n]$ với tổng bằng 1.",
+      "Người chơi chọn hai hành động cùng một lúc (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": [
+      1,
+      2
+    ],
+    "feedback": "Bí quyết của trò Oẳn Tù Tì là bạn phải ngẫu nhiên hóa 33.3% cho Búa, Bao, Kéo. Nếu bạn chơi Búa với tần suất 40%, một đối thủ thông minh sẽ nhận ra và đập nát bạn bằng Bao. (Giải thích thêm: (Ví dụ: Tung đồng xu))"
+  },
+  {
+    "id": 11,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Cơ chế Thiết kế (Mechanism Design) được xem là môn 'Lý thuyết trò chơi ngược' (Inverse Game Theory). Mục tiêu của nó là gì?",
+    "options": [
+      "Tìm cách thắng trò chơi nhanh nhất (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Thay vì phân tích kết quả của một trò chơi có sẵn, người thiết kế sẽ VIẾT RA LUẬT CHƠI MỚI sao cho khi những người chơi ích kỷ tham gia, kết quả cuối cùng lại phục vụ lợi ích chung của xã hội.",
+      "Đoán xem đối thủ sẽ thiết kế trò chơi gì (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Bắt người chơi phải làm theo lệnh (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 1,
+    "feedback": "Ví dụ: Làm sao để bán tần số 5G cho các nhà mạng để chính phủ thu được nhiều tiền nhất và nhà mạng tốt nhất có được nó? Ta dùng Mechanism Design để thiết kế Luật Đấu Giá (Auction). (Giải thích thêm: (ví dụ: Chính phủ))"
+  },
+  {
+    "id": 12,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Loại đấu giá nào phổ biến nhất ngoài đời thực (Ví dụ: Bán đấu giá tranh, đồ cổ), trong đó giá khởi điểm thấp và người tham gia liên tục hô giá cao hơn cho đến khi không ai hô nữa?",
+    "options": [
+      "Sealed-bid first-price auction.",
+      "Vickrey auction (Sealed-bid second-price).",
+      "Ascending-bid auction.",
+      "Descending-bid auction (Đấu giá kiểu Hà Lan)."
+    ],
+    "answer": 2,
+    "feedback": "Đây là Đấu giá kiểu Anh. Chiến lược tối ưu (dominant strategy) của người chơi là: Cứ tiếp tục hô giá cao hơn người khác MỘT CHÚT, cho đến khi giá vượt quá 'Giá trị thật' (True Value) trong đầu bạn thì dừng lại. (Giải thích thêm: (Đấu giá kiểu Anh - English auction))"
+  },
+  {
+    "id": 13,
+    "type": "true_false",
+    "difficulty": "Khó",
+    "question": "Trong Đấu giá Kín giá Cao nhất (Sealed-bid first-price auction), mỗi người bỏ một phong bì kín. Người ra giá cao nhất sẽ thắng và trả đúng số tiền đó. Chiến lược tối ưu trong trò chơi này là HÃY GHI ĐÚNG GIÁ TRỊ THẬT mà bạn định giá món đồ (Truth-telling).",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai! Nếu bạn định giá bức tranh là 100$, và bạn ghi 100$ vào phong bì, giả sử bạn thắng, bạn sẽ trả 100$. Lợi nhuận của bạn = Giá trị thật - Số tiền trả = 100 - 100 = 0. Vậy là uổng công! Chiến lược đúng là phải ghi DƯỚI giá trị thật (Ví dụ 80$) để còn có lãi."
+  },
+  {
+    "id": 14,
+    "type": "matching",
+    "difficulty": "Khó",
+    "question": "Đấu giá Vickrey (Sealed-bid Second-price) là một tuyệt tác của Mechanism Design. Ghép nối quy tắc và chiến lược của nó:",
+    "pairs": [
+      {
+        "left": "Luật chọn người thắng",
+        "right": "Ai bỏ giá cao nhất trong phong bì sẽ Thắng."
+      },
+      {
+        "left": "Luật trả tiền",
+        "right": "Người thắng KHÔNG trả số tiền mình ghi. Người thắng sẽ trả đúng BẰNG SỐ TIỀN CỦA NGƯỜI ĐỨNG THỨ HAI (Second price)."
+      },
+      {
+        "left": "Chiến lược tối ưu tuyệt đối (Dominant Strategy)",
+        "right": "Ghi ĐÚNG Y CHANG Giá trị thật (True Value) của món đồ vào phong bì (Truth-telling is optimal)."
+      }
+    ],
+    "feedback": "Vickrey Auction giải quyết hoàn hảo bài toán. Vì giá tiền bạn TRẢ bị quyết định bởi NGƯỜI KHÁC, việc bạn ghi vống lên chỉ làm tăng nguy cơ bạn phải mua giá đắt. Việc bạn ghi thấp xuống chỉ làm giảm cơ hội thắng mà không giúp bạn mua được rẻ hơn."
+  },
+  {
+    "id": 15,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Cơ chế VCG (Vickrey-Clarke-Groves) là một tổng quát hóa của Đấu giá Vickrey cho nhiều mặt hàng hoặc các bài toán phân bổ chung. Nguyên lý tính tiền thuế (Tax) của VCG dựa trên ý tưởng cốt lõi nào?",
+    "options": [
+      "Chia đều tiền cho tất cả mọi người (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Thuế của một người chơi BẰNG ĐÚNG với 'Sự thiệt hại' mà sự hiện diện của người đó gây ra cho phần còn lại của xã hội.",
+      "Ai giàu nhất thì đóng thuế (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Không ai phải đóng thuế (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 1,
+    "feedback": "Ví dụ: Xã hội có 3 người A, B, C. Nếu không có A, tổng lợi ích xã hội là 100. Khi A tham gia, A lấy mất một phần, làm lợi ích của B và C chỉ còn 80. Vậy sự hiện diện của A làm xã hội thiệt 20. A phải đóng thuế 20. Cơ chế này ÉP mọi người phải nói thật. (Giải thích thêm: (Externality))"
+  },
+  {
+    "id": 16,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Một trò chơi mà các quyết định không được đưa ra đồng thời, mà tuân theo lượt (người này đi rồi mới tới người kia), được biểu diễn bằng một Cây Trò chơi (Game Tree). Dạng này được gọi là Trò chơi dạng ____________ (Extensive Form Game).",
+    "options": [
+      "Normal",
+      "Extensive",
+      "Simultaneous",
+      "Repeated"
+    ],
+    "answer": 1,
+    "feedback": "Extensive Form Game chứa đựng yếu tố 'Thời gian' và 'Thông tin' (Ai biết gì tại thời điểm nào). Cờ vua là Extensive form game kinh điển."
+  },
+  {
+    "id": 17,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Sắp xếp quá trình giải Cân bằng hoàn hảo trò chơi con (Subgame Perfect Equilibrium) bằng phương pháp Quy nạp ngược (Backward Induction) trên cây trò chơi:",
+    "items": [
+      "Vẽ toàn bộ cây trò chơi Extensive Form từ Gốc đến Lá",
+      "Đi đến các Nút Quyết định (Decision Nodes) cuối cùng (nằm ngay trên các Lá phần thưởng)",
+      "Tại mỗi Nút cuối cùng, người chơi tương ứng sẽ chọn Nhánh mang lại phần thưởng cao nhất cho họ",
+      "Gán giá trị phần thưởng đó lên Nút Quyết định hiện tại, và xóa các nhánh Lá đi",
+      "Lùi ngược lên một tầng và lặp lại quá trình cho đến khi quay về Nút Gốc"
+    ],
+    "feedback": "Backward Induction chính là phiên bản tổng quát của thuật toán Minimax, nhưng áp dụng cho cả trò chơi Non-Zero-Sum (Mỗi lá có 1 tuple phần thưởng cho nhiều người chơi)."
+  },
+  {
+    "id": 18,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Trò chơi Băng qua đường (Game of Chicken): Hai xe đua lao thẳng vào nhau. Kẻ ngoặt tay lái (Swerve) là Gà nhát gan. Cả hai cùng đi thẳng (Straight) thì đâm nhau chết. Điểm Cân bằng Nash (Pure Strategy) của trò chơi này là gì? (Chọn đáp án đúng)",
+    "options": [
+      "(Straight, Straight)",
+      "(Swerve, Swerve)",
+      "- Một người đi thẳng, một người ngoặt.",
+      "- Một người ngoặt, một người đi thẳng."
+    ],
+    "answer": [
+      2,
+      3
+    ],
+    "feedback": "Trò chơi này có TỚI 2 điểm cân bằng Nash thuần túy. Vấn đề là không ai biết sẽ rơi vào điểm nào. Trong thực tế, AI phải dùng Mixed Strategy, hoặc một cơ chế đàm phán trước (Pre-play communication) để tránh cái chết. (Giải thích thêm: (Straight, Swerve)) (Giải thích thêm: (Swerve, Straight))"
+  },
+  {
+    "id": 19,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Khái niệm 'Tragedy of the Commons' (Bi kịch của tài sản chung) trong Lý thuyết trò chơi mô tả hiện tượng gì?",
+    "options": [
+      "Trò chơi bị lỗi thiết kế (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Mỗi cá nhân cư xử hoàn toàn duy lý và tối đa hóa lợi ích cá nhân, nhưng kết quả cuối cùng lại làm cạn kiệt và phá hủy một nguồn tài nguyên dùng chung của cả xã hội.",
+      "Tất cả người chơi đều bỏ cuộc (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Một trò chơi mà ai cũng thắng (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 1,
+    "feedback": "Ví dụ: Đồng cỏ công cộng. Mỗi người chăn cừu đều muốn thả thêm 1 con cừu để tối đa lợi nhuận (Dominant Strategy). Cuối cùng tất cả cùng thả, đồng cỏ trụi lủi, tất cả cùng chết đói. Đây là phiên bản nhiều người của Prisoner's Dilemma."
+  },
+  {
+    "id": 20,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Trong Cờ Vua, Cân bằng Nash luôn luôn tồn tại một Chiến lược Thuần túy (Pure Strategy) cho cả hai bên (Trắng luôn có chiến lược cố định, Đen luôn có phản ứng cố định). Không cần tung xúc xắc (Mixed Strategy) trong Cờ Vua.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Định lý Zermelo chứng minh rằng trong trò chơi dạng Cây, Thông tin hoàn hảo (Perfect Information), Hữu hạn, và Tổng bằng 0 (Zero-Sum), luôn luôn tồn tại một chiến lược thuần túy không thua cho ít nhất một người chơi."
+  },
+  {
+    "id": 21,
+    "type": "matching",
+    "difficulty": "Khó",
+    "question": "Các dạng trò chơi và đặc tính quan sát:",
+    "pairs": [
+      {
+        "left": "Perfect Information (Thông tin hoàn hảo)",
+        "right": "Cờ vua, Cờ vây. Mọi người chơi đều biết chính xác toàn bộ lịch sử các nước đi trước đó (Nằm ở nút nào trên cây)."
+      },
+      {
+        "left": "Imperfect Information (Thông tin không hoàn hảo)",
+        "right": "Poker, Xì dách. Bài bị úp. Trên cây trò chơi, người chơi không biết mình đang đứng ở nhánh nào trong một 'Tập thông tin' (Information set)."
+      },
+      {
+        "left": "Incomplete Information (Thông tin không đầy đủ)",
+        "right": "Đấu giá. Không ai biết 'Hàm lợi ích' (True Value) của đối thủ đối với món hàng là bao nhiêu."
+      }
+    ],
+    "feedback": "Giải quyết Imperfect/Incomplete Information là biên giới khó nhất của AI. AlphaGo giải quyết Cờ Vây (Perfect Info), nhưng phải đến Libratus/Pluribus AI mới đánh bại con người ở Poker (Imperfect Info)."
+  },
+  {
+    "id": 22,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Trò chơi lặp lại (Repeated Games) thay đổi hoàn toàn cách cư xử của người chơi trong bài toán Tiến thoái lưỡng nan của người tù. Chiến lược nào sau đây đã giành chiến thắng trong giải đấu Axelrod nổi tiếng cho trò chơi Người tù lặp lại vô hạn lần?",
+    "options": [
+      "Luôn luôn Phản bội (Always Defect).",
+      "Luôn luôn Hợp tác (Always Cooperate).",
+      "Tit-for-Tat: Bắt đầu bằng Hợp tác.",
+      "Tung xúc xắc ngẫu nhiên."
+    ],
+    "answer": 2,
+    "feedback": "Tit-for-Tat là chiến lược tuyệt vời: Nó Thân thiện (không phản bội trước), Nó Trừng phạt (phản bội lại ngay nếu bị lừa), và Nó Tha thứ (quay lại hợp tác ngay nếu đối thủ hối cải). Nó chứng minh Hợp tác có thể tự nảy sinh từ những cá thể ích kỷ. (Giải thích thêm: (Ăn miếng trả miếng) Sau đó, ở bước t, copy chính xác hành động của đối thủ ở bước t-1.)"
+  },
+  {
+    "id": 23,
+    "type": "fill_blank",
+    "difficulty": "Dễ",
+    "question": "Một trò chơi Markov Game (hay Trò chơi Ngẫu nhiên - Stochastic Game) là sự kết hợp giữa Lý thuyết Trò chơi và bài toán ____________ (MDP). Ở mỗi trạng thái, thay vì 1 người chọn hành động, có N người cùng lúc chọn hành động.",
+    "options": [
+      "MDP",
+      "CSP",
+      "HMM",
+      "POMDP"
+    ],
+    "answer": 0,
+    "feedback": "Stochastic Games là cơ sở cho Multi-agent Reinforcement Learning (MARL). Ở mỗi bước, môi trường chuyển trạng thái dựa trên CẶP hành động của tất cả người chơi $P(s' | s, a_1, a_2)$."
+  },
+  {
+    "id": 24,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Định lý 'Dân gian' (Folk Theorem) trong Trò chơi lặp lại vô hạn (Infinitely Repeated Games) phát biểu điều gì? (Chọn đáp án đúng)",
+    "options": [
+      "Bất kỳ kết quả nào mang lại phần thưởng trung bình LỚN HƠN điểm Minimax.",
+      "Đều CÓ THỂ được duy trì như một Điểm Cân Bằng Nash.",
+      "Nếu hệ số chiết khấu $\\gamma$ đủ gần 1.",
+      "Trò chơi lặp lại không làm thay đổi cân bằng Nash ban đầu."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Bởi vì tương lai là vô hạn, 'Bóng ma trừng phạt' (Threat of punishment) trong tương lai đủ sức giữ cho mọi người hợp tác ở hiện tại. Nếu bạn lừa tôi hôm nay, tôi sẽ phá bạn mãi mãi về sau. (Giải thích thêm: (Điểm tệ nhất bị đối thủ trừng phạt)) (Giải thích thêm: (Ví dụ: Cả hai cùng hợp tác vĩnh viễn trong Prisoner's Dilemma)) (Giải thích thêm: (sự kiên nhẫn) (nghĩa là tương lai rất quan trọng))"
+  },
+  {
+    "id": 25,
+    "type": "ordering",
+    "difficulty": "Khó",
+    "question": "Tính toán Cân bằng Nash Hỗn hợp (Mixed Strategy) cho Oẳn Tù Tì (Rock-Paper-Scissors) sử dụng nguyên lý Không Khác Biệt (Indifference Principle):",
+    "items": [
+      "Giả định Người chơi 2 chọn Rock với xác suất p1, Paper p2, Scissors p3",
+      "Viết phương trình Lợi ích kỳ vọng (Expected Utility) cho Người 1 nếu người 1 đánh Rock: U(Rock) = 0*p1 + (-1)*p2 + 1*p3",
+      "Viết phương trình cho U(Paper) và U(Scissors)",
+      "Vì là Mixed Strategy Nash, Người 1 phải hoàn toàn phân vân (Indifferent) giữa 3 lựa chọn, nên ép U(Rock) = U(Paper) = U(Scissors)",
+      "Giải hệ phương trình kết hợp với điều kiện p1+p2+p3=1",
+      "Tìm ra p1=p2=p3=1/3"
+    ],
+    "feedback": "Cách DUY NHẤT để bạn ép đối thủ chơi ngẫu nhiên, là bạn phải đánh một bộ xác suất sao cho MỌI lựa chọn của đối thủ đều mang lại cùng một số điểm y hệt nhau. (Đối thủ không có lý do gì để thiên vị bài nào)."
+  },
+  {
+    "id": 26,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Một người chơi A đe dọa người chơi B: 'Nếu cậu mở cửa, tớ sẽ kích nổ quả bom chết cả hai'. Trong trò chơi Extensive Form, lời đe dọa này KHÔNG ĐÁNG TIN (Non-credible threat) nếu...",
+    "options": [
+      "Quả bom làm bằng nhựa (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Ở nhánh mà B thực sự mở cửa, việc A chọn 'Kích nổ bom' mang lại cho A phần thưởng TỆ HƠN là việc A chọn 'Đầu hàng'.",
+      "Người chơi B không nghe thấy (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "A và B là bạn bè (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": 1,
+    "feedback": "Subgame Perfect Equilibrium tự động loại bỏ các 'Non-credible threats'. Vì khi quy nạp ngược (Backward Induction), ở nút B đã mở cửa, A duy lý bắt buộc phải chọn Đầu hàng (sống sót tốt hơn chết). Biết được điều đó, B cứ vô tư mở cửa."
+  },
+  {
+    "id": 27,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Trong AI nhiều người chơi (Multi-agent AI), nếu hệ thống là Tập trung (Centralized) - tức là có 1 bộ não chủ duy nhất ra lệnh cho tất cả các con robot khác, bài toán đó có thể được coi là một bài toán MDP một tác tử lớn.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Multiagent chỉ thực sự khó khi hệ thống là Phân tán (Decentralized - Decentralized POMDP), mỗi con robot có một cảm biến riêng, lợi ích riêng, và giao tiếp bị giới hạn."
+  },
+  {
+    "id": 28,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Trạng thái Cân bằng Tương quan (Correlated Equilibrium) rộng hơn Cân bằng Nash ở chỗ nó cho phép sử dụng thêm một thiết bị gì?",
+    "options": [
+      "Súng đe dọa (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Một thiết bị hoặc trọng tài tung đồng xu phát ra một tín hiệu công khai để gán hành động cho mọi người.",
+      "Mạng nơ ron nhân tạo (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Thuật toán lượng tử (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 1,
+    "feedback": "Ví dụ 2 xe đến ngã tư. Nash là: (Xe 1 đi, Xe 2 dừng) hoặc (Xe 2 đi, Xe 1 dừng). Nhưng cả 2 đều muốn giành đi. Đặt cái Đèn Giao Thông (Correlated device) đổi màu ngẫu nhiên, ai có đèn xanh thì đi. Cả hai tự giác tuân thủ vì vượt đèn đỏ sẽ đâm xe (Tự nguyện duy lý). (Giải thích thêm: (Choreographer/Traffic light) (hoặc bí mật))"
+  },
+  {
+    "id": 29,
+    "type": "fill_blank",
+    "difficulty": "Dễ",
+    "question": "Hành vi mua hàng trên thị trường chứng khoán, hay các thuật toán giao dịch tần suất cao (HFT) là những ví dụ điển hình của ứng dụng Lý thuyết ____________ (Trò chơi/Game Theory) trong kinh tế mạng.",
+    "options": [
+      "Lượng tử",
+      "Trò chơi",
+      "Tương đối",
+      "Kiểm soát"
+    ],
+    "answer": 1,
+    "feedback": "Game Theory là ngôn ngữ của kinh tế học hành vi và giao dịch đa tác tử."
+  },
+  {
+    "id": 30,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Vì sao việc tính Cân bằng Nash trong Trò chơi lớn (Ví dụ: Game Poker nhiều người) lại là một thách thức đối với AI hiện đại? (Chọn đáp án đúng)",
+    "options": [
+      "Tính toán Nash Equilibrium cho trò chơi từ 3 người trở lên thuộc lớp bài toán PPAD-Complete.",
+      "Nhiều Cân bằng Nash có thể tồn tại cùng lúc, AI không biết chọn cái nào nếu các đối thủ không cùng cách nghĩ.",
+      "Máy tính hiện nay chưa đủ RAM để lưu 1 số nguyên (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Cân bằng Nash luôn luôn là những chiến lược rất tệ hại (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "feedback": "Ngay cả khi bạn tìm ra 1 Cân bằng Nash, không có gì đảm bảo đối thủ sẽ chơi theo điểm Nash đó (họ có thể nhắm vào điểm Nash thứ 2). Điều này tạo ra rủi ro Cân bằng (Equilibrium Selection Problem). (Giải thích thêm: (hoặc 2 người phi tổng bằng không) (Cực kỳ khó)) (Giải thích thêm: (Multiple Equilibria))"
+  }
+]

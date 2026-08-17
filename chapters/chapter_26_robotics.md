@@ -339,7 +339,7 @@ Lập kế hoạch chuyển động trong không gian cấu hình
 </div>
 
 #### **Trắc nghiệm**
-*(Chưa có bài tập trắc nghiệm)*
+<div id="quiz-container" data-chapter="26"></div>
 
 #### **Pseudocode**
 - <a href="#/codeAndExercises/aima-pseudocode-master/md/Monte-Carlo-Localization.md" target="_blank">MONTE-CARLO-LOCALIZATION</a>

@@ -1,0 +1,460 @@
+[
+  {
+    "id": 1,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Trong Học thống kê (Statistical Learning), mục tiêu cốt lõi của phương pháp 'Học Bayes' (Bayesian Learning) là gì?",
+    "options": [
+      "Tính toán một bộ Trọng số duy nhất tốt nhất (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Tính toán Xác suất Hậu nghiệm cho TOÀN BỘ các Giả thuyết có thể có, dựa trên Dữ liệu quan sát được.",
+      "Loại bỏ các giả thuyết sai (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Chỉ tập trung vào Giả thuyết có xác suất cao nhất (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 1,
+    "feedback": "Học Bayes không bao giờ vội vàng kết luận 1 Giả thuyết là đúng. Nó giữ lại TẤT CẢ các giả thuyết, và gán cho mỗi cái một 'Niềm tin' (Xác suất Hậu nghiệm). Khi dự đoán, nó sẽ lấy Trung bình trọng số của tất cả giả thuyết (Bayesian Model Averaging). (Giải thích thêm: (Posterior Probability) (Hypotheses))"
+  },
+  {
+    "id": 2,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Theo Định lý Bayes: $P(h_i | d) = \\alpha P(d | h_i) P(h_i)$. Trong đó, $P(d | h_i)$ được gọi là ____________ (Likelihood) - tức là khả năng Giả thuyết $h_i$ sinh ra được Dữ liệu $d$.",
+    "options": [
+      "Likelihood",
+      "Prior",
+      "Posterior",
+      "Evidence"
+    ],
+    "answer": 0,
+    "feedback": "Likelihood (Độ chập/Hợp lý) trả lời câu hỏi: 'NẾU giả thuyết này là đúng, thì xác suất tôi nhìn thấy đống dữ liệu này là bao nhiêu?'"
+  },
+  {
+    "id": 3,
+    "type": "multiple_select",
+    "difficulty": "Dễ",
+    "question": "Những khó khăn chính khi thực hiện Học Bayes (Bayesian Learning) trong thực tế là gì? (Chọn đáp án đúng)",
+    "options": [
+      "Phải tính tổng qua TOÀN BỘ Không gian giả thuyết để dự đoán một dữ liệu mới.",
+      "Việc xác định Xác suất Tiên nghiệm $P$ ban đầu đôi khi mang tính chủ quan và khó định lượng.",
+      "Nó luôn cho kết quả sai (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Nó không thể dùng để tính xác suất (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "feedback": "Khó khăn tính toán chính là rào cản lớn nhất. Để dự đoán, bạn phải hỏi ý kiến của HÀNG TỶ giả thuyết. Đó là lý do người ta phải dùng các phương pháp xấp xỉ như MAP hoặc ML. (Giải thích thêm: (Có thể là vô hạn)) (Giải thích thêm: (Prior) (h_i))"
+  },
+  {
+    "id": 4,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Phương pháp MAP (Maximum A Posteriori) xấp xỉ Học Bayes bằng cách nào?",
+    "options": [
+      "Nó tính trung bình tất cả giả thuyết (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Nó chỉ chọn RA MỘT Giả thuyết duy nhất có Xác suất Hậu nghiệm CAO NHẤT, và dùng duy nhất giả thuyết đó để dự đoán tương lai.",
+      "Nó bỏ qua dữ liệu thực tế (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Nó chỉ chọn giả thuyết có Prior cao nhất (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": 1,
+    "feedback": "MAP là một sự thỏa hiệp. Thay vì mang theo cả 'Hội đồng' giả thuyết nặng nề, MAP chỉ chọn ra 'Người giỏi nhất' (Maximum A Posteriori). Điều này làm mất đi khả năng đo lường sự không chắc chắn (Uncertainty) nhưng lại tính toán cực nhanh. (Giải thích thêm: (Posterior))"
+  },
+  {
+    "id": 5,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Ghép nối các phương pháp Học xác suất với công thức của chúng:",
+    "pairs": [
+      {
+        "left": "Bayesian Learning",
+        "right": "Dự đoán $X$ mới bằng cách lấy tổng có trọng số: $\\sum P(X|h_i)P(h_i|d)$"
+      },
+      {
+        "left": "Maximum A Posteriori (MAP)",
+        "right": "Chọn $h$ để tối đa hóa: $P(d|h) \\times P(h)$. (Có xét đến Prior)."
+      },
+      {
+        "left": "Maximum Likelihood (ML)",
+        "right": "Chọn $h$ để tối đa hóa: $P(d|h)$. (Giả sử mọi Prior đều bằng nhau)."
+      }
+    ],
+    "feedback": "Maximum Likelihood (ML) là phương pháp phổ biến nhất trong AI (bao gồm cả Deep Learning). Nó hoàn toàn bỏ qua Prior (Niềm tin ban đầu) và chỉ tin vào Dữ liệu (Data-driven)."
+  },
+  {
+    "id": 6,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Mô hình Naive Bayes (Bayes ngây thơ) được gọi là 'Ngây thơ' vì nó đưa ra một giả định cực kỳ đơn giản: BẤT CHẤP thực tế, nó coi TẤT CẢ các Thuộc tính (Features) đều Độc lập có điều kiện (Conditionally Independent) với nhau nếu biết trước Lớp (Class).",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Trong bài toán lọc Spam, nó giả định từ 'Viagra' và từ 'Free' xuất hiện hoàn toàn độc lập với nhau miễn là email đó là Spam. Dù giả định này sai bét trong thực tế, Naive Bayes vẫn hoạt động cực kỳ hiệu quả."
+  },
+  {
+    "id": 7,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Khi học tham số cho một Mạng Bayes (Bayesian Network) mà TẤT CẢ các biến đều được QUAN SÁT ĐẦY ĐỦ (Fully Observable) trong dữ liệu huấn luyện, phương pháp Maximum Likelihood (ML) thực chất là làm gì?",
+    "options": [
+      "Giải phương trình vi phân phức tạp (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Chỉ đơn giản là ĐẾM TẦN SUẤT xuất hiện của các sự kiện trong dữ liệu và chia tỷ lệ để ra xác suất.",
+      "Chạy thuật toán Gradient Descent (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Sử dụng thuật toán EM (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 1,
+    "feedback": "Ví dụ: Để tìm $P(Trời Mưa | Đám Mây)$, ML chỉ cần đếm: Có bao nhiêu ngày có mây? Trong số đó có bao nhiêu ngày mưa? Chia ra là xong. Rất đơn giản khi dữ liệu không bị thiếu."
+  },
+  {
+    "id": 8,
+    "type": "fill_blank",
+    "difficulty": "Dễ",
+    "question": "Khi áp dụng Maximum Likelihood cho việc đếm tần suất, nếu có một sự kiện CHƯA TỪNG xuất hiện trong tập huấn luyện (Ví dụ: Từ 'Covid' trong tập email năm 2018), xác suất của nó sẽ bằng 0. Để tránh lỗi chia cho 0, ta cộng thêm 1 vào mọi số đếm. Kỹ thuật này gọi là Làm trơn ____________ (Laplace Smoothing).",
+    "options": [
+      "Laplace",
+      "Gaussian",
+      "Bayes",
+      "Markov"
+    ],
+    "answer": 0,
+    "feedback": "Laplace Smoothing (Làm trơn Add-1) là một kỹ thuật cực kỳ quan trọng trong Naive Bayes để ngăn chặn việc một xác suất bằng 0 'hủy diệt' toàn bộ chuỗi nhân xác suất."
+  },
+  {
+    "id": 9,
+    "type": "ordering",
+    "difficulty": "Khó",
+    "question": "Sắp xếp quá trình tính toán của thuật toán phân loại Naive Bayes cho một văn bản mới $D = (w_1, w_2, ..., w_n)$:",
+    "items": [
+      "Đọc văn bản mới $D$ và tách thành danh sách các từ $w_i$",
+      "Với mỗi Lớp $C_k$ (Ví dụ: Spam hoặc Normal), lấy Xác suất Prior $P(C_k)$ đã học",
+      "Tính Likelihood bằng cách nhân xác suất của từng từ: $P(w_1|C_k) \\times P(w_2|C_k) \\times ... \\times P(w_n|C_k)$",
+      "Nhân Prior với Likelihood để ra điểm số (Chưa chuẩn hóa) của Lớp $C_k$",
+      "Lặp lại cho tất cả các Lớp",
+      "Dự đoán $D$ thuộc về Lớp $C_k$ có điểm số cao nhất (argmax)"
+    ],
+    "feedback": "Trong thực tế, người ta dùng phép CỘNG các log-xác suất (Log-likelihood) thay vì NHÂN xác suất để tránh lỗi Underflow (Tràn số dưới) do các số xác suất quá nhỏ (ví dụ $0.00000001$)."
+  },
+  {
+    "id": 10,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Nếu mô hình có chứa Biến Ẩn (Hidden variables) - tức là những biến không bao giờ được ghi lại trong dữ liệu huấn luyện, tại sao Maximum Likelihood lại trở nên cực kỳ khó khăn? (Chọn đáp án đúng)",
+    "options": [
+      "Không thể đếm tần suất đơn giản được nữa vì có dữ liệu bị thiếu.",
+      "Hàm Log-Likelihood không còn là một hàm lồi nữa, nó chứa rất nhiều Cực tiểu cục bộ.",
+      "Cần phải lấy đạo hàm của hàm chứa phép Tổng nằm bên trong phép Logarit.",
+      "Mô hình biến ẩn vi phạm định luật vật lý (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Ví dụ trong Y tế: Bạn có hồ sơ Triệu chứng của bệnh nhân, nhưng không có hồ sơ Bệnh lý thực sự (Biến ẩn). Bạn không thể đếm được $P(Triệu chứng | Bệnh lý)$. Bài toán này đòi hỏi thuật toán EM. (Giải thích thêm: (Convex) (Local maxima)) (Giải thích thêm: (Sum))"
+  },
+  {
+    "id": 11,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Thuật toán EM (Expectation-Maximization) được thiết kế đặc biệt để giải quyết bài toán gì?",
+    "options": [
+      "Sắp xếp mảng nhanh nhất (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Học các tham số cho các mô hình xác suất CÓ CHỨA BIẾN ẨN hoặc dữ liệu bị khuyết thiếu.",
+      "Huấn luyện mạng nơ ron sâu (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Vẽ đồ thị Mạng Bayes (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": 1,
+    "feedback": "EM là thuật toán Vĩ đại của Thống kê học. Nó hoạt động theo nguyên lý 'Gà và Trứng': Bạn cần tham số để đoán biến ẩn, và bạn cần biến ẩn để tính tham số. EM giải quyết bằng cách làm luân phiên cả hai. (Giải thích thêm: (Maximum Likelihood) (Hidden/Latent variables))"
+  },
+  {
+    "id": 12,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Trong thuật toán EM, bước E (Expectation step) thực hiện công việc gì?",
+    "options": [
+      "Tối ưu hóa các tham số để tối đa hóa Likelihood.",
+      "Sử dụng CÁC THAM SỐ HIỆN TẠI để tính toán Xác suất kỳ vọng cho các BIẾN ẨN.",
+      "Xóa các dữ liệu nhiễu (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Khởi tạo ngẫu nhiên mô hình ban đầu (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 1,
+    "feedback": "Bước E đóng vai trò như một 'Nhà tiên tri'. Dựa trên những gì mô hình đang tin tưởng, nó cố gắng đoán xem các biến ẩn (như Nhãn cụm) của dữ liệu có giá trị bằng bao nhiêu. (Giải thích thêm: (dù chưa chuẩn) (Điền vào chỗ trống của dữ liệu))"
+  },
+  {
+    "id": 13,
+    "type": "true_false",
+    "difficulty": "Khó",
+    "question": "Bước M (Maximization step) trong thuật toán EM nhận lấy dữ liệu đã được 'Điền ảo' (Soft-completed data) từ bước E, coi như đó là dữ liệu quan sát đầy đủ, và thực hiện ĐẾM TẦN SUẤT bình thường (Cập nhật tham số) giống hệt như phương pháp Maximum Likelihood cổ điển.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Đó là phép màu của EM. Bằng cách dùng Bước E để biến Dữ liệu thiếu thành Dữ liệu Đầy đủ (với trọng số ảo), Bước M trở nên cực kỳ dễ dàng (chỉ việc đếm và chia)."
+  },
+  {
+    "id": 14,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "So sánh Thuật toán EM và K-Means (K-Means thực chất là một phiên bản 'Cứng' của thuật toán EM cho Gaussian Mixture Models):",
+    "pairs": [
+      {
+        "left": "K-Means: Bước gán Cụm (Assignment)",
+        "right": "Tương đương Bước E. Nhưng K-Means gán CỨNG 1 điểm dữ liệu vào đúng 1 cụm duy nhất (100%)."
+      },
+      {
+        "left": "EM: Bước E (Expectation)",
+        "right": "Gán MỀM (Soft assignment). Một điểm dữ liệu có thể thuộc Cụm A 70%, Cụm B 30%."
+      },
+      {
+        "left": "K-Means: Bước cập nhật Tâm cụm (Update)",
+        "right": "Tương đương Bước M. Tâm cụm mới là trung bình cộng của các điểm ĐÃ ĐƯỢC GÁN CỨNG cho nó."
+      },
+      {
+        "left": "EM: Bước M (Maximization)",
+        "right": "Tham số cụm (Mean, Variance) mới được tính bằng trung bình CÓ TRỌNG SỐ của TẤT CẢ các điểm (Dựa vào xác suất mềm ở bước E)."
+      }
+    ],
+    "feedback": "Thuật toán EM (dùng cho GMM) tổng quát và mạnh hơn K-Means rất nhiều, vì nó mô hình hóa được cả Phương sai (Độ dẹt, độ nghiêng của cụm) thay vì chỉ khoảng cách Euclide."
+  },
+  {
+    "id": 15,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Thuật toán EM có đảm bảo tìm được tham số Tối ưu toàn cục (Global Maximum) không?",
+    "options": [
+      "Có, luôn luôn hội tụ về đỉnh cao nhất (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Không. Hàm Likelihood của mô hình biến ẩn không lồi. EM đảm bảo HỘI TỤ, nhưng nó có thể dễ dàng bị kẹt ở Cực đại cục bộ.",
+      "Không, nó không bao giờ hội tụ (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Chỉ đảm bảo với dữ liệu dạng chữ (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": 1,
+    "feedback": "Giống như Gradient Descent, EM bị bệnh 'Cận thị'. Nó luôn leo lên dốc, nhưng nếu dốc đó chỉ là một ngọn đồi nhỏ, nó sẽ dừng lại ở đó thay vì leo lên đỉnh núi Everest. Cách giải quyết: Chạy EM nhiều lần với nhiều điểm khởi tạo ngẫu nhiên (Random Restarts). (Giải thích thêm: (Likelihood chỉ tăng không giảm) (Local Maximum))"
+  },
+  {
+    "id": 16,
+    "type": "fill_blank",
+    "difficulty": "Dễ",
+    "question": "Mô hình Hỗn hợp Gaussian (Gaussian ____________ Model - GMM) giả định rằng dữ liệu được sinh ra từ K phân phối Chuẩn khác nhau, mỗi phân phối đại diện cho một 'Cụm'. Thuật toán EM là công cụ tiêu chuẩn để học các tham số của GMM.",
+    "options": [
+      "Mixture",
+      "Markov",
+      "Machine",
+      "Multi"
+    ],
+    "answer": 0,
+    "feedback": "Gaussian Mixture Model (GMM) là mô hình phân cụm mềm (Soft Clustering) rất phổ biến trong xử lý âm thanh, hình ảnh và khai phá dữ liệu."
+  },
+  {
+    "id": 17,
+    "type": "ordering",
+    "difficulty": "Khó",
+    "question": "Quy trình học cấu trúc mạng Bayes (Structure Learning) - Khi ta không chỉ học Tham số mà muốn máy TỰ TÌM RA cấu trúc đồ thị nhân quả:",
+    "items": [
+      "Bắt đầu với một đồ thị Mạng Bayes trống (Hoặc một đồ thị ngẫu nhiên/Prior)",
+      "Sử dụng thuật toán Tìm kiếm (Ví dụ: Hill-Climbing) để thực hiện một thay đổi nhỏ trên đồ thị (Thêm 1 cạnh, Xóa 1 cạnh, Đảo chiều 1 cạnh)",
+      "Ước lượng Tham số (Maximum Likelihood) cho đồ thị mới vừa tạo",
+      "Đánh giá đồ thị mới bằng Hàm Điểm số (Ví dụ: BIC - Bayesian Information Criterion)",
+      "Nếu điểm số cao hơn đồ thị cũ, chấp nhận đồ thị mới",
+      "Lặp lại cho đến khi không thể tìm được đồ thị nào có điểm cao hơn (Hội tụ)"
+    ],
+    "feedback": "Học cấu trúc (Structure Learning) cực kỳ khó vì Không gian của tất cả các đồ thị DAG (Directed Acyclic Graphs) tăng lên theo hàm siêu mũ so với số lượng đỉnh. Thường xuyên bị rơi vào Local Maxima."
+  },
+  {
+    "id": 18,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Hàm điểm số BIC (Bayesian Information Criterion) dùng để đánh giá Cấu trúc mạng Bayes có đặc điểm gì? (Chọn đáp án đúng)",
+    "options": [
+      "Nó thưởng cho các mô hình có Độ chập cao, tức là khớp với dữ liệu huấn luyện tốt.",
+      "Nó PHẠT các mô hình có quá nhiều Tham số (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "BIC là sự hiện thực hóa của Ockham's Razor trong thống kê.",
+      "Nó luôn chọn mô hình phức tạp nhất (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Nếu chỉ dùng Likelihood để đánh giá, thuật toán Structure Learning sẽ luôn thêm cạnh liên tục cho đến khi trở thành Đồ thị Đầy đủ (Fully connected - Overfitting 100%). Penalty của BIC bắt thuật toán phải suy nghĩ: 'Cạnh mới này có thực sự mang lại đủ Information để bù đắp cho sự phức tạp không?' (Giải thích thêm: (Likelihood)) (Giải thích thêm: (Số lượng cạnh lớn)) (Giải thích thêm: (Ngăn chặn Overfitting))"
+  },
+  {
+    "id": 19,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Trong học máy, Gradient Ascent (Tăng dốc) và EM (Expectation-Maximization) đều dùng để tối đa hóa Likelihood cho mô hình Biến ẩn. Sự khác biệt chính là gì?",
+    "options": [
+      "Gradient Ascent chạy trên GPU, EM chạy trên CPU.",
+      "Gradient Ascent đòi hỏi phải tính Đạo hàm và chọn Bước nhảy rất cực khổ.",
+      "EM chỉ giải quyết các bài toán tuyến tính.",
+      "Gradient Ascent luôn tìm được Global Maximum."
+    ],
+    "answer": 1,
+    "feedback": "Đó là lý do EM rất được yêu thích trong các mô hình như GMM và HMM. Nó ổn định, lập trình dễ, không sợ hội tụ trượt vì Learning rate sai. (Giải thích thêm: (Derivatives) (Learning rate) EM KHÔNG CẦN ĐẠO HÀM và KHÔNG CẦN LEARNING RATE, nó tự động cập nhật nhảy thẳng đến đỉnh tối ưu của mỗi bước.)"
+  },
+  {
+    "id": 20,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Thuật toán Baum-Welch dùng để huấn luyện Mô hình Markov Ẩn (HMM) trong nhận dạng giọng nói thực chất chính là Thuật toán EM được áp dụng chuyên biệt cho chuỗi thời gian.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Baum-Welch Algorithm = EM + HMM. Bước E của Baum-Welch chính là việc dùng thuật toán Forward-Backward (Smoothing) để tính xác suất các Trạng thái ẩn trong quá khứ."
+  },
+  {
+    "id": 21,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Các loại Biến (Variables) trong quá trình học Mạng Bayes:",
+    "pairs": [
+      {
+        "left": "Fully Observable Variables",
+        "right": "Biến luôn luôn có giá trị trong mọi dòng dữ liệu (Dễ học nhất - Chỉ cần đếm)."
+      },
+      {
+        "left": "Missing Variables",
+        "right": "Biến bị khuyết một vài ô (Ví dụ: Bệnh nhân quên xét nghiệm máu). Phải dùng EM để đoán."
+      },
+      {
+        "left": "Latent / Hidden Variables",
+        "right": "Biến KHÔNG BAO GIỜ có trong dữ liệu (Ví dụ: 'Sở thích ẩn' của người dùng). Dùng EM để phát hiện ra cấu trúc ẩn này."
+      }
+    ],
+    "feedback": "Mô hình Biến ẩn đôi khi làm giảm SỐ LƯỢNG THAM SỐ của mạng (Ví dụ: thay vì kết nối trực tiếp 100 triệu chứng y tế với nhau tạo ra mạng lưới khổng lồ, ta tạo 1 Biến ẩn 'Hội chứng X' đứng giữa, kết nối tới 100 triệu chứng, làm mô hình đơn giản hơn gấp ngàn lần)."
+  },
+  {
+    "id": 22,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Mô hình Maximum Likelihood (ML) có thể bị Overfitting khi dữ liệu quá nhỏ. Ví dụ: Tung đồng xu 3 lần đều ra Ngửa, ML sẽ dự đoán xác suất Ngửa là 100%. Học Bayes (Bayesian Learning) hoặc MAP khắc phục điều này bằng cách nào?",
+    "options": [
+      "Bằng cách tung thêm 100 lần nữa.",
+      "Bằng cách đưa vào một Prior.",
+      "Bằng cách mặc kệ kết quả.",
+      "Bằng cách tung đồng xu giả."
+    ],
+    "answer": 1,
+    "feedback": "Prior đóng vai trò như một lực kéo (Regularization). Khi bạn có quá ít dữ liệu, Prior sẽ thống trị quyết định (Bạn tin vào kinh nghiệm). Khi bạn có hàng triệu dữ liệu, tiếng nói của Prior trở nên vô nghĩa, Dữ liệu sẽ thống trị (Data swamps the prior). (Giải thích thêm: (Ví dụ: Phân phối Beta) (50/50) Nếu Prior tin rằng đồng xu thường là công bằng, nó sẽ 'Kéo' kết quả dự đoán của 3 lần tung về gần 50% hơn, ngăn chặn kết luận cực đoan.)"
+  },
+  {
+    "id": 23,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Trong học Mạng Bayes với các biến ẩn, bước E của thuật toán EM tính toán các xác suất kỳ vọng. Việc tính toán này KHÔNG HỀ đơn giản, nó chính là bài toán ____________ (Inference / Suy diễn) trên mạng Bayes, có thể tốn độ phức tạp thời gian NP-Hard.",
+    "options": [
+      "Inference",
+      "Learning",
+      "Sorting",
+      "Parsing"
+    ],
+    "answer": 0,
+    "feedback": "Đó là lý do EM có thể rất chậm trên các Mạng Bayes lớn. Bước E phải chạy thuật toán Suy diễn (như Variable Elimination hoặc MCMC) để tính xác suất cho các biến bị ẩn."
+  },
+  {
+    "id": 24,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Mô hình Naive Bayes phân loại văn bản (Text Classification) thường sử dụng hai biến thể chính nào? (Chọn đáp án đúng)",
+    "options": [
+      "Multinomial Naive Bayes.",
+      "Bernoulli Naive Bayes.",
+      "Gaussian Naive Bayes.",
+      "Euclidean Naive Bayes."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Trong Xử lý ngôn ngữ tự nhiên (NLP) phân loại Spam, Multinomial Naive Bayes thường cho kết quả vượt trội hơn Bernoulli vì số lần lặp lại của từ 'Viagra' (ví dụ 10 lần) là tín hiệu rất mạnh. (Giải thích thêm: (Sử dụng tần suất xuất hiện của từ, mô hình từ vựng như một cái túi - Bag of words)) (Giải thích thêm: (Chỉ quan tâm từ đó CÓ hay KHÔNG CÓ trong văn bản, bất chấp số lần xuất hiện)) (Giải thích thêm: (Thường dùng cho dữ liệu hình ảnh liên tục))"
+  },
+  {
+    "id": 25,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Vòng lặp của thuật toán K-Means (phiên bản cứng của EM) để gom cụm dữ liệu:",
+    "items": [
+      "Khởi tạo K tâm cụm (Centroids) ở vị trí ngẫu nhiên",
+      "Bước E (Assignment): Tính khoảng cách từ mỗi điểm dữ liệu đến K tâm cụm",
+      "Gán mỗi điểm dữ liệu vào cụm có tâm GẦN NHẤT",
+      "Bước M (Update): Tính toán lại tọa độ của K tâm cụm mới bằng Cận trung bình cộng (Mean) của các điểm đang thuộc về nó",
+      "Lặp lại Bước E và M cho đến khi không có điểm dữ liệu nào nhảy sang cụm khác (Hội tụ)"
+    ],
+    "feedback": "K-Means cực kỳ nhanh và phổ biến. Tuy nhiên, nó thất bại thảm hại nếu các cụm có hình dạng elip dài hoặc kích thước lệch nhau quá nhiều (Lúc này cần GMM)."
+  },
+  {
+    "id": 26,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Một ứng dụng kinh điển của Mô hình Markov Ẩn (HMM) được huấn luyện bằng EM (Baum-Welch) trước kỷ nguyên Deep Learning là gì?",
+    "options": [
+      "Nhận dạng khuôn mặt (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Nhận dạng tiếng nói. Các trạng thái ẩn là các Âm vị con người định nói, còn Quan sát là sóng âm thanh máy thu được.",
+      "Lái xe tự động (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Tạo ảnh giả (Deepfake) (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 1,
+    "feedback": "HMM đã thống trị lĩnh vực Xử lý tiếng nói và Phân tích trình tự ADN trong suốt 20 năm cho đến khi LSTM và Transformers ra đời. (Giải thích thêm: (Speech Recognition) (Phonemes))"
+  },
+  {
+    "id": 27,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Một đặc điểm của Bayesian Learning là nó tự nhiên tích hợp khái niệm 'Học trực tuyến' (Online Learning). Khi có một mẩu dữ liệu mới đến, Hậu nghiệm (Posterior) của ngày hôm nay sẽ tự động trở thành Tiên nghiệm (Prior) của ngày mai.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Bayesian update rất thanh lịch. $P(h|d_1, d_2) \\propto P(d_2|h) P(h|d_1)$. Điều này giúp hệ thống học liên tục mà không cần huấn luyện lại từ đầu như Deep Learning."
+  },
+  {
+    "id": 28,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Giả sử ta không biết bậc của đa thức cần dùng để hồi quy dữ liệu (Bậc 1, Bậc 2 hay Bậc 10). Nếu dùng Maximum Likelihood (ML) hoặc Maximum A Posteriori (MAP) để 'Học mô hình', chúng ta sẽ có xu hướng chọn mô hình nào?",
+    "options": [
+      "Đa thức bậc 1 (Đường thẳng).",
+      "Luôn luôn chọn đa thức bậc 10.",
+      "Đa thức bậc 2.",
+      "Từ chối mọi mô hình."
+    ],
+    "answer": 1,
+    "feedback": "ML và MAP chỉ so sánh Tham số BÊN TRONG 1 mô hình, chúng bất lực trong việc so sánh GIỮA CÁC MÔ HÌNH khác cấu trúc. Đó là lý do ta cần Bayesian Model Selection (Tính Marginal Likelihood) hoặc dùng Cross-Validation. (Giải thích thêm: (Mô hình phức tạp nhất) (Fit dữ liệu tốt nhất) Vì mô hình phức tạp luôn cho ra Likelihood cao nhất, dẫn đến Overfitting.)"
+  },
+  {
+    "id": 29,
+    "type": "fill_blank",
+    "difficulty": "Dễ",
+    "question": "Công cụ toán học cốt lõi để tính khoảng cách/sự tương đồng trong K-Means thường là Khoảng cách ____________ (Euclidean Distance).",
+    "options": [
+      "Euclidean",
+      "Manhattan",
+      "Cosine",
+      "Hamming"
+    ],
+    "answer": 0,
+    "feedback": "Việc dựa dẫm vào Euclidean Distance khiến K-Means chỉ gom được các cụm có hình cầu (Hình tròn)."
+  },
+  {
+    "id": 30,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Bản chất của hàm $Q$ trong thuật toán Expectation-Maximization là gì? (Chọn đáp án đúng)",
+    "options": [
+      "Hàm Q là Kỳ vọng của Log-Likelihood của Dữ liệu ĐẦY ĐỦ (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Kỳ vọng này được lấy theo phân phối của Biến ẩn, dựa trên dữ liệu Quan sát và tham số HIỆN TẠI.",
+      "Bước M sẽ tìm tham số MỚI để tối đa hóa hàm Q này (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Hàm Q tính toán số lượng Q-learning (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Hàm Q là trái tim toán học của EM. Bằng cách thiết lập hàm Q, ta đẩy biến ẩn vào trong ngoặc Kỳ vọng, biến một bài toán Tối ưu hóa có biến chưa biết thành một bài toán Tối ưu hóa bình thường. (Giải thích thêm: (Expectation) (Bao gồm cả biến ẩn))"
+  }
+]

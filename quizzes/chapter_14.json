@@ -1,0 +1,458 @@
+[
+  {
+    "id": 1,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Trong môi trường thay đổi theo thời gian, một hệ thống AI thường được mô hình hóa bằng hai tập hợp biến ngẫu nhiên nào ở mỗi bước thời gian t?",
+    "options": [
+      "Biến Quá khứ và Biến Tương lai.",
+      "Biến Đúng và Biến Sai.",
+      "Biến Trạng thái Ẩn và Biến Quan sát.",
+      "Biến Logic và Biến Xác suất."
+    ],
+    "answer": 2,
+    "feedback": "Bản chất của suy diễn theo thời gian là: Trạng thái thật sự của thế giới bị 'ẩn' đi. Ta chỉ có thể đoán được nó thông qua các 'quan sát' thu được từ cảm biến tại mỗi thời điểm. (Giải thích thêm: (Hidden State Variables - ví dụ: Thời tiết) (Evidence/Observation Variables - ví dụ: Thấy người mang ô))"
+  },
+  {
+    "id": 2,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Giả định ____________ (Markov Assumption) bậc 1 cho rằng: Trạng thái hiện tại $X_t$ chỉ phụ thuộc vào trạng thái NGAY TRƯỚC NÓ $X_{t-1}$, và độc lập với tất cả các trạng thái trong quá khứ xa hơn.",
+    "options": [
+      "Bayes",
+      "Markov",
+      "Gauss",
+      "Viterbi"
+    ],
+    "answer": 1,
+    "feedback": "Giả định Markov (Markov Assumption): $P(X_t | X_{0:t-1}) = P(X_t | X_{t-1})$. Giả định này giúp giảm triệt để số lượng tham số cần tính toán, tránh việc trạng thái hiện tại phụ thuộc vào lịch sử dài vô tận."
+  },
+  {
+    "id": 3,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Mô hình Markov (Markov Model) cần hai thành phần xác suất cốt lõi nào để có thể dự đoán sự tiến hóa của hệ thống? (Chọn đáp án đúng)",
+    "options": [
+      "Mô hình chuyển trạng thái (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Mô hình cảm biến: $P$ - Xác suất sinh ra quan sát E từ trạng thái X.",
+      "Mô hình hồi quy tuyến tính (Linear Regression Model).",
+      "Mô hình ngôn ngữ lớn (Large Language Model)."
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "feedback": "Hai mô hình này cộng với Trạng thái khởi tạo (Prior $P(X_0)$) tạo thành một hệ thống hoàn chỉnh. Từ đó ta có thể tính xác suất của bất kỳ chuỗi trạng thái và quan sát nào. (Giải thích thêm: (Transition Model) (X_t | X_{t-1}) $P$ - Xác suất trạng thái thay đổi theo thời gian.) (Giải thích thêm: (Sensor Model / Emission Model) (E_t | X_t))"
+  },
+  {
+    "id": 4,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Tính 'Dừng' (Stationary process) trong mô hình Markov có nghĩa là gì?",
+    "options": [
+      "Hệ thống không bao giờ thay đổi trạng thái (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Thời gian ngừng trôi (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Quy luật chuyển đổi trạng thái $P$ và quy luật cảm biến $P$ KHÔNG thay đổi theo thời gian.",
+      "Cảm biến luôn bị hỏng (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 2,
+    "feedback": "Stationary có nghĩa là CÁC QUY LUẬT (Bảng CPT) là cố định. Điều này cho phép ta chỉ cần định nghĩa MỘT BẢNG Transition Model duy nhất và dùng lặp đi lặp lại cho mọi bước thời gian t. (Giải thích thêm: (X_t | X_{t-1}) (E_t | X_t) (ví dụ: luật vật lý hôm nay giống hôm qua))"
+  },
+  {
+    "id": 5,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Ghép nối các Nhiệm vụ Suy diễn (Inference Tasks) theo thời gian với khái niệm tương ứng:",
+    "pairs": [
+      {
+        "left": "Filtering (Lọc / Theo dõi)",
+        "right": "Tính trạng thái HIỆN TẠI dựa trên toàn bộ bằng chứng từ quá khứ đến hiện tại: $P(X_t | e_{1:t})$"
+      },
+      {
+        "left": "Prediction (Dự đoán)",
+        "right": "Tính trạng thái TƯƠNG LAI dựa trên bằng chứng đến hiện tại: $P(X_{t+k} | e_{1:t})$ với k > 0"
+      },
+      {
+        "left": "Smoothing (Làm mượt)",
+        "right": "Tính trạng thái QUÁ KHỨ dựa trên toàn bộ bằng chứng đến hiện tại: $P(X_k | e_{1:t})$ với k < t"
+      },
+      {
+        "left": "Most Likely Explanation (Giải thích)",
+        "right": "Tìm CHUỖI trạng thái liên tiếp có xác suất cao nhất tạo ra chuỗi quan sát hiện tại (Dùng Viterbi)"
+      }
+    ],
+    "feedback": "4 nhiệm vụ này là cốt lõi của xử lý chuỗi thời gian. Filtering dùng cho định vị robot, Smoothing dùng để điều tra pháp y, Viterbi dùng để nhận dạng giọng nói."
+  },
+  {
+    "id": 6,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Quá trình 'Lọc' (Filtering) duy trì một ước lượng trạng thái $P(X_t | e_{1:t})$. Khi có quan sát mới $e_{t+1}$, thuật toán Filtering đệ quy chỉ cần sử dụng trạng thái hiện tại $P(X_t | e_{1:t})$ và quan sát mới, KHÔNG CẦN phải giữ lại lịch sử các quan sát $e_1, e_2...$ trong bộ nhớ.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Đây là tính thanh lịch của Đệ quy Filtering. Trạng thái ước lượng (Belief state) đã 'hấp thụ' toàn bộ thông tin từ quá khứ. Do đó thuật toán có bộ nhớ $O(1)$ theo thời gian, phù hợp cho Robot chạy vĩnh viễn."
+  },
+  {
+    "id": 7,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Sắp xếp hai bước luân phiên của thuật toán Filtering Đệ quy khi chuyển từ thời điểm t sang t+1:",
+    "items": [
+      "Bắt đầu với Ước lượng trạng thái hiện tại $P(X_t | e_{1:t})$",
+      "Bước 1 (Dự đoán / Projection): Dùng Mô hình chuyển trạng thái $P(X_{t+1} | X_t)$ đẩy hệ thống tới t+1, lấy tổng (marginalize) ra $P(X_{t+1} | e_{1:t})$",
+      "Bước 2 (Cập nhật / Update): Nhận quan sát mới $e_{t+1}$, dùng Mô hình cảm biến $P(e_{t+1} | X_{t+1})$ và Luật Bayes để nhân vào kết quả của bước 1",
+      "Chuẩn hóa (Normalize) để nhận được Ước lượng trạng thái mới $P(X_{t+1} | e_{1:t+1})$"
+    ],
+    "feedback": "Luôn luôn là: Đoán xem mình đang ở đâu (Predict) -> Nhìn cảm biến xem có đúng không -> Điều chỉnh lại niềm tin (Update)."
+  },
+  {
+    "id": 8,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Tại sao nhiệm vụ Smoothing (Làm mượt / Nội suy) lại đưa ra kết quả ước lượng quá khứ CHÍNH XÁC HƠN so với Filtering?",
+    "options": [
+      "Vì nó chạy trên máy tính siêu cấp (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Vì Smoothing sử dụng thêm các Bằng chứng từ Tương lai để hồi tố lại, trong khi Filtering tại thời điểm k không biết tương lai.",
+      "Vì Smoothing xóa bỏ bằng chứng (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Vì Smoothing không dùng Luật Bayes (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 1,
+    "feedback": "Ví dụ: Hôm qua trời râm (t=1), bạn đoán 50% mưa. Hôm nay bạn thấy nhân viên mang ô ướt sũng vào văn phòng (t=2). Sự kiện t=2 sẽ giúp bạn hồi tố lại (Smoothing) và khẳng định chắc chắn 99% hôm qua đã mưa. (Giải thích thêm: (Evidence) (những sự kiện xảy ra sau thời điểm k))"
+  },
+  {
+    "id": 9,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Thuật toán Forward-Backward (Tiến-Lùi) được dùng để giải quyết nhiệm vụ ____________ (Smoothing).",
+    "options": [
+      "Prediction",
+      "Filtering",
+      "Smoothing",
+      "Viterbi"
+    ],
+    "answer": 2,
+    "feedback": "Forward pass tính Filtering $P(X_k | e_{1:k})$ từ trái qua phải. Backward pass truyền thông điệp tương lai $P(e_{k+1:t} | X_k)$ từ phải qua trái. Nhân 2 thông điệp lại ta được Smoothing."
+  },
+  {
+    "id": 10,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Thuật toán Viterbi (Most Likely Explanation) khác với Smoothing ở điểm nào? (Chọn đáp án đúng)",
+    "options": [
+      "Smoothing tìm trạng thái tốt nhất cho MỘT thời điểm $k$ bất kỳ, hoàn toàn độc lập với các thời điểm khác.",
+      "Viterbi tìm ra TOÀN BỘ CHUỖI trạng thái $X_{1:t}$ có xác suất liên hoàn cao nhất.",
+      "Viterbi không bao giờ dùng Quy hoạch động (Dynamic Programming).",
+      "Viterbi dùng phép CỘNG (Sum), Smoothing dùng phép MAX."
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "feedback": "Smoothing dùng phép tính Tổng (Sum out) để tính xác suất cho 1 thời điểm. Viterbi dùng phép tính MAX để chọn đường đi (path) tốt nhất. Chuỗi tốt nhất của Viterbi có tính liên kết chặt chẽ (luật chuyển trạng thái). (Giải thích thêm: Chuỗi này có thể không chứa trạng thái tốt nhất của Smoothing tại một thời điểm k.)"
+  },
+  {
+    "id": 11,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Mô hình Markov Ẩn (Hidden Markov Model - HMM) là một trường hợp đặc biệt của Mạng Bayes Động, trong đó:",
+    "options": [
+      "Nó có vô số biến trạng thái (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Trạng thái của hệ thống tại một thời điểm được biểu diễn bằng MỘT biến ngẫu nhiên RỜI RẠC duy nhất.",
+      "Trạng thái là biến liên tục (Continuous) (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Không có biến Quan sát (Observation) (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": 1,
+    "feedback": "HMM rất đơn giản: Mỗi bước thời gian t chỉ có 1 biến X (trạng thái ẩn, rời rạc) và 1 biến E (quan sát). Sự đơn giản này giúp HMM có thể được biểu diễn bằng ma trận và giải cực nhanh bằng Đại số tuyến tính."
+  },
+  {
+    "id": 12,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Bộ lọc Kalman (Kalman Filter) giải quyết bài toán Filtering cho loại hệ thống nào?",
+    "options": [
+      "Hệ thống rời rạc (Ví dụ: Chữ cái, Từ vựng) (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Hệ thống có các biến trạng thái và quan sát là các biến LIÊN TỤC, với mô hình chuyển đổi và cảm biến tuân theo phân phối Chuẩn tuyến tính.",
+      "Hệ thống Logic Boolean (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Trò chơi cờ vua (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 1,
+    "feedback": "Trong khi HMM dùng cho rời rạc (Nhận dạng giọng nói), Kalman Filter dùng cho liên tục (Theo dõi tên lửa, Drone, Thị giác máy tính). Phân phối Gaussian khi nhân và cộng vẫn là Gaussian, tạo nên sức mạnh của Kalman Filter. (Giải thích thêm: (Continuous) (Gaussian))"
+  },
+  {
+    "id": 13,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Thuật toán lọc Kalman yêu cầu lưu trữ toàn bộ lịch sử đo lường (observations) từ trước đến nay để có thể ước lượng vị trí hiện tại của mục tiêu.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai. Giống như Filtering trong HMM, Kalman Filter cập nhật Đệ quy. Nó chỉ cần lưu trữ Trạng thái hiện tại (bao gồm Vector giá trị trung bình $\\mu_t$ và Ma trận hiệp phương sai $\\Sigma_t$) và cập nhật chúng khi có dữ liệu mới."
+  },
+  {
+    "id": 14,
+    "type": "matching",
+    "difficulty": "Khó",
+    "question": "So sánh các mô hình suy diễn thời gian:",
+    "pairs": [
+      {
+        "left": "HMM (Hidden Markov Model)",
+        "right": "Biến ẩn là Rời rạc. Biểu diễn bằng các Ma trận chuyển đổi."
+      },
+      {
+        "left": "Kalman Filter (Linear Gaussian)",
+        "right": "Biến ẩn là Liên tục. Mối quan hệ giữa các biến là Tuyến tính. Nhiễu tuân theo chuông Gauss."
+      },
+      {
+        "left": "Extended Kalman Filter (EKF)",
+        "right": "Xử lý các mô hình Phi Tuyến bằng cách lấy Đạo hàm (Jacobian) để tuyến tính hóa cục bộ."
+      },
+      {
+        "left": "Dynamic Bayesian Network (DBN)",
+        "right": "Tổng quát hóa mọi thứ. Biểu diễn trạng thái bằng NHIỀU biến ngẫu nhiên kết hợp lại (Factored representation)."
+      }
+    ],
+    "feedback": "DBN phân tách trạng thái phức tạp thành nhiều biến nhỏ (VD: X_position, Y_position, Velocity, Battery), giúp tránh bùng nổ không gian trạng thái của HMM."
+  },
+  {
+    "id": 15,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Vấn đề lớn nhất của việc áp dụng thuật toán Exact Inference (Suy diễn chính xác) trên DBN (Mạng Bayes Động) là gì?",
+    "options": [
+      "Không có phần mềm nào hỗ trợ (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "DBN không thể mô phỏng thời gian (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Không gian trạng thái bùng nổ theo cấp số nhân khi số lượng biến trạng thái tăng lên, khiến ma trận cập nhật trở nên khổng lồ và không thể tính nổi.",
+      "Nó luôn đưa ra dự đoán sai (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 2,
+    "feedback": "Một DBN với 20 biến Boolean có $2^{20}$ trạng thái. Ma trận chuyển đổi sẽ có kích thước $2^{20} \\times 2^{20}$, hoàn toàn bất khả thi cho tính toán ma trận chính xác. (Giải thích thêm: (Curse of dimensionality))"
+  },
+  {
+    "id": 16,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Để giải quyết sự bùng nổ tính toán trong DBN, người ta sử dụng các thuật toán Lấy mẫu ngẫu nhiên (Approximate Inference). Thuật toán nổi tiếng nhất cho DBN được gọi là Bộ lọc Hạt (____________ Filtering) hoặc Sequential Monte Carlo.",
+    "options": [
+      "Kalman",
+      "Particle",
+      "Markov",
+      "Gaussian"
+    ],
+    "answer": 1,
+    "feedback": "Particle Filtering (Lọc hạt). Nó thay thế một phân phối xác suất phức tạp bằng một 'bầy hạt' (swarm of particles). Hạt nào đoán đúng bằng chứng (Evidence) sẽ được 'nhân bản', hạt nào đoán sai sẽ bị 'chết'."
+  },
+  {
+    "id": 17,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Sắp xếp vòng lặp 3 bước của thuật toán Lọc Hạt (Particle Filtering):",
+    "items": [
+      "Bắt đầu với một quần thể $N$ hạt ở thời điểm $t$, mỗi hạt mang một trạng thái",
+      "1. Truyền bá (Propagate): Đẩy mỗi hạt ngẫu nhiên tiến tới $t+1$ dựa trên Mô hình chuyển trạng thái",
+      "2. Gắn trọng số (Weight): Cân đo từng hạt xem trạng thái của nó Khớp với Quan sát $e_{t+1}$ tốt đến mức nào (Dựa vào Mô hình cảm biến)",
+      "3. Lấy mẫu lại (Resample): Bốc thăm ngẫu nhiên N hạt mới từ quần thể cũ với xác suất tỷ lệ thuận với trọng số của chúng (Hạt tốt sẽ đẻ nhiều con)"
+    ],
+    "feedback": "Thuật toán này tương tự sự Chọn lọc tự nhiên (Evolution) hay Thuật toán di truyền (Genetic Algorithm), nơi những giả thuyết (hạt) phù hợp với thực tế sẽ tồn tại và sinh sôi."
+  },
+  {
+    "id": 18,
+    "type": "multiple_select",
+    "difficulty": "Dễ",
+    "question": "Particle Filtering (Lọc Hạt) có những ưu điểm nào khiến nó rất phổ biến trong Robot tự hành (Định vị SLAM, Computer Vision)? (Chọn đáp án đúng)",
+    "options": [
+      "Dễ cài đặt, chỉ tốn vài chục dòng code (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Nó có thể xử lý các phân phối xác suất Phi tuyến tính và Đa đỉnh mà Kalman Filter phải bó tay.",
+      "Nó tập trung sức mạnh tính toán vào những vùng có xác suất cao, bỏ qua các vùng xác suất thấp.",
+      "Nó đảm bảo trả về đáp án chính xác 100% bằng giải tích (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Particle Filter là thuật toán cốt lõi giúp các robot hút bụi, xe tự lái biết được 'Mình đang ở đâu' trong một môi trường đầy nhiễu. Nó xuất sắc với phân phối đa đỉnh (ví dụ: 'Tôi có thể ở phòng khách hoặc phòng ngủ, chứ không thể ở giữa bức tường'). (Giải thích thêm: (Non-linear) (Multi-modal)) (Giải thích thêm: (các hạt))"
+  },
+  {
+    "id": 19,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Ứng dụng nổi tiếng nhất của HMM (Mô hình Markov Ẩn) trong thập niên 80 và 90 là gì?",
+    "options": [
+      "Lái xe tự động.",
+      "Nhận dạng giọng nói (Speech Recognition).",
+      "Dịch máy (Machine Translation).",
+      "Nhận diện khuôn mặt."
+    ],
+    "answer": 1,
+    "feedback": "Trong Nhận dạng giọng nói, Chuỗi trạng thái ẩn là các Âm vị (Phonemes) hoặc Từ mà người dùng định nói. Chuỗi quan sát (Evidence) là Sóng âm thanh thu được. Thuật toán Viterbi sẽ tìm ra chuỗi Từ khớp nhất với Sóng âm thanh."
+  },
+  {
+    "id": 20,
+    "type": "true_false",
+    "difficulty": "Khó",
+    "question": "Mô hình Markov bậc k (k-th order Markov model) là mô hình trong đó trạng thái hiện tại phụ thuộc vào k trạng thái ngay trước nó. Một mô hình Markov bậc 2 luôn có thể được viết lại thành một mô hình Markov bậc 1 (bằng cách gộp trạng thái).",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Bằng cách gộp $(X_{t}, X_{t-1})$ thành một Siêu Trạng Thái mới $Y_t$, mô hình bậc 2 sẽ trở thành mô hình bậc 1 đối với Y. Điều này có nghĩa là Markov bậc 1 có đủ sức mạnh để biểu diễn bất kỳ hệ thống nào (dù tốn bộ nhớ hơn)."
+  },
+  {
+    "id": 21,
+    "type": "matching",
+    "difficulty": "Dễ",
+    "question": "Ghép nối các thành phần của HMM trong bài toán 'Dự đoán Thời tiết qua việc người gác cổng mang Ô':",
+    "pairs": [
+      {
+        "left": "Trạng thái ẩn $X_t$",
+        "right": "Thời tiết thực tế hôm nay (Mưa, Nắng)"
+      },
+      {
+        "left": "Quan sát $E_t$",
+        "right": "Hôm nay người gác cổng có mang Ô (Umbrella) hay không"
+      },
+      {
+        "left": "Transition Model $P(X_t|X_{t-1})$",
+        "right": "Xác suất hôm nay Mưa nếu hôm qua Mưa (Tính ì của thời tiết)"
+      },
+      {
+        "left": "Sensor Model $P(E_t|X_t)$",
+        "right": "Xác suất người gác cổng mang Ô nếu trời Mưa"
+      }
+    ],
+    "feedback": "Đây là ví dụ kinh điển trong sách AIMA. Từ việc chỉ nhìn thấy cái Ô mỗi ngày, thuật toán có thể suy ra thời tiết (Filtering) và đoán xem ngày mai ông ta có mang Ô không (Prediction)."
+  },
+  {
+    "id": 22,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Khi áp dụng Particle Filter (Lọc hạt), nếu tất cả các hạt tình cờ trôi dạt vào một vùng có xác suất (Trọng số) cực kỳ thấp (Ví dụ: Robot bị bế đi nơi khác, còn các hạt vẫn ở chỗ cũ). Hiện tượng này gọi là gì?",
+    "options": [
+      "Sinh sản hữu tính.",
+      "Hạt hồi sinh.",
+      "Sự cạn kiệt hạt.",
+      "Sự phân hạch hạt."
+    ],
+    "answer": 2,
+    "feedback": "Bài toán Robot bị bắt cóc (Kidnapped robot): Các hạt đều tự tin nó ở phòng A, đùng một cái cảm biến báo nó ở phòng B. Trọng số mọi hạt rơi về 0, thuật toán sụp đổ. Cách giải quyết là luôn bơm 1 lượng nhỏ 'Hạt ngẫu nhiên đột biến' vào quần thể. (Giải thích thêm: (Particle Deprivation / Kidnapped Robot Problem))"
+  },
+  {
+    "id": 23,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Dynamic Bayesian Network (DBN) là từ viết tắt của Mạng Bayes ____________. Nó gọi là 'Động' vì nó liên tục lặp lại các lát cắt cấu trúc mạng (time slices) theo thời gian.",
+    "options": [
+      "Tĩnh",
+      "Động",
+      "Đa chiều",
+      "Định hướng"
+    ],
+    "answer": 1,
+    "feedback": "DBN = Dynamic Bayesian Network. Chữ Dynamic ám chỉ việc thời gian trôi đi, mạng liên tục mở rộng theo chiều dài thời gian (Unrolling)."
+  },
+  {
+    "id": 24,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Nếu mô hình hệ thống của bạn hoàn toàn Tuyến tính (Linear) và tuân theo phân bố Chuẩn Gauss hoàn hảo. Bạn nên dùng thuật toán nào để Tracking (Filtering) đạt độ chính xác cao nhất và nhanh nhất? (Chọn đáp án đúng)",
+    "options": [
+      "Particle Filter (Lọc Hạt).",
+      "Kalman Filter (Bộ lọc Kalman).",
+      "Hidden Markov Model rời rạc (HMM).",
+      "Deep Learning LSTM."
+    ],
+    "answer": [
+      1
+    ],
+    "feedback": "Với Linear Gaussian, Kalman Filter là GIẢI PHÁP TỐI ƯU TOÁN HỌC (Optimal). Nó tính toán bằng công thức ma trận trực tiếp, nhanh và chính xác hơn bất kỳ thuật toán lấy mẫu (Particle Filter) nào. Tuy nhiên đời thực hiếm khi tuyến tính hoàn toàn."
+  },
+  {
+    "id": 25,
+    "type": "ordering",
+    "difficulty": "Khó",
+    "question": "Sắp xếp độ phức tạp biểu diễn (Sức mạnh/Tổng quát) của các Mô hình xác suất thời gian từ Thấp (Rời rạc/Đơn giản) đến Cao (Đa biến/Phức tạp):",
+    "items": [
+      "Hidden Markov Model (HMM) - 1 biến ẩn rời rạc duy nhất",
+      "Kalman Filter (KF) - 1 vector biến ẩn liên tục, tuyến tính",
+      "Dynamic Bayesian Network (DBN) - Đa biến, đồ thị tùy chỉnh rời rạc/liên tục",
+      "Ngôn ngữ Xác suất Bậc nhất Động (Dynamic First-Order Probabilistic Logic) - Biểu diễn cả Đối tượng, Quan hệ, Xác suất và Thời gian"
+    ],
+    "feedback": "Đây là lộ trình nâng cấp sức mạnh biểu diễn trong AI. Càng mạnh thì biểu diễn càng giống đời thực, nhưng tính toán (Inference) càng chậm và khó."
+  },
+  {
+    "id": 26,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Định lý Bayes (Bayes' Theorem) đóng vai trò gì trong các mô hình suy diễn thời gian (Filtering, Smoothing)?",
+    "options": [
+      "Nó không có tác dụng gì.",
+      "Nó là cốt lõi của bước 'Cập nhật'.",
+      "Nó sinh ra các hạt ngẫu nhiên.",
+      "Nó làm tăng lỗi dự đoán."
+    ],
+    "answer": 1,
+    "feedback": "Tất cả các mô hình: HMM, Kalman Filter, DBN đều chỉ là những cách triển khai khác nhau của một phương trình Lọc Bayes (Bayesian Filtering) cốt lõi. (Giải thích thêm: (Update) (Prior) (Evidence) (Posterior) Kết hợp Dự đoán Tiên nghiệm từ mô hình chuyển trạng thái với Bằng chứng từ mô hình cảm biến để tạo ra Hậu nghiệm.)"
+  },
+  {
+    "id": 27,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Smoothing Offline (chờ hệ thống chạy xong rồi mới phân tích toàn bộ dữ liệu từ đầu đến cuối) luôn tạo ra cái nhìn về quá khứ TỐT HƠN là Filtering Online (vừa chạy vừa ước lượng).",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Hindsight is 20/20 (Biết trước đã giàu). Smoothing dùng dữ liệu Tương lai để sửa sai cho Quá khứ. Việc đó không làm được ở thời gian thực (Online), nhưng rất hữu ích cho Phân tích, Ghi log, Học máy."
+  },
+  {
+    "id": 28,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Một ứng dụng của DBN trong xe tự lái là theo dõi vị trí của các xe xung quanh. Nếu ta coi 'Tọa độ GPS' của một chiếc xe là Quan sát (Evidence), thì 'Biến ẩn' (Hidden State) quan trọng nhất cần được DBN suy ra là gì để tránh va chạm?",
+    "options": [
+      "Màu sắc của xe.",
+      "Vận tốc, Gia tốc và Ý định của người lái xe đó.",
+      "Biển số xe.",
+      "Mức nhiên liệu của xe."
+    ],
+    "answer": 1,
+    "feedback": "GPS chỉ cho ta Vị trí (Position). DBN sẽ dùng các chuỗi Vị trí qua thời gian, kết hợp với các định luật vật lý (Transition Model) để 'Nội suy/Lọc' ra Vận tốc và Gia tốc. Đỉnh cao hơn là DBN có thể đoán được Ý định của tài xế. (Giải thích thêm: (Intent) (như Đang muốn chuyển làn))"
+  },
+  {
+    "id": 29,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Thuật toán tìm kiếm đường đi có xác suất cao nhất trong HMM (Most likely explanation) được đặt tên theo người phát minh ra nó: Thuật toán ____________ (Viterbi).",
+    "options": [
+      "Kalman",
+      "Markov",
+      "Viterbi",
+      "Bayes"
+    ],
+    "answer": 2,
+    "feedback": "Andrew Viterbi đã tạo ra thuật toán này cho Viễn thông kỹ thuật số (sửa lỗi đường truyền). Công ty Qualcomm do ông sáng lập đã thu hàng tỷ đô la bản quyền từ các chuẩn CDMA/3G sử dụng thuật toán này."
+  },
+  {
+    "id": 30,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Tại sao một Mạng Bayes Động (DBN) Exact Inference (như Variable Elimination) lại bị chậm dần theo thời gian dù cho số lượng biến trong một 'Lát cắt thời gian' (Time slice) là rất ít? (Chọn đáp án đúng)",
+    "options": [
+      "Vì Variable Elimination luôn có độ phức tạp hàm mũ (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Vì sau nhiều bước, mọi biến ở trạng thái hiện tại đều gián tiếp phụ thuộc vào TẤT CẢ các biến ở trạng thái trước đó thông qua mạng lưới.",
+      "Vì máy tính bị nóng lên (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Vì kích thước ma trận hiệp phương sai tăng tuyến tính (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": [
+      1
+    ],
+    "feedback": "Đây là lý do chí tử. Dù DBN ban đầu rất Sparse (ít cạnh), nhưng khi trôi qua t thời gian, phép tính Marginalization sẽ nhào trộn (multiply) tất cả các biến lại với nhau thành một bảng Joint Distribution khổng lồ đầy đủ (Dense factor). Lại một lần nữa, ta buộc phải dùng Particle Filter. (Giải thích thêm: (Entanglement) Hiện tượng này làm cho Mạng bị 'Vướng víu', mất đi tính độc lập có điều kiện cục bộ.)"
+  }
+]

@@ -25,7 +25,7 @@
 </div>
 
 #### **Trắc nghiệm**
-*(Chưa có bài tập trắc nghiệm)*
+<div id="quiz-container" data-chapter="25"></div>
 
 #### **Pseudocode**
 *(Không có mã giả cho chương này trong thư viện)*

@@ -1,0 +1,450 @@
+[
+  {
+    "id": 1,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Trong Bài toán Thỏa mãn Ràng buộc (CSP), một trạng thái được định nghĩa bởi các thành phần cơ bản nào?",
+    "options": [
+      "Một tập hợp các quy tắc (Rules) và Mệnh đề (Clauses).",
+      "Một tập hợp các Biến (Variables) và Tập giá trị (Domains).",
+      "Trạng thái ban đầu (Initial state) và Hàm Heuristic.",
+      "Tác tử (Agent) và Môi trường (Environment)."
+    ],
+    "answer": 1,
+    "feedback": "Một CSP được cấu thành từ 3 yếu tố: Tập các biến X, Tập các miền giá trị D (Domains), và Tập các ràng buộc C (Constraints)."
+  },
+  {
+    "id": 2,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Một phép gán (assignment) được gọi là 'Nhất quán' (Consistent) hoặc 'Hợp lệ' (Legal) nếu nó không vi phạm bất kỳ ràng buộc nào.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Trong CSP, consistent assignment nghĩa là không có biến nào được gán giá trị làm phá vỡ luật (ràng buộc) của bài toán."
+  },
+  {
+    "id": 3,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Giải pháp (solution) cho một CSP là một phép gán vừa nhất quán vừa ____________ (nghĩa là mọi biến đều đã được gán một giá trị).",
+    "options": [
+      "Tối ưu (Optimal)",
+      "Cục bộ (Local)",
+      "Toàn phần (Complete)",
+      "Độc lập (Independent)"
+    ],
+    "answer": 2,
+    "feedback": "Giải pháp = Complete assignment (mọi biến đều có giá trị) + Consistent (không vi phạm ràng buộc)."
+  },
+  {
+    "id": 4,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Thuật toán tìm kiếm CSP có lợi thế gì so với thuật toán tìm kiếm trạng thái chuẩn (như A* hay BFS)? (Chọn đáp án đúng)",
+    "options": [
+      "Trạng thái trong CSP có cấu trúc, không phải 'hộp đen' như trạng thái chuẩn.",
+      "CSP luôn luôn giải được trong thời gian tuyến tính (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Có thể viết các hàm Heuristic chung hoạt động cho mọi CSP mà không cần chuyên gia cung cấp tri thức đặc thù.",
+      "CSP không bao giờ cần thuật toán quay lui (backtracking) (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": [
+      0,
+      2
+    ],
+    "feedback": "Vì trạng thái CSP có cấu trúc rõ ràng (biến = giá trị), ta có thể viết các Heuristic tổng quát (như MRV, LCV) áp dụng cho MỌI bài toán CSP mà không cần người dùng tự nghĩ ra hàm heuristic h(n). (Giải thích thêm: (bộ Biến - Giá trị)) (Giải thích thêm: (domain-independent))"
+  },
+  {
+    "id": 5,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Trong bài toán Tô màu bản đồ (Map-Coloring), nếu 2 vùng kề nhau không được cùng màu, đó là loại ràng buộc gì?",
+    "options": [
+      "Ràng buộc một ngôi (Unary Constraint).",
+      "Ràng buộc hai ngôi (Binary Constraint).",
+      "Ràng buộc toàn cục (Global Constraint).",
+      "Ràng buộc sở thích (Preference Constraint)."
+    ],
+    "answer": 1,
+    "feedback": "Ràng buộc giữa chính xác 2 biến (ví dụ WA ≠ NT) được gọi là Binary Constraint (Ràng buộc hai ngôi)."
+  },
+  {
+    "id": 6,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Ghép nối các loại Ràng buộc (Constraint) với đặc điểm của chúng:",
+    "pairs": [
+      {
+        "left": "Unary constraint (Một ngôi)",
+        "right": "Giới hạn giá trị của một biến duy nhất (VD: SA ≠ Green)"
+      },
+      {
+        "left": "Binary constraint (Hai ngôi)",
+        "right": "Liên kết chính xác hai biến với nhau (VD: SA ≠ WA)"
+      },
+      {
+        "left": "Global constraint (Toàn cục)",
+        "right": "Liên quan đến một số lượng biến tùy ý (VD: Alldiff - tất cả các biến phải khác nhau)"
+      },
+      {
+        "left": "Preference constraint (Sở thích)",
+        "right": "Không bắt buộc tuyệt đối nhưng chỉ ra giải pháp nào được ưu tiên hơn (Dẫn đến tối ưu hóa)"
+      }
+    ],
+    "feedback": "Phân loại ràng buộc giúp hệ thống tìm kiếm biết cách thu hẹp không gian giá trị (Lan truyền ràng buộc) một cách hiệu quả nhất."
+  },
+  {
+    "id": 7,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Một bài toán CSP có các miền giá trị (Domains) liên tục (như lịch trình thời gian chính xác) không thể giải được bằng bất kỳ thuật toán nào.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai. Miền liên tục vẫn có thể giải được thông qua Quy hoạch tuyến tính (Linear Programming) hoặc đưa về các phương trình bất đẳng thức đại số."
+  },
+  {
+    "id": 8,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Kỹ thuật 'Lan truyền ràng buộc' (Constraint Propagation) đóng vai trò gì trong CSP?",
+    "options": [
+      "Tạo ra thêm nhiều biến mới để bài toán dễ giải hơn (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Sử dụng các ràng buộc để giảm bớt số lượng giá trị hợp lệ trong miền của các biến, trước hoặc trong khi tìm kiếm.",
+      "Nhảy ngẫu nhiên sang trạng thái khác khi bị kẹt (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Gán tất cả các biến cùng một lúc (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": 1,
+    "feedback": "Constraint propagation (như thuật toán AC-3) loại bỏ các giá trị chắc chắn sẽ dẫn đến thất bại, giúp cây tìm kiếm nhỏ đi rất nhiều."
+  },
+  {
+    "id": 9,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Một biến X được gọi là Nhất quán cung (____________ Consistency) với biến Y nếu đối với mọi giá trị x trong miền của X, luôn tồn tại một giá trị y hợp lệ trong miền của Y thỏa mãn ràng buộc giữa X và Y.",
+    "options": [
+      "Đỉnh (Node)",
+      "Đường (Path)",
+      "Cung (Arc)",
+      "Đồ thị (Graph)"
+    ],
+    "answer": 2,
+    "feedback": "Arc Consistency (Nhất quán cung) là khái niệm cốt lõi trong thuật toán AC-3 để lan truyền ràng buộc giữa từng cặp biến."
+  },
+  {
+    "id": 10,
+    "type": "ordering",
+    "difficulty": "Khó",
+    "question": "Sắp xếp quá trình hoạt động của thuật toán AC-3 (Arc Consistency 3):",
+    "items": [
+      "Đưa tất cả các cung (arcs) trong bài toán vào một hàng đợi (Queue).",
+      "Lấy ra một cung (X, Y) từ hàng đợi.",
+      "Làm cho X nhất quán cung với Y (loại bỏ các giá trị sai khỏi miền của X).",
+      "Nếu miền của X bị thay đổi, đưa tất cả các cung (Z, X) (với Z là hàng xóm của X) trở lại hàng đợi.",
+      "Lặp lại cho đến khi hàng đợi rỗng hoặc có miền giá trị bị rỗng (thất bại)."
+    ],
+    "feedback": "AC-3 hoạt động bằng cách kiểm tra từng cung, và nếu miền của một biến bị thu hẹp, nó bắt buộc phải kiểm tra lại các hàng xóm của biến đó."
+  },
+  {
+    "id": 11,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Nếu sau khi chạy thuật toán AC-3, một biến bị mất hết tất cả các giá trị trong miền của nó (miền rỗng), điều đó có nghĩa là gì?",
+    "options": [
+      "Thuật toán chạy sai, cần chạy lại.",
+      "Bài toán chắc chắn không có giải pháp (vô nghiệm).",
+      "Ta đã tìm được giải pháp tối ưu.",
+      "Biến đó không có ràng buộc nào."
+    ],
+    "answer": 1,
+    "feedback": "Khi một miền trở nên rỗng (Empty domain), nghĩa là không có cách nào gán giá trị hợp lệ cho biến đó -> CSP không có nghiệm."
+  },
+  {
+    "id": 12,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Thuật toán tìm kiếm Quay lui (Backtracking Search) cơ bản cho CSP khác biệt với Tìm kiếm theo chiều sâu (DFS) thông thường ở điểm nào?",
+    "options": [
+      "Nó mở rộng nhiều nhánh cùng lúc (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Nó gán giá trị cho một biến duy nhất tại mỗi bước (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Nó kiểm tra ràng buộc ngay lập tức khi gán, nếu vi phạm thì quay lui ngay mà không cần xét các biến còn lại.",
+      "Nó không bao giờ dùng thuật toán đệ quy (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": [
+      1,
+      2
+    ],
+    "feedback": "Backtracking tận dụng tính giao hoán của CSP (gán X rồi gán Y cũng giống gán Y rồi gán X) nên mỗi độ sâu chỉ gán 1 biến. Nó cũng kiểm tra ngay lập tức, cắt tỉa nhánh từ rất sớm (early checking). (Giải thích thêm: (chứ không thử mọi hoán vị))"
+  },
+  {
+    "id": 13,
+    "type": "matching",
+    "difficulty": "Khó",
+    "question": "Trong thuật toán Backtracking, hãy nối các Heuristic chọn thứ tự với chiến lược của nó:",
+    "pairs": [
+      {
+        "left": "Minimum Remaining Values (MRV)",
+        "right": "Chọn biến CÓ ÍT giá trị hợp lệ nhất còn lại (ưu tiên biến sắp 'chết')"
+      },
+      {
+        "left": "Degree Heuristic",
+        "right": "Chọn biến CÓ NHIỀU ràng buộc nhất với các biến chưa được gán (để giảm nhanh số lượng nhánh)"
+      },
+      {
+        "left": "Least Constraining Value (LCV)",
+        "right": "Chọn giá trị ÍT LOẠI BỎ các lựa chọn của các biến xung quanh nhất (để giữ lại nhiều đường lui)"
+      }
+    ],
+    "feedback": "MRV và Degree dùng để chọn 'Biến nào gán tiếp theo' (Fail-first). LCV dùng để chọn 'Gán giá trị nào cho biến đó' (Fail-last)."
+  },
+  {
+    "id": 14,
+    "type": "fill_blank",
+    "difficulty": "Dễ",
+    "question": "Heuristic MRV (Minimum Remaining Values) còn được gọi là heuristic 'Fail-____________' (Thất bại trước), bởi vì nó ưu tiên chọn biến có khả năng dẫn đến ngõ cụt sớm nhất để cắt tỉa cây tìm kiếm nhanh chóng.",
+    "options": [
+      "Last",
+      "Safe",
+      "First",
+      "Fast"
+    ],
+    "answer": 2,
+    "feedback": "Fail-first heuristic (Thất bại sớm). Triết lý: Nếu đằng nào cũng thất bại, hãy phát hiện nó càng sớm càng tốt để đỡ tốn công tìm kiếm sâu."
+  },
+  {
+    "id": 15,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Heuristic LCV (Least Constraining Value) hướng tới mục tiêu 'Fail-first' giống như MRV.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai. LCV là 'Fail-last'. Vì ta chỉ cần TÌM RA MỘT nghiệm, ta nên chọn giá trị an toàn nhất (ít ràng buộc người khác nhất) để tăng tối đa cơ hội thành công."
+  },
+  {
+    "id": 16,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Kỹ thuật 'Kiểm tra tiến' (Forward Checking) làm gì trong khi tìm kiếm Backtracking?",
+    "options": [
+      "Dự đoán toàn bộ cây tìm kiếm trong tương lai (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Mỗi khi gán giá trị cho một biến, nó xóa các giá trị mâu thuẫn khỏi miền của các biến hàng xóm chưa được gán.",
+      "Tự động chạy lại thuật toán nếu bị sai (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Lưu lại toàn bộ lịch sử các phép gán vào ổ cứng (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 1,
+    "feedback": "Forward Checking theo dõi sự thu hẹp miền của các biến hàng xóm. Nếu có hàng xóm nào bị rỗng miền, nó báo hiệu phải Backtrack ngay lập tức."
+  },
+  {
+    "id": 17,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Sự khác biệt giữa Forward Checking (FC) và MAC (Maintaining Arc Consistency) là gì?",
+    "options": [
+      "FC chỉ kiểm tra nhất quán cung giữa biến vừa gán và các hàng xóm trực tiếp.",
+      "MAC mạnh hơn FC vì nó lan truyền sự nhất quán cung đi xa hơn, kiểm tra cả hàng xóm của hàng xóm.",
+      "FC tốn thời gian tính toán ở mỗi bước nhiều hơn MAC (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "MAC không phát hiện được ngõ cụt sớm bằng FC (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "feedback": "FC chỉ nhìn trước 1 bước (các biến kề). MAC gọi toàn bộ thuật toán AC-3 sau mỗi phép gán, giúp lan truyền ràng buộc ra toàn bộ đồ thị, phát hiện lỗi sớm hơn rất nhiều so với FC. (Giải thích thêm: (Arc Consistency))"
+  },
+  {
+    "id": 18,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Sắp xếp thứ tự các bước trong một vòng lặp của thuật toán Backtracking kết hợp MAC:",
+    "items": [
+      "Chọn một biến chưa được gán (dùng MRV & Degree)",
+      "Lặp qua từng giá trị khả dĩ của biến đó (dùng LCV)",
+      "Gán giá trị cho biến và chạy AC-3 (MAC) để lan truyền ràng buộc",
+      "Nếu AC-3 không trả về miền rỗng, tiếp tục đệ quy gán biến tiếp theo",
+      "Nếu thất bại, thu hồi phép gán (backtrack) và khôi phục miền giá trị"
+    ],
+    "feedback": "Lựa chọn Biến -> Lựa chọn Giá trị -> Lan truyền MAC -> Đệ quy / Cắt tỉa nhánh -> Backtrack."
+  },
+  {
+    "id": 19,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Thuật toán Tìm kiếm cục bộ (Local Search) ứng dụng cho CSP thường khởi đầu như thế nào?",
+    "options": [
+      "Bắt đầu với các biến hoàn toàn trống rỗng (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Bắt đầu bằng một phép gán hoàn chỉnh nhưng có thể vi phạm rất nhiều ràng buộc.",
+      "Bắt đầu từ mục tiêu và đi ngược về khởi thủy (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Khởi tạo một bảng băm (hash table) (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 1,
+    "feedback": "Trái với Backtracking gán từng biến, Local Search (như Min-Conflicts) gán ngẫu nhiên TẤT CẢ các biến ngay từ đầu, sau đó sửa dần các chỗ sai. (Giải thích thêm: (mọi biến đều có giá trị))"
+  },
+  {
+    "id": 20,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Heuristic cốt lõi của Local Search trong CSP là thuật toán ____________ (Xung đột tối thiểu). Ở mỗi bước, nó chọn đổi giá trị của một biến sao cho số lượng ràng buộc bị vi phạm là nhỏ nhất.",
+    "options": [
+      "Min-Conflicts",
+      "Max-Value",
+      "Min-Cost",
+      "Zero-Sum"
+    ],
+    "answer": 0,
+    "feedback": "Min-Conflicts heuristic cực kỳ hiệu quả. Trong bài toán N-Queens (với N lên tới hàng triệu), Min-Conflicts có thể tìm ra nghiệm trong thời gian gần như hằng số."
+  },
+  {
+    "id": 21,
+    "type": "matching",
+    "difficulty": "Khó",
+    "question": "Nối các khái niệm về cấu trúc bài toán CSP với lợi ích của chúng:",
+    "pairs": [
+      {
+        "left": "Independent Subproblems (Các bài toán con độc lập)",
+        "right": "Đồ thị bị ngắt kết nối. Chia bài toán lớn thành các bài toán nhỏ giải nhanh hơn theo cấp số mũ"
+      },
+      {
+        "left": "Tree-structured CSP (CSP dạng cây)",
+        "right": "Đồ thị không có vòng lặp (cycles). Có thể giải chắc chắn trong thời gian tuyến tính O(nd^2)"
+      },
+      {
+        "left": "Cutset Conditioning (Điều kiện hóa tập cắt)",
+        "right": "Gán cứng một số biến để biến đồ thị có vòng lặp thành đồ thị dạng cây"
+      },
+      {
+        "left": "Tree Decomposition (Phân rã cây)",
+        "right": "Nhóm các biến thành các 'siêu biến' (mega-variables) để tạo thành một cây"
+      }
+    ],
+    "feedback": "Phân tích cấu trúc đồ thị ràng buộc (Topology) giúp tối ưu hóa thời gian chạy cực độ, đôi khi biến bài toán NP-Khó thành bài toán tuyến tính."
+  },
+  {
+    "id": 22,
+    "type": "true_false",
+    "difficulty": "Khó",
+    "question": "Bất kỳ bài toán CSP nào có cấu trúc đồ thị dạng cây (Tree-structured) đều có thể được giải trong thời gian tuyến tính tỷ lệ thuận với số lượng biến.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Bằng cách định hướng cây từ gốc đến lá và áp dụng Arc Consistency ngược từ lá lên gốc, ta chỉ cần O(nd^2) thời gian (Tuyến tính theo số biến n)."
+  },
+  {
+    "id": 23,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Kỹ thuật 'Điều kiện hóa tập cắt' (Cutset Conditioning) hoạt động dựa trên nguyên lý nào?",
+    "options": [
+      "Loại bỏ các ràng buộc khó nhất khỏi bài toán (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Tìm một tập hợp các biến sao cho nếu gán giá trị cho chúng, phần còn lại của đồ thị trở thành một cây không có vòng lặp.",
+      "Cắt đôi cây tìm kiếm để giảm thiểu bộ nhớ (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Tăng số lượng miền giá trị lên gấp đôi (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 1,
+    "feedback": "Bằng cách gán giá trị cố định cho một số ít biến (gọi là cycle cutset), ta phá vỡ các vòng lặp (cycles) trong đồ thị. Phần còn lại là một cây và có thể giải cực nhanh. (Giải thích thêm: (cutset))"
+  },
+  {
+    "id": 24,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Bài toán giải Sudoku là một ví dụ kinh điển của bài toán nào trong Trí tuệ nhân tạo?",
+    "options": [
+      "Bài toán Lập kế hoạch tự động (Automated Planning).",
+      "Mạng nơ-ron sâu (Deep Neural Networks).",
+      "Bài toán Thỏa mãn Ràng buộc (CSP).",
+      "Trò chơi đối kháng (Adversarial Game)."
+    ],
+    "answer": 2,
+    "feedback": "Sudoku là một CSP hoàn hảo: Biến là 81 ô trống, Miền là {1..9}, Ràng buộc là không được trùng số trên hàng, cột, và khối 3x3 (Alldiff constraint)."
+  },
+  {
+    "id": 25,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Một bài toán CSP có thể được biểu diễn dưới dạng Đồ thị ràng buộc (Constraint Graph). Trong đó, các đỉnh đại diện cho ____________ và các cạnh đại diện cho ____________.",
+    "options": [
+      "Biến / Ràng buộc",
+      "Trạng thái / Hành động",
+      "Miền / Cung",
+      "Người chơi / Nước đi"
+    ],
+    "answer": 0,
+    "feedback": "Constraint Graph: Đỉnh (Nodes) = Variables (Biến). Cạnh (Edges) = Constraints (Ràng buộc)."
+  },
+  {
+    "id": 26,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Khi áp dụng Heuristic MRV (Minimum Remaining Values), nếu có nhiều biến cùng có số lượng giá trị hợp lệ còn lại ít nhất (hòa nhau), ta thường dùng Heuristic nào để 'phá vỡ thế hòa' (tie-breaker)?",
+    "options": [
+      "LCV (Least Constraining Value).",
+      "Degree Heuristic.",
+      "Random (Chọn ngẫu nhiên).",
+      "Min-Conflicts."
+    ],
+    "answer": [
+      1
+    ],
+    "feedback": "Degree Heuristic (Chọn biến tham gia vào nhiều ràng buộc nhất) là công cụ hoàn hảo để làm tie-breaker cho MRV."
+  },
+  {
+    "id": 27,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Ràng buộc 'Alldiff' (Yêu cầu n biến phải có giá trị khác nhau hoàn toàn) chỉ có thể được mô phỏng bằng cách tạo ra n(n-1)/2 ràng buộc hai ngôi (Binary constraints) độc lập.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai. Mặc dù CÓ THỂ mô phỏng bằng các ràng buộc hai ngôi, xử lý Alldiff trực tiếp dưới dạng 'Global constraint' (bằng thuật toán luồng cực đại hoặc ghép cặp lưỡng phân) sẽ cắt tỉa miền giá trị mạnh mẽ và nhanh hơn rất nhiều."
+  },
+  {
+    "id": 28,
+    "type": "ordering",
+    "difficulty": "Khó",
+    "question": "Sắp xếp độ phức tạp hoặc thời gian chạy của các kỹ thuật 'Lan truyền ràng buộc' từ MẠNH NHẤT (cắt tỉa được nhiều nhất nhưng chạy chậm nhất) đến YẾU NHẤT (cắt tỉa ít nhất nhưng chạy rất nhanh):",
+    "items": [
+      "Path Consistency (Nhất quán đường - 3 biến)",
+      "MAC (Duy trì Nhất quán cung AC-3 sau mỗi bước gán)",
+      "Forward Checking (Chỉ kiểm tra hàng xóm trực tiếp)"
+    ],
+    "feedback": "Path Consistency kiểm tra tổ hợp 3 biến (Rất mạnh, chậm). MAC kiểm tra lan truyền 2 biến toàn đồ thị (Cân bằng tốt). Forward Checking chỉ kiểm tra 1 bước (Nhanh nhưng cắt tỉa yếu)."
+  },
+  {
+    "id": 29,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Trong bài toán 8 quân hậu (8-Queens), thuật toán Min-Conflicts hoạt động như thế nào?",
+    "options": [
+      "Gán từng quân hậu một, nếu bị chiếu thì quay lui.",
+      "Đặt 8 quân hậu ngẫu nhiên.",
+      "Di chuyển toàn bộ 8 quân hậu cùng lúc.",
+      "Tính toán trước một mảng tĩnh các vị trí đúng."
+    ],
+    "answer": 1,
+    "feedback": "Đây là đặc trưng của Local Search: Có một trạng thái đầy đủ (dù sai), sau đó chỉnh sửa từng biến (di chuyển 1 quân hậu) về vị trí ít xung đột (min-conflicts) nhất. (Giải thích thêm: Tại mỗi bước, chọn 1 quân hậu đang bị chiếu và di chuyển nó sang ô cùng cột sao cho số lượng quân hậu chiếu nó là ít nhất.)"
+  },
+  {
+    "id": 30,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Đặc điểm nào khiến bài toán lập lịch công việc (Job-Shop Scheduling) trở thành một CSP khó?",
+    "options": [
+      "Nó không có biến và giá trị (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Miền giá trị thường là liên tục hoặc rời rạc có biên độ rất rộng.",
+      "Không ai biết hàm mục tiêu của nó (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Mọi máy móc đều có thể làm mọi việc cùng lúc."
+    ],
+    "answer": 1,
+    "feedback": "Trong lập lịch, biến là thời gian bắt đầu công việc. Domain của thời gian là một dải rất rộng (ví dụ từ ngày 1 đến ngày 365), làm cho không gian tìm kiếm cực kỳ khổng lồ. (Giải thích thêm: (thời gian bắt đầu của một công việc))"
+  }
+]

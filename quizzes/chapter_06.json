@@ -1,0 +1,462 @@
+[
+  {
+    "id": 1,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Trong AI, thuật ngữ 'Adversarial Search' (Tìm kiếm đối kháng) thường được dùng để giải quyết loại bài toán nào?",
+    "options": [
+      "Tìm đường đi ngắn nhất trên bản đồ.",
+      "Lập lịch làm việc cho máy móc.",
+      "Môi trường trò chơi nhiều người chơi có tính cạnh tranh.",
+      "Môi trường hoàn toàn tĩnh và không có đối thủ."
+    ],
+    "answer": 2,
+    "feedback": "Adversarial Search đặc trưng cho các môi trường có sự cạnh tranh, trong đó hành động của một tác tử làm giảm hiệu suất của tác tử kia (đối kháng). (Giải thích thêm: (Multiagent))"
+  },
+  {
+    "id": 2,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Cờ vua và Cờ vây là những trò chơi có tính 'Thông tin hoàn hảo' (Perfect Information) và 'Tất định' (Deterministic).",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Cờ vua là Deterministic (không có xúc xắc) và Perfect Information (hai người chơi nhìn thấy toàn bộ bàn cờ của nhau)."
+  },
+  {
+    "id": 3,
+    "type": "fill_blank",
+    "difficulty": "Dễ",
+    "question": "Trong trò chơi đối kháng hai người chơi, trò chơi được gọi là 'Tổng bằng ____________' (Zero-Sum) nếu lợi ích mà người này nhận được đúng bằng tổn thất của người kia.",
+    "options": [
+      "Không (Zero)",
+      "Một (One)",
+      "Chẵn (Even)",
+      "Lẻ (Odd)"
+    ],
+    "answer": 0,
+    "feedback": "Trò chơi Zero-Sum (Tổng bằng 0) nghĩa là tổng giá trị tiện ích của tất cả người chơi ở mọi trạng thái kết thúc luôn luôn bằng 0 (ví dụ: +1 cho người thắng, -1 cho người thua)."
+  },
+  {
+    "id": 4,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Để định nghĩa chính thức một Trò chơi như một bài toán tìm kiếm, ta cần những thành phần nào? (Chọn các đáp án đúng)",
+    "options": [
+      "Trạng thái ban đầu (Initial State).",
+      "Hàm xác định Lượt chơi (Player).",
+      "Hàm kiểm tra trạng thái kết thúc (Terminal Test).",
+      "Hàm tiện ích (Utility Function)."
+    ],
+    "answer": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "feedback": "Một Game cần 6 yếu tố cơ bản: S0 (Initial State), PLAYER(s), ACTIONS(s), RESULT(s, a), TERMINAL-TEST(s), và UTILITY(s, p)."
+  },
+  {
+    "id": 5,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Ghép nối các nút trong cây tìm kiếm Minimax với vai trò của chúng:",
+    "pairs": [
+      {
+        "left": "Nút MAX",
+        "right": "Đại diện cho lượt đi của người chơi muốn tối đa hóa điểm số của mình"
+      },
+      {
+        "left": "Nút MIN",
+        "right": "Đại diện cho lượt đi của đối thủ muốn tối thiểu hóa điểm số của người chơi MAX"
+      },
+      {
+        "left": "Nút lá (Terminal Node)",
+        "right": "Trạng thái trò chơi đã kết thúc, trả về giá trị chiến thắng/thất bại hoặc hòa"
+      }
+    ],
+    "feedback": "Minimax giả định cả hai người chơi đều chơi một cách tối ưu. MAX chọn nước đi cao điểm nhất, MIN chọn nước đi thấp điểm nhất (để cản MAX)."
+  },
+  {
+    "id": 6,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Thuật toán Minimax cơ bản (duyệt toàn bộ cây) sẽ thực hiện thuật toán tìm kiếm nào bên dưới nền tảng của nó?",
+    "options": [
+      "Tìm kiếm theo chiều rộng (BFS).",
+      "Tìm kiếm theo chiều sâu (DFS).",
+      "Tìm kiếm A*.",
+      "Tìm kiếm chùm tia (Beam Search)."
+    ],
+    "answer": 1,
+    "feedback": "Thuật toán Minimax duyệt đệ quy theo kiểu Depth-First Search (DFS) tới tận cùng của các nút lá rồi mới tính giá trị đi ngược lên trên."
+  },
+  {
+    "id": 7,
+    "type": "ordering",
+    "difficulty": "Khó",
+    "question": "Sắp xếp thứ tự truyền giá trị trong cây Minimax từ dưới lên trên (giả sử MAX đi trước, MIN đi sau):",
+    "items": [
+      "Hàm Tiện ích (Utility) tính điểm tại các Nút Lá (Trò chơi kết thúc)",
+      "Nút MIN lấy giá trị nhỏ nhất từ các Nút Lá con của nó",
+      "Nút MAX (Gốc) lấy giá trị lớn nhất từ các Nút MIN con của nó",
+      "Nút MAX chọn hành động (nước đi) tương ứng với giá trị lớn nhất đó"
+    ],
+    "feedback": "Điểm được tính tại lá -> MIN chọn giá trị nhỏ nhất để trả lên -> MAX chọn giá trị lớn nhất -> MAX thực hiện nước đi đó."
+  },
+  {
+    "id": 8,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Mục đích chính của thuật toán 'Cắt tỉa Alpha-Beta' (Alpha-Beta Pruning) là gì?",
+    "options": [
+      "Làm cho trò chơi trở nên ngẫu nhiên hơn (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Tìm kiếm ra những nước đi tồi tệ nhất để tránh chúng (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Tính toán cùng một kết quả như Minimax nhưng tránh duyệt những nhánh không thể ảnh hưởng đến kết quả cuối cùng.",
+      "Đánh bại nhà vô địch cờ vua thế giới bằng phần cứng khổng lồ (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": 2,
+    "feedback": "Alpha-Beta không thay đổi quyết định cuối cùng của Minimax, nó chỉ làm Minimax chạy nhanh hơn bằng cách cắt bỏ (prune) những nhánh thừa."
+  },
+  {
+    "id": 9,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Trong thuật toán Cắt tỉa Alpha-Beta, tham số α (Alpha) đại diện cho giá trị của sự lựa chọn ____________ nhất (cao nhất) mà người chơi MAX đã tìm thấy cho đến nay trên đường đi hiện tại.",
+    "options": [
+      "Tồi tệ",
+      "Tốt",
+      "Khó",
+      "Trung bình"
+    ],
+    "answer": 1,
+    "feedback": "Alpha là giá trị tốt nhất (tối đa) mà MAX có thể đảm bảo. Nếu nhánh hiện tại trả về giá trị tồi tệ hơn Alpha đối với MAX, MAX sẽ không bao giờ đi vào đó."
+  },
+  {
+    "id": 10,
+    "type": "true_false",
+    "difficulty": "Khó",
+    "question": "Trong thuật toán Cắt tỉa Alpha-Beta, nếu giá trị của một nút n (tại lượt của MIN) nhỏ hơn hoặc bằng Alpha, thuật toán sẽ ngừng mở rộng các nút con còn lại của n.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Nếu v <= α, MIN sẽ làm cho giá trị của nút cha MAX bị giảm đi, nhưng MAX đã có một lựa chọn khác (Alpha) tốt hơn. Do đó, MAX sẽ không bao giờ chọn nhánh chứa n, nên ta có thể cắt tỉa nút n."
+  },
+  {
+    "id": 11,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Hiệu quả của việc cắt tỉa Alpha-Beta phụ thuộc cực kỳ lớn vào yếu tố nào? (Chọn đáp án đúng)",
+    "options": [
+      "Thứ tự xét các nước đi (Move Ordering).",
+      "Sự may mắn của xúc xắc.",
+      "Màu cờ của người chơi MAX.",
+      "Tốc độ bộ nhớ cache của máy tính."
+    ],
+    "answer": [
+      0
+    ],
+    "feedback": "Move Ordering (Sắp xếp nước đi). Nếu luôn xét các nước đi tốt nhất trước, Alpha-Beta sẽ cắt tỉa được tối đa cây tìm kiếm (từ O(b^d) xuống O(b^(d/2)))."
+  },
+  {
+    "id": 12,
+    "type": "matching",
+    "difficulty": "Khó",
+    "question": "Nối các tham số phân tích thời gian chạy của Minimax và Alpha-Beta với công thức của chúng (giả sử b là hệ số phân nhánh, m là độ sâu):",
+    "pairs": [
+      {
+        "left": "Thời gian chạy của Minimax (duyệt toàn bộ)",
+        "right": "O(b^m)"
+      },
+      {
+        "left": "Thời gian chạy của Alpha-Beta (thứ tự tồi tệ nhất)",
+        "right": "O(b^m) - Không cắt tỉa được gì"
+      },
+      {
+        "left": "Thời gian chạy của Alpha-Beta (thứ tự tối ưu nhất)",
+        "right": "O(b^(m/2)) - Cắt tỉa được phân nửa"
+      },
+      {
+        "left": "Không gian bộ nhớ (Space Complexity) của Minimax",
+        "right": "O(bm)"
+      }
+    ],
+    "feedback": "Nếu có Heuristic sắp xếp nước đi hoàn hảo, Alpha-Beta có thể tìm sâu gấp đôi (depth m) so với Minimax (depth m/2) trong cùng một khoảng thời gian."
+  },
+  {
+    "id": 13,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Trong thực tế (như Cờ vua, Cờ vây), cây tìm kiếm quá khổng lồ để có thể đi đến Nút Lá (kết thúc game). Trí tuệ nhân tạo giải quyết điều này bằng cách nào?",
+    "options": [
+      "Từ bỏ Minimax và chuyển sang chơi ngẫu nhiên (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Dừng tìm kiếm ở một độ sâu nhất định và dùng 'Hàm đánh giá Heuristic' để ước tính giá trị của trạng thái hiện tại.",
+      "Bắt buộc người chơi người phải đi nhanh hơn (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Xóa bớt các quân cờ trên bàn (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": 1,
+    "feedback": "Cắt bớt độ sâu (Cutting off search) và thay thế Utility Function (chỉ có ở trạng thái kết thúc) bằng Evaluation Function (tính điểm lợi thế hiện tại, ví dụ: đếm giá trị quân cờ). (Giải thích thêm: (Evaluation Function))"
+  },
+  {
+    "id": 14,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Đâu là một ví dụ đơn giản của 'Hàm đánh giá Heuristic' trong Cờ vua?",
+    "options": [
+      "Đếm số lần người chơi đã di chuyển quân Vua.",
+      "Tổng giá trị vật chất của các quân.",
+      "Đo thời gian đã trôi qua kể từ đầu trận.",
+      "Lịch sử các nước cờ đã đi."
+    ],
+    "answer": 1,
+    "feedback": "Hàm đánh giá tuyến tính (Linear evaluation function) thường có dạng w1*f1 + w2*f2 + ... Trong cờ vua, w là giá trị quân cờ, f là số lượng quân cờ đó trên bàn. (Giải thích thêm: (Hậu=9, Xe=5, Tượng=3, Mã=3, Tốt=1))"
+  },
+  {
+    "id": 15,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "'Hiệu ứng đường chân trời' (Horizon Effect) xảy ra khi chương trình AI đẩy một nước đi tồi tệ ra khỏi giới hạn độ sâu tìm kiếm của nó, ảo tưởng rằng vấn đề đã được giải quyết.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Horizon Effect là khi một tổn thất không thể tránh khỏi bị 'đẩy' xuống sâu hơn giới hạn tìm kiếm, khiến AI hy sinh quân vô ích chỉ để trì hoãn cái chết."
+  },
+  {
+    "id": 16,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Để giải quyết Hiệu ứng đường chân trời, AI sử dụng kỹ thuật 'Tìm kiếm trạng thái ____________' (Quiescence Search), nghĩa là mở rộng tìm kiếm thêm một vài bước tại những trạng thái 'không ổn định' (như đang xảy ra chuỗi ăn quân).",
+    "options": [
+      "Bất động",
+      "Động (Dynamic)",
+      "Tĩnh lặng (Quiescence)",
+      "Ngẫu nhiên"
+    ],
+    "answer": 2,
+    "feedback": "Quiescence search chỉ áp dụng hàm đánh giá heuristic vào những trạng thái 'yên bình' (không còn nguy cơ ăn quân trực tiếp) để đảm bảo điểm số ước tính là chính xác."
+  },
+  {
+    "id": 17,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Sắp xếp các cột mốc lịch sử AI trong việc chinh phục các trò chơi đối kháng theo dòng thời gian (từ cũ nhất đến mới nhất):",
+    "items": [
+      "TD-Gammon sử dụng học tăng cường đạt trình độ ngang ngửa con người ở môn Backgammon (1992)",
+      "Deep Blue của IBM đánh bại nhà vô địch cờ vua Garry Kasparov (1997)",
+      "AlphaGo của DeepMind đánh bại Lee Sedol ở môn Cờ Vây (2016)",
+      "AlphaZero tự học cờ vua, cờ tướng và cờ vây từ con số 0 chỉ trong vài giờ (2017)"
+    ],
+    "feedback": "Lịch sử Games AI: Backgammon (1992) -> Chess (1997) -> Go (2016) -> AlphaZero (2017)."
+  },
+  {
+    "id": 18,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Trong môi trường có yếu tố ngẫu nhiên (Stochastic Games) như trò Cờ Cáo (Backgammon) có gieo xúc xắc, cây tìm kiếm cần bổ sung thêm loại nút nào?",
+    "options": [
+      "Nút AND (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Nút Ngẫu nhiên đại diện cho môi trường gieo xúc xắc.",
+      "Nút Đảo ngược (Reverse Node) (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Nút Lịch sử (History Node) (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 1,
+    "feedback": "Cây Minimax ngẫu nhiên có 3 loại nút: MAX, MIN, và CHANCE. Tại CHANCE node, thuật toán không lấy MAX/MIN mà lấy giá trị Kỳ vọng (Expected value). (Giải thích thêm: (Chance Node))"
+  },
+  {
+    "id": 19,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Kỹ thuật 'Cắt tỉa tiến' (Forward Pruning) khác với Cắt tỉa Alpha-Beta ở chỗ nào? (Chọn đáp án đúng)",
+    "options": [
+      "Alpha-Beta đảm bảo không làm thay đổi kết quả, trong khi Cắt tỉa tiến có thể loại bỏ nhầm nhánh chứa nước đi tốt nhất.",
+      "Cắt tỉa tiến dựa trên hàm heuristic hoặc học máy để ngay lập tức loại bỏ các nước đi 'có vẻ' tồi tệ mà không cần chứng minh toán học.",
+      "Cắt tỉa tiến tốn bộ nhớ hơn Alpha-Beta hàng chục lần (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Alpha-Beta là thuật toán học máy, còn Cắt tỉa tiến là thuật toán cổ điển (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "feedback": "Forward pruning (ví dụ: Beam search, ProbCut) loại bỏ nhánh một cách chủ quan, rủi ro cao (có thể sai) nhưng tiết kiệm thời gian khổng lồ. (Giải thích thêm: (chỉ loại bỏ nhánh vô ích))"
+  },
+  {
+    "id": 20,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Ghép nối các hệ thống AI nổi tiếng với kỹ thuật cốt lõi giúp chúng vô địch trò chơi:",
+    "pairs": [
+      {
+        "left": "Deep Blue (Cờ vua)",
+        "right": "Cắt tỉa Alpha-Beta kết hợp với sức mạnh phần cứng chuyên dụng sinh ra hàng triệu nước đi/giây"
+      },
+      {
+        "left": "TD-Gammon (Backgammon)",
+        "right": "Học tăng cường (Reinforcement Learning) kết hợp với Mạng nơ-ron (Neural Network)"
+      },
+      {
+        "left": "AlphaGo (Cờ Vây)",
+        "right": "Tìm kiếm cây Monte Carlo (MCTS) kết hợp với Mạng nơ-ron sâu (Deep Learning)"
+      },
+      {
+        "left": "Pluribus (Poker Texas Hold'em)",
+        "right": "Thuật toán xử lý Thông tin không hoàn hảo (Imperfect Information) và Chiến lược hỗn hợp"
+      }
+    ],
+    "feedback": "Mỗi trò chơi đòi hỏi một bước ngoặt về công nghệ khác nhau: Tìm kiếm mù bạo lực (Chess), Hàm giá trị xấp xỉ (Backgammon), MCTS (Go), và Lý thuyết trò chơi (Poker)."
+  },
+  {
+    "id": 21,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Thuật toán MCTS (Monte Carlo Tree Search) hoạt động dựa trên kỹ thuật đánh giá trạng thái bằng cách chơi ngẫu nhiên hàng loạt ván đấu từ trạng thái đó cho đến lúc kết thúc (gọi là ____________ hoặc playout), rồi lấy trung bình kết quả.",
+    "options": [
+      "Rollout",
+      "Backpropagate",
+      "Selection",
+      "Expand"
+    ],
+    "answer": 0,
+    "feedback": "Rollout (hay Playout). MCTS không dùng hàm Heuristic tĩnh tĩnh mà dùng xác suất thống kê bằng cách tự chơi (self-play) ngẫu nhiên (rollout) hàng nghìn lần để xem nước cờ đó có tỷ lệ thắng bao nhiêu."
+  },
+  {
+    "id": 22,
+    "type": "ordering",
+    "difficulty": "Khó",
+    "question": "Sắp xếp 4 bước lặp cơ bản của thuật toán MCTS (Monte Carlo Tree Search):",
+    "items": [
+      "Selection (Lựa chọn): Đi từ gốc cây xuống một nút lá chưa được mở rộng hoàn toàn",
+      "Expansion (Mở rộng): Thêm một (hoặc nhiều) nút con mới vào cây từ nút lá đó",
+      "Simulation/Rollout (Mô phỏng): Chơi một ván đấu ảo ngẫu nhiên từ nút mới đến lúc kết thúc",
+      "Backpropagation (Lan truyền ngược): Cập nhật kết quả thắng/thua ngược lên các nút tổ tiên trong cây"
+    ],
+    "feedback": "Selection -> Expansion -> Simulation -> Backpropagation."
+  },
+  {
+    "id": 23,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Trò chơi có 'Thông tin không hoàn hảo' (Imperfect Information) có nghĩa là gì?",
+    "options": [
+      "Luật chơi chưa được viết hoàn chỉnh (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Máy tính bị lỗi bộ nhớ khi đang chơi (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Có những thông tin về trạng thái trò chơi bị che khuất đối với người chơi.",
+      "Người chơi không biết chơi (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 2,
+    "feedback": "Imperfect information đòi hỏi AI không thể dùng tìm kiếm trạng thái đơn thuần (State Search) mà phải dùng Không gian Trạng thái Niềm tin (Belief States). (Giải thích thêm: (ví dụ: các lá bài úp trong Poker, Sương mù chiến tranh trong Starcraft))"
+  },
+  {
+    "id": 24,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Trong trò chơi có tính may rủi (Stochastic) và thông tin không hoàn hảo (Imperfect Information), một chiến lược 'Thuần túy' (Pure Strategy - luôn luôn chọn 1 nước đi nhất định cho 1 tình huống) có thể dễ dàng bị đối thủ bắt bài.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Trong Poker, nếu bạn LUÔN LUÔN tố (raise) khi có bài đẹp và LUÔN gập (fold) khi bài xấu, đối thủ sẽ bắt bài và bạn sẽ thua trắng. Giải pháp là 'Chiến lược hỗn hợp' (Mixed Strategy) - ngẫu nhiên hóa hành động."
+  },
+  {
+    "id": 25,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Trong cây Minimax Ngẫu nhiên (Expected Minimax), giá trị của một nút Chance (Ngẫu nhiên) được tính như thế nào?",
+    "options": [
+      "Lấy giá trị lớn nhất trong các con của nó (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Lấy giá trị nhỏ nhất trong các con của nó (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Lấy tổng xác suất xuất hiện của nhánh con NHÂN VỚI giá trị của nhánh con đó.",
+      "Cho bằng 0 (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 2,
+    "feedback": "Expected Value (Kỳ vọng) = Tổng (Xác suất P * Giá trị V). Thay vì tự chọn MAX hay MIN, môi trường sẽ tung xúc xắc và ta phải tính trung bình trọng số. (Giải thích thêm: (Kỳ vọng toán học))"
+  },
+  {
+    "id": 26,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Thuật toán MCTS (Monte Carlo Tree Search) có ưu điểm gì so với Alpha-Beta Pruning truyền thống? (Chọn đáp án đúng)",
+    "options": [
+      "MCTS không yêu cầu lập trình viên phải viết Hàm Đánh Giá cực kỳ phức tạp từ chuyên gia.",
+      "MCTS có thể dừng bất cứ lúc nào và trả về nước đi tốt nhất hiện có.",
+      "MCTS luôn kiểm tra 100% tất cả các nhánh con (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "MCTS chỉ dùng cho các trò chơi một người (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "feedback": "MCTS có lợi thế cực lớn là 'domain-independent' (không cần chuyên gia cờ vây dạy hàm heuristic), nó tự chơi (Rollout) để biết nút đó tốt hay xấu. Đồng thời nó mở rộng bất đối xứng (ưu tiên đi sâu vào nhánh tốt). (Giải thích thêm: (Heuristic Function)) (Giải thích thêm: (Asymmetric/Anytime property))"
+  },
+  {
+    "id": 27,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Trong MCTS, công thức UCT (Upper Confidence bound applied to Trees) được sử dụng ở bước Selection để cân bằng giữa hai yếu tố: Khai thác (Exploitation) các nút đang có tỷ lệ thắng cao, và ____________ (Exploration) các nút ít được duyệt tới.",
+    "options": [
+      "Tối ưu (Optimization)",
+      "Mở rộng (Expansion)",
+      "Mô phỏng (Simulation)",
+      "Khám phá (Exploration)"
+    ],
+    "answer": 3,
+    "feedback": "Cân bằng Khai thác - Khám phá (Exploitation vs Exploration) là bài toán kinh điển. UCT = Tỷ lệ thắng (Exploitation) + C * sqrt(ln(N)/n) (Exploration)."
+  },
+  {
+    "id": 28,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Kriegspiel (Một biến thể của Cờ Vua) khác cờ vua truyền thống ở điểm nào?",
+    "options": [
+      "Các quân cờ có thể đi tùy ý (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Không có luật chiếu tướng (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Người chơi không nhìn thấy các quân cờ của đối thủ trên bàn.",
+      "Bàn cờ có kích thước 10x10 (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 2,
+    "feedback": "Kriegspiel là trò chơi Quan sát một phần (Partially Observable). Trọng tài sẽ báo cho người chơi biết nếu nước đi của họ phạm luật hoặc ăn quân."
+  },
+  {
+    "id": 29,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Nối đặc tính môi trường với tên trò chơi phổ biến:",
+    "pairs": [
+      {
+        "left": "Cờ vua (Chess)",
+        "right": "Deterministic, Perfect Information"
+      },
+      {
+        "left": "Cờ cá ngựa / Cáo (Backgammon)",
+        "right": "Stochastic, Perfect Information"
+      },
+      {
+        "left": "Oẳn tù tì (Rock-Paper-Scissors)",
+        "right": "Deterministic, Imperfect Information (Vì ra chiêu cùng lúc, không biết đối thủ chọn gì)"
+      },
+      {
+        "left": "Poker",
+        "right": "Stochastic, Imperfect Information"
+      }
+    ],
+    "feedback": "Việc phân loại game quyết định thuật toán AI nào sẽ được sử dụng (Minimax, Expected-Minimax, hay MCTS)."
+  },
+  {
+    "id": 30,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Bảng băm (Transposition Table) trong các chương trình cờ vua được sử dụng để lưu lại các trạng thái đã từng tính toán, giúp tránh việc tính toán lại cùng một thế cờ nhiều lần.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Cờ vua có rất nhiều chuỗi nước đi khác nhau (hoán vị) nhưng dẫn đến cùng một thế cờ. Transposition table (dựa trên thuật toán mã hóa Zobrist) lưu lại kết quả minimax của thế cờ đó, giúp tăng tốc độ đáng kể."
+  }
+]

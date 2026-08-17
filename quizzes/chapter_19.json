@@ -1,0 +1,461 @@
+[
+  {
+    "id": 1,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Học có giám sát (Supervised Learning) là gì?",
+    "options": [
+      "Thuật toán học cách gom nhóm dữ liệu không có nhãn.",
+      "Thuật toán học từ các dữ liệu ĐÃ ĐƯỢC GÁN NHÃN, nghĩa là mỗi",
+      "Thuật toán tự học bằng cách thử và sai, nhận phần thưởng khi làm đúng.",
+      "Thuật toán học cách lập trình web (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 1,
+    "feedback": "Mục tiêu của học có giám sát là tìm ra một hàm $h$ (hypothesis) sao cho $h(x) \\approx y$ để có thể dự đoán được nhãn $y$ cho các đầu vào $x$ mới trong tương lai. (Giải thích thêm: (Labeled data) ví dụ đầu vào $x$ đều đi kèm với một đáp án đúng $y$.)"
+  },
+  {
+    "id": 2,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Trong học có giám sát, nếu nhãn đầu ra $y$ thuộc về một tập hợp hữu hạn các lớp rời rạc (Ví dụ: Chó, Mèo, Chim), ta gọi đó là bài toán Phân loại (____________). Nếu đầu ra $y$ là một số thực liên tục (Ví dụ: Dự đoán giá nhà), ta gọi đó là bài toán Hồi quy (Regression).",
+    "options": [
+      "Classification",
+      "Clustering",
+      "Control",
+      "Correction"
+    ],
+    "answer": 0,
+    "feedback": "Classification (Phân loại) và Regression (Hồi quy) là hai nhánh chính của Supervised Learning."
+  },
+  {
+    "id": 3,
+    "type": "multiple_select",
+    "difficulty": "Dễ",
+    "question": "Thuật ngữ 'Hypothesis Space' (Không gian giả thuyết H) mang ý nghĩa gì? (Chọn đáp án đúng)",
+    "options": [
+      "Nó là không gian đĩa cứng cần thiết để lưu trữ AI.",
+      "Là tập hợp TẤT CẢ các hàm $h$ có thể có mà thuật toán học máy ĐƯỢC PHÉP CHỌN để làm mô hình dự đoán.",
+      "Nếu H quá nhỏ, mô hình có thể bị Underfitting (Chưa khớp).",
+      "Nếu H quá lớn, mô hình có thể bị Overfitting (Quá khớp)."
+    ],
+    "answer": [
+      1,
+      2,
+      3
+    ],
+    "feedback": "Ví dụ, nếu bạn chọn H là 'Tập hợp tất cả các đường thẳng', thì dù dữ liệu có cong cỡ nào, AI của bạn cũng chỉ có thể vẽ ra một đường thẳng (dẫn đến Underfitting). Việc chọn kích thước H là một nghệ thuật."
+  },
+  {
+    "id": 4,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Nguyên lý 'Ockham's Razor' (Dao cạo Ockham) áp dụng trong Machine Learning như thế nào?",
+    "options": [
+      "Nên chọn thuật toán học nhanh nhất để tiết kiệm điện (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Trong số các giả thuyết có thể giải thích dữ liệu tốt như nhau, hãy ưu tiên chọn giả thuyết ĐƠN GIẢN NHẤT.",
+      "Luôn luôn chọn đa thức bậc cao nhất để vẽ đường cong đi qua mọi điểm dữ liệu.",
+      "Nên cắt bỏ những dữ liệu khó hiểu (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 1,
+    "feedback": "Đường cong phức tạp đi qua mọi điểm dữ liệu thường là 'nhớ vẹt' (memorization/overfitting). Một đường thẳng đơn giản dù có sai số nhỏ thường mang lại khả năng Khái quát hóa (Generalization) tốt hơn cho dữ liệu mới. (Giải thích thêm: (models))"
+  },
+  {
+    "id": 5,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Ghép nối các hiện tượng lỗi trong quá trình học máy:",
+    "pairs": [
+      {
+        "left": "Underfitting (Chưa khớp)",
+        "right": "Mô hình quá đơn giản (Ví dụ: Đường thẳng). Nó học kém ngay cả trên Dữ liệu Huấn luyện (Training set)."
+      },
+      {
+        "left": "Overfitting (Quá khớp)",
+        "right": "Mô hình quá phức tạp (Ví dụ: Đa thức bậc 10). Nó thuộc lòng Dữ liệu Huấn luyện (Lỗi = 0), nhưng dự đoán cực TỆ trên Dữ liệu Kiểm tra (Test set)."
+      },
+      {
+        "left": "Generalization (Khái quát hóa)",
+        "right": "Mục tiêu tối thượng. Mô hình không thuộc lòng dữ liệu cũ, mà nắm bắt được QUY LUẬT cốt lõi, nên dự đoán TỐT trên dữ liệu chưa từng thấy."
+      }
+    ],
+    "feedback": "Kẻ thù lớn nhất của Machine Learning là Overfitting. Bạn dùng 10,000 ảnh để dạy AI nhận diện Chó. Nó có thể chỉ đơn giản là 'Ghi nhớ' từng điểm ảnh của 10,000 bức đó, và sẽ thất bại khi thấy con chó thứ 10,001."
+  },
+  {
+    "id": 6,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Để đo lường hiệu suất thực sự của một mô hình học máy, ta phải đánh giá nó trên chính Tập dữ liệu Huấn luyện (Training set) mà nó đã học.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai. Đánh giá trên Training set giống như việc thi cuối kỳ bằng việc làm lại ĐÚNG y chang các bài tập đã giải ở nhà. Phải sử dụng Tập Kiểm tra (Test set) chưa từng được đưa cho mô hình để đo lường khả năng Khái quát hóa."
+  },
+  {
+    "id": 7,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Kỹ thuật k-fold Cross-Validation (Kiểm chứng chéo k lần) hoạt động như thế nào?",
+    "options": [
+      "Sao chép dữ liệu lên k lần.",
+      "Chia tập dữ liệu làm k phần bằng nhau.",
+      "Xóa bỏ k dữ liệu nhiễu.",
+      "Yêu cầu k người khác nhau đánh giá dữ liệu."
+    ],
+    "answer": 1,
+    "feedback": "Cross-validation là cách tiêu chuẩn để tận dụng tối đa dữ liệu khi tập dữ liệu quá nhỏ (không thể cắt hẳn 1 phần lớn làm test set cố định). (Giải thích thêm: (k-1) Lặp lại k lần: Mỗi lần chọn 1 phần làm Test set, phần còn lại làm Training set. Sau cùng lấy trung bình hiệu suất của k lần đó.)"
+  },
+  {
+    "id": 8,
+    "type": "fill_blank",
+    "difficulty": "Dễ",
+    "question": "Trong thuật toán Cây Quyết định (Decision Trees), tại mỗi Nút (Node) của cây, thuật toán sẽ chọn một Thuộc tính (Attribute) để kiểm tra (Ví dụ: Khách hàng có thu nhập > 1000$ không?). Cây quyết định rất mạnh mẽ vì nó rất dễ ____________ (Interpret) đối với con người.",
+    "options": [
+      "Giải thích (Interpret/Explain)",
+      "Lập trình",
+      "Biên dịch",
+      "Mã hóa"
+    ],
+    "answer": 0,
+    "feedback": "Khác với Mạng Nơ ron (Hộp đen), Cây quyết định tạo ra các luật IF-THEN rõ ràng như ban ngày. Con người có thể nhìn vào cây và hiểu chính xác tại sao AI lại ra quyết định như vậy."
+  },
+  {
+    "id": 9,
+    "type": "ordering",
+    "difficulty": "Khó",
+    "question": "Sắp xếp quá trình Thuật toán học Cây quyết định (Học từ trên xuống - Top-down induction):",
+    "items": [
+      "Tính toán Entropy (Mức độ hỗn loạn) của tập dữ liệu hiện tại",
+      "Với mỗi Thuộc tính (Attribute) khả dĩ, tính xem nếu chia dữ liệu theo nó thì thu được bao nhiêu Lợi ích Thông tin (Information Gain)",
+      "Chọn Thuộc tính mang lại Information Gain LỚN NHẤT làm Nút gốc (Root)",
+      "Chia tập dữ liệu ra thành các nhánh tương ứng với các giá trị của Thuộc tính đó",
+      "Lặp lại đệ quy quá trình trên cho từng nhánh nhỏ, cho đến khi dữ liệu trong nhánh cùng một Lớp (Entropy = 0)",
+      "Trả về Cây Quyết định hoàn chỉnh"
+    ],
+    "feedback": "Information Gain chính là sự suy giảm Entropy. Chọn thuộc tính tốt nhất nghĩa là chọn câu hỏi (IF) giúp phân loại dữ liệu (ví dụ: Chó riêng, Mèo riêng) một cách triệt để nhất."
+  },
+  {
+    "id": 10,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Kỹ thuật 'Cắt tỉa' (Pruning) trên Cây quyết định nhằm mục đích gì? (Chọn đáp án đúng)",
+    "options": [
+      "Ngăn chặn Overfitting (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Xóa bỏ các nhánh cây quá sâu chỉ phân loại được một lượng cực nhỏ dữ liệu.",
+      "Làm cho cây dài hơn và sâu hơn (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Biến cây quyết định thành mạng nơ ron (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "feedback": "Một cây quyết định nếu mọc tự do sẽ luôn đạt độ chính xác 100% trên Training Set (vì mỗi lá sẽ chứa đúng 1 mẫu dữ liệu). Nhưng đó là Overfitting. Cắt tỉa (Post-pruning) giúp cây nhỏ gọn lại, chấp nhận sai một ít trên tập Training để giữ được tính tổng quát. (Giải thích thêm: (có thể là dữ liệu nhiễu/outliers))"
+  },
+  {
+    "id": 11,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Trong Hồi quy tuyến tính (Linear Regression), mục tiêu là tìm đường thẳng (hoặc siêu mặt phẳng) sao cho giảm thiểu hàm Loss Function nào?",
+    "options": [
+      "Hàm tối đa hóa lợi nhuận (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Tổng bình phương các sai số giữa giá trị dự đoán và giá trị thực tế.",
+      "Hàm tính khoảng cách Manhattan (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Information Gain (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": 1,
+    "feedback": "Khoảng cách (Lỗi) từ điểm dữ liệu đến đường thẳng được bình phương lên (để loại bỏ dấu âm và phạt nặng các lỗi lớn). Cực tiểu hóa tổng này bằng đạo hàm sẽ tìm ra phương trình đường thẳng tốt nhất (Ordinary Least Squares). (Giải thích thêm: (Sum of Squared Errors - SSE hoặc Mean Squared Error - MSE))"
+  },
+  {
+    "id": 12,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Thuật toán Gradient Descent (Giảm dốc) được sử dụng rộng rãi để tối ưu hóa Hàm Lỗi (Loss Function). Nó hoạt động dựa trên nguyên lý nào?",
+    "options": [
+      "Tính đạo hàm bậc 2.",
+      "Tính Đạo hàm của Hàm Lỗi.",
+      "Thử ngẫu nhiên tất cả các giá trị.",
+      "Giải hệ phương trình tuyến tính."
+    ],
+    "answer": 1,
+    "feedback": "Gradient Descent là linh hồn của Machine Learning và Deep Learning hiện đại. Hãy tưởng tượng bị bịt mắt trên núi, bạn dùng chân cảm nhận độ dốc, và cứ bước đi xuống chỗ nào dốc nhất để xuống tới chân núi. (Giải thích thêm: (Gradient) (Weights) (nơi Lỗi thấp nhất) Đạo hàm chỉ ra hướng tăng dốc nhất. Di chuyển các Trọng số theo HƯỚNG NGƯỢC LẠI của đạo hàm để tiến dần xuống đáy thung lũng.)"
+  },
+  {
+    "id": 13,
+    "type": "true_false",
+    "difficulty": "Khó",
+    "question": "Trong Hồi quy Logistic (Logistic Regression) dùng cho phân loại nhị phân (Binary Classification), đầu ra của mô hình được bóp méo qua hàm Sigmoid để luôn nằm trong khoảng (0, 1), qua đó đại diện cho XÁC SUẤT dữ liệu thuộc về lớp Số 1.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Dù tên là 'Hồi quy', nhưng Logistic Regression thực chất là thuật toán Phân loại (Classification). Hàm Sigmoid $1 / (1 + e^{-z})$ chuyển một con số từ $-\\infty$ đến $+\\infty$ về dạng Xác suất hợp lệ."
+  },
+  {
+    "id": 14,
+    "type": "matching",
+    "difficulty": "Khó",
+    "question": "Kỹ thuật Regularization (Điều chuẩn) được dùng để chống Overfitting bằng cách CỘNG THÊM một 'hình phạt' (Penalty) vào Hàm Lỗi. Ghép nối:",
+    "pairs": [
+      {
+        "left": "L2 Regularization (Ridge)",
+        "right": "Phạt bằng Tổng BÌNH PHƯƠNG các trọng số. Khuyến khích hệ thống giữ cho tất cả các trọng số đều RẤT NHỎ nhưng không bằng 0."
+      },
+      {
+        "left": "L1 Regularization (Lasso)",
+        "right": "Phạt bằng Tổng TRỊ TUYỆT ĐỐI các trọng số. Khuyến khích hệ thống ép nhiều trọng số VỀ ĐÚNG SỐ 0 (Rất tốt để tự động lược bỏ các thuộc tính rác)."
+      },
+      {
+        "left": "Early Stopping",
+        "right": "Dừng thuật toán Gradient Descent sớm ngay khi nhận thấy sai số trên tập Validation bắt đầu tăng ngược trở lại."
+      }
+    ],
+    "feedback": "Regularization chính là sự triển khai bằng Toán học của nguyên lý Dao cạo Ockham: 'Mô hình có trọng số khổng lồ là mô hình quá phức tạp, hãy phạt nó để ép nó đơn giản lại'."
+  },
+  {
+    "id": 15,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Thuật toán Support Vector Machine (SVM) tìm kiếm 'Siêu mặt phẳng' (Hyperplane) để phân chia dữ liệu dựa trên tiêu chí nào?",
+    "options": [
+      "Đường thẳng đi qua càng nhiều điểm càng tốt.",
+      "Đường thẳng có 'Lề' là LỚN NHẤT.",
+      "Đường thẳng cắt ngang trục tung tại điểm 0.",
+      "Đường thẳng ngẫu nhiên."
+    ],
+    "answer": 1,
+    "feedback": "Maximum Margin là bí quyết thành công của SVM. Bằng cách tối đa hóa 'Lề', SVM đảm bảo khả năng Khái quát hóa (Generalization) cực tốt, nó là vua của Machine Learning trước khi Deep Learning trỗi dậy. (Giải thích thêm: (Margin - Khoảng cách từ đường thẳng tới các điểm gần nhất của 2 lớp) Tạo ra vùng đệm an toàn tối đa.)"
+  },
+  {
+    "id": 16,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Đối với dữ liệu không thể phân chia tuyến tính (ví dụ: vòng tròn bên trong vòng tròn), SVM sử dụng một kỹ thuật toán học gọi là 'Kernel ____________' (Kernel Trick) để phóng chiếu dữ liệu lên không gian nhiều chiều hơn, nơi chúng bỗng nhiên có thể bị cắt làm đôi bằng một mặt phẳng phẳng.",
+    "options": [
+      "Trick",
+      "Function",
+      "Space",
+      "Machine"
+    ],
+    "answer": 0,
+    "feedback": "Kernel Trick (Mẹo hạt nhân) biến một bài toán phi tuyến phức tạp thành một bài toán tuyến tính ở số chiều cao hơn (ví dụ 2D -> 3D) mà không cần phải thực sự tính toán các tọa độ mới một cách tốn kém."
+  },
+  {
+    "id": 17,
+    "type": "ordering",
+    "difficulty": "Dễ",
+    "question": "Sắp xếp nguyên lý hoạt động của thuật toán Phân loại K-Láng giềng gần nhất (K-Nearest Neighbors - KNN):",
+    "items": [
+      "Nhận một điểm dữ liệu mới $X$ cần dự đoán",
+      "Tính khoảng cách (ví dụ: Euclidean) từ $X$ đến TẤT CẢ các điểm dữ liệu đã có trong tập Training",
+      "Sắp xếp các khoảng cách từ nhỏ đến lớn",
+      "Lấy ra $K$ điểm dữ liệu GẦN $X$ NHẤT",
+      "Cho $K$ điểm này bỏ phiếu (Majority Vote) xem nhãn nào xuất hiện nhiều nhất",
+      "Gán nhãn chiến thắng đó cho $X$"
+    ],
+    "feedback": "KNN được gọi là Lazy Learning (Học lười biếng). Nó hoàn toàn KHÔNG 'huấn luyện' (không chạy vòng lặp tìm trọng số) trong pha Training. Nó chỉ đơn giản là LƯU TRỮ toàn bộ dữ liệu, và thực hiện mọi phép tính nặng nề vào lúc Prediction."
+  },
+  {
+    "id": 18,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Nhược điểm của thuật toán KNN là gì? (Chọn đáp án đúng)",
+    "options": [
+      "Tốc độ Dự đoán cực kỳ CHẬM khi tập Training khổng lồ, vì phải tính khoảng cách tới từng điểm một.",
+      "Yêu cầu dung lượng bộ nhớ lớn để lưu trữ toàn bộ dữ liệu (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Nhạy cảm với lời nguyền số chiều (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Nó không thể phân loại được màu sắc (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Tuy bị Lời nguyền số chiều ám ảnh, KNN vẫn là thuật toán cơ bản, trực quan và thường được dùng làm Baseline (Mức chuẩn) để so sánh. (Giải thích thêm: (Prediction)) (Giải thích thêm: (Không thể nén thành các Trọng số như Mạng nơ ron)) (Giải thích thêm: (Curse of Dimensionality) Khi có quá nhiều thuộc tính vô dụng, 'Khoảng cách' mất đi ý nghĩa hình học.)"
+  },
+  {
+    "id": 19,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Ensemble Learning (Học kết hợp) là phương pháp kết hợp nhiều Mô hình Yếu (Weak learners) thành một Mô hình Mạnh (Strong learner). Phương pháp 'Bagging' (Bootstrap Aggregating) hoạt động như thế nào?",
+    "options": [
+      "Nối các mô hình lại thành một chuỗi (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Tạo ra nhiều tập Training giả bằng cách Bốc thăm có hoàn lại từ tập gốc.",
+      "Huấn luyện 1 mô hình duy nhất 100 lần (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Chia sẻ trọng số giữa các mô hình (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 1,
+    "feedback": "Thuật toán Random Forest (Rừng ngẫu nhiên) chính là Bagging áp dụng cho hàng trăm Cây Quyết định. 'Hội đồng' (Ensemble) thường sáng suốt và ổn định hơn 1 cá nhân xuất chúng (giảm Overfitting / Variance). (Giải thích thêm: (Bootstrap) (Voting) Huấn luyện độc lập 1 mô hình trên mỗi tập giả này. Cuối cùng cho tất cả các mô hình BỎ PHIẾU.)"
+  },
+  {
+    "id": 20,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Khác với Bagging (song song), phương pháp Boosting (như AdaBoost, Gradient Boosting) hoạt động theo kiểu TUẦN TỰ. Mô hình sau sẽ được tập trung (Tăng trọng số) vào những mẫu dữ liệu mà mô hình trước đó đã ĐOÁN SAI, nhằm khắc phục điểm yếu của người đi trước.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Boosting giống như một dây chuyền học tập: Cây 1 học đại khái, Cây 2 sửa sai cho Cây 1, Cây 3 sửa sai cho Cây 2. XGBoost (một dạng Gradient Boosting) đã thống trị các cuộc thi Kaggle dạng Dữ liệu bảng (Tabular Data) trong nhiều năm."
+  },
+  {
+    "id": 21,
+    "type": "matching",
+    "difficulty": "Dễ",
+    "question": "Ghép nối thuật toán với kiến trúc của nó:",
+    "pairs": [
+      {
+        "left": "Decision Tree (Cây quyết định)",
+        "right": "Cấu trúc nhánh IF-THEN. Phân tách không gian bằng các đường thẳng song song với các trục tọa độ."
+      },
+      {
+        "left": "Random Forest (Rừng ngẫu nhiên)",
+        "right": "Ensemble Learning (Bagging) gồm hàng trăm Cây quyết định bỏ phiếu song song."
+      },
+      {
+        "left": "Perceptron",
+        "right": "Mạng nơ ron sơ khai chỉ có 1 lớp (Single-layer), mô phỏng 1 tế bào thần kinh, chỉ vẽ được 1 đường thẳng."
+      },
+      {
+        "left": "Multilayer Perceptron (MLP)",
+        "right": "Mạng nơ ron nhiều lớp (Hidden layers). Có khả năng học các hàm phi tuyến tính nhờ các hàm kích hoạt (Activation functions)."
+      }
+    ],
+    "feedback": "Perceptron đơn giản (1950s) đã gây ra mùa đông AI đầu tiên khi Marvin Minsky chứng minh nó không thể giải được bài toán XOR cơ bản. Phải đến khi có Backpropagation cho MLP, Neural Networks mới hồi sinh."
+  },
+  {
+    "id": 22,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Trong Machine Learning, Tỷ lệ Học (Learning Rate) $\\alpha$ quyết định điều gì trong thuật toán Gradient Descent?",
+    "options": [
+      "Độ dài của dữ liệu (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Kích thước BƯỚC NHẢY. Nếu quá lớn, thuật toán sẽ nhảy lố qua đáy thung lũng. Nếu quá nhỏ, thuật toán đi quá chậm và có thể kẹt ở Đáy cục bộ.",
+      "Số lượng lớp trong mạng nơ ron (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Số lần cắt tỉa cây quyết định (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 1,
+    "feedback": "Learning rate (Thường ký hiệu là alpha hoặc eta) là 'Hyperparameter' (Siêu tham số) quan trọng nhất cần phải điều chỉnh (Tuning) trong huấn luyện học máy. (Giải thích thêm: (Step size) (Không hội tụ) (Local Minimum))"
+  },
+  {
+    "id": 23,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Theo Định lý 'Không có bữa trưa miễn phí' (No Free ____________ Theorem) trong học máy, KHÔNG TỒN TẠI một thuật toán duy nhất nào là tốt nhất cho MỌI loại dữ liệu. Một thuật toán vượt trội trong bài toán này sẽ phải trả giá bằng việc kém cỏi trong bài toán khác.",
+    "options": [
+      "Lunch",
+      "Breakfast",
+      "Dinner",
+      "Data"
+    ],
+    "answer": 0,
+    "feedback": "No Free Lunch Theorem. Vì vậy, ta không thể dùng Random Forest hay Neural Networks cho tất cả mọi bài toán mù quáng. Phải hiểu bản chất dữ liệu (Có cấu trúc, Ảnh, Chuỗi thời gian...) để chọn thuật toán phù hợp."
+  },
+  {
+    "id": 24,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Các kỹ thuật nào sau đây giúp giải quyết vấn đề Overfitting? (Chọn đáp án đúng)",
+    "options": [
+      "Tăng thêm Dữ liệu Huấn luyện (More Data).",
+      "Giảm độ phức tạp của mô hình.",
+      "Sử dụng Regularization (L1, L2).",
+      "Chạy vòng lặp (Epochs) vô hạn lần."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Chạy vòng lặp vô hạn lần (Over-training) chính là CÁCH TẠO RA Overfitting. Khi bị Overfitting, cách tốt nhất luôn luôn là Thu thập thêm dữ liệu thực tế. (Giải thích thêm: (Dùng mô hình nhỏ hơn, ít lớp hơn, cây nông hơn))"
+  },
+  {
+    "id": 25,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Thứ tự xử lý trong một đường ống (Pipeline) Máy học tiêu chuẩn:",
+    "items": [
+      "Thu thập và làm sạch dữ liệu (Data Preprocessing, Xử lý Missing values)",
+      "Trích xuất đặc trưng (Feature Engineering - Biến đổi văn bản thành số, chuẩn hóa thang đo)",
+      "Chia dữ liệu thành 3 tập: Training Set (Huấn luyện), Validation Set (Chỉnh tham số), Test Set (Đánh giá cuối cùng)",
+      "Huấn luyện các mô hình (SVM, Random Forest, Neural Net) trên tập Training",
+      "Đánh giá và so sánh các mô hình trên tập Validation để chọn ra thuật toán và Hyperparameter tốt nhất",
+      "Cuối cùng, chạy thử mô hình chiến thắng 1 lần duy nhất trên Test Set để báo cáo hiệu suất thực tế"
+    ],
+    "feedback": "Test Set là 'Đất thánh'. Bạn tuyệt đối không được dùng Test Set để rèn luyện lại mô hình, nếu không (Data Leakage) kết quả báo cáo của bạn sẽ là lừa dối."
+  },
+  {
+    "id": 26,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Hàm kích hoạt (Activation Function) trong Mạng nơ ron (như ReLU, Sigmoid) có vai trò gì?",
+    "options": [
+      "Làm cho code chạy chậm hơn (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Bẻ cong dữ liệu. Đưa TÍNH PHI TUYẾN vào mạng. Nếu không có nó, dù mạng nơ ron có 1000 lớp thì cũng chỉ tương đương với 1 phép hồi quy tuyến tính đơn giản.",
+      "Để vẽ đồ thị (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Để tăng tính bảo mật (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": 1,
+    "feedback": "Tổ hợp tuyến tính của các hàm tuyến tính vẫn là tuyến tính ( $A(Bx) = (AB)x$ ). Do đó phải xen kẽ các hàm phi tuyến (như ReLU $max(0, x)$) để mạng học được đường cong. (Giải thích thêm: (Non-linearity))"
+  },
+  {
+    "id": 27,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Precision (Độ chính xác) và Recall (Độ bao phủ) là hai thang đo quan trọng trong Phân loại. Trong hệ thống Chẩn đoán Ung thư, người ta ưu tiên tối đa hóa Precision (Không bao giờ báo động giả) và sẵn sàng hy sinh Recall (Bỏ sót bệnh nhân mắc bệnh).",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai! Đối với Bệnh tật, thà Báo động giả (False Positive) để bác sĩ khám lại (Recall cao), còn hơn là Bỏ sót (False Negative - Bệnh nhân đi về nhà và chết). Do đó trong Y tế, RECALL (Độ bao phủ/Độ nhạy) luôn được ưu tiên hơn Precision."
+  },
+  {
+    "id": 28,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Một Mô hình Không tham số (Non-parametric model) như K-Nearest Neighbors khác với Mô hình Có tham số (Parametric model) như Linear Regression ở điểm nào?",
+    "options": [
+      "Non-parametric model không cần dữ liệu (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Parametric model TÓM TẮT dữ liệu thành một số lượng cố định các Trọng số, rồi XÓA dữ liệu đi.",
+      "Non-parametric model viết bằng Python (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Parametric model luôn đúng (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 1,
+    "feedback": "Đường thẳng $y = ax + b$ chỉ cần nhớ 2 con số $a$ và $b$ dù bạn có 1 tỷ điểm dữ liệu (Parametric). KNN cần nhớ trọn vẹn 1 tỷ điểm đó trong RAM (Non-parametric). (Giải thích thêm: (Weights/Parameters) (bộ nhớ) Non-parametric model không có Trọng số cố định, kích thước mô hình LỚN DẦN theo lượng dữ liệu được nạp vào.)"
+  },
+  {
+    "id": 29,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Theo Lý thuyết Học máy Tính toán (Computational Learning Theory - COLT), mô hình PAC (Probably Approximately Correct - Có xác suất cao là Xấp xỉ đúng) chứng minh rằng: Một mô hình sẽ học thành công (Khái quát hóa tốt) nếu số lượng dữ liệu huấn luyện $N$ lớn hơn độ phức tạp của không gian giả thuyết H. Độ phức tạp này thường được đo bằng Chiều ____________ (VC Dimension - Vapnik-Chervonenkis).",
+    "options": [
+      "VC",
+      "3D",
+      "Fractal",
+      "Neural"
+    ],
+    "answer": 0,
+    "feedback": "VC Dimension đo lường 'Sức mạnh xé nát' (Shattering) của một mô hình. VC Dimension của Đường thẳng 2D là 3. Nghĩa là đường thẳng có thể phân loại hoàn hảo bất kỳ 3 điểm nào, nhưng sẽ bất lực trước một số bộ 4 điểm (như bài toán XOR)."
+  },
+  {
+    "id": 30,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Trade-off Bias-Variance (Sự đánh đổi Thiên kiến - Phương sai) giải thích nguồn gốc của lỗi dự đoán. Biểu hiện nào sau đây là đúng? (Chọn đáp án đúng)",
+    "options": [
+      "Mô hình có Bias cao thường là mô hình quá ĐƠN GIẢN.",
+      "Mô hình có Variance cao thường là mô hình quá PHỨC TẠP.",
+      "Bias cao làm máy tính chạy chậm (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Mục tiêu là tìm Điểm ngọt cân bằng giữa Bias và Variance, nơi Tổng Lỗi là thấp nhất."
+    ],
+    "answer": [
+      0,
+      1,
+      3
+    ],
+    "feedback": "Giống như ném phi tiêu. Bias cao: Bạn luôn ném lệch sang trái một cách ổn định. Variance cao: Bạn ném loạn xạ tung tóe, đôi khi trúng hồng tâm, đôi khi trúng tường. AI lý tưởng là Bias thấp và Variance thấp. (Giải thích thêm: (Ví dụ: Đường thẳng dự đoán đường cong) (Không trúng mục tiêu) Nó tạo ra lỗi Underfitting.) (Giải thích thêm: (Overfitting) Nó nhạy cảm với mọi nhiễu nhỏ của dữ liệu, tạo ra đường gấp khúc. Lần chạy này ra kết quả khác xa lần chạy sau.) (Giải thích thêm: (Sweet spot))"
+  }
+]

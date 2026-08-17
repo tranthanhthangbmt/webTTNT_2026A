@@ -1,0 +1,469 @@
+[
+  {
+    "id": 1,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Thị giác máy tính (Computer Vision) khác với Đồ họa máy tính (Computer Graphics) ở điểm cơ bản nào?",
+    "options": [
+      "Không có sự khác biệt (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Computer Graphics biến Dữ liệu/Mô hình 3D thành Hình ảnh.",
+      "Computer Vision chỉ làm việc với ảnh đen trắng.",
+      "Computer Graphics dùng AI nhiều hơn."
+    ],
+    "answer": 1,
+    "feedback": "Computer Vision là quá trình 'Nhận thức' (Perception) của máy tính, tìm cách trả lời câu hỏi: 'Có cái gì trong bức ảnh này, và chúng ở đâu?' (Giải thích thêm: (Render) (Hiểu nội dung) Computer Vision làm ngược lại: Phân tích Hình ảnh để trích xuất ra Dữ liệu/Mô hình.)"
+  },
+  {
+    "id": 2,
+    "type": "fill_blank",
+    "difficulty": "Dễ",
+    "question": "Đối với máy tính, một bức ảnh màu kỹ thuật số (RGB) thực chất chỉ là một ma trận 3 chiều (Width x Height x 3) chứa các con số. Mỗi phần tử nhỏ nhất của bức ảnh được gọi là một ____________ (Pixel / Điểm ảnh), chứa giá trị cường độ sáng từ 0 đến 255.",
+    "options": [
+      "Pixel",
+      "Voxel",
+      "Vector",
+      "Tensor"
+    ],
+    "answer": 0,
+    "feedback": "Máy tính không nhìn thấy khuôn mặt cười, nó chỉ nhìn thấy một bảng tính Excel khổng lồ chứa các con số từ 0 đến 255."
+  },
+  {
+    "id": 3,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Trong xử lý ảnh giai đoạn đầu (Early Vision), Bộ lọc chập (Convolution Filter / Kernel) được dùng để làm gì? (Chọn đáp án đúng)",
+    "options": [
+      "Làm nhòe ảnh bằng cách lấy trung bình các pixel xung quanh để khử nhiễu.",
+      "Phát hiện biên/cạnh bằng cách tính đạo hàm giữa các pixel liền kề.",
+      "Tăng độ sắc nét (Sharpening) (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Lưu trữ ảnh dưới dạng file ZIP (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Kernel là một ma trận nhỏ (ví dụ 3x3) trượt dọc theo bức ảnh. Bằng cách thay đổi các con số trong Kernel, ta có thể tạo ra các hiệu ứng Photoshop như Làm mờ (Gaussian Blur) hay Tìm cạnh (Sobel). (Giải thích thêm: (Blurring/Smoothing)) (Giải thích thêm: (Edge Detection) (sự chênh lệch cường độ sáng))"
+  },
+  {
+    "id": 4,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Thuật toán phát hiện biên (Edge Detection) nổi tiếng nhất trong Xử lý ảnh truyền thống, bao gồm các bước: Lọc nhiễu Gaussian -> Tính Gradient -> Loại bỏ cực đại cục bộ (Non-maximum suppression) -> Ngưỡng trễ (Hysteresis thresholding) có tên là gì?",
+    "options": [
+      "Thuật toán Dijkstra.",
+      "Thuật toán Canny (Canny Edge Detector).",
+      "Thuật toán K-Means.",
+      "Thuật toán Viola-Jones."
+    ],
+    "answer": 1,
+    "feedback": "Biên (Edge) là những nơi mà cường độ sáng thay đổi ĐỘT NGỘT (ví dụ từ nền đen sang áo trắng). Thuật toán Canny vẽ ra các đường nét phác thảo của vật thể rất mỏng và sạch sẽ."
+  },
+  {
+    "id": 5,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Ghép nối các bài toán cấp cao (High-level) cốt lõi của Thị giác máy tính:",
+    "pairs": [
+      {
+        "left": "Image Classification (Phân loại ảnh)",
+        "right": "Trả lời câu hỏi: 'Ảnh này chứa cái gì?' (Output là 1 nhãn duy nhất: Chó hoặc Mèo). Không quan tâm vị trí."
+      },
+      {
+        "left": "Object Detection (Phát hiện vật thể)",
+        "right": "Trả lời câu hỏi: 'Vật thể nằm ở đâu?' (Output là Nhãn + Bounding Box - Hộp không gian bao quanh vật thể)."
+      },
+      {
+        "left": "Semantic Segmentation (Phân vùng ngữ nghĩa)",
+        "right": "Phân loại TỪNG PIXEL một trong ảnh thuộc lớp nào. (Tất cả pixel của con mèo tô màu xanh, đường tô màu xám). Không phân biệt 2 con mèo khác nhau."
+      },
+      {
+        "left": "Instance Segmentation (Phân vùng thực thể)",
+        "right": "Tô màu từng pixel, nhưng PHÂN BIỆT RÕ RÀNG từng cá thể. (Con mèo 1 tô màu xanh, con mèo 2 tô màu đỏ)."
+      }
+    ],
+    "feedback": "Instance Segmentation (ví dụ thuật toán Mask R-CNN) là bài toán khó nhất và chi tiết nhất trong nhận dạng vật thể."
+  },
+  {
+    "id": 6,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Optical Flow (Luồng quang học) là kỹ thuật tính toán sự chuyển động của từng pixel giữa hai khung hình video liên tiếp. Nó giúp máy tính hiểu được vật thể đang di chuyển theo hướng nào và với tốc độ bao nhiêu.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Optical Flow biểu diễn bằng các vector (mũi tên) gắn trên mỗi pixel, chỉ ra hướng trôi của pixel đó theo thời gian. Rất hữu ích cho Nhận dạng hành động và Nén video."
+  },
+  {
+    "id": 7,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Trước khi Deep Learning thống trị, các kỹ sư Computer Vision phải tự thiết kế (Hand-crafted) các bộ Trích xuất Đặc trưng (Feature Extractors) để tìm ra các điểm nổi bật không bị thay đổi khi ảnh bị thu phóng hay xoay. Thuật toán nổi tiếng nhất thuộc loại này là gì?",
+    "options": [
+      "YOLO.",
+      "SIFT (Scale-Invariant Feature Transform).",
+      "ResNet.",
+      "Transformer."
+    ],
+    "answer": 1,
+    "feedback": "SIFT tìm ra các 'Keypoints' (Điểm khóa) bất biến với tỷ lệ và góc xoay. Nếu bạn có 2 bức ảnh chụp tháp Eiffel từ 2 góc khác nhau, SIFT sẽ tìm ra hàng trăm điểm chung để ghép 2 ảnh lại với nhau (Panorama)."
+  },
+  {
+    "id": 8,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Trong xử lý ảnh, Kỹ thuật ____________ (Pooling), tiêu biểu là Max-Pooling, được sử dụng để giảm kích thước (downsample) của ma trận ảnh, giúp mô hình bớt cồng kềnh, đồng thời tạo ra tính 'Bất biến với dịch chuyển nhỏ' (Translation Invariance).",
+    "options": [
+      "Pooling",
+      "Padding",
+      "Striding",
+      "Filtering"
+    ],
+    "answer": 0,
+    "feedback": "Max-Pooling chia ảnh thành các ô nhỏ 2x2 và chỉ lấy điểm ảnh Sáng Nhất (Max) trong ô đó. Nó giống như việc bạn nheo mắt lại để nhìn tổng thể bức tranh."
+  },
+  {
+    "id": 9,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Quy trình hoạt động của thuật toán Viola-Jones (Được dùng trong các máy ảnh kỹ thuật số cổ điển để khoanh vùng khuôn mặt tự động):",
+    "items": [
+      "Chuyển ảnh màu thành ảnh xám (Grayscale)",
+      "Tính toán Ảnh Tích phân (Integral Image) để tính tổng các pixel trong hình chữ nhật cực nhanh ($O(1)$)",
+      "Áp dụng các đặc trưng Haar-like (Các hình chữ nhật trắng-đen, ví dụ: Vùng mắt luôn tối hơn vùng trán)",
+      "Dùng thuật toán AdaBoost để chọn ra một số ít đặc trưng quan trọng nhất từ hàng ngàn đặc trưng",
+      "Sử dụng Cấu trúc Cascade (Thác nước): Lướt qua ảnh, vùng nào trượt bài test rác đầu tiên thì loại ngay lập tức để tiết kiệm CPU",
+      "Vùng nào vượt qua toàn bộ các bài test khắt khe nhất ở cuối Cascade sẽ được nhận diện là Khuôn mặt"
+    ],
+    "feedback": "Viola-Jones (2001) là một kiệt tác của AI thời kỳ đầu vì nó có thể chạy Real-time (Thời gian thực) trên các CPU cực yếu nhờ kỹ thuật Integral Image và Cascade."
+  },
+  {
+    "id": 10,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Mạng nơ ron Tích chập (CNN - Convolutional Neural Networks) đã thay thế SIFT và HOG bằng cách nào? (Chọn đáp án đúng)",
+    "options": [
+      "Thay vì để kỹ sư con người thiết kế thủ công các bộ lọc để tìm cạnh, góc...",
+      "CNN TỰ ĐỘNG học cách tạo ra hàng trăm Kernel tối ưu nhất thông qua quá trình Lan truyền ngược dựa trên dữ liệu.",
+      "CNN không dùng đến Ma trận ảnh, nó chỉ đọc phần văn bản của ảnh (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Học đặc trưng phân cấp (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": [
+      0,
+      1,
+      3
+    ],
+    "feedback": "CNN đã mở ra kỷ nguyên End-to-End Learning (Học từ đầu đến cuối). Đưa ảnh thô vào, lấy nhãn đầu ra, máy tự lo phần tìm đặc trưng ở giữa. (Giải thích thêm: (Kernel) (Weights) CNN coi các giá trị của Kernel chính là các Trọng số cần học.) (Giải thích thêm: (Backpropagation)) (Giải thích thêm: (Hierarchical Features) Lớp đầu học Cạnh, lớp giữa học Hình khối, lớp cuối học Vật thể.)"
+  },
+  {
+    "id": 11,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "ImageNet (Cuộc thi ILSVRC) là gì mà được coi là 'Vụ nổ Big Bang' của Deep Learning vào năm 2012?",
+    "options": [
+      "Là tên một công ty phần mềm (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Là một bộ dữ liệu khổng lồ gồm 1.2 triệu bức ảnh được con người gán nhãn thủ công thành 1000 lớp.",
+      "Là tên một loại card màn hình (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Là thuật toán nén ảnh (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 1,
+    "feedback": "Fei-Fei Li (Giáo sư Stanford) đã nhận ra: Thuật toán có hay đến mấy cũng vô dụng nếu không có Dữ liệu lớn. ImageNet chính là mỏ dầu kích hoạt động cơ Deep Learning. (Giải thích thêm: (Chó, Mèo, Xe...) Năm 2012, mạng CNN AlexNet đã dùng ImageNet để nghiền nát mọi thuật toán truyền thống.)"
+  },
+  {
+    "id": 12,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Trong kiến trúc CNN, tại sao mạng ResNet (Residual Networks) lại có thể xây dựng sâu tới 152 lớp mà không bị hiện tượng 'Tiêu biến đạo hàm' (Vanishing Gradient) phá hỏng như các mạng trước đó?",
+    "options": [
+      "Vì nó chạy trên Siêu máy tính.",
+      "Nó sử dụng các kết nối tắt.",
+      "Vì nó không dùng hàm kích hoạt.",
+      "Vì nó chuyển ảnh sang 3D."
+    ],
+    "answer": 1,
+    "feedback": "Khối Residual Block $F(x) + x$ là một ý tưởng cực kỳ đơn giản nhưng đã giành giải thưởng lớn. Nó chứng minh rằng mạng CÀNG SÂU (Nếu train được) thì CÀNG GIỎI. (Giải thích thêm: (Skip Connections / Shortcut Connections) (và đạo hàm) Cho phép dữ liệu 'Nhảy cóc' qua các lớp ẩn, tạo ra một đường cao tốc cho thông tin chảy ngược về đầu mạng.)"
+  },
+  {
+    "id": 13,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Thuật toán YOLO (You Only Look Once) giải bài toán Object Detection (Tìm Bounding Box) cực kỳ NHANH vì nó coi bài toán này như một bài toán Hồi quy (Regression). Nó chia ảnh thành một lưới (Grid) và dự đoán trực tiếp tọa độ hộp + xác suất nhãn chỉ trong 1 lần quét qua mạng CNN.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Trước YOLO, các thuật toán (như R-CNN) phải sinh ra hàng ngàn 'Vùng nghi ngờ' (Region Proposals), sau đó quét CNN lên TỪNG VÙNG MỘT (Rất chậm). YOLO gom tất cả vào 1 mạng duy nhất chạy Real-time."
+  },
+  {
+    "id": 14,
+    "type": "matching",
+    "difficulty": "Khó",
+    "question": "Ghép nối các họ mô hình Deep Learning trong Computer Vision:",
+    "pairs": [
+      {
+        "left": "R-CNN / Faster R-CNN",
+        "right": "Hai giai đoạn (Two-stage detector): 1. Tìm vùng chứa vật thể (Region Proposal) -> 2. Cắt vùng đó đưa vào CNN để phân loại. ĐỘ CHÍNH XÁC CAO nhưng CHẬM."
+      },
+      {
+        "left": "YOLO / SSD",
+        "right": "Một giai đoạn (One-stage detector): Đoán trực tiếp Bounding Box từ ảnh gốc. CỰC NHANH (Real-time), nhưng có thể sai sót với vật thể quá nhỏ."
+      },
+      {
+        "left": "U-Net",
+        "right": "Kiến trúc dạng chữ U (Encoder - Decoder có Skip Connections). Chuyên gia dùng cho bài toán Phân vùng ảnh Y Tế (Semantic Segmentation - Phân loại từng pixel tế bào ung thư)."
+      },
+      {
+        "left": "ViT (Vision Transformer)",
+        "right": "Chia ảnh thành các mảnh nhỏ (Patches), ném cho kiến trúc Transformer học (Không dùng Tích chập CNN). Cần dữ liệu cực lớn, đang dần thống trị CV."
+      }
+    ],
+    "feedback": "Sự lựa chọn mô hình luôn là bài toán cân bằng (Trade-off) giữa Tốc độ FPS (Cho xe tự lái) và Độ chính xác (Cho Y tế)."
+  },
+  {
+    "id": 15,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Trong nhận diện khuôn mặt (Face Recognition) hiện đại (ví dụ FaceID), mạng nơ ron KHÔNG trả về nhãn 'Đây là anh A hay chị B'. Thay vào đó, nó trả về cái gì?",
+    "options": [
+      "Tên của người đó.",
+      "Một Vector đặc trưng gồm các số thực.",
+      "Mật khẩu của người đó.",
+      "Mã vạch 2D."
+    ],
+    "answer": 1,
+    "feedback": "Mạng nơ ron đóng vai trò như một cỗ máy ÉP KIỂU. Nó ép hình ảnh khuôn mặt thành 1 Vector (Đại diện cho tỷ lệ xương hàm, khoảng cách 2 mắt...). Nếu bạn đổi kính, vector chỉ dịch chuyển một chút, hệ thống vẫn nhận ra. (Giải thích thêm: (Face Embedding) (Ví dụ 128 chiều) (Cosine/Euclidean) Sau đó dùng Toán học đo Khoảng cách giữa vector này và vector khuôn mặt lưu trong máy để xem có khớp không.)"
+  },
+  {
+    "id": 16,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Trong xử lý ảnh 3D, khi bạn dùng 2 Camera (Stereo Vision) để chụp cùng một cảnh giống như 2 mắt người, sự chênh lệch vị trí của cùng một vật thể trên 2 bức ảnh được gọi là Thị sai (____________ - Disparity). Vật càng GẦN thì Thị sai càng LỚN.",
+    "options": [
+      "Disparity",
+      "Velocity",
+      "Density",
+      "Intensity"
+    ],
+    "answer": 0,
+    "feedback": "Tính toán Disparity Map (Bản đồ thị sai) cho phép máy tính suy ra Chiều sâu (Depth) của môi trường, tái tạo lại thế giới 3D từ ảnh 2D. (Depth tỷ lệ nghịch với Disparity)."
+  },
+  {
+    "id": 17,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Thứ tự các bước để hệ thống Stereo Vision tính toán Chiều sâu (Depth) của điểm P:",
+    "items": [
+      "Cân chỉnh Camera (Camera Calibration): Tìm các thông số nội/ngoại (Tiêu cự, Hệ số méo) của 2 camera",
+      "Chỉnh lưu ảnh (Image Rectification): Bẻ phẳng 2 bức ảnh sao cho các vạch quét (Epipolar lines) nằm ngang song song nhau",
+      "Khớp điểm ảnh (Stereo Matching): Tìm xem pixel X bên ảnh Trái tương ứng với pixel X' nào bên ảnh Phải (chỉ cần quét theo chiều ngang)",
+      "Tính Thị sai (Disparity): $d = x_{left} - x_{right}$",
+      "Tính Chiều sâu (Depth): $Z = (f \times B) / d$ (Với $f$ là tiêu cự, $B$ là khoảng cách giữa 2 mắt camera)"
+    ],
+    "feedback": "Quá trình Khớp điểm ảnh (Stereo Matching) thường dùng các hàm tối ưu hóa như Block Matching hoặc Semi-Global Matching, dễ bị lỗi ở các vùng tường trống không có họa tiết (Texture-less)."
+  },
+  {
+    "id": 18,
+    "type": "multiple_select",
+    "difficulty": "Dễ",
+    "question": "Những khó khăn tự nhiên nào khiến Computer Vision là một bài toán cực kỳ nan giải (Ill-posed problem)? (Chọn đáp án đúng)",
+    "options": [
+      "Sự thay đổi Ánh sáng (Illumination): Vật thể bị tối đi hoặc đổ bóng làm màu sắc pixel thay đổi hoàn toàn.",
+      "Sự thay đổi Góc nhìn (Viewpoint variation): Chiếc ghế nhìn từ trên xuống khác hoàn toàn nhìn từ dưới lên.",
+      "Sự che khuất (Occlusion): Một nửa con mèo bị cái bàn che mất, máy tính chỉ nhìn thấy cái đuôi.",
+      "Sự biến dạng (Deformation): Con mèo có thể cuộn tròn, dãn dài, tạo ra muôn vàn hình thù khác nhau."
+    ],
+    "answer": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "feedback": "Thế giới 3D khi bị chiếu xuống ảnh 2D đã làm MẤT đi 1 chiều thông tin (Độ sâu). Quá trình thị giác máy tính là quá trình cố gắng ĐOÁN lại chiều bị mất đó thông qua kinh nghiệm (Dữ liệu học được)."
+  },
+  {
+    "id": 19,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Data Augmentation (Tăng cường dữ liệu) là bắt buộc trong CV. Tuy nhiên, nếu bạn huấn luyện AI để Đọc biển báo giao thông, phép Augmentation nào sau đây CÓ THỂ GÂY HẠI chết người?",
+    "options": [
+      "Thêm nhiễu sáng (Tối đi, Sáng lên) (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Lật ngang ảnh. Biển báo RẼ TRÁI khi lật ngang sẽ thành RẼ PHẢI, nhưng nhãn vẫn giữ nguyên là Rẽ Trái, khiến AI học sai hoàn toàn.",
+      "Cắt nhỏ ảnh (Random Crop) (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Xoay nhẹ ảnh (Rotate 5 độ) (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 1,
+    "feedback": "Data Augmentation phải PHÙ HỢP với Domain (Lĩnh vực). Phân loại Chó Mèo thì lật ngang thoải mái. Nhưng nhận dạng Biển báo giao thông hay Chữ viết (số 6 lật thành số 9) thì việc lật ảnh/xoay mạnh là tối kỵ. (Giải thích thêm: (Horizontal Flip) (Label))"
+  },
+  {
+    "id": 20,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Generative Adversarial Networks (GANs) trong Computer Vision không dùng để phân loại ảnh, mà dùng để SINH RA (Generate) các bức ảnh mới chưa từng tồn tại, ví dụ như tạo ra khuôn mặt của một con người giả mạo giống y như thật (Deepfake).",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Hiện nay, Diffusion Models (như Midjourney, Stable Diffusion) đã vượt mặt GANs trong việc sinh ảnh nghệ thuật, nhưng GANs vẫn được dùng nhiều trong nâng cấp độ phân giải (Super Resolution) và Deepfake."
+  },
+  {
+    "id": 21,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Các chỉ số đánh giá (Metrics) trong bài toán Object Detection (Phát hiện vật thể):",
+    "pairs": [
+      {
+        "left": "IoU (Intersection over Union)",
+        "right": "Độ Giao nhau chia cho Độ Hợp nhất. Đo xem Hộp dự đoán (Bounding Box) trùng khớp bao nhiêu % so với Hộp chuẩn của con người gán."
+      },
+      {
+        "left": "Precision (Độ chính xác)",
+        "right": "Trong số 10 vật AI khoanh là 'Chó', có bao nhiêu con thực sự là Chó? (Trọng tâm: Tránh Báo động giả - False Positive)."
+      },
+      {
+        "left": "Recall (Độ bao phủ)",
+        "right": "Trong bức ảnh có 10 con Chó thật, AI tìm được bao nhiêu con? (Trọng tâm: Tránh Bỏ sót - False Negative)."
+      },
+      {
+        "left": "mAP (mean Average Precision)",
+        "right": "Chỉ số tổng hợp quan trọng nhất, vẽ biểu đồ Precision-Recall cho tất cả các lớp và tính diện tích dưới biểu đồ."
+      }
+    ],
+    "feedback": "Trong y tế (Tìm khối u), Recall quan trọng hơn Precision (Thà báo động nhầm còn hơn bỏ sót bệnh nhân). Trong nhận diện khuôn mặt mở khóa cửa, Precision quan trọng hơn (Thà bắt nhập mật khẩu còn hơn mở nhầm cho trộm)."
+  },
+  {
+    "id": 22,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Khi làm việc với Computer Vision, Transfer Learning (Học chuyển giao) hoạt động dựa trên nguyên lý nào của Mạng Tích Chập (CNN)?",
+    "options": [
+      "CNN chỉ hoạt động với 1 loại ảnh duy nhất (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Các lớp đầu tiên của CNN luôn học được các đặc trưng RẤT CHUNG CHUNG hữu ích cho MỌI BÀI TOÁN.",
+      "CNN tự động tải dữ liệu mới từ Internet (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Chuyển mô hình từ máy tính sang điện thoại (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 1,
+    "feedback": "Transfer Learning cứu rỗi các dự án có tập dữ liệu nhỏ. Các bộ lọc cạnh (Edge detectors) đã được học từ việc xem hàng triệu ảnh chó mèo hoàn toàn có thể dùng lại để tìm đường viền của tế bào ung thư. (Giải thích thêm: (Early layers) (Cạnh, Góc, Chấm màu) Do đó, ta có thể mượn phần đầu của một mạng đã huấn luyện trên ImageNet, chỉ cần huấn luyện lại phần đuôi cho bài toán nhận dạng ung thư của mình.)"
+  },
+  {
+    "id": 23,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Trong không gian 3D, khi bạn chụp nhiều bức ảnh của cùng một vật thể từ các góc khác nhau (Ví dụ quét di tích lịch sử bằng Flycam), thuật toán SfM (Structure from ____________) có thể dùng các điểm đặc trưng chung (như SIFT) giữa các ảnh để TỰ ĐỘNG tính toán ra Tọa độ 3D của vật thể và Vị trí của Flycam trong không gian.",
+    "options": [
+      "Motion",
+      "Model",
+      "Map",
+      "Machine"
+    ],
+    "answer": 0,
+    "feedback": "Structure from Motion (SfM) là công nghệ đằng sau Google Earth 3D và các phần mềm Photogrammetry. Nó giống như Stereo Vision nhưng sử dụng nhiều Camera chuyển động."
+  },
+  {
+    "id": 24,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Trong mạng CNN, hàm Kích hoạt Phi tuyến nào (Activation function) được sử dụng phổ biến nhất vì tính toán cực nhanh và giúp tránh vấn đề Tiêu biến Đạo hàm? (Chọn đáp án đúng)",
+    "options": [
+      "Hàm Sigmoid.",
+      "Hàm Tanh.",
+      "Hàm ReLU.",
+      "Biến thể Leaky ReLU."
+    ],
+    "answer": [
+      2,
+      3
+    ],
+    "feedback": "Hàm ReLU $f(x) = max(0, x)$ là cuộc cách mạng của CV. Việc đưa các pixel âm về 0 (Sự thưa thớt - Sparsity) mô phỏng chính xác cách các nơ ron sinh học trong não bộ phóng điện (Chỉ phóng điện khi đủ kích thích). (Giải thích thêm: (Rectified Linear Unit: Nếu âm thì bằng 0, nếu dương thì giữ nguyên))"
+  },
+  {
+    "id": 25,
+    "type": "ordering",
+    "difficulty": "Dễ",
+    "question": "Quy trình đưa một bức ảnh qua một Lớp Tích chập (Conv Layer) chuẩn:",
+    "items": [
+      "Lấy một vùng ảnh cục bộ (Ví dụ 3x3 pixel) tương ứng với kích thước Kernel",
+      "Nhân từng phần tử của vùng ảnh với trọng số tương ứng trong Kernel (Element-wise multiplication)",
+      "Cộng tổng tất cả các kết quả nhân đó lại thành một con số duy nhất",
+      "Cộng thêm Hằng số Độ lệch (Bias)",
+      "Ghi con số kết quả vào Pixel tương ứng trên Ma trận Đầu ra (Feature Map)",
+      "Trượt Kernel sang vị trí tiếp theo (Theo tham số Stride) và lặp lại"
+    ],
+    "feedback": "Nếu Kernel có giá trị là 1 ở giữa và -1 ở các cạnh, nó sẽ thực hiện phép 'Tìm kiếm điểm sáng nổi bật trên nền tối'."
+  },
+  {
+    "id": 26,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Bài toán Nhận dạng hành động (Action Recognition) từ Video (Ví dụ: Phát hiện người đánh nhau trong camera an ninh) khó hơn Nhận dạng ảnh (Image Classification) ở điểm nào?",
+    "options": [
+      "Video tốn ít bộ nhớ hơn ảnh (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Video có thêm một chiều không gian thứ 4 là THỜI GIAN.",
+      "Video không có màu sắc (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Video không có pixel (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": 1,
+    "feedback": "1 giây video có 30 khung hình (frames). Nếu chỉ dùng CNN từng frame 1, AI sẽ thấy 2 người giơ tay chạm nhau nhưng không biết họ đang bắt tay (Hòa bình) hay tát nhau (Xung đột). Cần chiều thời gian để phân biệt. (Giải thích thêm: (Temporal dimension) (Trích xuất đặc trưng không gian) (Hiểu chuỗi thời gian) Việc xử lý đòi hỏi mạng 3D-CNN hoặc kết hợp CNN và LSTM/Transformer.)"
+  },
+  {
+    "id": 27,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Zero-shot Image Classification (như mô hình CLIP của OpenAI) cho phép bạn đưa một bức ảnh con Kangaroo (loài vật nó chưa từng được dạy nhãn riêng lẻ) và nó vẫn đoán được đó là Kangaroo, bằng cách nhúng Hình Ảnh và Văn Bản vào chung một Không gian Vector.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. CLIP được học trên 400 triệu cặp (Ảnh, Phụ đề Text) từ Internet. Nó tạo ra mối liên kết mạnh mẽ giữa ngôn ngữ và hình ảnh (Multimodal). Đây là nền tảng cho Midjourney sinh ảnh từ Text."
+  },
+  {
+    "id": 28,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Việc Adversarial Attack (Tấn công đối nghịch) trong Computer Vision chứng tỏ điều gì?",
+    "options": [
+      "AI có thể bị virus máy tính (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Chỉ cần thêm một lượng Nhiễu siêu nhỏ mà mắt người không thể nhìn thấy vào bức ảnh con Lợn, Mạng nơ ron sâu có thể tự tin 99% phán đó là Máy bay.",
+      "AI có khả năng tự sửa lỗi (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Camera bị hỏng (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 1,
+    "feedback": "Adversarial Examples là gót chân Achilles của Deep Learning. Trong xe tự lái, nếu hacker dán vài miếng băng dính đen lên Biển báo STOP khiến xe tưởng là Biển báo TỐC ĐỘ 100km/h, hậu quả sẽ rất thảm khốc. (Giải thích thêm: (Noise) Điều này chứng tỏ AI chưa thực sự HIỂU vật thể, nó chỉ học vẹt các mẫu pixel bề mặt.)"
+  },
+  {
+    "id": 29,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Kiến trúc NeRF (Neural Radiance Fields) sử dụng Mạng nơ ron để biểu diễn ngầm một cảnh 3D. Đầu vào của mạng là Tọa độ 3D $(x,y,z)$ và Góc nhìn $(\\theta, \\phi)$. Đầu ra là Mật độ khối (Density) và ____________ (Color - RGB) tại điểm đó. Nó tạo ra các góc nhìn 3D cực kỳ mượt mà từ vài bức ảnh 2D.",
+    "options": [
+      "Color",
+      "Sound",
+      "Time",
+      "Weight"
+    ],
+    "answer": 0,
+    "feedback": "NeRF là cuộc cách mạng gần đây (2020) trong Computer Graphics và 3D Vision, cho phép tái tạo quang cảnh thực tế ảo (VR) siêu thực chỉ bằng vài bức ảnh chụp bằng điện thoại."
+  },
+  {
+    "id": 30,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Các kỹ thuật/ứng dụng nào sau đây thuộc lĩnh vực Computer Vision? (Chọn đáp án đúng)",
+    "options": [
+      "Optical Character Recognition (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Pose Estimation: Vẽ bộ khung xương của con người để chấm điểm tập Yoga.",
+      "Style Transfer: Biến một bức ảnh chụp phong cảnh thành bức tranh sơn dầu phong cách Van Gogh.",
+      "Dịch câu tiếng Anh sang tiếng Việt (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Computer Vision đã len lỏi vào mọi ngóc ngách: Từ app FaceApp đổi khuôn mặt già trẻ, bãi giữ xe tự động đọc biển số, đến xe Tesla tự lái. Hình ảnh là nguồn dữ liệu giàu thông tin nhất. (Giải thích thêm: (OCR) Nhận dạng chữ viết tay hoặc chữ in trên hóa đơn thành Text.) (Giải thích thêm: (Ước lượng tư thế) (Skeleton)) (Giải thích thêm: (Chuyển đổi phong cách))"
+  }
+]

@@ -1,0 +1,460 @@
+[
+  {
+    "id": 1,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Lập trình xác suất (Probabilistic Programming - PP) là sự kết hợp giữa hai lĩnh vực nào trong Khoa học máy tính?",
+    "options": [
+      "Ngôn ngữ lập trình thông thường và Mô hình hóa Xác suất.",
+      "Lập trình hướng đối tượng và Cơ sở dữ liệu quan hệ.",
+      "Lập trình C++ và Lập trình Python.",
+      "Thiết kế web và Đồ họa 3D (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 0,
+    "feedback": "Probabilistic Programming Languages (PPLs) cho phép bạn viết mã code để định nghĩa các mô hình xác suất phức tạp. Trình biên dịch của PPL sẽ tự động xử lý phần 'Suy diễn xác suất' (Inference) cho bạn. (Giải thích thêm: (General-purpose programming) (Probabilistic modeling))"
+  },
+  {
+    "id": 2,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Trong PPL, thay vì chỉ khai báo các biến mang giá trị xác định (Deterministic) như `x = 5`, ta có thể khai báo các biến mang giá trị ____________ (Stochastic / Random), ví dụ `x ~ Normal(0, 1)`.",
+    "options": [
+      "Ngẫu nhiên (Random)",
+      "Logic (Boolean)",
+      "Văn bản (String)",
+      "Tĩnh (Static)"
+    ],
+    "answer": 0,
+    "feedback": "Khai báo biến ngẫu nhiên là tính năng cốt lõi của PPL. Dấu `~` (Dấu ngã - Tilde) thường được dùng để chỉ việc 'Lấy mẫu từ phân phối' (Sampled from)."
+  },
+  {
+    "id": 3,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Những ngôn ngữ/thư viện nào sau đây là Ngôn ngữ Lập trình Xác suất (PPL)? (Chọn đáp án đúng)",
+    "options": [
+      "Stan",
+      "PyMC (trước đây là PyMC3)",
+      "Pyro (Dựa trên PyTorch)",
+      "HTML5"
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Stan là PPL phổ biến nhất trong giới thống kê. PyMC và Pyro rất phổ biến trong giới AI/Machine Learning vì chúng tích hợp tốt với Python và Deep Learning."
+  },
+  {
+    "id": 4,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Một chương trình xác suất (Probabilistic Program) cơ bản định nghĩa một Mô hình sinh (Generative Model). Điều này có nghĩa là gì?",
+    "options": [
+      "Nó sinh ra mã độc.",
+      "Nó đóng vai trò như một cỗ máy mô phỏng",
+      "Nó sinh ra giao diện người dùng.",
+      "Nó tự động sinh ra thuật toán nhanh nhất."
+    ],
+    "answer": 1,
+    "feedback": "Đúng. Generative Model mô tả cách dữ liệu được tạo ra trong thế giới thực. Ví dụ: Code mô phỏng cách mây tạo ra mưa, mưa làm ướt cỏ. Chạy code đó sẽ sinh ra các ngày mô phỏng có mưa và cỏ ướt. (Giải thích thêm: (fake data) Nếu chạy chương trình từ trên xuống dưới, nó sẽ sinh ra các dữ liệu giả tuân theo các quy luật xác suất đã lập trình.)"
+  },
+  {
+    "id": 5,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Ghép nối các cấu trúc ngữ pháp cốt lõi của Ngôn ngữ lập trình xác suất:",
+    "pairs": [
+      {
+        "left": "sample (Lấy mẫu)",
+        "right": "Sinh ra một giá trị ngẫu nhiên từ một phân phối xác suất (Ví dụ: Tung đồng xu)."
+      },
+      {
+        "left": "observe / condition (Quan sát / Điều kiện hóa)",
+        "right": "Ép buộc một biến ngẫu nhiên phải BẰNG với dữ liệu thực tế (Evidence) thu thập được."
+      },
+      {
+        "left": "infer (Suy diễn)",
+        "right": "Động cơ cốt lõi (Engine) tự động tính toán Xác suất Hậu nghiệm của các biến ẩn dựa trên các quan sát."
+      }
+    ],
+    "feedback": "Mô hình làm việc của PPL rất đơn giản: 1. Viết code mô phỏng cách thế giới hoạt động (Sample). 2. Cung cấp dữ liệu thực tế (Observe). 3. Nhấn nút Infer để AI tự tìm ra nguyên nhân ẩn đằng sau dữ liệu."
+  },
+  {
+    "id": 6,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Mục tiêu tối thượng của Lập trình xác suất là tách biệt hoàn toàn phần 'Mô hình hóa' (Modeling - Viết code mô tả bài toán) ra khỏi phần 'Suy diễn' (Inference - Thuật toán giải bài toán).",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Giống như SQL: Bạn chỉ cần viết câu lệnh `SELECT` (Mô tả cái bạn muốn), còn hệ quản trị CSDL tự lo thuật toán tìm kiếm tối ưu. PPL cho phép bạn viết mô hình xác suất, và trình biên dịch tự động chạy MCMC hoặc Variational Inference."
+  },
+  {
+    "id": 7,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Tại sao Mạng Bayes (Bayesian Networks) truyền thống lại bị giới hạn và cần đến Lập trình xác suất?",
+    "options": [
+      "Vì Mạng Bayes không thể vẽ được hình.",
+      "Vì Mạng Bayes yêu cầu một đồ thị có kích thước CỐ ĐỊNH.",
+      "Vì Mạng Bayes không hỗ trợ xác suất.",
+      "Vì Mạng Bayes chỉ chạy được trên Linux."
+    ],
+    "answer": 1,
+    "feedback": "Ngôn ngữ lập trình hỗ trợ vòng lặp và rẽ nhánh (Control Flow). PPL kết hợp Control Flow với Xác suất, cho phép tạo ra các Mạng Bayes động có kích thước vô hạn hoặc thay đổi linh hoạt tùy theo điều kiện ngẫu nhiên. (Giải thích thêm: Nó rất khó biểu diễn các tình huống có số lượng đối tượng không xác định, vòng lặp `for`, vòng lặp `while`, hoặc đệ quy.)"
+  },
+  {
+    "id": 8,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Lập trình xác suất cho phép giải quyết bài toán Thế giới Mở (____________ Universe Models), trong đó số lượng đối tượng tồn tại trong thế giới là một biến ngẫu nhiên chưa biết trước, thay vì cố định như Thế giới Đóng (Closed Universe).",
+    "options": [
+      "Open",
+      "Closed",
+      "Infinite",
+      "Dynamic"
+    ],
+    "answer": 0,
+    "feedback": "Open Universe (Thế giới mở). Ví dụ: Theo dõi máy bay trên radar. Ta không biết thực sự có 1, 2 hay 3 chiếc máy bay đang bay (số lượng đối tượng là chưa biết). PPL có thể xử lý việc sinh ra đối tượng mới bằng vòng lặp ngẫu nhiên."
+  },
+  {
+    "id": 9,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Sắp xếp quy trình làm việc chuẩn khi sử dụng thư viện PPL (như PyMC) để giải quyết bài toán suy diễn:",
+    "items": [
+      "Định nghĩa các biến Prior (Tiên nghiệm) chưa biết, ví dụ: tỷ_lệ_bệnh = sample(Uniform(0, 1))",
+      "Định nghĩa Generative Model (Cách dữ liệu sinh ra): kết_quả_test = sample(Binomial(n, tỷ_lệ_bệnh))",
+      "Cung cấp Bằng chứng thực tế bằng tham số observed: kết_quả_test = sample(Binomial, observed=data)",
+      "Gọi hàm Infer (Thường là lệnh pm.sample() trong PyMC) để kích hoạt động cơ thuật toán MCMC",
+      "Động cơ MCMC chạy hàng ngàn vòng lặp để lấy mẫu Hậu nghiệm (Posterior)",
+      "Vẽ đồ thị Histogram để xem phân phối Hậu nghiệm của biến tỷ_lệ_bệnh"
+    ],
+    "feedback": "Quy trình này áp dụng cho hầu hết các ngôn ngữ PPL. Công việc vất vả nhất (toán học MCMC) đã được ẩn đi đằng sau hàm `sample()`."
+  },
+  {
+    "id": 10,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Thuật toán Hamilton Monte Carlo (HMC) và biến thể NUTS (No-U-Turn Sampler) là thuật toán Inference tiêu chuẩn trong các PPL hiện đại như Stan và PyMC. Chúng có ưu điểm gì so với Gibbs Sampling truyền thống? (Chọn đáp án đúng)",
+    "options": [
+      "HMC sử dụng Đạo hàm của hàm xác suất để 'trượt' qua không gian trạng thái, giống như một viên bi lăn trên địa hình đồi núi.",
+      "Nó khám phá không gian liên tục cực kỳ nhanh chóng và hiệu quả ngay cả ở số chiều rất cao.",
+      "Nó không cần lặp, chỉ cần chạy 1 lần là ra kết quả (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Nó chỉ giải quyết được các biến Boolean (Rời rạc) (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "feedback": "Gibbs Sampling (Random Walk) thường đi lang thang vô định. HMC dùng Gradient (động lực học Hamilton trong vật lý) để tính toán hướng đi tối ưu. HMC chỉ hoạt động trên không gian LIÊN TỤC có đạo hàm. (Giải thích thêm: (Gradient)) (Giải thích thêm: (Continuous Space) (hàng ngàn biến))"
+  },
+  {
+    "id": 11,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Nhược điểm lớn nhất của thuật toán Inference dựa trên MCMC (như HMC, Gibbs) trong PPL là gì?",
+    "options": [
+      "Mã nguồn quá dài (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Tốc độ chạy RẤT CHẬM, đặc biệt là với các bộ dữ liệu lớn.",
+      "Không bao giờ hội tụ (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Không hỗ trợ Python (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 1,
+    "feedback": "MCMC là 'Tiêu chuẩn vàng' (Gold Standard) về độ chính xác nhưng lại cực kỳ chậm. Vì vậy người ta phát triển Variational Inference để thay thế. (Giải thích thêm: (Big Data) Do đó rất khó áp dụng cho Deep Learning.)"
+  },
+  {
+    "id": 12,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Variational Inference (Suy diễn biến phân - VI) tăng tốc độ suy diễn trong PPL bằng cách nào?",
+    "options": [
+      "Viết lại code bằng ngôn ngữ C (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Thay vì Lấy mẫu tốn thời gian, VI biến bài toán Suy diễn thành bài toán TỐI ƯU HÓA",
+      "Xóa bớt dữ liệu (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Chạy thuật toán Viterbi (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 1,
+    "feedback": "Optimization (như Gradient Descent) chạy nhanh hơn Sampling (MCMC) gấp hàng ngàn lần. Đánh đổi lại, VI chỉ cho ra kết quả XẤP XỈ, trong khi MCMC cho ra kết quả chính xác (nếu chạy đủ lâu). (Giải thích thêm: (Sampling) (Optimization) (ví dụ Gaussian) Tìm một phân phối đơn giản sao cho nó 'Giống nhất' với phân phối Hậu nghiệm phức tạp thật sự.)"
+  },
+  {
+    "id": 13,
+    "type": "true_false",
+    "difficulty": "Khó",
+    "question": "Khoảng cách Kullback-Leibler (KL Divergence) là độ đo toán học được sử dụng trong Variational Inference để tính toán sự chênh lệch giữa Phân phối Xấp xỉ (Q) và Phân phối Hậu nghiệm thật (P). Thuật toán VI sẽ dùng Gradient Descent để cực tiểu hóa KL Divergence này.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Đây là trái tim của Variational Inference (cũng như của Variational Autoencoders - VAE trong Deep Learning). Thay vì đếm mẫu, ta di chuyển và bóp méo đường cong Q(x) cho đến khi nó ôm sát P(x)."
+  },
+  {
+    "id": 14,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Ghép nối các Thư viện/Ngôn ngữ Lập trình Xác suất với nền tảng công nghệ của nó:",
+    "pairs": [
+      {
+        "left": "Stan",
+        "right": "Viết bằng C++, có API cho R và Python. Dùng thuật toán NUTS (HMC) rất mạnh mẽ. Tiêu chuẩn của giới hàn lâm thống kê."
+      },
+      {
+        "left": "Pyro",
+        "right": "Phát triển bởi Uber, được xây dựng trên đỉnh PyTorch. Cực mạnh về Variational Inference và Deep Learning."
+      },
+      {
+        "left": "PyMC",
+        "right": "Xây dựng trên Theano/Aesara (hiện nay hỗ trợ JAX/PyTorch). Thân thiện, Pythonic, phổ biến nhất trong giới Data Science Python."
+      },
+      {
+        "left": "WebPPL",
+        "right": "Xây dựng dựa trên Javascript, chạy trực tiếp trên trình duyệt Web."
+      }
+    ],
+    "feedback": "Việc lựa chọn PPL phụ thuộc vào bạn muốn Chính xác (Stan/PyMC - MCMC) hay bạn muốn Tốc độ quy mô lớn kết hợp AI (Pyro/TensorFlow Probability - VI)."
+  },
+  {
+    "id": 15,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Tính chất 'Composability' (Khả năng lắp ghép) của PPL có nghĩa là gì?",
+    "options": [
+      "PPL có thể biên dịch sang nhiều hệ điều hành (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Giống như viết hàm trong lập trình thông thường, bạn có thể tạo ra một hàm mô hình xác suất nhỏ, và gọi nó nhiều lần bên trong một mô hình xác suất lớn hơn.",
+      "Bạn có thể ghép code Python và Java lại (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Các biến không phụ thuộc vào nhau (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 1,
+    "feedback": "Đây là sức mạnh lớn nhất của Lập trình. Các mạng Bayes truyền thống là những khối nguyên khối (Monolithic), khó tái sử dụng. PPL cho phép thiết kế mô hình dưới dạng các Hàm Đóng Gói (Modules). (Giải thích thêm: (function))"
+  },
+  {
+    "id": 16,
+    "type": "fill_blank",
+    "difficulty": "Dễ",
+    "question": "Khi bạn viết một lệnh `if (coin_flip()) { x = sample(A) } else { x = sample(B) }` trong PPL, đây được gọi là một luồng điều khiển ____________ (Stochastic Control Flow). Nghĩa là nhánh code nào được chạy không cố định, mà phụ thuộc vào kết quả của một biến ngẫu nhiên.",
+    "options": [
+      "Stochastic",
+      "Deterministic",
+      "Static",
+      "Sequential"
+    ],
+    "answer": 0,
+    "feedback": "Stochastic Control Flow khiến các thuật toán Inference truyền thống (như Variable Elimination) bó tay, vì cấu trúc đồ thị mạng Bayes liên tục biến đổi. Chỉ có MCMC hoặc Particle Filter mới xử lý nổi."
+  },
+  {
+    "id": 17,
+    "type": "ordering",
+    "difficulty": "Khó",
+    "question": "Trình tự hoạt động của Hamiltonian Monte Carlo (HMC) mượn ý tưởng từ Vật lý học:",
+    "items": [
+      "Tưởng tượng không gian xác suất là một cảnh quan đồi núi (Xác suất cao = Vùng trũng/Thung lũng thấp)",
+      "Đặt một viên bi tại một vị trí ngẫu nhiên",
+      "Khởi tạo một 'Lực đẩy' (Momentum) ngẫu nhiên cho viên bi",
+      "Dùng phương trình Vi phân (Đạo hàm) tính toán đường đi của viên bi trượt trên đồi núi trong thời gian T",
+      "Dừng viên bi lại, ghi nhận vị trí mới như là một 'Mẫu' (Sample) thu được",
+      "Lặp lại quá trình khởi tạo Lực đẩy để lấy mẫu tiếp theo"
+    ],
+    "feedback": "Cách này giúp viên bi di chuyển được quãng đường rất xa (khám phá nhanh) mà vẫn đảm bảo nó luôn có xu hướng rớt vào các thung lũng (vùng xác suất cao). Nó đánh bại hoàn toàn kiểu đi dạo mù quáng (Random Walk) của Gibbs."
+  },
+  {
+    "id": 18,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Tại sao Lập trình xác suất (PPL) lại được coi là 'Deep Learning thế hệ tiếp theo' (Mặc dù hiện tại DL vẫn đang thống trị)? (Chọn đáp án đúng)",
+    "options": [
+      "Deep Learning là hộp đen, nó dự đoán giỏi nhưng không giải thích được và không biết lượng hóa độ không chắc chắn.",
+      "PPL minh bạch, dựa trên quy luật nhân quả do con người mô tả, và có khả năng trả lời 'Tôi tin chắc 90% hay chỉ đoán mò 10%'.",
+      "PPL yêu cầu rất ít dữ liệu so với Deep Learning, nhờ vào khả năng nhúng tri thức chuyên gia dưới dạng Prior.",
+      "PPL chạy nhanh hơn Deep Learning trên mọi mặt trận (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Bayesian Deep Learning (Kết hợp PPL và Deep Learning) đang là xu hướng nghiên cứu hàng đầu. Dùng DL để trích xuất đặc trưng (Vision/NLP), và dùng PPL để suy luận nhân quả và đo lường sự không chắc chắn. (Giải thích thêm: (Neural Networks) (Black-box) (Uncertainty)) (Giải thích thêm: (Data-efficient) (Domain Knowledge))"
+  },
+  {
+    "id": 19,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Trong PPL, khái niệm 'Trace' (Dấu vết) của một lần thực thi chương trình là gì?",
+    "options": [
+      "Thông báo lỗi của chương trình (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Là BẢN GHI LẠI TẤT CẢ các giá trị ngẫu nhiên đã được lấy mẫu từ đầu đến cuối trong một lần chạy của hàm mô hình.",
+      "Là đường dẫn file trên ổ cứng (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Là thuật toán gỡ lỗi (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": 1,
+    "feedback": "Một 'Trace' tương đương với một Thế giới khả dĩ (Possible World) trong lý thuyết Xác suất. Việc lấy mẫu hàng ngàn 'Traces' giúp chúng ta phác họa được hình dáng của phân phối. (Giải thích thêm: (sampled))"
+  },
+  {
+    "id": 20,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Thuật toán Particle Filter (Sequential Monte Carlo) cực kỳ phù hợp làm Inference Engine cho các ngôn ngữ Lập trình Xác suất có chứa vòng lặp `while` không xác định điểm dừng.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Particle Filter giải quyết các chương trình 'Mở' rất tốt. Đơn giản là chạy hàng ngàn Hạt (Mỗi hạt là 1 Trace). Hạt nào chạy vào nhánh code không khớp với `observe` thì hạt đó bị triệt tiêu (Trọng số = 0)."
+  },
+  {
+    "id": 21,
+    "type": "matching",
+    "difficulty": "Khó",
+    "question": "Mô hình Xác suất Quan hệ (Relational Probability Models - RPMs) mở rộng Logic Bậc Nhất bằng cách thêm Xác suất. Ghép nối:",
+    "pairs": [
+      {
+        "left": "Ngữ nghĩa (Semantics)",
+        "right": "Định nghĩa một phân phối xác suất trên toàn bộ các Mô hình Logic (Possible worlds) thay vì chỉ chọn True/False."
+      },
+      {
+        "left": "Thuộc tính (Attributes)",
+        "right": "Được khai báo dưới dạng Hàm, ví dụ: $Major(Student) \\sim Categorical(...)$"
+      },
+      {
+        "left": "Tính phụ thuộc quan hệ (Relational Dependencies)",
+        "right": "Ví dụ: $Grade(S, C)$ phụ thuộc vào $Intelligence(S)$ và $Difficulty(C)$. S và C là các biến Logic (Đối tượng)."
+      }
+    ],
+    "feedback": "RPMs là tiền thân của PPL. Chúng giúp tạo ra các Mạng Bayes có cấu trúc lặp đi lặp lại giống nhau cho mọi sinh viên trong một trường học, thay vì phải vẽ hàng ngàn nút bằng tay."
+  },
+  {
+    "id": 22,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Thuật ngữ 'Probabilistic Graphical Models' (PGM) và 'Probabilistic Programming Languages' (PPL) khác nhau ở điểm nào?",
+    "options": [
+      "Chúng là một.",
+      "PGM biểu diễn mô hình bằng ĐỒ THỊ.",
+      "PGM dùng cho Python, PPL dùng cho C++.",
+      "PGM chậm hơn PPL."
+    ],
+    "answer": 1,
+    "feedback": "PPL là sự tiến hóa tự nhiên của PGM. Mã code (Programs) có thể biểu diễn những luồng điều kiện (If-else) và vòng lặp phức tạp mà một cái Đồ thị tĩnh (Graphs) không bao giờ vẽ nổi. (Giải thích thêm: (Nodes và Edges) PPL biểu diễn mô hình bằng MÃ CODE. PPL linh hoạt và mạnh mẽ hơn nhiều do có tính toán của ngôn ngữ Turing-complete.)"
+  },
+  {
+    "id": 23,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Một biến ngẫu nhiên liên tục trong PPL (ví dụ phân phối Chuẩn) có Hàm Mật độ Xác suất (____________ Density Function - PDF). Thuật toán HMC cần tính toán đạo hàm của log-PDF này để tìm hướng đi.",
+    "options": [
+      "Probability",
+      "Power",
+      "Particle",
+      "Process"
+    ],
+    "answer": 0,
+    "feedback": "Probability Density Function (PDF) là khái niệm gốc của xác suất liên tục. HMC tận dụng hình học vi phân của không gian PDF này."
+  },
+  {
+    "id": 24,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Vì sao việc sử dụng các ngôn ngữ PPL (PyMC, Stan) lại yêu cầu người dùng phải có kiến thức nền tảng vững về Thống kê Bayes? (Chọn đáp án đúng)",
+    "options": [
+      "Vì hệ thống không tự chọn Prior (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Vì người dùng phải hiểu về các vấn đề MCMC như Phân kỳ, Chuỗi không hội tụ để biết mô hình của mình có đang sai hay không.",
+      "Vì PPL không có tài liệu hướng dẫn (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Vì code PPL không thể chạy trên Windows (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "feedback": "Lập trình xác suất không phải là 'Cắm điện là chạy' như Deep Learning. Nó là một quá trình nghệ thuật: Đặt Prior -> Lấy mẫu -> Kiểm tra hội tụ (Diagnostics) -> Kiểm tra sự phù hợp của mô hình (Posterior Predictive Checks). (Giải thích thêm: (Tiên nghiệm) (ví dụ: HalfNormal cho phương sai, Normal cho trung bình) Người dùng phải tự chọn Prior hợp lý.) (Giải thích thêm: (Divergences) (R-hat > 1.1))"
+  },
+  {
+    "id": 25,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Các bước cơ bản để giải một bài toán thực tế bằng Thống kê Bayes qua PPL (Workflow):",
+    "items": [
+      "Khám phá dữ liệu thực tế (EDA - Exploratory Data Analysis)",
+      "Thiết kế Generative Model (Khai báo Prior và hàm Sinh dữ liệu Likelihood bằng code PPL)",
+      "Ước lượng Hậu nghiệm (Nhấn nút Infer / Sample để lấy Posterior)",
+      "Chẩn đoán hội tụ (Diagnostics - R-hat, Traceplot) xem thuật toán MCMC có chạy tốt không",
+      "Kiểm tra Mô hình hậu nghiệm (Posterior Predictive Check): Dùng Posterior để sinh dữ liệu giả, so sánh xem nó có giống dữ liệu thật không",
+      "Đưa ra quyết định hoặc Dự đoán tương lai"
+    ],
+    "feedback": "Đây là quy trình chuẩn mực được Andrew Gelman (Tác giả ngôn ngữ Stan) đề xuất cho mọi dự án Khoa học Dữ liệu dùng Bayes."
+  },
+  {
+    "id": 26,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Trong PPL, hàm `observe(value, distribution)` hoặc thuộc tính `observed=...` làm nhiệm vụ gì?",
+    "options": [
+      "In ra màn hình console.",
+      "Khai báo 'Bằng chứng'.",
+      "Xóa dữ liệu.",
+      "Thay đổi kiểu dữ liệu."
+    ],
+    "answer": 1,
+    "feedback": "Nếu không có `observe`, chương trình PPL chỉ đơn thuần sinh ra những con số ngẫu nhiên vô nghĩa (Mô phỏng 1 chiều). Có `observe`, hệ thống sẽ cập nhật xác suất Bayes. (Giải thích thêm: (Evidence) (Infer) Nó khóa một biến ngẫu nhiên vào một giá trị thực tế đã biết, và hệ thống sẽ dựa vào giá trị này để suy ngược ra xác suất của các biến nguyên nhân.)"
+  },
+  {
+    "id": 27,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Lập trình xác suất chỉ được sử dụng cho các bài toán phân tích số liệu nhỏ, không thể ứng dụng vào Computer Vision (Thị giác máy tính) hay Natural Language Processing (Xử lý ngôn ngữ tự nhiên).",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai. Nhờ sức mạnh của Variational Inference (VI) và sự hỗ trợ tính toán GPU từ PyTorch/JAX (trong thư viện Pyro/NumPyro), PPL ngày nay có thể huấn luyện các mô hình tạo sinh hình ảnh khổng lồ như VAE (Variational Autoencoders) hoặc Topic Modeling cho hàng triệu văn bản."
+  },
+  {
+    "id": 28,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Thách thức lớn nhất trong việc phát triển Trình biên dịch (Compiler) cho các ngôn ngữ PPL là gì?",
+    "options": [
+      "Không ai biết ngôn ngữ C++ (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Làm sao để Trình biên dịch tự động TỐI ƯU HÓA các thuật toán MCMC/VI dựa trên cú pháp code tùy ý của người dùng, vì mỗi cấu trúc if/else/loop đều làm không gian xác suất trở nên cực kỳ phức tạp.",
+      "Làm sao để làm cho cú pháp giống Python nhất (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Làm sao để bán phần mềm (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 1,
+    "feedback": "Biên dịch code bình thường (Dịch ra hợp ngữ) đã khó. Biên dịch code PPL yêu cầu Compiler phải hiểu được TÍNH ĐỘC LẬP XÁC SUẤT (D-Separation) ẩn trong các dòng code để tự động chọn thuật toán Toán học tối ưu nhất."
+  },
+  {
+    "id": 29,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Một ứng dụng rất phổ biến của PPL trong thế giới số là Kiểm định A/B (A/B Testing). Thay vì dùng phương pháp thống kê Frequentist cũ kỹ (như p-value), PPL tiếp cận theo hướng ____________ (Bayesian), giúp trả lời trực tiếp câu hỏi: 'Xác suất thiết kế A tốt hơn thiết kế B là bao nhiêu %?'.",
+    "options": [
+      "Frequentist",
+      "Bayesian",
+      "Random",
+      "Logical"
+    ],
+    "answer": 1,
+    "feedback": "Bayesian A/B Testing có tính trực quan cao, dễ giải thích cho sếp hoặc khách hàng (Ví dụ: 'Em tin chắc 95% là nút màu Đỏ mang lại nhiều tiền hơn')."
+  },
+  {
+    "id": 30,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Ngôn ngữ Lập trình Xác suất (PPL) có thể được coi là công cụ hiện thực hóa Tầm nhìn của ai trong Lịch sử AI? (Chọn đáp án đúng)",
+    "options": [
+      "Thomas Bayes (Tác giả của Định lý Bayes).",
+      "Pierre-Simon Laplace.",
+      "Judea Pearl (Người tạo ra Mạng Bayes).",
+      "Alan Turing (Tác giả của Phép thử Turing)."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "PPL là điểm hội tụ tuyệt đẹp của Toán học (Bayes, Laplace), Đồ thị nhân quả (Pearl) và Khoa học máy tính. (Giải thích thêm: (Người hệ thống hóa và chứng minh tính ứng dụng của Xác suất nghịch đảo/Bayes))"
+  }
+]

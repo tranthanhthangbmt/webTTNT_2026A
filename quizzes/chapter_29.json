@@ -1,0 +1,458 @@
+[
+  {
+    "id": 1,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Chữ 'G' trong thuật ngữ AGI (Artificial General Intelligence) mang ý nghĩa gì?",
+    "options": [
+      "Generative (Tạo sinh) (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "General. Nó biểu thị một Trí tuệ có khả năng học hỏi và thực hiện MỌI tác vụ nhận thức ngang bằng hoặc vượt trội hơn con người, thay vì chỉ làm tốt MỘT tác vụ hẹp.",
+      "Global (Toàn cầu) (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Gaming (Chơi game) (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 1,
+    "feedback": "AGI là 'Chén Thánh' của ngành Khoa học Máy tính. Hầu hết các nhà nghiên cứu tin rằng nếu tạo ra được AGI, nó sẽ là phát minh cuối cùng mà loài người cần phải tạo ra. (Giải thích thêm: (Tổng quát) (Narrow AI))"
+  },
+  {
+    "id": 2,
+    "type": "fill_blank",
+    "difficulty": "Dễ",
+    "question": "Sau khi đạt được AGI, các nhà tương lai học dự đoán AI sẽ nhanh chóng tự thiết kế và nâng cấp chính nó, dẫn đến sự ra đời của ASI (Artificial ____________ Intelligence) - Siêu Trí Tuệ Nhân Tạo, với năng lực vượt xa bộ não xuất chúng nhất của con người (như Einstein) trong mọi lĩnh vực.",
+    "options": [
+      "Super",
+      "Strong",
+      "Superior",
+      "Supreme"
+    ],
+    "answer": 0,
+    "feedback": "Nick Bostrom định nghĩa ASI là 'bất kỳ trí tuệ nào vượt qua hiệu suất nhận thức của con người trong hầu hết mọi lĩnh vực, từ sáng tạo khoa học, triết học đến kỹ năng xã hội'."
+  },
+  {
+    "id": 3,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Mặc dù Deep Learning (đặc biệt là LLMs) đang cực kỳ thành công, các chuyên gia tin rằng chỉ dựa vào Deep Learning là CHƯA ĐỦ để đạt được AGI. Những hạn chế nào của Deep Learning hiện tại chứng minh điều này? (Chọn đáp án đúng)",
+    "options": [
+      "Thiếu khả năng Suy luận Logic mạnh (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Quá khát Dữ liệu: Con người chỉ cần xem 2 (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Vấn đề Cập nhật: Deep Learning dễ bị 'Quên thảm khốc' khi học kiến thức mới mà không quên cái cũ.",
+      "Máy tính bị hỏng (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Đó là lý do nhiều nhà khoa học đang hướng tới việc kết hợp Deep Learning (Sức mạnh trực giác - System 1) với Logic cổ điển (Khả năng suy luận chặt chẽ - System 2). (Giải thích thêm: (Robust Logical Reasoning) LLMs thường thất bại ở các bài toán Toán học nhiều bước hoặc các câu đố đòi hỏi tư duy nhân quả thay vì nhận diện mẫu.) (Giải thích thêm: (Data-Hungry) (Few-shot/Zero-shot tự nhiên) ví dụ là học được luật mới. Deep Learning cần hàng triệu ví dụ.) (Giải thích thêm: (Continual Learning) (Catastrophic Forgetting))"
+  },
+  {
+    "id": 4,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Hướng tiếp cận 'Neuro-Symbolic AI' được coi là một trong những tương lai đầy hứa hẹn của AI. Thuật ngữ này có nghĩa là gì?",
+    "options": [
+      "Sử dụng mạng nơ ron để chơi game.",
+      "Sự kết hợp giữa Mạng nơ ron và AI Biểu tượng cổ điển.",
+      "Sử dụng AI để chữa bệnh thần kinh.",
+      "Tạo ra các biểu tượng nghệ thuật bằng AI."
+    ],
+    "answer": 1,
+    "feedback": "Deep Learning (Neuro) giống như việc bạn NGỬI thấy mùi khói và biết có cháy (Trực giác nhanh). Symbolic AI giống như việc bạn tính toán phương trình hóa học của đám cháy (Tư duy chậm, chắc chắn). Neuro-symbolic hội tụ cả hai. (Giải thích thêm: (Neuro - giỏi học hỏi từ dữ liệu thô, có tính chống nhiễu) (Symbolic - giỏi suy luận logic, giải thích rõ ràng) Tương đương với việc kết hợp Bán cầu não Trái và Phải.)"
+  },
+  {
+    "id": 5,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Ghép nối các Thách thức của AI hiện tại với tên gọi học thuật của chúng:",
+    "pairs": [
+      {
+        "left": "Catastrophic Forgetting (Quên thảm khốc)",
+        "right": "Khi dạy mạng Nơ ron một nhiệm vụ mới (ví dụ Task B), các Trọng số (Weights) bị ghi đè hoàn toàn, khiến nó quên sạch cách làm Nhiệm vụ cũ (Task A). Trái ngược với khả năng 'Học tập suốt đời' (Lifelong learning) của con người."
+      },
+      {
+        "left": "Out-of-Distribution (OOD) Generalization",
+        "right": "AI chỉ làm tốt nếu dữ liệu Thực tế (Test) giống hệt dữ liệu Huấn luyện (Train). Khi gặp tình huống chưa từng thấy (Thiên nga đen), nó sẽ thất bại thảm hại thay vì linh hoạt thích nghi."
+      },
+      {
+        "left": "Symbol Grounding Problem",
+        "right": "Làm thế nào để các từ ngữ (Token) vô tri trong máy tính THỰC SỰ GẮN LIỀN với thế giới vật lý thật ngoài đời, thay vì chỉ là sự phân tích thống kê xác suất chữ này đi sau chữ kia?"
+      }
+    ],
+    "feedback": "Catastrophic Forgetting là một trở ngại lớn cho việc tạo ra một con Robot có thể liên tục học các kỹ năng mới qua từng năm tháng mà không cần Reset và Train lại từ đầu."
+  },
+  {
+    "id": 6,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Khái niệm 'Embodied AI' (AI hiện thân) cho rằng để một cỗ máy THỰC SỰ HIỂU thế giới như con người, nó không thể chỉ nằm trong một cái hộp Server (như ChatGPT) để đọc chữ. Nó BẮT BUỘC phải có một Cơ thể (như Robot) để tương tác vật lý, va chạm, và cảm nhận thế giới qua các giác quan 3D.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Làm sao ChatGPT có thể THỰC SỰ HIỂU từ 'Đau' hoặc 'Nặng' nếu nó chưa bao giờ có một cơ thể vật lý để bị đập vào tường hay xách một quả tạ? Embodied AI là bước đi bắt buộc tiến tới AGI."
+  },
+  {
+    "id": 7,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Định luật 'Scaling Laws' (Quy luật tỷ lệ) trong Deep Learning (đặc biệt là LLMs) phát biểu điều gì?",
+    "options": [
+      "Kích thước mạng càng lớn thì chạy càng chậm (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Hiệu suất của AI tăng lên theo quy luật toán học CÓ THỂ DỰ ĐOÁN ĐƯỢC dựa trên 3 yếu tố",
+      "Không thể đoán trước được sự thông minh của AI (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Mọi AI đều cần cùng một lượng RAM (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 1,
+    "feedback": "Scaling Laws (Được OpenAI chứng minh) là lý do các công ty đang đổ HÀNG TỶ ĐÔ LA để xây dựng các Cụm GPU khổng lồ. Họ tin rằng chỉ cần 'Bơm' thêm dữ liệu và sức mạnh tính toán, AGI sẽ tự động trỗi dậy. (Giải thích thêm: (Sự thông minh) (Số tham số) (Compute) Kích thước mô hình, Lượng dữ liệu, và Sức mạnh tính toán.)"
+  },
+  {
+    "id": 8,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Tuy nhiên, Scaling Laws sắp đụng phải bức tường giới hạn vật lý. Đó là vấn đề cạn kiệt ____________ (Data Wall). Người ta ước tính đến năm 2026-2030, AI sẽ 'đọc hết' toàn bộ văn bản chất lượng cao do con người tạo ra trên Internet. Sau đó, nó không còn nguồn thông tin mới để học nữa.",
+    "options": [
+      "Dữ liệu",
+      "Phần cứng",
+      "Điện năng",
+      "Kỹ sư"
+    ],
+    "answer": 0,
+    "feedback": "Để vượt qua 'Data Wall' (Bức tường dữ liệu), các công ty đang sử dụng Dữ liệu Tổng hợp (Synthetic Data - Dùng AI này sinh ra dữ liệu để dạy AI kia). Tuy nhiên, nếu lạm dụng, có thể dẫn đến hiện tượng 'Model Collapse' (Sụp đổ mô hình do học từ rác của chính mình)."
+  },
+  {
+    "id": 9,
+    "type": "ordering",
+    "difficulty": "Khó",
+    "question": "Theo thuyết Vụ nổ Trí tuệ (Intelligence Explosion), các bước dẫn đến Siêu trí tuệ (ASI) diễn ra như thế nào?",
+    "items": [
+      "Con người tạo ra một AI có khả năng lập trình và nghiên cứu Khoa học Máy tính ngang bằng một kỹ sư bình thường (AGI sơ cấp).",
+      "Con người sao chép AI này ra 1 triệu bản sao, tạo thành một đội ngũ nghiên cứu ảo làm việc không cần ngủ.",
+      "Đội ngũ AI ảo này nghiên cứu và tự viết ra phiên bản AI thế hệ 2 thông minh hơn chúng.",
+      "AI thế hệ 2 tiếp tục tối ưu hóa và sinh ra thế hệ 3 trong thời gian ngắn hơn (Vòng lặp phản hồi dương).",
+      "Tốc độ tiến hóa tăng theo cấp số nhân, từ AGI đến ASI chỉ tính bằng ngày hoặc giờ (Hard Takeoff).",
+      "Sự xuất hiện của một Siêu Trí Tuệ (ASI) vượt ngoài tầm kiểm soát của con người."
+    ],
+    "feedback": "Đây là lý thuyết khiến Elon Musk hay Stephen Hawking cực kỳ lo ngại. Khi máy móc biết TỰ LẬP TRÌNH giỏi hơn con người, con người sẽ chính thức bị gạt ra khỏi quá trình tiến hóa công nghệ."
+  },
+  {
+    "id": 10,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Điện toán Lượng tử (Quantum Computing) có khả năng sẽ tác động đến Tương lai của AI (Quantum Machine Learning - QML) ở những khía cạnh nào? (Chọn đáp án đúng)",
+    "options": [
+      "Tăng tốc đột phá trong không gian tìm kiếm khổng lồ (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Giải bài toán Protein Folding, Tối ưu hóa phân tử thuốc, Mô phỏng Hóa học Lượng tử mà máy tính truyền thống mất hàng nghìn năm mới giải được.",
+      "Đẩy nhanh quá trình huấn luyện Mạng Nơ ron Lượng tử (QNN) (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Chữa bách bệnh chỉ bằng cách chạm vào màn hình (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Khi Quantum Computing thực sự trưởng thành và kết hợp với AI, nhân loại sẽ chứng kiến bước nhảy vọt công nghệ vĩ đại nhất kể từ khi phát minh ra điện. (Giải thích thêm: (Thay vì Bit 0/1) Qubit có thể mang trạng thái chồng chập, tính toán song song hàng triệu khả năng cùng lúc.)"
+  },
+  {
+    "id": 11,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Khái niệm 'Brain-Computer Interface' (BCI - Giao diện Não-Máy tính), tiêu biểu như dự án Neuralink, có mục tiêu dài hạn liên quan đến AI là gì?",
+    "options": [
+      "Sạc điện thoại bằng suy nghĩ (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Cung cấp băng thông cực cao để Con người giao tiếp trực tiếp với AI.",
+      "Thay thế não người bằng não robot (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Xóa trí nhớ con người (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 1,
+    "feedback": "Hiện tại, băng thông giao tiếp của chúng ta với điện thoại (qua ngón tay cái) là quá chậm. BCI cho phép chúng ta dùng ý nghĩ để tìm kiếm Google hoặc điều khiển AI, biến AI thành phần mở rộng của vỏ não (Exocortex). (Giải thích thêm: (Bandwidth) (Merge) Nếu không thể đánh bại AI, con người phải KẾT HỢP với AI để không bị bỏ lại phía sau trong quá trình tiến hóa.)"
+  },
+  {
+    "id": 12,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Trong bức tranh Tương lai của AI, 'Meta-Learning' (Học cách Học) là thuật toán giải quyết vấn đề gì?",
+    "options": [
+      "Học cách kiếm tiền trên mạng (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Thay vì học một bài toán cụ thể, Meta-Learning huấn luyện mô hình khả năng TỰ HỌC.",
+      "Học lại toàn bộ kiến thức của nhân loại (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Chỉ dùng cho hệ sinh thái Metaverse (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 1,
+    "feedback": "Meta-learning mô phỏng cách bộ não trẻ em học hỏi. Trẻ em đã biết khái niệm 'Động vật 4 chân', nên khi nhìn thấy con Ngựa lần đầu tiên, chỉ cần mẹ chỉ 1 lần là đứa trẻ nhớ mãi (Zero/Few-shot), không cần xem 100.000 ảnh ngựa như CNN. (Giải thích thêm: (Few-shot learning) ví dụ mới là có thể thực hiện thành thạo một nhiệm vụ chưa từng thấy trước đây. Cho phép AI chỉ cần xem 1-2)"
+  },
+  {
+    "id": 13,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Công nghệ AI hiện nay (như ChatGPT) tiêu thụ năng lượng (Điện năng và Nước làm mát) ở mức cực kỳ khủng khiếp, đe dọa trực tiếp đến mục tiêu giảm khí thải Carbon của Trái Đất. Việc tìm ra phần cứng 'Neuromorphic' (Chip mô phỏng sinh học) tiêu thụ ít điện như Não người (chỉ khoảng 20 Watt) là một hướng đi bắt buộc của tương lai.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Cụm Server đào tạo GPT-4 tiêu thụ điện bằng cả một thị trấn. Trong khi đó, bộ não siêu phàm của con người hoạt động bằng năng lượng của 1 củ khoai tây. Chúng ta còn phải học Mẹ Thiên Nhiên rất nhiều về hiệu suất năng lượng."
+  },
+  {
+    "id": 14,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Ghép nối các xu hướng/Kiến trúc AI của Tương lai tiềm năng sẽ thay thế/cải tiến Transformer hiện nay:",
+    "pairs": [
+      {
+        "left": "State Space Models (SSM) / Mamba",
+        "right": "Kiến trúc thay thế Transformer. Xử lý được Chuỗi Dài Vô Tận (Infinite Context Window) với độ phức tạp tuyến tính O(N) thay vì O(N^2) Bình phương của Attention, tốc độ suy luận nhanh gấp 5 lần."
+      },
+      {
+        "left": "Mixture of Experts (MoE)",
+        "right": "Thay vì bắt 1 mạng Nơ ron khổng lồ học mọi thứ. Ta chia thành nhiều 'Chuyên gia' nhỏ (Toán, Lập trình, Y học...). Khi hỏi câu nào, chỉ 'Đánh thức' (Activate) đúng Chuyên gia đó để trả lời, giúp tiết kiệm 80% RAM và Điện năng."
+      },
+      {
+        "left": "Neuromorphic Computing",
+        "right": "Phần cứng Chip (như Loihi của Intel) sử dụng 'Spiking Neural Networks'. Chip chỉ phóng điện khi có tín hiệu (như não thật), tiêu thụ điện năng cực thấp (Microwatt)."
+      }
+    ],
+    "feedback": "GPT-4 của OpenAI được cho là sử dụng cấu trúc Mixture of Experts (MoE) gồm 8 mô hình nhỏ ghép lại, chứ không phải một mô hình nguyên khối nguyên khối (Dense) khổng lồ."
+  },
+  {
+    "id": 15,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Vấn đề 'Căn chỉnh AI' (AI Alignment) trong tương lai gặp phải nghịch lý mang tên 'King Midas Problem' (Lời nguyền Vua Midas). Nghịch lý này cảnh báo điều gì?",
+    "options": [
+      "AI sẽ biến mọi thứ thành vàng (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Bạn YÊU CẦU AI làm một việc, AI sẽ làm CHÍNH XÁC NGHĨA ĐEN điều đó, nhưng kết quả lại mang đến thảm họa.",
+      "AI sẽ làm nghèo nhân loại (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "AI bị lỗi vòng lặp vô hạn (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 1,
+    "feedback": "Máy tính cực kỳ giỏi làm ĐÚNG MỆNH LỆNH, nhưng lại rất dở trong việc HIỂU LẼ THƯỜNG (Common Sense). Căn chỉnh AI là đảm bảo Hệ thống Tối ưu không hủy diệt giá trị nhân văn. (Giải thích thêm: (Tối đa hóa tài sản) (Giống vua Midas chạm vào con gái cũng biến thành vàng) (Intent) Khó khăn là làm sao máy tính hiểu được Ý ĐỊNH THỰC SỰ của chúng ta.)"
+  },
+  {
+    "id": 16,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Một giải pháp cho Bài toán Căn chỉnh trong tương lai là Inverse Reinforcement ____________ (IRL). Thay vì con người viết ra một Hàm Thưởng (Reward Function) cứng nhắc cho AI, AI sẽ QUAN SÁT hành vi thực tế của con người để TỰ TÌM RA (Đảo ngược) hàm thưởng đó, từ đó hiểu được giá trị đạo đức tiềm ẩn của loài người.",
+    "options": [
+      "Learning",
+      "Logic",
+      "Language",
+      "Law"
+    ],
+    "answer": 0,
+    "feedback": "IRL (Học tăng cường Đảo ngược) giống như học việc. Một AI xem con người lái xe an toàn trên đường sẽ tự hiểu rằng 'Tránh đâm vào người đi bộ là quy tắc ưu tiên số 1', dù chúng ta không lập trình trực tiếp quy tắc đó."
+  },
+  {
+    "id": 17,
+    "type": "ordering",
+    "difficulty": "Dễ",
+    "question": "Các bước tiến hóa của Trí tuệ Nhân tạo theo lịch sử và dự báo của tương lai (Theo AIMA):",
+    "items": [
+      "GOFAI (AI Biểu tượng Cổ điển): Lập trình Logic dựa trên các Quy tắc If-Then (Thập niên 1950-1980).",
+      "Machine Learning: Khả năng học từ dữ liệu bằng Toán học Thống kê (Thập niên 1990-2000).",
+      "Deep Learning (ANI): Bùng nổ Mạng Nơ ron, thống trị Thị giác và Ngôn ngữ trong môi trường hẹp (2012-Hiện tại).",
+      "Multimodal Foundation Models: AI Đa phương thức (Gemini, GPT-4) hiểu cả Text, Ảnh, Video, Code cùng lúc.",
+      "Embodied AGI: Robot mang Trí tuệ tổng quát, tự học, tự suy luận nhân quả trong thế giới thực.",
+      "ASI (Siêu Trí Tuệ): Trí thông minh vượt giới hạn sinh học, khai phá vật lý vũ trụ."
+    ],
+    "feedback": "Chúng ta đang sống ở ranh giới của bước tiến thứ 4 và 5. Tốc độ chuyển giao hiện nay đang nhanh hơn bất kỳ nhà tương lai học nào từng dự đoán vào 10 năm trước."
+  },
+  {
+    "id": 18,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Trong Tương lai, AI tạo sinh (Generative AI) không chỉ tạo ra Văn bản và Hình ảnh. Những lĩnh vực KHOA HỌC nào đang được kỳ vọng sẽ bị cách mạng hóa hoàn toàn bởi AI? (Chọn đáp án đúng)",
+    "options": [
+      "Sinh học: Dự đoán nếp gấp Protein 3D, mở đường cho Thiết kế Thuốc và Protein nhân tạo.",
+      "Khoa học Vật liệu: Dự đoán tính chất của 100.000 tinh thể mới để tìm ra vật liệu siêu dẫn điện hoặc pin năng lượng vĩnh cửu.",
+      "Vật lý Plasma: Dùng Học tăng cường để điều khiển từ trường siêu phức tạp nhằm giữ ổn định Lò phản ứng Nhiệt hạch.",
+      "Xem bói và Tâm linh học (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Đây là ứng dụng mang tên 'AI for Science'. Google DeepMind tin rằng AI không chỉ là Chatbot, mà sẽ đóng vai trò như 'Nhà khoa học', giúp con người giải quyết biến đổi khí hậu và khám phá các định luật tự nhiên mới. (Giải thích thêm: (Như AlphaFold 3)) (Giải thích thêm: (Dự án GNoME)) (Giải thích thêm: (RL) (Fusion Energy))"
+  },
+  {
+    "id": 19,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Sự xuất hiện của 'Tác nhân Tự trị' (Autonomous Agents / Agentic AI) như AutoGPT, Devin đại diện cho xu hướng nào của AI trong tương lai?",
+    "options": [
+      "AI sẽ biến mất (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "AI sẽ chuyển từ dạng bị động 'Nhận câu hỏi -> Sinh câu trả lời' sang dạng chủ động 'Nhận mục tiêu lớn -> TỰ ĐỘNG lập kế hoạch -> Tự dùng trình duyệt/công cụ -> Hoàn thành việc'.",
+      "AI sẽ chỉ dùng để giải trí (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "AI sẽ bị cấm sử dụng (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": 1,
+    "feedback": "Agentic AI có khả năng thực thi các luồng công việc dài hạn. Bạn chỉ cần nói 'Hãy làm cho tôi cái Web bán hàng', AI sẽ tự viết Code, tự Debug, tự Thuê Server, và Báo cáo lại cho bạn khi xong. (Giải thích thêm: (Copilot) (Agent))"
+  },
+  {
+    "id": 20,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Open Source (Mã nguồn mở) đang đóng vai trò cực kỳ quan trọng trong Tương lai của AI. Các mô hình như LLaMA (của Meta) hay Mistral được cung cấp miễn phí cho cộng đồng để mọi người cùng nghiên cứu, thay vì bị khóa kín bởi một vài tập đoàn công nghệ lớn.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Open Source giúp phổ cập hóa AI (Democratization of AI). Tuy nhiên, nó cũng mang lại rủi ro nếu kẻ xấu sử dụng mô hình mở để thiết kế vũ khí sinh học hoặc tấn công mạng."
+  },
+  {
+    "id": 21,
+    "type": "matching",
+    "difficulty": "Khó",
+    "question": "Các loại kiến trúc Hệ thống Phân tán (Distributed Systems) dành cho Tương lai của AI:",
+    "pairs": [
+      {
+        "left": "Cloud AI",
+        "right": "Tập trung Sức mạnh tính toán khổng lồ tại các Datacenter lớn. Trí tuệ AI cao nhất, nhưng độ trễ (latency) cao và cần Internet. (Ví dụ: ChatGPT hiện nay)."
+      },
+      {
+        "left": "Edge AI",
+        "right": "Đưa trực tiếp Mô hình AI nhỏ nhưng hiệu quả (SLMs) xuống thẳng Thiết bị (Điện thoại, IoT, Camera). Độ trễ thấp, Không cần mạng, Bảo mật dữ liệu tuyệt đối (Ví dụ: Apple Intelligence, Gemini Nano)."
+      },
+      {
+        "left": "Swarm AI",
+        "right": "Mô phỏng bầy ong. Hàng ngàn Robot/Thiết bị Edge tự liên kết với nhau bằng mạng ngang hàng (P2P), cùng nhau học hỏi và chia sẻ Tri thức mà không cần Máy chủ trung tâm."
+      }
+    ],
+    "feedback": "Xu hướng hiện nay là Hybrid: Những câu hỏi nhỏ (Dịch thuật) xử lý trên Edge AI (Điện thoại). Những câu hỏi lớn (Mã hóa phần mềm) gửi lên Cloud AI."
+  },
+  {
+    "id": 22,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Khái niệm 'Digital Twin' (Bản sao kỹ thuật số) được AI hóa trong công nghiệp tương lai có nghĩa là gì?",
+    "options": [
+      "Tạo ra nhân vật ảo trên Mạng xã hội (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Tạo ra MỘT BẢN MÔ PHỎNG VIRTUAL CHÍNH XÁC 100% của một đối tượng thực tế.",
+      "Sinh đôi con người bằng sinh học (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Copy file dữ liệu 2 lần (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 1,
+    "feedback": "Digital Twin là ứng dụng sống còn trong các lĩnh vực rủi ro cao (Hàng không, Y tế). NVIDIA đang xây dựng 'Earth-2' - Bản sao Kỹ thuật số của toàn bộ Trái Đất để mô phỏng cực đoan thời tiết và Biến đổi khí hậu bằng AI. (Giải thích thêm: (Ví dụ: Nhà máy, Động cơ máy bay, hay Trái Đất) AI sẽ chạy mô phỏng dự báo lỗi trên Digital Twin trước khi áp dụng ra đời thực.)"
+  },
+  {
+    "id": 23,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Để giải quyết Causal Inference (Suy luận nhân quả) - Tức là phân biệt giữa 'Tương quan' (Correlation) và 'Nguyên nhân - Kết quả' (Causation), nhà khoa học Judea Pearl đã phát minh ra Sơ đồ Nhân quả và Phép toán ____________ (Do-Calculus). AI tương lai phải thành thạo Do-Calculus thì mới thực sự có 'Trí tuệ'.",
+    "options": [
+      "Do",
+      "Math",
+      "Cause",
+      "Graph"
+    ],
+    "answer": 0,
+    "feedback": "Deep Learning hiện nay chỉ tìm sự TƯƠNG QUAN (Trời mưa thì người ta cầm ô). Nó không biết Trời mưa LÀM người ta cầm ô, hay Cầm ô LÀM trời mưa. Causal AI (AI Nhân quả) là chìa khóa để phá vỡ giới hạn này."
+  },
+  {
+    "id": 24,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Những Tác động Địa chính trị (Geopolitics) nào mà AI có thể gây ra trong thập kỷ tới? (Chọn đáp án đúng)",
+    "options": [
+      "Chạy đua Vũ trang AI giữa các Siêu cường quốc. (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Chủ quyền Công nghệ: Các nước ra sức tự phát triển mô hình AI nội địa để bảo vệ văn hóa và ngôn ngữ của mình khỏi sự thống trị của các Big Tech Mỹ/Trung Quốc.",
+      "Quy định luật pháp phân mảnh (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Mọi quốc gia chia sẻ AI cho nhau (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "AI đã vượt ra ngoài khuôn khổ phòng thí nghiệm Khoa học Máy tính. Nó hiện là trung tâm của Chiến lược An ninh Quốc gia và là nguyên nhân của các lệnh cấm vận Chip bán dẫn (Semiconductor). (Giải thích thêm: (AI Arms Race) (Quốc gia nào làm chủ AGI trước sẽ nắm ưu thế kinh tế và quân sự tuyệt đối)) (Giải thích thêm: (Tech Sovereignty) (Sovereign AI)) (Giải thích thêm: Châu Âu cấm AI sinh trắc học, Mỹ thả lỏng doanh nghiệp, Trung Quốc kiểm duyệt gắt gao.)"
+  },
+  {
+    "id": 25,
+    "type": "ordering",
+    "difficulty": "Khó",
+    "question": "Hệ thống phân loại Mức độ Tự chủ của AI (Autonomy Levels) trong Xe tự lái (Từ thấp đến cao):",
+    "items": [
+      "Level 0 (No Automation): Con người tự lái 100%.",
+      "Level 1 (Driver Assistance): Hệ thống hỗ trợ 1 chức năng (Ví dụ: Cruise Control giữ khoảng cách).",
+      "Level 2 (Partial Automation): Xe tự tăng tốc và tự bẻ lái, nhưng Người lái BẮT BUỘC phải đặt tay lên vô lăng và theo dõi liên tục (Ví dụ: Tesla Autopilot hiện tại).",
+      "Level 3 (Conditional Automation): Xe tự lái ở đường cao tốc, mắt người lái CÓ THỂ RỜI ĐƯỜNG, nhưng phải sẵn sàng cầm lái khi hệ thống kêu 'Bíp'.",
+      "Level 4 (High Automation): Xe tự lái 100% trong Khu vực đô thị được lập bản đồ trước (Geofencing) như Robotaxi của Waymo, KHÔNG CẦN con người can thiệp.",
+      "Level 5 (Full Automation): Xe không cần Vô lăng và Bàn đạp. Chạy tự động ở MỌI điều kiện thời tiết và MỌI con đường trên thế giới."
+    ],
+    "feedback": "Việc nhảy từ Level 2 lên Level 4/5 khó hơn hàng ngàn lần so với từ 0 lên 2. Dù AI tiến bộ cực nhanh, Level 5 vẫn được coi là giấc mơ chưa thể đạt được trong ngắn hạn."
+  },
+  {
+    "id": 26,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Luận điểm 'Intelligence is fundamentally Social' (Trí tuệ về cơ bản mang tính Xã hội) gợi ý rằng tương lai của AI cần tập trung vào khía cạnh nào?",
+    "options": [
+      "Làm cho máy tính to hơn.",
+      "Đưa AI vào môi trường Đa tác nhân.",
+      "Cho AI sử dụng Mạng xã hội.",
+      "Thiết kế AI giống mạng Nhện."
+    ],
+    "answer": 1,
+    "feedback": "Con người trở thành loài thống trị Trái Đất không phải vì mỗi cá nhân cực khỏe hay não cực to, mà nhờ khả năng Hợp tác linh hoạt trên quy mô lớn (Ngôn ngữ xã hội). AI cũng phải học cách sống thành Xã hội. (Giải thích thêm: (Multi-Agent Systems) Để thông minh như người, AI không thể tự học một mình. Các AI phải Giao tiếp, Đàm phán, Cạnh tranh và Hợp tác VỚI NHAU và VỚI CON NGƯỜI trong một 'Xã hội AI'.)"
+  },
+  {
+    "id": 27,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Sự phát triển của AI Tổng quát (AGI) là một điều KIẾN TẠO CHẮC CHẮN sẽ xảy ra, và mọi nhà khoa học hàng đầu trên thế giới đều đồng ý rằng chúng ta sẽ đạt được nó vào năm 2030.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai. Dù AI tiến bộ vượt bậc, cộng đồng khoa học vẫn chia rẽ cực kỳ sâu sắc. Có người nghĩ AGI sẽ có mặt trong 5 năm tới (Sam Altman), có người tin phải 50 năm nữa, và một số ít (như Yann LeCun) cho rằng con đường hiện tại của LLMs là ngõ cụt và sẽ KHÔNG BAO GIỜ dẫn đến AGI."
+  },
+  {
+    "id": 28,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Khái niệm 'Artificial Moral Agents' (Tác nhân Đạo đức Nhân tạo) - AMA, chỉ loại AI nào?",
+    "options": [
+      "AI giảng dạy môn Đạo đức học trong trường Đại học (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Hệ thống AI không chỉ thực thi Nhiệm vụ, mà còn CÓ KHẢ NĂNG TỰ SUY LUẬN và tự CHỌN HÀNH ĐỘNG DỰA TRÊN CÁC NGUYÊN TẮC ĐẠO ĐỨC trong những tình huống lưỡng nan chưa từng được lập trình sẵn.",
+      "AI quản lý Nhà thờ (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "AI phân loại đúng sai theo Luật Hình sự (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 1,
+    "feedback": "Để AGI an toàn, nó buộc phải là một AMA (Tác nhân Đạo đức). Nó phải tự hiểu rằng 'Nói dối để bảo vệ mạng sống một con người' là điều đạo đức, dù không có luật nào quy định cụ thể trường hợp đó."
+  },
+  {
+    "id": 29,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Khái niệm 'AI ____________' (Mùa đông AI) dùng để chỉ những thời kỳ đen tối trong lịch sử (Ví dụ những năm 1970 và 1990) khi giới học thuật hứa hẹn quá đà về AI nhưng không làm được, dẫn đến cạn kiệt niềm tin và nguồn vốn đầu tư. Dù khó xảy ra, một số chuyên gia vẫn cảnh báo chúng ta không nên 'Hype' (Thổi phồng) quá mức để tránh lịch sử lặp lại.",
+    "options": [
+      "Winter",
+      "Summer",
+      "Apocalypse",
+      "Bubble"
+    ],
+    "answer": 0,
+    "feedback": "AI Winter (Mùa đông AI) là bài học xương máu cho giới khoa học: Hãy tập trung vào việc tạo ra các sản phẩm Giải quyết giá trị thực, thay vì chỉ vẽ ra các giấc mơ khoa học viễn tưởng để gọi vốn."
+  },
+  {
+    "id": 30,
+    "type": "multiple_select",
+    "difficulty": "Dễ",
+    "question": "Cuốn sách 'Trí tuệ nhân tạo: Một cách tiếp cận hiện đại' (AIMA) kết thúc với thông điệp gì dành cho sinh viên và những người học AI? (Chọn đáp án đúng)",
+    "options": [
+      "Khoa học AI không chỉ là viết Code hay Toán học.",
+      "Trí tuệ Nhân tạo mang lại Sức mạnh cực đại, và 'Sức mạnh lớn đi kèm Trách nhiệm lớn'.",
+      "Sự phát triển của AI cần hướng tới mục tiêu duy nhất là",
+      "Máy móc cuối cùng sẽ tiêu diệt con người và chúng ta không thể làm gì cả."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "AI không phải là kẻ thù, cũng không phải Đấng cứu thế. AI là một TẤM GƯƠNG PHẢN CHIẾU chính loài người. Một tương lai tốt đẹp của AI phụ thuộc hoàn toàn vào những Giá trị Đạo đức mà người Kỹ sư truyền vào những dòng Code ngay từ ngày hôm nay. (Giải thích thêm: Nó là một sự giao thoa sâu sắc với Triết học, Tâm lý học, Kinh tế học, và Sinh học.) (Giải thích thêm: 'Gia tăng sự thịnh vượng, Hạnh phúc, và Nâng tầm khả năng của CON NGƯỜI'.)"
+  }
+]

@@ -1,0 +1,460 @@
+[
+  {
+    "id": 1,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Tìm kiếm cục bộ (Local Search) khác biệt cốt lõi nhất với tìm kiếm hệ thống (như A*, BFS) ở điểm nào?",
+    "options": [
+      "Nó luôn tìm được giải pháp tối ưu toàn cục (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Nó giữ toàn bộ cây tìm kiếm trong bộ nhớ để quay lui khi cần.",
+      "Nó chỉ hoạt động với trạng thái hiện tại và thường không giữ lại lịch sử tìm kiếm.",
+      "Nó chạy chậm hơn rất nhiều (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 2,
+    "feedback": "Local search di chuyển từ trạng thái này sang trạng thái lân cận mà không lưu lại đường đi (path) trong RAM, giúp tiết kiệm không gian bộ nhớ. (Giải thích thêm: (hoặc một số trạng thái))"
+  },
+  {
+    "id": 2,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Thuật toán tìm kiếm ____________ (Hill-climbing) liên tục di chuyển về hướng tăng giá trị của hàm mục tiêu (hoặc giảm chi phí) và dừng lại khi đạt đỉnh.",
+    "options": [
+      "Leo đồi (Hill-climbing)",
+      "Luyện kim (Simulated Annealing)",
+      "Chùm tia (Beam Search)",
+      "Di truyền (Genetic Algorithm)"
+    ],
+    "answer": 0,
+    "feedback": "Hill-climbing (Leo đồi) là thuật toán tìm kiếm cục bộ cơ bản nhất, giống như việc 'leo lên núi trong sương mù'."
+  },
+  {
+    "id": 3,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Thuật toán leo đồi (Hill-climbing) thường gặp phải những vấn đề nan giải nào khiến nó bị kẹt lại? (Chọn các đáp án đúng)",
+    "options": [
+      "Cực đại địa phương (Local Maxima).",
+      "Gờ / Dãy núi (Ridges).",
+      "Hết bộ nhớ (Out of Memory).",
+      "Cao nguyên / Bằng phẳng (Plateaux)."
+    ],
+    "answer": [
+      0,
+      1,
+      3
+    ],
+    "feedback": "Hill-climbing không tốn bộ nhớ (O(1) memory), nhưng nó dễ bị kẹt ở cực đại địa phương, ridges, hoặc di chuyển lặp lại vô nghĩa trên cao nguyên (plateaux)."
+  },
+  {
+    "id": 4,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Thuật toán leo đồi luôn luôn hoàn chỉnh (Complete) - tức là chắc chắn tìm được mục tiêu nếu mục tiêu tồn tại.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai. Vì nó có thể bị kẹt vĩnh viễn ở cực đại địa phương (local maxima) và không bao giờ đến được đích."
+  },
+  {
+    "id": 5,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Thuật toán Luyện kim nhân tạo (Simulated Annealing) có khả năng thoát khỏi cực đại địa phương bằng cách nào?",
+    "options": [
+      "Nó quay lui (backtrack) về trạng thái khởi đầu (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Nó thỉnh thoảng chấp nhận các bước đi tồi tệ với một xác suất giảm dần theo thời gian.",
+      "Nó gọi thuật toán A* để tìm đường thoát (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Nó kiểm tra tất cả các đỉnh núi (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 1,
+    "feedback": "Simulated Annealing dùng một 'nhiệt độ' T. Ban đầu T lớn, nó dễ chấp nhận bước đi tồi (để nhảy ra khỏi local maxima). Về sau T giảm dần (nguội đi), nó biến thành hill-climbing bình thường. (Giải thích thêm: (bad moves) (Nhiệt độ T giảm))"
+  },
+  {
+    "id": 6,
+    "type": "matching",
+    "difficulty": "Khó",
+    "question": "Ghép nối các thuật toán tìm kiếm cục bộ với đặc trưng cốt lõi của chúng:",
+    "pairs": [
+      {
+        "left": "Stochastic hill-climbing",
+        "right": "Chọn ngẫu nhiên một trong số các bước đi đi lên (tốt hơn)"
+      },
+      {
+        "left": "First-choice hill-climbing",
+        "right": "Sinh ngẫu nhiên các trạng thái lân cận cho đến khi tìm được trạng thái tốt hơn thì chọn luôn"
+      },
+      {
+        "left": "Random-restart hill-climbing",
+        "right": "Tiến hành leo đồi nhiều lần từ các trạng thái khởi đầu ngẫu nhiên khác nhau"
+      },
+      {
+        "left": "Simulated annealing",
+        "right": "Chấp nhận bước đi tệ hơn với xác suất e^(ΔE/T)"
+      }
+    ],
+    "feedback": "Đây là các biến thể nổi tiếng nhất để khắc phục điểm yếu của Hill-climbing truyền thống."
+  },
+  {
+    "id": 7,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Thuật toán Tìm kiếm chùm tia cục bộ (Local Beam Search) duy trì bao nhiêu trạng thái tại mỗi bước?",
+    "options": [
+      "1 trạng thái duy nhất.",
+      "k trạng thái (với k là một số nguyên dương).",
+      "Toàn bộ trạng thái đã từng sinh ra.",
+      "Không giới hạn."
+    ],
+    "answer": 1,
+    "feedback": "Local Beam Search giữ k trạng thái (beam width). Khác với chạy k thuật toán leo đồi độc lập, các trạng thái này chia sẻ thông tin với nhau để tập trung tài nguyên vào vùng hứa hẹn nhất."
+  },
+  {
+    "id": 8,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Thuật toán ____________ (Genetic Algorithm) là một dạng tìm kiếm chùm tia ngẫu nhiên (stochastic beam search) trong đó các trạng thái thế hệ sau được sinh ra bằng cách kết hợp 2 trạng thái thế hệ trước.",
+    "options": [
+      "Tiến hóa (Evolution)",
+      "Chùm tia (Beam)",
+      "Di truyền (Genetic)",
+      "Luyện kim (Annealing)"
+    ],
+    "answer": 2,
+    "feedback": "Genetic Algorithm (GA) dựa trên mô phỏng chọn lọc tự nhiên: Lai ghép (Crossover) và Đột biến (Mutation)."
+  },
+  {
+    "id": 9,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Sắp xếp thứ tự các bước cơ bản trong một vòng lặp của Thuật toán Di truyền (Genetic Algorithm):",
+    "items": [
+      "Đánh giá độ thích nghi (Fitness function) của từng cá thể",
+      "Chọn lọc (Selection) các cá thể khỏe mạnh làm cha mẹ",
+      "Lai ghép (Crossover) để sinh ra cá thể con",
+      "Đột biến (Mutation) ngẫu nhiên trên cá thể con",
+      "Tạo ra quần thể thế hệ mới thay thế quần thể cũ"
+    ],
+    "feedback": "Quy trình: Fitness Evaluation -> Selection -> Crossover -> Mutation -> New Generation."
+  },
+  {
+    "id": 10,
+    "type": "multiple_select",
+    "difficulty": "Dễ",
+    "question": "Trong Thuật toán Di truyền (GA), hàm thích nghi (Fitness Function) có tác dụng gì? (Chọn đáp án đúng)",
+    "options": [
+      "Tính toán khoảng cách ngắn nhất đến đích (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Đo lường mức độ 'tốt' của một trạng thái để quyết định xác suất được chọn làm cha mẹ.",
+      "Xác định điểm cực tiểu của hàm chi phí (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Đánh giá chất lượng của giải pháp (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": [
+      1,
+      3
+    ],
+    "feedback": "Fitness Function (Hàm thích nghi) trả về một điểm số. Cá thể có điểm càng cao thì xác suất được chọn để duy trì nòi giống (lai ghép) càng lớn. (Giải thích thêm: (cá thể))"
+  },
+  {
+    "id": 11,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Tại sao đột biến (Mutation) lại cần thiết trong thuật toán di truyền?",
+    "options": [
+      "Để giảm tốc độ chạy của thuật toán.",
+      "Để xóa sổ những cá thể có hàm thích nghi cao.",
+      "Để duy trì sự đa dạng di truyền, giúp thoát khỏi cực đại địa phương.",
+      "Để đảm bảo thuật toán kết thúc nhanh hơn."
+    ],
+    "answer": 2,
+    "feedback": "Nếu không có đột biến, thuật toán sẽ hội tụ quá nhanh về một local maxima (cực đại địa phương). Đột biến thêm vào các gen mới ngẫu nhiên để duy trì đa dạng."
+  },
+  {
+    "id": 12,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Trong không gian trạng thái liên tục (Continuous Spaces), số lượng trạng thái là vô hạn, vì vậy ta không thể áp dụng các thuật toán như BFS hay A* một cách trực tiếp.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Trong không gian liên tục (VD: tọa độ robot x,y), số lượng trạng thái và hành động (góc độ) là không đếm được. Do đó phải dùng đạo hàm/gradient hoặc rời rạc hóa (discretization)."
+  },
+  {
+    "id": 13,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Ghép nối các phương pháp tối ưu hóa không gian liên tục với đặc điểm của chúng:",
+    "pairs": [
+      {
+        "left": "Gradient Descent (Hạ gradient)",
+        "right": "Sử dụng đạo hàm bậc 1 để di chuyển ngược hướng dốc nhằm tìm cực tiểu"
+      },
+      {
+        "left": "Newton-Raphson",
+        "right": "Sử dụng đạo hàm bậc 2 (ma trận Hessian) để tìm cực trị nhanh hơn"
+      },
+      {
+        "left": "Discretization (Rời rạc hóa)",
+        "right": "Chia không gian liên tục thành các ô lưới (grid) để áp dụng thuật toán tìm kiếm rời rạc"
+      }
+    ],
+    "feedback": "Gradient descent và Newton-Raphson là công cụ toán học cơ bản trong học máy (machine learning) để tìm cực tiểu hàm chi phí."
+  },
+  {
+    "id": 14,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Trong môi trường có hành động không tất định (Nondeterministic actions), giải pháp của một bài toán tìm kiếm không còn là một chuỗi hành động (path) nữa, mà là gì?",
+    "options": [
+      "Một đồ thị vô hướng.",
+      "Một mạng nơ-ron.",
+      "Một chiến lược dạng cây if-then.",
+      "Một trạng thái duy nhất."
+    ],
+    "answer": 2,
+    "feedback": "Vì môi trường trả về kết quả ngẫu nhiên (nondeterministic), giải pháp phải là 'Nếu kết quả là A thì làm X, nếu kết quả là B thì làm Y'. (Giải thích thêm: (Contingency plan / Strategy))"
+  },
+  {
+    "id": 15,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Cây tìm kiếm giải quyết hành động không tất định được gọi là cây tìm kiếm AND-____________. Các nút OR do tác tử chọn hành động, các nút AND do môi trường chọn kết quả.",
+    "options": [
+      "XOR",
+      "NAND",
+      "NOT",
+      "OR"
+    ],
+    "answer": 3,
+    "feedback": "AND-OR Search Trees. OR node: Agent chọn 1 hành động trong tập các hành động. AND node: Môi trường có thể phản hồi bằng bất kỳ kết quả nào, nên Agent phải chuẩn bị kịch bản cho TẤT CẢ (AND) các kết quả đó."
+  },
+  {
+    "id": 16,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Trong môi trường Không thể quan sát hoàn toàn (Partially Observable), tác tử cần phải duy trì 'Trạng thái niềm tin' (Belief state). Belief state là gì?",
+    "options": [
+      "Một tôn giáo hoặc hệ tư tưởng của tác tử.",
+      "Tập hợp tất cả các trạng thái vật lý mà tác tử nghĩ rằng nó CÓ THỂ đang ở đó.",
+      "Một con số duy nhất thể hiện độ tin cậy của phần cứng.",
+      "Đại diện cho những gì tác tử biết về môi trường hiện tại dựa trên chuỗi nhận thức."
+    ],
+    "answer": [
+      1,
+      3
+    ],
+    "feedback": "Belief State = Tập các trạng thái vật lý khả thi (tương thích với nhận thức hiện tại). Thay vì tìm kiếm trên không gian vật lý, tác tử tìm kiếm trên Không gian Belief State."
+  },
+  {
+    "id": 17,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Nếu một bài toán có N trạng thái vật lý (Physical states), thì số lượng trạng thái niềm tin (Belief states) có thể lên tới 2^N.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Một belief state là một tập con của tập các trạng thái vật lý. Một tập hợp có N phần tử sẽ có 2^N tập con."
+  },
+  {
+    "id": 18,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Một bài toán hoàn toàn không có cảm biến (Sensorless / Conformant problem) có đặc điểm gì?",
+    "options": [
+      "Tác tử không cần làm gì cả vì không thể cảm nhận (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Tác tử phải tìm ra một chuỗi hành động đảm bảo đạt được mục tiêu bất kể trạng thái ban đầu và quá trình chuyển đổi ra sao.",
+      "Tác tử sẽ tự động tắt để tiết kiệm điện (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Tác tử sử dụng thuật toán Luyện kim nhân tạo (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": 1,
+    "feedback": "Sensorless problem yêu cầu tìm một chuỗi hành động ép môi trường (belief state) hội tụ về trạng thái đích dù ban đầu không biết mình ở đâu."
+  },
+  {
+    "id": 19,
+    "type": "ordering",
+    "difficulty": "Khó",
+    "question": "Sắp xếp chu kỳ hoạt động của thuật toán Online Search (Tác tử tìm kiếm trực tuyến) khi nó khám phá một môi trường chưa biết:",
+    "items": [
+      "Nhận nhận thức (percept) s' cho biết trạng thái hiện tại",
+      "Cập nhật bản đồ (trạng thái, hành động, kết quả) nếu s' là trạng thái mới",
+      "Đánh giá xem s' có phải là đích (Goal) không. Nếu có thì dừng lại",
+      "Sử dụng thuật toán (như LRTA*) để chọn hành động tốt nhất a từ trạng thái s'",
+      "Thực thi hành động a trong môi trường vật lý"
+    ],
+    "feedback": "Online agent thực thi trong môi trường thực đan xen với việc tính toán: Nhận thức -> Cập nhật bản đồ -> Kiểm tra đích -> Quyết định hành động -> Thực thi."
+  },
+  {
+    "id": 20,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Sự khác biệt cốt lõi giữa Offline Search (Tìm kiếm ngoại tuyến) và Online Search (Tìm kiếm trực tuyến) là gì?",
+    "options": [
+      "Offline chạy trên máy tính không có internet, Online cần có Wi-Fi.",
+      "Offline tính toán ra toàn bộ kế hoạch trước khi hành động.",
+      "Offline tốn nhiều RAM hơn Online (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Online nhanh hơn Offline (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": 1,
+    "feedback": "Offline Search 'nhắm mắt tính toán' trong mô hình rồi mới chạy. Online Search khám phá môi trường thực tế từng bước một (interleaving computation and action). (Giải thích thêm: Online hành động xen kẽ với tính toán trong môi trường thực.)"
+  },
+  {
+    "id": 21,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Trong Online Search, một trạng thái được gọi là ____________ (Dead end) nếu từ đó không có bất kỳ đường nào dẫn đến đích.",
+    "options": [
+      "Mù (Blind)",
+      "Ngõ cụt (Dead end)",
+      "An toàn (Safe)",
+      "Đỉnh đồi (Peak)"
+    ],
+    "answer": 1,
+    "feedback": "Ngõ cụt (Dead end). Tác tử trực tuyến nếu đi vào ngõ cụt sẽ thất bại vì môi trường thực không cho phép 'tua lại' thời gian như trong máy tính."
+  },
+  {
+    "id": 22,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Ghép nối thuật ngữ Online Search với định nghĩa của nó:",
+    "pairs": [
+      {
+        "left": "Competitive ratio (Tỷ lệ cạnh tranh)",
+        "right": "Tỷ số giữa chi phí đường đi thực tế của tác tử và chi phí đường đi ngắn nhất (nếu biết trước bản đồ)"
+      },
+      {
+        "left": "Dead end (Ngõ cụt)",
+        "right": "Trạng thái không thể đi đến đích"
+      },
+      {
+        "left": "Safely explorable (Khám phá an toàn)",
+        "right": "Không gian trạng thái mà từ bất kỳ trạng thái nào cũng luôn có cách đi tới đích"
+      }
+    ],
+    "feedback": "Tỷ lệ cạnh tranh là thước đo xem tác tử trực tuyến hoạt động kém hơn bao nhiêu lần so với tác tử toàn tri (biết trước bản đồ)."
+  },
+  {
+    "id": 23,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Thuật toán LRTA* (Learning Real-Time A*) là một thuật toán Tìm kiếm Trực tuyến (Online Search).",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. LRTA* xây dựng và cập nhật hàm heuristic H(s) theo thời gian thực mỗi khi nó đi qua các trạng thái để dần dần học được đường đi tối ưu."
+  },
+  {
+    "id": 24,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Thuật toán LRTA* hoạt động bằng cách cập nhật ước lượng hàm Heuristic H(s). Nó cập nhật H(s) như thế nào?",
+    "options": [
+      "Luôn cho H(s) = 0 (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "H được cập nhật bằng chi phí của hành động tốt nhất cộng với ước lượng của trạng thái tiếp theo.",
+      "Nếu đi vào trạng thái cũ, nó cập nhật H để 'trừng phạt' việc đứng yên, buộc nó phải khám phá nơi mới.",
+      "H(s) không bao giờ bị thay đổi (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": [
+      1,
+      2
+    ],
+    "feedback": "LRTA* dùng nguyên lý tối ưu Bellman: H(s) = min_a ( c(s,a,s') + H(s') ). Nó học được đường đi thực tế và thoát khỏi local minima nhờ việc đẩy H(s) tăng lên mỗi khi đi vào ngõ cụt."
+  },
+  {
+    "id": 25,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Trong không gian trạng thái, một 'Ridge' (Gờ / Sống núi) là gì đối với thuật toán leo đồi?",
+    "options": [
+      "Một điểm thấp nhất của hàm chi phí (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Một khu vực bằng phẳng rộng lớn (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Một chuỗi các đỉnh núi dốc đứng ở 2 bên nhưng lại có độ dốc hẹp nhô lên dần, khiến thuật toán leo đồi dễ dao động zic-zắc.",
+      "Một vùng toàn ngõ cụt (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 2,
+    "feedback": "Ridges (Sống núi) rất khó khăn cho Hill-climbing vì các di chuyển cơ bản (Bắc Nam Đông Tây) có thể không trùng với hướng của sống núi, dẫn đến phải đi zic-zắc rất chậm."
+  },
+  {
+    "id": 26,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Trong Di truyền (Genetic Algorithm), việc biểu diễn một cá thể (ví dụ bài toán N-Queens) thường dùng chuỗi các chữ số hoặc bit (chromosome).",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Mã hóa (Encoding) trạng thái thành chuỗi bit/số là bắt buộc để có thể thực hiện Lai ghép và Đột biến."
+  },
+  {
+    "id": 27,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Sắp xếp cấu trúc giải quyết bài toán với Nondeterministic actions (Cây AND-OR) từ Gốc xuống Nhánh:",
+    "items": [
+      "Trạng thái ban đầu (OR node)",
+      "Tác tử chọn hành động (A)",
+      "Kết quả có thể xảy ra (AND node)",
+      "Môi trường phản hồi với các trạng thái kết quả (S', S'')",
+      "Tác tử đưa ra hành động tiếp theo cho từng trạng thái kết quả"
+    ],
+    "feedback": "OR (tác tử chọn) -> Hành động -> AND (Môi trường trả kết quả ngẫu nhiên) -> Các trạng thái con -> OR tiếp theo."
+  },
+  {
+    "id": 28,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Trong không gian liên tục, thay vì tối ưu hóa bằng cách thử từng bước nhỏ, ta có thể giải phương trình ∇f(x) = 0 để tìm cực trị trực tiếp. Nếu không có phương pháp giải tích, ta dùng phương pháp đạo hàm lặp gọi là ____________ (Gradient Descent).",
+    "options": [
+      "Mô phỏng (Simulation)",
+      "Tuyến tính (Linear)",
+      "Hạ gradient (Gradient Descent)",
+      "Rời rạc (Discrete)"
+    ],
+    "answer": 2,
+    "feedback": "Gradient descent lặp lại công thức x = x - α * ∇f(x) để đi xuống dốc tìm cực tiểu của hàm liên tục."
+  },
+  {
+    "id": 29,
+    "type": "matching",
+    "difficulty": "Dễ",
+    "question": "Nối các bài toán kinh điển với thuật toán hoặc kỹ thuật thích hợp nhất cho chúng:",
+    "pairs": [
+      {
+        "left": "Lập thời khóa biểu giảng dạy",
+        "right": "Tìm kiếm cục bộ (Local Search) hoặc Di truyền"
+      },
+      {
+        "left": "Tìm đường ngắn nhất trên bản đồ",
+        "right": "A* Search"
+      },
+      {
+        "left": "Robot thám hiểm sao Hỏa (không biết bản đồ trước)",
+        "right": "Online Search (LRTA*)"
+      }
+    ],
+    "feedback": "Bài toán tối ưu như thời khóa biểu có không gian quá lớn, dùng Local search (leo đồi/di truyền) là nhanh nhất để ra kết quả đủ tốt."
+  },
+  {
+    "id": 30,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Khi sử dụng Local Beam Search với tham số k, sự khác biệt của nó so với chạy k thuật toán leo đồi song song độc lập là gì?",
+    "options": [
+      "Không có sự khác biệt, hai cách làm là giống hệt nhau (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Trong Beam Search, k trạng thái sinh ra 1 tập các trạng thái kế tiếp, và thuật toán chỉ chọn giữ lại k trạng thái tốt nhất trong TOÀN BỘ tập đó.",
+      "Chạy độc lập k leo đồi thì các trạng thái không truyền thông tin cho nhau (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Beam Search tốn ít bộ nhớ hơn Hill-climbing (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": [
+      1,
+      2
+    ],
+    "feedback": "Beam Search luôn chọn k cá thể xuất sắc nhất từ tất cả con cháu, nghĩa là nếu 1 nhánh hứa hẹn, nó sẽ chiếm cả k slot, nếu 1 nhánh tệ nó sẽ bị loại bỏ hoàn toàn (chia sẻ thông tin sinh tồn). (Giải thích thêm: (có thể k thuật toán đều kẹt ở 1 vùng))"
+  }
+]

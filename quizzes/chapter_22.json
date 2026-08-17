@@ -1,0 +1,465 @@
+[
+  {
+    "id": 1,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Deep Learning (Học sâu) là một nhánh con của Machine Learning, sự khác biệt lớn nhất làm nên từ 'Sâu' (Deep) là gì?",
+    "options": [
+      "Thuật toán có thể lặn dưới nước (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Mạng nơ ron có nhiều 'Lớp Ẩn' nằm giữa lớp Đầu vào và Đầu ra, giúp nó học được các biểu diễn đặc trưng từ thấp đến cao.",
+      "Thuật toán đòi hỏi kiến thức toán học rất sâu sắc (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Thuật toán mất rất nhiều thời gian để chạy (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 1,
+    "feedback": "Deep Learning dùng nhiều lớp ẩn để tự động trích xuất đặc trưng. Ví dụ phân tích ảnh: Lớp 1 học Cạnh (Edges) -> Lớp 2 học Góc (Corners) -> Lớp 3 học Bộ phận (Mũi, Mắt) -> Lớp 4 học Khuôn mặt. (Giải thích thêm: (Hidden Layers) (Hierarchical representations))"
+  },
+  {
+    "id": 2,
+    "type": "fill_blank",
+    "difficulty": "Dễ",
+    "question": "Thuật toán cốt lõi cho phép huấn luyện các mạng nơ ron nhiều lớp bằng cách tính toán đạo hàm (gradient) của hàm Lỗi ngược từ lớp Đầu ra về lớp Đầu vào được gọi là thuật toán Lan truyền ngược (____________).",
+    "options": [
+      "Backpropagation",
+      "Feedforward",
+      "Dropout",
+      "Convolution"
+    ],
+    "answer": 0,
+    "feedback": "Backpropagation (Lan truyền ngược) kết hợp với Gradient Descent là trái tim của Deep Learning. Nó cho biết mỗi trọng số (weight) ở các lớp sâu đã đóng góp bao nhiêu phần trăm vào lỗi của kết quả cuối cùng."
+  },
+  {
+    "id": 3,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Tại sao Mạng nơ ron Đa lớp (Multilayer Perceptron - MLP) BẮT BUỘC phải sử dụng các Hàm kích hoạt Phi tuyến tính (Non-linear Activation Functions) ở các lớp ẩn? (Chọn đáp án đúng)",
+    "options": [
+      "Để ngăn chặn Overfitting (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Bởi vì tổ hợp của nhiều hàm Tuyến tính vẫn chỉ là một hàm Tuyến tính.",
+      "Để mạng có khả năng 'Bẻ cong' không gian dữ liệu, giải quyết các bài toán không thể phân chia tuyến tính.",
+      "Để làm giảm kích thước RAM (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": [
+      1,
+      2
+    ],
+    "feedback": "Tính phi tuyến (Non-linearity) chính là phép màu của mạng nơ ron. Hàm Sigmoid, Tanh hay ReLU là những đường cong bẻ gãy tính chất đường thẳng, giúp mạng 'ôm sát' được mọi dữ liệu phức tạp. (Giải thích thêm: Nếu không có phi tuyến, mạng 1000 lớp cũng chỉ bằng 1 lớp duy nhất.) (Giải thích thêm: (như hàm XOR))"
+  },
+  {
+    "id": 4,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Trong các Hàm kích hoạt (Activation Functions) hiện đại, hàm nào được sử dụng phổ biến nhất ở các lớp ẩn (Hidden layers) vì tính toán cực nhanh và giải quyết được vấn đề 'Tiêu biến đạo hàm' (Vanishing Gradient)?",
+    "options": [
+      "Sigmoid",
+      "Tanh",
+      "ReLU (Rectified Linear Unit)",
+      "Softmax"
+    ],
+    "answer": 2,
+    "feedback": "ReLU có công thức cực kỳ đơn giản: $f(x) = max(0, x)$. Nếu x < 0 thì bằng 0, nếu x > 0 thì giữ nguyên. Khác với Sigmoid bị bão hòa ở hai đầu (đạo hàm = 0), đạo hàm của ReLU luôn bằng 1 nếu x > 0, giúp Gradient truyền về các lớp sâu rất tốt."
+  },
+  {
+    "id": 5,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Ghép nối Hàm kích hoạt (Activation Function) với vị trí LỚP ĐẦU RA (Output Layer) phù hợp nhất cho các bài toán:",
+    "pairs": [
+      {
+        "left": "Phân loại Đa lớp (Multi-class - Ví dụ: Chó, Mèo, Gà)",
+        "right": "Hàm Softmax (Biến đổi output thành vector xác suất có tổng bằng 1)."
+      },
+      {
+        "left": "Phân loại Nhị phân (Binary - Ví dụ: Có bệnh, Không bệnh)",
+        "right": "Hàm Sigmoid (Ép output về khoảng 0 đến 1, coi như xác suất của Lớp 1)."
+      },
+      {
+        "left": "Hồi quy (Regression - Ví dụ: Dự đoán giá nhà)",
+        "right": "Linear / Identity (Không dùng hàm kích hoạt nào cả, xuất thẳng giá trị thực)."
+      }
+    ],
+    "feedback": "Việc chọn Hàm kích hoạt ở Output Layer và Hàm Lỗi (Loss Function) phải đi cặp với nhau. (Softmax đi với Cross-Entropy, Linear đi với Mean Squared Error)."
+  },
+  {
+    "id": 6,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Hiện tượng 'Tiêu biến đạo hàm' (Vanishing Gradient) xảy ra khi huấn luyện mạng nơ ron RẤT SÂU, trong đó tín hiệu lỗi từ lớp cuối cùng bị nhân với các số nhỏ hơn 1 liên tục, khiến đạo hàm về đến các lớp đầu tiên gần như bằng 0 (Mạng ngừng học).",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Đây là lý do khiến Deep Learning bị đóng băng trong suốt nhiều thập kỷ (trước năm 2006). Người ta đã dùng các thủ thuật như ReLU, Khởi tạo trọng số thông minh (He/Xavier Initialization) và ResNet (Skip connections) để khắc phục."
+  },
+  {
+    "id": 7,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Kỹ thuật Dropout (Lược bỏ) là một phương pháp Regularization cực kỳ mạnh mẽ trong Deep Learning. Nó hoạt động như thế nào?",
+    "options": [
+      "Xóa ngẫu nhiên các file dữ liệu huấn luyện (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Trong mỗi vòng lặp huấn luyện, VÔ HIỆU HÓA NGẪU NHIÊN một tỷ lệ các Nơ ron trong lớp.",
+      "Dừng thuật toán sớm nếu không tiến bộ (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Trừ bớt đi một hằng số vào trọng số (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 1,
+    "feedback": "Dropout là một dạng 'Ensemble Learning' ẩn bên trong 1 mạng duy nhất. Nó ngăn chặn hiện tượng 'Co-adaptation' (Các nơ ron cấu kết với nhau để thuộc lòng dữ liệu thay vì học quy luật tổng quát). (Giải thích thêm: (Epoch) (ví dụ 50%) Điều này ép các Nơ ron còn lại không được phép ỷ lại vào nhau, phải tự học các đặc trưng hữu ích độc lập.)"
+  },
+  {
+    "id": 8,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Trong xử lý ảnh, Mạng nơ ron Tích chập (____________ Neural Networks - CNNs) đã đánh bại các mạng đa lớp thông thường nhờ khai thác tính Không gian (Spatial) của hình ảnh, giảm thiểu số lượng tham số bằng cách chia sẻ trọng số (Weight sharing).",
+    "options": [
+      "Convolutional",
+      "Recurrent",
+      "Generative",
+      "Transformer"
+    ],
+    "answer": 0,
+    "feedback": "Convolutional Neural Networks (CNN) là vị vua của Thị giác Máy tính (Computer Vision). AlexNet (một CNN) năm 2012 đã mở màn cho kỷ nguyên Deep Learning bùng nổ."
+  },
+  {
+    "id": 9,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Sắp xếp luồng xử lý thông tin đặc trưng qua các lớp của một kiến trúc Mạng Tích chập (CNN) cơ bản để phân loại ảnh:",
+    "items": [
+      "Ảnh đầu vào (Input Image - Ma trận Pixel 3 kênh RGB)",
+      "Lớp Tích chập (Convolutional Layer) quét qua ảnh bằng các Kernel/Filter để trích xuất Đặc trưng cục bộ (Cạnh, Góc)",
+      "Lớp Kích hoạt Phi tuyến (thường là ReLU) để loại bỏ giá trị âm",
+      "Lớp Gộp (Pooling Layer - ví dụ Max Pooling) để nén kích thước ảnh, giữ lại đặc trưng nổi bật nhất và chống dịch chuyển (Translation Invariance)",
+      "Lặp lại tổ hợp Conv -> ReLU -> Pool nhiều lần để học đặc trưng cấp cao",
+      "Duỗi thẳng (Flatten) ma trận thành 1 Vector",
+      "Đưa vào Lớp Kết nối Đầy đủ (Fully Connected Layer) và Softmax để ra kết quả Phân loại"
+    ],
+    "feedback": "Cấu trúc kinh điển này (VGG, LeNet, AlexNet) đóng vai trò như một bộ 'Tự động trích xuất đặc trưng' (Feature Extractor) ở phần đầu, và một bộ Phân loại (Classifier) ở phần đuôi."
+  },
+  {
+    "id": 10,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Kỹ thuật Batch Normalization (Chuẩn hóa theo Batch) giúp ích gì cho quá trình huấn luyện Mạng nơ ron sâu? (Chọn đáp án đúng)",
+    "options": [
+      "Ngăn chặn vấn đề Dịch chuyển Hiệp phương sai nội tại (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Chuẩn hóa dữ liệu trung gian trong mạng sao cho có Mean = 0, Variance = 1, giúp Gradient chảy mượt mà hơn.",
+      "Cho phép sử dụng Learning Rate lớn hơn nhiều, giúp mạng hội tụ nhanh hơn hàng chục lần.",
+      "Xóa bỏ hoàn toàn hiện tượng Overfitting, không cần Dropout nữa (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Batch Norm là một trong những phát minh quan trọng nhất thập niên 2010. Dù người ta vẫn cãi nhau về lý thuyết thực sự đằng sau nó (có phải do Internal Covariate Shift hay do làm phẳng Loss Landscape), thì thực tế nó hoạt động như một phép màu. (Giải thích thêm: (Internal Covariate Shift) Tức là việc phân phối của đầu vào một lớp bị thay đổi liên tục do các lớp trước nó cập nhật trọng số.)"
+  },
+  {
+    "id": 11,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Mạng nơ ron Hồi quy (Recurrent Neural Networks - RNNs) được sinh ra để giải quyết loại dữ liệu nào?",
+    "options": [
+      "Hình ảnh 3D (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Dữ liệu Chuỗi thời gian có chiều dài thay đổi, nơi mà quyết định hiện tại phụ thuộc vào thông tin của các bước trước đó.",
+      "Dữ liệu dạng bảng (Tabular data) (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Video game (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 1,
+    "feedback": "Mạng MLP và CNN thông thường chỉ có tiến lên (Feedforward). RNN có một VÒNG LẶP (Loop) trả kết quả của chính nó ở bước T về lại đầu vào cho bước T+1, đóng vai trò như 'Bộ nhớ' (Memory). (Giải thích thêm: (Sequential data) (Ví dụ: Văn bản, Âm thanh, Chuỗi cổ phiếu))"
+  },
+  {
+    "id": 12,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "RNN cơ bản rất yếu trong việc nhớ các thông tin từ quá khứ rất xa (Vấn đề Long-Term Dependencies) do hiện tượng Tiêu biến đạo hàm theo thời gian. Mạng nào sau đây đã khắc phục triệt để vấn đề này?",
+    "options": [
+      "Mạng Hopfield (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Mạng LSTM nhờ có cấu trúc 'Cổng' để kiểm soát việc Ghi nhớ hay Quên thông tin.",
+      "Mạng MLP (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Mạng GAN (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": 1,
+    "feedback": "LSTM (và người anh em GRU) có một đường cao tốc thông tin gọi là Cell State chạy xuyên suốt, kết hợp với Cổng Quên (Forget Gate) để lọc bỏ thông tin rác, giúp đạo hàm không bị tiêu biến. (Giải thích thêm: (Long Short-Term Memory) (Gates: Input, Forget, Output))"
+  },
+  {
+    "id": 13,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Trong thuật toán Tối ưu hóa Adam (Adaptive Moment Estimation), tỷ lệ học (Learning rate) là CỐ ĐỊNH cho tất cả các trọng số trong suốt quá trình huấn luyện, giống hệt như Stochastic Gradient Descent (SGD) cổ điển.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai. Adam là thuật toán 'Tự động điều chỉnh' (Adaptive). Nó duy trì một Learning Rate RIÊNG BIỆT cho từng trọng số một, dựa trên đạo hàm trong quá khứ (Momentum) và bình phương đạo hàm (RMSProp). Adam là Optimizer phổ biến nhất hiện nay."
+  },
+  {
+    "id": 14,
+    "type": "matching",
+    "difficulty": "Khó",
+    "question": "Ghép nối các thuật ngữ của thuật toán Tối ưu hóa Gradient Descent (GD):",
+    "pairs": [
+      {
+        "left": "Batch GD",
+        "right": "Tính toán đạo hàm trên TOÀN BỘ tập dữ liệu để bước 1 bước. (Cực kỳ chính xác nhưng tốn RAM và chậm)."
+      },
+      {
+        "left": "Stochastic GD (SGD)",
+        "right": "Tính toán đạo hàm trên MỘT MẪU (1 sample) duy nhất. (Rất nhanh nhưng đường đi bị giật cục/noisy)."
+      },
+      {
+        "left": "Mini-batch SGD",
+        "right": "Sự thỏa hiệp hoàn hảo: Tính đạo hàm trên 1 cụm (Ví dụ: 32, 64 samples). Vừa tận dụng được sức mạnh tính toán ma trận của GPU, vừa đủ chính xác."
+      },
+      {
+        "left": "Momentum",
+        "right": "Gia tốc. Tích lũy đà (vận tốc) từ các bước nhảy trước. Giúp SGD lăn nhanh qua các vùng dốc thoải và vượt qua cực tiểu cục bộ nhỏ."
+      }
+    ],
+    "feedback": "Thực tế, khi nói 'Chạy thuật toán SGD', người ta thường ngầm hiểu đó là Mini-batch SGD kết hợp với Momentum."
+  },
+  {
+    "id": 15,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Kiến trúc nào sau đây đã tạo ra cuộc cách mạng rực rỡ nhất trong Xử lý ngôn ngữ tự nhiên (NLP), đánh bại hoàn toàn RNN/LSTM, và là nền tảng của các mô hình LLM như ChatGPT?",
+    "options": [
+      "VGG-16",
+      "Transformers (với cơ chế Self-Attention).",
+      "Word2Vec",
+      "Deep Q-Network (DQN)"
+    ],
+    "answer": 1,
+    "feedback": "Năm 2017, bài báo 'Attention Is All You Need' của Google đã giới thiệu Transformer. Cơ chế Self-Attention cho phép mô hình nhìn ĐỒNG THỜI toàn bộ văn bản (chạy song song tuyệt đối) thay vì đọc từng chữ từ trái sang phải như RNN."
+  },
+  {
+    "id": 16,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Trong cơ chế Self-Attention của Transformer, mỗi từ trong câu sẽ tạo ra 3 vector: Query (Câu hỏi của tôi), Key (Tôi chứa thông tin gì) và ____________ (Nội dung thực sự của tôi).",
+    "options": [
+      "Value",
+      "Vector",
+      "Weight",
+      "Output"
+    ],
+    "answer": 0,
+    "feedback": "Cơ chế Q-K-V (Query-Key-Value) mượn ý tưởng từ Database. Từ 'Bank' (Query) sẽ hỏi tất cả các từ khác trong câu (Key) xem chúng có khớp với nó không (để biết Bank là Bờ sông hay Ngân hàng). Nếu khớp, nó sẽ lấy Value của từ đó đắp vào mình."
+  },
+  {
+    "id": 17,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Quy trình huấn luyện một mạng nơ ron cơ bản (1 Epoch - 1 Vòng lặp):",
+    "items": [
+      "Lấy ra một Batch dữ liệu (X_batch, y_batch)",
+      "Lan truyền xuôi (Forward Propagation): Truyền X_batch qua mạng để tính kết quả dự đoán y_pred",
+      "Tính Lỗi (Loss) bằng cách so sánh y_pred với nhãn thực tế y_batch",
+      "Lan truyền ngược (Backward Propagation): Dùng quy tắc chuỗi (Chain Rule) để tính Đạo hàm (Gradient) của Loss đối với MỌI trọng số trong mạng",
+      "Cập nhật trọng số (Optimizer step): Lấy Trọng số cũ trừ đi (Đạo hàm * Learning rate)",
+      "Xóa đạo hàm cũ (Zero_grad) và lặp lại cho Batch tiếp theo"
+    ],
+    "feedback": "Việc lặp đi lặp lại quy trình này hàng triệu lần chính là cách máy 'Học' (Learning)."
+  },
+  {
+    "id": 18,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Mô hình Sinh (Generative Models) đang là đỉnh cao của AI (Generative AI). Hai kiến trúc nào sau đây là mô hình tạo sinh phổ biến nhất để sinh ra Ảnh/Video mới? (Chọn đáp án đúng)",
+    "options": [
+      "GANs.",
+      "Diffusion Models.",
+      "SVM (Support Vector Machines).",
+      "Decision Trees."
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "feedback": "GANs phổ biến vào khoảng 2014-2020. Diffusion Models nổi lên từ 2021 và hiện đang thống trị nghệ thuật sinh ảnh/video nhờ tính ổn định và chi tiết cao. (Giải thích thêm: (Generative Adversarial Networks - Mạng sinh đối nghịch)) (Giải thích thêm: (Mô hình khuếch tán - nền tảng của Midjourney, Stable Diffusion))"
+  },
+  {
+    "id": 19,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Ý tưởng thiên tài của Ian Goodfellow khi tạo ra Mạng GAN (Generative Adversarial Networks) là gì?",
+    "options": [
+      "Huấn luyện 1 mạng duy nhất bằng cách cho nó xem rất nhiều ảnh.",
+      "Huấn luyện 2 mạng nơ ron chiến đấu VỚI NHAU.",
+      "Dùng AI để chơi cờ vua (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Làm nhòe ảnh rồi khôi phục lại (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 1,
+    "feedback": "Sự cạnh tranh (Adversarial) là nguồn gốc của tiến hóa. Generator ban đầu sinh ra nhiễu hạt cát, Discriminator dễ dàng bắt được. Dần dần Generator bị ép phải sinh ra các bức ảnh giống thật tới mức không thể phân biệt. (Giải thích thêm: (Kẻ làm giả) (Cảnh sát) Mạng Generator cố gắng sinh ra ảnh giả để lừa mạng Discriminator. Mạng Discriminator cố gắng phân biệt Ảnh Thật - Ảnh Giả. Cả hai cùng tiến bộ.)"
+  },
+  {
+    "id": 20,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Mô hình Autoencoder (Bộ tự mã hóa) là một dạng Học Không Giám Sát (Unsupervised Learning). Nó ép dữ liệu đầu vào đi qua một 'Nút thắt cổ chai' (Bottleneck - Không gian ẩn) rồi yêu cầu mạng phục hồi lại ĐÚNG dữ liệu ban đầu ở đầu ra.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Mục tiêu của Autoencoder không phải là output (vì output chính là input). Mục tiêu của nó là bắt mạng nơ ron phải HỌC CÁCH NÉN DỮ LIỆU vào Nút thắt cổ chai. Vector nén đó chính là các đặc trưng quan trọng nhất (Feature Representation)."
+  },
+  {
+    "id": 21,
+    "type": "matching",
+    "difficulty": "Khó",
+    "question": "Ghép nối các loại Kiến trúc mạng nơ ron với bài toán phù hợp nhất:",
+    "pairs": [
+      {
+        "left": "CNN (Convolutional Neural Networks)",
+        "right": "Phân loại Hình ảnh, Phát hiện vật thể (Object Detection), Phân vùng ảnh (Segmentation)."
+      },
+      {
+        "left": "RNN / LSTM",
+        "right": "Nhận dạng giọng nói (thế hệ cũ), Dự báo chuỗi thời gian, Phân tích cảm xúc văn bản (Text)."
+      },
+      {
+        "left": "Transformers",
+        "right": "Dịch máy, Chatbot (LLMs), Viết code, và hiện nay cả xử lý Hình ảnh (Vision Transformers)."
+      },
+      {
+        "left": "Autoencoders / U-Net",
+        "right": "Khử nhiễu hình ảnh (Denoising), Phân vùng y tế, Nén dữ liệu."
+      }
+    ],
+    "feedback": "Mặc dù CNN và RNN có lịch sử hào hùng, Transformers đang có xu hướng 'Ăn trọn' (Eat everything) và trở thành kiến trúc hợp nhất cho mọi loại dữ liệu (Multimodal)."
+  },
+  {
+    "id": 22,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Vì sao các mô hình Transformer cần có 'Positional Encoding' (Mã hóa vị trí)?",
+    "options": [
+      "Để vẽ hình 3D (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Vì cơ chế Self-Attention tính toán SONG SONG tất cả các từ cùng lúc, nó MẤT ĐI KHÁI NIỆM THỨ TỰ THỜI GIAN của chuỗi.",
+      "Để tăng tốc độ huấn luyện (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Để tính toán xác suất (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 1,
+    "feedback": "Câu 'Chó cắn mèo' và 'Mèo cắn chó' đối với Transformer ban đầu là hoàn toàn GIỐNG NHAU (Vì nó là Túi từ vựng - Bag of Words). Positional Encoding giúp nó nhận ra 'Chó' ở vị trí 1, 'Mèo' ở vị trí 3. (Giải thích thêm: (Không biết từ nào đứng trước, từ nào đứng sau) (ví dụ dùng sóng Sine/Cosine) Positional Encoding bơm thêm thông tin vị trí vào mỗi từ.)"
+  },
+  {
+    "id": 23,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Một kỹ thuật RẤT phổ biến trong thực hành Deep Learning là Transfer Learning (Học chuyển giao). Thay vì huấn luyện mạng CNN từ đầu (Mất hàng tuần), ta tải một mô hình đã huấn luyện sẵn trên hàng triệu ảnh (như ResNet, VGG được huấn luyện trên ImageNet). Kỹ thuật giữ nguyên các lớp đầu (Feature extractors) và chỉ huấn luyện lại một vài lớp cuối cùng bằng dữ liệu của mình được gọi là ____________ (Fine-tuning).",
+    "options": [
+      "Fine-tuning",
+      "Overfitting",
+      "Bootstrapping",
+      "Pooling"
+    ],
+    "answer": 0,
+    "feedback": "Fine-tuning (Tinh chỉnh) là chìa khóa giúp AI len lỏi vào mọi ngóc ngách của cuộc sống, vì hầu hết các công ty/cá nhân không có siêu máy tính để Pre-train từ con số 0."
+  },
+  {
+    "id": 24,
+    "type": "multiple_select",
+    "difficulty": "Dễ",
+    "question": "Những yếu tố nào sau đây đã kích hoạt sự BÙNG NỔ của Deep Learning vào những năm 2010s? (Chọn đáp án đúng)",
+    "options": [
+      "Sự ra đời của Big Data (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Sự phát triển vượt bậc của phần cứng Card đồ họa hỗ trợ tính toán Ma trận song song với tốc độ siêu phàm.",
+      "Những đột phá về thuật toán (ReLU, Dropout, Adam...) (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Vì Toán học của nó mới được phát minh năm 2010 (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Thuật toán Backpropagation và CNN đã có từ những năm 1980 (Yann LeCun). Nhưng CPU ngày đó quá chậm và dữ liệu quá ít. Khi gặp Big Data và GPU, 'Rồng' mới thực sự cất cánh. (Giải thích thêm: (Ví dụ: Tập dữ liệu ImageNet với 14 triệu ảnh được gán nhãn)) (Giải thích thêm: (GPUs - NVIDIA))"
+  },
+  {
+    "id": 25,
+    "type": "ordering",
+    "difficulty": "Khó",
+    "question": "Sự tiến hóa của các mô hình Sinh (Generative AI) cho văn bản (Theo chiều lịch sử từ thấp đến cao):",
+    "items": [
+      "N-gram / Markov Chain (Dự đoán từ tiếp theo dựa trên bảng thống kê 2-3 từ trước đó)",
+      "Recurrent Neural Networks (RNN) sinh văn bản từng chữ một, nhưng quên nhanh",
+      "LSTM kết hợp với Attention cơ bản (Dịch máy Seq2Seq)",
+      "Transformer ra đời (Attention is all you need)",
+      "BERT (Mô hình Encoder của Google) hiểu sâu ngữ cảnh 2 chiều, nhưng sinh văn bản kém",
+      "GPT (Mô hình Decoder của OpenAI) kích thước khổng lồ (LLMs), thống trị việc sinh văn bản tự nhiên"
+    ],
+    "feedback": "Bước nhảy vọt từ LSTM lên Transformer (LLMs) là điểm G (Tipping point) đưa AI vượt qua bài test Turing trong nhiều tác vụ hội thoại."
+  },
+  {
+    "id": 26,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Word Embeddings (Nhúng từ) là kỹ thuật biểu diễn từ vựng trong DL (Ví dụ: Word2Vec, GloVe). Ý tưởng cốt lõi của nó là gì?",
+    "options": [
+      "Gán mỗi từ một số nguyên ngẫu nhiên (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Biểu diễn mỗi từ bằng một Vector số thực dày đặc trong không gian nhiều chiều.",
+      "Biểu diễn mỗi từ bằng chữ cái cái đầu tiên (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Dịch từ sang tiếng Anh (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 1,
+    "feedback": "Mạng nơ ron không hiểu chữ viết, nó chỉ hiểu các Con số. Word Embedding biến ngữ nghĩa thành Hình học. Nổi tiếng nhất là phép toán Vector: Vector('Vua') - Vector('Đàn ông') + Vector('Phụ nữ') = Vector('Nữ hoàng'). (Giải thích thêm: (Ví dụ: Chó=1, Mèo=2)) (Giải thích thêm: (Dense Vector) Các từ có ngữ nghĩa GIỐNG NHAU sẽ có khoảng cách GẦN NHAU trong không gian đó.)"
+  },
+  {
+    "id": 27,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Một mạng nơ ron có 100 lớp ẩn và 1 tỷ tham số sẽ KHÔNG THỂ bị Overfitting (Quá khớp) vì nó quá thông minh và sẽ học được mọi quy luật.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai cực kỳ! Mạng CÀNG LỚN thì CÀNG DỄ bị Overfitting. 1 tỷ tham số có thể 'Thuộc lòng' (Memorize) tập Training trong chớp mắt mà không học được quy luật tổng quát nào, nếu không có lượng Dữ liệu khổng lồ tương đương hoặc các kỹ thuật Regularization mạnh tay."
+  },
+  {
+    "id": 28,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Kỹ thuật 'Tăng cường dữ liệu' (Data Augmentation) thường dùng trong phân loại ảnh có mục đích gì?",
+    "options": [
+      "Làm ảnh sắc nét hơn (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Sinh ra HÀNG TRĂM bức ảnh biến thể từ 1 bức ảnh gốc bằng cách Lật, Xoay, Cắt, Đổi màu...",
+      "Nén ảnh để tiết kiệm ổ cứng (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Dùng AI vẽ thêm ảnh (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 1,
+    "feedback": "Data Augmentation là mẹo 'Ăn gian' cực kỳ hiệu quả. Nếu bạn muốn máy nhận ra con chó dù nó nằm lộn ngược, hãy lộn ngược ảnh con chó cho máy học. (Giải thích thêm: (Flip) (Rotate) (Crop) (Invariance) nhằm tăng kích thước tập Training, giúp mạng học được tính BẤT BIẾN và chống Overfitting.)"
+  },
+  {
+    "id": 29,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Trong Mạng GAN (Generative Adversarial Network), hàm Lỗi (Loss Function) của mô hình không phải là một hàm tối thiểu hóa đơn thuần, mà là một bài toán ____________ (Minimax) Game Theory. Discriminator cố gắng Tối đa hóa khả năng bắt lỗi, còn Generator cố gắng Tối thiểu hóa khả năng bắt lỗi đó.",
+    "options": [
+      "Minimax",
+      "Cooperative",
+      "Symmetric",
+      "Zero-sum"
+    ],
+    "answer": 0,
+    "feedback": "Bài toán Minimax của GAN rất khó huấn luyện vì hai mạng liên tục phá nhau. Nếu Discriminator quá mạnh, Gradient truyền về Generator sẽ bằng 0. Nếu Generator quá mạnh, nó sẽ sinh ra toàn nhiễu (Mode Collapse)."
+  },
+  {
+    "id": 30,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Deep Learning (Học sâu) có những giới hạn và rủi ro nào chưa được giải quyết triệt để? (Chọn đáp án đúng)",
+    "options": [
+      "Nó là Hộp đen: Chúng ta biết hàng tỷ trọng số của nó, nhưng KHÔNG THỂ GIẢI THÍCH chính xác vì sao nó lại đưa ra một quyết định cụ thể.",
+      "Ảo giác: Các mô hình sinh có thể tự tin bịa ra những thông tin hoàn toàn sai sự thật.",
+      "Nhạy cảm với Nhiễu đối nghịch (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Nó không thể cài đặt trên máy tính điện toán (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Mặc dù đạt được những thành tựu như phép màu, Deep Learning hiện tại vẫn là 'Học vẹt nâng cao' (Pattern Matching) thay vì Suy luận logic thực sự (Reasoning). Sự thiếu an toàn và minh bạch là rào cản lớn nhất của nó trong y tế, quân sự và xe tự lái. (Giải thích thêm: (Black-box) (Explainability)) (Giải thích thêm: (Hallucinations) (như LLMs)) (Giải thích thêm: (Adversarial Attacks) Chỉ cần thay đổi 1 pixel bí mật, con người nhìn là con Mèo nhưng AI tự tin 100% là chiếc Ô tô.)"
+  }
+]

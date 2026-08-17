@@ -1,0 +1,458 @@
+[
+  {
+    "id": 1,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Học máy truyền thống (Empirical Learning) như Cây quyết định hay Mạng nơ ron bắt đầu học từ đâu?",
+    "options": [
+      "Từ một tập hợp các tri thức chuyên gia đã được lập trình sẵn.",
+      "Từ 'Bàn tay trắng' - Không biết gì về thế giới ngoài dữ liệu đầu vào.",
+      "Từ Wikipedia (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Từ các quy luật vật lý (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 1,
+    "feedback": "Các thuật toán học máy thuần túy thường coi mô hình lúc mới khởi tạo là một tờ giấy trắng (Tabula Rasa), và cố gắng tìm ra quy luật CHỈ dựa trên việc quan sát dữ liệu."
+  },
+  {
+    "id": 2,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Chương 20 (Knowledge in Learning) nghiên cứu cách đưa Tri thức ____________ (Prior Knowledge) vào quá trình học. Việc này giúp AI có thể học được từ số lượng ví dụ RẤT ÍT, thay vì cần hàng triệu ví dụ như Deep Learning.",
+    "options": [
+      "Tiên nghiệm",
+      "Kinh nghiệm",
+      "Tuyệt đối",
+      "Vô hạn"
+    ],
+    "answer": 0,
+    "feedback": "Prior Knowledge (Tri thức tiên nghiệm / Tri thức nền tảng). Giống như con người, nếu bạn đã biết toán học, bạn sẽ học vật lý rất nhanh chỉ sau vài ví dụ. AI cũng vậy."
+  },
+  {
+    "id": 3,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Hai kỹ thuật chính để đưa Tri thức vào trong quá trình Suy diễn logic học máy là gì? (Chọn đáp án đúng)",
+    "options": [
+      "Explanation-Based Learning.",
+      "Relevance-Based Learning.",
+      "Deep Reinforcement Learning.",
+      "K-Means Clustering."
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "feedback": "EBL giúp suy luận ra quy tắc chung từ MỘT ví dụ duy nhất bằng cách giải thích TẠI SAO ví dụ đó lại đúng. RBL giúp thu hẹp không gian tìm kiếm bằng cách loại bỏ các thuộc tính không liên quan dựa trên tri thức có sẵn. (Giải thích thêm: (EBL - Học dựa trên giải thích)) (Giải thích thêm: (RBL - Học dựa trên sự liên quan))"
+  },
+  {
+    "id": 4,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Trong Học dựa trên Tri thức (Knowledge-Based Inductive Learning - KBIL), mục tiêu của quá trình học là tìm ra một Giả thuyết (Hypothesis) sao cho...",
+    "options": [
+      "Giả thuyết tự nó chứng minh được mọi thứ.",
+      "Giả thuyết kết hợp với Tri thức nền có thể kéo theo tất cả các",
+      "Giả thuyết có độ dài ngắn nhất.",
+      "Giả thuyết không chứa ký hiệu toán học."
+    ],
+    "answer": 1,
+    "feedback": "Công thức cốt lõi của KBIL: Background Knowledge AND Hypothesis |= Observations (Tri thức nền VÀ Giả thuyết LOGIC kéo theo Các Quan sát). (Giải thích thêm: (Background Knowledge) (Entail) ví dụ quan sát được.)"
+  },
+  {
+    "id": 5,
+    "type": "matching",
+    "difficulty": "Khó",
+    "question": "Ghép nối các phương pháp học với cách chúng kết hợp Background Knowledge (Tri thức nền):",
+    "pairs": [
+      {
+        "left": "Inductive Learning (Học Quy nạp thuần túy)",
+        "right": "Không có Tri thức nền. Hypothesis |= Observations."
+      },
+      {
+        "left": "Explanation-Based Learning (EBL)",
+        "right": "Background Knowledge đã ĐỦ để giải thích các Quan sát. Quá trình học chỉ là 'Biên dịch' lại tri thức để chạy nhanh hơn. (Background Knowledge |= Observations)."
+      },
+      {
+        "left": "Relevance-Based Learning (RBL)",
+        "right": "Background Knowledge chứa các quy tắc về việc thuộc tính nào quyết định kết quả. (Background Knowledge AND Observations |= Hypothesis)."
+      },
+      {
+        "left": "Inductive Logic Programming (ILP)",
+        "right": "Background Knowledge chưa đủ. Cần phải TÌM RA một Hypothesis mới bằng Logic Bậc Nhất sao cho: Background Knowledge AND Hypothesis |= Observations."
+      }
+    ],
+    "feedback": "Đây là 4 phổ chính của việc sử dụng Tri thức trong Học máy. ILP là phương pháp mạnh nhất, vì nó thực sự khám phá ra quy luật mới chứ không chỉ ghi nhớ."
+  },
+  {
+    "id": 6,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Thuật toán Explanation-Based Learning (EBL) thực chất KHÔNG học thêm bất kỳ kiến thức mới nào về thế giới. Nó chỉ chuyển đổi những kiến thức đã biết thành các quy tắc (Rules) nhanh hơn, tiện dụng hơn.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. EBL là hình thức 'Học để Tăng tốc' (Speedup Learning). Giống như bạn giải một bài toán hình học khó bằng định lý cơ bản, sau đó bạn nhận ra một công thức giải nhanh (Shortcut rule) để lần sau áp dụng ngay mà không cần chứng minh lại."
+  },
+  {
+    "id": 7,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Trong EBL, làm thế nào để máy tính tạo ra một quy tắc tổng quát (General rule) từ một ví dụ cụ thể (Specific example)?",
+    "options": [
+      "Nó xóa hết các số liệu.",
+      "Nó xây dựng một cây chứng minh cho",
+      "Nó dịch ví dụ ra tiếng Anh.",
+      "Nó hỏi người dùng."
+    ],
+    "answer": 1,
+    "feedback": "Kỹ thuật này gọi là Generalization of Proofs. Ví dụ: Chứng minh 'Cái cốc này vỡ vì nó bằng thủy tinh và bị rơi'. Tổng quát hóa: Thay 'Cái cốc này' bằng biến X. Ta có luật: 'Vật X sẽ vỡ nếu X bằng thủy tinh và X bị rơi'. (Giải thích thêm: (Proof tree) (Constants) (Variables) ví dụ cụ thể đó, sau đó THAY THẾ CÁC HẰNG SỐ bằng CÁC BIẾN trong quá trình chứng minh.)"
+  },
+  {
+    "id": 8,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Học dựa trên Giải thích (EBL) là quá trình biến một tri thức sâu nhưng chậm chạp (Tương đương với hệ thống 2 của não bộ) thành một hệ thống phản xạ nhanh, nông (Tương đương hệ thống 1). Quá trình này được gọi là ____________ (Operationalization - Vận hành hóa).",
+    "options": [
+      "Operationalization",
+      "Optimization",
+      "Generalization",
+      "Memorization"
+    ],
+    "answer": 0,
+    "feedback": "Operationalization (Vận hành hóa) là quá trình định nghĩa lại một khái niệm trừu tượng bằng các đặc trưng có thể dễ dàng kiểm tra được trong thực tế."
+  },
+  {
+    "id": 9,
+    "type": "ordering",
+    "difficulty": "Khó",
+    "question": "Sắp xếp 4 bước tiêu chuẩn của thuật toán Explanation-Based Learning (EBL):",
+    "items": [
+      "Nhận đầu vào: Một Mục tiêu (Goal), một Ví dụ cụ thể, và Tri thức nền (Domain Theory)",
+      "Giải thích (Explain): Xây dựng một cây chứng minh (Proof Tree) cho thấy vì sao Ví dụ đó lại thỏa mãn Mục tiêu, dựa trên Tri thức nền",
+      "Vận hành hóa (Operationalize): Rút trích một điều kiện ĐỦ (Sufficient condition) từ các lá của cây chứng minh (Các đặc điểm dễ quan sát)",
+      "Tổng quát hóa (Generalize): Thay các hằng số cụ thể trong cây chứng minh bằng các biến logic",
+      "Tạo luật mới: Ghép Điều kiện đủ (đã tổng quát) với Mục tiêu để tạo thành quy tắc phản xạ nhanh (Ví dụ: IF X nhẹ và X có cánh THEN X bay được)"
+    ],
+    "feedback": "Quy tắc mới này sẽ được thêm vào Cơ sở tri thức, giúp lần sau hệ thống ra quyết định ngay lập tức mà không cần đi lại cây chứng minh dài dòng."
+  },
+  {
+    "id": 10,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Relevance-Based Learning (RBL) cải thiện các thuật toán học máy (như Decision Trees) bằng cách nào? (Chọn đáp án đúng)",
+    "options": [
+      "Loại bỏ các thuộc tính bị cho là KHÔNG LIÊN QUAN trước khi đưa dữ liệu vào thuật toán học.",
+      "Giảm mạnh số chiều của bài toán, giúp tránh được Lời nguyền số chiều.",
+      "Tăng kích thước không gian giả thuyết lên vô hạn (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Thay thế con người (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "feedback": "Nếu bạn muốn học 'Điều gì làm người ta thích xem phim', RBL sẽ dùng tri thức nền để loại bỏ ngay thuộc tính 'Màu tất của đạo diễn', giúp AI học nhanh và chính xác hơn nhiều. (Giải thích thêm: (Features) (Irrelevant)) (Giải thích thêm: (Curse of Dimensionality))"
+  },
+  {
+    "id": 11,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Lập trình logic quy nạp (Inductive Logic Programming - ILP) khác biệt như thế nào so với các thuật toán học máy phổ thông (như SVM, Random Forest)?",
+    "options": [
+      "ILP không dùng máy tính (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "ILP có khả năng học được các QUAN HỆ giữa các đối tượng và biểu diễn mô hình dưới dạng các câu lệnh LOGIC BẬC NHẤT.",
+      "ILP chỉ phân loại được số thực (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "ILP học từ mạng nơ ron (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 1,
+    "feedback": "Decision Trees hay Neural Networks (Propositional Learning) coi mỗi dòng dữ liệu là một vector số vô hồn. ILP coi dữ liệu là các mối quan hệ (Ví dụ: A là bố của B, B là anh của C). ILP rất mạnh trong các bài toán Đồ thị hoặc Suy luận phả hệ. (Giải thích thêm: (Relations) (First-Order Logic))"
+  },
+  {
+    "id": 12,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Một trong những kỹ thuật cốt lõi của ILP là 'Top-down inductive learning'. Thuật toán nổi tiếng nhất dùng phương pháp này là FOIL (First-Order Inductive Learner). FOIL hoạt động tương tự như thuật toán nào?",
+    "options": [
+      "Gradient Descent.",
+      "Học Cây quyết định (Decision Tree Learning).",
+      "K-Means.",
+      "Thuật toán di truyền (Genetic Algorithm)."
+    ],
+    "answer": 1,
+    "feedback": "Giống như Cây quyết định chọn biến (Attribute) để chia dữ liệu, FOIL bắt đầu bằng một luật trống (Ví dụ: Ông nội(X,Y) :- ) và liên tục thêm các Literal (Ví dụ: Bố(X,Z), Bố(Z,Y)) vào luật cho đến khi nó phủ được mọi ví dụ Tốt (Positive) và không dính ví dụ Xấu (Negative)."
+  },
+  {
+    "id": 13,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Thuật toán ILP không thể học được các hàm đệ quy (Recursive functions) vì Logic bậc nhất không hỗ trợ đệ quy.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai! Khả năng HỌC ĐƯỢC ĐỆ QUY chính là siêu năng lực của ILP so với học máy thông thường. ILP có thể tự động học ra quy tắc: 'Tổ tiên(X, Y) :- Bố(X, Z) AND Tổ tiên(Z, Y)'."
+  },
+  {
+    "id": 14,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Các bước cơ bản trong quá trình 'Inverse Resolution' (Phân giải ngược) - Kỹ thuật Bottom-up của ILP:",
+    "pairs": [
+      {
+        "left": "Resolution (Phân giải xuôi)",
+        "right": "Nếu có C1 (Luật) và C2 (Sự kiện), ta suy ra C (Kết luận)."
+      },
+      {
+        "left": "Inverse Resolution (Phân giải ngược)",
+        "right": "Nếu ta đã quan sát được C (Kết luận) và ta biết C2 (Tri thức nền), ta CỐ GẮNG ĐOÁN RA C1 (Luật mới)."
+      },
+      {
+        "left": "Predicate Invention (Phát minh vị từ)",
+        "right": "Trong quá trình phân giải ngược, AI tự nhận thấy cần phải TẠO RA MỘT KHÁI NIỆM MỚI (chưa từng có trong từ điển) để làm cho luật ngắn gọn hơn."
+      }
+    ],
+    "feedback": "Phát minh vị từ là đỉnh cao của AI. Giống như con người nhìn quả táo rơi, rồi 'Phát minh' ra một khái niệm vô hình gọi là 'Trọng lực' để giải thích."
+  },
+  {
+    "id": 15,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Khái niệm 'Entailment' (Kéo theo logic) trong bài toán Học quy nạp (ILP) được định nghĩa là gì?",
+    "options": [
+      "Tri thức nền tự sinh ra dữ liệu (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Mọi mô hình của phải thỏa mãn toàn bộ tập dữ liệu Huấn luyện và không thỏa mãn bất kỳ dữ liệu Sai nào.",
+      "Giả thuyết mới phải phủ định lại Tri thức nền (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Hai luật có cú pháp giống nhau (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 1,
+    "feedback": "Điều này đảm bảo Giả thuyết mới học được (Hypothesis) là ĐÚNG (Consistent) với tất cả những gì ta đã quan sát và những gì ta đã biết từ trước. (Giải thích thêm: (Tri thức nền + Giả thuyết mới) (Positive Examples) (Negative Examples))"
+  },
+  {
+    "id": 16,
+    "type": "fill_blank",
+    "difficulty": "Dễ",
+    "question": "Trong AI hiện đại (Thế kỷ 21), người ta cố gắng kết hợp sức mạnh biểu diễn linh hoạt của Deep Learning (Mạng nơ ron) với khả năng suy luận logic và tri thức chuyên gia của ____________ (Symbolic AI). Dòng nghiên cứu này được gọi là Neuro-Symbolic AI.",
+    "options": [
+      "Symbolic",
+      "Statistical",
+      "Biological",
+      "Mechanical"
+    ],
+    "answer": 0,
+    "feedback": "Symbolic AI (AI Ký hiệu) chính là chủ đề của chương này. Kết hợp Deep Learning (Mắt) và Symbolic Logic (Não) là chén thánh tiếp theo của AI."
+  },
+  {
+    "id": 17,
+    "type": "ordering",
+    "difficulty": "Khó",
+    "question": "Quá trình thuật toán FOIL (Top-down ILP) tìm ra một Rule (Luật) để định nghĩa khái niệm 'Ông nội(X,Y)':",
+    "items": [
+      "Bắt đầu với mệnh đề trống: Ông nội(X,Y) :- (True). Lúc này luật phủ tất cả các cặp X, Y (Cả sai lẫn đúng)",
+      "Tìm kiếm một Literal (Vị từ) để thu hẹp lại. Ví dụ thử thêm Bố(X,Z), Mẹ(X,Z)...",
+      "Tính toán Information Gain của mỗi lựa chọn để xem nó loại bỏ được bao nhiêu Positive/Negative examples",
+      "Chọn Literal tốt nhất. Giả sử là Bố(X,Z). Luật trở thành: Ông nội(X,Y) :- Bố(X,Z)",
+      "Vẫn còn lọt lưới (Cover) các ví dụ Negative (ví dụ X là bố của Z nhưng Z không phải bố/mẹ của Y). Tiếp tục tìm thêm Literal thứ hai.",
+      "Thêm Bố(Z,Y). Luật hoàn chỉnh: Ông nội(X,Y) :- Bố(X,Z) AND Bố(Z,Y). Hoàn hảo (Entropy = 0). Dừng lại."
+    ],
+    "feedback": "FOIL kết hợp lý thuyết Entropy của Cây quyết định với Logic bậc nhất. Nó là một trong những hệ thống ILP thành công nhất."
+  },
+  {
+    "id": 18,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Những nhược điểm lớn nhất của Inductive Logic Programming (ILP) so với Deep Learning là gì? (Chọn đáp án đúng)",
+    "options": [
+      "ILP cực kỳ kém trong việc xử lý Dữ liệu Nhiễu.",
+      "Tốc độ tính toán RẤT CHẬM.",
+      "Không thể chạy trên GPU dễ dàng.",
+      "ILP không giải thích được quyết định của mình."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "ILP rất dễ giải thích (Khác với DL), nhưng nó lại quá 'Cứng nhắc' (Brittle). Đó là lý do tại sao nó bị thất sủng trước các mô hình Thống kê linh hoạt hơn. (Giải thích thêm: (Noisy Data) Một lỗi nhỏ trong dữ liệu có thể làm toàn bộ hệ thống logic sụp đổ.) (Giải thích thêm: (Do phải tìm kiếm trong không gian rời rạc siêu lớn của Logic Bậc Nhất))"
+  },
+  {
+    "id": 19,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Ockham's Razor được triển khai trong ILP thông qua khái niệm Minimum Description Length (MDL - Độ dài mô tả tối thiểu). Nó có nghĩa là gì?",
+    "options": [
+      "Thuật toán có số dòng code ngắn nhất (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Luật logic nào có độ dài văn bản kết hợp với độ dài số lỗi mà nó bỏ sót là NGẮN NHẤT sẽ được chọn làm luật tốt nhất.",
+      "Phải nén dữ liệu bằng file ZIP (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Chỉ dùng các biến có 1 ký tự (như X, Y) (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 1,
+    "feedback": "MDL là cách hoàn hảo để tránh Overfitting trong Logic. Một luật dài 10 trang tuy chính xác 100% nhưng sẽ bị đánh giá thấp hơn một luật dài 1 dòng mà đúng 95%. (Giải thích thêm: (Hypothesis))"
+  },
+  {
+    "id": 20,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Hệ thống AM (Automated Mathematician) của Doug Lenat là một trong những hệ thống AI sớm nhất sử dụng Tri thức và Suy diễn để TỰ ĐỘNG PHÁT MINH ra các khái niệm toán học mới (như Số nguyên tố) từ tập hợp lý thuyết tập hợp cơ bản.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Hệ thống AM và sau này là EURISKO là những ví dụ rực rỡ nhất về khả năng 'Sáng tạo' và 'Khám phá' của AI Ký hiệu (Symbolic AI)."
+  },
+  {
+    "id": 21,
+    "type": "matching",
+    "difficulty": "Khó",
+    "question": "Phân biệt các cách học trong học máy:",
+    "pairs": [
+      {
+        "left": "Inductive Learning (Quy nạp)",
+        "right": "Quan sát nhiều con thiên nga trắng -> Rút ra kết luận: 'Tất cả thiên nga đều trắng'. (Từ Cụ thể đến Tổng quát)."
+      },
+      {
+        "left": "Deductive Learning (Diễn dịch)",
+        "right": "Đã biết 'Mọi người đều phải chết' và 'Socrates là người' -> Sinh ra luật mới: 'Socrates phải chết'. (EBL là một dạng Deductive)."
+      },
+      {
+        "left": "Abductive Learning (Giả định/Bắt cóc)",
+        "right": "Thấy bãi cỏ ướt. Biết rằng 'Mưa làm ướt cỏ'. Rút ra kết luận (Dù không chắc chắn): 'Chắc là đêm qua trời mưa'. (Suy ngược nguyên nhân tốt nhất)."
+      }
+    ],
+    "feedback": "Sự kết hợp của cả ba lối suy luận (Induction, Deduction, Abduction) là cần thiết để tạo ra AGI (Trí tuệ nhân tạo tổng quát)."
+  },
+  {
+    "id": 22,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Tại sao việc 'Phát minh vị từ' (Predicate Invention) lại cực kỳ khó trong không gian tìm kiếm Logic?",
+    "options": [
+      "Vì máy tính không có từ vựng (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Vì không gian các vị từ có thể phát minh ra là VÔ HẠN.",
+      "Vì luật bản quyền (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Vì các vị từ mới làm chậm CPU (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": 1,
+    "feedback": "Nếu không có cơ chế giới hạn (Heuristics), hệ thống sẽ bị lạc trong một biển các khái niệm nhảm nhí do chính nó bịa ra (Ví dụ: Phát minh ra khái niệm 'Người thích ăn phở và đi xe hơi màu đỏ vào thứ 3'). (Giải thích thêm: Máy tính không biết phải tổ hợp các biến như thế nào để tạo ra một khái niệm 'Có ý nghĩa'.)"
+  },
+  {
+    "id": 23,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Trong học máy, sự khác biệt giữa Tri thức và Dữ liệu là: Dữ liệu (Data) là những thông tin rời rạc, cụ thể ở tầng dưới cùng. ____________ (Knowledge) là những quy luật, cấu trúc tổng quát, mang tính nhân quả ở tầng cao hơn.",
+    "options": [
+      "Tri thức (Knowledge)",
+      "Thông tin (Information)",
+      "Trí tuệ (Wisdom)",
+      "Kỹ năng (Skill)"
+    ],
+    "answer": 0,
+    "feedback": "Tháp DIKW (Data - Information - Knowledge - Wisdom). Machine Learning truyền thống biến Data thành Knowledge. Chương 20 nghiên cứu cách dùng Knowledge (đã có) để học Data mới nhanh hơn."
+  },
+  {
+    "id": 24,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Các mô hình Foundation Models (như GPT-4) có sử dụng 'Tri thức tiên nghiệm' (Prior Knowledge) không? (Chọn đáp án đúng)",
+    "options": [
+      "KHÔNG. Chúng là Tabula Rasa ở giai đoạn bắt đầu Huấn luyện trước - Chúng tự học mọi thứ từ kho dữ liệu Text vô nghĩa.",
+      "CÓ. Chúng bị giới hạn bởi Prior Kiến trúc (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "CÓ. Chúng được tiêm Prior thông qua quá trình RLHF để hiểu được tri thức về đạo đức, an toàn của con người.",
+      "KHÔNG. Chúng được lập trình sẵn các định lý toán học (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "LLMs chủ yếu là mô hình học kinh nghiệm (Empirical) khổng lồ. RLHF là cách con người 'bơm' Tri thức chuyên gia vào nó ở pha Fine-tuning. (Giải thích thêm: (Pre-training)) (Giải thích thêm: (Architectural Prior - như cơ chế Attention của Transformer)) (Giải thích thêm: (Học tăng cường từ phản hồi người))"
+  },
+  {
+    "id": 25,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Khung quá trình của Knowledge-Based Learning trong đời thực (Ví dụ: Chẩn đoán y khoa):",
+    "items": [
+      "Nạp Tri thức nền (Domain Knowledge): Các triệu chứng cơ bản, cấu trúc giải phẫu người",
+      "Tiếp nhận ca bệnh mới (Ví dụ: Bệnh nhân đau bụng, buồn nôn)",
+      "Sử dụng EBL để giải thích tại sao triệu chứng này liên quan đến Ruột thừa",
+      "Tạo ra một 'Luật chẩn đoán nhanh' (Heuristic rule) cho các bác sĩ trẻ",
+      "Áp dụng luật mới này ngay lập tức khi gặp bệnh nhân tiếp theo có cùng triệu chứng mà không cần suy luận từ đầu"
+    ],
+    "feedback": "Đây chính xác là cách con người (các bác sĩ) rèn luyện kinh nghiệm lâm sàng (Clinical Intuition)."
+  },
+  {
+    "id": 26,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Thuật ngữ 'Transfer Learning' (Học chuyển giao) trong Deep Learning hiện đại chia sẻ ý tưởng với EBL/ILP ở điểm nào?",
+    "options": [
+      "Sao chép dữ liệu bằng USB (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Sử dụng Tri thức ĐÃ HỌC ĐƯỢC TỪ MỘT BÀI TOÁN TRƯỚC ĐÓ để giải quyết một bài toán MỚI nhanh hơn và cần ít dữ liệu hơn.",
+      "Thay đổi ngôn ngữ lập trình (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Chuyển đổi ảnh sang text (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": 1,
+    "feedback": "Transfer Learning chính là hiện thân hiện đại của 'Prior Knowledge'. Ví dụ: Lấy mạng nơ ron đã học nhận diện chó mèo (Biết các đường nét cơ bản), đem đi học nhận diện tế bào ung thư (Chỉ cần học thêm rất ít). (Giải thích thêm: (Trọng số))"
+  },
+  {
+    "id": 27,
+    "type": "true_false",
+    "difficulty": "Khó",
+    "question": "Trong Inverse Resolution (Phân giải ngược), toán tử 'V' (Toán tử V - V-operator) giúp ta từ một Mệnh đề giải (Resolvent) và một Mệnh đề gốc (Clause 1), tìm ra Mệnh đề gốc thứ 2 (Clause 2) đã tham gia vào quá trình phân giải.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Toán tử V (Hình chữ V) là công cụ toán học nền tảng của ILP Bottom-up. Toán tử W (2 chữ V ghép lại) là nền tảng cho việc Phát minh Vị từ (Predicate Invention)."
+  },
+  {
+    "id": 28,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Vì sao các phương pháp học Ký hiệu (Symbolic Learning) trong Chương 20 lại thoái trào và nhường chỗ cho Mạng nơ ron trong kỷ nguyên Big Data?",
+    "options": [
+      "Vì Logic không chính xác.",
+      "Vì thế giới thực ĐẦY NHIỄU, mờ ảo và bất định.",
+      "Vì CPU không chạy được Logic.",
+      "Vì không ai biết lập trình Logic."
+    ],
+    "answer": 1,
+    "feedback": "Logic yêu cầu True/False rõ ràng. Thế giới thực (Hình ảnh, Âm thanh) lại là các con số liên tục, mờ ảo. Đó là giới hạn chí tử của Symbolic AI. (Giải thích thêm: (Noisy) (Logic cứng) Symbolic Learning bị phá vỡ hoàn toàn khi gặp dữ liệu nhiễu, trong khi Mạng nơ ron xử lý nhiễu xuất sắc.)"
+  },
+  {
+    "id": 29,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Một biến thể của EBL áp dụng trong Reinforcement Learning là Học dựa trên cơ chế ____________ (Chunking) - được hệ thống AI SOAR sử dụng để biến các chuỗi hành động dài thành một hành động vĩ mô (Macro-action) duy nhất.",
+    "options": [
+      "Chunking",
+      "Hashing",
+      "Caching",
+      "Parsing"
+    ],
+    "answer": 0,
+    "feedback": "Chunking (Gom nhóm). Khi con người mới tập lái xe hơi, mỗi thao tác (đạp côn, vô số, nhả côn, đạp ga) là một hành động. Khi đã rành, toàn bộ quá trình đó 'Chunk' lại thành một phản xạ duy nhất."
+  },
+  {
+    "id": 30,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Mục đích tối thượng của sự dung hợp giữa Knowledge-Based Learning và Deep Learning (Neuro-Symbolic) trong tương lai là gì? (Chọn đáp án đúng)",
+    "options": [
+      "Mô hình có khả năng Cầu trúc hóa và Giải thích được.",
+      "Khả năng học Few-shot (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Khả năng suy luận nhân quả (Causal Reasoning).",
+      "Xóa bỏ hoàn toàn Toán học (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Neuro-Symbolic AI được coi là làn sóng thứ 3 của AI. (Làn sóng 1: Symbolic. Làn sóng 2: Deep Learning Thống kê). (Giải thích thêm: (Explainability)) (Giải thích thêm: (Học chỉ từ 1-2 ví dụ như con người))"
+  }
+]

@@ -1,0 +1,461 @@
+[
+  {
+    "id": 1,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Mục tiêu chính của lĩnh vực Xử lý ngôn ngữ tự nhiên (Natural Language Processing - NLP) là gì?",
+    "options": [
+      "Giúp máy tính tạo ra các âm thanh của tự nhiên.",
+      "Giúp máy tính có khả năng hiểu, diễn dịch và tạo ra ngôn ngữ của con người.",
+      "Biến đổi mã code máy tính thành ngôn ngữ tự nhiên.",
+      "Tối ưu hóa các hệ quản trị cơ sở dữ liệu."
+    ],
+    "answer": 1,
+    "feedback": "NLP là cầu nối giữa ngôn ngữ loài người (Đầy tính ẩn dụ, mờ ảo) và ngôn ngữ máy tính (Logic, chính xác tuyệt đối). (Giải thích thêm: (như tiếng Anh, tiếng Việt))"
+  },
+  {
+    "id": 2,
+    "type": "fill_blank",
+    "difficulty": "Dễ",
+    "question": "Mô hình ngôn ngữ (Language Model) là một mô hình xác suất dùng để tính toán khả năng xuất hiện của một ____________ (chuỗi các từ) trong ngôn ngữ thực tế. Nó có thể trả lời câu hỏi: Câu 'Tôi ăn cơm' có xác suất cao hơn câu 'Cơm ăn tôi' hay không?",
+    "options": [
+      "Câu",
+      "Ký tự",
+      "Đoạn văn",
+      "Chủ đề"
+    ],
+    "answer": 0,
+    "feedback": "Mô hình ngôn ngữ (Language Model) là nền tảng của NLP. Nó tính $P(w_1, w_2, ..., w_n)$ để dự đoán từ tiếp theo hoặc đánh giá độ tự nhiên của một câu."
+  },
+  {
+    "id": 3,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Mô hình N-gram (N-gram Language Model) hoạt động dựa trên giả định Markov. Sự khác biệt giữa Unigram, Bigram và Trigram là gì? (Chọn đáp án đúng)",
+    "options": [
+      "Unigram: Coi xác suất của mỗi từ hoàn toàn ĐỘC LẬP với các từ trước đó.",
+      "Bigram: Từ hiện tại chỉ phụ thuộc vào ĐÚNG MỘT TỪ ngay đằng trước nó.",
+      "Trigram: Từ hiện tại phụ thuộc vào HAI TỪ đứng ngay trước nó.",
+      "N-gram luôn ghi nhớ toàn bộ quyển sách."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Mô hình N-gram đếm tần suất xuất hiện của các cụm từ (có độ dài N) trong kho dữ liệu văn bản. N càng lớn, câu sinh ra càng giống thật, nhưng càng đòi hỏi dữ liệu huấn luyện khổng lồ. (Giải thích thêm: (1-gram) (Giống Naive Bayes)) (Giải thích thêm: (2-gram)) (Giải thích thêm: (3-gram))"
+  },
+  {
+    "id": 4,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Vấn đề 'Data Sparsity' (Dữ liệu thưa thớt) trong mô hình N-gram xảy ra khi nào?",
+    "options": [
+      "Khi ổ cứng bị đầy (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Khi có một cụm N-gram CHƯA TỪNG XUẤT HIỆN trong tập huấn luyện, khiến xác suất của nó bằng 0, làm cho xác suất của TOÀN BỘ CÂU chứa nó bị nhân với 0.",
+      "Khi văn bản có quá nhiều khoảng trắng (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Khi người dùng gõ sai chính tả (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 1,
+    "feedback": "Kể cả khi bạn huấn luyện mô hình bằng toàn bộ Wikipedia, sẽ luôn có những câu mới (ví dụ 'Con chó lái đĩa bay') chưa từng xuất hiện. Để giải quyết, người ta dùng kỹ thuật Smoothing (Làm trơn)."
+  },
+  {
+    "id": 5,
+    "type": "matching",
+    "difficulty": "Khó",
+    "question": "Ghép nối các kỹ thuật Làm trơn (Smoothing) và Backoff dùng để giải quyết Dữ liệu thưa thớt trong N-gram:",
+    "pairs": [
+      {
+        "left": "Add-One (Laplace) Smoothing",
+        "right": "Cộng thêm 1 vào tất cả các số đếm N-gram (kể cả những cụm chưa từng thấy). Đơn giản nhưng làm lệch xác suất rất nhiều."
+      },
+      {
+        "left": "Interpolation (Nội suy)",
+        "right": "Pha trộn xác suất của Trigram, Bigram và Unigram lại với nhau theo một tỷ lệ trọng số (Ví dụ: 0.6 Trigram + 0.3 Bigram + 0.1 Unigram)."
+      },
+      {
+        "left": "Katz Backoff",
+        "right": "Nếu Trigram đếm bằng 0, thì 'Lùi lại' (Backoff) dùng Bigram. Nếu Bigram cũng bằng 0 thì lùi lại dùng Unigram. (Phải tính toán lại để tổng xác suất bằng 1)."
+      }
+    ],
+    "feedback": "Kneser-Ney Smoothing là phương pháp đỉnh cao nhất của kỹ thuật đếm N-gram truyền thống trước khi Mạng Nơ ron xuất hiện."
+  },
+  {
+    "id": 6,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Kỹ thuật 'Túi từ vựng' (Bag-of-Words - BoW) biểu diễn một văn bản bằng cách GHI NHỚ HOÀN TOÀN thứ tự các từ trong câu.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai! Giống như tên gọi, Bag-of-Words ném tất cả các từ vào một cái túi và xóc lên. Nó MẤT HOÀN TOÀN THỨ TỰ thời gian. Câu 'Chó cắn mèo' và 'Mèo cắn chó' có biểu diễn BoW Y HỆT NHAU."
+  },
+  {
+    "id": 7,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Trong Information Retrieval (IR - Truy xuất thông tin) như Google Search thời sơ khai, công thức TF-IDF dùng để đánh giá mức độ quan trọng của một từ khóa đối với một tài liệu. Thuật ngữ IDF (Inverse Document Frequency) có tác dụng gì?",
+    "options": [
+      "Đếm xem từ đó xuất hiện bao nhiêu lần trong tài liệu (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "PHẠT những từ xuất hiện QUÁ NHIỀU ở TẤT CẢ các tài liệu, vì chúng không mang tính phân loại đặc trưng.",
+      "Dịch từ đó sang ngôn ngữ khác (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Tăng kích thước font chữ của từ đó lên (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 1,
+    "feedback": "TF (Term Frequency) nói rằng: Từ này lặp lại nhiều lần trong bài này thì chắc là quan trọng. Nhưng IDF cản lại: Khoan đã, từ 'the' lặp lại 100 lần nhưng bài nào cũng có, nên nó vô dụng. (Giải thích thêm: (Giảm trọng số) (như 'và', 'là', 'của') NÂNG CAO trọng số của những từ hiếm gặp.)"
+  },
+  {
+    "id": 8,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Thuật toán ____________ (PageRank) của Larry Page và Sergey Brin là trái tim của Google Search thời kỳ đầu. Nó không chỉ dựa vào việc đếm chữ TF-IDF, mà còn đánh giá một trang web là 'Quan trọng' nếu có nhiều trang web Quan trọng khác trỏ Link tới nó.",
+    "options": [
+      "PageRank",
+      "Word2Vec",
+      "BM25",
+      "HITS"
+    ],
+    "answer": 0,
+    "feedback": "PageRank mượn ý tưởng từ mạng lưới Trích dẫn khoa học (Citation). Nếu một bài báo được nhiều nhà khoa học nổi tiếng trích dẫn, nó là bài báo giá trị."
+  },
+  {
+    "id": 9,
+    "type": "ordering",
+    "difficulty": "Khó",
+    "question": "Quy trình tiêu chuẩn của Hệ thống Trích xuất Thông tin (Information Extraction - IE) từ văn bản thô (Ví dụ: Phân tích bài báo tài chính để lấy dữ liệu mua bán công ty):",
+    "items": [
+      "Tokenization (Tách từ)",
+      "Part-of-Speech Tagging (Gán nhãn từ loại: Danh từ, Động từ...)",
+      "Named Entity Recognition - NER (Nhận dạng Thực thể có tên: Tên Người, Công ty, Địa điểm)",
+      "Coreference Resolution (Giải quyết đồng tham chiếu: Xác định 'anh ấy' trong câu 2 là nhắc đến 'Bill Gates' ở câu 1)",
+      "Relation Extraction (Trích xuất Quan hệ: X định MUA Y với giá Z)",
+      "Đưa thông tin có cấu trúc vào Cơ sở dữ liệu (Knowledge Graph)"
+    ],
+    "feedback": "Information Extraction biến văn bản Phi cấu trúc (Unstructured text) thành Dữ liệu có cấu trúc (Structured data) để máy tính có thể Query (Truy vấn) bằng SQL."
+  },
+  {
+    "id": 10,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Hai kỹ thuật chính để xây dựng hệ thống Trích xuất Quan hệ (Relation Extraction) là gì? (Chọn đáp án đúng)",
+    "options": [
+      "Viết các Quy tắc dựa trên biểu thức chính quy..",
+      "Sử dụng Machine Learning có giám sát",
+      "Tắt máy tính đi ngủ.",
+      "Sử dụng thuật toán nén ZIP."
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "feedback": "Hiện nay, Machine Learning (đặc biệt là Deep Learning) thống trị lĩnh vực này. Regex truyền thống (như hệ thống FASTUS) chỉ dùng cho các văn bản có cấu trúc cực kỳ cố định. (Giải thích thêm: (Rules) (Regex) (Ví dụ: Tìm chuỗi '<Tổ chức> đã mua lại <Tổ chức> với giá <Tiền>')) (Giải thích thêm: (Classifier) Thu thập hàng ngàn câu đã được gán nhãn thủ công và huấn luyện một bộ phân loại để tự tìm quy luật.)"
+  },
+  {
+    "id": 11,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Parsing (Phân tích cú pháp) là quá trình gì trong NLP?",
+    "options": [
+      "Đếm số lượng từ trong câu (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Xác định CẤU TRÚC NGỮ PHÁP của câu, biến một chuỗi các từ thành một CÂY CÚ PHÁP cho thấy từ nào bổ nghĩa cho từ nào.",
+      "Dịch câu đó sang tiếng nước ngoài (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Tạo ra một câu mới (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết)."
+    ],
+    "answer": 1,
+    "feedback": "Parse Tree giúp máy tính hiểu được 'Người đàn ông (nhìn cô gái) (bằng ống nhòm)' hay 'Người đàn ông (nhìn) (cô gái bằng ống nhòm)'. Đây gọi là sự Nhập nhằng cấu trúc (Structural Ambiguity). (Giải thích thêm: (Parse Tree))"
+  },
+  {
+    "id": 12,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Context-Free Grammar (CFG - Ngữ pháp phi ngữ cảnh) là công cụ phổ biến nhất để định nghĩa cú pháp. Một CFG bao gồm các quy tắc sản xuất (Production rules). Ví dụ quy tắc nào sau đây?",
+    "options": [
+      "for i = 1 to 10",
+      "S -> NP VP (Câu = Cụm Danh từ + Cụm Động từ)",
+      "SELECT * FROM Table",
+      "P(A|B)"
+    ],
+    "answer": 1,
+    "feedback": "CFG rất mạnh nhưng không đủ để bao quát mọi hiện tượng của ngôn ngữ tự nhiên. Tuy nhiên, nó là nền tảng của mọi Trình biên dịch (Compiler) ngôn ngữ lập trình."
+  },
+  {
+    "id": 13,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Thuật toán CYK (Cocke-Younger-Kasami) là một thuật toán Quy hoạch động (Dynamic Programming) chạy từ DƯỚI LÊN (Bottom-up) để phân tích cú pháp (Parse) một câu dựa trên một Ngữ pháp CFG. Nó có độ phức tạp thời gian là $O(n^3)$.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Để dùng CYK, ngữ pháp CFG bắt buộc phải được chuyển về dạng Chuẩn Chomsky (Chomsky Normal Form - CNF), trong đó mỗi luật chỉ có dạng A -> B C hoặc A -> từ."
+  },
+  {
+    "id": 14,
+    "type": "matching",
+    "difficulty": "Khó",
+    "question": "Ngôn ngữ con người chứa đầy sự Nhập nhằng (Ambiguity) ở nhiều cấp độ. Hãy ghép nối:",
+    "pairs": [
+      {
+        "left": "Lexical Ambiguity (Từ vựng)",
+        "right": "Từ 'Bank' có thể là Bờ sông hoặc Ngân hàng. Cần Word Sense Disambiguation."
+      },
+      {
+        "left": "Syntactic Ambiguity (Cú pháp)",
+        "right": "'I saw the man with the telescope'. (Tôi dùng ống nhòm nhìn ông ta, hay ông ta đang cầm ống nhòm?)."
+      },
+      {
+        "left": "Semantic Ambiguity (Ngữ nghĩa)",
+        "right": "'Every man loves a woman'. (Tất cả đàn ông trên đời cùng yêu 1 cô gái duy nhất, hay mỗi người đàn ông có 1 cô gái của riêng mình?)."
+      },
+      {
+        "left": "Pragmatic Ambiguity (Thực dụng/Ngữ cảnh)",
+        "right": "'Cậu có thể lấy cho tớ muối không?'. Máy tính đáp: 'Có' và... không làm gì cả. (Máy hiểu đây là câu hỏi khả năng (Can you), chứ không hiểu đó là một Lời yêu cầu)."
+      }
+    ],
+    "feedback": "Ambiguity là rào cản lớn nhất của NLP. Con người giải quyết nó bằng Tri thức nền (Common Sense) mà máy tính thiếu hụt."
+  },
+  {
+    "id": 15,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Probabilistic Context-Free Grammar (PCFG) giải quyết vấn đề có QUÁ NHIỀU cây cú pháp (Parse trees) hợp lệ cho cùng một câu bằng cách nào?",
+    "options": [
+      "Chọn bừa một cây đầu tiên tìm thấy.",
+      "Gắn XÁC SUẤT cho mỗi Quy tắc.",
+      "Hỏi con người xem cây nào đúng.",
+      "Xóa bỏ các từ gây hiểu nhầm."
+    ],
+    "answer": 1,
+    "feedback": "Cũng giống như N-gram, PCFG học các xác suất này bằng cách đếm (Maximum Likelihood) từ một kho dữ liệu các cây cú pháp được con người vẽ sẵn (Gọi là Treebank - ví dụ Penn Treebank). (Giải thích thêm: (Production rule) Xác suất của một Cây là Tích các xác suất của mọi quy tắc cấu thành nên nó. Thuật toán sẽ CHỌN CÂY CÓ XÁC SUẤT CAO NHẤT.)"
+  },
+  {
+    "id": 16,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Lexicalized PCFG (PCFG được từ vựng hóa) mạnh hơn PCFG thông thường vì nó gắn thêm 'Từ chính' (Head word) vào mỗi Nút ngữ pháp. Ví dụ Cụm Động từ VP(ăn) sẽ khác biệt với VP(ngủ). Từ chính này (Head) là hạt nhân của Cụm từ và quyết định tính chất của cả cụm (____________ Grammar).",
+    "options": [
+      "Head",
+      "Root",
+      "Tail",
+      "Core"
+    ],
+    "answer": 0,
+    "feedback": "Lexicalized Parsing (như thuật toán của Collins) là đỉnh cao của Phân tích cú pháp bằng Thống kê (Statistical Parsing), giúp giải quyết các hiện tượng như 'Sự phụ thuộc giới từ'."
+  },
+  {
+    "id": 17,
+    "type": "ordering",
+    "difficulty": "Trung bình",
+    "question": "Sắp xếp quá trình hoạt động của hệ thống Dịch máy Thống kê (Statistical Machine Translation - SMT) dựa trên Công thức Bayes: $P(E | F) \\propto P(F | E) P(E)$. Muốn dịch câu tiếng Pháp (F) sang tiếng Anh (E):",
+    "items": [
+      "Huấn luyện Mô hình Ngôn ngữ (Language Model - $P(E)$) trên kho dữ liệu Tiếng Anh khổng lồ để tính xác suất 1 câu tiếng Anh có tự nhiên không.",
+      "Huấn luyện Mô hình Dịch thuật (Translation Model - $P(F | E)$) trên kho ngữ liệu song ngữ (Parallel Corpus). Học bảng từ điển xác suất từ-ra-từ (Alignment).",
+      "Nhận câu Tiếng Pháp (F) cần dịch.",
+      "Thuật toán Giải mã (Decoder) thử sinh ra hàng ngàn câu Tiếng Anh (E) khả dĩ.",
+      "Chấm điểm mỗi câu bằng công thức: Likelihood $P(F|E)$ nhân với Prior $P(E)$.",
+      "Xuất ra câu Tiếng Anh $E$ có điểm số cao nhất."
+    ],
+    "feedback": "Việc dùng $P(F|E)$ đảm bảo câu dịch ĐÚNG NGHĨA. Việc dùng $P(E)$ đảm bảo câu dịch ĐÚNG NGỮ PHÁP tiếng Anh (Ví dụ: Không sinh ra câu 'House beautiful'). Đó là nguyên lý kỳ diệu của Bayes trong Dịch máy."
+  },
+  {
+    "id": 18,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Chỉ số BLEU (Bilingual Evaluation Understudy) dùng để đánh giá tự động chất lượng Dịch máy. Nó hoạt động như thế nào? (Chọn đáp án đúng)",
+    "options": [
+      "So sánh câu dịch của máy với CÁC CÂU DỊCH MẪU CỦA CHUYÊN GIA CON NGƯỜI.",
+      "Đếm tỷ lệ các cụm N-gram của máy có xuất hiện trong các câu mẫu hay không.",
+      "Có một hình phạt độ dài để cấm máy tính ăn gian bằng cách dịch quá ngắn.",
+      "Nó hiểu được ý nghĩa sâu xa của văn bản."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "BLEU Score dù chỉ là đo đếm N-gram bề mặt một cách thô sơ (không thực sự hiểu ngữ nghĩa), nhưng nó tương quan rất tốt với đánh giá của con người, và đã thúc đẩy tốc độ nghiên cứu Dịch máy lên gấp ngàn lần. (Giải thích thêm: (Reference translations)) (Giải thích thêm: (Unigram, Bigram, Trigram, 4-gram)) (Giải thích thêm: (Brevity Penalty) (Ví dụ chỉ dịch 1 từ 'The'))"
+  },
+  {
+    "id": 19,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Phân tích Tình cảm (Sentiment Analysis) là một bài toán Phân loại Văn bản (Text Classification). Ví dụ tiêu biểu của nó là gì?",
+    "options": [
+      "Dịch từ tiếng Việt sang tiếng Anh (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế).",
+      "Phân tích bình luận phim trên IMDB xem người dùng đang Đánh giá Tích cực hay Tiêu cực.",
+      "Tìm lỗi chính tả trong văn bản (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Trả lời câu hỏi trắc nghiệm (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 1,
+    "feedback": "Sentiment Analysis rất quan trọng trong Kinh doanh, giúp tự động đọc hàng triệu Tweet để biết khách hàng đang Khen hay Chê sản phẩm của công ty. (Giải thích thêm: (Positive) (Negative))"
+  },
+  {
+    "id": 20,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Word Sense Disambiguation (Khử nhập nhằng nghĩa từ) là quá trình xác định xem từ 'Chuột' trong câu 'Con chuột cắn đứt dây cáp' là nói về Động vật (Animal) hay Thiết bị máy tính (Computer Mouse).",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Máy tính có thể dùng Từ điển (như WordNet) kết hợp với các từ xung quanh (Context words như 'dây cáp') để chọn Nghĩa (Sense) chính xác nhất."
+  },
+  {
+    "id": 21,
+    "type": "matching",
+    "difficulty": "Khó",
+    "question": "Ghép nối các tác vụ NLP phức tạp:",
+    "pairs": [
+      {
+        "left": "Question Answering (QA - Hỏi đáp)",
+        "right": "Đọc một văn bản (Ví dụ: Wikipedia) và trả lời một câu hỏi bằng tiếng tự nhiên (Đưa ra câu trả lời chính xác, không phải đưa ra đường link)."
+      },
+      {
+        "left": "Text Summarization (Tóm tắt văn bản)",
+        "right": "Đọc 10 trang tài liệu và tạo ra 1 đoạn tóm tắt. Có 2 loại: Extractive (Trích rút nguyên văn câu hay) và Abstractive (Sinh ra câu mới hoàn toàn)."
+      },
+      {
+        "left": "Dialogue Systems (Hệ thống đối thoại)",
+        "right": "Chatbot hoặc Trợ lý ảo (Siri). Yêu cầu phải duy trì Trạng thái hội thoại (State) qua nhiều lượt hỏi đáp (Multi-turn)."
+      }
+    ],
+    "feedback": "Trước khi ChatGPT (Một LLM đa năng) xuất hiện, các hệ thống trên thường phải xây dựng bằng các pipeline phức tạp, mỗi tác vụ 1 mô hình riêng biệt."
+  },
+  {
+    "id": 22,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Phương pháp 'Rule-based Machine Translation' (Dịch máy dựa trên Luật) của thập niên 1990 hoạt động như thế nào?",
+    "options": [
+      "Nó dùng Mạng Nơ ron (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "Con người viết ra HÀNG VẠN quy tắc ngữ pháp thủ công.",
+      "Nó đếm xác suất N-gram (Đây là một cách hiểu phổ biến nhưng thiếu cơ sở lý thuyết).",
+      "Nó dịch bừa (Khẳng định này không hoàn toàn chính xác trong thực tiễn)."
+    ],
+    "answer": 1,
+    "feedback": "Hệ thống SYSTRAN (của quân đội Mỹ và AltaVista) dùng Rule-based. Nó rất chậm phát triển, đắt tiền, và không thể mở rộng sang các ngôn ngữ mới dễ dàng. Cuối cùng nó bị Statistical MT của Google tiêu diệt vào năm 2006. (Giải thích thêm: (Các nhà ngôn ngữ học) (Transfer) Máy phân tích câu nguồn thành Cây Cú pháp, Ánh xạ Cây nguồn sang Cây đích, rồi Sinh ra từ vựng đích.)"
+  },
+  {
+    "id": 23,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Trong thuật toán Tìm kiếm Vector Không gian (Vector Space Model) để truy xuất tài liệu, khoảng cách giữa Câu Truy vấn (Query Vector) và Tài liệu (Document Vector) thường được đo bằng Góc giữa hai vector. Phép toán này gọi là Độ tương đồng ____________ (Cosine Similarity).",
+    "options": [
+      "Cosine",
+      "Sine",
+      "Tangent",
+      "Euclidean"
+    ],
+    "answer": 0,
+    "feedback": "Cosine Similarity = $A \\cdot B / (|A| |B|)$. Nó tốt hơn Khoảng cách Euclide vì nó KHÔNG bị ảnh hưởng bởi độ dài của tài liệu (Một bài văn dài lặp lại từ khóa nhiều lần không có nghĩa là nó phù hợp hơn một bài ngắn)."
+  },
+  {
+    "id": 24,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Quá trình Tiền xử lý văn bản (Text Preprocessing) tiêu chuẩn trước khi đưa vào mô hình AI truyền thống bao gồm những bước nào? (Chọn đáp án đúng)",
+    "options": [
+      "Stemming / Lemmatization.",
+      "Stopword Removal.",
+      "Lowercasing (Chuyển toàn bộ về chữ thường).",
+      "Vẽ ảnh Minh họa cho câu."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Trong kỷ nguyên Deep Learning (như BERT), người ta THƯỜNG BỎ QUA các bước Stemming và Stopword này, vì mạng nơ ron có đủ dung lượng để tự học được ngữ cảnh và sự tinh tế của các từ viết hoa hay từ nối. (Giải thích thêm: (Chuyển các biến thể từ về dạng gốc: 'running', 'ran' -> 'run')) (Giải thích thêm: (Loại bỏ các từ vô nghĩa như 'the', 'is', 'a' để giảm dung lượng dữ liệu))"
+  },
+  {
+    "id": 25,
+    "type": "ordering",
+    "difficulty": "Dễ",
+    "question": "Các mô hình ngôn ngữ dựa trên N-gram có khả năng sinh văn bản (Text Generation). Quá trình sinh một câu 5 từ bằng Bigram:",
+    "items": [
+      "Bắt đầu bằng thẻ khởi tạo đặc biệt, ví dụ: <s>",
+      "Tìm xác suất $P(Từ_{1} | \\text{<s>})$ trong bảng Bigram. Tung xúc xắc ngẫu nhiên theo xác suất đó để chọn $Từ_{1}$",
+      "Giả sử $Từ_{1}$ là 'Tôi'. Lấy 'Tôi' làm bối cảnh để tìm $P(Từ_{2} | \\text{Tôi})$ trong bảng Bigram.",
+      "Tung xúc xắc chọn $Từ_{2}$. Giả sử là 'muốn'. Lấy 'muốn' làm bối cảnh tiếp theo.",
+      "Lặp lại quá trình, luôn lấy từ vừa sinh ra làm Input để tung xúc xắc sinh từ tiếp theo.",
+      "Dừng lại khi sinh đủ 5 từ hoặc khi chọn trúng thẻ kết thúc </s>."
+    ],
+    "feedback": "Quá trình này gọi là Auto-regressive (Tự hồi quy). Câu sinh ra bởi Bigram thường nghe lố lăng và vô nghĩa về mặt tổng thể, vì mô hình chỉ 'Nhớ' được đúng 1 từ quá khứ (Trí nhớ cá vàng)."
+  },
+  {
+    "id": 26,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Perplexity (Độ rối rắm) là một chỉ số dùng để đánh giá Mô hình Ngôn ngữ (Language Model) trên một Tập dữ liệu Kiểm tra (Test set). Nếu Perplexity CÀNG THẤP thì mô hình CÀNG...",
+    "options": [
+      "Dở. Vì nó đoán mò.",
+      "Tốt. Vì nó ít bị 'Bối rối' hơn.",
+      "Đơn giản.",
+      "Tốn bộ nhớ."
+    ],
+    "answer": 1,
+    "feedback": "Perplexity = 2 mũ (Cross-Entropy). Nếu Perplexity = 10, nghĩa là khi đứng trước từ tiếp theo, mô hình phân vân giữa 10 lựa chọn bằng nhau. Mô hình giỏi phải bóp hẹp sự phân vân này lại. (Giải thích thêm: (Khả năng dự đoán từ tiếp theo trong tập Test set rất tự tin và chính xác))"
+  },
+  {
+    "id": 27,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Named Entity Recognition (NER) là bước trích xuất thông tin, nhưng nó không thể phân biệt được nếu hai thực thể CÙNG TÊN. (Ví dụ: 'Washington' là tên Tổng thống hay tên Bang). Để làm được việc này cần phải có thêm bước Entity Linking (Liên kết Thực thể) trỏ vào Knowledge Base (như Wikipedia).",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. NER chỉ tìm ra 'Washington' là <Thực Thể>. Còn việc trỏ nó vào chính xác ID của George Washington trên Wiki (Q71) mới giúp AI thực sự hiểu thế giới."
+  },
+  {
+    "id": 28,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Mô hình Dịch máy Thống kê (SMT) thường gặp vấn đề Word Alignment (Gióng hàng từ). Hiện tượng 'Khác biệt thứ tự từ' (Ví dụ: Tiếng Anh 'Red Apple' -> Tiếng Pháp 'Pomme Rouge' - Táo Đỏ) đòi hỏi SMT phải có mô hình gì để xử lý?",
+    "options": [
+      "Mô hình ngôn ngữ (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Mô hình Biến dạng - Cho phép từ đích 'nhảy cóc' vị trí so với từ nguồn.",
+      "Mô hình Âm thanh (Điều này chưa phản ánh đầy đủ bản chất của vấn đề).",
+      "Mô hình Word2Vec (Điều này chưa phản ánh đầy đủ bản chất của vấn đề)."
+    ],
+    "answer": 1,
+    "feedback": "Dịch máy không phải là thay chữ 1-1 từ trái sang phải. Khoảng cách ngữ pháp (như SVO trong tiếng Anh so với SOV trong tiếng Nhật) yêu cầu máy phải đảo lộn thứ tự hàng loạt cụm từ (Phrase-based SMT). (Giải thích thêm: (Distortion Model / Reordering Model))"
+  },
+  {
+    "id": 29,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Tập hợp các ký hiệu không kết thúc (Non-terminal) và kết thúc (Terminal - Từ vựng) kết hợp với các quy tắc viết lại tạo thành một ____________ (Grammar - Ngữ pháp). Parsing chính là quá trình kiểm tra xem một chuỗi từ vựng có sinh ra từ Ngữ pháp đó hay không.",
+    "options": [
+      "Grammar",
+      "Vocabulary",
+      "Corpus",
+      "Lexicon"
+    ],
+    "answer": 0,
+    "feedback": "Grammar (Ngữ pháp) đóng vai trò như bản vẽ kỹ thuật của một ngôn ngữ."
+  },
+  {
+    "id": 30,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Điều gì đã khiến hệ thống Xử lý ngôn ngữ tự nhiên Thống kê truyền thống (Chương 24) đi vào dĩ vãng và nhường chỗ hoàn toàn cho Deep Learning (Chương 25 - Word Embeddings, Transformers)? (Chọn đáp án đúng)",
+    "options": [
+      "NLP Truyền thống biểu diễn từ bằng dạng One-hot Encoding.",
+      "N-gram chỉ nhớ được tối đa 3-5 từ quá khứ.",
+      "NLP Truyền thống cần Feature Engineering thủ công rất vất vả.",
+      "Vì Google ngừng hỗ trợ N-gram (Quan điểm này thường bị nhầm lẫn trong các ứng dụng thực tế)."
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "feedback": "Sự xuất hiện của Word Embeddings (2013) là đòn chí mạng đầu tiên, và Transformer (2017) là dấu chấm hết cho kỷ nguyên thống kê đếm từ rời rạc trong NLP. (Giải thích thêm: (Words) (Rời rạc) (Các từ đồng nghĩa sẽ đứng gần nhau) Vector 'Dog' và 'Cat' không có sự liên quan toán học nào với nhau. Deep Learning biểu diễn bằng Continuous Embeddings.) (Giải thích thêm: (Ngữ cảnh siêu ngắn) Transformers có thể nhớ ngữ cảnh lên tới 128.000 từ.) (Giải thích thêm: (như vẽ Cây cú pháp) Deep Learning học End-to-End.)"
+  }
+]

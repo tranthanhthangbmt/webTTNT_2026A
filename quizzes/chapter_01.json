@@ -1,0 +1,435 @@
+[
+  {
+    "id": 1,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Theo giáo trình, Trí tuệ nhân tạo (AI) được định nghĩa theo bao nhiêu cách tiếp cận chính?",
+    "options": [
+      "2 cách tiếp cận (Suy nghĩ và Hành động).",
+      "3 cách tiếp cận (Suy nghĩ, Hành động, Cảm nhận).",
+      "4 cách tiếp cận (Khẳng định này không hoàn toàn chính xác trong thực tiễn).",
+      "5 cách tiếp cận (bao gồm cả khía cạnh cảm xúc học)."
+    ],
+    "answer": 2,
+    "feedback": "AI được chia làm 4 cách tiếp cận: Acting humanly, Thinking humanly, Thinking rationally, và Acting rationally. (Giải thích thêm: (chia theo suy nghĩ/hành động và con người/hợp lý))"
+  },
+  {
+    "id": 2,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Mục tiêu của cách tiếp cận 'Hành động như con người' (Acting humanly) là gì?",
+    "options": [
+      "Tạo ra máy tính có khả năng tính toán nhanh hơn con người.",
+      "Tạo ra máy tính có thể vượt qua bài kiểm tra Turing (Turing Test).",
+      "Mô phỏng chính xác cấu trúc sinh học của não bộ con người.",
+      "Xây dựng hệ thống giải quyết các bài toán logic tuyệt đối."
+    ],
+    "answer": 1,
+    "feedback": "Cách tiếp cận 'Acting humanly' được đặc trưng bởi bài kiểm tra Turing Test, nhằm đo lường khả năng hành xử giống người của máy tính."
+  },
+  {
+    "id": 3,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Theo cách tiếp cận 'Hành động hợp lý' (Acting rationally), một tác tử (agent) hợp lý được định nghĩa là gì?",
+    "options": [
+      "Một thực thể luôn thực hiện những hành động hoàn hảo không có lỗi.",
+      "Một thực thể hoạt động để đạt được kết quả tốt nhất có thể (best outcome).",
+      "Một thực thể suy nghĩ giống hệt con người trong mọi tình huống.",
+      "Một thực thể chỉ sử dụng các định luật logic toán học tuyệt đối."
+    ],
+    "answer": 1,
+    "feedback": "Một tác tử hợp lý là tác tử hành động để đạt được kết quả tốt nhất, hoặc kết quả kỳ vọng tốt nhất khi có sự không chắc chắn."
+  },
+  {
+    "id": 4,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Thuật ngữ 'Trí tuệ nhân tạo' (Artificial Intelligence) lần đầu tiên được giới thiệu bởi Alan Turing vào năm 1950.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai. Thuật ngữ này được John McCarthy giới thiệu lần đầu tiên tại hội thảo Dartmouth năm 1956."
+  },
+  {
+    "id": 5,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Ai là người đã đề xuất mô hình tế bào thần kinh nhân tạo (artificial neuron) đầu tiên vào năm 1943?",
+    "options": [
+      "Alan Turing và John von Neumann.",
+      "Warren McCulloch và Walter Pitts.",
+      "John McCarthy và Marvin Minsky.",
+      "Allen Newell và Herbert Simon."
+    ],
+    "answer": 1,
+    "feedback": "Năm 1943, McCulloch và Pitts đã đề xuất mô hình toán học đầu tiên của một nơ-ron, đặt nền móng cho mạng nơ-ron nhân tạo."
+  },
+  {
+    "id": 6,
+    "type": "single_choice",
+    "difficulty": "Dễ",
+    "question": "Môn học nào sau đây cung cấp nền tảng về tính toán, thuật toán và máy Turing cho AI?",
+    "options": [
+      "Triết học (Philosophy)",
+      "Toán học (Mathematics)",
+      "Kinh tế học (Economics)",
+      "Sinh học thần kinh (Neuroscience)"
+    ],
+    "answer": 1,
+    "feedback": "Toán học cung cấp các nền tảng về logic, tính toán (máy Turing, NP-completeness) và xác suất."
+  },
+  {
+    "id": 7,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Để vượt qua bài kiểm tra Turing toàn diện (Total Turing Test), máy tính cần bổ sung thêm các khả năng nào so với Turing Test tiêu chuẩn?",
+    "options": [
+      "Lập luận tự động (Automated reasoning) và Máy học (Machine learning)",
+      "Tầm nhìn máy tính (Computer vision) và Robot học (Robotics)",
+      "Xử lý ngôn ngữ tự nhiên (NLP) và Biểu diễn tri thức",
+      "Mạng nơ-ron sâu (Deep Neural Networks) và Dữ liệu lớn"
+    ],
+    "answer": 1,
+    "feedback": "Total Turing Test yêu cầu máy tính phải có khả năng tương tác vật lý (nhìn vật thể, thao tác vật lý), do đó cần Computer vision và Robotics."
+  },
+  {
+    "id": 8,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Cách tiếp cận 'Suy nghĩ hợp lý' (Thinking rationally) chủ yếu dựa trên truyền thống của môn học nào?",
+    "options": [
+      "Tâm lý học (Psychology)",
+      "Logic học (Logic)",
+      "Triết học (Philosophy)",
+      "Xã hội học (Sociology)"
+    ],
+    "answer": 1,
+    "feedback": "Nền tảng của 'Thinking rationally' là logic học (luật tư duy - laws of thought) bắt nguồn từ thời Aristotle."
+  },
+  {
+    "id": 9,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Các môn học nào sau đây được coi là nguồn tảng (foundations) đã đóng góp vào sự phát triển của Trí tuệ nhân tạo? (Chọn tất cả đáp án đúng)",
+    "options": [
+      "Triết học (Philosophy)",
+      "Chiêm tinh học (Astrology)",
+      "Kinh tế học (Economics)",
+      "Lý thuyết điều khiển (Control theory)"
+    ],
+    "answer": [
+      0,
+      2,
+      3
+    ],
+    "feedback": "Triết học, Kinh tế học, Lý thuyết điều khiển, Toán học, Tâm lý học, Ngôn ngữ học... đều là các nền tảng của AI. Chiêm tinh học không phải là khoa học."
+  },
+  {
+    "id": 10,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Điểm khác biệt chính yếu giữa chương trình AI và chương trình máy tính truyền thống là gì?",
+    "options": [
+      "AI xử lý dữ liệu nhanh hơn máy tính truyền thống.",
+      "AI tập trung vào các quy trình lý luận, không chỉ tính toán số học.",
+      "AI không bao giờ mắc lỗi logic, còn máy tính truyền thống có thể mắc lỗi.",
+      "AI không cần dữ liệu đầu vào mà vẫn có thể sinh ra kết quả đúng."
+    ],
+    "answer": 1,
+    "feedback": "Sự khác biệt nằm ở chỗ AI không chỉ xử lý số liệu mà còn có khả năng lập luận, học hỏi và biểu diễn tri thức."
+  },
+  {
+    "id": 11,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Theo tác giả của sách AIMA, cách tiếp cận 'Tác tử hợp lý' (Rational agent) có ưu điểm lớn hơn so với cách tiếp cận 'Quy luật tư duy' (Laws of thought) vì nó bao quát hơn và thích ứng với môi trường thực tế.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Hành động hợp lý bao quát hơn suy nghĩ hợp lý (đôi khi hành động hợp lý không yêu cầu quá trình suy nghĩ logic dài dòng, ví dụ: phản xạ)."
+  },
+  {
+    "id": 12,
+    "type": "fill_blank",
+    "difficulty": "Trung bình",
+    "question": "Môn học liên quan đến nghiên cứu trực tiếp các cấu trúc và hoạt động của não bộ sinh học là ____________.",
+    "options": [
+      "Tâm lý học (Psychology)",
+      "Sinh học thần kinh (Neuroscience)",
+      "Lý thuyết tính toán (Computation theory)",
+      "Toán học (Mathematics)"
+    ],
+    "answer": 1,
+    "feedback": "Neuroscience (Khoa học thần kinh / Sinh học thần kinh) tập trung nghiên cứu bộ não vật lý."
+  },
+  {
+    "id": 13,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Chương trình ELIZA do Joseph Weizenbaum viết năm 1965 hoạt động dựa trên cơ chế nào?",
+    "options": [
+      "Phân tích ngữ nghĩa chuyên sâu và học máy sâu.",
+      "Mạng nơ-ron nhân tạo đa lớp.",
+      "Mẫu so khớp mẫu đơn giản tạo cảm giác thấu hiểu.",
+      "Công cụ suy luận logic bậc nhất."
+    ],
+    "answer": 2,
+    "feedback": "ELIZA là một chatbot nổi tiếng sớm nhất, hoạt động bằng cách khớp các từ khóa (pattern matching) mà không thực sự hiểu ngữ nghĩa. (Giải thích thêm: (Deep Learning)) (Giải thích thêm: (First-order logic))"
+  },
+  {
+    "id": 14,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Hệ chuyên gia (Expert Systems) đầu tiên như DENDRAL có mục đích chính là gì?",
+    "options": [
+      "Giải quyết các bài toán toán học tổng quát.",
+      "Phân tích quang phổ để suy luận ra cấu trúc phân tử hóa học.",
+      "Chẩn đoán các bệnh lý về máu trong y khoa.",
+      "Chơi cờ vua ở cấp độ kiện tướng quốc tế."
+    ],
+    "answer": 1,
+    "feedback": "DENDRAL được phát triển để suy luận cấu trúc phân tử hóa học từ thông tin phổ khối lượng."
+  },
+  {
+    "id": 15,
+    "type": "multiple_select",
+    "difficulty": "Trung bình",
+    "question": "Những lý do nào đã dẫn đến 'Mùa đông AI' (AI Winter) đầu tiên vào thập niên 1970? (Chọn các đáp án đúng)",
+    "options": [
+      "Sự thiếu hụt dữ liệu huấn luyện quy mô lớn.",
+      "Sức mạnh tính toán quá thấp, không đủ đáp ứng thuật toán.",
+      "Sự thất bại của hệ chuyên gia MYCIN.",
+      "Những hứa hẹn phóng đại không thể hiện thực hóa từ các nhà nghiên cứu."
+    ],
+    "answer": [
+      1,
+      3
+    ],
+    "feedback": "Phần cứng quá yếu và những lời hứa hão huyền không đạt được đã khiến nguồn tài trợ bị cắt giảm (AI Winter)."
+  },
+  {
+    "id": 16,
+    "type": "true_false",
+    "difficulty": "Khó",
+    "question": "Trong AI, quá trình xây dựng mô hình suy nghĩ bằng cách yêu cầu con người nói ra những gì họ nghĩ trong lúc giải bài toán được gọi là 'Introspection' (Nội quan).",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 0,
+    "feedback": "Đúng. Introspection (Nội quan) là quá trình tự quan sát diễn biến tư duy của chính mình."
+  },
+  {
+    "id": 17,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Sự kiện nào đánh dấu sự trưởng thành của AI như một ngành khoa học (AI becomes a science) vào cuối thập niên 1980?",
+    "options": [
+      "Sự ra đời của hệ chuyên gia XCON tại DEC.",
+      "Sự trở lại mạnh mẽ của phương pháp thống kê và lý thuyết xác suất.",
+      "Chiến thắng của Deep Blue trước nhà vô địch cờ vua thế giới.",
+      "Sự bùng nổ của dữ liệu lớn (Big Data) trên Internet."
+    ],
+    "answer": 1,
+    "feedback": "Vào cuối thập niên 80, AI bắt đầu sử dụng mạnh mẽ các phương pháp dựa trên xác suất, thống kê (như HMM) và thực nghiệm khoa học khắt khe. (Giải thích thêm: (Bayes))"
+  },
+  {
+    "id": 18,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Kinh tế học đóng góp cho AI thông qua việc xây dựng lý thuyết về _____________, giải thích cách một tác tử tối đa hóa lợi ích trong quá trình ra quyết định.",
+    "options": [
+      "Lý thuyết trò chơi (Game theory)",
+      "Lý thuyết độ phức tạp (Complexity theory)",
+      "Lý thuyết tiện ích (Utility theory)",
+      "Lý thuyết điều khiển (Control theory)"
+    ],
+    "answer": 2,
+    "feedback": "Kinh tế học đóng góp Decision theory (Lý thuyết quyết định), trong đó bao gồm Utility theory (Lý thuyết tiện ích)."
+  },
+  {
+    "id": 19,
+    "type": "single_choice",
+    "difficulty": "Khó",
+    "question": "Theo định lý Gödel (Gödel's Incompleteness Theorem), giới hạn nào của toán học ảnh hưởng đến AI?",
+    "options": [
+      "Máy tính không thể thực hiện các phép toán với số thập phân vô hạn.",
+      "Luôn tồn tại những mệnh đề đúng trong các hệ thống logic hình thức mà không thể chứng minh được.",
+      "Xác suất không bao giờ đạt tới giá trị bằng 1 hoặc 0 tuyệt đối.",
+      "Mọi bài toán thuộc lớp NP-Complete đều không có thuật toán giải chính xác."
+    ],
+    "answer": 1,
+    "feedback": "Định lý bất toàn của Gödel chứng minh rằng có những mệnh đề đúng nhưng không thể chứng minh trong bất kỳ hệ thống suy diễn hình thức nào."
+  },
+  {
+    "id": 20,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Hai kỹ thuật chính được sử dụng phổ biến trong các hệ thống xử lý ngôn ngữ tự nhiên (NLP) hiện đại (từ 2000s) là gì?",
+    "options": [
+      "Ngữ pháp phi ngữ cảnh (Context-free grammar)",
+      "Mô hình ngôn ngữ xác suất (Probabilistic language models)",
+      "Hệ chuyên gia dựa trên luật (Rule-based expert systems)",
+      "Học máy / Học sâu (Machine Learning / Deep Learning)"
+    ],
+    "answer": [
+      1,
+      3
+    ],
+    "feedback": "NLP hiện đại từ bỏ phần lớn các hệ thống dựa trên luật cứng ngắc để chuyển sang các mô hình thống kê xác suất và học máy."
+  },
+  {
+    "id": 21,
+    "type": "true_false",
+    "difficulty": "Dễ",
+    "question": "Việc giải quyết một bài toán cờ vua là ví dụ điển hình của cách tiếp cận Acting Humanly (Hành động như con người).",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai. Giải quyết cờ vua tập trung vào Acting rationally (hành động hợp lý) để tìm nước cờ dẫn tới kết quả thắng tốt nhất."
+  },
+  {
+    "id": 22,
+    "type": "fill_blank",
+    "difficulty": "Dễ",
+    "question": "Ngôn ngữ học kết hợp với khoa học máy tính tạo thành lĩnh vực ____________, tập trung vào cách máy tính hiểu ngôn ngữ con người.",
+    "options": [
+      "Thần kinh học",
+      "Trí tuệ nhân tạo (AI)",
+      "Xử lý ngôn ngữ tự nhiên (NLP)",
+      "Khoa học dữ liệu (Data Science)"
+    ],
+    "answer": 2,
+    "feedback": "Xử lý ngôn ngữ tự nhiên (Natural Language Processing - NLP)."
+  },
+  {
+    "id": 23,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Aristotle đã đóng góp quan trọng nào cho cách tiếp cận 'Suy nghĩ hợp lý' (Thinking rationally)?",
+    "options": [
+      "Phát minh ra máy tính cơ học đầu tiên.",
+      "Phát triển hệ thống các tam đoạn luận dùng trong suy luận logic.",
+      "Nghiên cứu về cơ chế truyền tín hiệu qua các nơ-ron thần kinh.",
+      "Đề xuất mô hình kinh tế tối đa hóa lợi nhuận."
+    ],
+    "answer": 1,
+    "feedback": "Aristotle là người đầu tiên hệ thống hóa logic học thông qua các phép tam đoạn luận (syllogisms)."
+  },
+  {
+    "id": 24,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Điều nào sau đây là đặc trưng của một hệ thống thuộc loại Weak AI (AI yếu)?",
+    "options": [
+      "Có khả năng tự nhận thức về sự tồn tại của mình.",
+      "Chỉ được thiết kế để giải quyết một bài toán cụ thể.",
+      "Sở hữu trí tuệ tương đương bộ não của con người.",
+      "Có thể học bất cứ kỹ năng nào một cách độc lập."
+    ],
+    "answer": 1,
+    "feedback": "Weak AI (AI hẹp/yếu) là các hệ thống chỉ được lập trình để thực hiện một nhóm các tác vụ nhất định."
+  },
+  {
+    "id": 25,
+    "type": "multiple_select",
+    "difficulty": "Khó",
+    "question": "Để hành động một cách hợp lý (Act rationally), một agent có nhất thiết phải thực hiện quá trình suy diễn (inference) một cách liên tục không?",
+    "options": [
+      "Có, suy diễn là nền tảng cốt lõi của mọi hành động hợp lý.",
+      "Không, đôi khi các hành động phản xạ lại đạt hiệu quả hợp lý nhất.",
+      "Có, nếu không có suy diễn, agent không thể tồn tại.",
+      "Không, trong môi trường chưa biết, agent nên ngẫu nhiên thử."
+    ],
+    "answer": [
+      1
+    ],
+    "feedback": "Hành động hợp lý bao hàm cả phản xạ (như rụt tay khỏi bếp nóng) mà không cần qua suy diễn dài dòng. (Giải thích thêm: (reflexes))"
+  },
+  {
+    "id": 26,
+    "type": "true_false",
+    "difficulty": "Trung bình",
+    "question": "Bài kiểm tra Turing yêu cầu máy tính phải tạo ra những lời nói có âm điệu giống hệt giọng của con người thật.",
+    "options": [
+      "Đúng",
+      "Sai"
+    ],
+    "answer": 1,
+    "feedback": "Sai. Turing Test tiêu chuẩn chỉ kiểm tra qua giao diện văn bản (teletype), không kiểm tra âm thanh hay ngoại hình vật lý."
+  },
+  {
+    "id": 27,
+    "type": "fill_blank",
+    "difficulty": "Khó",
+    "question": "Phương pháp tiếp cận AI trong đó mô hình hóa cấu trúc não bộ ở mức độ sinh học thấp nhất được gọi là chủ nghĩa ____________.",
+    "options": [
+      "Kết nối (Connectionism)",
+      "Ký hiệu (Symbolism)",
+      "Tiến hóa (Evolutionism)",
+      "Hành vi (Behaviorism)"
+    ],
+    "answer": 0,
+    "feedback": "Chủ nghĩa kết nối (Connectionism) là cơ sở của Mạng nơ-ron, mô phỏng kết nối các nơ-ron."
+  },
+  {
+    "id": 28,
+    "type": "single_choice",
+    "difficulty": "Trung bình",
+    "question": "Sự xuất hiện của 'Dữ liệu lớn' (Big Data) vào đầu thập niên 2000 có tác động gì đến AI?",
+    "options": [
+      "Giúp các thuật toán học máy đơn giản hoạt động cực kỳ hiệu quả mà không cần thiết kế thuật toán quá phức tạp.",
+      "Khiến máy tính trở nên chậm chạp hơn do bị quá tải dữ liệu đầu vào.",
+      "Làm giảm đi tầm quan trọng của các nhà khoa học dữ liệu do mọi thứ đều tự động.",
+      "Gây ra 'Mùa đông AI' lần thứ 3 do thiếu không gian lưu trữ cứng."
+    ],
+    "answer": 0,
+    "feedback": "Dữ liệu lớn giúp các thuật toán học máy phát huy sức mạnh vượt trội, chứng minh rằng dữ liệu dồi dào đôi khi quan trọng hơn thuật toán tinh vi."
+  },
+  {
+    "id": 29,
+    "type": "matching",
+    "difficulty": "Trung bình",
+    "question": "Nối các cách tiếp cận cốt lõi của AI với định nghĩa hoặc thước đo tương ứng của chúng:",
+    "pairs": [
+      {
+        "left": "Acting humanly (Hành động như người)",
+        "right": "Turing Test"
+      },
+      {
+        "left": "Thinking humanly (Suy nghĩ như người)",
+        "right": "Khoa học nhận thức"
+      },
+      {
+        "left": "Thinking rationally (Suy nghĩ hợp lý)",
+        "right": "Quy luật tư duy (Logic)"
+      },
+      {
+        "left": "Acting rationally (Hành động hợp lý)",
+        "right": "Tác tử tối đa hóa lợi ích"
+      }
+    ],
+    "feedback": "Đây là 4 chiều định nghĩa cốt lõi của Trí tuệ nhân tạo (Hành động/Suy nghĩ x Con người/Hợp lý)."
+  },
+  {
+    "id": 30,
+    "type": "ordering",
+    "difficulty": "Khó",
+    "question": "Sắp xếp các sự kiện lịch sử của AI theo thứ tự thời gian từ cũ nhất đến mới nhất:",
+    "items": [
+      "Mô hình nơ-ron nhân tạo đầu tiên của McCulloch & Pitts",
+      "Turing Test được Alan Turing đề xuất",
+      "Hội thảo Dartmouth (thuật ngữ Trí tuệ nhân tạo ra đời)",
+      "Kỷ nguyên của các Hệ chuyên gia (như R1/XCON)",
+      "Sự trỗi dậy của Dữ liệu lớn và Deep Learning"
+    ],
+    "feedback": "Thứ tự: Nơ-ron (1943) -> Turing Test (1950) -> Dartmouth (1956) -> Hệ chuyên gia (những năm 80) -> Big Data & Học sâu (sau 2001)."
+  }
+]
