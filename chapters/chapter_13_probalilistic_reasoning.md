@@ -28,18 +28,18 @@
 *(Chưa có bài tập trắc nghiệm)*
 
 #### **Pseudocode**
-- [ENUMERATION-ASK](codeAndExercises/aima-pseudocode-master/md/Enumeration-Ask.md)
-- [ELIMINATION-ASK](codeAndExercises/aima-pseudocode-master/md/Elimination-Ask.md)
-- [PRIOR-SAMPLE](codeAndExercises/aima-pseudocode-master/md/Prior-Sample.md)
-- [REJECTION-SAMPLING](codeAndExercises/aima-pseudocode-master/md/Rejection-Sampling.md)
-- [LIKELIHOOD-WEIGHTING](codeAndExercises/aima-pseudocode-master/md/Likelihood-Weighting.md)
-- [GIBBS-ASK](codeAndExercises/aima-pseudocode-master/md/Gibbs-Ask.md)
+- <a href="codeAndExercises/aima-pseudocode-master/md/Enumeration-Ask.md" target="_blank" data-ignore>ENUMERATION-ASK</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Elimination-Ask.md" target="_blank" data-ignore>ELIMINATION-ASK</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Prior-Sample.md" target="_blank" data-ignore>PRIOR-SAMPLE</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Rejection-Sampling.md" target="_blank" data-ignore>REJECTION-SAMPLING</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Likelihood-Weighting.md" target="_blank" data-ignore>LIKELIHOOD-WEIGHTING</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Gibbs-Ask.md" target="_blank" data-ignore>GIBBS-ASK</a>
 
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 
 #### **Python**
-- [Probability](codeAndExercises/aima-python-master/notebooks/probability.ipynb)
-- [Probability (Python File)](codeAndExercises/aima-python-master/notebooks/probability.py)
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/probability.ipynb"  target="_blank" data-ignore>Probability</a>
+- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/probability.py"  target="_blank" data-ignore>Probability (Python File)</a>
 
 
 #### **Bài tập**

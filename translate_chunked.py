@@ -1,6 +1,7 @@
 import os
 import re
 import google.generativeai as genai
+import time
 from dotenv import load_dotenv
 
 # Tự động load biến môi trường từ file .env (nếu có)
@@ -19,8 +20,8 @@ if not os.environ.get("GEMINI_API_KEY"):
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 model = genai.GenerativeModel('gemini-3.5-flash-lite')
 
-import time
-def translate_content(text):
+def translate_chunk(text):
+    if not text.strip(): return ""
     prompt = """
 You are an expert AI translator. Translate the following exercises from English to Vietnamese.
 Rules:
@@ -29,6 +30,7 @@ Rules:
 3. Preserve all mathematical formulas (e.g. `$T$`, `$O(n)$`).
 4. KEEP ALL ARTIFICIAL INTELLIGENCE TERMINOLOGY IN THEIR ORIGINAL ENGLISH FORM (e.g. agent, state, environment, rationality, reflex action, percept, search, node, etc.). Do not translate these.
 5. Translate the rest naturally and fluently into Vietnamese.
+6. Return ONLY the translated text, with no introductory or conversational text like 'Here is the translation'.
 
 Text to translate:
 """
@@ -39,66 +41,55 @@ Text to translate:
                 prompt + text,
                 generation_config=genai.types.GenerationConfig(temperature=0.1)
             )
-            break
+            result = response.text
+            if result.startswith("```markdown"):
+                result = result[len("```markdown"):]
+            if result.endswith("```"):
+                result = result[:-3]
+            return result.strip() + "\n"
         except Exception as e:
             if "429" in str(e) and attempt < max_retries - 1:
                 print(f"Rate limited. Retrying in 15 seconds... (Attempt {attempt+1}/{max_retries})")
                 time.sleep(15)
             else:
-                raise e
-
-    # Loại bỏ block code markdown nếu model vô tình thêm vào
-    result = response.text
-    if result.startswith("```markdown"):
-        result = result[len("```markdown"):]
-    if result.endswith("```"):
-        result = result[:-3]
-    
-    return result.strip() + "\n\n"
+                print(f"Error on chunk: {e}")
+                return text # Fallback to original
+    return text
 
 def process_file(filepath):
+    print(f"Translating {filepath} in chunks...")
     with open(filepath, 'r', encoding='utf-8') as f:
         content = f.read()
 
-    # Tìm đoạn nội dung từ `#### **Bài tập**` cho đến `<!-- tabs:end -->`
     match = re.search(r'(#### \*\*Bài tập\*\*\s*\n)(.*?)(<!-- tabs:end -->)', content, re.DOTALL)
+    if not match: return
+    prefix = match.group(1)
+    exercises_text = match.group(2)
+    suffix = match.group(3)
+
+    # Split by `##### Bài tập`
+    chunks = re.split(r'(##### Bài tập \d+\.\d+)', exercises_text)
     
-    if match:
-        prefix = match.group(1)
-        exercises_text = match.group(2)
-        suffix = match.group(3)
-
-        # Bỏ qua nếu phần bài tập rỗng hoặc không có nội dung tiếng Anh (chỉ có comment)
-        if len(exercises_text.strip()) < 10:
-            print(f"Skipping {filepath}: Không có nội dung bài tập.")
-            return
-
-        print(f"Translating {filepath}...")
+    translated_text = ""
+    # chunk[0] is the preamble (if any) before the first exercise
+    if chunks[0].strip():
+        print(f"Translating preamble...")
+        translated_text += translate_chunk(chunks[0]) + "\n"
+        time.sleep(4)
         
-        try:
-            translated_text = translate_content(exercises_text)
-            new_content = content[:match.start()] + prefix + "\n" + translated_text + suffix + content[match.end():]
-            
-            with open(filepath, 'w', encoding='utf-8') as f:
-                f.write(new_content)
-            print(f"✅ Successfully translated and updated: {filepath}")
-            time.sleep(15) # Tránh rate limit của Free Tier
-        except Exception as e:
-            print(f"❌ Error translating {filepath}: {e}")
-    else:
-        print(f"Skipping {filepath}: Không tìm thấy section 'Bài tập'.")
+    for i in range(1, len(chunks), 2):
+        header = chunks[i]
+        body = chunks[i+1]
+        print(f"Translating {header.strip()}...")
+        translated_body = translate_chunk(body)
+        translated_text += "\n" + header + "\n" + translated_body + "\n"
+        time.sleep(4) # Respect rate limits (15 RPM)
+        
+    new_content = content[:match.start()] + prefix + "\n" + translated_text + suffix + content[match.end():]
+    with open(filepath, 'w', encoding='utf-8') as f:
+        f.write(new_content)
+    print(f"✅ Successfully translated and updated: {filepath}")
 
 if __name__ == "__main__":
-    chapters_dir = "chapters"
-    
-    if not os.path.exists(chapters_dir):
-        print(f"Thư mục {chapters_dir} không tồn tại!")
-        exit(1)
-
-    print("Bắt đầu dịch...")
-    for filename in sorted(os.listdir(chapters_dir)):
-        if filename.endswith(".md"):
-            if filename in ["chapter_09_inference_in_first_order_logic.md", "chapter_20_knowledge_in_learning.md"]:
-                filepath = os.path.join(chapters_dir, filename)
-                process_file(filepath)
-    print("Hoàn tất!")
+    process_file("chapters/chapter_09_inference_in_first_order_logic.md")
+    process_file("chapters/chapter_20_knowledge_in_learning.md")

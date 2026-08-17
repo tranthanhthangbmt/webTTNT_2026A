@@ -32,18 +32,18 @@
 *(Chưa có bài tập trắc nghiệm)*
 
 #### **Pseudocode**
-- [HILL-CLIMBING](codeAndExercises/aima-pseudocode-master/md/Hill-Climbing.md)
-- [SIMULATED-ANNEALING](codeAndExercises/aima-pseudocode-master/md/Simulated-Annealing.md)
-- [GENETIC-ALGORITHM](codeAndExercises/aima-pseudocode-master/md/Genetic-Algorithm.md)
-- [AND-OR-GRAPH-SEARCH](codeAndExercises/aima-pseudocode-master/md/And-Or-Graph-Search.md)
-- [ONLINE-DFS-AGENT](codeAndExercises/aima-pseudocode-master/md/Online-DFS-Agent.md)
-- [LRTA*-AGENT](codeAndExercises/aima-pseudocode-master/md/LRTAStar-Agent.md)
+- <a href="codeAndExercises/aima-pseudocode-master/md/Hill-Climbing.md" target="_blank" data-ignore>HILL-CLIMBING</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Simulated-Annealing.md" target="_blank" data-ignore>SIMULATED-ANNEALING</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Genetic-Algorithm.md" target="_blank" data-ignore>GENETIC-ALGORITHM</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/And-Or-Graph-Search.md" target="_blank" data-ignore>AND-OR-GRAPH-SEARCH</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Online-DFS-Agent.md" target="_blank" data-ignore>ONLINE-DFS-AGENT</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/LRTAStar-Agent.md" target="_blank" data-ignore>LRTA*-AGENT</a>
 
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 
 #### **Python**
-- [Search](codeAndExercises/aima-python-master/notebooks/search.ipynb)
-- [Search (Python File)](codeAndExercises/aima-python-master/notebooks/search.py)
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/search.ipynb"  target="_blank" data-ignore>Search</a>
+- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/search.py"  target="_blank" data-ignore>Search (Python File)</a>
 
 
 #### **Bài tập**

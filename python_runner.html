@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Python Runner - Trí tuệ nhân tạo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CodeMirror for Code Editor -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/theme/dracula.min.css">
+    
+    <!-- Pyodide for running Python in WebAssembly -->
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.25.1/full/pyodide.js"></script>
+    
+    <style>
+        :root {
+            --theme-color: #1a73e8;
+            --bg-color: #f8f9fa;
+            --editor-bg: #282a36; /* Dracula bg */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: var(--bg-color);
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            background: #fff;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: #333;
+        }
+        .file-name {
+            font-weight: 500;
+            color: var(--theme-color);
+            margin-left: 10px;
+        }
+        .btn-run {
+            background-color: var(--theme-color);
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-run:hover {
+            background-color: #1557b0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);
+        }
+        .btn-run:disabled {
+            background-color: #a0c3ff;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .main-container {
+            display: flex;
+            flex: 1;
+            gap: 20px;
+            min-height: 0; /* Important for flex child scrolling */
+        }
+        
+        .editor-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .CodeMirror {
+            flex: 1;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 15px;
+            height: 100% !important;
+        }
+        
+        .output-container {
+            flex: 1;
+            background: #1e1e1e;
+            color: #00ff00;
+            border-radius: 8px;
+            padding: 15px;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 14px;
+            overflow-y: auto;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            white-space: pre-wrap;
+            position: relative;
+        }
+        .output-title {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            background: #333;
+            color: #ccc;
+            padding: 5px 15px;
+            font-size: 12px;
+            font-family: 'Inter', sans-serif;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        #output {
+            margin-top: 25px;
+        }
+        
+        /* Loading Overlay */
+        .loading-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.5s;
+        }
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--theme-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="loading-overlay" id="loading">
+        <div class="spinner"></div>
+        <h2 style="color: #333; margin-top: 20px;" id="loading-text">Đang khởi tạo môi trường Python...</h2>
+    </div>
+
+    <div class="header">
+        <h1>IDE Trực Tuyến <span class="file-name" id="display-filename"></span></h1>
+        <button class="btn-run" id="run-btn" disabled>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+            </svg>
+            Chạy Code
+        </button>
+    </div>
+
+    <div class="main-container">
+        <div class="editor-container">
+            <textarea id="code-editor"></textarea>
+        </div>
+        <div class="output-container">
+            <div class="output-title">Console Output</div>
+            <div id="output"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/python/python.min.js"></script>
+    
+    <script>
+        // Khởi tạo CodeMirror
+        const editor = CodeMirror.fromTextArea(document.getElementById("code-editor"), {
+            mode: "python",
+            theme: "dracula",
+            lineNumbers: true,
+            indentUnit: 4,
+            matchBrackets: true
+        });
+
+        let pyodideInstance = null;
+        const outputDiv = document.getElementById("output");
+        const runBtn = document.getElementById("run-btn");
+        const loadingDiv = document.getElementById("loading");
+        const loadingText = document.getElementById("loading-text");
+        
+        function appendOutput(text, isError=false) {
+            const span = document.createElement("span");
+            if(isError) span.style.color = "#ff5555";
+            span.textContent = text + "\n";
+            outputDiv.appendChild(span);
+            outputDiv.parentElement.scrollTop = outputDiv.parentElement.scrollHeight;
+        }
+
+        async function initPyodide() {
+            try {
+                pyodideInstance = await loadPyodide({
+                    stdout: (text) => appendOutput(text),
+                    stderr: (text) => appendOutput(text, true)
+                });
+                
+                loadingText.innerText = "Tải file code...";
+                await loadFile();
+                
+                loadingDiv.style.opacity = '0';
+                setTimeout(() => loadingDiv.style.display = 'none', 500);
+                runBtn.disabled = false;
+            } catch (err) {
+                loadingText.innerText = "Lỗi khởi tạo Pyodide!";
+                console.error(err);
+            }
+        }
+
+        async function loadFile() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const filepath = urlParams.get('file');
+            
+            if (!filepath) {
+                editor.setValue("# Không tìm thấy đường dẫn file trong URL.\n# Hãy mở file này thông qua giao diện bài học.");
+                return;
+            }
+
+            document.getElementById('display-filename').innerText = " - " + filepath.split('/').pop();
+
+            try {
+                const response = await fetch(filepath);
+                if (!response.ok) throw new Error("Không thể tải file: " + response.statusText);
+                const code = await response.text();
+                editor.setValue(code);
+            } catch (err) {
+                editor.setValue("# Lỗi tải file: " + err.message);
+            }
+        }
+
+        runBtn.addEventListener('click', async () => {
+            const code = editor.getValue();
+            outputDiv.innerHTML = ""; // Xóa output cũ
+            appendOutput(">>> Đang chạy code...", false);
+            
+            runBtn.disabled = true;
+            runBtn.innerHTML = "Đang chạy...";
+            
+            try {
+                // Tải các module chuẩn nếu code cần
+                await pyodideInstance.loadPackagesFromImports(code);
+                
+                // Thực thi code
+                await pyodideInstance.runPythonAsync(code);
+                
+            } catch (err) {
+                appendOutput(err.toString(), true);
+            } finally {
+                runBtn.disabled = false;
+                runBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Chạy Code`;
+            }
+        });
+
+        // Khởi động mọi thứ
+        initPyodide();
+    </script>
+</body>
+</html>

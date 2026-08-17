@@ -36,21 +36,21 @@
 *(Chưa có bài tập trắc nghiệm)*
 
 #### **Pseudocode**
-- [FORWARD-BACKWARD](codeAndExercises/aima-pseudocode-master/md/Forward-Backward.md)
-- [FIXED-LAG-SMOOTHING](codeAndExercises/aima-pseudocode-master/md/Fixed-Lag-Smoothing.md)
-- [PARTICLE-FILTERING](codeAndExercises/aima-pseudocode-master/md/Particle-Filtering.md)
+- <a href="codeAndExercises/aima-pseudocode-master/md/Forward-Backward.md" target="_blank" data-ignore>FORWARD-BACKWARD</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Fixed-Lag-Smoothing.md" target="_blank" data-ignore>FIXED-LAG-SMOOTHING</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Particle-Filtering.md" target="_blank" data-ignore>PARTICLE-FILTERING</a>
 
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 
 #### **Python**
-- [Probability](codeAndExercises/aima-python-master/notebooks/probability.ipynb)
-- [Probability (Python File)](codeAndExercises/aima-python-master/notebooks/probability.py)
-- [Kalman Filter](codeAndExercises/aima-python-master/notebooks/kalman_filter.ipynb)
-- [Kalman Filter (Python File)](codeAndExercises/aima-python-master/notebooks/kalman_filter.py)
-- [Viterbi Algorithm](codeAndExercises/aima-python-master/notebooks/viterbi_algorithm.ipynb)
-- [Viterbi Algorithm (Python File)](codeAndExercises/aima-python-master/notebooks/viterbi_algorithm.py)
-- [Expectation Maximization](codeAndExercises/aima-python-master/notebooks/expectation_maximization.ipynb)
-- [Expectation Maximization (Python File)](codeAndExercises/aima-python-master/notebooks/expectation_maximization.py)
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/probability.ipynb"  target="_blank" data-ignore>Probability</a>
+- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/probability.py"  target="_blank" data-ignore>Probability (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/kalman_filter.ipynb"  target="_blank" data-ignore>Kalman Filter</a>
+- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/kalman_filter.py"  target="_blank" data-ignore>Kalman Filter (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/viterbi_algorithm.ipynb"  target="_blank" data-ignore>Viterbi Algorithm</a>
+- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/viterbi_algorithm.py"  target="_blank" data-ignore>Viterbi Algorithm (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/expectation_maximization.ipynb"  target="_blank" data-ignore>Expectation Maximization</a>
+- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/expectation_maximization.py"  target="_blank" data-ignore>Expectation Maximization (Python File)</a>
 
 
 #### **Bài tập**

@@ -28,13 +28,13 @@
 *(Chưa có bài tập trắc nghiệm)*
 
 #### **Pseudocode**
-- [DT-AGENT](codeAndExercises/aima-pseudocode-master/md/DT-Agent.md)
+- <a href="codeAndExercises/aima-pseudocode-master/md/DT-Agent.md" target="_blank" data-ignore>DT-AGENT</a>
 
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 
 #### **Python**
-- [Probability](codeAndExercises/aima-python-master/notebooks/probability.ipynb)
-- [Probability (Python File)](codeAndExercises/aima-python-master/notebooks/probability.py)
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/probability.ipynb"  target="_blank" data-ignore>Probability</a>
+- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/probability.py"  target="_blank" data-ignore>Probability (Python File)</a>
 
 
 #### **Bài tập**

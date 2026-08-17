@@ -28,16 +28,16 @@
 *(Chưa có bài tập trắc nghiệm)*
 
 #### **Pseudocode**
-- [PASSIVE-ADP-AGENT](codeAndExercises/aima-pseudocode-master/md/Passive-ADP-Agent.md)
-- [PASSIVE-TD-AGENT](codeAndExercises/aima-pseudocode-master/md/Passive-TD-Agent.md)
-- [Q-LEARNING-AGENT](codeAndExercises/aima-pseudocode-master/md/Q-Learning-Agent.md)
-- [HITS](codeAndExercises/aima-pseudocode-master/md/Hits.md)
+- <a href="codeAndExercises/aima-pseudocode-master/md/Passive-ADP-Agent.md" target="_blank" data-ignore>PASSIVE-ADP-AGENT</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Passive-TD-Agent.md" target="_blank" data-ignore>PASSIVE-TD-AGENT</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Q-Learning-Agent.md" target="_blank" data-ignore>Q-LEARNING-AGENT</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Hits.md" target="_blank" data-ignore>HITS</a>
 
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 
 #### **Python**
-- [Neural Nets](codeAndExercises/aima-python-master/notebooks/neural_nets.ipynb)
-- [Neural Nets (Python File)](codeAndExercises/aima-python-master/notebooks/neural_nets.py)
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/neural_nets.ipynb"  target="_blank" data-ignore>Neural Nets</a>
+- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/neural_nets.py"  target="_blank" data-ignore>Neural Nets (Python File)</a>
 
 
 #### **Bài tập**

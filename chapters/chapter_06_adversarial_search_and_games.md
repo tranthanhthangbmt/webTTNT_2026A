@@ -28,16 +28,16 @@
 *(Chưa có bài tập trắc nghiệm)*
 
 #### **Pseudocode**
-- [AC-3](codeAndExercises/aima-pseudocode-master/md/AC-3.md)
-- [BACKTRACKING-SEARCH](codeAndExercises/aima-pseudocode-master/md/Backtracking-Search.md)
-- [MIN-CONFLICTS](codeAndExercises/aima-pseudocode-master/md/Min-Conflicts.md)
-- [TREE-CSP-SOLVER](codeAndExercises/aima-pseudocode-master/md/Tree-CSP-Solver.md)
+- <a href="codeAndExercises/aima-pseudocode-master/md/AC-3.md" target="_blank" data-ignore>AC-3</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Backtracking-Search.md" target="_blank" data-ignore>BACKTRACKING-SEARCH</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Min-Conflicts.md" target="_blank" data-ignore>MIN-CONFLICTS</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Tree-CSP-Solver.md" target="_blank" data-ignore>TREE-CSP-SOLVER</a>
 
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 
 #### **Python**
-- [Games](codeAndExercises/aima-python-master/notebooks/games.ipynb)
-- [Games (Python File)](codeAndExercises/aima-python-master/notebooks/games.py)
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/games.ipynb"  target="_blank" data-ignore>Games</a>
+- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/games.py"  target="_blank" data-ignore>Games (Python File)</a>
 
 
 #### **Bài tập**

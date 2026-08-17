@@ -421,6 +421,51 @@
               }
             }
           }
+
+          // 3. Drag to scroll for tabs
+          document.querySelectorAll('.docsify-tabs').forEach(slider => {
+            let isDown = false;
+            let isDragging = false;
+            let startX;
+            let scrollLeft;
+
+            slider.addEventListener('mousedown', (e) => {
+              isDown = true;
+              isDragging = false;
+              slider.style.cursor = 'grabbing';
+              slider.style.userSelect = 'none'; // Prevent text selection
+              startX = e.pageX - slider.offsetLeft;
+              scrollLeft = slider.scrollLeft;
+            });
+            slider.addEventListener('mouseleave', () => {
+              isDown = false;
+              slider.style.cursor = '';
+              slider.style.userSelect = '';
+            });
+            slider.addEventListener('mouseup', () => {
+              isDown = false;
+              slider.style.cursor = '';
+              slider.style.userSelect = '';
+            });
+            slider.addEventListener('mousemove', (e) => {
+              if (!isDown) return;
+              e.preventDefault();
+              const x = e.pageX - slider.offsetLeft;
+              const walk = (x - startX) * 1.5; // Scroll speed
+              if (Math.abs(walk) > 5) {
+                  isDragging = true;
+              }
+              slider.scrollLeft = scrollLeft - walk;
+            });
+            // Prevent accidental tab clicks when dragging
+            slider.addEventListener('click', (e) => {
+              if (isDragging) {
+                e.preventDefault();
+                e.stopPropagation();
+                isDragging = false;
+              }
+            }, true); // Use capture phase
+          });
         });
       },
       window.$docsify.plugins || []

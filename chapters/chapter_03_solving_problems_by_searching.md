@@ -28,20 +28,20 @@
 *(Chưa có bài tập trắc nghiệm)*
 
 #### **Pseudocode**
-- [SIMPLE-PROBLEM-SOLVING-AGENT](codeAndExercises/aima-pseudocode-master/md/Simple-Problem-Solving-Agent.md)
-- [BEST-FIRST-SEARCH](codeAndExercises/aima-pseudocode-master/md/Tree-Search-and-Graph-Search.md)
-- [BREADTH-FIRST-SEARCH](codeAndExercises/aima-pseudocode-master/md/Breadth-First-Search.md)
-- [ITERATIVE-DEEPENING-SEARCH](codeAndExercises/aima-pseudocode-master/md/Iterative-Deepening-Search.md)
-- [BIBF-SEARCH](codeAndExercises/aima-pseudocode-master/)
-- [UNIFORM-COST-SEARCH](codeAndExercises/aima-pseudocode-master/md/Uniform-Cost-Search.md)
-- [DEPTH-LIMITED-SEARCH](codeAndExercises/aima-pseudocode-master/md/Depth-Limited-Search.md)
-- [RECURSIVE-BEST-FIRST-SEARCH](codeAndExercises/aima-pseudocode-master/md/Recursive-Best-First-Search.md)
+- <a href="codeAndExercises/aima-pseudocode-master/md/Simple-Problem-Solving-Agent.md" target="_blank" data-ignore>SIMPLE-PROBLEM-SOLVING-AGENT</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Tree-Search-and-Graph-Search.md" target="_blank" data-ignore>BEST-FIRST-SEARCH</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Breadth-First-Search.md" target="_blank" data-ignore>BREADTH-FIRST-SEARCH</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Iterative-Deepening-Search.md" target="_blank" data-ignore>ITERATIVE-DEEPENING-SEARCH</a>
+- <a href="codeAndExercises/aima-pseudocode-master/" target="_blank" data-ignore>BIBF-SEARCH</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Uniform-Cost-Search.md" target="_blank" data-ignore>UNIFORM-COST-SEARCH</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Depth-Limited-Search.md" target="_blank" data-ignore>DEPTH-LIMITED-SEARCH</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Recursive-Best-First-Search.md" target="_blank" data-ignore>RECURSIVE-BEST-FIRST-SEARCH</a>
 
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 
 #### **Python**
-- [Search](codeAndExercises/aima-python-master/notebooks/search.ipynb)
-- [Search (Python File)](codeAndExercises/aima-python-master/notebooks/search.py)
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/search.ipynb"  target="_blank" data-ignore>Search</a>
+- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/search.py"  target="_blank" data-ignore>Search (Python File)</a>
 
 
 #### **Bài tập**

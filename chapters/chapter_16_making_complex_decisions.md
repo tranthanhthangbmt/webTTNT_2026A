@@ -28,15 +28,15 @@
 *(Chưa có bài tập trắc nghiệm)*
 
 #### **Pseudocode**
-- [INFORMATION-GATHERING-AGENT](codeAndExercises/aima-pseudocode-master/md/Information-Gathering-Agent.md)
+- <a href="codeAndExercises/aima-pseudocode-master/md/Information-Gathering-Agent.md" target="_blank" data-ignore>INFORMATION-GATHERING-AGENT</a>
 
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 
 #### **Python**
-- [Mdp](codeAndExercises/aima-python-master/notebooks/mdp.ipynb)
-- [Mdp (Python File)](codeAndExercises/aima-python-master/notebooks/mdp.py)
-- [Mdp Apps](codeAndExercises/aima-python-master/notebooks/mdp_apps.ipynb)
-- [Mdp Apps (Python File)](codeAndExercises/aima-python-master/notebooks/mdp_apps.py)
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/mdp.ipynb"  target="_blank" data-ignore>Mdp</a>
+- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/mdp.py"  target="_blank" data-ignore>Mdp (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/mdp_apps.ipynb"  target="_blank" data-ignore>Mdp Apps</a>
+- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/mdp_apps.py"  target="_blank" data-ignore>Mdp Apps (Python File)</a>
 
 
 #### **Bài tập**

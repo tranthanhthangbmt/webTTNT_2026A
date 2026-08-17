@@ -28,17 +28,17 @@
 *(Chưa có bài tập trắc nghiệm)*
 
 #### **Pseudocode**
-- [MINIMAX-SEARCH](codeAndExercises/aima-pseudocode-master/md/Minimax-Decision.md)
-- [ALPHA-BETA-SEARCH](codeAndExercises/aima-pseudocode-master/md/Alpha-Beta-Search.md)
-- [MONTE-CARLO-TREE-SEARCH](codeAndExercises/aima-pseudocode-master/md/Monte-Carlo-Tree-Search.md)
+- <a href="codeAndExercises/aima-pseudocode-master/md/Minimax-Decision.md" target="_blank" data-ignore>MINIMAX-SEARCH</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Alpha-Beta-Search.md" target="_blank" data-ignore>ALPHA-BETA-SEARCH</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Monte-Carlo-Tree-Search.md" target="_blank" data-ignore>MONTE-CARLO-TREE-SEARCH</a>
 
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 
 #### **Python**
-- [Csp](codeAndExercises/aima-python-master/notebooks/csp.ipynb)
-- [Csp (Python File)](codeAndExercises/aima-python-master/notebooks/csp.py)
-- [Arc Consistency Heuristics](codeAndExercises/aima-python-master/notebooks/arc_consistency_heuristics.ipynb)
-- [Arc Consistency Heuristics (Python File)](codeAndExercises/aima-python-master/notebooks/arc_consistency_heuristics.py)
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/csp.ipynb"  target="_blank" data-ignore>Csp</a>
+- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/csp.py"  target="_blank" data-ignore>Csp (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/arc_consistency_heuristics.ipynb"  target="_blank" data-ignore>Arc Consistency Heuristics</a>
+- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/arc_consistency_heuristics.py"  target="_blank" data-ignore>Arc Consistency Heuristics (Python File)</a>
 
 
 #### **Bài tập**

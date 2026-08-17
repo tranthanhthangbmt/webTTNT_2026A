@@ -17,12 +17,12 @@
 *(Chưa có bài tập trắc nghiệm)*
 
 #### **Pseudocode**
-[Xem Pseudocode](codeAndExercises/aima-pseudocode-master/README.md)
+<a href="codeAndExercises/aima-pseudocode-master/README.md" target="_blank" data-ignore>Xem Pseudocode</a>
 
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 
 #### **Python**
-[Xem Python Code](codeAndExercises/aima-python-master/README.md)
+<a href="codeAndExercises/aima-python-master/README.md" target="_blank" data-ignore>Xem Python Code</a>
 
 *(Thư mục chứa Jupyter Notebook minh họa: `codeAndExercises/aima-python-master/notebooks`)*
 
@@ -30,7 +30,7 @@
 
 
 
-[Xem bài tập trên GitHub (Thư mục gốc)](codeAndExercises/aima-exercises-master/README.md)
+<a href="codeAndExercises/aima-exercises-master/README.md" target="_blank" data-ignore>Xem bài tập trên GitHub (Thư mục gốc)</a>
 
 ##### Bài tập 1.1
 

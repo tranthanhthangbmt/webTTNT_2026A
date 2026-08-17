@@ -28,33 +28,33 @@
 *(Chưa có bài tập trắc nghiệm)*
 
 #### **Pseudocode**
-- [AIR-CARGO-TRANSPORT-PROBLEM](codeAndExercises/aima-pseudocode-master/md/Air-Cargo-Transport-Problem.md)
-- [SPARE-TIRE-PROBLEM](codeAndExercises/aima-pseudocode-master/md/Spare-Tire-Problem.md)
-- [BLOCKS-WORLD](codeAndExercises/aima-pseudocode-master/md/Blocks-World.md)
-- [HAVE-CAKE-AND-EAT-CAKE-TOO-PROBLEM](codeAndExercises/aima-pseudocode-master/md/Have-Cake-And-Eat-Cake-Too.md)
-- [GRAPHPLAN](codeAndExercises/aima-pseudocode-master/md/GraphPlan.md)
-- [REFINEMENT-HIGH-LEVEL-ACTIONS](codeAndExercises/aima-pseudocode-master/md/Refinement-High-Level-Actions.md)
-- [HIERARCHICAL-SEARCH](codeAndExercises/aima-pseudocode-master/md/Hierarchical-Search.md)
-- [ANGELIC-SEARCH](codeAndExercises/aima-pseudocode-master/md/Angelic-Search.md)
-- [JOB-SHOP-SCHEDULING-PROBLEM](codeAndExercises/aima-pseudocode-master/md/Job-Shop-Scheduling-Problem.md)
+- <a href="codeAndExercises/aima-pseudocode-master/md/Air-Cargo-Transport-Problem.md" target="_blank" data-ignore>AIR-CARGO-TRANSPORT-PROBLEM</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Spare-Tire-Problem.md" target="_blank" data-ignore>SPARE-TIRE-PROBLEM</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Blocks-World.md" target="_blank" data-ignore>BLOCKS-WORLD</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Have-Cake-And-Eat-Cake-Too.md" target="_blank" data-ignore>HAVE-CAKE-AND-EAT-CAKE-TOO-PROBLEM</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/GraphPlan.md" target="_blank" data-ignore>GRAPHPLAN</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Refinement-High-Level-Actions.md" target="_blank" data-ignore>REFINEMENT-HIGH-LEVEL-ACTIONS</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Hierarchical-Search.md" target="_blank" data-ignore>HIERARCHICAL-SEARCH</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Angelic-Search.md" target="_blank" data-ignore>ANGELIC-SEARCH</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Job-Shop-Scheduling-Problem.md" target="_blank" data-ignore>JOB-SHOP-SCHEDULING-PROBLEM</a>
 
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 
 #### **Python**
-- [Planning](codeAndExercises/aima-python-master/notebooks/planning.ipynb)
-- [Planning (Python File)](codeAndExercises/aima-python-master/notebooks/planning.py)
-- [Classical Planning Approaches](codeAndExercises/aima-python-master/notebooks/classical_planning_approaches.ipynb)
-- [Classical Planning Approaches (Python File)](codeAndExercises/aima-python-master/notebooks/classical_planning_approaches.py)
-- [Planning Angelic Search](codeAndExercises/aima-python-master/notebooks/planning_angelic_search.ipynb)
-- [Planning Angelic Search (Python File)](codeAndExercises/aima-python-master/notebooks/planning_angelic_search.py)
-- [Planning Graph Plan](codeAndExercises/aima-python-master/notebooks/planning_graph_plan.ipynb)
-- [Planning Graph Plan (Python File)](codeAndExercises/aima-python-master/notebooks/planning_graph_plan.py)
-- [Planning Hierarchical Search](codeAndExercises/aima-python-master/notebooks/planning_hierarchical_search.ipynb)
-- [Planning Hierarchical Search (Python File)](codeAndExercises/aima-python-master/notebooks/planning_hierarchical_search.py)
-- [Planning Partial Order Planner](codeAndExercises/aima-python-master/notebooks/planning_partial_order_planner.ipynb)
-- [Planning Partial Order Planner (Python File)](codeAndExercises/aima-python-master/notebooks/planning_partial_order_planner.py)
-- [Planning Total Order Planner](codeAndExercises/aima-python-master/notebooks/planning_total_order_planner.ipynb)
-- [Planning Total Order Planner (Python File)](codeAndExercises/aima-python-master/notebooks/planning_total_order_planner.py)
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/planning.ipynb"  target="_blank" data-ignore>Planning</a>
+- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/planning.py"  target="_blank" data-ignore>Planning (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/classical_planning_approaches.ipynb"  target="_blank" data-ignore>Classical Planning Approaches</a>
+- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/classical_planning_approaches.py"  target="_blank" data-ignore>Classical Planning Approaches (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/planning_angelic_search.ipynb"  target="_blank" data-ignore>Planning Angelic Search</a>
+- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/planning_angelic_search.py"  target="_blank" data-ignore>Planning Angelic Search (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/planning_graph_plan.ipynb"  target="_blank" data-ignore>Planning Graph Plan</a>
+- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/planning_graph_plan.py"  target="_blank" data-ignore>Planning Graph Plan (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/planning_hierarchical_search.ipynb"  target="_blank" data-ignore>Planning Hierarchical Search</a>
+- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/planning_hierarchical_search.py"  target="_blank" data-ignore>Planning Hierarchical Search (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/planning_partial_order_planner.ipynb"  target="_blank" data-ignore>Planning Partial Order Planner</a>
+- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/planning_partial_order_planner.py"  target="_blank" data-ignore>Planning Partial Order Planner (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/planning_total_order_planner.ipynb"  target="_blank" data-ignore>Planning Total Order Planner</a>
+- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/planning_total_order_planner.py"  target="_blank" data-ignore>Planning Total Order Planner (Python File)</a>
 
 
 #### **Bài tập**

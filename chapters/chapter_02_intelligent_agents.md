@@ -28,18 +28,18 @@
 *(Chưa có bài tập trắc nghiệm)*
 
 #### **Pseudocode**
-- [TABLE-DRIVEN-AGENT](codeAndExercises/aima-pseudocode-master/md/Table-Driven-Agent.md)
-- [REFLEX-VACUUM-AGENT](codeAndExercises/aima-pseudocode-master/md/Reflex-Vacuum-Agent.md)
-- [SIMPLE-REFLEX-AGENT](codeAndExercises/aima-pseudocode-master/md/Simple-Reflex-Agent.md)
-- [MODEL-BASED-REFLEX-AGENT](codeAndExercises/aima-pseudocode-master/md/Model-Based-Reflex-Agent.md)
+- <a href="codeAndExercises/aima-pseudocode-master/md/Table-Driven-Agent.md" target="_blank" data-ignore>TABLE-DRIVEN-AGENT</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Reflex-Vacuum-Agent.md" target="_blank" data-ignore>REFLEX-VACUUM-AGENT</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Simple-Reflex-Agent.md" target="_blank" data-ignore>SIMPLE-REFLEX-AGENT</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Model-Based-Reflex-Agent.md" target="_blank" data-ignore>MODEL-BASED-REFLEX-AGENT</a>
 
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 
 #### **Python**
-- [Agents](codeAndExercises/aima-python-master/notebooks/agents.ipynb)
-- [Agents (Python File)](codeAndExercises/aima-python-master/notebooks/agents.py)
-- [Vacuum World](codeAndExercises/aima-python-master/notebooks/vacuum_world.ipynb)
-- [Vacuum World (Python File)](codeAndExercises/aima-python-master/notebooks/vacuum_world.py)
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/agents.ipynb"  target="_blank" data-ignore>Agents</a>
+- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/agents.py"  target="_blank" data-ignore>Agents (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/vacuum_world.ipynb"  target="_blank" data-ignore>Vacuum World</a>
+- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/vacuum_world.py"  target="_blank" data-ignore>Vacuum World (Python File)</a>
 
 
 #### **Bài tập**

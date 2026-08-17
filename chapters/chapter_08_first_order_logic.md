@@ -33,8 +33,8 @@
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 
 #### **Python**
-- [Logic](codeAndExercises/aima-python-master/notebooks/logic.ipynb)
-- [Logic (Python File)](codeAndExercises/aima-python-master/notebooks/logic.py)
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/logic.ipynb"  target="_blank" data-ignore>Logic</a>
+- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/logic.py"  target="_blank" data-ignore>Logic (Python File)</a>
 
 
 #### **Bài tập**

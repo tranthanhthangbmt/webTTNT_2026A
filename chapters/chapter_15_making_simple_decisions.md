@@ -32,17 +32,17 @@
 *(Chưa có bài tập trắc nghiệm)*
 
 #### **Pseudocode**
-- [OUPM](codeAndExercises/aima-pseudocode-master/md/oupm.md)
-- [NET-VISA](codeAndExercises/aima-pseudocode-master/md/net-visa.md)
-- [RADAR](codeAndExercises/aima-pseudocode-master/md/radar.md)
-- [GENERATE-IMAGE](codeAndExercises/aima-pseudocode-master/md/generate-image.md)
-- [GENERATE-MARKOV-LETTERS](codeAndExercises/aima-pseudocode-master/md/generate-markov-letters.md)
+- <a href="codeAndExercises/aima-pseudocode-master/md/oupm.md" target="_blank" data-ignore>OUPM</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/net-visa.md" target="_blank" data-ignore>NET-VISA</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/radar.md" target="_blank" data-ignore>RADAR</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/generate-image.md" target="_blank" data-ignore>GENERATE-IMAGE</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/generate-markov-letters.md" target="_blank" data-ignore>GENERATE-MARKOV-LETTERS</a>
 
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 
 #### **Python**
-- [Dynamic Decision Network](codeAndExercises/aima-python-master/notebooks/dynamic_decision_network.ipynb)
-- [Dynamic Decision Network (Python File)](codeAndExercises/aima-python-master/notebooks/dynamic_decision_network.py)
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/dynamic_decision_network.ipynb"  target="_blank" data-ignore>Dynamic Decision Network</a>
+- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/dynamic_decision_network.py"  target="_blank" data-ignore>Dynamic Decision Network (Python File)</a>
 
 
 #### **Bài tập**

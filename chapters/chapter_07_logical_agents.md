@@ -28,22 +28,22 @@
 *(Chưa có bài tập trắc nghiệm)*
 
 #### **Pseudocode**
-- [KB-AGENT](codeAndExercises/aima-pseudocode-master/md/KB-Agent.md)
-- [TT-ENTAILS](codeAndExercises/aima-pseudocode-master/md/TT-Entails.md)
-- [PL-RESOLUTION](codeAndExercises/aima-pseudocode-master/md/PL-Resolution.md)
-- [PL-FC-ENTAILS?](codeAndExercises/aima-pseudocode-master/md/PL-FC-Entails.md)
-- [DPLL-SATISFIABLE?](codeAndExercises/aima-pseudocode-master/md/DPLL-Satisfiable.md)
-- [WALKSAT](codeAndExercises/aima-pseudocode-master/md/WalkSAT.md)
-- [HYBRID-WUMPUS-AGENT](codeAndExercises/aima-pseudocode-master/md/Hybrid-Wumpus-Agent.md)
-- [SATPLAN](codeAndExercises/aima-pseudocode-master/md/SATPlan.md)
+- <a href="codeAndExercises/aima-pseudocode-master/md/KB-Agent.md" target="_blank" data-ignore>KB-AGENT</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/TT-Entails.md" target="_blank" data-ignore>TT-ENTAILS</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/PL-Resolution.md" target="_blank" data-ignore>PL-RESOLUTION</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/PL-FC-Entails.md" target="_blank" data-ignore>PL-FC-ENTAILS?</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/DPLL-Satisfiable.md" target="_blank" data-ignore>DPLL-SATISFIABLE?</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/WalkSAT.md" target="_blank" data-ignore>WALKSAT</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Hybrid-Wumpus-Agent.md" target="_blank" data-ignore>HYBRID-WUMPUS-AGENT</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/SATPlan.md" target="_blank" data-ignore>SATPLAN</a>
 
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 
 #### **Python**
-- [Logic](codeAndExercises/aima-python-master/notebooks/logic.ipynb)
-- [Logic (Python File)](codeAndExercises/aima-python-master/notebooks/logic.py)
-- [Improving Sat Algorithms](codeAndExercises/aima-python-master/notebooks/improving_sat_algorithms.ipynb)
-- [Improving Sat Algorithms (Python File)](codeAndExercises/aima-python-master/notebooks/improving_sat_algorithms.py)
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/logic.ipynb"  target="_blank" data-ignore>Logic</a>
+- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/logic.py"  target="_blank" data-ignore>Logic (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/improving_sat_algorithms.ipynb"  target="_blank" data-ignore>Improving Sat Algorithms</a>
+- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/improving_sat_algorithms.py"  target="_blank" data-ignore>Improving Sat Algorithms (Python File)</a>
 
 
 #### **Bài tập**

@@ -28,22 +28,22 @@
 *(Chưa có bài tập trắc nghiệm)*
 
 #### **Pseudocode**
-- [LEARN-DECISION-TREE](codeAndExercises/aima-pseudocode-master/md/Decision-Tree-Learning.md)
-- [CROSS-VALIDATION-WRAPPER](codeAndExercises/aima-pseudocode-master/md/Cross-Validation-Wrapper.md)
-- [DECISION-LIST-LEARNING](codeAndExercises/aima-pseudocode-master/md/Decision-List-Learning.md)
-- [ADABOOST](codeAndExercises/aima-pseudocode-master/md/AdaBoost.md)
-- [CURRENT-BEST-LEARNING](codeAndExercises/aima-pseudocode-master/md/Current-Best-Learning.md)
-- [VERSION-SPACE-LEARNING](codeAndExercises/aima-pseudocode-master/md/Version-Space-Learning.md)
-- [MINIMAL-CONSISTENT-DET](codeAndExercises/aima-pseudocode-master/md/Minimal-Consistent-Det.md)
-- [FOIL](codeAndExercises/aima-pseudocode-master/md/Foil.md)
+- <a href="codeAndExercises/aima-pseudocode-master/md/Decision-Tree-Learning.md" target="_blank" data-ignore>LEARN-DECISION-TREE</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Cross-Validation-Wrapper.md" target="_blank" data-ignore>CROSS-VALIDATION-WRAPPER</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Decision-List-Learning.md" target="_blank" data-ignore>DECISION-LIST-LEARNING</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/AdaBoost.md" target="_blank" data-ignore>ADABOOST</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Current-Best-Learning.md" target="_blank" data-ignore>CURRENT-BEST-LEARNING</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Version-Space-Learning.md" target="_blank" data-ignore>VERSION-SPACE-LEARNING</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Minimal-Consistent-Det.md" target="_blank" data-ignore>MINIMAL-CONSISTENT-DET</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Foil.md" target="_blank" data-ignore>FOIL</a>
 
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 
 #### **Python**
-- [Learning](codeAndExercises/aima-python-master/notebooks/learning.ipynb)
-- [Learning (Python File)](codeAndExercises/aima-python-master/notebooks/learning.py)
-- [Learning Apps](codeAndExercises/aima-python-master/notebooks/learning_apps.ipynb)
-- [Learning Apps (Python File)](codeAndExercises/aima-python-master/notebooks/learning_apps.py)
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/learning.ipynb"  target="_blank" data-ignore>Learning</a>
+- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/learning.py"  target="_blank" data-ignore>Learning (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/learning_apps.ipynb"  target="_blank" data-ignore>Learning Apps</a>
+- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/learning_apps.py"  target="_blank" data-ignore>Learning Apps (Python File)</a>
 
 
 #### **Bài tập**

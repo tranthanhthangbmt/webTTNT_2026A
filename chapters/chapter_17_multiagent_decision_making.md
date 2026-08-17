@@ -36,15 +36,15 @@
 *(Chưa có bài tập trắc nghiệm)*
 
 #### **Pseudocode**
-- [VALUE-ITERATION](codeAndExercises/aima-pseudocode-master/md/Value-Iteration.md)
-- [POLICY-ITERATION](codeAndExercises/aima-pseudocode-master/md/Policy-Iteration.md)
-- [POMDP-VALUE-ITERATION](codeAndExercises/aima-pseudocode-master/md/POMDP-Value-Iteration.md)
+- <a href="codeAndExercises/aima-pseudocode-master/md/Value-Iteration.md" target="_blank" data-ignore>VALUE-ITERATION</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/Policy-Iteration.md" target="_blank" data-ignore>POLICY-ITERATION</a>
+- <a href="codeAndExercises/aima-pseudocode-master/md/POMDP-Value-Iteration.md" target="_blank" data-ignore>POMDP-VALUE-ITERATION</a>
 
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 
 #### **Python**
-- [Game Theory](codeAndExercises/aima-python-master/notebooks/game_theory.ipynb)
-- [Game Theory (Python File)](codeAndExercises/aima-python-master/notebooks/game_theory.py)
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/game_theory.ipynb"  target="_blank" data-ignore>Game Theory</a>
+- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/game_theory.py"  target="_blank" data-ignore>Game Theory (Python File)</a>
 
 
 #### **Bài tập**
