@@ -237,6 +237,78 @@
 </head>
 
 <body>
+  <!-- Login Overlay -->
+  <style>
+    #login-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(135deg, #1a73e8, #4285f4);
+      z-index: 999999; display: flex; align-items: center; justify-content: center;
+      font-family: 'Inter', -apple-system, sans-serif;
+    }
+    #login-box {
+      background: white; padding: 40px; border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2); text-align: center;
+      width: 90%; max-width: 400px;
+    }
+    #login-box h2 { margin-top: 0; color: #333; margin-bottom: 10px; font-weight: 600; }
+    #login-box p { color: #666; font-size: 15px; margin-bottom: 25px; }
+    #login-box input {
+      width: 100%; padding: 14px; margin-bottom: 20px;
+      border: 1px solid #ddd; border-radius: 8px;
+      font-size: 16px; outline: none; box-sizing: border-box;
+      transition: border-color 0.2s;
+    }
+    #login-box input:focus { border-color: #1a73e8; }
+    #login-box button {
+      width: 100%; padding: 14px; background: #1a73e8; color: white;
+      border: none; border-radius: 8px; font-size: 16px; cursor: pointer;
+      font-weight: 600; transition: background 0.2s, transform 0.1s;
+    }
+    #login-box button:hover { background: #1557b0; }
+    #login-box button:active { transform: scale(0.98); }
+    #login-error { color: #d32f2f; margin-bottom: 15px; font-size: 14px; display: none; font-weight: 500; }
+  </style>
+
+  <div id="login-overlay">
+    <div id="login-box">
+      <h2>Khóa học Trí tuệ nhân tạo</h2>
+      <p>Vui lòng nhập mật khẩu để truy cập bài giảng</p>
+      <div id="login-error">Mật khẩu không đúng! Vui lòng thử lại.</div>
+      <form id="login-form">
+        <input type="password" id="login-input" placeholder="Nhập mật khẩu..." required>
+        <button type="submit">Đăng nhập</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const overlay = document.getElementById('login-overlay');
+      const form = document.getElementById('login-form');
+      const input = document.getElementById('login-input');
+      const errorMsg = document.getElementById('login-error');
+      
+      // Kiểm tra xem đã đăng nhập trong phiên duyệt web này chưa (dùng sessionStorage)
+      if (sessionStorage.getItem('uda_course_access') === 'true') {
+        overlay.style.display = 'none';
+      } else {
+        document.body.style.overflow = 'hidden';
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          if (input.value === 'UDA') {
+            sessionStorage.setItem('uda_course_access', 'true');
+            overlay.style.display = 'none';
+            document.body.style.overflow = '';
+          } else {
+            errorMsg.style.display = 'block';
+            input.value = '';
+            input.focus();
+          }
+        });
+      }
+    })();
+  </script>
+  <!-- End Login Overlay -->
   <div id="app">Đang tải nội dung môn học...</div>
 
   <script>
