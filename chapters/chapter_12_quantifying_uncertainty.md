@@ -34,7 +34,7 @@
 
 #### **Python**
 - <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/probability.ipynb"  target="_blank" data-ignore>Probability</a>
-- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/probability.py"  target="_blank" data-ignore>Probability (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/probability.ipynb"   target="_blank" data-ignore>Probability (Python File)</a>
 
 
 #### **Bài tập**

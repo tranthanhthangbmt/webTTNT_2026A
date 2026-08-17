@@ -34,11 +34,11 @@
 
 #### **Python**
 - <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/knowledge_current_best.ipynb"  target="_blank" data-ignore>Knowledge Current Best</a>
-- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/knowledge_current_best.py"  target="_blank" data-ignore>Knowledge Current Best (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/knowledge_current_best.ipynb"   target="_blank" data-ignore>Knowledge Current Best (Python File)</a>
 - <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/knowledge_foil.ipynb"  target="_blank" data-ignore>Knowledge Foil</a>
-- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/knowledge_foil.py"  target="_blank" data-ignore>Knowledge Foil (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/knowledge_foil.ipynb"   target="_blank" data-ignore>Knowledge Foil (Python File)</a>
 - <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/knowledge_version_space.ipynb"  target="_blank" data-ignore>Knowledge Version Space</a>
-- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/knowledge_version_space.py"  target="_blank" data-ignore>Knowledge Version Space (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/knowledge_version_space.ipynb"   target="_blank" data-ignore>Knowledge Version Space (Python File)</a>
 
 
 #### **Bài tập**

@@ -44,13 +44,13 @@
 
 #### **Python**
 - <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/probability.ipynb"  target="_blank" data-ignore>Probability</a>
-- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/probability.py"  target="_blank" data-ignore>Probability (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/probability.ipynb"   target="_blank" data-ignore>Probability (Python File)</a>
 - <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/kalman_filter.ipynb"  target="_blank" data-ignore>Kalman Filter</a>
-- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/kalman_filter.py"  target="_blank" data-ignore>Kalman Filter (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/kalman_filter.ipynb"   target="_blank" data-ignore>Kalman Filter (Python File)</a>
 - <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/viterbi_algorithm.ipynb"  target="_blank" data-ignore>Viterbi Algorithm</a>
-- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/viterbi_algorithm.py"  target="_blank" data-ignore>Viterbi Algorithm (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/viterbi_algorithm.ipynb"   target="_blank" data-ignore>Viterbi Algorithm (Python File)</a>
 - <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/expectation_maximization.ipynb"  target="_blank" data-ignore>Expectation Maximization</a>
-- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/expectation_maximization.py"  target="_blank" data-ignore>Expectation Maximization (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/expectation_maximization.ipynb"   target="_blank" data-ignore>Expectation Maximization (Python File)</a>
 
 
 #### **Bài tập**

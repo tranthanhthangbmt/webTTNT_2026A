@@ -41,9 +41,9 @@
 
 #### **Python**
 - <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/logic.ipynb"  target="_blank" data-ignore>Logic</a>
-- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/logic.py"  target="_blank" data-ignore>Logic (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/logic.ipynb"   target="_blank" data-ignore>Logic (Python File)</a>
 - <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/improving_sat_algorithms.ipynb"  target="_blank" data-ignore>Improving Sat Algorithms</a>
-- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/improving_sat_algorithms.py"  target="_blank" data-ignore>Improving Sat Algorithms (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/improving_sat_algorithms.ipynb"   target="_blank" data-ignore>Improving Sat Algorithms (Python File)</a>
 
 
 #### **Bài tập**

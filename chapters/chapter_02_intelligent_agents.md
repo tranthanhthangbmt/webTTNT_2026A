@@ -37,9 +37,9 @@
 
 #### **Python**
 - <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/agents.ipynb"  target="_blank" data-ignore>Agents</a>
-- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/agents.py"  target="_blank" data-ignore>Agents (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/agents.ipynb"   target="_blank" data-ignore>Agents (Python File)</a>
 - <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/vacuum_world.ipynb"  target="_blank" data-ignore>Vacuum World</a>
-- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/vacuum_world.py"  target="_blank" data-ignore>Vacuum World (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/vacuum_world.ipynb"   target="_blank" data-ignore>Vacuum World (Python File)</a>
 
 
 #### **Bài tập**

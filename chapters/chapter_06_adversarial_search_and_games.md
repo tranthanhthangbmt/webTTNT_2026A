@@ -37,7 +37,7 @@
 
 #### **Python**
 - <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/games.ipynb"  target="_blank" data-ignore>Games</a>
-- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/games.py"  target="_blank" data-ignore>Games (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/games.ipynb"   target="_blank" data-ignore>Games (Python File)</a>
 
 
 #### **Bài tập**

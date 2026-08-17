@@ -41,9 +41,9 @@
 
 #### **Python**
 - <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/learning.ipynb"  target="_blank" data-ignore>Learning</a>
-- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/learning.py"  target="_blank" data-ignore>Learning (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/learning.ipynb"   target="_blank" data-ignore>Learning (Python File)</a>
 - <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/learning_apps.ipynb"  target="_blank" data-ignore>Learning Apps</a>
-- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/learning_apps.py"  target="_blank" data-ignore>Learning Apps (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/learning_apps.ipynb"   target="_blank" data-ignore>Learning Apps (Python File)</a>
 
 
 #### **Bài tập**

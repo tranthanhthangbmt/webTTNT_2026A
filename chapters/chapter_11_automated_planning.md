@@ -42,19 +42,19 @@
 
 #### **Python**
 - <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/planning.ipynb"  target="_blank" data-ignore>Planning</a>
-- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/planning.py"  target="_blank" data-ignore>Planning (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/planning.ipynb"   target="_blank" data-ignore>Planning (Python File)</a>
 - <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/classical_planning_approaches.ipynb"  target="_blank" data-ignore>Classical Planning Approaches</a>
-- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/classical_planning_approaches.py"  target="_blank" data-ignore>Classical Planning Approaches (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/classical_planning_approaches.ipynb"   target="_blank" data-ignore>Classical Planning Approaches (Python File)</a>
 - <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/planning_angelic_search.ipynb"  target="_blank" data-ignore>Planning Angelic Search</a>
-- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/planning_angelic_search.py"  target="_blank" data-ignore>Planning Angelic Search (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/planning_angelic_search.ipynb"   target="_blank" data-ignore>Planning Angelic Search (Python File)</a>
 - <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/planning_graph_plan.ipynb"  target="_blank" data-ignore>Planning Graph Plan</a>
-- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/planning_graph_plan.py"  target="_blank" data-ignore>Planning Graph Plan (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/planning_graph_plan.ipynb"   target="_blank" data-ignore>Planning Graph Plan (Python File)</a>
 - <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/planning_hierarchical_search.ipynb"  target="_blank" data-ignore>Planning Hierarchical Search</a>
-- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/planning_hierarchical_search.py"  target="_blank" data-ignore>Planning Hierarchical Search (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/planning_hierarchical_search.ipynb"   target="_blank" data-ignore>Planning Hierarchical Search (Python File)</a>
 - <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/planning_partial_order_planner.ipynb"  target="_blank" data-ignore>Planning Partial Order Planner</a>
-- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/planning_partial_order_planner.py"  target="_blank" data-ignore>Planning Partial Order Planner (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/planning_partial_order_planner.ipynb"   target="_blank" data-ignore>Planning Partial Order Planner (Python File)</a>
 - <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/planning_total_order_planner.ipynb"  target="_blank" data-ignore>Planning Total Order Planner</a>
-- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/planning_total_order_planner.py"  target="_blank" data-ignore>Planning Total Order Planner (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/planning_total_order_planner.ipynb"   target="_blank" data-ignore>Planning Total Order Planner (Python File)</a>
 
 
 #### **Bài tập**

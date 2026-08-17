@@ -44,7 +44,7 @@
 
 #### **Python**
 - <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/game_theory.ipynb"  target="_blank" data-ignore>Game Theory</a>
-- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/game_theory.py"  target="_blank" data-ignore>Game Theory (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/game_theory.ipynb"   target="_blank" data-ignore>Game Theory (Python File)</a>
 
 
 #### **Bài tập**

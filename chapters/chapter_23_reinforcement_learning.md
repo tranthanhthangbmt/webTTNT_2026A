@@ -35,9 +35,9 @@
 
 #### **Python**
 - <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/reinforcement_learning.ipynb"  target="_blank" data-ignore>Reinforcement Learning</a>
-- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/reinforcement_learning.py"  target="_blank" data-ignore>Reinforcement Learning (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/reinforcement_learning.ipynb"   target="_blank" data-ignore>Reinforcement Learning (Python File)</a>
 - <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/sarsa.ipynb"  target="_blank" data-ignore>Sarsa</a>
-- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/sarsa.py"  target="_blank" data-ignore>Sarsa (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/sarsa.ipynb"   target="_blank" data-ignore>Sarsa (Python File)</a>
 
 
 #### **Bài tập**

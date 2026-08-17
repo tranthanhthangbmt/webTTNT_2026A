@@ -36,9 +36,9 @@
 
 #### **Python**
 - <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/csp.ipynb"  target="_blank" data-ignore>Csp</a>
-- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/csp.py"  target="_blank" data-ignore>Csp (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/csp.ipynb"   target="_blank" data-ignore>Csp (Python File)</a>
 - <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/arc_consistency_heuristics.ipynb"  target="_blank" data-ignore>Arc Consistency Heuristics</a>
-- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/arc_consistency_heuristics.py"  target="_blank" data-ignore>Arc Consistency Heuristics (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/arc_consistency_heuristics.ipynb"   target="_blank" data-ignore>Arc Consistency Heuristics (Python File)</a>
 
 
 #### **Bài tập**

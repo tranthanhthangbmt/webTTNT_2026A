@@ -34,9 +34,9 @@
 
 #### **Python**
 - <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/mdp.ipynb"  target="_blank" data-ignore>Mdp</a>
-- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/mdp.py"  target="_blank" data-ignore>Mdp (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/mdp.ipynb"   target="_blank" data-ignore>Mdp (Python File)</a>
 - <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/mdp_apps.ipynb"  target="_blank" data-ignore>Mdp Apps</a>
-- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/mdp_apps.py"  target="_blank" data-ignore>Mdp Apps (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/mdp_apps.ipynb"   target="_blank" data-ignore>Mdp Apps (Python File)</a>
 
 
 #### **Bài tập**

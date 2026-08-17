@@ -34,11 +34,11 @@
 
 #### **Python**
 - <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/nlp.ipynb"  target="_blank" data-ignore>Nlp</a>
-- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/nlp.py"  target="_blank" data-ignore>Nlp (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/nlp.ipynb"   target="_blank" data-ignore>Nlp (Python File)</a>
 - <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/nlp_apps.ipynb"  target="_blank" data-ignore>Nlp Apps</a>
-- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/nlp_apps.py"  target="_blank" data-ignore>Nlp Apps (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/nlp_apps.ipynb"   target="_blank" data-ignore>Nlp Apps (Python File)</a>
 - <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/text.ipynb"  target="_blank" data-ignore>Text</a>
-- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/text.py"  target="_blank" data-ignore>Text (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/text.ipynb"   target="_blank" data-ignore>Text (Python File)</a>
 
 
 #### **Bài tập**

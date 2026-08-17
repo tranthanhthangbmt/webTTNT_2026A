@@ -37,7 +37,7 @@
 
 #### **Python**
 - <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/neural_nets.ipynb"  target="_blank" data-ignore>Neural Nets</a>
-- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/neural_nets.py"  target="_blank" data-ignore>Neural Nets (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/neural_nets.ipynb"   target="_blank" data-ignore>Neural Nets (Python File)</a>
 
 
 #### **Bài tập**

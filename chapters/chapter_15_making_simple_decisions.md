@@ -42,7 +42,7 @@
 
 #### **Python**
 - <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/dynamic_decision_network.ipynb"  target="_blank" data-ignore>Dynamic Decision Network</a>
-- <a href="python_runner.html?file=codeAndExercises/aima-python-master/notebooks/dynamic_decision_network.py"  target="_blank" data-ignore>Dynamic Decision Network (Python File)</a>
+- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/dynamic_decision_network.ipynb"   target="_blank" data-ignore>Dynamic Decision Network (Python File)</a>
 
 
 #### **Bài tập**
