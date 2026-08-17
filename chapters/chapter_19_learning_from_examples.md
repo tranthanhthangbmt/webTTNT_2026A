@@ -40,10 +40,9 @@
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 
 #### **Python**
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/learning.ipynb"  target="_blank" data-ignore>Learning</a>
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/learning.ipynb"   target="_blank" data-ignore>Learning (Python File)</a>
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/learning_apps.ipynb"  target="_blank" data-ignore>Learning Apps</a>
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/learning_apps.ipynb"   target="_blank" data-ignore>Learning Apps (Python File)</a>
+- **Learning**: <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/learning.ipynb" target="_blank">Mở trên Colab</a> | <a href="codeAndExercises/aima-python-master/notebooks/learning.py" download>Tải .py</a> | <a href="codeAndExercises/aima-python-master/notebooks/learning.ipynb" download>Tải .ipynb</a>
+- **Learning Apps**: <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/learning_apps.ipynb" target="_blank">Mở trên Colab</a> | <a href="codeAndExercises/aima-python-master/notebooks/learning_apps.py" download>Tải .py</a> | <a href="codeAndExercises/aima-python-master/notebooks/learning_apps.ipynb" download>Tải .ipynb</a>
+
 
 
 #### **Bài tập**

@@ -35,10 +35,9 @@
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 
 #### **Python**
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/csp.ipynb"  target="_blank" data-ignore>Csp</a>
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/csp.ipynb"   target="_blank" data-ignore>Csp (Python File)</a>
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/arc_consistency_heuristics.ipynb"  target="_blank" data-ignore>Arc Consistency Heuristics</a>
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/arc_consistency_heuristics.ipynb"   target="_blank" data-ignore>Arc Consistency Heuristics (Python File)</a>
+- **Csp**: <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/csp.ipynb" target="_blank">Mở trên Colab</a> | <a href="codeAndExercises/aima-python-master/notebooks/csp.py" download>Tải .py</a> | <a href="codeAndExercises/aima-python-master/notebooks/csp.ipynb" download>Tải .ipynb</a>
+- **Arc Consistency Heuristics**: <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/arc_consistency_heuristics.ipynb" target="_blank">Mở trên Colab</a> | <a href="codeAndExercises/aima-python-master/notebooks/arc_consistency_heuristics.py" download>Tải .py</a> | <a href="codeAndExercises/aima-python-master/notebooks/arc_consistency_heuristics.ipynb" download>Tải .ipynb</a>
+
 
 
 #### **Bài tập**

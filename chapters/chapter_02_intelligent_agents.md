@@ -36,10 +36,9 @@
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 
 #### **Python**
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/agents.ipynb"  target="_blank" data-ignore>Agents</a>
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/agents.ipynb"   target="_blank" data-ignore>Agents (Python File)</a>
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/vacuum_world.ipynb"  target="_blank" data-ignore>Vacuum World</a>
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/vacuum_world.ipynb"   target="_blank" data-ignore>Vacuum World (Python File)</a>
+- **Agents**: <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/agents.ipynb" target="_blank">Mở trên Colab</a> | <a href="codeAndExercises/aima-python-master/notebooks/agents.py" download>Tải .py</a> | <a href="codeAndExercises/aima-python-master/notebooks/agents.ipynb" download>Tải .ipynb</a>
+- **Vacuum World**: <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/vacuum_world.ipynb" target="_blank">Mở trên Colab</a> | <a href="codeAndExercises/aima-python-master/notebooks/vacuum_world.py" download>Tải .py</a> | <a href="codeAndExercises/aima-python-master/notebooks/vacuum_world.ipynb" download>Tải .ipynb</a>
+
 
 
 #### **Bài tập**

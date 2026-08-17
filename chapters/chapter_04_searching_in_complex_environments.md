@@ -42,8 +42,8 @@
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 
 #### **Python**
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/search.ipynb"  target="_blank" data-ignore>Search</a>
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/search.ipynb"   target="_blank" data-ignore>Search (Python File)</a>
+- **Search**: <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/search.ipynb" target="_blank">Mở trên Colab</a> | <a href="codeAndExercises/aima-python-master/notebooks/search.py" download>Tải .py</a> | <a href="codeAndExercises/aima-python-master/notebooks/search.ipynb" download>Tải .ipynb</a>
+
 
 
 #### **Bài tập**

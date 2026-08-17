@@ -40,10 +40,9 @@
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 
 #### **Python**
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/logic.ipynb"  target="_blank" data-ignore>Logic</a>
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/logic.ipynb"   target="_blank" data-ignore>Logic (Python File)</a>
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/improving_sat_algorithms.ipynb"  target="_blank" data-ignore>Improving Sat Algorithms</a>
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/improving_sat_algorithms.ipynb"   target="_blank" data-ignore>Improving Sat Algorithms (Python File)</a>
+- **Logic**: <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/logic.ipynb" target="_blank">Mở trên Colab</a> | <a href="codeAndExercises/aima-python-master/notebooks/logic.py" download>Tải .py</a> | <a href="codeAndExercises/aima-python-master/notebooks/logic.ipynb" download>Tải .ipynb</a>
+- **Improving Sat Algorithms**: <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/improving_sat_algorithms.ipynb" target="_blank">Mở trên Colab</a> | <a href="codeAndExercises/aima-python-master/notebooks/improving_sat_algorithms.py" download>Tải .py</a> | <a href="codeAndExercises/aima-python-master/notebooks/improving_sat_algorithms.ipynb" download>Tải .ipynb</a>
+
 
 
 #### **Bài tập**

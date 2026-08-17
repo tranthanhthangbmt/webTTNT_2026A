@@ -36,8 +36,8 @@
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 
 #### **Python**
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/neural_nets.ipynb"  target="_blank" data-ignore>Neural Nets</a>
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/neural_nets.ipynb"   target="_blank" data-ignore>Neural Nets (Python File)</a>
+- **Neural Nets**: <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/neural_nets.ipynb" target="_blank">Mở trên Colab</a> | <a href="codeAndExercises/aima-python-master/notebooks/neural_nets.py" download>Tải .py</a> | <a href="codeAndExercises/aima-python-master/notebooks/neural_nets.ipynb" download>Tải .ipynb</a>
+
 
 
 #### **Bài tập**

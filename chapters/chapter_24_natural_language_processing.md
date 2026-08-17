@@ -33,12 +33,10 @@
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 
 #### **Python**
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/nlp.ipynb"  target="_blank" data-ignore>Nlp</a>
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/nlp.ipynb"   target="_blank" data-ignore>Nlp (Python File)</a>
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/nlp_apps.ipynb"  target="_blank" data-ignore>Nlp Apps</a>
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/nlp_apps.ipynb"   target="_blank" data-ignore>Nlp Apps (Python File)</a>
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/text.ipynb"  target="_blank" data-ignore>Text</a>
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/text.ipynb"   target="_blank" data-ignore>Text (Python File)</a>
+- **Nlp**: <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/nlp.ipynb" target="_blank">Mở trên Colab</a> | <a href="codeAndExercises/aima-python-master/notebooks/nlp.py" download>Tải .py</a> | <a href="codeAndExercises/aima-python-master/notebooks/nlp.ipynb" download>Tải .ipynb</a>
+- **Nlp Apps**: <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/nlp_apps.ipynb" target="_blank">Mở trên Colab</a> | <a href="codeAndExercises/aima-python-master/notebooks/nlp_apps.py" download>Tải .py</a> | <a href="codeAndExercises/aima-python-master/notebooks/nlp_apps.ipynb" download>Tải .ipynb</a>
+- **Text**: <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/text.ipynb" target="_blank">Mở trên Colab</a> | <a href="codeAndExercises/aima-python-master/notebooks/text.py" download>Tải .py</a> | <a href="codeAndExercises/aima-python-master/notebooks/text.ipynb" download>Tải .ipynb</a>
+
 
 
 #### **Bài tập**

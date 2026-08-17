@@ -41,8 +41,8 @@
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 
 #### **Python**
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/dynamic_decision_network.ipynb"  target="_blank" data-ignore>Dynamic Decision Network</a>
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/dynamic_decision_network.ipynb"   target="_blank" data-ignore>Dynamic Decision Network (Python File)</a>
+- **Dynamic Decision Network**: <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/dynamic_decision_network.ipynb" target="_blank">Mở trên Colab</a> | <a href="codeAndExercises/aima-python-master/notebooks/dynamic_decision_network.py" download>Tải .py</a> | <a href="codeAndExercises/aima-python-master/notebooks/dynamic_decision_network.ipynb" download>Tải .ipynb</a>
+
 
 
 #### **Bài tập**

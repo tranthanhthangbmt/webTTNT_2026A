@@ -33,12 +33,10 @@
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 
 #### **Python**
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/knowledge_current_best.ipynb"  target="_blank" data-ignore>Knowledge Current Best</a>
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/knowledge_current_best.ipynb"   target="_blank" data-ignore>Knowledge Current Best (Python File)</a>
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/knowledge_foil.ipynb"  target="_blank" data-ignore>Knowledge Foil</a>
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/knowledge_foil.ipynb"   target="_blank" data-ignore>Knowledge Foil (Python File)</a>
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/knowledge_version_space.ipynb"  target="_blank" data-ignore>Knowledge Version Space</a>
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/knowledge_version_space.ipynb"   target="_blank" data-ignore>Knowledge Version Space (Python File)</a>
+- **Knowledge Current Best**: <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/knowledge_current_best.ipynb" target="_blank">Mở trên Colab</a> | <a href="codeAndExercises/aima-python-master/notebooks/knowledge_current_best.py" download>Tải .py</a> | <a href="codeAndExercises/aima-python-master/notebooks/knowledge_current_best.ipynb" download>Tải .ipynb</a>
+- **Knowledge Foil**: <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/knowledge_foil.ipynb" target="_blank">Mở trên Colab</a> | <a href="codeAndExercises/aima-python-master/notebooks/knowledge_foil.py" download>Tải .py</a> | <a href="codeAndExercises/aima-python-master/notebooks/knowledge_foil.ipynb" download>Tải .ipynb</a>
+- **Knowledge Version Space**: <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/knowledge_version_space.ipynb" target="_blank">Mở trên Colab</a> | <a href="codeAndExercises/aima-python-master/notebooks/knowledge_version_space.py" download>Tải .py</a> | <a href="codeAndExercises/aima-python-master/notebooks/knowledge_version_space.ipynb" download>Tải .ipynb</a>
+
 
 
 #### **Bài tập**

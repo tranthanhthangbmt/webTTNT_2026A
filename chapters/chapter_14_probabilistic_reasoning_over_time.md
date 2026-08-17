@@ -43,14 +43,11 @@
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 
 #### **Python**
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/probability.ipynb"  target="_blank" data-ignore>Probability</a>
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/probability.ipynb"   target="_blank" data-ignore>Probability (Python File)</a>
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/kalman_filter.ipynb"  target="_blank" data-ignore>Kalman Filter</a>
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/kalman_filter.ipynb"   target="_blank" data-ignore>Kalman Filter (Python File)</a>
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/viterbi_algorithm.ipynb"  target="_blank" data-ignore>Viterbi Algorithm</a>
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/viterbi_algorithm.ipynb"   target="_blank" data-ignore>Viterbi Algorithm (Python File)</a>
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/expectation_maximization.ipynb"  target="_blank" data-ignore>Expectation Maximization</a>
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/expectation_maximization.ipynb"   target="_blank" data-ignore>Expectation Maximization (Python File)</a>
+- **Probability**: <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/probability.ipynb" target="_blank">Mở trên Colab</a> | <a href="codeAndExercises/aima-python-master/notebooks/probability.py" download>Tải .py</a> | <a href="codeAndExercises/aima-python-master/notebooks/probability.ipynb" download>Tải .ipynb</a>
+- **Kalman Filter**: <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/kalman_filter.ipynb" target="_blank">Mở trên Colab</a> | <a href="codeAndExercises/aima-python-master/notebooks/kalman_filter.py" download>Tải .py</a> | <a href="codeAndExercises/aima-python-master/notebooks/kalman_filter.ipynb" download>Tải .ipynb</a>
+- **Viterbi Algorithm**: <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/viterbi_algorithm.ipynb" target="_blank">Mở trên Colab</a> | <a href="codeAndExercises/aima-python-master/notebooks/viterbi_algorithm.py" download>Tải .py</a> | <a href="codeAndExercises/aima-python-master/notebooks/viterbi_algorithm.ipynb" download>Tải .ipynb</a>
+- **Expectation Maximization**: <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/expectation_maximization.ipynb" target="_blank">Mở trên Colab</a> | <a href="codeAndExercises/aima-python-master/notebooks/expectation_maximization.py" download>Tải .py</a> | <a href="codeAndExercises/aima-python-master/notebooks/expectation_maximization.ipynb" download>Tải .ipynb</a>
+
 
 
 #### **Bài tập**

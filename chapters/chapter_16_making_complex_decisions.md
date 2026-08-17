@@ -33,10 +33,9 @@
 *(Thư mục chứa mã giả cho các thuật toán trong sách: `codeAndExercises/aima-pseudocode-master/md`)*
 
 #### **Python**
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/mdp.ipynb"  target="_blank" data-ignore>Mdp</a>
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/mdp.ipynb"   target="_blank" data-ignore>Mdp (Python File)</a>
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/mdp_apps.ipynb"  target="_blank" data-ignore>Mdp Apps</a>
-- <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/mdp_apps.ipynb"   target="_blank" data-ignore>Mdp Apps (Python File)</a>
+- **Mdp**: <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/mdp.ipynb" target="_blank">Mở trên Colab</a> | <a href="codeAndExercises/aima-python-master/notebooks/mdp.py" download>Tải .py</a> | <a href="codeAndExercises/aima-python-master/notebooks/mdp.ipynb" download>Tải .ipynb</a>
+- **Mdp Apps**: <a href="https://colab.research.google.com/github/tranthanhthangbmt/webTTNT_2026A/blob/main/codeAndExercises/aima-python-master/notebooks/mdp_apps.ipynb" target="_blank">Mở trên Colab</a> | <a href="codeAndExercises/aima-python-master/notebooks/mdp_apps.py" download>Tải .py</a> | <a href="codeAndExercises/aima-python-master/notebooks/mdp_apps.ipynb" download>Tải .ipynb</a>
+
 
 
 #### **Bài tập**
