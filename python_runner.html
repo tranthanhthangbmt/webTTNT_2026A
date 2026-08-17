@@ -219,8 +219,25 @@
                     stderr: (text) => appendOutput(text, true)
                 });
                 
+                const urlParams = new URLSearchParams(window.location.search);
+                const filepath = urlParams.get('file');
+
+                // Nếu là bài code có liên quan đến aima-python, tải zip file
+                if (filepath && filepath.includes("aima-python-master")) {
+                    loadingText.innerText = "Tải thư viện AIMA (Có thể mất 1 chút thời gian)...";
+                    try {
+                        const zipResponse = await fetch("aima_lib.zip");
+                        if (zipResponse.ok) {
+                            const buffer = await zipResponse.arrayBuffer();
+                            pyodideInstance.unpackArchive(buffer, "zip");
+                        }
+                    } catch (e) {
+                        console.warn("Lỗi tải aima_lib.zip", e);
+                    }
+                }
+                
                 loadingText.innerText = "Tải file code...";
-                await loadFile();
+                await loadFile(filepath);
                 
                 loadingDiv.style.opacity = '0';
                 setTimeout(() => loadingDiv.style.display = 'none', 500);
@@ -231,10 +248,7 @@
             }
         }
 
-        async function loadFile() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const filepath = urlParams.get('file');
-            
+        async function loadFile(filepath) {
             if (!filepath) {
                 editor.setValue("# Không tìm thấy đường dẫn file trong URL.\n# Hãy mở file này thông qua giao diện bài học.");
                 return;
