@@ -12,10 +12,16 @@ Trang web này được chia thành các chương học. Mỗi chương bao gồ
 - **Tiếng Việt**: Phiên bản dịch sang tiếng Việt của sách giáo trình.
 - **Tiếng Anh**: Bản gốc PDF (tiếng Anh) của chương.
 - **Slide**: Slide bài giảng tương ứng.
+- **Video**: Video bài giảng tương ứng.
 - **Trắc nghiệm**: Câu hỏi trắc nghiệm ôn tập.
 - **Pseudocode**: Mã giả thuật toán.
 - **Python**: Mã nguồn Python cài đặt các thuật toán.
 - **Bài tập**: Bài tập thực hành của chương.
+
+## Video giới thiệu môn học
+<div class="pdf-container" style="margin-top: 15px; margin-bottom: 20px;">
+  <iframe src="video/Giới%20thiệu%20môn%20học/index.html" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+</div>
 
 ## Tài liệu đính kèm
 - [Đề cương học phần (PDF)](TaiLieu/Đề%20cương%20_CNTT.2024.56.%20Trí%20tuệ%20nhân%20tạo.pdf)
