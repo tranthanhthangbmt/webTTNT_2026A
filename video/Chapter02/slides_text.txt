@@ -1,0 +1,336 @@
+=== SLIDE 1 ===
+CHƯƠNG 2: TÁC NHÂN THÔNG MINH
+Trí tuệnhân tạo - Artificial Intelligence
+Trí tuệnhân tạo - Artificial Intelligence
+1
+
+=== SLIDE 2 ===
+Nội dung Chương 2
+♢2.1 Tác nhân và Môi trường (Agents and Environments)
+♢2.2 Hành vi tốt: Khái niệm hợp lý (Good Behavior: The Concept of
+Rationality)
+♢2.3 Bản chất của Môi trường (The Nature of Environments)
+♢2.4 Cấu trúc của Tác nhân (The Structure of Agents)
+Trí tuệnhân tạo - Artificial Intelligence
+2
+
+=== SLIDE 3 ===
+2.1 Tác nhân và Môi trường
+♢Một tác nhân (agent) là bất cứthứgì có thểnhận thức
+(perceiving) môi trường của nó thông qua các cảm biến (sensors) và
+hành động (acting) trên môi trường đó thông qua các cơ cấu chấp
+hành (actuators).
+♢Ví dụcon người:
+ Cảm biến: Mắt, tai, mũi...
+ Cơ cấu chấp hành: Tay, chân, miệng...
+♢Ví dụrobot:
+ Cảm biến: Camera, microphone, cảm biến hồng ngoại...
+ Cơ cấu chấp hành: Động cơ, màn hình hiển thị...
+Trí tuệnhân tạo - Artificial Intelligence
+3
+
+=== SLIDE 4 ===
+Tác nhân tương tác với Môi trường
+Figure 2.1: Mô hình Tác nhân tương tác với môi trường thông qua Cảm biến và Cơ cấu
+chấp hành.
+Trí tuệnhân tạo - Artificial Intelligence
+4
+
+=== SLIDE 5 ===
+Thếgiới máy hút bụi (Vacuum-cleaner world)
+♢Một môi trường cực kì đơn giản với 2 ô A và B.
+♢Nhận thức (Percepts): [Vịtrí, Tình trạng vết bẩn]. Ví dụ: [A,
+Bẩn].
+♢Hành động (Actions): Đi sang trái (Left), Đi sang phải (Right),
+Hút bụi (Suck), Không làm gì (NoOp).
+Figure 2.2: Môi trường thếgiới hút bụi đơn giản.
+Trí tuệnhân tạo - Artificial Intelligence
+5
+
+=== SLIDE 6 ===
+Hàm tác nhân cho thếgiới máy hút bụi
+Figure 2.3: Một phần của hàm tác nhân cho thếgiới máy hút bụi đơn giản.
+Trí tuệnhân tạo - Artificial Intelligence
+6
+
+=== SLIDE 7 ===
+Hàm tác nhân và Chương trình tác nhân
+♢Hành vi của tác nhân được mô tảbằng Hàm tác nhân (Agent
+function), ánh xạtừbất kỳchuỗi nhận thức nào đến một hành động:
+f : P∗→A
+♢Vềmặt bên trong, hàm tác nhân đối với một tác nhân nhân tạo sẽ
+được cài đặt bằng một Chương trình tác nhân (Agent program)
+chạy trên một kiến trúc máy tính.
+♢Tác nhân = Kiến trúc + Chương trình (Agent =
+Architecture + Program)
+Trí tuệnhân tạo - Artificial Intelligence
+7
+
+=== SLIDE 8 ===
+2.2 Hành vi tốt: Khái niệm hợp lý
+♢Độđo hiệu suất (Performance measure): Đánh giá mức độ
+thành công của một tác nhân. Thay vì hỏi tác nhân "làm thếnào",
+chúng ta đánh giá "kết quả" đạt được trên môi trường.
+♢Một Tác nhân hợp lý (Rational agent) là một tác nhân mà,
+đối với mỗi chuỗi nhận thức có thể, tác nhân nên chọn một hành động
+kỳvọng cực đại hóa độđo hiệu suất của nó.
+♢Điều này phụthuộc vào:
+ Độđo hiệu suất xác định tiêu chí thành công.
+ Kiến thức tích lũy của tác nhân vềmôi trường.
+ Hành động mà tác nhân có thểthực hiện.
+ Chuỗi nhận thức của tác nhân tới thời điểm hiện tại.
+Trí tuệnhân tạo - Artificial Intelligence
+8
+
+=== SLIDE 9 ===
+Sựtoàn tri, Học tập và Tựchủ
+♢Tính hợp lý (Rationality)̸ = Sựtoàn tri (Omniscience):
+Tác nhân toàn tri biết trước được kết quảthực tếcủa hành động của
+mình, trong khi tác nhân hợp lý chỉtối đa hóa "kỳvọng" (expected
+performance) dựa trên những gì nó biết.
+♢Thu thập thông tin (Information gathering): Thực hiện
+hành động đểsửa đổi các nhận thức tương lai. Khám phá (Exploration)
+là một ví dụ.
+♢Học tập (Learning): Tác nhân hợp lý không chỉphụthuộc vào
+kiến thức ban đầu (priori) mà còn có khảnang học hỏi từnhững gì nhận
+thức được.
+♢Tính tựchủ(Autonomy): Một tác nhân có khảnang học hỏi sẽ
+dần dần tựchủ, giảm bớt sựphụthuộc vào kiến thức được lập trình sẵn.
+Trí tuệnhân tạo - Artificial Intelligence
+9
+
+=== SLIDE 10 ===
+2.3 Bản chất của Môi trường (PEAS)
+♢Khi thiết kếmột tác nhân, ta phải đặc tảmôi trường tác vụ(Task
+environment) càng đầy đủcàng tốt, hay gọi là mô tảPEAS:
+ Performance Measure (Độđo hiệu suất)
+ Environment (Môi trường)
+ Actuators (Cơ cấu chấp hành)
+ Sensors (Cảm biến)
+♢Ví dụ: Tác nhân lái xe taxi tựhành
+ P: An toàn, nhanh, đúng luật, chuyến đi thoải mái, tối đa hóa lợi
+nhuận...
+ E: Đường sá, luồng giao thông, khách hàng, người đi bộ...
+ A: Vô lang, chân ga, phanh, xi nhan, còi...
+ S: Camera, sonar, GPS, đồng hồtốc độ, cảm biến động cơ...
+Trí tuệnhân tạo - Artificial Intelligence
+10
+
+=== SLIDE 11 ===
+Ví dụvềmô tảPEAS
+Figure 2.4: Các ví dụvềloại tác nhân và mô tảPEAS của chúng.
+Trí tuệnhân tạo - Artificial Intelligence
+11
+
+=== SLIDE 12 ===
+Thuộc tính của Môi trường tác vụ(1)
+♢Hoàn toàn có thểquan sát (Fully observable) vs Một
+phần (Partially observable):
+Nếu cảm biến phát hiện toàn bộtrạng thái của môi trường tại mọi thời
+điểm, đó là Fully observable.
+♢Đơn tác nhân (Single agent) vs Đa tác nhân
+(Multi-agent):
+Ví dụ: Giải ô chữ(Single). Chơi cờvua (Multi). Multi-agent có thểlà
+cạnh tranh (Competitive) hoặc hợp tác (Cooperative).
+♢Tất định (Deterministic) vs Ngẫu nhiên (Stochastic):
+Trạng thái tiếp theo của môi trường hoàn toàn được quyết định bởi
+trạng thái hiện tại và hành động của tác nhân (Tất định). Ngược lại là
+Ngẫu nhiên.
+Trí tuệnhân tạo - Artificial Intelligence
+12
+
+=== SLIDE 13 ===
+Thuộc tính của Môi trường tác vụ(2)
+♢Tuần tựgiai đoạn (Episodic) vs Tuần tựliên tiếp
+(Sequential):
+Trong Episodic, kinh nghiệm của tác nhân chia thành các "chương" độc
+lập (ví dụphân loại ảnh). Trong Sequential, quyết định hiện tại ảnh
+hưởng tới tương lai (ví dụđánh cờ).
+♢Tĩnh (Static) vs Động (Dynamic):
+Môi trường có thay đổi trong lúc tác nhân đang suy nghĩ không? Lái xe
+taxi là Dynamic, giải ô chữlà Static.
+♢Rời rạc (Discrete) vs Liên tục (Continuous):
+Dùng đểmô tảtrạng thái, thời gian, nhận thức, hoặc hành động. Cờvua
+là Discrete, lái xe taxi là Continuous.
+♢Đã biết (Known) vs Chưa biết (Unknown):
+Liên quan đến trạng thái kiến thức của tác nhân (hoặc người thiết kế) về
+"luật chơi" của môi trường.
+Trí tuệnhân tạo - Artificial Intelligence
+13
+
+=== SLIDE 14 ===
+Các thuộc tính của một sốmôi trường tác vụ
+Figure 2.5: Ví dụvềcác thuộc tính môi trường tác vụ.
+Trí tuệnhân tạo - Artificial Intelligence
+14
+
+=== SLIDE 15 ===
+2.4 Cấu trúc của Tác nhân
+♢Công việc của trí tuệnhân tạo là thiết kếchương trình tác nhân
+có chức nang triển khai việc ánh xạtác nhân với môi trường vào một
+kiến trúc máy tính.
+♢Có 5 loại chương trình cơ bản cho các tác nhân:
+ Tác nhân phản xạđơn giản (Simple reflex agents)
+ Tác nhân phản xạdựa trên mô hình (Model-based reflex agents)
+ Tác nhân dựa trên mục tiêu (Goal-based agents)
+ Tác nhân dựa trên tiện ích (Utility-based agents)
+ Tác nhân học (Learning agents)
+Trí tuệnhân tạo - Artificial Intelligence
+15
+
+=== SLIDE 16 ===
+Chương trình tác nhân dạng bảng
+Figure 2.6: Chương trình tác nhân điều khiển bằng bảng (Table-Driven-Agent).
+Trí tuệnhân tạo - Artificial Intelligence
+16
+
+=== SLIDE 17 ===
+Kiến trúc chương trình tác nhân
+Figure 2.7: Kiến trúc cơ bản của một chương trình tác nhân.
+Trí tuệnhân tạo - Artificial Intelligence
+17
+
+=== SLIDE 18 ===
+Chương trình tác nhân máy hút bụi
+Figure 2.8: Chương trình tác nhân phản xạđơn giản trong môi trường máy hút bụi.
+Trí tuệnhân tạo - Artificial Intelligence
+18
+
+=== SLIDE 19 ===
+Tác nhân phản xạđơn giản
+Figure 2.9: Mô hình Tác nhân phản xạđơn giản (Simple reflex agent).
+Trí tuệnhân tạo - Artificial Intelligence
+19
+
+=== SLIDE 20 ===
+Tác nhân phản xạđơn giản (tt)
+♢Đặc điểm:
+Lựa chọn hành động chỉdựa trên nhận thức hiện tại, bỏqua phần
+lịch sửnhận thức còn lại.
+♢Hoạt động:
+Dựa trên Quy tắc điều kiện - hành động (Condition-action rules).
+Ví dụ: "Nếu xe phía trước phanh, thì đạp phanh".
+♢Hạn chế:
+Chỉhoạt động tốt nếu môi trường là hoàn toàn có thểquan sát
+(Fully observable). Nếu môi trường chỉquan sát được một phần, tác
+nhân dễbịrơi vào vòng lặp vô hạn.
+Trí tuệnhân tạo - Artificial Intelligence
+20
+
+=== SLIDE 21 ===
+Chương trình Tác nhân phản xạđơn giản
+Figure 2.10: Thuật toán của một tác nhân phản xạđơn giản.
+Trí tuệnhân tạo - Artificial Intelligence
+21
+
+=== SLIDE 22 ===
+Tác nhân phản xạdựa trên mô hình
+Figure 2.11: Mô hình Tác nhân phản xạdựa trên mô hình (Model-based reflex agent).
+Trí tuệnhân tạo - Artificial Intelligence
+22
+
+=== SLIDE 23 ===
+Tác nhân phản xạdựa trên mô hình (tt)
+♢Đặc điểm:
+Giữlại bộnhớnội tại (Trạng thái nội bộ- Internal state) đểtheo
+dõi sựphần môi trường không thểquan sát được hiện tại.
+♢Yêu cầu vềtri thức:
+ Môi trường tiến hóa độc lập với tác nhân thếnào?
+ Các hành động của chính tác nhân ảnh hưởng tới môi trường thếnào?
+♢Kết hợp (Mô hình - Model):
+Sựkết hợp giữa tri thức này được gọi là một Mô hình thếgiới
+(Model of the world).
+Trí tuệnhân tạo - Artificial Intelligence
+23
+
+=== SLIDE 24 ===
+Chương trình Tác nhân phản xạcó mô hình
+Figure 2.12: Thuật toán của tác nhân phản xạdựa trên mô hình.
+Trí tuệnhân tạo - Artificial Intelligence
+24
+
+=== SLIDE 25 ===
+Tác nhân dựa trên mục tiêu
+Figure 2.13: Mô hình Tác nhân dựa trên mục tiêu (Goal-based agent).
+Trí tuệnhân tạo - Artificial Intelligence
+25
+
+=== SLIDE 26 ===
+Tác nhân dựa trên mục tiêu (tt)
+♢Đặc điểm:
+Bên cạnh trạng thái môi trường hiện tại, tác nhân cần thêm thông tin
+Mục tiêu (Goal) đểmô tảcác tình huống mong muốn (Ví dụ: Chỗ
+đến của xe taxi).
+♢Ra quyết định:
+ Tác nhân có thểphải xem xét chuỗi hành động dài đểđánh giá xem
+mục tiêu có đạt được hay không (Tìm kiếm và Lập kếhoạch).
+ Linh hoạt hơn: Khi mục tiêu thay đổi, hành vi của tác nhân dễdàng
+thích ứng.
+Trí tuệnhân tạo - Artificial Intelligence
+26
+
+=== SLIDE 27 ===
+Tác nhân dựa trên độthoảdụng (Tiện ích)
+Figure 2.14: Mô hình Tác nhân dựa trên tiện ích (Utility-based agent).
+Trí tuệnhân tạo - Artificial Intelligence
+27
+
+=== SLIDE 28 ===
+Tác nhân dựa trên tiện ích (tt)
+♢Đặc điểm:
+Mục tiêu chỉphân biệt "Hạnh phúc" và "Không hạnh phúc"
+(True/False). Độthoảdụng (Utility) cho phép đo đạc mức độmong
+muốn một trạng thái liên tục hơn.
+♢Hàm thoảdụng (Utility function):
+Cung cấp một con sốthực đểchỉđịnh mức độ"hạnh phúc". Đặc biệt
+hữu ích khi:
+ Khi có những mục tiêu mâu thuẫn (Ví dụ: Lái xe nhanh ↔An toàn).
+ Khi có nhiều mục tiêu nhưng không thểchắc chắn đạt được, ta tính
+toán kỳvọng của chúng.
+Trí tuệnhân tạo - Artificial Intelligence
+28
+
+=== SLIDE 29 ===
+Tác nhân học thuật (Learning agent)
+Figure 2.15: Mô hình cấu trúc chung cho Tác nhân có khảnang học thuật.
+Trí tuệnhân tạo - Artificial Intelligence
+29
+
+=== SLIDE 30 ===
+Thành phần của Tác nhân học thuật
+♢Thành phần học thuật (Learning element):
+Chịu trách nhiệm cải tiến hiệu suất theo thời gian.
+♢Thành phần hiệu suất (Performance element):
+Thực chất chính là toàn bộtác nhân ởcác mô hình trước, chịu trách
+nhiệm chọn hành động bên ngoài.
+♢Nhà phê bình (Critic):
+Phản hồi vềmức độhoạt động tốt của tác nhân dựa trên tiêu chuẩn hiệu
+suất khách quan.
+♢Bộtạo vấn đề(Problem generator):
+Đềxuất các hành động đưa đến những trải nghiệm mới và mang tính
+thông tin (khám phá).
+Trí tuệnhân tạo - Artificial Intelligence
+30
+
+=== SLIDE 31 ===
+Các cách biểu diễn trạng thái và mô hình
+Figure 2.16: Ba cách biểu diễn trạng thái: Nguyên tử, Phân tách, Có cấu trúc.
+Trí tuệnhân tạo - Artificial Intelligence
+31
+
+=== SLIDE 32 ===
+Tóm tắt Chương 2
+♢Tác nhân là một thực thểnhận thức và hành động trong một môi
+trường. Tác nhân hợp lý tối ưu hoá hiệu suất dựa trên kiến thức hiện tại.
+♢Một môi trường tác vụđược xác định bởi: Độđo hiệu suất (P), Môi
+trường (E), Cơ cấu chấp hành (A), Cảm biến (S).
+♢Môi trường có nhiều thuộc tính: Quan sát hoàn toàn/một phần,
+đơn/đa tác nhân, tất định/ngẫu nhiên, v.v.
+♢Chương trình tác nhân là sựtriển khai của hàm tác nhân, bao gồm
+các cấu trúc từPhản xạđơn giản đến Dựa trên mô hình, Dựa trên mục
+tiêu, và Dựa trên tiện ích.
+♢Mọi tác nhân đều có thểtrởthành Tác nhân học bằng cách bổsung
+nang lực học hỏi từkinh nghiệm.
+Trí tuệnhân tạo - Artificial Intelligence
+32
+
