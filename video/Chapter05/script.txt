@@ -1,0 +1,166 @@
+Slide 1: CHƯƠNG 05: BÀI TOÁN THỎA MÃN RÀNG BUỘC
+Người 1: Xin chào các bạn sinh viên! Chào mừng các bạn đến với Chương 5 trong chương trình Trí tuệ Nhân tạo Hiện đại. Hôm nay chúng ta sẽ cùng bước vào một chủ đề mang tính đột phá và ứng dụng thực tiễn vô cùng to lớn: "Bài toán Thỏa mãn Ràng buộc" - tiếng Anh gọi là Constraint Satisfaction Problems, viết tắt là CSP.
+Người 2: Dạ thưa thầy, ở các chương trước chúng ta đã học các thuật toán tìm kiếm đường đi như BFS, DFS, A-star hay tìm kiếm cục bộ. Vậy bài toán thỏa mãn ràng buộc CSP này có điểm gì khác biệt về bản chất so với những gì chúng ta đã học ạ?
+Người 1: Câu hỏi rất xuất sắc! Ở các chương trước, trạng thái của thế giới được xem như một "hộp đen" (black box) nguyên tử - nghĩa là thuật toán chỉ biết nhìn vào trạng thái và kiểm tra xem nó đã là đích hay chưa, chứ không hề quan tâm cấu trúc nội tại bên trong nó gồm những phần tử nào. Đến với CSP, chúng ta "phẫu thuật" trực tiếp trạng thái thành một tập hợp các biến độc lập có liên kết chặt chẽ với nhau thông qua các điều kiện ràng buộc toán học. Chính cách tiếp cận biểu diễn trạng thái có cấu trúc này giúp ta giải quyết được những bài toán phức tạp quy mô hàng triệu biến trong thực tế.
+
+Slide 2: NỘI DUNG CHƯƠNG 5
+Người 1: Nội dung bài học Chương 5 của chúng ta được chia thành 5 phần trọng tâm bám sát cấu trúc của giáo trình:
+- Phần 5.1: Định nghĩa chuẩn tắc về CSP, gồm bộ ba biến, miền giá trị và ràng buộc.
+- Phần 5.2: Cơ chế suy diễn trong CSP thông qua kỹ thuật "Lan truyền Ràng buộc" (Constraint Propagation).
+- Phần 5.3: Giải thuật Tìm kiếm Quay lui (Backtracking Search) kết hợp các Heuristics thông minh để tăng tốc.
+- Phần 5.4: Tìm kiếm Cục bộ (Local Search) cho CSP với thuật toán siêu nhanh Min-Conflicts.
+- Phần 5.5: Khai thác sức mạnh cấu trúc của bài toán để chia để trị và giải quyết trong thời gian tuyến tính.
+Người 2: Nhìn vào mục lục em thấy có sự kết hợp rất chặt chẽ giữa suy diễn và tìm kiếm. Em rất hào hứng muốn biết máy tính sẽ tư duy và suy diễn logic như thế nào để giải bài toán ạ!
+
+Slide 3: 5.1 ĐỊNH NGHĨA CSP
+Người 1: Trước tiên, chúng ta cùng định nghĩa chuẩn tắc về một bài toán CSP. Theo Stuart Russell và Peter Norvig, một bài toán CSP được hình thức hóa thông qua một bộ ba quyền lực ký hiệu là: X, D, C (đọc là X, Đê, Xê).
+Người 2: Dạ thầy có thể giải thích chi tiết ý nghĩa toán học của từng thành phần trong bộ ba này không ạ?
+Người 1: Chắc chắn rồi!
+- Thành phần thứ nhất là X: Tập hợp gồm n biến, ký hiệu là X_1, X_2, cho tới X_n.
+- Thành phần thứ hai là D: Tập hợp các miền giá trị tương ứng, D_1, D_2 đến D_n. Mỗi miền D_i chứa tập hợp các giá trị hợp lệ mà biến X_i được phép nhận. Miền giá trị có thể là tập hữu hạn rời rạc hoặc miền số thực liên tục.
+- Thành phần thứ ba là C: Tập hợp các ràng buộc. Mỗi ràng buộc xác định một tập biến liên quan và mối quan hệ giá trị hợp lệ giữa các biến đó.
+Một "phép gán" (assignment) là việc gán giá trị cho một phần hoặc toàn bộ các biến. Phép gán được gọi là "nhất quán" (consistent) nếu nó không vi phạm bất kỳ ràng buộc nào. Và một "Nghiệm" (solution) của bài toán CSP là một phép gán hoàn chỉnh cho toàn bộ n biến mà vẫn bảo đảm tính nhất quán tuyệt đối!
+
+Slide 4: VÍ DỤ: BÀI TOÁN TÔ MÀU BẢN ĐỒ
+Người 1: Để hiểu thật cụ thể, chúng ta hãy xem ví dụ kinh điển trong giáo trình AIMA: Bài toán Tô màu Bản đồ nước Úc ở Hình 5.1.
+Mục tiêu là tô màu cho 7 bang và vùng lãnh thổ của Úc sao cho không có hai khu vực tiếp giáp nhau nào có cùng màu sắc.
+Người 2: Dạ, vậy nếu đưa vào mô hình bộ ba X, D, C thì bài toán tô màu bản đồ này được phát biểu cụ thể như thế nào ạ?
+Người 1: Em hãy nhìn trực tiếp vào định nghĩa trên slide:
+- Tập biến X gồm 7 vùng địa lý: WA (Tây Úc), NT (Bắc Úc), Q (Queensland), NSW (New South Wales), V (Victoria), SA (Nam Úc), và đảo Tasmania (ký hiệu là T).
+- Miền giá trị D của mỗi biến đều giống nhau, gồm 3 màu: Đỏ (Red), Xanh lá (Green), và Xanh dương (Blue).
+- Tập ràng buộc C yêu cầu: Hai khu vực có chung đường biên giới phải mang màu khác nhau. Chẳng hạn: WA khác NT, WA khác SA, NT khác SA, NT khác Q, SA khác Q, SA khác NSW, SA khác V, và NSW khác V.
+Đặc biệt, em hãy chú ý đảo Tasmania ở góc dưới: bang T không tiếp giáp với bất kỳ bang nào, nên màu của nó hoàn toàn tự do!
+
+Slide 5: ĐỒ THỊ RÀNG BUỘC (CONSTRAINT GRAPH)
+Người 1: Khi lập trình và giải quyết bài toán trên máy tính, biểu diễn trực quan hiệu quả nhất của một bài toán CSP nhị phân chính là "Đồ thị Ràng buộc" (Constraint Graph) như em thấy ở Hình 5.2.
+Người 2: Dạ thưa thầy, các đỉnh và các cạnh trong đồ thị này mang ý nghĩa gì ạ?
+Người 1: Rất rõ ràng:
+- Mỗi Nút (Node) trên đồ thị đại diện cho một biến X_i.
+- Mỗi Cạnh (Edge) nối giữa hai nút đại diện cho một ràng buộc nhị phân giữa hai biến tương ứng.
+Ví dụ: Vì Tây Úc (WA) giáp ranh Bắc Úc (NT) nên có một cạnh nối giữa nút WA và NT. Nút SA ở trung tâm tiếp giáp với 5 bang khác nên có tới 5 cạnh nối ra xung quanh. Riêng nút Tasmania (T) nằm trơ trọi một mình, không có cạnh nào nối vào.
+Đồ thị ràng buộc là công cụ cực kỳ mạnh mẽ giúp các thuật toán AI phân tích cấu trúc topo, phát hiện các thành phần liên thông độc lập và các chu trình để tối ưu hóa quá trình giải.
+
+Slide 6: CÁC LOẠI RÀNG BUỘC
+Người 1: Trong thực tế, các ràng buộc rất phong phú và được chia thành nhiều cấp độ hình thức hóa khác nhau:
+- Thứ nhất là Ràng buộc đơn nguyên (Unary constraint): Chỉ tác động lên duy nhất 1 biến. Ví dụ: "Bang Nam Úc (SA) không được mang màu Xanh lá" (SA khác Green). Ràng buộc này được giải quyết cực nhanh bằng cách xóa màu Xanh lá ra khỏi miền giá trị D của SA.
+- Thứ hai là Ràng buộc nhị phân (Binary constraint): Tác động lên một cặp gồm 2 biến, như SA khác WA. Một CSP chỉ chứa ràng buộc nhị phân được gọi là Binary CSP.
+- Thứ ba là Ràng buộc đa nguyên hay ràng buộc toàn cục (Global / N-ary constraint): Ràng buộc liên quan đến số lượng biến tùy ý hoặc toàn bộ biến. Điển hình là ràng buộc Alldiff - yêu cầu tất cả các biến liên quan phải nhận các giá trị đôi một khác nhau.
+Người 2: Dạ thưa thầy, còn "Gán mềm" (Soft constraints) ở cuối slide là gì ạ? Có bắt buộc phải thỏa mãn 100% không thầy?
+Người 1: Rất tinh ý! Ràng buộc mềm (Soft constraints hay Preferences) không bắt buộc phải thỏa mãn tuyệt đối như ràng buộc cứng, mà nó thể hiện mức độ ưu tiên hoặc sở thích - ví dụ: "giáo viên ưu tiên dạy buổi sáng hơn buổi chiều". Để giải quyết loại bài toán này, người ta thường gắn trọng số hoặc hàm chi phí phạt, biến bài toán thành Tối ưu hóa Thỏa mãn Ràng buộc (COP) để tìm ra phương án tối ưu nhất!
+
+Slide 7: VÍ DỤ: RÀNG BUỘC ĐA NGUYÊN (SUDOKU)
+Người 1: Để thấy rõ uy lực của ràng buộc đa nguyên Alldiff, mời các bạn quan sát Hình 5.3: Trò chơi trí tuệ Sudoku quen thuộc!
+Người 2: Ôi, hóa ra trò chơi Sudoku mà em hay chơi trên điện thoại lại chính là một bài toán CSP kinh điển ạ thầy?
+Người 1: Đúng vậy! Sudoku là một bài toán CSP thuần túy:
+- Chúng ta có 81 ô cờ tương ứng với 81 biến, mỗi biến nhận giá trị từ 1 đến 9. Những ô đã điền sẵn số ban đầu chính là những biến đã có phép gán cứng (hoặc ràng buộc đơn).
+- Về ràng buộc: Chúng ta có đúng 27 ràng buộc Alldiff! Cụ thể: 9 hàng ngang là 9 ràng buộc Alldiff, 9 cột dọc là 9 ràng buộc Alldiff, và 9 khối vuông 3 nhân 3 là 9 ràng buộc Alldiff nữa.
+Mỗi ràng buộc Alldiff này ép 9 biến liên quan phải nhận các giá trị từ 1 đến 9 không được trùng lặp. Nhờ biểu diễn dưới dạng CSP, máy tính có thể giải quyết một bàn cờ Sudoku cấp độ siêu khó chỉ trong vài mili-giây!
+
+Slide 8: 5.2 SUY DIỄN CSP: LAN TRUYỀN RÀNG BUỘC
+Người 1: Bây giờ chúng ta chuyển sang Phần 5.2: Cơ chế suy diễn trong CSP thông qua kỹ thuật "Lan truyền Ràng buộc" (Constraint Propagation).
+Nếu như các thuật toán tìm kiếm truyền thống phải mò mẫm gán thử rồi mới biết sai, thì CSP sử dụng "Suy diễn" (Inference) ngay từ đầu để chủ động thu hẹp miền giá trị của các biến, loại bỏ các nhánh cụt trước khi tìm kiếm.
+Người 2: Dạ thưa thầy, trên slide có hai khái niệm là "Tính nhất quán nút" và "Tính nhất quán cung", chúng hoạt động ra sao ạ?
+Người 1: Thầy giải thích rất ngắn gọn:
+- Tính nhất quán nút (Node Consistency): Một biến X_i là nhất quán nút nếu tất cả các giá trị trong miền D_i của nó đều thỏa mãn các ràng buộc đơn nguyên của chính nó.
+- Tính nhất quán cung (Arc Consistency): Xét một cung có hướng từ X_i đến X_j. Cung X_i sang X_j được gọi là nhất quán cung nếu với MỌI giá trị x thuộc D_i, luôn tồn tại ÍT NHẤT MỘT giá trị y thuộc D_j thỏa mãn ràng buộc nhị phân giữa X_i và X_j.
+Em chú ý: Tính nhất quán cung mang tính định hướng. Cung X_i sang X_j nhất quán chưa chắc chiều ngược lại X_j sang X_i đã nhất quán!
+
+Slide 9: THUẬT TOÁN AC-3
+Người 1: Để bảo đảm tính nhất quán cung trên toàn bộ đồ thị mạng lưới, thuật toán kinh điển và phổ biến nhất là AC-3 (Arc Consistency Algorithm số 3) của tác giả Alan Mackworth.
+Người 2: Thuật toán AC-3 vận hành từng bước như thế nào thưa thầy?
+Người 1: AC-3 hoạt động theo một nguyên lý rất trực quan:
+- Bước 1: Khởi tạo một hàng đợi (Queue) chứa tất cả các cung có hướng trong đồ thị ràng buộc.
+- Bước 2: Vòng lặp lấy từng cung X_i sang X_j ra khỏi hàng đợi. Gọi hàm REVISE để rà soát miền giá trị D_i. Nếu có giá trị nào của X_i mà không thể tìm được giá trị tương thích bên X_j, ta lập tức xóa bỏ giá trị đó khỏi D_i.
+- Bước 3: Nếu D_i bị thay đổi (bị co hẹp lại), ta phải đẩy TẤT CẢ các cung X_k trỏ vào X_i (với X_k khác X_j) ngược trở lại hàng đợi!
+Bởi vì việc D_i mất đi một số giá trị có thể khiến các nút hàng xóm X_k trước đây từng nhất quán nay lại trở nên mâu thuẫn. Cơ chế này tạo ra một hiệu ứng domino lan truyền cực mạnh trên toàn mạng lưới.
+
+Slide 10: FIGURE 5.4: THUẬT TOÁN NHẤT QUÁN CUNG AC-3
+Người 1: Mời các em quan sát mã giả chi tiết của AC-3 ở Hình 5.4 trên slide.
+Hàm AC-3 nhận vào bài toán CSP. Trong khi hàng đợi Queue chưa rỗng, nó liên tục rút cung (X_i, X_j) và gọi hàm REVISE.
+Người 2: Dạ thưa thầy, trong hàm REVISE, nếu kích thước của miền D_i bị giảm về 0 (tức size of D_i = 0) thì thuật toán xử lý thế nào ạ?
+Người 1: Điểm mấu chốt nằm chính ở đó! Nếu miền D_i trở thành RỖNG, nghĩa là không còn bất kỳ giá trị nào cho biến X_i có thể thỏa mãn ràng buộc, hàm AC-3 lập tức trả về False - khẳng định chắc chắn bài toán vô nghiệm!
+Ngược lại, nếu hàng đợi rỗng mà không có miền nào bị triệt tiêu, thuật toán trả về True.
+Về độ phức tạp: Trong trường hợp xấu nhất, nếu đồ thị có c ràng buộc nhị phân và kích thước miền giá trị lớn nhất là d, mỗi cung chỉ có thể bị đưa vào hàng đợi tối đa d lần, mỗi lần kiểm tra mất d bình phương thao tác. Do đó độ phức tạp tổng cộng của AC-3 là O(c nhân d mũ 3).
+
+Slide 11: 5.3 TÌM KIẾM QUAY LUI (BACKTRACKING SEARCH)
+Người 1: Vậy câu hỏi đặt ra: Sau khi chạy xong AC-3, nếu miền giá trị của các biến vẫn còn từ 2 giá trị trở lên thì sao?
+Lúc này, suy diễn đơn thuần không thể tìm ra nghiệm cụ thể được nữa, chúng ta bắt buộc phải bước sang Phần 5.3: Tìm kiếm Quay lui (Backtracking Search).
+Người 2: Dạ thưa thầy, tại sao trong CSP người ta lại dùng Backtracking Search mà không dùng Breadth-First Search hay Uniform Cost Search ạ?
+Người 1: Bởi vì CSP sở hữu một tính chất toán học cực kỳ đặc biệt: Tính giao hoán (Commutativity).
+Nghĩa là thứ tự gán các biến không hề ảnh hưởng đến kết quả cuối cùng: Việc em gán [WA = Đỏ rồi NT = Xanh] hoàn toàn giống hệt với việc gán [NT = Xanh rồi WA = Đỏ]!
+Vì thế, ở mỗi tầng của cây tìm kiếm, chúng ta chỉ cần chọn duy nhất MỘT biến chưa gán và thử các giá trị trong miền của nó. Hệ số phân nhánh ở mỗi bước chỉ là d (kích thước miền), và tổng số nút lá của toàn bộ cây tìm kiếm chỉ là d mũ n, thay vì n giai thừa nhân d mũ n như duyệt hoán vị mù quáng!
+
+Slide 12: FIGURE 5.5: MỘT THUẬT TOÁN QUAY LUI ĐƠN GIẢN CHO CÁC BÀI TOÁN CSP
+Người 1: Hình 5.5 trên slide thể hiện mã giả chuẩn của hàm BACKTRACKING-SEARCH trong AIMA:
+Hàm gọi đệ quy BACKTRACK với một tập phép gán ban đầu rỗng.
+- Điều kiện dừng: Nếu phép gán đã hoàn chỉnh (assignment is complete), ta trả về ngay nghiệm thành công.
+- Bước chọn biến: Gọi hàm SELECT-UNASSIGNED-VARIABLE để chọn ra biến tiếp theo cần gán giá trị.
+- Bước thử giá trị: Duyệt qua từng giá trị v trong miền thông qua hàm ORDER-DOMAIN-VALUES.
+- Nếu giá trị v nhất quán với các phép gán hiện tại: Thêm {var = value} vào tập gán, thực hiện suy diễn (INFERENCE), và gọi đệ quy BACKTRACK.
+Người 2: Dạ nếu nhánh đệ quy đó trả về thất bại (failure) thì sao ạ?
+Người 1: Khi gặp bế tắc (failure), thuật toán lập tức thực hiện thao tác "quay lui" (backtrack): xóa bỏ các suy diễn đã tạo ra và gỡ bỏ phép gán {var = value} khỏi tập gán để thử giá trị tiếp theo. Nếu thử hết tất cả các giá trị mà vẫn bế tắc thì trả về thất bại cho tầng trước đó.
+
+Slide 13: FIGURE 5.6: CÂY TÌM KIẾM QUAY LUI
+Người 1: Để hình dung sự tối ưu của Backtracking, các em hãy nhìn vào cây quyết định tô màu bản đồ Úc ở Hình 5.6:
+- Tầng gốc: Chưa có bang nào được tô màu.
+- Tầng 1: Ta chọn bang Tây Úc WA và tô màu Đỏ (Red). Do tính đối xứng của 3 màu, ta chỉ cần xét nhánh WA = Đỏ.
+- Tầng 2: Chọn bang tiếp theo là Bắc Úc NT. NT có thể nhận màu Xanh lá hoặc Xanh dương. Nếu ta cố tình tô NT = Đỏ thì sẽ vi phạm ngay ràng buộc WA khác NT, nhánh đó lập tức bị "chặt tỉa" (pruned) ngay từ trong trứng nước!
+- Tầng 3: Chọn bang Queensland Q. Ta tiếp tục thử các màu hợp lệ còn lại.
+Người 2: Nhờ kiểm tra tính nhất quán sau mỗi bước gán mà thuật toán loại bỏ được hàng triệu nhánh con vô vọng ở phía dưới, tiết kiệm thời gian tính toán khủng khiếp đúng không thầy!
+Người 1: Chính xác! Đó chính là sức mạnh cốt lõi của Tìm kiếm Quay lui trong CSP.
+
+Slide 14: CẢI THIỆN BACKTRACKING: HEURISTICS
+Người 1: Mặc dù Backtracking cơ bản đã rất tốt, nhưng nếu ta chọn biến và chọn giá trị một cách ngẫu nhiên thì vẫn có nguy cơ bị sa lầy vào những nhánh tìm kiếm khổng lồ.
+Để tăng tốc tối đa, các nhà khoa học AI đã trang bị 3 Heuristics kinh điển:
+1. Thứ nhất là Heuristic MRV (Minimum Remaining Values - Giá trị còn lại tối thiểu), còn được gọi là quy tắc "Thất bại sớm" (Fail-First): Luôn ưu tiên chọn biến nào còn ít giá trị hợp lệ nhất trong miền. Nếu có biến chỉ còn 1 lựa chọn duy nhất, hãy gán nó ngay lập tức!
+2. Thứ hai là Degree Heuristic (Heuristic bậc): Dùng để phá vỡ thế hòa (tie-breaker) khi có nhiều biến cùng có điểm MRV bằng nhau. Thuật toán sẽ ưu tiên chọn biến nào có nhiều ràng buộc nhất với CÁC BIẾN CHƯA ĐƯỢC GÁN khác.
+3. Thứ ba là LCV (Least Constraining Value - Giá trị ít gây ràng buộc nhất), theo triết lý "Thành công trước" (Fail-Last): Khi đã chọn được biến, ta nên thử giá trị nào ít loại bỏ các lựa chọn nhất của các biến lân cận.
+Người 2: Tuyệt vời quá thầy ơi! MRV giúp phát hiện sai lầm sớm nhất để nhanh chóng quay lui, còn LCV thì tối đa hóa cơ hội tìm ra nghiệm thành công ngay ở những lần thử đầu tiên!
+
+Slide 15: DUY TRÌ TÍNH NHẤT QUÁN TRONG TÌM KIẾM
+Người 1: Một bước tiến vượt bậc khác là xen kẽ suy diễn trực tiếp vào trong quá trình tìm kiếm. Kỹ thuật đơn giản nhất là "Kiểm tra phía trước" (Forward Checking) như minh họa ở Hình 5.7:
+- Ban đầu, miền giá trị của tất cả các bang đều có đủ 3 màu: Đỏ, Xanh lá, Xanh dương.
+- Bước 1: Khi gán WA = Đỏ, Forward Checking lập tức quét các bang lân cận chưa gán là NT và SA, loại bỏ màu Đỏ ra khỏi miền của chúng. Lúc này NT và SA chỉ còn {Xanh lá, Xanh dương}.
+- Bước 2: Khi gán Q = Xanh lá, nó loại màu Xanh lá khỏi NT, SA và NSW. Lúc này NT chỉ còn duy nhất màu Xanh dương, SA cũng chỉ còn Xanh dương.
+- Bước 3: Khi gán V = Xanh dương, nó loại màu Xanh dương khỏi SA. Hệ quả là miền giá trị của SA trở thành RỖNG!
+Người 2: Nhờ Forward Checking mà ta phát hiện ra ngay bang SA không còn màu nào hợp lệ, thuật toán lập tức quay xe (quay lui) ngay tại bước này mà không cần tốn công đi tô màu cho các bang khác nữa!
+Người 1: Đúng vậy! Và nếu muốn mạnh mẽ hơn nữa, ta dùng kỹ thuật MAC (Maintaining Arc Consistency): Sau mỗi lần gán, ta chạy thuật toán AC-3 trên toàn bộ các biến lân cận để lan truyền ràng buộc đa tầng, triệt tiêu sớm mọi mâu thuẫn tiềm ẩn từ xa.
+
+Slide 16: 5.4 TÌM KIẾM CỤC BỘ CHO CSP
+Người 1: Bây giờ chúng ta bước sang Phần 5.4: Tìm kiếm Cục bộ (Local Search) cho CSP.
+Khác với Backtracking là gán từng biến một từ từ, Tìm kiếm Cục bộ sử dụng cách tiếp cận "Trạng thái hoàn chỉnh" (Complete-state formulation):
+Ngay từ đầu, thuật toán gán bừa một giá trị cho TOÀN BỘ các biến, chấp nhận việc vi phạm hàng loạt ràng buộc. Sau đó, nó thực hiện các bước dịch chuyển cục bộ để giảm dần số lỗi vi phạm cho đến khi về 0.
+Người 2: Dạ thưa thầy, chiến lược chọn nước đi thông minh ở đây là gì ạ?
+Người 1: Đó chính là Heuristic Min-Conflicts (Xung đột tối thiểu):
+Ở mỗi vòng lặp, thuật toán chọn ngẫu nhiên một biến đang có xung đột. Sau đó, nó tính toán và chuyển giá trị của biến đó sang một giá trị mới sao cho TỔNG số lượng xung đột trên toàn bài toán giảm xuống mức thấp nhất!
+Hiệu năng của Min-Conflicts kỳ diệu đến mức: Nó có thể giải bài toán n-Quân hậu với n lên tới 1 triệu con hậu (1,000,000-Queens) chỉ trong khoảng 50 bước điều chỉnh cục bộ, gần như trong thời gian thực!
+
+Slide 17: FIGURE 5.8: THUẬT TOÁN TÌM KIẾM CỤC BỘ MIN-CONFLICTS CHO CSP
+Người 1: Mời các bạn quan sát mã giả của hàm MIN-CONFLICTS ở Hình 5.8:
+- Đầu vào gồm bài toán csp và số bước tối đa max_steps.
+- Khởi tạo current là một phép gán hoàn chỉnh ngẫu nhiên cho toàn bộ các biến.
+- Vòng lặp từ 1 đến max_steps:
+  + Nếu current đã là một nghiệm hoàn hảo (không còn bất kỳ xung đột nào), lập tức return current.
+  + Chọn ngẫu nhiên một biến var đang bị xung đột từ danh sách các biến xung đột.
+  + Tìm giá trị value trong miền của var sao cho hàm CONFLICTS(csp, var, v, current) đạt giá trị nhỏ nhất.
+  + Cập nhật lại giá trị mới cho var trong phép gán current.
+Người 2: Dạ nếu thuật toán rơi vào các vùng cực tiểu cục bộ (local minima) hoặc vùng bình nguyên (plateau) thì ta xử lý thế nào ạ?
+Người 1: Rất sắc bén! Để thoát khỏi bẫy cực tiểu cục bộ, người ta thường kết hợp kỹ thuật Khởi động lại ngẫu nhiên (Random Restart), hoặc bước đi ngẫu nhiên có xác suất p (Random Walk), hoặc lưu vết bộ nhớ cấm lặp lại (Tabu Search).
+
+Slide 18: FIGURE 5.9: MÔ PHỎNG MIN-CONFLICTS VỚI 8-QUEENS
+Người 1: Để thấy rõ sự kỳ diệu của Min-Conflicts, các em hãy nhìn vào Hình 5.9: Quá trình gỡ rối bài toán 8 quân hậu chỉ trong 2 bước chuyển!
+- Ở bàn cờ thứ nhất: Đang có nhiều quân hậu tấn công lẫn nhau. Thuật toán chọn quân hậu ở cột thứ 3. Ta thấy các con số ghi trên cột 3 thể hiện số lượng xung đột nếu đặt hậu vào từng hàng. Hàng dưới cùng có số xung đột bằng 0! Thuật toán lập tức chuyển hậu cột 3 xuống hàng dưới cùng.
+- Ở bàn cờ thứ hai: Sau bước chuyển đầu tiên, chỉ còn một vài xung đột. Thuật toán tiếp tục chọn quân hậu đang bị xung đột ở cột thứ 6 và tính toán số xung đột trên cột này.
+- Ở bàn cờ thứ ba: Chuyển quân hậu cột 6 vào vị trí có xung đột tối thiểu bằng 0. Ngay lập tức, toàn bộ 8 quân hậu trên bàn cờ không còn bất kỳ đường chéo hay hàng ngang nào tấn công lẫn nhau. Nghiệm hoàn hảo đã đạt được chỉ sau đúng 2 bước!
+Người 2: Quá ấn tượng thầy ạ! Thay vì phải duyệt cây hàng trăm nghìn trạng thái, Min-Conflicts chỉ cần 2 cú click chuột điều chỉnh là xong bài toán.
+
+Slide 19: 5.5 SỨC MẠNH CỦA CẤU TRÚC BÀI TOÁN
+Người 1: Chúng ta đến với slide cuối cùng của bài học hôm nay: Phần 5.5 - Sức mạnh của Cấu trúc Bài toán, cùng tổng kết toàn bộ Chương 5.
+Ở Hình 5.10, các em thấy đồ thị ràng buộc được biểu diễn dưới dạng cấu trúc Cây:
+1. Thành phần liên thông độc lập: Nếu đồ thị gồm các cụm tách rời (như đảo Tasmania nằm riêng biệt), ta có thể chẻ bài toán lớn n biến thành c bài toán con độc lập. Điều này giúp giảm độ phức tạp từ hàm mũ O(d mũ n) xuống chỉ còn O(c nhân d mũ n chia c) - một bước nhảy vọt về tốc độ!
+2. Cấu trúc Cây (Tree-structured CSP): Nếu đồ thị không có chu trình (dạng cây như Hình 5.10), bài toán có thể giải quyết trong thời gian tuyến tính O(n nhân d bình phương) mà hoàn toàn không cần quay lui (backtrack-free)! Ta chỉ việc sắp xếp tô-pô, lan truyền tính nhất quán ngược từ lá lên gốc, rồi gán xuôi từ gốc xuống lá.
+Người 2: Thưa thầy, vậy nếu bài toán thực tế có chu trình thì sao ạ?
+Người 1: Lúc đó ta dùng các kỹ thuật phân rã cao cấp như Cutset Conditioning (chọn một tập biến nút để gán cố định nhằm cắt đứt các vòng lặp) hoặc Phân rã cây (Tree Decomposition) để biến đổi đồ thị phức tạp về dạng cây!
+Tóm kết lại Chương 5: Chúng ta đã làm chủ mô hình bộ ba X, D, C; cơ chế suy diễn lan truyền ràng buộc AC-3; thuật toán tìm kiếm quay lui kết hợp các Heuristics MRV, Degree, LCV và kỹ thuật kiểm tra Forward Checking / MAC; cùng giải thuật tìm kiếm cục bộ Min-Conflicts siêu tốc.
+Người 2: Bài học hôm nay thật sự sâu sắc và mở ra góc nhìn hoàn toàn mới về cách AI giải quyết các bài toán tối ưu và ràng buộc trong đời sống. Em cảm ơn thầy rất nhiều vì bài giảng vô cùng cuốn hút ạ!
+Người 1: Cảm ơn các em đã theo dõi say mê. Chúc các em vận dụng thật tốt tư duy ràng buộc này vào học tập và nghiên cứu. Hẹn gặp lại các em ở Chương 6: Tìm kiếm Đối kháng trong Trò chơi!
