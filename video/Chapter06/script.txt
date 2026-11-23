@@ -1,0 +1,199 @@
+Slide 1: CHƯƠNG 06: TÌM KIẾM ĐỐI KHÁNG VÀ TRÒ CHƠI
+Người 1: Xin chào các bạn sinh viên! Chào mừng các bạn đến với Chương 6 trong chương trình Trí tuệ Nhân tạo Hiện đại. Hôm nay chúng ta sẽ bước vào một trong những đấu trường kinh điển, hấp dẫn và kịch tính nhất của lịch sử AI: "Tìm kiếm Đối kháng và Trò chơi" - tiếng Anh là Adversarial Search and Games.
+Người 2: Dạ thưa thầy, nhìn hình ảnh mở đầu trên slide là hai quân Vua Trắng và Vua Đen đối mặt nhau trên bàn cờ vua 3D, em thấy không khí cạnh tranh rất nghẹt thở! Vì sao từ những ngày đầu sơ khai, các nhà khoa học máy tính như Alan Turing hay Claude Shannon lại chọn trò chơi cờ vua làm thước đo cho trí thông minh nhân tạo vậy ạ?
+Người 1: Câu hỏi gợi mở rất hay! Trò chơi trí tuệ như cờ vua, cờ vây hay cờ tướng chính là "phòng thí nghiệm" hoàn hảo cho AI: luật chơi rất rõ ràng, môi trường trừu tượng nhưng không gian tìm kiếm lại khổng lồ đến mức không một bộ não người hay siêu máy tính nào có thể tính toán cạn kiệt. Để chiến thắng, cỗ máy không chỉ tự tìm đường đi cho mình, mà còn phải dự đoán chính xác từng toan tính phản đòn của đối thủ. Đó chính là bản chất của Tìm kiếm Đối kháng!
+
+Slide 2: NỘI DUNG CHƯƠNG 6
+Người 1: Nội dung bài học Chương 6 của chúng ta được chia thành 5 trụ cột kiến thức lớn, được thể hiện sinh động qua các biểu tượng 3D trên slide:
+- Mục 6.1 (Icon quân Mã đen): Trò chơi và Lý thuyết Trò chơi (Games and Game Theory) - Hình thức hóa bài toán đối kháng 2 người.
+- Mục 6.2 (Icon huy hiệu vàng): Quyết định tối ưu với Thuật toán Minimax - Nền tảng định hình tư duy đối kháng.
+- Mục 6.3 (Icon kéo cắt cành): Kỹ thuật Cắt tỉa Alpha-Beta (Alpha-Beta Pruning) - Bí quyết tăng gấp đôi độ sâu tính toán.
+- Mục 6.4 (Icon đồng hồ cổ): Quyết định thời gian thực không hoàn hảo (Imperfect Real-Time Decisions) - Xử lý áp lực thời gian bằng Heuristic và Tìm kiếm tĩnh lặng.
+- Mục 6.5 (Icon xúc xắc đỏ): Trò chơi ngẫu nhiên và Khuyết thiếu thông tin (Stochastic & Partially Observable Games) - Đối mặt với yếu tố may rủi và đối thủ giấu bài.
+Người 2: Dạ, lộ trình đi từ trò chơi hoàn hảo đến các trò chơi ngẫu nhiên và thông tin ẩn rất toàn diện và thực tế. Em rất nóng lòng muốn khám phá công thức toán học đằng sau từng bước đi tối ưu ạ!
+
+Slide 3: 6.1 TRÒ CHƠI VÀ LÝ THUYẾT TRÒ CHƠI
+Người 1: Chúng ta bắt đầu với Mục 6.1: Bản chất của Trò chơi và Lý thuyết Trò chơi qua 3 khối nội dung trên slide 3,
+- Khối 1 bên trái (Icon hai người đối kháng ngăn cách bởi luồng sáng): Khác với tìm kiếm đơn tác nhân ở các chương trước nơi môi trường thụ động và "ngoan ngoãn", trong Môi trường đa tác nhân (Multi-agent environment), tác nhân phải đối đầu trực diện với những thực thể thông minh khác đang ra sức ngăn chặn và tối đa hóa mục tiêu của riêng họ.
+- Khối 2 ở giữa (Icon cán cân công lý): Trò chơi đối kháng thuộc loại Trò chơi có tổng bằng không (Zero-sum games). Nghĩa là tổng lợi ích của hai bên luôn cố định: Tôi thắng thì anh thua, anh được một điểm đồng nghĩa với việc tôi mất một điểm. Trò chơi có các đặc tính: Tất định (Deterministic), Quan sát hoàn toàn (Fully observable) và Luân phiên theo lượt (Turn-taking).
+Người 2: Thưa thầy, khối thứ ba bên phải có cảnh báo về "Sự tốn kém" với con số 10 mũ 40 và 10 mũ 123. Những con số này thể hiện điều gì ạ?
+Người 1: Đó là con số Shannon nổi tiếng về quy mô của Cờ vua! Số lượng trạng thái hợp lệ trên bàn cờ vua là khoảng 10 mũ 40, và số lượng nhánh của toàn bộ cây trò chơi lên tới 10 mũ 123. Để các em dễ hình dung: Số nguyên tử trong toàn bộ vũ trụ quan sát được của chúng ta chỉ vào khoảng 10 mũ 80! Điều đó có nghĩa là việc dùng thuật toán tìm kiếm mù để duyệt hết cây trò chơi cờ vua là điều vĩnh viễn bất khả thi!
+
+Slide 4: CÔNG THỨC HÓA TRÒ CHƠI 2 NGƯỜI
+Người 1: Để máy tính có thể lập trình và tính toán được một trò chơi đối kháng 2 người, chúng ta chuẩn hóa bài toán thành một mô hình hình thức gồm 6 thành phần như trên slide 4,
+Hai người chơi được định danh là MAX (đi trước, luôn muốn điểm số cao nhất) và MIN (đi sau, luôn muốn điểm số thấp nhất).
+Người 2: Dạ thầy có thể giải thích chi tiết ý nghĩa của từng thành phần trong bảng được không ạ?
+Người 1:
+- Thứ nhất là S_0: Trạng thái ban đầu của bàn cờ khi chưa ai đi nước nào.
+- Thứ hai là hàm Player(s): Cho biết hiện tại đang đến lượt của ai đi ở trạng thái s (lượt của MAX hay của MIN).
+- Thứ ba là Actions(s): Tập hợp tất cả các nước đi hợp lệ mà người chơi có thể thực hiện tại trạng thái s.
+- Thứ tư là Result(s, a): Mô hình chuyển trạng thái (Transition model), trả về trạng thái bàn cờ mới sau khi thực hiện nước đi a từ trạng thái s.
+- Thứ năm là TerminalTest(s): Hàm kiểm tra xem trò chơi đã kết thúc hay chưa (ví dụ: bị chiếu bí, hết nước đi, hoặc hòa cờ).
+- Thứ sáu là Utility(s, p): Hàm độ thỏa dụng (hay điểm thưởng) xác định kết quả cuối cùng cho người chơi p tại trạng thái kết thúc. Chẳng hạn trong cờ vua: gán +1 cho thắng, -1 cho thua, và 0 điểm cho kết quả hòa đối với MAX.
+
+Slide 5: CÂY TRÒ CHƠI (GAME TREE)
+Người 1: Mời các em quan sát slide 5, Đây là Figure 6.1 trong giáo trình, mô phỏng cây trò chơi cho trò Cờ caro (Tic-Tac-Toe) quen thuộc:
+- Nút gốc ở trên cùng thuộc tầng MAX (đánh dấu X), là bàn cờ 3 nhân 3 hoàn toàn trống rỗng.
+- Từ nút gốc rẽ ra 9 nhánh con, tương ứng với 9 ô trống mà MAX có thể đặt quân X đầu tiên.
+- Tầng tiếp theo là lượt của MIN (đánh dấu O). Tại mỗi nút con, MIN có 8 lựa chọn ô trống còn lại.
+- Cây trò chơi tiếp tục rẽ nhánh luân phiên theo từng "ply" (mỗi ply là một nửa nước đi, tức một lượt đi của một người) cho đến khi chạm tới các nút kết thúc (TERMINAL) ở đáy cây.
+Người 2: Dạ em thấy ở đáy cây có các giá trị Utility: -1, 0, và +1. Ý nghĩa của chúng là gì ạ?
+Người 1: Đúng vậy! Nếu MIN tạo được 3 quân O thẳng hàng, Utility là -1 (MIN thắng). Nếu kín bàn cờ mà không ai tạo được hàng ba, Utility là 0 (Hòa cờ). Còn nếu MAX tạo được 3 quân X thẳng hàng, Utility là +1 (MAX thắng). Toàn bộ cây cờ caro có khoảng 255.168 nút lá, và nhiệm vụ của MAX là tìm ra nước đi đầu tiên bảo đảm không bao giờ bị thua!
+
+Slide 6: 6.2 QUYẾT ĐỊNH TỐI ƯU: THUẬT TOÁN MINIMAX
+Người 1: Để tìm ra nước đi hoàn hảo nhất từ cây trò chơi, nhà toán học John von Neumann đã đề xuất một giải thuật nền tảng: Thuật toán Minimax, trình bày ở Mục 6.2 trên Slide 6.
+Giả thuyết cốt lõi của lý thuyết trò chơi ở đây là: Cả hai người chơi đều chơi tối ưu tuyệt đối, không ai mắc sai lầm! MAX luôn tìm mọi cách tối đa hóa điểm số, còn MIN luôn tìm mọi cách tối thiểu hóa điểm số đó.
+Người 2: Dạ thưa thầy, công thức tính hàm Giá trị Minimax (Minimax Value) ở giữa slide được tính đệ quy từ dưới lên như thế nào ạ?
+Người 1: Em hãy nhìn vào 3 khối màu sắc:
+- Khối xanh lá ở đáy: Nếu n là nút kết thúc (Terminal node), Minimax(n) chính là giá trị thực Utility(n) (+1, 0 hoặc -1).
+- Khối hồng có mũi tên đỏ trỏ xuống: Nếu n là lượt của MIN, đối thủ MIN sẽ chọn nước đi con có giá trị nhỏ nhất: Minimax(n) = min của Minimax(s) với mọi nút con s thuộc Children(n).
+- Khối xanh dương có mũi tên xanh trỏ lên: Nếu n là lượt của MAX, ta sẽ chọn nước đi con có giá trị lớn nhất: Minimax(n) = max của Minimax(s) với mọi nút con s.
+Người 2: Tức là giá trị Minimax của mỗi nút biểu thị điểm số tốt nhất mà MAX có thể ép buộc đạt được khi đối đầu với một đối thủ MIN chơi hoàn hảo đúng không thầy?
+Người 1: Định nghĩa chuẩn xác không cần chỉnh! Đó chính là ý nghĩa toán học của Minimax.
+
+Slide 7: THUẬT TOÁN MINIMAX
+Người 1: Trên Slide 7, các em thấy mã giả Figure 6.2 của thuật toán Minimax cùng minh họa Figure 6.3 ở bên phải:
+Thuật toán được xây dựng rất đẹp mắt bằng hai hàm đệ quy tương hỗ:
+- Hàm `MINIMAX-SEARCH(game, state)`: Xác định lượt đi và gọi hàm `MAX-VALUE`.
+- Hàm `MAX-VALUE(game, state)`: Khởi tạo giá trị v bằng âm vô cùng (-infinity). Nó duyệt qua mọi hành động hợp lệ, gọi đệ quy sang `MIN-VALUE` để lấy điểm của đối thủ, rồi cập nhật v bằng giá trị lớn nhất.
+- Hàm `MIN-VALUE(game, state)`: Ngược lại, khởi tạo v bằng dương vô cùng (+infinity), duyệt qua mọi hành động, gọi `MAX-VALUE` và cập nhật v bằng giá trị nhỏ nhất.
+Người 2: Thưa thầy, nhìn sang Figure 6.3 bên phải có biểu tượng bánh răng vàng, tại sao nút gốc MAX lại chọn nước đi dẫn tới giá trị 3 ạ?
+Người 1: Em nhìn các nhánh con ở tầng dưới:
+- Nhánh con thứ nhất của MIN có các lá là 3, 12, 8. Vì MIN chọn giá trị nhỏ nhất nên MIN ép nút này về giá trị 3!
+- Nhánh thứ hai có các lá là 2, 4, 6 nên MIN ép về giá trị 2.
+- Nhánh thứ ba có các lá là 14, 5, 2 nên MIN ép về giá trị 2.
+Giờ đến lượt MAX ở gốc: MAX đứng trước ba sự lựa chọn bị MIN ép lần lượt là 3, 2, và 2. Đương nhiên MAX sẽ chọn nước đi thứ nhất để đạt được giá trị 3 (giá trị cao nhất trong các phương án bi quan nhất)!
+
+Slide 8: ĐÁNH GIÁ THUẬT TOÁN MINIMAX
+Người 1: Bây giờ chúng ta cùng phân tích và đánh giá thuật toán Minimax qua 4 tiêu chí chuẩn mực trên slide 8,
+- Thứ nhất, Tính hoàn thiện (Completeness - Icon tích xanh): Có, nếu cây trò chơi là hữu hạn.
+- Thứ hai, Tính tối ưu (Optimality - Icon vương miện vàng): Có, chắc chắn tối ưu nếu đối thủ cũng chơi tối ưu. (Thậm chí nếu đối thủ chơi dở, MAX còn thắng đậm hơn!).
+- Thứ ba, Độ phức tạp thời gian (Time - Icon đồng hồ cát): Là O(b mũ m), trong đó b là hệ số rẽ nhánh trung bình và m là độ sâu tối đa của cây.
+- Thứ tư, Độ phức tạp không gian (Space - Icon ổ cứng): Là O(bm), rất tiết kiệm bộ nhớ vì Minimax duyệt theo chiều sâu (DFS), chỉ lưu vết các nút trên đường đi hiện tại.
+Người 2: Nhưng thưa thầy, khung cảnh báo màu đỏ ở dưới nêu rõ "Vấn đề chí tử": Đối với cờ vua b xấp xỉ 35, m xấp xỉ 100, thì 35 mũ 100 là con số không tưởng!
+Người 1: Đúng vậy! 35 mũ 100 là con số vượt xa khả năng của bất kỳ siêu máy tính lượng tử nào trong tương lai gần. Minimax duyệt cạn chỉ giải được các trò chơi nhỏ như Cờ caro hay Cờ Connect-Four. Với các trò chơi lớn, ta bắt buộc phải có giải pháp cắt tỉa không gian tìm kiếm!
+(Chú thích thêm ở chân slide: Figure 6.4 trong sách mở rộng Minimax cho trò chơi 3 người, khi đó giá trị tại mỗi nút là một vector 3 chiều [v_A, v_B, v_C]).
+
+Slide 9: 6.3 CẮT TỈA ALPHA-BETA
+Người 1: Để giải quyết bài toán bùng nổ hàm mũ của Minimax, chúng ta bước sang Mục 6.3: "Cắt tỉa Alpha-Beta" (Alpha-Beta Pruning).
+Động lực rất rõ ràng: Minimax duyệt toàn bộ cây, kể cả những nhánh mà đối thủ thông minh chắc chắn sẽ không bao giờ cho phép ta đi vào. Nếu ta dùng kéo cắt bỏ (Prune) các nhánh vô dụng này, ta sẽ tiết kiệm thời gian khổng lồ mà KHÔNG hề làm sai lệch kết quả tối ưu cuối cùng!
+Người 2: Dạ, hình chiếc kéo 3D ở trung tâm slide thể hiện điều kiện cắt tỉa. Hai tham số Alpha và Beta mang ý nghĩa gì thưa thầy?
+Người 1: Hãy ghi nhớ thật kỹ hai định nghĩa này:
+- Alpha (alpha): Là giá trị tốt nhất (lớn nhất) hiện tại mà người chơi MAX chắc chắn nắm giữ được trên con đường từ gốc đi xuống.
+- Beta (beta): Là giá trị tốt nhất (nhỏ nhất) hiện tại mà đối thủ MIN có thể ép buộc đạt được trên con đường từ gốc đi xuống.
+- Điều kiện cắt tỉa: Bất kỳ lúc nào mà alpha lớn hơn hoặc bằng beta (alpha >= beta), nhánh đang xét sẽ lập tức bị CẮT BỎ! Thuật toán dừng duyệt nhánh đó ngay lập tức và quay lui lên trên.
+
+Slide 10: MINH HỌA CẮT TỈA ALPHA-BETA
+Người 1: Slide 10 là Figure 6.5 trong giáo trình, minh họa từng bước cực kỳ trực quan quá trình cắt tỉa Alpha-Beta:
+- Hình (a): Ta bắt đầu từ gốc A với khoảng giá trị ban đầu [-vô cùng, +vô cùng]. Duyệt xuống con B, gặp lá đầu tiên có giá trị 3. Vì B là nút MIN nên giá trị của B bị chặn trên: B <= 3.
+- Hình (b): Xét tiếp con thứ hai của B là 12. MIN chọn min(3, 12) = 3 nên B vẫn <= 3.
+- Hình (c): Xét tiếp lá thứ ba là 8. B chốt giá trị bằng 3. Giá trị 3 này truyền ngược lên gốc A. Vì A là nút MAX, A chốt chặn dưới: alpha = 3, khoảng giá trị của A trở thành [3, +vô cùng].
+- Hình (d): Bây giờ ta duyệt sang nhánh con thứ hai của A là nút C. Nhánh con đầu tiên của C có giá trị là 2. Vì C là nút MIN nên C chốt chặn trên: beta = 2 (tức C <= 2).
+Người 2: Ôi em thấy rồi! Lúc này ở nút C ta có beta = 2, trong khi ở gốc A ta đã nắm chắc alpha = 3! Vì alpha (3) lớn hơn beta (2), nên điều kiện alpha >= beta đã xảy ra!
+Người 1: Quá chính xác! Vì đối thủ ở C chắc chắn sẽ ép giá trị xuống nhỏ hơn hoặc bằng 2, trong khi MAX ở gốc A đã có lựa chọn rẽ sang B đảm bảo chắc chắn ăn được 3 điểm! MAX đời nào dại dột đi vào C nữa? Do đó, hai nhánh còn lại của C bị gạch bỏ lập tức mà không cần tốn một mili-giây nào để tính toán!
+
+Slide 11: TRƯỜNG HỢP TỔNG QUÁT CHO CẮT TỈA ALPHA-BETA
+Người 1: Slide 11 trình bày sơ đồ tổng quát Figure 6.6 trong sách giáo khoa AIMA:
+Các em nhìn vào cấu trúc hình cây:
+- Nút Player (hình tam giác tím trỏ lên - MAX) ở trên cao đã tìm được một nước đi dẫn tới nút Opponent có giá trị m.
+- Dưới đường ziczac đứt đoạn là một nút Player ở độ sâu thấp hơn. Nút này đang xét một nước đi dẫn tới Opponent có giá trị m'.
+- Nếu m đối với Player tốt hơn m', thì khi đứng trước quyết định tại nút Opponent thấp hơn, đối thủ MIN chắc chắn sẽ chọn m' hoặc một giá trị còn tệ hại hơn m' đối với Player.
+Người 2: Dạ tức là Player sẽ không bao giờ có cơ hội đạt được bất cứ giá trị nào tốt hơn m nếu đi vào nhánh này đúng không thầy?
+Người 1: Hoàn toàn đúng! Đối thủ MIN ở trên sẽ chặn đứng con đường đó. Do đó, toàn bộ các nhánh con n bên cạnh m' sẽ bị cắt tỉa thẳng tay. Sơ đồ này chứng minh rằng việc cắt tỉa có thể xảy ra ở bất kỳ độ sâu nào của cây trò chơi.
+
+Slide 12: THUẬT TOÁN TÌM KIẾM ALPHA-BETA
+Người 1: Mời các em quan sát mã giả chuẩn tắc Figure 6.7 của hàm `ALPHA-BETA-SEARCH` trên slide 12,
+- Hàm khởi đầu `ALPHA-BETA-SEARCH(game, state)`: Lấy thông tin người chơi đến lượt và gọi `MAX-VALUE(game, state, -infinity, +infinity)`.
+- Hàm `MAX-VALUE(game, state, alpha, beta)`: Khởi tạo v = -infinity. Với mỗi hành động a:
+  + Lấy v2 từ `MIN-VALUE(game, Result(s, a), alpha, beta)`.
+  + Cập nhật v = max(v, v2).
+  + Dòng lệnh then chốt: `if v >= beta then return v, move` (đây chính là nhát kéo Cắt tỉa Beta!).
+  + Cập nhật lại `alpha = max(alpha, v)`.
+- Hàm `MIN-VALUE(game, state, alpha, beta)`: Khởi tạo v = +infinity. Với mỗi hành động a:
+  + Cập nhật v = min(v, v2).
+  + Dòng lệnh then chốt: `if v <= alpha then return v, move` (đây chính là nhát kéo Cắt tỉa Alpha!).
+  + Cập nhật lại `beta = min(beta, v)`.
+Người 2: Mã giả viết vô cùng gọn gàng và đối xứng! Hai tham số alpha và beta được truyền dọc từ trên xuống dưới, còn giá trị v được dội ngược từ dưới lên trên, vừa duyệt vừa cắt tỉa nhịp nhàng!
+
+Slide 13: HIỆU QUẢ CỦA CẮT TỈA ALPHA-BETA
+Người 1: Slide 13 tổng kết sức mạnh phi thường của Cắt tỉa Alpha-Beta qua 3 khối thông tin:
+- Khối 1 bên trái (Icon huy chương vàng): Độ chính xác Tuyệt đối! Cắt tỉa Alpha-Beta là một giải thuật chính xác 100%, không phải xấp xỉ. Nước đi mà Alpha-Beta chọn hoàn toàn giống hệt với nước đi của Minimax duyệt cạn.
+- Khối 2 bên phải (Icon phễu lọc tài liệu): Tầm quan trọng sống còn của Thứ tự duyệt nước đi (Move Ordering):
+  + Nếu thứ tự nước đi là ngẫu nhiên, độ phức tạp trung bình giảm xuống O(b mũ 3m/4).
+  + Nhưng nếu ta có một Heuristic sắp xếp các nước đi tốt nhất lên đầu (Perfect ordering), độ phức tạp thời gian giảm một cách kinh ngạc xuống chỉ còn O(b mũ m/2)!
+Người 2: Dạ tức là hệ số rẽ nhánh hiệu dụng từ b giảm xuống chỉ còn căn bậc hai của b đúng không thầy?
+Người 1: Chính xác! Ví dụ trong cờ vua b = 35 thì căn của 35 chỉ khoảng bằng 6!
+Và khung bên dưới với biểu tượng tên lửa khẳng định hệ quả to lớn:
+Cắt tỉa Alpha-Beta cho phép máy tính tìm kiếm ở độ sâu GẤP ĐÔI so với Minimax truyền thống trong cùng một giới hạn thời gian!
+
+Slide 14: CÁC KỸ THUẬT NÂNG CAO TRONG CÂY TRÒ CHƠI
+Người 1: Chúng ta đến với slide 14, Cột mốc chuyển tiếp sang nửa sau của Chương 6 với hình ảnh nghệ thuật 3D rất ấn tượng: Một quân Vua cờ vua bằng gỗ được ôm trọn bởi bộ não người công nghệ cao phát sáng ánh sáng mạng nơ-ron!
+Người 2: Dạ thưa thầy, hình ảnh này muốn truyền tải thông điệp gì ạ?
+Người 1: Đó chính là sự kết hợp đỉnh cao giữa các thuật toán tìm kiếm cây cổ điển và các kỹ thuật trí tuệ nhân tạo hiện đại!
+Bởi vì trong thực tế, ngay cả khi đã cắt tỉa Alpha-Beta sâu gấp đôi, ta vẫn không thể nào duyệt tới tận cùng các nút lá kết thúc của một ván cờ vua 100 nước. Chúng ta bắt buộc phải trang bị thêm: Khả năng ra quyết định thời gian thực không hoàn hảo, khả năng thích ứng với yếu tố ngẫu nhiên xúc xắc, và xử lý các trò chơi khuyết thiếu thông tin. Đó chính là những nội dung nâng cao mà chúng ta sẽ khám phá ngay sau đây!
+
+Slide 15: 6.4 QUYẾT ĐỊNH THỜI GIAN THỰC KHÔNG HOÀN HẢO
+Người 1: Chúng ta bước vào Mục 6.4 trên slide 15, Quyết định Thời gian thực Không hoàn hảo.
+- Khối 1: Do Giới hạn tính toán, AI bắt buộc phải dừng tìm kiếm ở một độ sâu giới hạn nhất định bằng một hàm kiểm tra cắt ngang gọi là Cutoff-Test (thay vì Terminal-Test).
+- Khối 2: Khi bị cắt ngang ở lưng chừng cây, ta không có điểm Utility ở nút lá thực sự. Ta bắt buộc phải dùng Hàm Đánh giá Heuristic Eval(s) để chấm điểm cục diện hiện tại.
+Người 2: Dạ thưa thầy, 3 yêu cầu tiên quyết của một hàm Eval(s) tốt là gì ạ?
+Người 1:
+1. Đồng nhất thứ tự với Utility: Thế cờ nào thực sự thắng thì Eval phải chấm điểm cao hơn thế cờ thua.
+2. Tốc độ tính toán siêu nhanh: Phải tính được hàng triệu trạng thái mỗi giây.
+3. Phản ánh chuẩn xác xác suất chiến thắng: Ví dụ trong cờ vua truyền thống, người ta dùng hàm tổng trọng số quân cờ: Hậu = 9 điểm, Xe = 5, Tượng và Mã = 3, Tốt = 1 điểm.
+Người 2: Nhìn sang hai bàn cờ Figure 6.8 ở bên phải, chúng chỉ khác nhau ở vị trí một quân Xe trắng đúng không thầy?
+Người 1: Rất tinh tường! Ở bàn cờ (a), Xe trắng ở a1 chưa tham chiến; nhưng ở bàn cờ (b), Xe trắng ở b1 mở ra đòn phối hợp tấn công chết người. Nếu hàm Eval chỉ đếm số lượng quân đơn thuần thì cả hai thế cờ điểm bằng nhau! Một hàm Eval xuất sắc phải nhận thức được các yếu tố vị trí, an toàn của vua và khả năng kiểm soát bàn cờ.
+
+Slide 16: HIỆU ỨNG ĐƯỜNG CHÂN TRỜI (HORIZON EFFECT)
+Người 1: Slide 16 trình bày một trong những cạm bẫy nguy hiểm nhất của tìm kiếm giới hạn độ sâu: "Hiệu ứng Đường chân trời" (Horizon Effect), minh họa bằng Figure 6.10:
+- Khối đỏ phía trên: Khi AI bị giới hạn độ sâu (ví dụ chỉ nhìn xa được 8 nước), nếu có một thiệt hại nghiêm trọng chắc chắn xảy ra (như mất quân Hậu), máy tính sẽ cố tình thực hiện các nước đi chiếu tướng hoặc thí quân vô nghĩa để đẩy biến cố thiệt hại đó rơi ra phía sau "đường chân trời" tính toán, tự tạo ảo giác là mình đã né được đòn!
+Người 2: Giống như đà điểu vùi đầu vào cát để tự dối lòng là không có nguy hiểm đúng không thầy! Vậy các chuyên gia AI khắc phục cạm bẫy này bằng cách nào ạ?
+Người 1: Bằng giải pháp ở khối xanh bên dưới: Kỹ thuật Tìm kiếm Tĩnh lặng (Quiescence Search)!
+- Quy tắc là: Không bao giờ áp dụng hàm Eval ở những trạng thái đang có biến động dữ dội (như đang bị chiếu tướng, đang ăn quân qua lại).
+- Nếu phát hiện thế cờ chưa tĩnh, thuật toán sẽ tự động đào sâu thêm vài nước đi nữa cho đến khi mọi cuộc giao tranh lắng xuống hoàn toàn (trạng thái tĩnh lặng), rồi mới an tâm chấm điểm!
+
+Slide 17: TÌM KIẾM CÂY MONTE CARLO (MCTS)
+Người 1: Chúng ta đến với slide 17, Tìm kiếm Cây Monte Carlo (MCTS) - một cuộc cách mạng vĩ đại của AI trong trò chơi, đặc biệt là môn Cờ Vây!
+Trước năm 2015, các đại kiện tướng cờ vây thế giới tin rằng máy tính còn lâu mới thắng được con người vì cờ vây không thể viết được hàm heuristic đánh giá do bàn cờ quá rộng lớn 19 nhân 19. MCTS đã thay đổi toàn bộ lịch sử!
+Người 2: Dạ thưa thầy, MCTS hoạt động theo nguyên lý gì mà có hình chiếc lồng quay xổ số và các viên xúc xắc ở góc phải slide ạ?
+Người 1: Đó chính là nguyên lý Mô phỏng ngẫu nhiên (Playout hay Rollout)!
+Thay vì cố nặn ra một hàm đánh giá phức tạp, máy tính sẽ tự chơi thử hàng vạn ván cờ ngẫu nhiên từ trạng thái hiện tại cho tới khi tàn cuộc, rồi thống kê xem nước đi nào đem lại tỷ lệ chiến thắng cao nhất!
+Quá trình này diễn ra qua các giai đoạn trong Figure 6.11:
+- (a) Selection (Chọn lọc): Đi từ gốc xuống theo công thức UCT, cân bằng hoàn hảo giữa Khai thác nước đi tốt đã biết (Exploitation) và Khám phá các nước đi mới tiềm năng (Exploration).
+- (b) Expansion & Simulation (Mở rộng & Mô phỏng): Thêm nút mới và chạy mô phỏng ngẫu nhiên đến khi kết thúc (black wins).
+- (c) Backpropagation (Lan truyền ngược): Cập nhật kết quả thắng/thua ngược lên tất cả các nút tổ tiên trên cây.
+Đây chính là linh hồn của siêu trí tuệ AlphaGo huyền thoại của Google DeepMind!
+
+Slide 18: 6.5 TRÒ CHƠI NGẪU NHIÊN (STOCHASTIC GAMES)
+Người 1: Chúng ta sang Mục 6.5 trên slide 18, Trò chơi Ngẫu nhiên (Stochastic Games).
+Trong thực tế cuộc sống, rất nhiều trò chơi có sự can thiệp của yếu tố may rủi, điển hình như Cờ cá ngựa hay trò Cờ Tào cáo (Backgammon) ở Figure 6.13: Nước đi của người chơi phụ thuộc hoàn toàn vào kết quả của những lần đổ xúc xắc!
+Người 2: Dạ thưa thầy, trên cây trò chơi ở Figure 6.14, em thấy xuất hiện thêm một tầng nút tròn màu xanh lá gọi là "CHANCE" xen giữa tầng MAX và MIN đúng không ạ?
+Người 1: Rất chính xác! Đó là Nút Xác suất (Chance nodes).
+Tại các nút này, ta không thể lấy max hay min được nữa, mà phải sử dụng hàm Expectiminimax để tính Giá trị Kỳ vọng (Expected Value):
+Công thức ở góc dưới: Expected(n) bằng tổng các tích của Xác suất mỗi mặt xúc xắc P(d_i) nhân với giá trị Minimax của trạng thái kết quả tương ứng.
+Ví dụ nếu tung 2 viên xúc xắc, xác suất ra tổng điểm bằng 7 là cao nhất (1/6), thuật toán sẽ nhân trọng số lớn hơn cho nhánh đó để tính điểm trung bình kỳ vọng!
+
+Slide 19: TÍNH NHẠY CẢM CỦA EXPECTIMINIMAX
+Người 1: Mời các em quan sát Slide 19, đây là một phát hiện toán học cực kỳ sâu sắc được trình bày qua Figure 6.15:
+Khác với Minimax thuần túy (vốn chỉ quan tâm đến thứ tự lớn hơn hay nhỏ hơn của các giá trị lá, nên dù ta có nhân 10 hay cộng thêm 100 vào điểm số thì nước đi tối ưu vẫn không đổi),
+Hàm Expectiminimax lại cực kỳ NHẠY CẢM với giá trị tuyệt đối của hàm đánh giá!
+Người 2: Dạ em nhìn vào Figure 6.15: Ở cây bên trái, điểm lá là 2, 3, 1, 4 thì nút Chance bên trái đạt 2.1, bên phải đạt 1.3, MAX sẽ chọn nhánh a1. Nhưng ở cây bên phải, sau khi biến đổi thang điểm bảo toàn thứ tự, nút Chance bên trái ra 21, trong khi nút bên phải vọt lên 40.9, làm MAX đổi sang chọn nhánh a2!
+Người 1: Một quan sát xuất sắc! Phép tính trung bình cộng có trọng số đã làm đảo lộn hoàn toàn quyết định của AI.
+Vì vậy, hệ quả thực tế rút ra là: Trong trò chơi ngẫu nhiên, hàm đánh giá Heuristic bắt buộc phải là một phép biến đổi tuyến tính dương chuẩn xác, phản ánh đúng xác suất chiến thắng thực tế chứ không được gán điểm tùy tiện!
+
+Slide 20: 6.6 KHUYẾT THIẾU THÔNG TIN (PARTIALLY OBSERVABLE)
+Người 1: Mục cuối cùng của chúng ta là 6.6 trên slide 20, Trò chơi Khuyết thiếu thông tin (Partially Observable Games) với hình ảnh bộ bài úp 3D và sơ đồ Figure 6.16:
+- Điều 1: Bối cảnh Ẩn thông tin: Người chơi không thể quan sát toàn bộ trạng thái của bàn cờ hay cục diện trận đấu, tiêu biểu như các lá bài úp trong Poker hay trò Cờ tàn mù Kriegspiel (Figure 6.16). Khi thông tin bị che khuất, tác nhân không còn đối mặt với một trạng thái đơn lẻ mà phải làm việc với một tập hợp các trạng thái khả dĩ gọi là Các Tập hợp thông tin (Information sets).
+- Điều 2: Sự sụp đổ của Chiến lược Thuần (Pure Strategy): Trong trò chơi thông tin hoàn hảo, luôn tồn tại một nước đi tất định tốt nhất. Nhưng trong trò chơi ẩn thông tin, nếu AI áp dụng một chiến lược thuần cố định (chẳng hạn hễ bài đẹp là tố cược lớn, bài xấu là úp bài), đối thủ sẽ nhanh chóng "đọc vị" và khai thác triệt để điểm yếu này!
+- Điều 3: Chiến lược Hỗn hợp (Mixed Strategy): Tác nhân bắt buộc phải hành động ngẫu nhiên hóa theo một phân phối xác suất được tính toán tối ưu dựa trên Cân bằng Nash. Đây chính là bản chất toán học của kỹ thuật "Tung hỏa mù" (Bluffing) kinh điển trong Poker: Thỉnh thoảng AI vẫn cược lớn ngay cả khi cầm bài yếu nhằm ngăn không cho đối phương suy diễn ra bài thật từ hành vi đặt cược!
+Người 2: Dạ thưa thầy, ở bên phải slide có Figure 6.16 minh họa tàn cuộc cờ vua mù Kriegspiel. Sơ đồ nhánh với các phản hồi "OK", "Illegal" và "Check" hoạt động như thế nào ạ?
+Người 1: Trong Kriegspiel, mỗi người chơi chỉ thấy quân cờ của mình, còn vị trí quân đối phương do một trọng tài bí mật theo dõi. Khi người chơi đề xuất nước đi thử như `Kc3?`, trọng tài sẽ phản hồi: nếu hợp lệ thì báo "OK", nếu đụng quân hoặc bị cản thì báo "Illegal", hoặc nếu chiếu vua thì thông báo "Check". Mỗi câu trả lời của trọng tài chính là một tín hiệu giúp thu hẹp Information set của AI, cho phép thuật toán tính toán lại niềm tin và lập kế hoạch chiến thắng ngay trong bóng tối thông tin!
+
+Slide 21: TÓM TẮT BỨC TRANH AI TRONG TRÒ CHƠI (CHƯƠNG 6)
+Người 1: Chúng ta đã hoàn thành trọn vẹn bức tranh tuyệt đẹp của Chương 6! Chiếc cúp vàng vô địch ở Slide 21 vinh danh 4 bài học cốt lõi:
+1. Bản chất Đối kháng: Trò chơi hai người tổng bằng không (Zero-sum) đòi hỏi tư duy chiến lược đa tác nhân.
+2. Cốt lõi Minimax: Đưa ra quyết định tối ưu với giả định đối thủ không mắc sai lầm, nhưng bị rào cản độ phức tạp hàm mũ O(b mũ m).
+3. Tối ưu hóa Alpha-Beta: Tuyệt kỹ cắt tỉa nhánh thừa giúp giảm độ phức tạp xuống O(b mũ m/2), tăng gấp đôi độ sâu tính toán trong cùng một giới hạn thời gian.
+4. Hệ thống AI Thực tiễn: Đỉnh cao trí tuệ nhân tạo ngày nay được tạo nên từ sự hợp lực của: Alpha-Beta sâu, Hàm đánh giá Heuristic nhạy bén, Tìm kiếm tĩnh lặng Quiescence, Tìm kiếm cây Monte Carlo (MCTS) và Học tăng cường sâu (Deep Reinforcement Learning) - giúp máy tính chinh phục mọi đỉnh cao từ Deep Blue, AlphaGo đến Libratus trong Poker!
+Người 2: Dạ thưa thầy, bài học hôm nay quả thực vô cùng mãn nhãn và lôi cuốn! Em đã hiểu tường tận từ những thuật toán giải cờ caro đơn giản đến những kỳ tích khoa học đánh bại kiện tướng thế giới. Em cảm ơn thầy rất nhiều vì bài giảng tuyệt vời này ạ!
+Người 1: Cảm ơn các em đã theo dõi say mê. Chúc các em vận dụng thật tốt tư duy chiến lược này. Hẹn gặp lại các em ở Chương 7: Tác nhân Dựa trên Logic!
